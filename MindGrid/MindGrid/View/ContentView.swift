@@ -27,6 +27,8 @@ struct ContentView: View {
                     }
             }
             .navigationTitle("MindGrid")
+            .navigationBarTitleDisplayMode(.inline)
+            
         }
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingView: View {
     var body: some View {
         ZStack {
-            Color.mint
+            Color.indigo
             Text("Setting View")
         }
     }
