@@ -26,8 +26,8 @@ struct ContentView: View {
                         Label("Settings", systemImage: "gear")
                     }
             }
-            .navigationTitle("MindGrid")
-            .navigationBarTitleDisplayMode(.inline)
+//            .navigationTitle("MindGrid")
+//            .navigationBarTitleDisplayMode(.inline)
             
         }
     }
