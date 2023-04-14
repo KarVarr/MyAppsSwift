@@ -21,7 +21,7 @@ struct GameView: View {
     
     
     let columns = [
-        GridItem(.adaptive(minimum: 60), spacing: 5),
+        GridItem(.adaptive(minimum: 65), spacing: 5),
     ]
     
     var body: some View {
@@ -29,21 +29,25 @@ struct GameView: View {
             VStack {
                 Group {
                     Text("Symbol to find:")
+                        .padding()
+                    Spacer()
                     
                     ZStack {
                         Text("\(symbolToFind)")
-                            .padding(.vertical, 30)
-                            .font(.system(size: 34))
+                            .padding()
+                            .font(.system(size: 54, design: .monospaced))
                         Circle()
                             .stroke(lineWidth: 3)
                             .foregroundColor(.green)
-                            .frame(width: 70)
+                            .frame(width: 100)
+                            .padding()
                     }
                     Text(String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60))
                         .onReceive(timer) { _ in
                             timeElapsed += 1
                         }
                         .font(.system(size: 26, design: .monospaced))
+                        .foregroundColor(.indigo)
                 }
                 .font(.custom("Copperplate", size: 38))
                 
@@ -52,7 +56,7 @@ struct GameView: View {
                 LazyVGrid(columns: columns, spacing: 5) {
                     ForEach(numbersForSymbol, id: \.self) { item in
                         Button(String(item)) {pressedButton(item)}
-                            .font(.system(size: 30, design: .monospaced))
+                            .font(.system(size: 38, design: .monospaced))
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                             .frame(minWidth: 45, maxWidth: 70, minHeight: 45, maxHeight: 70)
