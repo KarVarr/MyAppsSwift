@@ -7,9 +7,11 @@
 
 import SwiftUI
 
+
+
 struct GameView: View {
+    @State private var numbersForSymbol = (1...25).shuffled()
     @State private var symbolToFind = 1
-    let numbersForSymbol = (1...25)
     
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var startDate = Date.now
@@ -33,7 +35,7 @@ struct GameView: View {
                             .padding(.vertical, 50)
                             .font(.system(size: 44))
                         Circle()
-                            .stroke()
+                            .stroke(lineWidth: 3)
                             .foregroundColor(.green)
                             .frame(width: 100)
                     }
@@ -62,9 +64,10 @@ struct GameView: View {
                 }
                 .padding(.top, 30)
                 
-                Button("Restart") {
+                Button("R E S T A R T") {
                     restartGame()
                 }
+                .buttonStyle(MyButtonStyleRestart())
                 
             }
             .padding(10)
@@ -73,10 +76,9 @@ struct GameView: View {
             Button("Ok") {}
             Button("Restart") {restartGame()}
         } message: {
-            Text("You passed the test in \(String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60)) seconds!")
+            let formatTimeElapsed = String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60)
+            Text("You passed the test in \(formatTimeElapsed) seconds!")
         }
-        
-        
         
     }
     
@@ -84,6 +86,7 @@ struct GameView: View {
     func pressedButton(_ num: Int) {
         if symbolToFind == num {
             symbolToFind += 1
+            numbersForSymbol.shuffle()
         }
         if symbolToFind == 26 {
             symbolToFind = 25
@@ -98,6 +101,7 @@ struct GameView: View {
     func restartGame() {
         symbolToFind = 1
         timeElapsed = 0
+        numbersForSymbol.shuffle()
         timer.upstream.connect().cancel()
         timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     }
