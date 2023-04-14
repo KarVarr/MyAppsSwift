@@ -11,9 +11,11 @@ struct GameView: View {
     @State private var symbolToFind = 1
     let numbersForSymbol = (1...25)
     
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var startDate = Date.now
     @State private var timeElapsed: Int = 0
+    
+    @State private var isShowingWinAlert = false
     
     
     let columns = [
@@ -35,9 +37,10 @@ struct GameView: View {
                             .foregroundColor(.green)
                             .frame(width: 100)
                     }
+                    
                     Text(String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60))
-                        .onReceive(timer) { firedDate in
-                            timeElapsed = Int(firedDate.timeIntervalSince(startDate))
+                        .onReceive(timer) { _ in
+                            timeElapsed += 1
                         }
                         .font(.system(size: 26, design: .monospaced))
                 }
@@ -45,7 +48,7 @@ struct GameView: View {
                 
                 LazyVGrid(columns: columns, spacing: 5) {
                     ForEach(numbersForSymbol, id: \.self) { item in
-                        Button(String(item)) {pressedButton()}
+                        Button(String(item)) {pressedButton(item)}
                             .font(.system(size: 44))
                             .foregroundColor(.white)
                             .fontWeight(.bold)
@@ -66,18 +69,37 @@ struct GameView: View {
             }
             .padding(10)
         }
+        .alert("Congratulations!", isPresented: $isShowingWinAlert) {
+            Button("Ok") {}
+            Button("Restart") {restartGame()}
+        } message: {
+            Text("You passed the test in \(String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60)) seconds!")
+        }
+        
+        
+        
     }
     
-    func pressedButton() {
-        symbolToFind += 1
+    
+    func pressedButton(_ num: Int) {
+        if symbolToFind == num {
+            symbolToFind += 1
+        }
+        if symbolToFind == 26 {
+            symbolToFind = 25
+            isShowingWinAlert = true
+            timer.upstream.connect().cancel()
+            
+        }
+        
     }
     
     
     func restartGame() {
+        symbolToFind = 1
+        timeElapsed = 0
         timer.upstream.connect().cancel()
-        
-        //for resume timer use this
-        // timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+        timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     }
 }
 
