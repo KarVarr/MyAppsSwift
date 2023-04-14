@@ -19,7 +19,7 @@ struct MyButtonStyleRestart: ButtonStyle {
       .fontWeight(.bold)
       .background(configuration.isPressed ? Color.pink : Color.indigo)
       .cornerRadius(8.0)
-      .padding(.top, 10)
+      .padding(.vertical, 10)
   }
 
 }

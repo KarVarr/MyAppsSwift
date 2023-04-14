@@ -21,25 +21,24 @@ struct GameView: View {
     
     
     let columns = [
-        GridItem(.adaptive(minimum: 70), spacing: 5),
+        GridItem(.adaptive(minimum: 60), spacing: 5),
     ]
     
     var body: some View {
-        ScrollView {
+//        ScrollView (showsIndicators: false){
             VStack {
                 Group {
                     Text("Symbol to find:")
                     
                     ZStack {
                         Text("\(symbolToFind)")
-                            .padding(.vertical, 50)
-                            .font(.system(size: 44))
+                            .padding(.vertical, 30)
+                            .font(.system(size: 34))
                         Circle()
                             .stroke(lineWidth: 3)
                             .foregroundColor(.green)
-                            .frame(width: 100)
+                            .frame(width: 70)
                     }
-                    
                     Text(String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60))
                         .onReceive(timer) { _ in
                             timeElapsed += 1
@@ -48,13 +47,15 @@ struct GameView: View {
                 }
                 .font(.custom("Copperplate", size: 38))
                 
+                Spacer()
+                
                 LazyVGrid(columns: columns, spacing: 5) {
                     ForEach(numbersForSymbol, id: \.self) { item in
                         Button(String(item)) {pressedButton(item)}
-                            .font(.system(size: 44))
+                            .font(.system(size: 30, design: .monospaced))
                             .foregroundColor(.white)
                             .fontWeight(.bold)
-                            .frame(width: 75, height: 70)
+                            .frame(minWidth: 45, maxWidth: 70, minHeight: 45, maxHeight: 70)
                             .background(.mint)
                             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                             .shadow(radius: 4)
@@ -62,7 +63,8 @@ struct GameView: View {
                     }
                     
                 }
-                .padding(.top, 30)
+//                .padding(.top, 30)
+                
                 
                 Button("R E S T A R T") {
                     restartGame()
@@ -71,7 +73,7 @@ struct GameView: View {
                 
             }
             .padding(10)
-        }
+//        }
         .alert("Congratulations!", isPresented: $isShowingWinAlert) {
             Button("Ok") {}
             Button("Restart") {restartGame()}
