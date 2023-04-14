@@ -45,8 +45,9 @@ struct GameView: View {
                 
                 LazyVGrid(columns: columns, spacing: 5) {
                     ForEach(numbersForSymbol, id: \.self) { item in
-                        Text(String(item))
+                        Button(String(item)) {pressedButton()}
                             .font(.system(size: 44))
+                            .foregroundColor(.white)
                             .fontWeight(.bold)
                             .frame(width: 75, height: 70)
                             .background(.mint)
@@ -58,9 +59,25 @@ struct GameView: View {
                 }
                 .padding(.top, 30)
                 
+                Button("Restart") {
+                    restartGame()
+                }
+                
             }
             .padding(10)
         }
+    }
+    
+    func pressedButton() {
+        symbolToFind += 1
+    }
+    
+    
+    func restartGame() {
+        timer.upstream.connect().cancel()
+        
+        //for resume timer use this
+        // timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     }
 }
 
