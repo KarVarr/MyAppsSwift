@@ -12,7 +12,7 @@ struct MyButtonStyleNumber: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.system(size: 44))
+            .font(.system(size: 42, design: .monospaced))
             .foregroundColor(.white)
             .fontWeight(.bold)
             .frame(minWidth: 45, maxWidth: 70, minHeight: 50, maxHeight: 70)

@@ -16,6 +16,7 @@
 		172B4CFF29E86BE8007BF961 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B4CFE29E86BE8007BF961 /* SettingView.swift */; };
 		172B4D0229E9ADA4007BF961 /* MyButtonStyleRestart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B4D0129E9ADA3007BF961 /* MyButtonStyleRestart.swift */; };
 		172B4D0429E9AE24007BF961 /* MyButtonStyleNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B4D0329E9AE24007BF961 /* MyButtonStyleNumber.swift */; };
+		1734271729EB32C10063886C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1734271629EB32C10063886C /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		172B4CFE29E86BE8007BF961 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		172B4D0129E9ADA3007BF961 /* MyButtonStyleRestart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButtonStyleRestart.swift; sourceTree = "<group>"; };
 		172B4D0329E9AE24007BF961 /* MyButtonStyleNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButtonStyleNumber.swift; sourceTree = "<group>"; };
+		1734271629EB32C10063886C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		172B4CEA29E862B0007BF961 /* MindGrid */ = {
 			isa = PBXGroup;
 			children = (
+				1734271229EB2E5E0063886C /* Model */,
 				172B4CF929E86ABF007BF961 /* View */,
 				172B4CEF29E862B2007BF961 /* Assets.xcassets */,
 				172B4CF129E862B2007BF961 /* Preview Content */,
@@ -79,6 +82,7 @@
 		172B4CF929E86ABF007BF961 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1734271529EB32AC0063886C /* Colors */,
 				172B4CEB29E862B0007BF961 /* MindGridApp.swift */,
 				172B4CED29E862B0007BF961 /* ContentView.swift */,
 				172B4CFA29E86ACC007BF961 /* GameView.swift */,
@@ -96,6 +100,21 @@
 				172B4D0329E9AE24007BF961 /* MyButtonStyleNumber.swift */,
 			);
 			path = ButtonStyleView;
+			sourceTree = "<group>";
+		};
+		1734271229EB2E5E0063886C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1734271529EB32AC0063886C /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				1734271629EB32C10063886C /* Colors.swift */,
+			);
+			path = Colors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				172B4CEE29E862B0007BF961 /* ContentView.swift in Sources */,
+				1734271729EB32C10063886C /* Colors.swift in Sources */,
 				172B4D0229E9ADA4007BF961 /* MyButtonStyleRestart.swift in Sources */,
 				172B4CFF29E86BE8007BF961 /* SettingView.swift in Sources */,
 				172B4CFD29E86B60007BF961 /* ScoreView.swift in Sources */,

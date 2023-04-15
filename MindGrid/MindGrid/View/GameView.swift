@@ -12,6 +12,8 @@ import SwiftUI
 struct GameView: View {
     @Environment(\.colorScheme) var colorScheme
     
+    let lightGradientColorScheme = AngularGradient(gradient: Gradient(colors: [.orange, .yellow]), center: .center)
+    
     @State private var numbersForSymbol = (1...25).shuffled()
     @State private var symbolToFind = 1
     
@@ -40,9 +42,10 @@ struct GameView: View {
                         .font(.system(size: 54, design: .monospaced))
                     Circle()
                         .stroke(lineWidth: 3)
-                        .foregroundColor(.green)
+                        .foregroundColor(Color(hex: 0xF4B183))
                         .frame(width: 100)
                         .padding()
+                        
                 }
                 Text(String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60))
                     .onReceive(timer) { _ in
@@ -62,9 +65,6 @@ struct GameView: View {
                         pressedButton(item)
                     }
                     .buttonStyle(MyButtonStyleNumber())
-                    
-                    
-                    
                 }
                 
             }
@@ -77,7 +77,7 @@ struct GameView: View {
             
         }
         .padding(10)
-        .background(colorScheme == .dark ? Color.blue.opacity(0.3): Color.yellow.opacity(0.6))
+        .background(colorScheme == .dark ? Color(hex: 0x002B5B) : Color(hex: 0xfff2cc))
         .alert("Congratulations!", isPresented: $isShowingWinAlert) {
             Button("Ok") {}
             Button("Restart") {restartGame()}
@@ -94,8 +94,6 @@ struct GameView: View {
     }
     
     
-    
-    
     func pressedButton(_ num: Int) {
         if symbolToFind == num {
             symbolToFind += 1
@@ -108,7 +106,6 @@ struct GameView: View {
         }
         
     }
-    
     
     func restartGame() {
         symbolToFind = 1
@@ -124,3 +121,5 @@ struct GameView_Previews: PreviewProvider {
         GameView()
     }
 }
+
+
