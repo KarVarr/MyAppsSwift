@@ -4,7 +4,7 @@
 //
 //  Created by Karen Vardanian on 14.04.2023.
 //
-import CoreHaptics
+
 import SwiftUI
 
 
@@ -20,13 +20,9 @@ struct MyButtonStyleRestart: ButtonStyle {
       .background(configuration.isPressed ? Color.pink : Color.indigo)
       .cornerRadius(8.0)
       .padding(.vertical, 10)
-      .onTapGesture(perform: warningTappedHaptics)
+
   }
-    
-    func warningTappedHaptics() {
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.warning)
-    }
+
 
 }
 

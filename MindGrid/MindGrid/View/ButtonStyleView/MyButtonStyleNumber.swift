@@ -4,7 +4,7 @@
 //
 //  Created by Karen Vardanian on 14.04.2023.
 //
-import CoreHaptics
+
 import SwiftUI
 
 
@@ -19,17 +19,7 @@ struct MyButtonStyleNumber: ButtonStyle {
             .background(.mint)
             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
             .shadow(radius: 4)
-            .onTapGesture(perform: successTapped)
+            
     }
-    
-    func errorTapped() {
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.error)
-    }
-    
-    func successTapped() {
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.success)
-    }
-    
+       
 }
