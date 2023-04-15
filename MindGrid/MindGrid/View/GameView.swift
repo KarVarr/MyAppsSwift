@@ -4,7 +4,7 @@
 //
 //  Created by Karen Vardanian on 13.04.2023.
 //
-
+import CoreHaptics
 import SwiftUI
 
 
@@ -56,13 +56,16 @@ struct GameView: View {
                 LazyVGrid(columns: columns, spacing: 5) {
                     ForEach(numbersForSymbol, id: \.self) { item in
                         Button(String(item)) {pressedButton(item)}
-                            .font(.system(size: 38, design: .monospaced))
-                            .foregroundColor(.white)
-                            .fontWeight(.bold)
-                            .frame(minWidth: 45, maxWidth: 70, minHeight: 45, maxHeight: 70)
-                            .background(.mint)
-                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                            .shadow(radius: 4)
+//                            .font(.system(size: 38, design: .monospaced))
+//                            .foregroundColor(.white)
+//                            .fontWeight(.bold)
+//                            .frame(minWidth: 45, maxWidth: 70, minHeight: 50, maxHeight: 70)
+//                            .background(.mint)
+//                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+//                            .shadow(radius: 4)
+                            .buttonStyle(MyButtonStyleNumber())
+                            
+                            
                         
                     }
                     
@@ -73,6 +76,7 @@ struct GameView: View {
                 Button("R E S T A R T") {
                     restartGame()
                 }
+                
                 .buttonStyle(MyButtonStyleRestart())
                 
             }
@@ -88,11 +92,13 @@ struct GameView: View {
         
     }
     
+   
+    
     
     func pressedButton(_ num: Int) {
         if symbolToFind == num {
-            symbolToFind += 1
             numbersForSymbol.shuffle()
+            symbolToFind += 1
         }
         if symbolToFind == 26 {
             symbolToFind = 25
