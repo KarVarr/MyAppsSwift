@@ -17,6 +17,8 @@
 		172B4D0229E9ADA4007BF961 /* MyButtonStyleRestart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B4D0129E9ADA3007BF961 /* MyButtonStyleRestart.swift */; };
 		172B4D0429E9AE24007BF961 /* MyButtonStyleNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B4D0329E9AE24007BF961 /* MyButtonStyleNumber.swift */; };
 		1734271729EB32C10063886C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1734271629EB32C10063886C /* Colors.swift */; };
+		1734271B29EC07590063886C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1734271A29EC07590063886C /* DataController.swift */; };
+		1734271E29EC07DA0063886C /* Mindgrid.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1734271C29EC07D90063886C /* Mindgrid.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		172B4D0129E9ADA3007BF961 /* MyButtonStyleRestart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButtonStyleRestart.swift; sourceTree = "<group>"; };
 		172B4D0329E9AE24007BF961 /* MyButtonStyleNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButtonStyleNumber.swift; sourceTree = "<group>"; };
 		1734271629EB32C10063886C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		1734271A29EC07590063886C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		1734271D29EC07DA0063886C /* Mindgrid.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mindgrid.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +86,12 @@
 		172B4CF929E86ABF007BF961 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1734271F29EC114C0063886C /* App */,
 				1734271529EB32AC0063886C /* Colors */,
-				172B4CEB29E862B0007BF961 /* MindGridApp.swift */,
-				172B4CED29E862B0007BF961 /* ContentView.swift */,
+				172B4D0529E9AEE7007BF961 /* ButtonStyleView */,
 				172B4CFA29E86ACC007BF961 /* GameView.swift */,
 				172B4CFC29E86B60007BF961 /* ScoreView.swift */,
 				172B4CFE29E86BE8007BF961 /* SettingView.swift */,
-				172B4D0529E9AEE7007BF961 /* ButtonStyleView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -105,6 +108,8 @@
 		1734271229EB2E5E0063886C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1734271A29EC07590063886C /* DataController.swift */,
+				1734271C29EC07D90063886C /* Mindgrid.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -115,6 +120,15 @@
 				1734271629EB32C10063886C /* Colors.swift */,
 			);
 			path = Colors;
+			sourceTree = "<group>";
+		};
+		1734271F29EC114C0063886C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				172B4CEB29E862B0007BF961 /* MindGridApp.swift */,
+				172B4CED29E862B0007BF961 /* ContentView.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +205,8 @@
 				1734271729EB32C10063886C /* Colors.swift in Sources */,
 				172B4D0229E9ADA4007BF961 /* MyButtonStyleRestart.swift in Sources */,
 				172B4CFF29E86BE8007BF961 /* SettingView.swift in Sources */,
+				1734271B29EC07590063886C /* DataController.swift in Sources */,
+				1734271E29EC07DA0063886C /* Mindgrid.xcdatamodeld in Sources */,
 				172B4CFD29E86B60007BF961 /* ScoreView.swift in Sources */,
 				172B4CFB29E86ACC007BF961 /* GameView.swift in Sources */,
 				172B4D0429E9AE24007BF961 /* MyButtonStyleNumber.swift in Sources */,
@@ -401,6 +417,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1734271C29EC07D90063886C /* Mindgrid.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1734271D29EC07DA0063886C /* Mindgrid.xcdatamodel */,
+			);
+			currentVersion = 1734271D29EC07DA0063886C /* Mindgrid.xcdatamodel */;
+			path = Mindgrid.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 172B4CE029E862B0007BF961 /* Project object */;
 }

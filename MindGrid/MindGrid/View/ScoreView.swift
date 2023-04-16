@@ -7,11 +7,22 @@
 
 import SwiftUI
 
+
+
 struct ScoreView: View {
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var times: FetchedResults<Score>
+    
+//    @State private var time = [35, 79, 25, 104]
+    
     var body: some View {
-        ZStack {
-            Color.pink
-            Text("Score View")
+        VStack {
+            Text("Best score \(times.count)")
+            List {
+                ForEach(times) { score in
+                    Text(String(format: "%02d:%02d", score.time / 60, score.time % 60))
+                }
+            }
         }
     }
 }

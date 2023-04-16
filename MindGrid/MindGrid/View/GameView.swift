@@ -10,6 +10,10 @@ import SwiftUI
 
 
 struct GameView: View {
+    
+    @Environment(\.managedObjectContext) var moc
+    
+    
     @Environment(\.colorScheme) var colorScheme
     
     let lightGradientColorScheme = AngularGradient(gradient: Gradient(colors: [.orange, .yellow]), center: .center)
@@ -19,7 +23,7 @@ struct GameView: View {
     
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var startDate = Date.now
-    @State private var timeElapsed: Int = 0
+    @State private var timeElapsed: Int16 = 0
     
     @State private var isShowingWinAlert = false
     
@@ -103,6 +107,12 @@ struct GameView: View {
             symbolToFind = 25
             isShowingWinAlert = true
             timer.upstream.connect().cancel()
+            
+            let scoreTime = Score(context: moc)
+            scoreTime.id = UUID()
+            scoreTime.time = timeElapsed
+            
+            try? moc.save()
         }
         
     }
