@@ -24,11 +24,9 @@ struct ContentView: View {
                 
                 SettingView()
                     .tabItem {
-                        Label("Settings", systemImage: "gear")
+                        Label("Info", systemImage: "info.square")
                     }
             }
-//            .navigationTitle("MindGrid")
-//            .navigationBarTitleDisplayMode(.inline)
             
         }
     }

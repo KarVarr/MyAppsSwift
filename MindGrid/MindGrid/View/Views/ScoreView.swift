@@ -62,6 +62,7 @@ struct ScoreView: View {
                     
                 } header: {
                     Text("Best time")
+                        .font(.largeTitle)
                 }
                 .listRowBackground(colorScheme == .dark ? Color(hex: 0x88304E) : Color(hex: 0xFFE2E2))
             }

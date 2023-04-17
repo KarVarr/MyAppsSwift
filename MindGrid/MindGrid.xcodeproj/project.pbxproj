@@ -89,9 +89,7 @@
 				1734271F29EC114C0063886C /* App */,
 				1734271529EB32AC0063886C /* Colors */,
 				172B4D0529E9AEE7007BF961 /* ButtonStyleView */,
-				172B4CFA29E86ACC007BF961 /* GameView.swift */,
-				172B4CFC29E86B60007BF961 /* ScoreView.swift */,
-				172B4CFE29E86BE8007BF961 /* SettingView.swift */,
+				1734272029EDA6530063886C /* Views */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,6 +127,16 @@
 				172B4CED29E862B0007BF961 /* ContentView.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		1734272029EDA6530063886C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				172B4CFA29E86ACC007BF961 /* GameView.swift */,
+				172B4CFC29E86B60007BF961 /* ScoreView.swift */,
+				172B4CFE29E86BE8007BF961 /* SettingView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
