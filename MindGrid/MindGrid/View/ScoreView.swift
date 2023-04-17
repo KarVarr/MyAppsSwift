@@ -17,23 +17,33 @@ struct ScoreView: View {
     
     let date = Date()
     
+    
+    
     var body: some View {
-        if times.count == 0 {
-            ZStack {
-                colorScheme == .dark ? Color(hex: 0x522546) : Color(hex: 0x99DDCC)
-                VStack {
-                    Image("WaitingPeach")
-                        .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                        .padding()
-                    Text("Waiting for the first scores!")
-                        .font(.title3)
-                }
-            }
-            .ignoresSafeArea()
-        } else {
-            VStack {
-                List {
-                    Section {
+        
+        VStack {
+            List {
+                Section {
+                    if times.count < 1 {
+                        GeometryReader { geo in
+                            VStack (alignment: .center){
+                                Image("WaitingPeach")
+                                    .padding()
+                                     
+                                Text("Waiting for the first scores!")
+                                    .font(.title3)
+                                    .padding(.bottom, 30)
+                                
+                                Text("Here will be your time for passing this test in order to compare the result in the future!")
+                                    .foregroundColor(.secondary)
+                                    .multilineTextAlignment(.center)
+                            }
+                            .frame(width: geo.size.width, height: 500 )
+                        }
+                        .listRowBackground(colorScheme == .dark ? Color(hex: 0x522546) : Color(hex: 0x99DDCC))
+                        .listRowSeparator(.hidden)
+                        
+                    } else {
                         ForEach(times) { score in
                             HStack {
                                 Text(String(format: "%02d:%02d", score.time / 60, score.time % 60))
@@ -48,18 +58,21 @@ struct ScoreView: View {
                         }
                         .onDelete(perform: removeScore)
                         
-                    } header: {
-                        Text("Best time")
                     }
-                    .listRowBackground(colorScheme == .dark ? Color(hex: 0x88304E) : Color(hex: 0xFFE2E2))
+                    
+                } header: {
+                    Text("Best time")
                 }
-                .listStyle(.plain)
-                .background(colorScheme == .dark ? Color(hex: 0x522546) : Color(hex: 0x99DDCC))
-                .toolbar {
-                    EditButton()
-                }
+                .listRowBackground(colorScheme == .dark ? Color(hex: 0x88304E) : Color(hex: 0xFFE2E2))
             }
+            .listStyle(.plain)
+            .background(colorScheme == .dark ? Color(hex: 0x522546) : Color(hex: 0x99DDCC))
+            
+            
+            
+            
         }
+        
     }
     
     
