@@ -5,4 +5,4 @@
 
 | Apps                          | Screenshots                                        |        
 | ------------------------------| :---------------:                                  |
-| MindGrid                      | <img src="Screenshots/MindGrid4.png" width="400"/> |
+| MindGrid                      | <img src="Screenshots/MindGrid4.png" width="700"/> |
