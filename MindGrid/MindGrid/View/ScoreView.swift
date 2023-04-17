@@ -37,16 +37,12 @@ struct ScoreView: View {
                         ForEach(times) { score in
                             HStack {
                                 Text(String(format: "%02d:%02d", score.time / 60, score.time % 60))
-                                Text( String((score.date?.formatted(.dateTime.day().month().year()))!) )
+                                    .font(.system(size: 24, design: .monospaced))
+                                    .padding(.horizontal, 5)
                                 
                                 Spacer()
                                 
-                                switch score.time {
-                                case 0..<15: Text("🟢")
-                                case 15..<60: Text("🟡")
-                                case 60..<120: Text("🟠")
-                                default: Text("🔴")
-                                }
+                                Text( String((score.date?.formatted(.dateTime.day().month().year())) ?? "N\\A") )
                                 
                             }
                         }
