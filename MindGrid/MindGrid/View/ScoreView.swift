@@ -34,6 +34,7 @@ struct ScoreView: View {
                             
                         }
                     }
+                    .onDelete(perform: removeScore)
                     HStack {
                         Text("1:56")
                         Text("1 sep 2023, 20:46")
@@ -47,7 +48,21 @@ struct ScoreView: View {
             }
             .listStyle(.plain)
             .background(colorScheme == .dark ? Color(hex: 0x522546) : Color(hex: 0x99DDCC))
+            .toolbar {
+                EditButton()
+            }
         }
+        
+    }
+    
+    
+    func removeScore(at offsets: IndexSet) {
+        for index in offsets {
+            let score = times[index]
+            moc.delete(score)
+        }
+        
+        try? moc.save()
     }
 }
 
