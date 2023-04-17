@@ -3,6 +3,6 @@
 ### All my applications that I created myself.
 
 
-| Apps                          | Screenshots                                    |        
-| ------------------------------| :---------------:                              |
-| MindGrid                      | <img src="Screenshots/MindGrid4" width="400"/> |
+| Apps                          | Screenshots                                        |        
+| ------------------------------| :---------------:                                  |
+| MindGrid                      | <img src="Screenshots/MindGrid4.png" width="400"/> |
