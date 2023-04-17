@@ -11,23 +11,25 @@ import SwiftUI
 
 struct ScoreView: View {
     @Environment(\.colorScheme) var colorScheme
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var times: FetchedResults<Score>
     
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Score.time, ascending: true)]) var times: FetchedResults<Score>
+    
+    let date = Date()
     
     var body: some View {
         if times.count == 0 {
             ZStack {
-                Color(hex: 0xc4d9ee)
+                colorScheme == .dark ? Color(hex: 0x522546) : Color(hex: 0x99DDCC)
                 VStack {
-                    Image("WaitingScore")
+                    Image("WaitingPeach")
+                        .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
                         .padding()
                     Text("Waiting for the first scores!")
                         .font(.title3)
                 }
             }
             .ignoresSafeArea()
-            
         } else {
             VStack {
                 List {
@@ -35,8 +37,10 @@ struct ScoreView: View {
                         ForEach(times) { score in
                             HStack {
                                 Text(String(format: "%02d:%02d", score.time / 60, score.time % 60))
-                                Text("1 sep 2023, 20:46")
+                                Text( String((score.date?.formatted(.dateTime.day().month().year()))!) )
+                                
                                 Spacer()
+                                
                                 switch score.time {
                                 case 0..<15: Text("🟢")
                                 case 15..<60: Text("🟡")
@@ -47,12 +51,7 @@ struct ScoreView: View {
                             }
                         }
                         .onDelete(perform: removeScore)
-                        HStack {
-                            Text("1:56")
-                            Text("1 sep 2023, 20:46")
-                            Spacer()
-                            Text("🟡")
-                        }
+                        
                     } header: {
                         Text("Best time")
                     }

@@ -7,7 +7,7 @@
 import CoreHaptics
 import SwiftUI
 
-
+ 
 
 struct GameView: View {
     
@@ -18,7 +18,7 @@ struct GameView: View {
     
     let lightGradientColorScheme = AngularGradient(gradient: Gradient(colors: [.orange, .yellow]), center: .center)
     
-    @State private var numbersForSymbol = (1...25).shuffled()
+    @State private var numbersForSymbol = (1...25)
     @State private var symbolToFind = 1
     
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -101,7 +101,7 @@ struct GameView: View {
     func pressedButton(_ num: Int) {
         if symbolToFind == num {
             symbolToFind += 1
-            numbersForSymbol.shuffle()
+//            numbersForSymbol.shuffle()
         }
         if symbolToFind == 26 {
             symbolToFind = 25
@@ -111,6 +111,7 @@ struct GameView: View {
             let scoreTime = Score(context: moc)
             scoreTime.id = UUID()
             scoreTime.time = timeElapsed
+            scoreTime.date = Date.now
             
             try? moc.save()
         }
@@ -120,7 +121,7 @@ struct GameView: View {
     func restartGame() {
         symbolToFind = 1
         timeElapsed = 0
-        numbersForSymbol.shuffle()
+//        numbersForSymbol.shuffle()
         timer.upstream.connect().cancel()
         timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     }
