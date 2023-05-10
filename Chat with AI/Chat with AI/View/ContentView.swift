@@ -8,10 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var viewModelOpenAI = ViewModelOpenAI()
+    @State private var text = ""
+    @State private var models = [String]()
+    
     var body: some View {
         VStack {
-            
+            List {
+                ForEach(models, id: \.self) { string in
+                    Text(string)
+                }
+                
+                Spacer()
+                
+                HStack {
+                    TextField("Type here...", text: $text)
+                    Button("Send") {
+                        send()
+                    }
+                }
+            }
         }
+    }
+    
+    func send() {
+        
     }
 }
 
