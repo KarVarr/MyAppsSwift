@@ -8,21 +8,28 @@ import OpenAISwift
 import SwiftUI
 
 class ViewModelOpenAI: ObservableObject {
+    let keys = Keys()
     init() {}
     
     private var client: OpenAISwift?
     
     func setup() {
-        client = OpenAISwift(authToken: "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")
+        client = OpenAISwift(authToken: keys.openAIKey)
     }
     
     func send(text: String, completion: @escaping (String) -> Void) {
-        client?.sendCompletion(with: text, maxTokens: 500, completionHandler: { result in
+        guard let client = client else {
+            print ("client not work")
+            return
+        }
+        
+        client.sendCompletion(with: text, maxTokens: 500, completionHandler: { result in
             switch result {
             case .success(let model):
                 let output = model.choices?.first?.text ?? ""
                 completion(output)
-            case .failure():
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
                 break
             }
         })

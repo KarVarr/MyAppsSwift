@@ -13,6 +13,7 @@
 		176F61E62A0A56160077747F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176F61E52A0A56160077747F /* Preview Assets.xcassets */; };
 		178C7EE92A0BCB49001FC539 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 178C7EE82A0BCB49001FC539 /* OpenAISwift */; };
 		178C7EEE2A0BCBE8001FC539 /* ViewModelOpenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7EED2A0BCBE8001FC539 /* ViewModelOpenAI.swift */; };
+		178C7EF12A0BD412001FC539 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7EF02A0BD412001FC539 /* Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		176F61E22A0A56160077747F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		176F61E52A0A56160077747F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		178C7EED2A0BCBE8001FC539 /* ViewModelOpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelOpenAI.swift; sourceTree = "<group>"; };
+		178C7EF02A0BD412001FC539 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		176F61DD2A0A56140077747F /* Chat with AI */ = {
 			isa = PBXGroup;
 			children = (
+				178C7EEF2A0BD3F2001FC539 /* Keys */,
 				178C7EEA2A0BCB6C001FC539 /* Model */,
 				178C7EEB2A0BCB78001FC539 /* View */,
 				178C7EEC2A0BCB92001FC539 /* Resources */,
@@ -94,6 +97,14 @@
 				176F61E22A0A56160077747F /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		178C7EEF2A0BD3F2001FC539 /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				178C7EF02A0BD412001FC539 /* Keys.swift */,
+			);
+			path = Keys;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				176F61E12A0A56140077747F /* ContentView.swift in Sources */,
+				178C7EF12A0BD412001FC539 /* Keys.swift in Sources */,
 				178C7EEE2A0BCBE8001FC539 /* ViewModelOpenAI.swift in Sources */,
 				176F61DF2A0A56140077747F /* Chat_with_AIApp.swift in Sources */,
 			);
