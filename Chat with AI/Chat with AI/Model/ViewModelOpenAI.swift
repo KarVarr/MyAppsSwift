@@ -14,7 +14,7 @@ class ViewModelOpenAI: ObservableObject {
     private var client: OpenAISwift?
     
     func setup() {
-        client = OpenAISwift(authToken: keys.openAIKey)
+            client = OpenAISwift(authToken: keys.openAIKey)
     }
     
     func send(text: String, completion: @escaping (String) -> Void) {
@@ -23,7 +23,7 @@ class ViewModelOpenAI: ObservableObject {
             return
         }
         
-        client.sendCompletion(with: text, maxTokens: 500, completionHandler: { result in
+        client.sendCompletion(with: text,  completionHandler: { result in
             switch result {
             case .success(let model):
                 let output = model.choices?.first?.text ?? ""
