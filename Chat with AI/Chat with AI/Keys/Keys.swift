@@ -7,6 +7,6 @@
 
 import Foundation
 
-class Keys {
-    let openAIKey = "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"
+enum Keys {
+    static let openAIKey = "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"
 }

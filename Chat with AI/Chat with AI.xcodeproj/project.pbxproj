@@ -11,9 +11,12 @@
 		176F61E12A0A56140077747F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176F61E02A0A56140077747F /* ContentView.swift */; };
 		176F61E32A0A56160077747F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176F61E22A0A56160077747F /* Assets.xcassets */; };
 		176F61E62A0A56160077747F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176F61E52A0A56160077747F /* Preview Assets.xcassets */; };
-		178C7EE92A0BCB49001FC539 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 178C7EE82A0BCB49001FC539 /* OpenAISwift */; };
-		178C7EEE2A0BCBE8001FC539 /* ViewModelOpenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7EED2A0BCBE8001FC539 /* ViewModelOpenAI.swift */; };
 		178C7EF12A0BD412001FC539 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7EF02A0BD412001FC539 /* Keys.swift */; };
+		178C7EF82A0D385E001FC539 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 178C7EF72A0D385E001FC539 /* Alamofire */; };
+		178C7EFA2A0D38EC001FC539 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7EF92A0D38EC001FC539 /* OpenAIService.swift */; };
+		178C7EFC2A0D4BF8001FC539 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7EFB2A0D4BF8001FC539 /* ChatViewModel.swift */; };
+		178C7EFE2A0D4C92001FC539 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7EFD2A0D4C92001FC539 /* ChatView.swift */; };
+		178C7F012A0D5611001FC539 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F002A0D5611001FC539 /* TextFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +25,11 @@
 		176F61E02A0A56140077747F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		176F61E22A0A56160077747F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		176F61E52A0A56160077747F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		178C7EED2A0BCBE8001FC539 /* ViewModelOpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelOpenAI.swift; sourceTree = "<group>"; };
 		178C7EF02A0BD412001FC539 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		178C7EF92A0D38EC001FC539 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		178C7EFB2A0D4BF8001FC539 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		178C7EFD2A0D4C92001FC539 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		178C7F002A0D5611001FC539 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				178C7EE92A0BCB49001FC539 /* OpenAISwift in Frameworks */,
+				178C7EF82A0D385E001FC539 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +66,7 @@
 				178C7EEF2A0BD3F2001FC539 /* Keys */,
 				178C7EEA2A0BCB6C001FC539 /* Model */,
 				178C7EEB2A0BCB78001FC539 /* View */,
+				178C7EFF2A0D55B5001FC539 /* ViewModel */,
 				178C7EEC2A0BCB92001FC539 /* Resources */,
 				176F61E42A0A56160077747F /* Preview Content */,
 			);
@@ -77,7 +84,7 @@
 		178C7EEA2A0BCB6C001FC539 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				178C7EED2A0BCBE8001FC539 /* ViewModelOpenAI.swift */,
+				178C7EF92A0D38EC001FC539 /* OpenAIService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -87,6 +94,8 @@
 			children = (
 				176F61DE2A0A56140077747F /* Chat_with_AIApp.swift */,
 				176F61E02A0A56140077747F /* ContentView.swift */,
+				178C7EFD2A0D4C92001FC539 /* ChatView.swift */,
+				178C7F002A0D5611001FC539 /* TextFieldView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -107,6 +116,14 @@
 			path = Keys;
 			sourceTree = "<group>";
 		};
+		178C7EFF2A0D55B5001FC539 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				178C7EFB2A0D4BF8001FC539 /* ChatViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -124,7 +141,7 @@
 			);
 			name = "Chat with AI";
 			packageProductDependencies = (
-				178C7EE82A0BCB49001FC539 /* OpenAISwift */,
+				178C7EF72A0D385E001FC539 /* Alamofire */,
 			);
 			productName = "Chat with AI";
 			productReference = 176F61DB2A0A56140077747F /* Chat with AI.app */;
@@ -155,7 +172,7 @@
 			);
 			mainGroup = 176F61D22A0A56140077747F;
 			packageReferences = (
-				178C7EE72A0BCB49001FC539 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				178C7EF62A0D385E001FC539 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 176F61DC2A0A56140077747F /* Products */;
 			projectDirPath = "";
@@ -183,9 +200,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				178C7EFA2A0D38EC001FC539 /* OpenAIService.swift in Sources */,
+				178C7F012A0D5611001FC539 /* TextFieldView.swift in Sources */,
 				176F61E12A0A56140077747F /* ContentView.swift in Sources */,
+				178C7EFC2A0D4BF8001FC539 /* ChatViewModel.swift in Sources */,
 				178C7EF12A0BD412001FC539 /* Keys.swift in Sources */,
-				178C7EEE2A0BCBE8001FC539 /* ViewModelOpenAI.swift in Sources */,
+				178C7EFE2A0D4C92001FC539 /* ChatView.swift in Sources */,
 				176F61DF2A0A56140077747F /* Chat_with_AIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,21 +409,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		178C7EE72A0BCB49001FC539 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+		178C7EF62A0D385E001FC539 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/adamrushy/OpenAISwift.git";
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		178C7EE82A0BCB49001FC539 /* OpenAISwift */ = {
+		178C7EF72A0D385E001FC539 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 178C7EE72A0BCB49001FC539 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
-			productName = OpenAISwift;
+			package = 178C7EF62A0D385E001FC539 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
