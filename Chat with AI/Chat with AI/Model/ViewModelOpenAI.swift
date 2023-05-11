@@ -22,16 +22,17 @@ class ViewModelOpenAI: ObservableObject {
             print ("client not work")
             return
         }
-        
-        client.sendCompletion(with: text,  completionHandler: { result in
+       
+        client.sendCompletion(with: text, maxTokens: 500 ,temperature: 0.5 ) { result in
             switch result {
             case .success(let model):
-                let output = model.choices?.first?.text ?? ""
+                let output = model.choices?.first?.text ?? "🖕"
                 completion(output)
+                print((output))
             case .failure(let error):
                 print("Error: \(error.localizedDescription)")
                 break
             }
-        })
+        }
     }
 }

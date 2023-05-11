@@ -12,12 +12,16 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var viewModelOpenAI = ViewModelOpenAI()
     @State private var text = ""
-    @State private var models = ["Me: Hello", "AI: Hi! How i can help you?"]
+    @State private var models = [String]()
     
     
     var body: some View {
         NavigationView {
+            
             VStack {
+                if models.isEmpty {
+                    Image("WaitingPeach")
+                } 
                 List {
                     ForEach(models, id: \.self) { string in
                         if string.hasPrefix("Me") {
@@ -59,7 +63,7 @@ struct ContentView: View {
                 .onTapGesture {
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }
-                .scrollDismissesKeyboard(.immediately)
+                .scrollDismissesKeyboard(.interactively)
                 Spacer()
                 
                 
@@ -103,7 +107,7 @@ struct ContentView: View {
     }
     
     func send() {
-        guard !text.isEmpty else { return }
+        guard !text.trimmingCharacters(in: .whitespaces).isEmpty else { return }
         
         models.append("Me: "+text)
         viewModelOpenAI.send(text: text) { response in
