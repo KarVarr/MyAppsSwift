@@ -8,11 +8,15 @@
 import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
+    
+    let nameOfSound = LabelView()
+    let imageOfSound = CustomImageView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addViews()
         settings()
+        addViews()
         layout()
         
         
@@ -24,7 +28,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     
     func addViews() {
-        
+        contentView.addSubview(nameOfSound.customLabel)
+        contentView.addSubview(imageOfSound.customImageView)
     }
     
     func settings() {
@@ -47,9 +52,26 @@ class CustomCollectionViewCell: UICollectionViewCell {
         layer.insertSublayer(gradient, at: 0)
         layer.cornerRadius = 30
         clipsToBounds = true
+        
+        imageOfSound.customImageView.image = UIImage(systemName: "cloud.sun.bolt.fill")
+        imageOfSound.customImageView.tintColor = UIColor.white
+        nameOfSound.customLabel.text = "Forest"
     }
     
+    
+    //MARK: - LAYOUT
     func layout() {
+        let image = imageOfSound.customImageView
+        let name = nameOfSound.customLabel
         
+        NSLayoutConstraint.activate([
+            image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            image.widthAnchor.constraint(equalToConstant: 80),
+            image.heightAnchor.constraint(equalToConstant: 80),
+            
+            name.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            name.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+        ])
     }
 }

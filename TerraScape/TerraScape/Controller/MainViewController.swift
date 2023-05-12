@@ -10,6 +10,7 @@ import UIKit
 class MainViewController: UIViewController {
     
     let uiCollectionView = CustomUICollectionView()
+    
     let testView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -25,8 +26,8 @@ class MainViewController: UIViewController {
         addViews()
         navigation()
         settings()
-        collectionView()
         layout()
+        collectionView()
         
     }
     
@@ -42,6 +43,7 @@ class MainViewController: UIViewController {
         uiCollectionView.customCollectionView.showsVerticalScrollIndicator = false
     }
     
+    //MARK: - LAYOUT
     func layout() {
         let collection = uiCollectionView.customCollectionView
         
@@ -49,7 +51,7 @@ class MainViewController: UIViewController {
             collection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
             collection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
-            collection.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            collection.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             testView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             testView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -58,18 +60,23 @@ class MainViewController: UIViewController {
         ])
     }
     
+    //MARK: - NAVIGATION
     func navigation() {
         title = Helpers.Strings.navigationTitle
-        let appearance = UINavigationBarAppearance()
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(settingButton))
+        settingsButton.tintColor = UIColor.white
+        navigationItem.rightBarButtonItem = settingsButton
     }
     
     
-    
+    @objc func settingButton() {
+        
+    }
     
 }
+
 
 //MARK: - CUSTOM COLLECTION VIEW
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
