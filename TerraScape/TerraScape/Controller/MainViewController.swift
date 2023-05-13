@@ -38,8 +38,15 @@ class MainViewController: UIViewController {
     }
     
     func settings() {
-        view.backgroundColor = .black
+//        view.backgroundColor = .black
         
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = Helpers.Colors.mainViewGradient
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.0, y: 0.6)
+        
+        view.layer.insertSublayer(gradient, at: 0)
         
         uiCollectionView.customCollectionView.showsVerticalScrollIndicator = false
     }

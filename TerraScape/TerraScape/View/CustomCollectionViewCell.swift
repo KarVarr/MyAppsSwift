@@ -9,8 +9,9 @@ import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
     
-    let nameOfSound = LabelView()
+    let nameOfSound = CustomLabelView()
     let imageOfSound = CustomImageView()
+    let volumeUiView = CustomUIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,6 +31,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     func addViews() {
         contentView.addSubview(nameOfSound.customLabel)
         contentView.addSubview(imageOfSound.customImageView)
+        contentView.addSubview(volumeUiView.customUIView)
     }
     
     func settings() {
@@ -41,19 +43,19 @@ class CustomCollectionViewCell: UICollectionViewCell {
 
         let gradient = CAGradientLayer()
         gradient.frame = bounds
-        gradient.colors = [UIColor(white: 1, alpha: 0.15).cgColor, UIColor(white: 1, alpha: 0.4).cgColor]
+        gradient.colors = Helpers.Colors.whiteGradient
         gradient.endPoint = CGPoint(x: 0, y: 0.25)
         
         let gradientBorder = CAGradientLayer()
         gradientBorder.frame = CGRect(origin: CGPointZero, size: self.bounds.size)
         gradientBorder.startPoint = CGPointMake(1.0, 0.2)
         gradientBorder.endPoint = CGPointMake(0.0, 0.2)
-        gradientBorder.colors = [UIColor(white: 1, alpha: 0.15).cgColor, UIColor(white: 1, alpha: 0.4).cgColor]
+        gradientBorder.colors = Helpers.Colors.whiteGradient
         
         
         let shapeLayer = CAShapeLayer()
-        shapeLayer.lineWidth = 8
-        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: 30, height: 30))
+        shapeLayer.lineWidth = 4
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: Helpers.Radius.cornerRadius, height: Helpers.Radius.cornerRadius))
         shapeLayer.path = path.cgPath
         shapeLayer.fillColor = nil
         shapeLayer.strokeColor = UIColor.white.cgColor
@@ -63,13 +65,19 @@ class CustomCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(blurEffectView)
         layer.addSublayer(gradientBorder)
         layer.insertSublayer(gradient, at: 0)
-        layer.cornerRadius = 30
+        layer.cornerRadius = Helpers.Radius.cornerRadius
         clipsToBounds = true
         
         imageOfSound.customImageView.image = UIImage(named: "bird")
         imageOfSound.customImageView.tintColor = UIColor.white
         
         nameOfSound.customLabel.text = "Forest"
+        
+        volumeUiView.customUIView.layer.insertSublayer(gradient, at: 0)
+        volumeUiView.customUIView.layer.borderWidth = 2
+        volumeUiView.customUIView.layer.borderColor = UIColor.white.withAlphaComponent(0.3).cgColor
+        volumeUiView.customUIView.layer.cornerRadius = Helpers.Radius.cornerRadius
+        volumeUiView.customUIView.clipsToBounds = true
     }
     
     
@@ -77,6 +85,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     func layout() {
         let image = imageOfSound.customImageView
         let name = nameOfSound.customLabel
+        let volume = volumeUiView.customUIView
         
         NSLayoutConstraint.activate([
             image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
@@ -86,6 +95,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
             
             name.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
             name.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            
+            volume.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            volume.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            volume.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            volume.widthAnchor.constraint(equalToConstant: 60),
         ])
     }
 }

@@ -14,10 +14,11 @@
 		178C7F1B2A0E8CC4001FC539 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F192A0E8CC4001FC539 /* LaunchScreen.storyboard */; };
 		178C7F282A0E8F43001FC539 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F272A0E8F43001FC539 /* UICollectionView.swift */; };
 		178C7F2A2A0E9F04001FC539 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F292A0E9F04001FC539 /* CustomCollectionViewCell.swift */; };
-		178C7F2D2A0E9F41001FC539 /* Strings + Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F2C2A0E9F41001FC539 /* Strings + Keys.swift */; };
-		178C7F2F2A0EBD6B001FC539 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F2E2A0EBD6B001FC539 /* LabelView.swift */; };
+		178C7F2D2A0E9F41001FC539 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F2C2A0E9F41001FC539 /* Helper.swift */; };
+		178C7F2F2A0EBD6B001FC539 /* CustomLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F2E2A0EBD6B001FC539 /* CustomLabelView.swift */; };
 		178C7F312A0EBDBC001FC539 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F302A0EBDBC001FC539 /* CustomImageView.swift */; };
 		178C7F342A0FF5C4001FC539 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F332A0FF5C4001FC539 /* Images.swift */; };
+		178C7F362A1014FC001FC539 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F352A1014FC001FC539 /* CustomUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +31,11 @@
 		178C7F1C2A0E8CC4001FC539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		178C7F272A0E8F43001FC539 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		178C7F292A0E9F04001FC539 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
-		178C7F2C2A0E9F41001FC539 /* Strings + Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings + Keys.swift"; sourceTree = "<group>"; };
-		178C7F2E2A0EBD6B001FC539 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
+		178C7F2C2A0E9F41001FC539 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		178C7F2E2A0EBD6B001FC539 /* CustomLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelView.swift; sourceTree = "<group>"; };
 		178C7F302A0EBDBC001FC539 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		178C7F332A0FF5C4001FC539 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		178C7F352A1014FC001FC539 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +126,7 @@
 		178C7F2B2A0E9F14001FC539 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				178C7F2C2A0E9F41001FC539 /* Strings + Keys.swift */,
+				178C7F2C2A0E9F41001FC539 /* Helper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -132,8 +134,9 @@
 		178C7F322A0FF376001FC539 /* ElementsView */ = {
 			isa = PBXGroup;
 			children = (
-				178C7F2E2A0EBD6B001FC539 /* LabelView.swift */,
+				178C7F2E2A0EBD6B001FC539 /* CustomLabelView.swift */,
 				178C7F302A0EBDBC001FC539 /* CustomImageView.swift */,
+				178C7F352A1014FC001FC539 /* CustomUIView.swift */,
 			);
 			path = ElementsView;
 			sourceTree = "<group>";
@@ -209,13 +212,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				178C7F312A0EBDBC001FC539 /* CustomImageView.swift in Sources */,
+				178C7F362A1014FC001FC539 /* CustomUIView.swift in Sources */,
 				178C7F132A0E8CC2001FC539 /* MainViewController.swift in Sources */,
 				178C7F2A2A0E9F04001FC539 /* CustomCollectionViewCell.swift in Sources */,
-				178C7F2F2A0EBD6B001FC539 /* LabelView.swift in Sources */,
+				178C7F2F2A0EBD6B001FC539 /* CustomLabelView.swift in Sources */,
 				178C7F342A0FF5C4001FC539 /* Images.swift in Sources */,
 				178C7F0F2A0E8CC2001FC539 /* AppDelegate.swift in Sources */,
 				178C7F282A0E8F43001FC539 /* UICollectionView.swift in Sources */,
-				178C7F2D2A0E9F41001FC539 /* Strings + Keys.swift in Sources */,
+				178C7F2D2A0E9F41001FC539 /* Helper.swift in Sources */,
 				178C7F112A0E8CC2001FC539 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

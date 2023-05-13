@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LabelView {
+class CustomLabelView {
     let customLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
