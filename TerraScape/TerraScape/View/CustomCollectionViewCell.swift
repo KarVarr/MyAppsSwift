@@ -13,6 +13,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
     let imageOfSound = CustomImageView()
     let volumeUiView = CustomUIView()
     
+    let imageForVolume = CustomImageView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -32,6 +34,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(nameOfSound.customLabel)
         contentView.addSubview(imageOfSound.customImageView)
         contentView.addSubview(volumeUiView.customUIView)
+        
+        volumeUiView.customUIView.addSubview(imageForVolume.customImageView)
     }
     
     func settings() {
@@ -78,6 +82,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
         volumeUiView.customUIView.layer.borderColor = UIColor.white.withAlphaComponent(0.3).cgColor
         volumeUiView.customUIView.layer.cornerRadius = Helpers.Radius.cornerRadius
         volumeUiView.customUIView.clipsToBounds = true
+        
+        imageForVolume.customImageView.image = UIImage(systemName: "speaker.wave.2")
+        imageForVolume.customImageView.tintColor = UIColor.white
     }
     
     
@@ -86,6 +93,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
         let image = imageOfSound.customImageView
         let name = nameOfSound.customLabel
         let volume = volumeUiView.customUIView
+        let imageForVolume = imageForVolume.customImageView
+        
         
         NSLayoutConstraint.activate([
             image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
@@ -100,6 +109,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
             volume.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
             volume.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             volume.widthAnchor.constraint(equalToConstant: 60),
+            
+            imageForVolume.bottomAnchor.constraint(equalTo: volume.bottomAnchor, constant: -10),
+            imageForVolume.centerXAnchor.constraint(equalTo: volume.centerXAnchor),
+            imageForVolume.heightAnchor.constraint(equalToConstant: 30),
+            imageForVolume.widthAnchor.constraint(equalToConstant: 30),
         ])
     }
 }

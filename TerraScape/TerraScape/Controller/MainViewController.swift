@@ -30,6 +30,7 @@ class MainViewController: UIViewController {
         layout()
         collectionView()
         
+        animationCustomViews()
     }
     
     func addViews() {
@@ -61,8 +62,8 @@ class MainViewController: UIViewController {
             collection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
             collection.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            testView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            testView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            testView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            testView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             testView.widthAnchor.constraint(equalToConstant: 200),
             testView.heightAnchor.constraint(equalToConstant: 200),
         ])
@@ -81,6 +82,19 @@ class MainViewController: UIViewController {
     
     @objc func settingButton() {
         
+    }
+    
+    //MARK: - ANIMATION
+    
+    func animationCustomViews() {
+        UIView.animate(withDuration: 60.0, delay: 0.0, options: [.autoreverse, .repeat, .curveEaseInOut]) {
+            let randomX = CGFloat(arc4random_uniform(UInt32(self.view.bounds.width - self.testView.bounds.width)))
+            let randomY = CGFloat(arc4random_uniform(UInt32(self.view.bounds.height - self.testView.bounds.height)))
+            self.testView.frame.origin = CGPoint(x: randomX, y: randomY)
+            
+        }
+        
+      
     }
     
 }
