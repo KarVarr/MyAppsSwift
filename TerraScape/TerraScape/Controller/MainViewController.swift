@@ -12,49 +12,69 @@ class MainViewController: UIViewController {
     let uiCollectionView = CustomUICollectionView()
     let images = Images()
     
-    let testView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemPink
-        view.layer.cornerRadius = 100
-        return view
-        
-    }()
+    let smallBall = CustomUIView()
+    let mediumBall = CustomUIView()
+    let bigBall = CustomUIView()
+    let largeBall = CustomUIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
+        
         addViews()
         navigation()
         settings()
         layout()
         collectionView()
         
-        animationCustomViews()
+        animationCustomViews(smallBall.customUIView)
+        animationCustomViews(mediumBall.customUIView)
+        animationCustomViews(bigBall.customUIView)
+        animationCustomViews(largeBall.customUIView)
     }
     
     func addViews() {
-        view.addSubview(testView)
+        view.addSubview(smallBall.customUIView)
+        view.addSubview(mediumBall.customUIView)
+        view.addSubview(bigBall.customUIView)
+        view.addSubview(largeBall.customUIView)
+        
         view.addSubview(uiCollectionView.customCollectionView)
     }
     
     func settings() {
-//        view.backgroundColor = .black
+                view.backgroundColor = .black
         
-        let gradient = CAGradientLayer()
-        gradient.frame = view.bounds
-        gradient.colors = Helpers.Colors.mainViewGradient
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradient.endPoint = CGPoint(x: 0.0, y: 0.6)
-        
-        view.layer.insertSublayer(gradient, at: 0)
+//        let gradient = CAGradientLayer()
+//        gradient.frame = view.bounds
+//        gradient.colors = Helpers.Colors.mainViewGradient
+//        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+//        gradient.endPoint = CGPoint(x: 0.0, y: 0.6)
+//
+//        view.layer.insertSublayer(gradient, at: 0)
         
         uiCollectionView.customCollectionView.showsVerticalScrollIndicator = false
+        
+        smallBall.customUIView.backgroundColor = .cyan
+        smallBall.customUIView.layer.cornerRadius = 25
+        
+        mediumBall.customUIView.backgroundColor = .magenta
+        mediumBall.customUIView.layer.cornerRadius = 50
+        
+        bigBall.customUIView.backgroundColor = .orange
+        bigBall.customUIView.layer.cornerRadius = 75
+        
+        largeBall.customUIView.backgroundColor = .blue
+        largeBall.customUIView.layer.cornerRadius = 100
+        largeBall.customUIView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     //MARK: - LAYOUT
     func layout() {
         let collection = uiCollectionView.customCollectionView
+        let smallBall = smallBall.customUIView
+        let mediumBall = mediumBall.customUIView
+        let bigBall = bigBall.customUIView
+        let largeBall = largeBall.customUIView
         
         NSLayoutConstraint.activate([
             collection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -62,10 +82,25 @@ class MainViewController: UIViewController {
             collection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
             collection.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            testView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            testView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            testView.widthAnchor.constraint(equalToConstant: 200),
-            testView.heightAnchor.constraint(equalToConstant: 200),
+            smallBall.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            smallBall.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            smallBall.widthAnchor.constraint(equalToConstant: 50),
+            smallBall.heightAnchor.constraint(equalToConstant: 50),
+
+            mediumBall.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            mediumBall.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            mediumBall.widthAnchor.constraint(equalToConstant: 100),
+            mediumBall.heightAnchor.constraint(equalToConstant: 100),
+
+            bigBall.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            bigBall.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+            bigBall.widthAnchor.constraint(equalToConstant: 150),
+            bigBall.heightAnchor.constraint(equalToConstant: 150),
+            
+            largeBall.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            largeBall.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            largeBall.widthAnchor.constraint(equalToConstant: 200),
+            largeBall.heightAnchor.constraint(equalToConstant: 200),
         ])
     }
     
@@ -79,23 +114,27 @@ class MainViewController: UIViewController {
         navigationItem.rightBarButtonItem = settingsButton
     }
     
+    //MARK: - ANIMATION
+    func animationCustomViews(_ ball: UIView) {
+        UIView.animate(withDuration: 30.0, delay: 0.0, options: [.autoreverse, .repeat]) {
+            let randomX = CGFloat(arc4random_uniform(UInt32(self.view.bounds.width - ball.bounds.width)))
+            let randomY = CGFloat(arc4random_uniform(UInt32(self.view.bounds.height - ball.bounds.height)))
+            ball.frame.origin = CGPoint(x: randomX, y: randomY)
+        }
+        
+    }
+    
+    
+    
+    
     
     @objc func settingButton() {
         
     }
     
-    //MARK: - ANIMATION
     
-    func animationCustomViews() {
-        UIView.animate(withDuration: 60.0, delay: 0.0, options: [.autoreverse, .repeat, .curveEaseInOut]) {
-            let randomX = CGFloat(arc4random_uniform(UInt32(self.view.bounds.width - self.testView.bounds.width)))
-            let randomY = CGFloat(arc4random_uniform(UInt32(self.view.bounds.height - self.testView.bounds.height)))
-            self.testView.frame.origin = CGPoint(x: randomX, y: randomY)
-            
-        }
-        
-      
-    }
+    
+    
     
 }
 
