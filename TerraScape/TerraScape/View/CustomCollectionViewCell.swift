@@ -53,8 +53,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = 30
         clipsToBounds = true
         
-        imageOfSound.customImageView.image = UIImage(systemName: "cloud.sun.bolt.fill")
+        imageOfSound.customImageView.image = UIImage(named: "bird")
         imageOfSound.customImageView.tintColor = UIColor.white
+        
         nameOfSound.customLabel.text = "Forest"
     }
     

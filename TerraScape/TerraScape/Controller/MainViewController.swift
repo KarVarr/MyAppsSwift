@@ -10,6 +10,7 @@ import UIKit
 class MainViewController: UIViewController {
     
     let uiCollectionView = CustomUICollectionView()
+    let images = Images()
     
     let testView: UIView = {
         let view = UIView()
@@ -22,7 +23,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+         
         addViews()
         navigation()
         settings()
@@ -107,12 +108,16 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return images.allImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Helpers.Keys.collectionCell, for: indexPath) as! CustomCollectionViewCell
         
+        let imageNames = images.allImages[indexPath.item]
+        
+        cell.imageOfSound.customImageView.image = UIImage(named: imageNames)
+        cell.nameOfSound.customLabel.text = imageNames.capitalized
         
         return cell
     }
