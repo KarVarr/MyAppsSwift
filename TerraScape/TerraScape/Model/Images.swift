@@ -9,5 +9,5 @@ import Foundation
 
 
 class Images {
-    let allImages = ["thunder", "rain" ,"bonfire", "bird", "forest", "clock", "water", "farm", "locomotive", "owl", "swamp", "vinyl",  "wind", "ghost"]
+    let allImages = ["thunder", "rain" ,"bonfire", "bird", "forest", "clock", "water", "farm", "train", "owl", "swamp", "vinyl",  "wind", "ghost"]
 }

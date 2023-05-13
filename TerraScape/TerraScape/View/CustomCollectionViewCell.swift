@@ -33,22 +33,35 @@ class CustomCollectionViewCell: UICollectionViewCell {
     }
     
     func settings() {
-        let gradient = CAGradientLayer()
         
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        
-        
+        blurEffectView.frame = bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        let gradient = CAGradientLayer()
         gradient.frame = bounds
-//        gradient.colors = [UIColor.black.cgColor, UIColor.red.cgColor]
         gradient.colors = [UIColor(white: 1, alpha: 0.15).cgColor, UIColor(white: 1, alpha: 0.4).cgColor]
         gradient.endPoint = CGPoint(x: 0, y: 0.25)
         
-        blurEffectView.frame = bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        let gradientBorder = CAGradientLayer()
+        gradientBorder.frame = CGRect(origin: CGPointZero, size: self.bounds.size)
+        gradientBorder.startPoint = CGPointMake(1.0, 0.2)
+        gradientBorder.endPoint = CGPointMake(0.0, 0.2)
+        gradientBorder.colors = [UIColor(white: 1, alpha: 0.15).cgColor, UIColor(white: 1, alpha: 0.4).cgColor]
+        
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.lineWidth = 8
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: 30, height: 30))
+        shapeLayer.path = path.cgPath
+        shapeLayer.fillColor = nil
+        shapeLayer.strokeColor = UIColor.white.cgColor
+        gradientBorder.mask = shapeLayer
+        
         
         contentView.addSubview(blurEffectView)
-        
+        layer.addSublayer(gradientBorder)
         layer.insertSublayer(gradient, at: 0)
         layer.cornerRadius = 30
         clipsToBounds = true
