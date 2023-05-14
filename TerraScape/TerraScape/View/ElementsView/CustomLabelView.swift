@@ -11,7 +11,7 @@ class CustomLabelView {
     let customLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.white
+        label.textColor = UIColor.secondaryLabel
         label.font = UIFont(name: "GillSans-Bold", size: 20)
         return label
     }()

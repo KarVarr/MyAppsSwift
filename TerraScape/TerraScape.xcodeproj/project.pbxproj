@@ -20,6 +20,7 @@
 		178C7F342A0FF5C4001FC539 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F332A0FF5C4001FC539 /* Images.swift */; };
 		178C7F362A1014FC001FC539 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F352A1014FC001FC539 /* CustomUIView.swift */; };
 		178C7F382A10DC85001FC539 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F372A10DC85001FC539 /* Device.swift */; };
+		178C7F3A2A10E516001FC539 /* CollectionViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F392A10E516001FC539 /* CollectionViewExtention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		178C7F332A0FF5C4001FC539 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		178C7F352A1014FC001FC539 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
 		178C7F372A10DC85001FC539 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		178C7F392A10E516001FC539 /* CollectionViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtention.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				178C7F122A0E8CC2001FC539 /* MainViewController.swift */,
+				178C7F392A10E516001FC539 /* CollectionViewExtention.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				178C7F362A1014FC001FC539 /* CustomUIView.swift in Sources */,
 				178C7F132A0E8CC2001FC539 /* MainViewController.swift in Sources */,
 				178C7F2A2A0E9F04001FC539 /* CustomCollectionViewCell.swift in Sources */,
+				178C7F3A2A10E516001FC539 /* CollectionViewExtention.swift in Sources */,
 				178C7F2F2A0EBD6B001FC539 /* CustomLabelView.swift in Sources */,
 				178C7F342A0FF5C4001FC539 /* Images.swift in Sources */,
 				178C7F0F2A0E8CC2001FC539 /* AppDelegate.swift in Sources */,

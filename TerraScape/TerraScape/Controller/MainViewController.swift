@@ -6,7 +6,7 @@
 //  TerraScape - a combination of "terra", meaning earth, and "soundscape" to represent the sound of nature.
 
 import UIKit
-import WidgetKit
+
 
 class MainViewController: UIViewController {
     
@@ -18,6 +18,8 @@ class MainViewController: UIViewController {
     let bigBall = CustomUIView()
     let largeBall = CustomUIView()
     
+    let dynamicIslandBorderView = CustomUIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,24 +29,29 @@ class MainViewController: UIViewController {
         layout()
         collectionView()
         
-        animationCustomViews(smallBall.customUIView)
-        animationCustomViews(mediumBall.customUIView)
-        animationCustomViews(bigBall.customUIView)
-        animationCustomViews(largeBall.customUIView)
+        circle(for: smallBall.customUIView, of: 25, and: .cyan)
+        circle(for: mediumBall.customUIView, of: 50, and: .magenta)
+        circle(for: bigBall.customUIView, of: 75, and: .orange)
+//        circle(for: largeBall.customUIView, of: 100, and: .purple)
         
-        let modelName = UIDevice.current.modelName
+        animateBalls(for: smallBall.customUIView, to: 180, path: true, time: 11)
+        animateBalls(for: mediumBall.customUIView, to: 150, path: false, time: 15)
+        animateBalls(for: bigBall.customUIView, to: 210, path: false, time: 13)
+        animateBalls(for: largeBall.customUIView, to: 270, path: true, time: 30)
         
-        switch modelName {
-        case "iPhone X":
-            view.backgroundColor = .blue
-        case "iPhone 14 Pro":
-            view.backgroundColor = .red
-        case "iPhone 14 Pro Max":
-            view.backgroundColor = .green
-        default:
-            view.backgroundColor = .gray
-        }
-        
+        //        let modelName = UIDevice.current.modelName
+        //
+        //        switch modelName {
+        //        case "iPhone X":
+        //            view.backgroundColor = .blue
+        //        case "iPhone 14 Pro":
+        //            view.backgroundColor = .red
+        //
+        //        case "iPhone 14 Pro Max":
+        //            view.backgroundColor = .green
+        //        default:
+        //            view.backgroundColor = .black
+        //        }
         
         
     }
@@ -54,35 +61,36 @@ class MainViewController: UIViewController {
         view.addSubview(mediumBall.customUIView)
         view.addSubview(bigBall.customUIView)
         view.addSubview(largeBall.customUIView)
+        view.addSubview(dynamicIslandBorderView.customUIView)
         
         view.addSubview(uiCollectionView.customCollectionView)
+        
     }
     
     func settings() {
-//        view.backgroundColor = .black
+        //        view.backgroundColor = .black
         
-        //        let gradient = CAGradientLayer()
-        //        gradient.frame = view.bounds
-        //        gradient.colors = Helpers.Colors.mainViewGradient
-        //        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-        //        gradient.endPoint = CGPoint(x: 0.0, y: 0.6)
-        //
-        //        view.layer.insertSublayer(gradient, at: 0)
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = Helpers.Colors.mainViewGradient
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.0, y: 0.6)
+        
+        view.layer.insertSublayer(gradient, at: 0)
         
         uiCollectionView.customCollectionView.showsVerticalScrollIndicator = false
         
-        smallBall.customUIView.backgroundColor = .cyan
-        smallBall.customUIView.layer.cornerRadius = 25
-        
-        mediumBall.customUIView.backgroundColor = .magenta
-        mediumBall.customUIView.layer.cornerRadius = 50
-        
-        bigBall.customUIView.backgroundColor = .orange
-        bigBall.customUIView.layer.cornerRadius = 75
-        
-        largeBall.customUIView.backgroundColor = .blue
+        let gradientLargeBall = CAGradientLayer()
+        gradientLargeBall.frame = view.bounds
+        gradientLargeBall.colors = Helpers.Colors.largeBallGradient
+        gradientLargeBall.startPoint = CGPoint(x: 0.1, y: 0.5)
+        gradientLargeBall.endPoint = CGPoint(x: 0.5, y: 0.5)
+        largeBall.customUIView.layer.insertSublayer(gradientLargeBall, at: 0)
         largeBall.customUIView.layer.cornerRadius = 100
-        largeBall.customUIView.translatesAutoresizingMaskIntoConstraints = false
+        largeBall.customUIView.clipsToBounds = true
+        
+        dynamicIslandBorderView.customUIView.backgroundColor = .white
+        dynamicIslandBorderView.customUIView.layer.cornerRadius = 20
     }
     
     //MARK: - LAYOUT
@@ -92,6 +100,7 @@ class MainViewController: UIViewController {
         let mediumBall = mediumBall.customUIView
         let bigBall = bigBall.customUIView
         let largeBall = largeBall.customUIView
+        let dynamicIsland = dynamicIslandBorderView.customUIView
         
         NSLayoutConstraint.activate([
             collection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -118,6 +127,12 @@ class MainViewController: UIViewController {
             largeBall.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             largeBall.widthAnchor.constraint(equalToConstant: 200),
             largeBall.heightAnchor.constraint(equalToConstant: 200),
+            
+            dynamicIsland.topAnchor.constraint(equalTo: view.topAnchor, constant: 9.5),
+            dynamicIsland.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            dynamicIsland.widthAnchor.constraint(equalToConstant: 130),
+            dynamicIsland.heightAnchor.constraint(equalToConstant: 40),
+            
         ])
     }
     
@@ -132,15 +147,28 @@ class MainViewController: UIViewController {
     }
     
     //MARK: - ANIMATION
-    func animationCustomViews(_ ball: UIView) {
-        UIView.animate(withDuration: 10.0, delay: 0.0, options: [.autoreverse, .repeat]) {
-            let randomX = CGFloat(arc4random_uniform(UInt32(self.view.bounds.width - ball.bounds.width)))
-            let randomY = CGFloat(arc4random_uniform(UInt32(self.view.bounds.height - ball.bounds.height)))
-            ball.frame.origin = CGPoint(x: randomX, y: randomY)
-        }
+    
+    
+    func animateBalls(for ball: UIView, to distance: CGFloat, path clockwise: Bool, time duration: CFTimeInterval) {
+        let centerX = view.bounds.width / 2
+        let centerY = view.bounds.height / 2
+        let radius = min(centerX, centerY) - 200 // adjust the radius as needed
+        
+        let smallBallPath = UIBezierPath(arcCenter: CGPoint(x: centerX, y: centerY), radius: radius - distance, startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: clockwise)
+        let smallBallAnimation = CAKeyframeAnimation(keyPath: "position")
+        smallBallAnimation.path = smallBallPath.cgPath
+        smallBallAnimation.duration = duration
+        smallBallAnimation.repeatCount = .infinity
+        smallBallAnimation.calculationMode = .paced
+        ball.layer.add(smallBallAnimation, forKey: "animation")
         
     }
     
+    func circle(for circle: UIView, of radius: CGFloat, and color: UIColor) {
+        circle.backgroundColor = color
+        circle.layer.cornerRadius = radius
+        circle.clipsToBounds = true
+    }
     
     
     
@@ -150,53 +178,8 @@ class MainViewController: UIViewController {
     }
     
     
-    
-    
-    
 }
 
 
-//MARK: - CUSTOM COLLECTION VIEW
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    
-    func collectionView() {
-        uiCollectionView.customCollectionView.delegate = self
-        uiCollectionView.customCollectionView.dataSource = self
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        1
-    }
-    
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: (view.frame.size.width / 2 ) - 10 , height: (view.frame.size.width / 2 ) )
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.allImages.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Helpers.Keys.collectionCell, for: indexPath) as! CustomCollectionViewCell
-        
-        let imageNames = images.allImages[indexPath.item]
-        
-        cell.imageOfSound.customImageView.image = UIImage(named: imageNames)
-        cell.nameOfSound.customLabel.text = imageNames.capitalized
-        
-        return cell
-    }
-}
+
 
