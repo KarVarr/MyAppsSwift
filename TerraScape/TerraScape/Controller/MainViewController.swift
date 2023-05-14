@@ -29,10 +29,11 @@ class MainViewController: UIViewController {
         layout()
         collectionView()
         
-        circle(for: smallBall.customUIView, of: 25, and: .cyan)
-        circle(for: mediumBall.customUIView, of: 50, and: .magenta)
-        circle(for: bigBall.customUIView, of: 75, and: .orange)
-//        circle(for: largeBall.customUIView, of: 100, and: .purple)
+
+        createGradientLayerForCircle(for: smallBall.customUIView, of: 25, with: Helpers.Colors.smallBallGradient, start: CGPoint(x: 0.5, y: 0.9), end: CGPoint(x: 0.0, y: 1))
+        createGradientLayerForCircle(for: mediumBall.customUIView, of: 50, with: Helpers.Colors.mediumBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
+        createGradientLayerForCircle(for: bigBall.customUIView, of: 75, with: Helpers.Colors.bigBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
+        createGradientLayerForCircle(for: largeBall.customUIView, of: 100, with: Helpers.Colors.largeBallGradient, start: CGPoint(x: 0.1, y: 0.5), end: CGPoint(x: 0.5, y: 0.5))
         
         animateBalls(for: smallBall.customUIView, to: 180, path: true, time: 11)
         animateBalls(for: mediumBall.customUIView, to: 150, path: false, time: 15)
@@ -68,26 +69,18 @@ class MainViewController: UIViewController {
     }
     
     func settings() {
-        //        view.backgroundColor = .black
         
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds
         gradient.colors = Helpers.Colors.mainViewGradient
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradient.endPoint = CGPoint(x: 0.0, y: 0.6)
+        gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 1)
         
         view.layer.insertSublayer(gradient, at: 0)
         
         uiCollectionView.customCollectionView.showsVerticalScrollIndicator = false
         
-        let gradientLargeBall = CAGradientLayer()
-        gradientLargeBall.frame = view.bounds
-        gradientLargeBall.colors = Helpers.Colors.largeBallGradient
-        gradientLargeBall.startPoint = CGPoint(x: 0.1, y: 0.5)
-        gradientLargeBall.endPoint = CGPoint(x: 0.5, y: 0.5)
-        largeBall.customUIView.layer.insertSublayer(gradientLargeBall, at: 0)
-        largeBall.customUIView.layer.cornerRadius = 100
-        largeBall.customUIView.clipsToBounds = true
+        
         
         dynamicIslandBorderView.customUIView.backgroundColor = .white
         dynamicIslandBorderView.customUIView.layer.cornerRadius = 20
@@ -164,8 +157,13 @@ class MainViewController: UIViewController {
         
     }
     
-    func circle(for circle: UIView, of radius: CGFloat, and color: UIColor) {
-        circle.backgroundColor = color
+    func createGradientLayerForCircle(for circle: UIView, of radius: CGFloat, with color: [Any], start sPoint: CGPoint, end ePoint: CGPoint) {
+        let layer = CAGradientLayer()
+        layer.frame = view.bounds
+        layer.colors = color
+        layer.startPoint = sPoint
+        layer.endPoint = ePoint
+        circle.layer.insertSublayer(layer, at: 0)
         circle.layer.cornerRadius = radius
         circle.clipsToBounds = true
     }
