@@ -19,6 +19,7 @@
 		178C7F312A0EBDBC001FC539 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F302A0EBDBC001FC539 /* CustomImageView.swift */; };
 		178C7F342A0FF5C4001FC539 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F332A0FF5C4001FC539 /* Images.swift */; };
 		178C7F362A1014FC001FC539 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F352A1014FC001FC539 /* CustomUIView.swift */; };
+		178C7F382A10DC85001FC539 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F372A10DC85001FC539 /* Device.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		178C7F302A0EBDBC001FC539 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		178C7F332A0FF5C4001FC539 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		178C7F352A1014FC001FC539 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
+		178C7F372A10DC85001FC539 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				178C7F272A0E8F43001FC539 /* UICollectionView.swift */,
 				178C7F292A0E9F04001FC539 /* CustomCollectionViewCell.swift */,
 				178C7F322A0FF376001FC539 /* ElementsView */,
+				178C7F372A10DC85001FC539 /* Device.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				178C7F382A10DC85001FC539 /* Device.swift in Sources */,
 				178C7F312A0EBDBC001FC539 /* CustomImageView.swift in Sources */,
 				178C7F362A1014FC001FC539 /* CustomUIView.swift in Sources */,
 				178C7F132A0E8CC2001FC539 /* MainViewController.swift in Sources */,

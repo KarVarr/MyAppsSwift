@@ -6,6 +6,7 @@
 //  TerraScape - a combination of "terra", meaning earth, and "soundscape" to represent the sound of nature.
 
 import UIKit
+import WidgetKit
 
 class MainViewController: UIViewController {
     
@@ -30,6 +31,22 @@ class MainViewController: UIViewController {
         animationCustomViews(mediumBall.customUIView)
         animationCustomViews(bigBall.customUIView)
         animationCustomViews(largeBall.customUIView)
+        
+        let modelName = UIDevice.current.modelName
+        
+        switch modelName {
+        case "iPhone X":
+            view.backgroundColor = .blue
+        case "iPhone 14 Pro":
+            view.backgroundColor = .red
+        case "iPhone 14 Pro Max":
+            view.backgroundColor = .green
+        default:
+            view.backgroundColor = .gray
+        }
+        
+        
+        
     }
     
     func addViews() {
@@ -42,15 +59,15 @@ class MainViewController: UIViewController {
     }
     
     func settings() {
-                view.backgroundColor = .black
+//        view.backgroundColor = .black
         
-//        let gradient = CAGradientLayer()
-//        gradient.frame = view.bounds
-//        gradient.colors = Helpers.Colors.mainViewGradient
-//        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-//        gradient.endPoint = CGPoint(x: 0.0, y: 0.6)
-//
-//        view.layer.insertSublayer(gradient, at: 0)
+        //        let gradient = CAGradientLayer()
+        //        gradient.frame = view.bounds
+        //        gradient.colors = Helpers.Colors.mainViewGradient
+        //        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+        //        gradient.endPoint = CGPoint(x: 0.0, y: 0.6)
+        //
+        //        view.layer.insertSublayer(gradient, at: 0)
         
         uiCollectionView.customCollectionView.showsVerticalScrollIndicator = false
         
@@ -86,12 +103,12 @@ class MainViewController: UIViewController {
             smallBall.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             smallBall.widthAnchor.constraint(equalToConstant: 50),
             smallBall.heightAnchor.constraint(equalToConstant: 50),
-
+            
             mediumBall.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             mediumBall.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             mediumBall.widthAnchor.constraint(equalToConstant: 100),
             mediumBall.heightAnchor.constraint(equalToConstant: 100),
-
+            
             bigBall.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             bigBall.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
             bigBall.widthAnchor.constraint(equalToConstant: 150),
@@ -116,7 +133,7 @@ class MainViewController: UIViewController {
     
     //MARK: - ANIMATION
     func animationCustomViews(_ ball: UIView) {
-        UIView.animate(withDuration: 30.0, delay: 0.0, options: [.autoreverse, .repeat]) {
+        UIView.animate(withDuration: 10.0, delay: 0.0, options: [.autoreverse, .repeat]) {
             let randomX = CGFloat(arc4random_uniform(UInt32(self.view.bounds.width - ball.bounds.width)))
             let randomY = CGFloat(arc4random_uniform(UInt32(self.view.bounds.height - ball.bounds.height)))
             ball.frame.origin = CGPoint(x: randomX, y: randomY)
@@ -182,3 +199,4 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
 }
+
