@@ -35,11 +35,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        if audioPlayer.player?.isPlaying != nil {
-            audioPlayer.player?.stop()
-        } else {
-            audioPlayer.playSound()
-        }
+        audioPlayer.playSound(for: images.allImages[indexPath.item])
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

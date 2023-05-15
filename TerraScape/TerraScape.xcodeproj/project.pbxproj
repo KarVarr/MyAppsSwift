@@ -26,9 +26,8 @@
 		178C7F5A2A12808E001FC539 /* train.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F4B2A12808D001FC539 /* train.mp3 */; };
 		178C7F5B2A12808E001FC539 /* thunder.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F4C2A12808D001FC539 /* thunder.mp3 */; };
 		178C7F5C2A12808E001FC539 /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F4D2A12808D001FC539 /* rain.mp3 */; };
-		178C7F5D2A12808E001FC539 /* water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F4E2A12808D001FC539 /* water.mp3 */; };
+		178C7F5D2A12808E001FC539 /* sea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F4E2A12808D001FC539 /* sea.mp3 */; };
 		178C7F5E2A12808E001FC539 /* heart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F4F2A12808D001FC539 /* heart.mp3 */; };
-		178C7F5F2A12808E001FC539 /* sheep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F502A12808D001FC539 /* sheep.wav */; };
 		178C7F602A12808E001FC539 /* clock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F512A12808D001FC539 /* clock.mp3 */; };
 		178C7F612A12808E001FC539 /* bonfire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F522A12808D001FC539 /* bonfire.mp3 */; };
 		178C7F622A12808E001FC539 /* owl.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F532A12808D001FC539 /* owl.mp3 */; };
@@ -36,6 +35,7 @@
 		178C7F642A12808E001FC539 /* forest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F552A12808E001FC539 /* forest.mp3 */; };
 		178C7F652A12808E001FC539 /* wind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F562A12808E001FC539 /* wind.mp3 */; };
 		178C7F662A12808E001FC539 /* bird.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F572A12808E001FC539 /* bird.mp3 */; };
+		178C7F682A1284C6001FC539 /* sheep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F672A1284C6001FC539 /* sheep.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,9 +60,8 @@
 		178C7F4B2A12808D001FC539 /* train.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = train.mp3; sourceTree = "<group>"; };
 		178C7F4C2A12808D001FC539 /* thunder.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunder.mp3; sourceTree = "<group>"; };
 		178C7F4D2A12808D001FC539 /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rain.mp3; sourceTree = "<group>"; };
-		178C7F4E2A12808D001FC539 /* water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = water.mp3; sourceTree = "<group>"; };
+		178C7F4E2A12808D001FC539 /* sea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sea.mp3; sourceTree = "<group>"; };
 		178C7F4F2A12808D001FC539 /* heart.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = heart.mp3; sourceTree = "<group>"; };
-		178C7F502A12808D001FC539 /* sheep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sheep.wav; sourceTree = "<group>"; };
 		178C7F512A12808D001FC539 /* clock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clock.mp3; sourceTree = "<group>"; };
 		178C7F522A12808D001FC539 /* bonfire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bonfire.mp3; sourceTree = "<group>"; };
 		178C7F532A12808D001FC539 /* owl.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = owl.mp3; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		178C7F552A12808E001FC539 /* forest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = forest.mp3; sourceTree = "<group>"; };
 		178C7F562A12808E001FC539 /* wind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wind.mp3; sourceTree = "<group>"; };
 		178C7F572A12808E001FC539 /* bird.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird.mp3; sourceTree = "<group>"; };
+		178C7F672A1284C6001FC539 /* sheep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sheep.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,12 +189,12 @@
 				178C7F4F2A12808D001FC539 /* heart.mp3 */,
 				178C7F532A12808D001FC539 /* owl.mp3 */,
 				178C7F4D2A12808D001FC539 /* rain.mp3 */,
+				178C7F672A1284C6001FC539 /* sheep.mp3 */,
 				178C7F4A2A12808D001FC539 /* rooster.mp3 */,
-				178C7F502A12808D001FC539 /* sheep.wav */,
 				178C7F542A12808D001FC539 /* swamp.mp3 */,
 				178C7F4C2A12808D001FC539 /* thunder.mp3 */,
 				178C7F4B2A12808D001FC539 /* train.mp3 */,
-				178C7F4E2A12808D001FC539 /* water.mp3 */,
+				178C7F4E2A12808D001FC539 /* sea.mp3 */,
 				178C7F562A12808E001FC539 /* wind.mp3 */,
 			);
 			path = Sounds;
@@ -264,13 +264,13 @@
 				178C7F602A12808E001FC539 /* clock.mp3 in Resources */,
 				178C7F5E2A12808E001FC539 /* heart.mp3 in Resources */,
 				178C7F5A2A12808E001FC539 /* train.mp3 in Resources */,
-				178C7F5D2A12808E001FC539 /* water.mp3 in Resources */,
+				178C7F5D2A12808E001FC539 /* sea.mp3 in Resources */,
 				178C7F182A0E8CC4001FC539 /* Assets.xcassets in Resources */,
 				178C7F5B2A12808E001FC539 /* thunder.mp3 in Resources */,
 				178C7F652A12808E001FC539 /* wind.mp3 in Resources */,
-				178C7F5F2A12808E001FC539 /* sheep.wav in Resources */,
 				178C7F622A12808E001FC539 /* owl.mp3 in Resources */,
 				178C7F5C2A12808E001FC539 /* rain.mp3 in Resources */,
+				178C7F682A1284C6001FC539 /* sheep.mp3 in Resources */,
 				178C7F612A12808E001FC539 /* bonfire.mp3 in Resources */,
 				178C7F642A12808E001FC539 /* forest.mp3 in Resources */,
 				178C7F592A12808E001FC539 /* rooster.mp3 in Resources */,
