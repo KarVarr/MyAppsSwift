@@ -4,22 +4,22 @@
 //
 //  Created by Karen Vardanian on 15.05.2023.
 //
-
+import Foundation
+import UIKit
 import AVFoundation
 
 class AudioPlayer {
+    
     var player: AVAudioPlayer?
     
     func playSound() {
-        guard let path = Bundle.main.path(forResource: "bonfireA", ofType: "aiff") else { return }
+        guard let path = Bundle.main.path(forResource: "bonfireW", ofType: "wav") else { return }
         
-        let url = URL(filePath: path)
+        let url = URL(fileURLWithPath: path)
         
-        do {
-            player = try AVAudioPlayer(contentsOf: url)
-            player?.play()
-        } catch let error {
-            print(error.localizedDescription)
-        }
+        player = try! AVAudioPlayer(contentsOf: url)
+        player?.play()
+        
     }
+    
 }

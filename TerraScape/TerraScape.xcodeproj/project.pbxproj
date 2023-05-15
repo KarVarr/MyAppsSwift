@@ -26,6 +26,7 @@
 		178C7F422A124B01001FC539 /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F412A124B01001FC539 /* rain.mp3 */; };
 		178C7F442A124B0C001FC539 /* thunder.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F432A124B0C001FC539 /* thunder.mp3 */; };
 		178C7F462A124C43001FC539 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F452A124C43001FC539 /* AudioPlayer.swift */; };
+		178C7F482A12552C001FC539 /* 14-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F472A12552B001FC539 /* 14-2.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		178C7F412A124B01001FC539 /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rain.mp3; sourceTree = "<group>"; };
 		178C7F432A124B0C001FC539 /* thunder.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunder.mp3; sourceTree = "<group>"; };
 		178C7F452A124C43001FC539 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		178C7F472A12552B001FC539 /* 14-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "14-2.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +84,7 @@
 		178C7F0D2A0E8CC2001FC539 /* TerraScape */ = {
 			isa = PBXGroup;
 			children = (
-				178C7F3C2A124AC6001FC539 /* Music */,
+				178C7F3C2A124AC6001FC539 /* Sounds */,
 				178C7F222A0E8D56001FC539 /* Application */,
 				178C7F252A0E8EFF001FC539 /* Model */,
 				178C7F262A0E8F07001FC539 /* View */,
@@ -159,15 +161,16 @@
 			path = ElementsView;
 			sourceTree = "<group>";
 		};
-		178C7F3C2A124AC6001FC539 /* Music */ = {
+		178C7F3C2A124AC6001FC539 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				178C7F3F2A124AF5001FC539 /* bonfireW.wav */,
 				178C7F432A124B0C001FC539 /* thunder.mp3 */,
 				178C7F412A124B01001FC539 /* rain.mp3 */,
-				178C7F3F2A124AF5001FC539 /* bonfireW.wav */,
+				178C7F472A12552B001FC539 /* 14-2.mp3 */,
 				178C7F3D2A124AEA001FC539 /* bonfireA.aiff */,
 			);
-			path = Music;
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +235,7 @@
 				178C7F1B2A0E8CC4001FC539 /* LaunchScreen.storyboard in Resources */,
 				178C7F422A124B01001FC539 /* rain.mp3 in Resources */,
 				178C7F3E2A124AEA001FC539 /* bonfireA.aiff in Resources */,
+				178C7F482A12552C001FC539 /* 14-2.mp3 in Resources */,
 				178C7F182A0E8CC4001FC539 /* Assets.xcassets in Resources */,
 				178C7F402A124AF5001FC539 /* bonfireW.wav in Resources */,
 			);

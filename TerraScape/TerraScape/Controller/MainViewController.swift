@@ -7,8 +7,8 @@
 
 import UIKit
 
-
 class MainViewController: UIViewController {
+    let audioPlayer = AudioPlayer()
     
     let uiCollectionView = CustomUICollectionView()
     let images = Images()
@@ -172,8 +172,8 @@ class MainViewController: UIViewController {
     
     
     @objc func settingButton() {
-        
     }
+    
     
     
 }
