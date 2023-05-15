@@ -36,6 +36,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         collectionView.deselectItem(at: indexPath, animated: true)
         
         audioPlayer.playSound(for: images.allImages[indexPath.item])
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

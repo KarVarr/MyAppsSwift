@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
         layout()
         collectionView()
         
-
+        
         createGradientLayerForCircle(for: smallBall.customUIView, of: 25, with: Helpers.Colors.smallBallGradient, start: CGPoint(x: 0.5, y: 0.9), end: CGPoint(x: 0.0, y: 1))
         createGradientLayerForCircle(for: mediumBall.customUIView, of: 50, with: Helpers.Colors.mediumBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
         createGradientLayerForCircle(for: bigBall.customUIView, of: 75, with: Helpers.Colors.bigBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
@@ -53,18 +53,18 @@ class MainViewController: UIViewController {
         
         
     }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        audioPlayer.player?.play()
-//    }
-//
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        if audioPlayer.player?.isPlaying == true {
-//            audioPlayer.player?.play()
-//        }
-//    }
+    //
+    //    override func viewWillDisappear(_ animated: Bool) {
+    //        super.viewWillDisappear(animated)
+    //        audioPlayer.player?.play()
+    //    }
+    //
+    //    override func viewWillAppear(_ animated: Bool) {
+    //        super.viewWillAppear(animated)
+    //        if audioPlayer.player?.isPlaying == true {
+    //            audioPlayer.player?.play()
+    //        }
+    //    }
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,7 +76,7 @@ class MainViewController: UIViewController {
         animateBalls(for: bigBall.customUIView, to: 210, path: false, time: 13)
         animateBalls(for: largeBall.customUIView, to: 270, path: true, time: 30)
     }
-
+    
     
     func addViews() {
         view.addSubview(smallBall.customUIView)
@@ -190,6 +190,8 @@ class MainViewController: UIViewController {
     }
     
     
+   
+    
     //MARK: - FUNCTIONs
     
     @objc func settingButton() {
@@ -197,11 +199,11 @@ class MainViewController: UIViewController {
     
     
     @objc func willEnterForeground() {
-            animateBalls(for: smallBall.customUIView, to: 180, path: true, time: 11)
-            animateBalls(for: mediumBall.customUIView, to: 150, path: false, time: 15)
-            animateBalls(for: bigBall.customUIView, to: 210, path: false, time: 13)
-            animateBalls(for: largeBall.customUIView, to: 270, path: true, time: 30)
-        }
+        animateBalls(for: smallBall.customUIView, to: 180, path: true, time: 11)
+        animateBalls(for: mediumBall.customUIView, to: 150, path: false, time: 15)
+        animateBalls(for: bigBall.customUIView, to: 210, path: false, time: 13)
+        animateBalls(for: largeBall.customUIView, to: 270, path: true, time: 30)
+    }
     
     
     

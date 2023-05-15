@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "sea-svgrepo-com.png",
+      "filename" : "sea.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "sea 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "sea 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
