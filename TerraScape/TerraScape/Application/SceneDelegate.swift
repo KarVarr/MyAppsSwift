@@ -10,16 +10,18 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-   
+    var mainViewController: MainViewController?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = UINavigationController(rootViewController: MainViewController())
+        let viewController = MainViewController()
+        window.rootViewController = UINavigationController(rootViewController: viewController)
         window.makeKeyAndVisible()
         window.overrideUserInterfaceStyle = .dark
         self.window = window
+        mainViewController = viewController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -40,11 +42,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-       
+        mainViewController?.createCircles()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-      
     }
 
 

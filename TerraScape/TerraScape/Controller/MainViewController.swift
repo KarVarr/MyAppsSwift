@@ -20,6 +20,8 @@ class MainViewController: UIViewController {
     
     let dynamicIslandBorderView = CustomUIView()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,13 +30,7 @@ class MainViewController: UIViewController {
         settings()
         layout()
         collectionView()
-        
-        
-        createGradientLayerForCircle(for: smallBall.customUIView, of: 25, with: Helpers.Colors.smallBallGradient, start: CGPoint(x: 0.5, y: 0.9), end: CGPoint(x: 0.0, y: 1))
-        createGradientLayerForCircle(for: mediumBall.customUIView, of: 50, with: Helpers.Colors.mediumBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
-        createGradientLayerForCircle(for: bigBall.customUIView, of: 75, with: Helpers.Colors.bigBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
-        createGradientLayerForCircle(for: largeBall.customUIView, of: 100, with: Helpers.Colors.largeBallGradient, start: CGPoint(x: 0.1, y: 0.5), end: CGPoint(x: 0.5, y: 0.5))
-        
+        createCircles()
         
         
         //        let modelName = UIDevice.current.modelName
@@ -53,29 +49,8 @@ class MainViewController: UIViewController {
         
         
     }
-    //
-    //    override func viewWillDisappear(_ animated: Bool) {
-    //        super.viewWillDisappear(animated)
-    //        audioPlayer.player?.play()
-    //    }
-    //
-    //    override func viewWillAppear(_ animated: Bool) {
-    //        super.viewWillAppear(animated)
-    //        if audioPlayer.player?.isPlaying == true {
-    //            audioPlayer.player?.play()
-    //        }
-    //    }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-        animateBalls(for: smallBall.customUIView, to: 180, path: true, time: 11)
-        animateBalls(for: mediumBall.customUIView, to: 150, path: false, time: 15)
-        animateBalls(for: bigBall.customUIView, to: 210, path: false, time: 13)
-        animateBalls(for: largeBall.customUIView, to: 270, path: true, time: 30)
-    }
+  
+   
     
     
     func addViews() {
@@ -189,6 +164,17 @@ class MainViewController: UIViewController {
         circle.clipsToBounds = true
     }
     
+    func createCircles() {
+        animateBalls(for: smallBall.customUIView, to: 180, path: true, time: 11)
+        animateBalls(for: mediumBall.customUIView, to: 150, path: false, time: 15)
+        animateBalls(for: bigBall.customUIView, to: 210, path: false, time: 13)
+        animateBalls(for: largeBall.customUIView, to: 270, path: true, time: 30)
+        
+        createGradientLayerForCircle(for: smallBall.customUIView, of: 25, with: Helpers.Colors.smallBallGradient, start: CGPoint(x: 0.5, y: 0.9), end: CGPoint(x: 0.0, y: 1))
+        createGradientLayerForCircle(for: mediumBall.customUIView, of: 50, with: Helpers.Colors.mediumBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
+        createGradientLayerForCircle(for: bigBall.customUIView, of: 75, with: Helpers.Colors.bigBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
+        createGradientLayerForCircle(for: largeBall.customUIView, of: 100, with: Helpers.Colors.largeBallGradient, start: CGPoint(x: 0.1, y: 0.5), end: CGPoint(x: 0.5, y: 0.5))
+    }
     
    
     
@@ -198,14 +184,12 @@ class MainViewController: UIViewController {
     }
     
     
-    @objc func willEnterForeground() {
+    func willEnterForeground() {
         animateBalls(for: smallBall.customUIView, to: 180, path: true, time: 11)
         animateBalls(for: mediumBall.customUIView, to: 150, path: false, time: 15)
         animateBalls(for: bigBall.customUIView, to: 210, path: false, time: 13)
         animateBalls(for: largeBall.customUIView, to: 270, path: true, time: 30)
     }
-    
-    
     
     
 }
