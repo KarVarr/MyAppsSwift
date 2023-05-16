@@ -35,9 +35,22 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell else { return }
+        
+        if cell.backgroundColor != UIColor(white: 1, alpha: 0.4) {
+            cell.backgroundColor = UIColor(white: 1, alpha: 0.4)
+        } else {
+            cell.backgroundColor = .clear
+        }
+        
         audioPlayer.playSound(for: images.allImages[indexPath.item])
         
     }
+    
+    
+    
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.allImages.count

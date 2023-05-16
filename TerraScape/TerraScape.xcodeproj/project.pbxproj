@@ -155,8 +155,8 @@
 			children = (
 				178C7F272A0E8F43001FC539 /* UICollectionView.swift */,
 				178C7F292A0E9F04001FC539 /* CustomCollectionViewCell.swift */,
-				178C7F322A0FF376001FC539 /* ElementsView */,
 				178C7F372A10DC85001FC539 /* Device.swift */,
+				178C7F322A0FF376001FC539 /* ElementsView */,
 			);
 			path = View;
 			sourceTree = "<group>";

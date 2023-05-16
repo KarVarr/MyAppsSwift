@@ -20,7 +20,9 @@ enum Helpers {
     }
     
     enum Colors {
-        static let whiteGradient = [UIColor(white: 1, alpha: 0.15).cgColor, UIColor(white: 1, alpha: 0.4).cgColor]
+        static let deselectWhiteGradient = [UIColor(white: 1, alpha: 0.15).cgColor, UIColor(white: 1, alpha: 0.4).cgColor]
+        static let selectWhiteGradient = [UIColor(white: 1, alpha: 0.5).cgColor, UIColor(white: 1, alpha: 0.9).cgColor]
+        
         static let mainViewGradient = [UIColor(red: 0.07, green: 0.76, blue: 0.91, alpha: 1.00).cgColor, UIColor(red: 0.77, green: 0.44, blue: 0.93, alpha: 1.00).cgColor, UIColor(red: 0.96, green: 0.31, blue: 0.35, alpha: 1.00).cgColor]
         
         static let smallBallGradient = [UIColor(red: 0.40, green: 1.00, blue: 0.00, alpha: 1.00).cgColor, UIColor(red: 0.40, green: 1.00, blue: 0.60, alpha: 1.00).cgColor]

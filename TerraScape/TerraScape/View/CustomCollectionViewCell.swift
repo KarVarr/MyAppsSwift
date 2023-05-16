@@ -30,6 +30,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     }
     
     
+    
     func addViews() {
         contentView.addSubview(nameOfSound.customLabel)
         contentView.addSubview(imageOfSound.customImageView)
@@ -39,7 +40,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
     }
     
     func settings() {
-        
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = bounds
@@ -47,14 +47,14 @@ class CustomCollectionViewCell: UICollectionViewCell {
 
         let gradient = CAGradientLayer()
         gradient.frame = bounds
-        gradient.colors = Helpers.Colors.whiteGradient
+        gradient.colors = Helpers.Colors.deselectWhiteGradient
         gradient.endPoint = CGPoint(x: 0, y: 0.25)
         
         let gradientBorder = CAGradientLayer()
         gradientBorder.frame = CGRect(origin: CGPointZero, size: self.bounds.size)
         gradientBorder.startPoint = CGPointMake(1.0, 0.2)
         gradientBorder.endPoint = CGPointMake(0.0, 0.2)
-        gradientBorder.colors = Helpers.Colors.whiteGradient
+        gradientBorder.colors = Helpers.Colors.deselectWhiteGradient
         
         
         let shapeLayer = CAShapeLayer()

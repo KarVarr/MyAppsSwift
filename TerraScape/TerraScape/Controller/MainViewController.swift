@@ -165,10 +165,7 @@ class MainViewController: UIViewController {
     }
     
     func createCircles() {
-        animateBalls(for: smallBall.customUIView, to: 180, path: true, time: 11)
-        animateBalls(for: mediumBall.customUIView, to: 150, path: false, time: 15)
-        animateBalls(for: bigBall.customUIView, to: 210, path: false, time: 13)
-        animateBalls(for: largeBall.customUIView, to: 270, path: true, time: 30)
+        willEnterForeground()
         
         createGradientLayerForCircle(for: smallBall.customUIView, of: 25, with: Helpers.Colors.smallBallGradient, start: CGPoint(x: 0.5, y: 0.9), end: CGPoint(x: 0.0, y: 1))
         createGradientLayerForCircle(for: mediumBall.customUIView, of: 50, with: Helpers.Colors.mediumBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
