@@ -34,7 +34,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     func addViews() {
         contentView.addSubview(nameOfSound.customLabel)
         contentView.addSubview(imageOfSound.customImageView)
-        contentView.addSubview(volumeUiView.customUIView)
+//        contentView.addSubview(volumeUiView.customUIView)
         
         volumeUiView.customUIView.addSubview(imageForVolume.customImageView)
     }
@@ -105,10 +105,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
             name.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
             name.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             
-            volume.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            volume.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
-            volume.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            volume.widthAnchor.constraint(equalToConstant: 60),
+//            volume.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+//            volume.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+//            volume.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+//            volume.widthAnchor.constraint(equalToConstant: 60),
             
             imageForVolume.bottomAnchor.constraint(equalTo: volume.bottomAnchor, constant: -10),
             imageForVolume.centerXAnchor.constraint(equalTo: volume.centerXAnchor),
