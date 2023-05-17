@@ -12,8 +12,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
     let nameOfSound = CustomLabelView()
     let imageOfSound = CustomImageView()
     let volumeUiView = CustomUIView()
-    
     let imageForVolume = CustomImageView()
+    
+    //    let volumeSlider = CustomUISlider()
+    
+    let volumeSlider = Slider()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,7 +37,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
     func addViews() {
         contentView.addSubview(nameOfSound.customLabel)
         contentView.addSubview(imageOfSound.customImageView)
-//        contentView.addSubview(volumeUiView.customUIView)
+        //        contentView.addSubview(volumeUiView.customUIView)
+        contentView.addSubview(volumeSlider.customSlider)
+        //        contentView.addSubview(volumeSlider)
         
         volumeUiView.customUIView.addSubview(imageForVolume.customImageView)
     }
@@ -44,7 +49,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
+        
         let gradient = CAGradientLayer()
         gradient.frame = bounds
         gradient.colors = Helpers.Colors.deselectWhiteGradient
@@ -85,6 +90,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
         
         imageForVolume.customImageView.image = UIImage(systemName: "speaker.wave.2")
         imageForVolume.customImageView.tintColor = UIColor.white
+        
+        //        volumeSlider.transform = CGAffineTransform(rotationAngle: -100)
     }
     
     
@@ -94,7 +101,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         let name = nameOfSound.customLabel
         let volume = volumeUiView.customUIView
         let imageForVolume = imageForVolume.customImageView
-        
+        let volumeSlider = volumeSlider.customSlider
         
         NSLayoutConstraint.activate([
             image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
@@ -105,10 +112,20 @@ class CustomCollectionViewCell: UICollectionViewCell {
             name.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
             name.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             
-//            volume.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-//            volume.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
-//            volume.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-//            volume.widthAnchor.constraint(equalToConstant: 60),
+            //            volume.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            //            volume.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            //            volume.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            //            volume.widthAnchor.constraint(equalToConstant: 60),
+            
+            volumeSlider.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            volumeSlider.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            volumeSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            volumeSlider.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: -40),
+            
+            //            volumeSlider.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            //            volumeSlider.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            //            volumeSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            //            volumeSlider.widthAnchor.constraint(equalToConstant: 60),
             
             imageForVolume.bottomAnchor.constraint(equalTo: volume.bottomAnchor, constant: -10),
             imageForVolume.centerXAnchor.constraint(equalTo: volume.centerXAnchor),
