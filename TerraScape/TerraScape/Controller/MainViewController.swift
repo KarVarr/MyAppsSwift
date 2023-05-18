@@ -33,6 +33,7 @@ class MainViewController: UIViewController {
         createCircles()
         
         
+        
         //        let modelName = UIDevice.current.modelName
         //
         //        switch modelName {
@@ -132,7 +133,11 @@ class MainViewController: UIViewController {
         
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(settingButton))
         settingsButton.tintColor = UIColor.white
-        navigationItem.rightBarButtonItem = settingsButton
+        navigationItem.leftBarButtonItem = settingsButton
+        
+        let playStopButton = UIBarButtonItem(image: UIImage(systemName: "play"), style: .plain, target: self, action: #selector(playStopSound))
+        playStopButton.tintColor = UIColor.white
+        navigationItem.rightBarButtonItem = playStopButton
     }
     
     //MARK: - ANIMATION
@@ -176,6 +181,11 @@ class MainViewController: UIViewController {
    
     
     //MARK: - FUNCTIONs
+    @objc func playStopSound() {
+        audioPlayer.playSound(for: images.allImages.first!)
+        
+    }
+    
     
     @objc func settingButton() {
     }

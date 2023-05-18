@@ -12,8 +12,11 @@ class Slider {
        let slider = UISlider()
         slider.translatesAutoresizingMaskIntoConstraints = false
         slider.transform = CGAffineTransform(rotationAngle: -.pi / 2)
-        slider.minimumValue = 0
-        slider.maximumValue = 100
+        slider.minimumValue = 0.0
+        slider.maximumValue = 1.0
+        slider.isContinuous = true
+        slider.value = 0.4
+        
         slider.tintColor = .secondaryLabel
         
         return slider

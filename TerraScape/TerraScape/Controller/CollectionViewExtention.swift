@@ -12,6 +12,7 @@ import UIKit
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
+    
     func collectionView() {
         uiCollectionView.customCollectionView.delegate = self
         uiCollectionView.customCollectionView.dataSource = self
@@ -43,14 +44,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.backgroundColor = .clear
         }
         
-        audioPlayer.playSound(for: images.allImages[indexPath.item])
+//        audioPlayer.playSound(for: images.allImages[indexPath.item], with: cell.currentVolume)
         
     }
-    
-    
-    
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.allImages.count
@@ -63,6 +59,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         cell.imageOfSound.customImageView.image = UIImage(named: imageNames)
         cell.nameOfSound.customLabel.text = imageNames.capitalized
+        cell.audioPlayer.players.first?.volume = cell.currentVolume
         
         return cell
     }

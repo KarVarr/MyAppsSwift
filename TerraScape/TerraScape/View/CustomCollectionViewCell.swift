@@ -8,6 +8,7 @@
 import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
+    let audioPlayer = AudioPlayer()
     
     let nameOfSound = CustomLabelView()
     let imageOfSound = CustomImageView()
@@ -15,7 +16,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     let imageForVolume = CustomImageView()
     
     //    let volumeSlider = CustomUISlider()
-    
+    var currentVolume: Float = 0.9
     let volumeSlider = Slider()
     
     override init(frame: CGRect) {
@@ -25,6 +26,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         addViews()
         layout()
         
+        volumeSlider.customSlider.addTarget(self, action: #selector(volumeChangeValueChanged), for: .valueChanged)
         
     }
     
@@ -35,10 +37,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     
     func addViews() {
+        contentView.addSubview(volumeSlider.customSlider)
         contentView.addSubview(nameOfSound.customLabel)
         contentView.addSubview(imageOfSound.customImageView)
         //        contentView.addSubview(volumeUiView.customUIView)
-        contentView.addSubview(volumeSlider.customSlider)
         //        contentView.addSubview(volumeSlider)
         
         volumeUiView.customUIView.addSubview(imageForVolume.customImageView)
@@ -91,7 +93,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
         imageForVolume.customImageView.image = UIImage(systemName: "speaker.wave.2")
         imageForVolume.customImageView.tintColor = UIColor.white
         
-        //        volumeSlider.transform = CGAffineTransform(rotationAngle: -100)
+       
+      
     }
     
     
@@ -133,4 +136,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
             imageForVolume.widthAnchor.constraint(equalToConstant: 30),
         ])
     }
+    
+    @objc func volumeChangeValueChanged(sender: UISlider) {
+        currentVolume = sender.value
+        print(currentVolume)
+//        audioPlayer.players?.volume = currentVolume
+    }
+    
 }

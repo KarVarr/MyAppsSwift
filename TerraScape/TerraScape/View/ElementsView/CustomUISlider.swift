@@ -46,7 +46,7 @@ class CustomUISlider: UISlider {
     }
     
     private func createThumbImageView() {
-        let thumbSize = (3 * frame.height) / 4
+//        let thumbSize = (3 * frame.height) / 4
         let thumbView = ThumbView(frame: .init(x: 0, y: 0, width: 5, height: 55))
 //        thumbView.layer.cornerRadius = thumbSize / 2
         
