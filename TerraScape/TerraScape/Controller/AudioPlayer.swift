@@ -47,7 +47,10 @@ class AudioPlayerForSound {
                 let url = URL(filePath: path)
                 do {
                     let player = try AVAudioPlayer(contentsOf: url)
+                    player.numberOfLoops = -1
+                    player.prepareToPlay()
                     players.append(player)
+                    
                 } catch {
                     print("Failed to create audio player: \(error.localizedDescription)")
                 }

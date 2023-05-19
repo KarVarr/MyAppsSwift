@@ -12,20 +12,15 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     let nameOfSound = CustomLabelView()
     let imageOfSound = CustomImageView()
-    let volumeUiView = CustomUIView()
-    let imageForVolume = CustomImageView()
+    let volumeOfSound = Slider()
     
-    var currentVolume: Float = 0.9
-    let volumeSlider = Slider()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         settings()
         addViews()
         layout()
-        
-        volumeSlider.customSlider.addTarget(self, action: #selector(volumeChangeValueChanged), for: .valueChanged)
         
     }
     
@@ -36,11 +31,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     
     func addViews() {
-        contentView.addSubview(volumeSlider.customSlider)
+        contentView.addSubview(volumeOfSound.customSlider)
         contentView.addSubview(nameOfSound.customLabel)
         contentView.addSubview(imageOfSound.customImageView)
         
-        volumeUiView.customUIView.addSubview(imageForVolume.customImageView)
+        
     }
     
     func settings() {
@@ -81,14 +76,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
         
         nameOfSound.customLabel.text = "Forest"
         
-        volumeUiView.customUIView.layer.insertSublayer(gradient, at: 0)
-        volumeUiView.customUIView.layer.borderWidth = 2
-        volumeUiView.customUIView.layer.borderColor = UIColor.white.withAlphaComponent(0.3).cgColor
-        volumeUiView.customUIView.layer.cornerRadius = Helpers.Radius.cornerRadius
-        volumeUiView.customUIView.clipsToBounds = true
-        
-        imageForVolume.customImageView.image = UIImage(systemName: "speaker.wave.2")
-        imageForVolume.customImageView.tintColor = UIColor.white
         
     }
     
@@ -97,9 +84,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     func layout() {
         let image = imageOfSound.customImageView
         let name = nameOfSound.customLabel
-        let volume = volumeUiView.customUIView
-        let imageForVolume = imageForVolume.customImageView
-        let volumeSlider = volumeSlider.customSlider
+        let volume = volumeOfSound.customSlider
         
         NSLayoutConstraint.activate([
             
@@ -111,23 +96,12 @@ class CustomCollectionViewCell: UICollectionViewCell {
             name.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
             name.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             
-            volumeSlider.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
-            volumeSlider.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-            volumeSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            volumeSlider.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: -40),
-            
-            imageForVolume.bottomAnchor.constraint(equalTo: volume.bottomAnchor, constant: -10),
-            imageForVolume.centerXAnchor.constraint(equalTo: volume.centerXAnchor),
-            imageForVolume.heightAnchor.constraint(equalToConstant: 30),
-            imageForVolume.widthAnchor.constraint(equalToConstant: 30),
+            volume.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            volume.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            volume.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            volume.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: -20),
             
         ])
-    }
-    
-    @objc func volumeChangeValueChanged(sender: UISlider) {
-        currentVolume = sender.value
-        print(currentVolume)
-
     }
     
 }

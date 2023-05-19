@@ -53,8 +53,6 @@ class MainViewController: UIViewController {
     }
   
    
-    
-    
     func addViews() {
         view.addSubview(smallBall.customUIView)
         view.addSubview(mediumBall.customUIView)
@@ -136,13 +134,9 @@ class MainViewController: UIViewController {
         settingsButton.tintColor = UIColor.white
         navigationItem.leftBarButtonItem = settingsButton
         
-        let playStopButton = UIBarButtonItem(image: UIImage(systemName: "play"), style: .plain, target: self, action: #selector(playStopSound))
-        playStopButton.tintColor = UIColor.white
-        navigationItem.rightBarButtonItem = playStopButton
     }
     
     //MARK: - ANIMATION
-    
     
     func animateBalls(for ball: UIView, to distance: CGFloat, path clockwise: Bool, time duration: CFTimeInterval) {
         let centerX = view.bounds.width / 2
@@ -182,13 +176,10 @@ class MainViewController: UIViewController {
    
     
     //MARK: - FUNCTIONs
-    @objc func playStopSound() {
-        
-        
-    }
-    
+   
     
     @objc func settingButton() {
+        
     }
     
     

@@ -14,7 +14,7 @@ class AllSounds {
     
     init() {
         for value in images.allImages {
-            sounds.append(Sound(name: value, volume: 0.0, image: value))
+            sounds.append(Sound(name: value, volume: 0.0, image: value, onOff: false))
         }
     }
 }
