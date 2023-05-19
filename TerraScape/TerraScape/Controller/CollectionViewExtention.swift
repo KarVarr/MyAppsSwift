@@ -66,8 +66,27 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.nameOfSound.customLabel.text = sound.name.capitalized
         cell.imageOfSound.customImageView.image = UIImage(named: sound.name)
         cell.volumeSlider.customSlider.value = sound.volume
+        cell.volumeSlider.customSlider.addTarget(self, action: #selector(volumeSliderChanged), for: .valueChanged)
+        cell.volumeSlider.customSlider.tag = indexPath.item
         
         
         return cell
+    }
+    
+    @objc func volumeSliderChanged(_ sender: UISlider) {
+        let soundIndex = sender.tag
+        allSounds.sounds[soundIndex].volume = sender.value
+        
+        let player = audioPlayer.players[soundIndex]
+        
+        player.volume = sender.value
+        print(sender.value)
+        
+        if player.volume == 0.0 {
+            player.stop()
+        } else {
+            player.play()
+        }
+        
     }
 }

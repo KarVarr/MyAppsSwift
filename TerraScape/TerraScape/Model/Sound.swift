@@ -9,6 +9,6 @@ import Foundation
 
 struct Sound {
     let name: String
-    let volume: Float
+    var volume: Float
     let image: String
 }
