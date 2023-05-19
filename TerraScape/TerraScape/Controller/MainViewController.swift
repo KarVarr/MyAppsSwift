@@ -8,7 +8,8 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    let audioPlayer = AudioPlayer()
+    let audioPlayer = AudioPlayerForSound()
+    let allSounds = AllSounds()
     
     let uiCollectionView = CustomUICollectionView()
     let images = Images()
@@ -182,7 +183,7 @@ class MainViewController: UIViewController {
     
     //MARK: - FUNCTIONs
     @objc func playStopSound() {
-        audioPlayer.playSound(for: images.allImages.first!)
+        
         
     }
     

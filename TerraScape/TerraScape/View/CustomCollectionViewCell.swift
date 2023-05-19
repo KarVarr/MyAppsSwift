@@ -8,14 +8,13 @@
 import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
-    let audioPlayer = AudioPlayer()
+    let audioPlayer = AudioPlayerForSound()
     
     let nameOfSound = CustomLabelView()
     let imageOfSound = CustomImageView()
     let volumeUiView = CustomUIView()
     let imageForVolume = CustomImageView()
     
-    //    let volumeSlider = CustomUISlider()
     var currentVolume: Float = 0.9
     let volumeSlider = Slider()
     
@@ -40,8 +39,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(volumeSlider.customSlider)
         contentView.addSubview(nameOfSound.customLabel)
         contentView.addSubview(imageOfSound.customImageView)
-        //        contentView.addSubview(volumeUiView.customUIView)
-        //        contentView.addSubview(volumeSlider)
         
         volumeUiView.customUIView.addSubview(imageForVolume.customImageView)
     }
@@ -93,8 +90,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
         imageForVolume.customImageView.image = UIImage(systemName: "speaker.wave.2")
         imageForVolume.customImageView.tintColor = UIColor.white
         
-       
-      
     }
     
     
@@ -107,6 +102,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         let volumeSlider = volumeSlider.customSlider
         
         NSLayoutConstraint.activate([
+            
             image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             image.widthAnchor.constraint(equalToConstant: 80),
@@ -115,32 +111,23 @@ class CustomCollectionViewCell: UICollectionViewCell {
             name.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
             name.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             
-            //            volume.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            //            volume.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
-            //            volume.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            //            volume.widthAnchor.constraint(equalToConstant: 60),
-            
             volumeSlider.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
             volumeSlider.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
             volumeSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             volumeSlider.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: -40),
             
-            //            volumeSlider.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
-            //            volumeSlider.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-            //            volumeSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            //            volumeSlider.widthAnchor.constraint(equalToConstant: 60),
-            
             imageForVolume.bottomAnchor.constraint(equalTo: volume.bottomAnchor, constant: -10),
             imageForVolume.centerXAnchor.constraint(equalTo: volume.centerXAnchor),
             imageForVolume.heightAnchor.constraint(equalToConstant: 30),
             imageForVolume.widthAnchor.constraint(equalToConstant: 30),
+            
         ])
     }
     
     @objc func volumeChangeValueChanged(sender: UISlider) {
         currentVolume = sender.value
         print(currentVolume)
-//        audioPlayer.players?.volume = currentVolume
+
     }
     
 }

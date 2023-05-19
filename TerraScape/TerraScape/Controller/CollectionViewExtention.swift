@@ -49,17 +49,24 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.allImages.count
+//        return images.allImages.count
+        return allSounds.sounds.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Helpers.Keys.collectionCell, for: indexPath) as! CustomCollectionViewCell
         
-        let imageNames = images.allImages[indexPath.item]
+//        let imageNames = images.allImages[indexPath.item]
+//
+//        cell.imageOfSound.customImageView.image = UIImage(named: imageNames)
+//        cell.nameOfSound.customLabel.text = imageNames.capitalized
+//        cell.audioPlayer.players.first?.volume = cell.currentVolume
         
-        cell.imageOfSound.customImageView.image = UIImage(named: imageNames)
-        cell.nameOfSound.customLabel.text = imageNames.capitalized
-        cell.audioPlayer.players.first?.volume = cell.currentVolume
+        let sound = allSounds.sounds[indexPath.item]
+        cell.nameOfSound.customLabel.text = sound.name.capitalized
+        cell.imageOfSound.customImageView.image = UIImage(named: sound.name)
+        cell.volumeSlider.customSlider.value = sound.volume
+        
         
         return cell
     }
