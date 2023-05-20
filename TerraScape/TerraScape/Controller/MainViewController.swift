@@ -19,12 +19,13 @@ class MainViewController: UIViewController {
     let bigBall = CustomUIView()
     let largeBall = CustomUIView()
     
-    let dynamicIslandBorderView = CustomUIView()
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let defaults = UserDefaults.standard
+        defaults.set(allSounds.sounds, forKey: "AllSounds")
+        
+        
         
         addViews()
         navigation()
@@ -58,7 +59,6 @@ class MainViewController: UIViewController {
         view.addSubview(mediumBall.customUIView)
         view.addSubview(bigBall.customUIView)
         view.addSubview(largeBall.customUIView)
-        view.addSubview(dynamicIslandBorderView.customUIView)
         
         view.addSubview(uiCollectionView.customCollectionView)
         
@@ -76,10 +76,6 @@ class MainViewController: UIViewController {
         
         uiCollectionView.customCollectionView.showsVerticalScrollIndicator = false
         
-        
-        dynamicIslandBorderView.customUIView.backgroundColor = .white
-        dynamicIslandBorderView.customUIView.layer.cornerRadius = 20
-        
     }
     
     //MARK: - LAYOUT
@@ -89,7 +85,6 @@ class MainViewController: UIViewController {
         let mediumBall = mediumBall.customUIView
         let bigBall = bigBall.customUIView
         let largeBall = largeBall.customUIView
-        let dynamicIsland = dynamicIslandBorderView.customUIView
         
         NSLayoutConstraint.activate([
             collection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -116,11 +111,6 @@ class MainViewController: UIViewController {
             largeBall.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             largeBall.widthAnchor.constraint(equalToConstant: 200),
             largeBall.heightAnchor.constraint(equalToConstant: 200),
-            
-            dynamicIsland.topAnchor.constraint(equalTo: view.topAnchor, constant: 9.5),
-            dynamicIsland.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dynamicIsland.widthAnchor.constraint(equalToConstant: 130),
-            dynamicIsland.heightAnchor.constraint(equalToConstant: 40),
             
         ])
     }

@@ -5,6 +5,7 @@
 //  Created by Karen Vardanian on 14.05.2023.
 //
 
+import AVFoundation
 import UIKit
 
 
@@ -62,6 +63,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     /**This function plays\stops each song individually! */
     @objc func volumeSliderChanged(_ sender: UISlider) {
+        
         let soundIndex = sender.tag
         allSounds.sounds[soundIndex].volume = sender.value
         
@@ -71,13 +73,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if player.volume == 0.0 {
             player.stop()
-            allSounds.sounds[soundIndex].onOff = false
-            print(allSounds.sounds[soundIndex].onOff)
-            
         } else {
             player.play()
-            allSounds.sounds[soundIndex].onOff = true
-            print(allSounds.sounds[soundIndex].onOff)
         }
         
     }

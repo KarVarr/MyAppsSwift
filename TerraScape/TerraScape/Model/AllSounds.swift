@@ -10,6 +10,7 @@ import Foundation
 
 class AllSounds {
     private let images = Images()
+    
     var sounds: [Sound] = []
     
     init() {

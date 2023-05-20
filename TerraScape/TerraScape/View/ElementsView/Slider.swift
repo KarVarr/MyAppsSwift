@@ -15,7 +15,7 @@ class Slider {
         slider.minimumValue = 0.0
         slider.maximumValue = 1.0
         slider.isContinuous = false
-        slider.value = 0.4
+        slider.minimumTrackTintColor = .cyan
         
         slider.tintColor = .secondaryLabel
         

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Sound {
+struct Sound: Codable {
     let name: String
     var volume: Float
     let image: String
