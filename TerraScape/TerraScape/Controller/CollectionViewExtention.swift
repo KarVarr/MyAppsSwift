@@ -34,7 +34,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        guard let cell = collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell else { return }
+//        guard let cell = collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell else { return }
         
     }
     
@@ -52,7 +52,24 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.volumeOfSound.customSlider.addTarget(self, action: #selector(volumeSliderChanged), for: .valueChanged)
         cell.volumeOfSound.customSlider.tag = indexPath.item
         
+        if sound.onOff {
+            UIView.animate(withDuration: 1.0,delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseInOut) {
+                cell.backgroundColor = .orange.withAlphaComponent(0.7)
+                cell.nameOfSound.customLabel.textColor = .white
+            }
+        } else {
+            UIView.animate(withDuration: 0) {
+                cell.backgroundColor = .clear
+                cell.nameOfSound.customLabel.textColor = .secondaryLabel
+            }
+        }
         
+        // Reset cell background color before returning the cell
+            cell.contentView.backgroundColor = .clear
+        
+        if cellsToUpdate.contains(indexPath) {
+            cellsToUpdate.remove(at: cellsToUpdate.firstIndex(of: indexPath)!)
+        }
         
         return cell
     }
@@ -73,9 +90,21 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if player.volume == 0.0 {
             player.stop()
+            allSounds.sounds[soundIndex].onOff = false
         } else {
             player.play()
+            allSounds.sounds[soundIndex].onOff = true
         }
+        
+        savedData.save()
+        
+        let indexPath = IndexPath(item: soundIndex, section: 0)
+        if !cellsToUpdate.contains(indexPath) {
+            cellsToUpdate.append(indexPath)
+        }
+        
+        uiCollectionView.customCollectionView.reloadItems(at: cellsToUpdate)
+        cellsToUpdate.removeAll()
         
     }
 }

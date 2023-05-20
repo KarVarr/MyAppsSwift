@@ -8,6 +8,9 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    let savedData = SavedData()
+    var cellsToUpdate: [IndexPath] = []
+    
     let audioPlayer = AudioPlayerForSound()
     let allSounds = AllSounds()
     
@@ -22,11 +25,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let defaults = UserDefaults.standard
-        defaults.set(allSounds.sounds, forKey: "AllSounds")
-        
-        
-        
+        savedData.load()
+            
         addViews()
         navigation()
         settings()
@@ -53,6 +53,8 @@ class MainViewController: UIViewController {
         
     }
   
+    
+    
    
     func addViews() {
         view.addSubview(smallBall.customUIView)
