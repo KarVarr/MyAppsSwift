@@ -34,7 +34,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-//        guard let cell = collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell else { return }
+        //        guard let cell = collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell else { return }
         
     }
     
@@ -65,7 +65,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         // Reset cell background color before returning the cell
-            cell.contentView.backgroundColor = .clear
+        cell.contentView.backgroundColor = .clear
         
         if cellsToUpdate.contains(indexPath) {
             cellsToUpdate.remove(at: cellsToUpdate.firstIndex(of: indexPath)!)
@@ -80,6 +80,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     /**This function plays\stops each song individually! */
     @objc func volumeSliderChanged(_ sender: UISlider) {
+        
         
         let soundIndex = sender.tag
         allSounds.sounds[soundIndex].volume = sender.value

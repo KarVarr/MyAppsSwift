@@ -12,6 +12,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     let nameOfSound = CustomLabelView()
     let imageOfSound = CustomImageView()
+//    let volumeOfSound = CustomSlider()
     let volumeOfSound = UISliderCustom()
     
     let sliderView = CustomUIView()
@@ -38,6 +39,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
         
         contentView.addSubview(sliderView.customUIView)
         sliderView.customUIView.addSubview(volumeOfSound.customSlider)
+        
+        let customTrackLayer = CALayer()
+        customTrackLayer.backgroundColor = UIColor.red.cgColor
+        volumeOfSound.customSlider.layer.addSublayer(customTrackLayer)
     }
     
     func settings() {
@@ -114,5 +119,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
             
         ])
     }
+    
+    
     
 }

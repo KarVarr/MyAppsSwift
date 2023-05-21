@@ -40,6 +40,7 @@
 		17D1D9152A17CFAA00A173E1 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D9142A17CFAA00A173E1 /* Sound.swift */; };
 		17D1D9172A17D2E300A173E1 /* AllSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D9162A17D2E300A173E1 /* AllSounds.swift */; };
 		17D1D9192A19359D00A173E1 /* SavedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D9182A19359D00A173E1 /* SavedData.swift */; };
+		17D1D91B2A1AC79900A173E1 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D91A2A1AC79900A173E1 /* CustomSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		17D1D9142A17CFAA00A173E1 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		17D1D9162A17D2E300A173E1 /* AllSounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSounds.swift; sourceTree = "<group>"; };
 		17D1D9182A19359D00A173E1 /* SavedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedData.swift; sourceTree = "<group>"; };
+		17D1D91A2A1AC79900A173E1 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				178C7F302A0EBDBC001FC539 /* CustomImageView.swift */,
 				178C7F352A1014FC001FC539 /* CustomUIView.swift */,
 				178C7F712A155225001FC539 /* UISliderCustom.swift */,
+				17D1D91A2A1AC79900A173E1 /* CustomSlider.swift */,
 			);
 			path = ElementsView;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				178C7F0F2A0E8CC2001FC539 /* AppDelegate.swift in Sources */,
 				178C7F282A0E8F43001FC539 /* UICollectionView.swift in Sources */,
 				178C7F2D2A0E9F41001FC539 /* Helper.swift in Sources */,
+				17D1D91B2A1AC79900A173E1 /* CustomSlider.swift in Sources */,
 				17D1D9192A19359D00A173E1 /* SavedData.swift in Sources */,
 				178C7F462A124C43001FC539 /* AudioPlayer.swift in Sources */,
 				178C7F112A0E8CC2001FC539 /* SceneDelegate.swift in Sources */,
