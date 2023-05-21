@@ -22,8 +22,6 @@ class MainViewController: UIViewController {
     let bigBall = CustomUIView()
     let largeBall = CustomUIView()
     
-    let slid = Slider()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
