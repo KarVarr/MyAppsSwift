@@ -7,17 +7,19 @@
 
 import UIKit
 
-class ThumbView: UIView {
+// Step 4
+final class ThumbView: UIView {
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
     }
-    
+
     private func setup() {
         backgroundColor = UIColor(red: 183 / 255, green: 122 / 255, blue: 231 / 255, alpha: 1)
         let middleView = UIView(frame: .init(x: frame.midX - 6, y: frame.midY - 6, width: 12, height: 12))
@@ -25,11 +27,11 @@ class ThumbView: UIView {
         middleView.layer.cornerRadius = 6
         addSubview(middleView)
     }
-    
-    
 }
 
+// Step 4
 extension UIView {
+
     var snapshot: UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
         let capturedImage = renderer.image { context in

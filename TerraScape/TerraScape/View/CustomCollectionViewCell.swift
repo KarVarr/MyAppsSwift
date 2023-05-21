@@ -12,7 +12,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     let nameOfSound = CustomLabelView()
     let imageOfSound = CustomImageView()
-    let volumeOfSound = Slider()
+    let volumeOfSound = UISliderCustom()
+    
+    let slider = Slider()
+    let sliderView = CustomUIView()
     
 
     override init(frame: CGRect) {
@@ -35,7 +38,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(nameOfSound.customLabel)
         contentView.addSubview(imageOfSound.customImageView)
         
-        
+//        contentView.addSubview(slider)
+        contentView.addSubview(sliderView.customUIView)
+        sliderView.customUIView.addSubview(volumeOfSound.customSlider)
     }
     
     func settings() {
@@ -76,7 +81,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
         
         nameOfSound.customLabel.text = "Forest"
         
-        
+        sliderView.customUIView.backgroundColor = .cyan.withAlphaComponent(0.3)
+//        sliderView.customUIView.layer.cornerRadius = 20
+        slider.transform = CGAffineTransform(rotationAngle: -.pi / 2)
     }
     
     
@@ -85,6 +92,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
         let image = imageOfSound.customImageView
         let name = nameOfSound.customLabel
         let volume = volumeOfSound.customSlider
+        
+        let sliderView = sliderView.customUIView
         
         NSLayoutConstraint.activate([
             
@@ -100,6 +109,19 @@ class CustomCollectionViewCell: UICollectionViewCell {
             volume.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
             volume.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             volume.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: -20),
+            
+            
+//            slider.topAnchor.constraint(equalTo: contentView.topAnchor),
+//            slider.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+//            slider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+//            slider.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: -20),
+//            slider.widthAnchor.constraint(equalToConstant: 80),
+//            slider.heightAnchor.constraint(equalToConstant: 250),
+            
+            sliderView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            sliderView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            sliderView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            sliderView.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 10),
             
         ])
     }

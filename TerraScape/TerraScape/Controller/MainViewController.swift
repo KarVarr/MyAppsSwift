@@ -11,16 +11,18 @@ class MainViewController: UIViewController {
     let savedData = SavedData()
     var cellsToUpdate: [IndexPath] = []
     
-    let audioPlayer = AudioPlayerForSound()
     let allSounds = AllSounds()
+    let audioPlayer = AudioPlayerForSound()
     
     let uiCollectionView = CustomUICollectionView()
-    let images = Images()
     
+    let images = Images()
     let smallBall = CustomUIView()
     let mediumBall = CustomUIView()
     let bigBall = CustomUIView()
     let largeBall = CustomUIView()
+    
+    let slid = Slider()
     
     override func viewDidLoad() {
         super.viewDidLoad()

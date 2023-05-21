@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Slider {
+class UISliderCustom {
     let customSlider: UISlider = {
        let slider = UISlider()
         slider.translatesAutoresizingMaskIntoConstraints = false
@@ -18,6 +18,14 @@ class Slider {
         slider.minimumTrackTintColor = .white
         
         slider.tintColor = .secondaryLabel
+        slider.backgroundColor = .clear
+        
+        let baseLayer = CALayer()
+        baseLayer.borderWidth = 1
+        baseLayer.borderColor = UIColor.lightGray.cgColor
+        baseLayer.backgroundColor = UIColor.red.cgColor
+        baseLayer.frame = CGRect(x: 0, y: 0, width: 40, height: 80)
+        slider.layer.insertSublayer(baseLayer, at: 0)
         
         return slider
     }()
