@@ -26,6 +26,9 @@ class MainViewController: UIViewController {
     let bigBall = CustomUIView()
     let largeBall = CustomUIView()
     
+    let toolbar = ToolbarView()
+    
+    
     
     
     override func viewDidLoad() {
@@ -34,7 +37,8 @@ class MainViewController: UIViewController {
         savedData.load()
         
         addViews()
-        navigation()
+//        navigation()
+//        toolbarSetting()
         settings()
         layout()
         collectionView()
@@ -68,6 +72,9 @@ class MainViewController: UIViewController {
         
         view.addSubview(uiCollectionView.customCollectionView)
         
+        view.addSubview(toolbar)
+        
+        
     }
     
     func settings() {
@@ -84,6 +91,11 @@ class MainViewController: UIViewController {
         
     }
     
+//    func toolbarSetting() {
+//        toolbar.customUIView.backgroundColor = .black
+//        toolbar.customUIView.layer.cornerRadius = 40
+//    }
+    
     //MARK: - LAYOUT
     func layout() {
         let collection = uiCollectionView.customCollectionView
@@ -97,6 +109,11 @@ class MainViewController: UIViewController {
             collection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             collection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             collection.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            toolbar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+            toolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            toolbar.heightAnchor.constraint(equalToConstant: 80),
             
             smallBall.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             smallBall.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
@@ -143,6 +160,8 @@ class MainViewController: UIViewController {
         navigationItem.leftBarButtonItem = settingsButton
         
     }
+    
+    
     
     //MARK: - ANIMATION
     
@@ -200,8 +219,4 @@ class MainViewController: UIViewController {
     }
     
    
-    
-    
-
-    
 }

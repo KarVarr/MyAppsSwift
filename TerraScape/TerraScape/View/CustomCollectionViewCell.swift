@@ -12,7 +12,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     let nameOfSound = CustomLabelView()
     let imageOfSound = CustomImageView()
-    let volumeOfSound = UISliderCustom()
+    let volumeOfSound = CustomUISlider()
     
     let sliderView = CustomUIView()
     

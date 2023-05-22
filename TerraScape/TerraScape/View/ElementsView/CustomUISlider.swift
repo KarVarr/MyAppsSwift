@@ -1,5 +1,5 @@
 //
-//  Slider.swift
+//  CustomUISlider.swift
 //  TerraScape
 //
 //  Created by Karen Vardanian on 17.05.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UISliderCustom {
+class CustomUISlider {
     let customSlider: UISlider = {
         let slider = UISlider()
         slider.translatesAutoresizingMaskIntoConstraints = false
