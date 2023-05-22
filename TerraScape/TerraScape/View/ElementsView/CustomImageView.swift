@@ -14,7 +14,6 @@ class CustomImageView {
         image.tintColor = .red
         image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
-        image.image = UIImage(named: "rain")?.withRenderingMode(.alwaysTemplate)
         return image
     }()
 }

@@ -22,6 +22,8 @@ enum Helpers {
     enum Colors {
         static let cellBackgroundColor = UIColor(red: 0.23, green: 0.60, blue: 0.73, alpha: 1.00)
         
+        static let navigationBarBackgroundColor = UIColor.clear
+        
         static let deselectWhiteGradient = [UIColor(white: 1, alpha: 0.15).cgColor, UIColor(white: 1, alpha: 0.4).cgColor]
         static let selectWhiteGradient = [UIColor(white: 1, alpha: 0.5).cgColor, UIColor(white: 1, alpha: 0.9).cgColor]
         

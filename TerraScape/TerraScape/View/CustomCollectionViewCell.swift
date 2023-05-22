@@ -78,11 +78,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = Helpers.Radius.cornerRadius
         clipsToBounds = true
         
-        imageOfSound.customImageView.image = UIImage(named: "bird")
-        imageOfSound.customImageView.tintColor = UIColor.white
-        
-        nameOfSound.customLabel.text = "Forest"
-        
         sliderView.customUIView.layer.cornerRadius = 15
         sliderView.customUIView.backgroundColor = .white.withAlphaComponent(0.5)
     }

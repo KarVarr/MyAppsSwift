@@ -56,8 +56,6 @@ class MainViewController: UIViewController {
     }
     
     
-    
-    
     func addViews() {
         view.addSubview(smallBall.customUIView)
         view.addSubview(mediumBall.customUIView)
@@ -125,7 +123,7 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor(red: 0.07, green: 0.76, blue: 0.91, alpha: 1.00)
+        appearance.backgroundColor = Helpers.Colors.navigationBarBackgroundColor
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
