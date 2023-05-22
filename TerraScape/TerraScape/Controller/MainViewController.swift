@@ -22,13 +22,13 @@ class MainViewController: UIViewController {
     let bigBall = CustomUIView()
     let largeBall = CustomUIView()
     
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         savedData.load()
-            
+        
         addViews()
         navigation()
         settings()
@@ -54,10 +54,10 @@ class MainViewController: UIViewController {
         
         
     }
-  
     
     
-   
+    
+    
     func addViews() {
         view.addSubview(smallBall.customUIView)
         view.addSubview(mediumBall.customUIView)
@@ -92,8 +92,8 @@ class MainViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             collection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
-            collection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
+            collection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            collection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             collection.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             smallBall.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -123,6 +123,18 @@ class MainViewController: UIViewController {
     func navigation() {
         title = Helpers.Strings.navigationTitle
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor(red: 0.07, green: 0.76, blue: 0.91, alpha: 1.00)
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        
         
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(settingButton))
         settingsButton.tintColor = UIColor.white
@@ -167,10 +179,10 @@ class MainViewController: UIViewController {
         createGradientLayerForCircle(for: largeBall.customUIView, of: 100, with: Helpers.Colors.largeBallGradient, start: CGPoint(x: 0.1, y: 0.5), end: CGPoint(x: 0.5, y: 0.5))
     }
     
-   
+    
     
     //MARK: - FUNCTIONs
-   
+    
     
     @objc func settingButton() {
         

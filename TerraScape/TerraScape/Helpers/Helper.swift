@@ -20,6 +20,8 @@ enum Helpers {
     }
     
     enum Colors {
+        static let cellBackgroundColor = UIColor(red: 0.23, green: 0.60, blue: 0.73, alpha: 1.00)
+        
         static let deselectWhiteGradient = [UIColor(white: 1, alpha: 0.15).cgColor, UIColor(white: 1, alpha: 0.4).cgColor]
         static let selectWhiteGradient = [UIColor(white: 1, alpha: 0.5).cgColor, UIColor(white: 1, alpha: 0.9).cgColor]
         
@@ -32,6 +34,9 @@ enum Helpers {
         static let bigBallGradient = [UIColor(red: 1.00, green: 0.89, blue: 0.35, alpha: 1.00).cgColor, UIColor(red: 1.00, green: 0.65, blue: 0.32, alpha: 1.00).cgColor]
         
         static let largeBallGradient = [UIColor(red: 0.01, green: 0.00, blue: 0.12, alpha: 1.00).cgColor,UIColor(red: 0.45, green: 0.01, blue: 0.75, alpha: 1.00).cgColor, UIColor(red: 0.93, green: 0.22, blue: 0.74, alpha: 1.00).cgColor]
+        
+        
+        static let sliderTrackMinimumColor = UIColor(red: 1.00, green: 1.00, blue: 0.53, alpha: 1.00)
         
     }
     

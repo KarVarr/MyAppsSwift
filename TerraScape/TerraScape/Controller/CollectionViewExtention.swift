@@ -15,6 +15,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView() {
         uiCollectionView.customCollectionView.delegate = self
         uiCollectionView.customCollectionView.dataSource = self
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -28,7 +29,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: (view.frame.size.width / 2 ) - 10 , height: (view.frame.size.width / 2 ) )
+        CGSize(width: (view.frame.size.width / 2 ) - 15 , height: (view.frame.size.width / 2 ) )
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -56,7 +57,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if sound.onOff {
             UIView.animate(withDuration: 1.0,delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseInOut) {
-                cell.backgroundColor = .orange.withAlphaComponent(0.7)
+                cell.backgroundColor = Helpers.Colors.cellBackgroundColor
                 cell.nameOfSound.customLabel.textColor = .white
             }
         } else {
@@ -75,9 +76,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         return cell
     }
-    
-    
-    
     
     
     /**This function plays\stops each song individually! */
