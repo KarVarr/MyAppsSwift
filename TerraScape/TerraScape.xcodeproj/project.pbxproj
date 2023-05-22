@@ -42,6 +42,7 @@
 		17D1D9192A19359D00A173E1 /* SavedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D9182A19359D00A173E1 /* SavedData.swift */; };
 		17D1D91F2A1BEC2900A173E1 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D91E2A1BEC2900A173E1 /* ToolbarView.swift */; };
 		17D1D9222A1BEDBE00A173E1 /* ToolbarLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D9212A1BEDBE00A173E1 /* ToolbarLabel.swift */; };
+		17D1D9242A1BF1C800A173E1 /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D9232A1BF1C800A173E1 /* CustomButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		17D1D9182A19359D00A173E1 /* SavedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedData.swift; sourceTree = "<group>"; };
 		17D1D91E2A1BEC2900A173E1 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		17D1D9212A1BEDBE00A173E1 /* ToolbarLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarLabel.swift; sourceTree = "<group>"; };
+		17D1D9232A1BF1C800A173E1 /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				178C7F302A0EBDBC001FC539 /* CustomImageView.swift */,
 				178C7F352A1014FC001FC539 /* CustomUIView.swift */,
 				178C7F712A155225001FC539 /* CustomUISlider.swift */,
+				17D1D9232A1BF1C800A173E1 /* CustomButtonView.swift */,
 			);
 			path = ElementsView;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				178C7F722A155225001FC539 /* CustomUISlider.swift in Sources */,
 				178C7F0F2A0E8CC2001FC539 /* AppDelegate.swift in Sources */,
 				178C7F282A0E8F43001FC539 /* UICollectionView.swift in Sources */,
+				17D1D9242A1BF1C800A173E1 /* CustomButtonView.swift in Sources */,
 				178C7F2D2A0E9F41001FC539 /* Helper.swift in Sources */,
 				17D1D9192A19359D00A173E1 /* SavedData.swift in Sources */,
 				178C7F462A124C43001FC539 /* AudioPlayer.swift in Sources */,

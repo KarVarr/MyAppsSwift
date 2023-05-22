@@ -9,13 +9,16 @@ import UIKit
 
 class ToolbarView: UIView {
     
-    let toolbarLabel = ToolbarLabel()
-
+    let label = ToolbarLabel()
+    let settingButton = CustomButtonView()
+    let playButton = CustomButtonView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         addViews()
         settings()
+        buttonsSetting()
         layout()
     }
     
@@ -25,22 +28,51 @@ class ToolbarView: UIView {
     
     
     func addViews() {
-        addSubview(toolbarLabel.toolbarLabel.customLabel)
+        addSubview(label.toolbarLabel.customLabel)
+        addSubview(settingButton.customButton)
+        addSubview(playButton.customButton)
     }
     
     func settings() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .black
-        layer.cornerRadius = 40
+        layer.cornerRadius = 35
+        
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.7
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 4
+
+    }
+    
+    func buttonsSetting() {
+        playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.systemPink, renderingMode: .alwaysOriginal), for: .normal)
+        
+        
+        
+        settingButton.customButton.setImage(UIImage(named: "gear")?.withTintColor(.cyan, renderingMode: .alwaysOriginal), for: .normal)
     }
     
     func layout() {
-        let label = toolbarLabel.toolbarLabel.customLabel
+        let label = label.toolbarLabel.customLabel
+        let playButton = playButton.customButton
+        let settingButton = settingButton.customButton
         
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: centerXAnchor),
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            playButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            playButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            playButton.widthAnchor.constraint(equalToConstant: 40),
+            playButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            settingButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            settingButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            settingButton.widthAnchor.constraint(equalToConstant: 40),
+            settingButton.heightAnchor.constraint(equalToConstant: 40),
         ])
+        
     }
     
     

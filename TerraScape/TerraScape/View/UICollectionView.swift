@@ -18,7 +18,7 @@ class CustomUICollectionView {
         collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: Helpers.Keys.collectionCell)
         collectionView.backgroundColor = .clear
         
-        collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 75, right: 0)
         
         return collectionView
     }()

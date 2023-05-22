@@ -11,7 +11,7 @@ class ToolbarLabel {
     let toolbarLabel: CustomLabelView = {
         let label = CustomLabelView()
         label.customLabel.text = Helpers.Strings.navigationTitle
-        label.customLabel.textColor = .secondaryLabel
+        label.customLabel.textColor = .white.withAlphaComponent(0.15)
         
         return label
     }()
