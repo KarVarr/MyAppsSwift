@@ -6,6 +6,10 @@
 //  TerraScape - a combination of "terra", meaning earth, and "soundscape" to represent the sound of nature.
 
 import UIKit
+import AVKit
+import AVFAudio
+import AVFoundation
+import MediaPlayer
 
 class MainViewController: UIViewController {
     let savedData = SavedData()
@@ -36,7 +40,7 @@ class MainViewController: UIViewController {
         collectionView()
         createCircles()
         
-        
+       
         
         //        let modelName = UIDevice.current.modelName
         //
@@ -182,6 +186,7 @@ class MainViewController: UIViewController {
     //MARK: - FUNCTIONs
     
     
+    
     @objc func settingButton() {
         
     }
@@ -194,9 +199,9 @@ class MainViewController: UIViewController {
         animateBalls(for: largeBall.customUIView, to: 270, path: true, time: 30)
     }
     
+   
+    
+    
+
     
 }
-
-
-
-

@@ -6,10 +6,12 @@
       "scale" : "1x"
     },
     {
+      "filename" : "wind 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "wind 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

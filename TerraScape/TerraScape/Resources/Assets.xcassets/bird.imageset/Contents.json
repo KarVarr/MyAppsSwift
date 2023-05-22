@@ -6,10 +6,12 @@
       "scale" : "1x"
     },
     {
+      "filename" : "bird 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "bird 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
