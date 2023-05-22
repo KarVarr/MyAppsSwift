@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "rain-svgrepo-com.png",
+      "filename" : "rain.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "rain-svgrepo-com 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "rain-svgrepo-com 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
