@@ -14,61 +14,67 @@ import MediaPlayer
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     let audioPlayer = AudioPlayerForSound()
-    
+    var currentPlayer: AVAudioPlayer?
+    var currentSoundIndex: Int = 0
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         setupRemoteControl()
         setupNowPlayingInfo()
+        configureAudioSession()
         return true
     }
     
     func setupRemoteControl() {
-            UIApplication.shared.beginReceivingRemoteControlEvents()
-            
-            let commandCenter = MPRemoteCommandCenter.shared()
-            
-            commandCenter.playCommand.isEnabled = true
-            commandCenter.playCommand.addTarget { [unowned self] event in
-                print("should play sound")
-                if !audioPlayer.players.isEmpty {
-                    for player in audioPlayer.players {
-                        if player.isPlaying {
-                            player.play()
-                        }
-                    }
-                }
-                return .success
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        
+        let commandCenter = MPRemoteCommandCenter.shared()
+        
+        commandCenter.playCommand.isEnabled = true
+        commandCenter.playCommand.addTarget { [unowned self] event in
+            print("should play sound")
+            if currentSoundIndex < audioPlayer.players.count {
+                currentPlayer?.stop()
+                currentPlayer = audioPlayer.players[currentSoundIndex]
+                currentPlayer?.play()
             }
-            
-            commandCenter.pauseCommand.isEnabled = true
-            commandCenter.pauseCommand.addTarget { [unowned self] event in
-                print("should pause sound")
-                if !audioPlayer.players.isEmpty {
-                    for player in audioPlayer.players {
-                        if player.isPlaying {
-                            player.pause()
-                        }
-                    }
-                }
-                return .success
+            return .success
+        }
+        
+        commandCenter.pauseCommand.isEnabled = true
+        commandCenter.pauseCommand.addTarget { [unowned self] event in
+            print("should pause sound")
+            currentPlayer?.pause()
+            return .success
+        }
+    }
+    
+    func setupNowPlayingInfo() {
+        var nowPlayingInfo = [String: Any]()
+        nowPlayingInfo[MPMediaItemPropertyTitle] = Helpers.Strings.navigationTitle
+        nowPlayingInfo[MPMediaItemPropertyArtist] = UIImage(named: "AppIcon")
+        
+        if let image = UIImage(named: "AppIcon") {
+            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
+                return image
             }
         }
         
-        func setupNowPlayingInfo() {
-            var nowPlayingInfo = [String: Any]()
-            nowPlayingInfo[MPMediaItemPropertyTitle] = Helpers.Strings.navigationTitle
-            
-            if let image = UIImage(named: "AppIcon") {
-                    nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
-                        return image
-                    }
-                }
-            
-            nowPlayingInfo[MPMediaItemPropertyArtist] = UIImage(named: "AppIcon")
-            
-            MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+        
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+    }
+    
+    func configureAudioSession() {
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay, .allowBluetooth])
+            try audioSession.setActive(true)
+        } catch {
+            print(error.localizedDescription)
         }
+    }
+    
+    
     
     // MARK: UISceneSession Lifecycle
     
@@ -86,14 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        let audioSession = AVAudioSession.sharedInstance()
-               do {
-                   try audioSession.setActive(true)
-                   try audioSession.setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay, .allowBluetooth])
-                   audioPlayer.players.forEach { $0.play() }
-               } catch {
-                   print(error.localizedDescription)
-               }
+        
     }
     
 }

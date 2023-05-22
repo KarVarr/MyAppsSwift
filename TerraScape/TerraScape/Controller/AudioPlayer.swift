@@ -34,15 +34,7 @@ class AudioPlayerForSound {
         }
     }
     
-     func configureAudioSession() {
-            let audioSession = AVAudioSession.sharedInstance()
-            do {
-                try audioSession.setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay, .allowBluetooth])
-                try audioSession.setActive(true)
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
+     
     
     
 }
