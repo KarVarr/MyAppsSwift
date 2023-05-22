@@ -48,13 +48,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let sound = allSounds.sounds[indexPath.item]
         cell.nameOfSound.customLabel.text = sound.name.capitalized
         cell.imageOfSound.customImageView.image = UIImage(named: sound.name)
-//        cell.volumeOfSound.customSlider.value = sound.volume
-//        cell.volumeOfSound.customSlider.addTarget(self, action: #selector(volumeSliderChanged), for: .valueChanged)
-//        cell.volumeOfSound.customSlider.tag = indexPath.item
+        cell.volumeOfSound.customSlider.value = sound.volume
+        cell.volumeOfSound.customSlider.addTarget(self, action: #selector(volumeSliderChanged), for: .valueChanged)
+        cell.volumeOfSound.customSlider.tag = indexPath.item
         
-        cell.volumeOfSound.value = sound.volume
-        cell.volumeOfSound.addTarget(self, action: #selector(volumeSliderChanged), for: .valueChanged)
-        cell.volumeOfSound.tag = indexPath.item
+        
         
         if sound.onOff {
             UIView.animate(withDuration: 1.0,delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseInOut) {

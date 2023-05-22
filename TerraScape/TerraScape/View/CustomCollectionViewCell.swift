@@ -33,18 +33,16 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     
     func addViews() {
-//        contentView.addSubview(volumeOfSound.customSlider)
-        contentView.addSubview(volumeOfSound)
+        contentView.addSubview(volumeOfSound.customSlider)
         contentView.addSubview(nameOfSound.customLabel)
         contentView.addSubview(imageOfSound.customImageView)
         
         contentView.addSubview(sliderView.customUIView)
-//        sliderView.customUIView.addSubview(volumeOfSound.customSlider)
-        sliderView.customUIView.addSubview(volumeOfSound)
+        sliderView.customUIView.addSubview(volumeOfSound.customSlider)
         
         let customTrackLayer = CALayer()
         customTrackLayer.backgroundColor = UIColor.red.cgColor
-//        volumeOfSound.customSlider.layer.addSublayer(customTrackLayer)
+        volumeOfSound.customSlider.layer.addSublayer(customTrackLayer)
         
     }
     
@@ -95,8 +93,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     func layout() {
         let image = imageOfSound.customImageView
         let name = nameOfSound.customLabel
-//        let volume = volumeOfSound.customSlider
-        let volume = volumeOfSound
+        let volume = volumeOfSound.customSlider
         
         let sliderView = sliderView.customUIView
         
@@ -107,8 +104,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
             
             image.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 5),
             image.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            image.widthAnchor.constraint(equalToConstant: 100),
-            image.heightAnchor.constraint(equalToConstant: 100),
+            image.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
+            image.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
             
             sliderView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
             sliderView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
