@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 class AllSounds {
     private let images = Images()

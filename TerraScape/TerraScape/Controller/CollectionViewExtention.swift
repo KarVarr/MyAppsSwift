@@ -59,7 +59,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if sound.onOff {
             UIView.animate(withDuration: 1.0,delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseInOut) {
-                cell.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+                cell.backgroundColor = .systemBlue
                 cell.nameOfSound.customLabel.textColor = .white
             }
         } else {
@@ -94,9 +94,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if player.volume == 0.0 {
             player.stop()
             allSounds.sounds[soundIndex].onOff = false
+            toolbar.label.toolbarLabel.customLabel.text = Helpers.Strings.navigationTitle
         } else {
             player.play()
             allSounds.sounds[soundIndex].onOff = true
+            toolbar.label.toolbarLabel.customLabel.text = "hello"
         }
         
         savedData.save()
