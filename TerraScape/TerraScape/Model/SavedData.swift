@@ -16,12 +16,6 @@ class SavedData {
     func save() {
         let jsonEncoder = JSONEncoder()
         
-//        if let savedData = try? jsonEncoder.encode(allSounds.sounds) {
-//            let defaults = UserDefaults.standard
-//            defaults.set(savedData, forKey: soundKey)
-//        } else {
-//            print("Failed to save sound!")
-//        }
         do {
             let savedData = try jsonEncoder.encode(allSounds.sounds)
             let defaults = UserDefaults.standard

@@ -32,12 +32,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         CGSize(width: (view.frame.size.width / 2 ) - 15 , height: (view.frame.size.width / 2 ) )
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        
-        //        guard let cell = collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell else { return }
-        
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        collectionView.deselectItem(at: indexPath, animated: true)
+//        
+//        //        guard let cell = collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell else { return }
+//        
+//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allSounds.sounds.count
@@ -53,11 +53,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.volumeOfSound.customSlider.addTarget(self, action: #selector(volumeSliderChanged), for: .valueChanged)
         cell.volumeOfSound.customSlider.tag = indexPath.item
         
+        //performance?
+        cell.layer.rasterizationScale = UIScreen.main.scale
         
         
         if sound.onOff {
             UIView.animate(withDuration: 1.0,delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseInOut) {
-                cell.backgroundColor = Helpers.Colors.cellBackgroundColor
+                cell.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
                 cell.nameOfSound.customLabel.textColor = .white
             }
         } else {

@@ -13,7 +13,6 @@ class CustomImageView {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.tintColor = .red
         image.contentMode = .scaleAspectFit
-//         image.clipsToBounds = true
         return image
     }()
 }
