@@ -46,11 +46,11 @@ class ToolbarView: UIView {
     }
     
     func buttonsSetting() {
-        playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.systemPink, renderingMode: .alwaysOriginal), for: .normal)
+        playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
         
         
         
-        settingButton.customButton.setImage(UIImage(named: "gear")?.withTintColor(.cyan, renderingMode: .alwaysOriginal), for: .normal)
+        settingButton.customButton.setImage(UIImage(named: "gear")?.withTintColor(.lightGray, renderingMode: .alwaysOriginal), for: .normal)
     }
     
     func layout() {
@@ -61,6 +61,7 @@ class ToolbarView: UIView {
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: centerXAnchor),
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
+            label.widthAnchor.constraint(greaterThanOrEqualTo: label.widthAnchor),
             
             playButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             playButton.centerYAnchor.constraint(equalTo: centerYAnchor),

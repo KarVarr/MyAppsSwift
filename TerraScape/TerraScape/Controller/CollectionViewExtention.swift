@@ -32,12 +32,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         CGSize(width: (view.frame.size.width / 2 ) - 15 , height: (view.frame.size.width / 2 ) )
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        collectionView.deselectItem(at: indexPath, animated: true)
-//        
-//        //        guard let cell = collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell else { return }
-//        
-//    }
+    //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    //        collectionView.deselectItem(at: indexPath, animated: true)
+    //
+    //        //        guard let cell = collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell else { return }
+    //
+    //    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allSounds.sounds.count
@@ -58,12 +58,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         
         if sound.onOff {
-            UIView.animate(withDuration: 1.0,delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseInOut) {
+            UIView.animate(withDuration: 1.0) {
                 cell.backgroundColor = .systemBlue
                 cell.nameOfSound.customLabel.textColor = .white
             }
         } else {
-            UIView.animate(withDuration: 0) {
+            UIView.animate(withDuration: 1.0) {
                 cell.backgroundColor = .clear
                 cell.nameOfSound.customLabel.textColor = .secondaryLabel
             }
@@ -83,7 +83,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     /**This function plays\stops each song individually! */
     @objc func volumeSliderChanged(_ sender: UISlider) {
         
-        
         let soundIndex = sender.tag
         allSounds.sounds[soundIndex].volume = sender.value
         
@@ -94,12 +93,14 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if player.volume == 0.0 {
             player.stop()
             allSounds.sounds[soundIndex].onOff = false
-            toolbar.label.toolbarLabel.customLabel.text = Helpers.Strings.navigationTitle
+            
         } else {
             player.play()
             allSounds.sounds[soundIndex].onOff = true
-            toolbar.label.toolbarLabel.customLabel.text = "hello"
+            
         }
+        
+        
         
         savedData.save()
         
