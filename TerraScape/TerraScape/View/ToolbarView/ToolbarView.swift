@@ -47,14 +47,22 @@ class ToolbarView: UIView {
         layer.shadowOpacity = 0.7
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 4
-
+        
     }
     
     func buttonsSetting() {
         playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
         playButton.customButton.addTarget(self, action: #selector(playButtonForSound), for: .touchUpInside)
         
-        settingButton.customButton.setImage(UIImage(named: "gear")?.withTintColor(.lightGray, renderingMode: .alwaysOriginal), for: .normal)
+        let rotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
+        rotationAnimation.values = [0, Double.pi * 2]
+        rotationAnimation.duration = 60.0
+        rotationAnimation.repeatCount = .infinity
+        
+        self.settingButton.customButton.layer.add(rotationAnimation, forKey: "rotationAnimation")
+        
+        
+        settingButton.customButton.setImage(UIImage(named: "gear")?.withTintColor(.secondaryLabel, renderingMode: .alwaysOriginal), for: .normal)
         settingButton.customButton.addTarget(self, action: #selector(settingButtonPressed), for: .touchUpInside)
     }
     
@@ -68,15 +76,15 @@ class ToolbarView: UIView {
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
             label.widthAnchor.constraint(greaterThanOrEqualTo: label.widthAnchor),
             
-            playButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            playButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             playButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            playButton.widthAnchor.constraint(equalToConstant: 40),
-            playButton.heightAnchor.constraint(equalToConstant: 40),
+            playButton.widthAnchor.constraint(equalToConstant: 60),
+            playButton.heightAnchor.constraint(equalToConstant: 60),
             
-            settingButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            settingButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             settingButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            settingButton.widthAnchor.constraint(equalToConstant: 40),
-            settingButton.heightAnchor.constraint(equalToConstant: 40),
+            settingButton.widthAnchor.constraint(equalToConstant: 60),
+            settingButton.heightAnchor.constraint(equalToConstant: 60),
         ])
         
     }
@@ -86,9 +94,21 @@ class ToolbarView: UIView {
         
         if onOffButton {
             audioPlayer.playAllSound()
+            
+            UIView.animate(withDuration: 0.3) {
+                self.playButton.customButton.setImage(UIImage(named: "pause")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+            }
+            
             onOffButton = false
         } else {
             audioPlayer.stopAllSound()
+            
+            UIView.transition(with: self.playButton.customButton, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                self.playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+            }, completion: nil)
+            
+            
+            
             onOffButton = true
         }
         
@@ -96,7 +116,9 @@ class ToolbarView: UIView {
     }
     
     @objc func settingButtonPressed() {
-       
+        
     }
     
 }
+
+
