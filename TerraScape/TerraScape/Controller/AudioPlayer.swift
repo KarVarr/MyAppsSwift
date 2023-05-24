@@ -16,7 +16,7 @@ class AudioPlayerForSound {
     let name = Images()
     
     var players: [AVAudioPlayer] = []
-    
+
     init() {
         for sound in allSounds.sounds {
             if let path = Bundle.main.path(forResource: sound.name, ofType: "mp3") {
@@ -26,15 +26,22 @@ class AudioPlayerForSound {
                     player.numberOfLoops = -1
                     player.prepareToPlay()
                     players.append(player)
-                    
+
                 } catch {
                     print("Failed to create audio player: \(error.localizedDescription)")
                 }
             }
         }
     }
+   
     
-     
+    func playAllSound() {
+        players.forEach{$0.play()}
+    }
+
+    func stopAllSound() {
+        players.forEach{$0.stop()}
+    }
     
     
 }

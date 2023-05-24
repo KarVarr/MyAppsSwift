@@ -89,7 +89,7 @@ class MainViewController: UIViewController {
         
         uiCollectionView.customCollectionView.showsVerticalScrollIndicator = false
         
-        
+        toolbar.audioPlayer = audioPlayer
         
     }
     

@@ -90,17 +90,16 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         player.volume = sender.value
         
-        if player.volume == 0.0 {
-            player.stop()
-            allSounds.sounds[soundIndex].onOff = false
-            
-        } else {
-            player.play()
-            allSounds.sounds[soundIndex].onOff = true
-            
-        }
-        
-        
+//        if player.volume == 0.0 {
+//            player.stop()
+//            allSounds.sounds[soundIndex].onOff = false
+//
+//
+//        } else {
+//            player.play()
+//            allSounds.sounds[soundIndex].onOff = true
+//          
+//        }
         
         savedData.save()
         

@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import AVFAudio
+import AVFoundation
 
 class ToolbarView: UIView {
+    var audioPlayer = AudioPlayerForSound()
     
     let label = ToolbarLabel()
     let settingButton = CustomButtonView()
     let playButton = CustomButtonView()
+    
+    private var onOffButton = true
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,10 +52,10 @@ class ToolbarView: UIView {
     
     func buttonsSetting() {
         playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-        
-        
+        playButton.customButton.addTarget(self, action: #selector(playButtonForSound), for: .touchUpInside)
         
         settingButton.customButton.setImage(UIImage(named: "gear")?.withTintColor(.lightGray, renderingMode: .alwaysOriginal), for: .normal)
+        settingButton.customButton.addTarget(self, action: #selector(settingButtonPressed), for: .touchUpInside)
     }
     
     func layout() {
@@ -76,5 +81,22 @@ class ToolbarView: UIView {
         
     }
     
+    
+    @objc func playButtonForSound() {
+        
+        if onOffButton {
+            audioPlayer.playAllSound()
+            onOffButton = false
+        } else {
+            audioPlayer.stopAllSound()
+            onOffButton = true
+        }
+        
+        print(onOffButton)
+    }
+    
+    @objc func settingButtonPressed() {
+       
+    }
     
 }
