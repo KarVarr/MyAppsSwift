@@ -37,6 +37,7 @@
 		178C7F662A12808E001FC539 /* bird.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F572A12808E001FC539 /* bird.mp3 */; };
 		178C7F682A1284C6001FC539 /* sheep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F672A1284C6001FC539 /* sheep.mp3 */; };
 		178C7F722A155225001FC539 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F712A155225001FC539 /* CustomUISlider.swift */; };
+		17D147792A1E85BA0037D278 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D147782A1E85BA0037D278 /* Animations.swift */; };
 		17D1D9152A17CFAA00A173E1 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D9142A17CFAA00A173E1 /* Sound.swift */; };
 		17D1D9172A17D2E300A173E1 /* AllSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D9162A17D2E300A173E1 /* AllSounds.swift */; };
 		17D1D9192A19359D00A173E1 /* SavedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D9182A19359D00A173E1 /* SavedData.swift */; };
@@ -78,6 +79,7 @@
 		178C7F572A12808E001FC539 /* bird.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird.mp3; sourceTree = "<group>"; };
 		178C7F672A1284C6001FC539 /* sheep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sheep.mp3; sourceTree = "<group>"; };
 		178C7F712A155225001FC539 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
+		17D147782A1E85BA0037D278 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		17D1D9142A17CFAA00A173E1 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		17D1D9162A17D2E300A173E1 /* AllSounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSounds.swift; sourceTree = "<group>"; };
 		17D1D9182A19359D00A173E1 /* SavedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedData.swift; sourceTree = "<group>"; };
@@ -141,7 +143,6 @@
 			children = (
 				178C7F122A0E8CC2001FC539 /* MainViewController.swift */,
 				178C7F392A10E516001FC539 /* CollectionViewExtention.swift */,
-				178C7F452A124C43001FC539 /* AudioPlayer.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -159,6 +160,7 @@
 		178C7F252A0E8EFF001FC539 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				178C7F452A124C43001FC539 /* AudioPlayer.swift */,
 				178C7F332A0FF5C4001FC539 /* Images.swift */,
 				17D1D9142A17CFAA00A173E1 /* Sound.swift */,
 				17D1D9162A17D2E300A173E1 /* AllSounds.swift */,
@@ -170,10 +172,10 @@
 		178C7F262A0E8F07001FC539 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				178C7F322A0FF376001FC539 /* ElementsView */,
-				178C7F272A0E8F43001FC539 /* UICollectionView.swift */,
-				178C7F292A0E9F04001FC539 /* CustomCollectionViewCell.swift */,
 				178C7F372A10DC85001FC539 /* Device.swift */,
+				17D147782A1E85BA0037D278 /* Animations.swift */,
+				178C7F322A0FF376001FC539 /* ElementsView */,
+				17D147772A1E83320037D278 /* CollectionView */,
 				17D1D9202A1BEDA600A173E1 /* ToolbarView */,
 			);
 			path = View;
@@ -218,6 +220,15 @@
 				178C7F562A12808E001FC539 /* wind.mp3 */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		17D147772A1E83320037D278 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				178C7F272A0E8F43001FC539 /* UICollectionView.swift */,
+				178C7F292A0E9F04001FC539 /* CustomCollectionViewCell.swift */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		17D1D9202A1BEDA600A173E1 /* ToolbarView */ = {
@@ -332,6 +343,7 @@
 				178C7F2D2A0E9F41001FC539 /* Helper.swift in Sources */,
 				17D1D9192A19359D00A173E1 /* SavedData.swift in Sources */,
 				178C7F462A124C43001FC539 /* AudioPlayer.swift in Sources */,
+				17D147792A1E85BA0037D278 /* Animations.swift in Sources */,
 				178C7F112A0E8CC2001FC539 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

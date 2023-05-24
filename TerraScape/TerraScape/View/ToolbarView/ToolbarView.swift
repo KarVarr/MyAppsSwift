@@ -95,15 +95,15 @@ class ToolbarView: UIView {
         if onOffButton {
             audioPlayer.playAllSound()
             
-            UIView.animate(withDuration: 0.3) {
+            UIView.transition(with: self.playButton.customButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
                 self.playButton.customButton.setImage(UIImage(named: "pause")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-            }
+            }, completion: nil)
             
             onOffButton = false
         } else {
             audioPlayer.stopAllSound()
             
-            UIView.transition(with: self.playButton.customButton, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            UIView.transition(with: self.playButton.customButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
                 self.playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
             }, completion: nil)
             

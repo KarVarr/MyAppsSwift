@@ -28,6 +28,7 @@ class MainViewController: UIViewController {
     
     let toolbar = ToolbarView()
     
+    let animations = Animations()
     
     
     override func viewDidLoad() {
@@ -36,14 +37,11 @@ class MainViewController: UIViewController {
         savedData.load()
         
         addViews()
-//        navigation()
-//        toolbarSetting()
         settings()
         layout()
         collectionView()
         createCircles()
         
-       
         
         //        let modelName = UIDevice.current.modelName
         //
@@ -58,22 +56,15 @@ class MainViewController: UIViewController {
         //        default:
         //            view.backgroundColor = .black
         //        }
-        
-        
     }
-    
     
     func addViews() {
         view.addSubview(smallBall.customUIView)
         view.addSubview(mediumBall.customUIView)
         view.addSubview(bigBall.customUIView)
         view.addSubview(largeBall.customUIView)
-        
         view.addSubview(uiCollectionView.customCollectionView)
-        
         view.addSubview(toolbar)
-        
-        
     }
     
     func settings() {
@@ -91,13 +82,8 @@ class MainViewController: UIViewController {
         toolbar.audioPlayer = audioPlayer
         
     }
-    
-//    func toolbarSetting() {
-//        toolbar.customUIView.backgroundColor = .black
-//        toolbar.customUIView.layer.cornerRadius = 40
-//    }
-    
     //MARK: - LAYOUT
+    
     func layout() {
         let collection = uiCollectionView.customCollectionView
         let smallBall = smallBall.customUIView
@@ -139,85 +125,21 @@ class MainViewController: UIViewController {
         ])
     }
     
-    //MARK: - NAVIGATION
-    func navigation() {
-        title = Helpers.Strings.navigationTitle
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = Helpers.Colors.navigationBarBackgroundColor
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
-        
-        
-        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(settingButton))
-        settingsButton.tintColor = UIColor.white
-        navigationItem.leftBarButtonItem = settingsButton
-        
-    }
-    
-    
-    
     //MARK: - ANIMATION
-    
-    func animateBalls(for ball: UIView, to distance: CGFloat, path clockwise: Bool, time duration: CFTimeInterval) {
-        let centerX = view.bounds.width / 2
-        let centerY = view.bounds.height / 2
-        let radius = min(centerX, centerY) - 200
-        
-        let smallBallPath = UIBezierPath(arcCenter: CGPoint(x: centerX, y: centerY), radius: radius - distance, startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: clockwise)
-        let smallBallAnimation = CAKeyframeAnimation(keyPath: "position")
-        smallBallAnimation.path = smallBallPath.cgPath
-        smallBallAnimation.duration = duration
-        smallBallAnimation.repeatCount = .infinity
-        smallBallAnimation.calculationMode = .paced
-        ball.layer.add(smallBallAnimation, forKey: "animation")
-        
-    }
-    
-    func createGradientLayerForCircle(for circle: UIView, of radius: CGFloat, with color: [Any], start sPoint: CGPoint, end ePoint: CGPoint) {
-        let layer = CAGradientLayer()
-        layer.frame = view.bounds
-        layer.colors = color
-        layer.startPoint = sPoint
-        layer.endPoint = ePoint
-        circle.layer.insertSublayer(layer, at: 0)
-        circle.layer.cornerRadius = radius
-        circle.clipsToBounds = true
-    }
     
     func createCircles() {
         willEnterForeground()
         
-        createGradientLayerForCircle(for: smallBall.customUIView, of: 25, with: Helpers.Colors.smallBallGradient, start: CGPoint(x: 0.5, y: 0.9), end: CGPoint(x: 0.0, y: 1))
-        createGradientLayerForCircle(for: mediumBall.customUIView, of: 50, with: Helpers.Colors.mediumBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
-        createGradientLayerForCircle(for: bigBall.customUIView, of: 75, with: Helpers.Colors.bigBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
-        createGradientLayerForCircle(for: largeBall.customUIView, of: 100, with: Helpers.Colors.largeBallGradient, start: CGPoint(x: 0.1, y: 0.5), end: CGPoint(x: 0.5, y: 0.5))
+        animations.createGradientLayerForCircle(for: smallBall.customUIView, in: view, of: 25, with: Helpers.Colors.smallBallGradient, start: CGPoint(x: 0.5, y: 0.9), end: CGPoint(x: 0.0, y: 1))
+        animations.createGradientLayerForCircle(for: mediumBall.customUIView, in: view, of: 50, with: Helpers.Colors.mediumBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
+        animations.createGradientLayerForCircle(for: bigBall.customUIView, in: view, of: 75, with: Helpers.Colors.bigBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
+        animations.createGradientLayerForCircle(for: largeBall.customUIView, in: view, of: 100, with: Helpers.Colors.largeBallGradient, start: CGPoint(x: 0.1, y: 0.5), end: CGPoint(x: 0.5, y: 0.5))
     }
-    
-    
-    
-    //MARK: - FUNCTIONs
-    
-    
-    
-    @objc func settingButton() {
-        
-    }
-    
-    
+
     func willEnterForeground() {
-        animateBalls(for: smallBall.customUIView, to: 180, path: true, time: 11)
-        animateBalls(for: mediumBall.customUIView, to: 150, path: false, time: 15)
-        animateBalls(for: bigBall.customUIView, to: 210, path: false, time: 13)
-        animateBalls(for: largeBall.customUIView, to: 270, path: true, time: 30)
+        animations.animateBalls(for: smallBall.customUIView, in: view, to: 180, path: true, time: 11)
+        animations.animateBalls(for: mediumBall.customUIView, in: view, to: 150, path: false, time: 15)
+        animations.animateBalls(for: bigBall.customUIView, in: view, to: 210, path: false, time: 13)
+        animations.animateBalls(for: largeBall.customUIView, in: view, to: 270, path: true, time: 30)
     }
-    
-   
 }

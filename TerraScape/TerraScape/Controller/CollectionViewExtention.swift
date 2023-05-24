@@ -57,17 +57,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.layer.rasterizationScale = UIScreen.main.scale
         
         
-        if sound.onOff {
-            UIView.animate(withDuration: 1.0) {
-                cell.backgroundColor = .systemBlue
-                cell.nameOfSound.customLabel.textColor = .white
-            }
-        } else {
-            UIView.animate(withDuration: 1.0) {
-                cell.backgroundColor = .clear
-                cell.nameOfSound.customLabel.textColor = .secondaryLabel
-            }
-        }
         
         // Reset cell background color before returning the cell
         cell.contentView.backgroundColor = .clear
@@ -91,20 +80,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if !toolbar.onOffButton {
             player.volume = sender.value
-            
         }
-//
-//
-//        if player.volume == 0.0 {
-//            player.stop()
-//            allSounds.sounds[soundIndex].onOff = false
-//        } else {
-//            if !toolbar.onOffButton {
-//                player.volume = sender.value
-//                player.play()
-//                allSounds.sounds[soundIndex].onOff = true
-//            }
-//        }
+        
         
         savedData.save()
         
