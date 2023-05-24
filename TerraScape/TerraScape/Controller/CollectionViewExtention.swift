@@ -87,9 +87,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         allSounds.sounds[soundIndex].volume = sender.value
         
         let player = audioPlayer.players[soundIndex]
+        player.volume = sender.value
         
         if !toolbar.onOffButton {
             player.volume = sender.value
+            
         }
 //
 //
