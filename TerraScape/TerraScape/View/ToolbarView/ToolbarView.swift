@@ -16,7 +16,7 @@ class ToolbarView: UIView {
     let settingButton = CustomButtonView()
     let playButton = CustomButtonView()
     
-    private var onOffButton = true
+    var onOffButton = true
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -107,13 +107,12 @@ class ToolbarView: UIView {
                 self.playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
             }, completion: nil)
             
-            
-            
             onOffButton = true
         }
         
         print(onOffButton)
     }
+    
     
     @objc func settingButtonPressed() {
         
