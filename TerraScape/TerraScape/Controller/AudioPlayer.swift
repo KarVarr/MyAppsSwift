@@ -25,7 +25,7 @@ class AudioPlayerForSound {
                     let player = try AVAudioPlayer(contentsOf: url)
                     player.numberOfLoops = -1
                     player.prepareToPlay()
-                    player.volume = 0.1
+                    player.volume = 0.0
                     players.append(player)
 
                 } catch {
