@@ -11,8 +11,8 @@ class CustomImageView {
     let customImageView: UIImageView = {
        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.tintColor = .red
         image.contentMode = .scaleAspectFit
+        
         return image
     }()
 }

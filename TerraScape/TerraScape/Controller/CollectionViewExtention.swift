@@ -61,9 +61,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         // Reset cell background color before returning the cell
         cell.contentView.backgroundColor = .clear
         
-        if cellsToUpdate.contains(indexPath) {
-            cellsToUpdate.remove(at: cellsToUpdate.firstIndex(of: indexPath)!)
-        }
+       
+            if cellsToUpdate.contains(indexPath) {
+                cellsToUpdate.remove(at: cellsToUpdate.firstIndex(of: indexPath)!)
+            }
+        
         
         return cell
     }
@@ -89,6 +91,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if !cellsToUpdate.contains(indexPath) {
             cellsToUpdate.append(indexPath)
         }
+        
         
         uiCollectionView.customCollectionView.reloadItems(at: cellsToUpdate)
         cellsToUpdate.removeAll()

@@ -51,11 +51,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
         blurEffectView.frame = bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-//        let gradient = CAGradientLayer()
-//        gradient.frame = bounds
-//        gradient.colors = Helpers.Colors.deselectWhiteGradient
-//        gradient.endPoint = CGPoint(x: 0, y: 0.25)
-//
+        let gradient = CAGradientLayer()
+        gradient.frame = bounds
+        gradient.colors = Helpers.Colors.deselectWhiteGradient
+        gradient.endPoint = CGPoint(x: 0, y: 0.25)
+
         let gradientBorder = CAGradientLayer()
         gradientBorder.frame = CGRect(origin: CGPointZero, size: self.bounds.size)
         gradientBorder.startPoint = CGPointMake(1.0, 0.2)
@@ -74,7 +74,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         
         contentView.addSubview(blurEffectView)
         layer.addSublayer(gradientBorder)
-//        layer.insertSublayer(gradient, at: 0)
+        layer.insertSublayer(gradient, at: 0)
         layer.cornerRadius = Helpers.Radius.cornerRadius
         clipsToBounds = true
         backgroundColor = .clear
@@ -96,7 +96,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
             
             name.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             name.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            
+
             image.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 5),
             image.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             image.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
