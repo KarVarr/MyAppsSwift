@@ -12,7 +12,7 @@ class CustomUICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: .infinite, collectionViewLayout: layout)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: Helpers.Keys.collectionCell)

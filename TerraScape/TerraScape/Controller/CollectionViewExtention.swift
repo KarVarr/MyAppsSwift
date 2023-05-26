@@ -15,7 +15,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView() {
         uiCollectionView.customCollectionView.delegate = self
         uiCollectionView.customCollectionView.dataSource = self
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -41,6 +40,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allSounds.sounds.count
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -53,18 +53,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.volumeOfSound.customSlider.addTarget(self, action: #selector(volumeSliderChanged), for: .valueChanged)
         cell.volumeOfSound.customSlider.tag = indexPath.item
         
-        //performance?
-        cell.layer.rasterizationScale = UIScreen.main.scale
         
         
-        
-        // Reset cell background color before returning the cell
-        cell.contentView.backgroundColor = .clear
-        
-       
-            if cellsToUpdate.contains(indexPath) {
-                cellsToUpdate.remove(at: cellsToUpdate.firstIndex(of: indexPath)!)
-            }
+        if cellsToUpdate.contains(indexPath) {
+            cellsToUpdate.remove(at: cellsToUpdate.firstIndex(of: indexPath)!)
+        }
         
         
         return cell
