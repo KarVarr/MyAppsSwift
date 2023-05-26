@@ -81,6 +81,7 @@ class MainViewController: UIViewController {
         
         toolbar.audioPlayer = audioPlayer
         
+        
     }
     //MARK: - LAYOUT
     
@@ -104,8 +105,8 @@ class MainViewController: UIViewController {
             
             smallBall.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             smallBall.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            smallBall.widthAnchor.constraint(equalToConstant: 50),
-            smallBall.heightAnchor.constraint(equalToConstant: 50),
+            smallBall.widthAnchor.constraint(equalToConstant: 75),
+            smallBall.heightAnchor.constraint(equalToConstant: 75),
             
             mediumBall.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             mediumBall.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -130,9 +131,12 @@ class MainViewController: UIViewController {
     func createCircles() {
         willEnterForeground()
         
-        animations.createGradientLayerForCircle(for: smallBall.customUIView, in: view, of: 25, with: Helpers.Colors.smallBallGradient, start: CGPoint(x: 0.5, y: 0.9), end: CGPoint(x: 0.0, y: 1))
+        animations.createGradientLayerForCircle(for: smallBall.customUIView, in: view, of: 37.5, with: Helpers.Colors.smallBallGradient, start: CGPoint(x: 0.5, y: 0.9), end: CGPoint(x: 0.0, y: 1))
+        
         animations.createGradientLayerForCircle(for: mediumBall.customUIView, in: view, of: 50, with: Helpers.Colors.mediumBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
+        
         animations.createGradientLayerForCircle(for: bigBall.customUIView, in: view, of: 75, with: Helpers.Colors.bigBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
+        
         animations.createGradientLayerForCircle(for: largeBall.customUIView, in: view, of: 100, with: Helpers.Colors.largeBallGradient, start: CGPoint(x: 0.1, y: 0.5), end: CGPoint(x: 0.5, y: 0.5))
     }
 

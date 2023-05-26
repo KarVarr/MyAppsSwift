@@ -29,7 +29,7 @@ enum Helpers {
         
         static let mainViewGradient = [UIColor(red: 0.07, green: 0.76, blue: 0.91, alpha: 1.00).cgColor, UIColor(red: 0.77, green: 0.44, blue: 0.93, alpha: 1.00).cgColor, UIColor(red: 0.96, green: 0.31, blue: 0.35, alpha: 1.00).cgColor]
         
-        static let smallBallGradient = [UIColor(red: 0.40, green: 1.00, blue: 0.00, alpha: 1.00).cgColor, UIColor(red: 0.40, green: 1.00, blue: 0.60, alpha: 1.00).cgColor]
+        static let smallBallGradient = [UIColor(red: 1.00, green: 0.29, blue: 0.12, alpha: 1.00).cgColor, UIColor(red: 1.00, green: 0.56, blue: 0.41, alpha: 1.00).cgColor]
         
         static let mediumBallGradient = [UIColor(red: 0.22, green: 0.42, blue: 0.99, alpha: 1.00).cgColor, UIColor(red: 0.16, green: 0.28, blue: 1.00, alpha: 1.00).cgColor]
         

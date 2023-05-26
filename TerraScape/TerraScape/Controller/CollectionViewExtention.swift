@@ -16,16 +16,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         uiCollectionView.customCollectionView.delegate = self
         uiCollectionView.customCollectionView.dataSource = self
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        10
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        5
-//    }
-    
-    
+
 
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //        CGSize(width: (view.frame.size.width )  , height: (view.frame.size.width )  )
