@@ -43,7 +43,7 @@ enum Helpers {
     }
     
     enum Radius {
-        static let cornerRadius = 30.0
+        static let cornerRadius = 20.0
     }
     
 }

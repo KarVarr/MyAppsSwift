@@ -56,24 +56,24 @@ class CustomCollectionViewCell: UICollectionViewCell {
         gradient.colors = Helpers.Colors.deselectWhiteGradient
         gradient.endPoint = CGPoint(x: 0, y: 0.25)
 
-        let gradientBorder = CAGradientLayer()
-        gradientBorder.frame = CGRect(origin: CGPointZero, size: self.bounds.size)
-        gradientBorder.startPoint = CGPointMake(1.0, 0.2)
-        gradientBorder.endPoint = CGPointMake(0.0, 0.2)
-        gradientBorder.colors = Helpers.Colors.deselectWhiteGradient
+//        let gradientBorder = CAGradientLayer()
+//        gradientBorder.frame = CGRect(origin: CGPointZero, size: self.bounds.size)
+//        gradientBorder.startPoint = CGPointMake(1.0, 0.2)
+//        gradientBorder.endPoint = CGPointMake(0.0, 0.2)
+//        gradientBorder.colors = Helpers.Colors.deselectWhiteGradient
+//
+//
+//        let shapeLayer = CAShapeLayer()
+//        shapeLayer.lineWidth = 4
+//        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: Helpers.Radius.cornerRadius, height: Helpers.Radius.cornerRadius))
+//        shapeLayer.path = path.cgPath
+//        shapeLayer.fillColor = nil
+//        shapeLayer.strokeColor = UIColor.white.cgColor
+//        gradientBorder.mask = shapeLayer
 
 
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.lineWidth = 4
-        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: Helpers.Radius.cornerRadius, height: Helpers.Radius.cornerRadius))
-        shapeLayer.path = path.cgPath
-        shapeLayer.fillColor = nil
-        shapeLayer.strokeColor = UIColor.white.cgColor
-        gradientBorder.mask = shapeLayer
-        
-        
         contentView.addSubview(blurEffectView)
-        layer.addSublayer(gradientBorder)
+//        layer.addSublayer(gradientBorder)
         layer.insertSublayer(gradient, at: 0)
         layer.cornerRadius = Helpers.Radius.cornerRadius
         clipsToBounds = true
@@ -96,16 +96,22 @@ class CustomCollectionViewCell: UICollectionViewCell {
             
             name.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             name.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            
 
-            image.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 5),
+            image.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 10),
             image.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            image.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
-            image.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
+            image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
+            image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
+            image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50),
+//            image.widthAnchor.constraint(greaterThanOrEqualToConstant: image.frame.size.width),
+//            image.heightAnchor.constraint(equalToConstant: 100),
 
-            sliderView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            sliderView.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 10),
             sliderView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            sliderView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            sliderView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            sliderView.leadingAnchor.constraint(equalTo: image.leadingAnchor),
+            sliderView.trailingAnchor.constraint(equalTo: image.trailingAnchor),
+            sliderView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             sliderView.heightAnchor.constraint(equalToConstant: 30),
 
             volume.topAnchor.constraint(equalTo: sliderView.topAnchor),

@@ -17,19 +17,19 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         uiCollectionView.customCollectionView.dataSource = self
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        10
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        10
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        5
+//    }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        1
-    }
     
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: (view.frame.size.width / 2 ) - 15 , height: (view.frame.size.width / 2 ) )
-    }
+
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        CGSize(width: (view.frame.size.width )  , height: (view.frame.size.width )  )
+//    }
     
     //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     //        collectionView.deselectItem(at: indexPath, animated: true)
@@ -86,7 +86,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         
-        uiCollectionView.customCollectionView.reloadItems(at: cellsToUpdate)
+//        uiCollectionView.customCollectionView.reloadItems(at: cellsToUpdate)
         cellsToUpdate.removeAll()
         
     }

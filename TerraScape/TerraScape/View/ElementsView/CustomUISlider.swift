@@ -13,7 +13,7 @@ class CustomUISlider {
         slider.translatesAutoresizingMaskIntoConstraints = false
         slider.minimumValue = 0.0
         slider.maximumValue = 1.0
-        slider.isContinuous = false
+        slider.isContinuous = true
         slider.minimumTrackTintColor = Helpers.Colors.sliderTrackMinimumColor
 
         slider.tintColor = .clear

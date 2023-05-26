@@ -12,7 +12,7 @@ class CustomImageView {
        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
-        
+        image.clipsToBounds = true
         return image
     }()
 }
