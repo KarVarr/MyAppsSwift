@@ -11,6 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let audioPlayer = AudioPlayerForSound()
     var window: UIWindow?
     var mainViewController: MainViewController?
+    var toolbar: ToolbarView?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -44,6 +45,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneWillEnterForeground(_ scene: UIScene) {
         mainViewController?.createCircles()
+        toolbar?.animationForSettingButton()
+        
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

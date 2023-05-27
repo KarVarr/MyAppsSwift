@@ -39,6 +39,7 @@ class ToolbarView: UIView {
     }
     
     func settings() {
+        
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .black
         layer.cornerRadius = 35
@@ -48,19 +49,15 @@ class ToolbarView: UIView {
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 4
         
+        
     }
     
     func buttonsSetting() {
         playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
         playButton.customButton.addTarget(self, action: #selector(playButtonForSound), for: .touchUpInside)
         
-        let rotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
-        rotationAnimation.values = [0, Double.pi * 2]
-        rotationAnimation.duration = 60.0
-        rotationAnimation.repeatCount = .infinity
         
-        self.settingButton.customButton.layer.add(rotationAnimation, forKey: "rotationAnimation")
-        
+        animationForSettingButton()
         
         settingButton.customButton.setImage(UIImage(named: "gear")?.withTintColor(.secondaryLabel, renderingMode: .alwaysOriginal), for: .normal)
         settingButton.customButton.addTarget(self, action: #selector(settingButtonPressed), for: .touchUpInside)
@@ -85,8 +82,18 @@ class ToolbarView: UIView {
             settingButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             settingButton.widthAnchor.constraint(equalToConstant: 60),
             settingButton.heightAnchor.constraint(equalToConstant: 60),
+            
         ])
         
+    }
+    
+    func animationForSettingButton() {
+        let rotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
+        rotationAnimation.values = [0, Double.pi * 2]
+        rotationAnimation.duration = 60.0
+        rotationAnimation.repeatCount = .infinity
+        
+        self.settingButton.customButton.layer.add(rotationAnimation, forKey: "rotationAnimation")
     }
     
     

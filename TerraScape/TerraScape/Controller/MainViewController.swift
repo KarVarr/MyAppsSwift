@@ -26,6 +26,8 @@ class MainViewController: UIViewController {
     let bigBall = CustomUIView()
     let largeBall = CustomUIView()
     
+    let bottomBackgroundForToolbar = CustomUIView()
+    
     let toolbar = ToolbarView()
     
     let animations = Animations()
@@ -64,6 +66,7 @@ class MainViewController: UIViewController {
         view.addSubview(bigBall.customUIView)
         view.addSubview(largeBall.customUIView)
         view.addSubview(uiCollectionView.customCollectionView)
+        view.addSubview(bottomBackgroundForToolbar.customUIView)
         view.addSubview(toolbar)
     }
     
@@ -81,6 +84,7 @@ class MainViewController: UIViewController {
         
         toolbar.audioPlayer = audioPlayer
         
+        bottomBackgroundForToolbar.customUIView.backgroundColor = .white.withAlphaComponent(0.3)
         
     }
     //MARK: - LAYOUT
@@ -91,17 +95,24 @@ class MainViewController: UIViewController {
         let mediumBall = mediumBall.customUIView
         let bigBall = bigBall.customUIView
         let largeBall = largeBall.customUIView
+        let bottomView = bottomBackgroundForToolbar.customUIView
+        
         
         NSLayoutConstraint.activate([
             collection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             collection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            collection.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collection.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
             
             toolbar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
             toolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             toolbar.heightAnchor.constraint(equalToConstant: 70),
+            
+            bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            bottomView.heightAnchor.constraint(equalToConstant: 100),
             
             smallBall.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             smallBall.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
@@ -131,7 +142,7 @@ class MainViewController: UIViewController {
     func createCircles() {
         willEnterForeground()
         
-        animations.createGradientLayerForCircle(for: smallBall.customUIView, in: view, of: 37.5, with: Helpers.Colors.smallBallGradient, start: CGPoint(x: 0.5, y: 0.9), end: CGPoint(x: 0.0, y: 1))
+        animations.createGradientLayerForCircle(for: smallBall.customUIView, in: view, of: 37.5, with: Helpers.Colors.smallBallGradient, start: CGPoint(x: 0.1, y: 0.5), end: CGPoint(x: 0.5, y: 0.5))
         
         animations.createGradientLayerForCircle(for: mediumBall.customUIView, in: view, of: 50, with: Helpers.Colors.mediumBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
         
