@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct StartScreenView: View {
+    @State private var titleForButton = "START"
+    
+    @State private var circleWidth: CGFloat = 50
+    @State private var circlePosition: CGFloat = 2
+    
     var body: some View {
         VStack{
             
@@ -16,22 +21,41 @@ struct StartScreenView: View {
                     Circle()
                         .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 0.98, green: 0.33, blue: 0.78), Color(red: 0.73, green: 0.11, blue: 0.45)]), startPoint: .topLeading, endPoint: .bottomTrailing))
                     
-                        .frame(maxWidth: geo.size.width - 50, maxHeight: geo.size.width - 50)
-                        .position(x: geo.size.width / 2, y: geo.size.height / 2)
+                        .frame(maxWidth: geo.size.width - circleWidth, maxHeight: geo.size.width - circleWidth)
+                        .position(x: geo.size.width / 2, y: geo.size.height / circlePosition)
                         .shadow(radius: 15, x: 15, y: 15)
-                        
-                        
-                    Button("RIDE", action: startButton)
+                        .onTapGesture {
+                            startButton()
+                        }
+                    
+                    Text(titleForButton)
+                        .foregroundColor(.secondary)
+                        .bold()
                         .font(.largeTitle)
-                        .foregroundColor(.white)
+                    
                 }
+                
                 
             }
         }
     }
     
     func startButton() {
-        
+        if titleForButton == "START"  {
+            withAnimation {
+                titleForButton = "STOP"
+                
+                circleWidth = 150
+                circlePosition = 4
+            }
+        } else {
+            withAnimation {
+                titleForButton = "START"
+                
+                circleWidth = 50
+                circlePosition = 2
+            }
+        }
     }
 }
 
