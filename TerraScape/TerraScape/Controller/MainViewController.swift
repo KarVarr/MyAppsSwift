@@ -26,11 +26,15 @@ class MainViewController: UIViewController {
     let bigBall = CustomUIView()
     let largeBall = CustomUIView()
     
-    let bottomBackgroundForToolbar = CustomUIView()
     
     let toolbar = ToolbarView()
     
     let animations = Animations()
+    
+    var initialToolbarWidth: CGFloat = -300
+    
+    
+   
     
     
     override func viewDidLoad() {
@@ -60,17 +64,19 @@ class MainViewController: UIViewController {
         //        }
     }
     
+    
+    
     func addViews() {
         view.addSubview(smallBall.customUIView)
         view.addSubview(mediumBall.customUIView)
         view.addSubview(bigBall.customUIView)
         view.addSubview(largeBall.customUIView)
         view.addSubview(uiCollectionView.customCollectionView)
-        view.addSubview(bottomBackgroundForToolbar.customUIView)
         view.addSubview(toolbar)
     }
     
     func settings() {
+        
         
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds
@@ -84,7 +90,6 @@ class MainViewController: UIViewController {
         
         toolbar.audioPlayer = audioPlayer
         
-        bottomBackgroundForToolbar.customUIView.backgroundColor = .white.withAlphaComponent(0.3)
         
     }
     //MARK: - LAYOUT
@@ -95,8 +100,9 @@ class MainViewController: UIViewController {
         let mediumBall = mediumBall.customUIView
         let bigBall = bigBall.customUIView
         let largeBall = largeBall.customUIView
-        let bottomView = bottomBackgroundForToolbar.customUIView
         
+        let toolbarTrailingConstraint = toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: initialToolbarWidth)
+        toolbarTrailingConstraint.isActive = true
         
         NSLayoutConstraint.activate([
             collection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -106,13 +112,8 @@ class MainViewController: UIViewController {
             
             toolbar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
             toolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             toolbar.heightAnchor.constraint(equalToConstant: 70),
             
-            bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bottomView.heightAnchor.constraint(equalToConstant: 100),
             
             smallBall.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             smallBall.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
@@ -135,6 +136,13 @@ class MainViewController: UIViewController {
             largeBall.heightAnchor.constraint(equalToConstant: 200),
             
         ])
+        
+        // Animate the toolbar appearance with the updated width
+        view.layoutIfNeeded()
+        UIView.animate(withDuration: 1.0) {
+            toolbarTrailingConstraint.constant = -20 
+            self.view.layoutIfNeeded()
+        }
     }
     
     //MARK: - ANIMATION
@@ -150,7 +158,7 @@ class MainViewController: UIViewController {
         
         animations.createGradientLayerForCircle(for: largeBall.customUIView, in: view, of: 100, with: Helpers.Colors.largeBallGradient, start: CGPoint(x: 0.1, y: 0.5), end: CGPoint(x: 0.5, y: 0.5))
     }
-
+    
     func willEnterForeground() {
         animations.animateBalls(for: smallBall.customUIView, in: view, to: 180, path: true, time: 11)
         animations.animateBalls(for: mediumBall.customUIView, in: view, to: 150, path: false, time: 15)

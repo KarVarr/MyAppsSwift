@@ -21,7 +21,7 @@
 		178C7F362A1014FC001FC539 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F352A1014FC001FC539 /* CustomUIView.swift */; };
 		178C7F382A10DC85001FC539 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F372A10DC85001FC539 /* Device.swift */; };
 		178C7F3A2A10E516001FC539 /* CollectionViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F392A10E516001FC539 /* CollectionViewExtention.swift */; };
-		178C7F462A124C43001FC539 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F452A124C43001FC539 /* AudioPlayer.swift */; };
+		178C7F462A124C43001FC539 /* AudioPlayerForSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F452A124C43001FC539 /* AudioPlayerForSound.swift */; };
 		178C7F592A12808E001FC539 /* rooster.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F4A2A12808D001FC539 /* rooster.mp3 */; };
 		178C7F5A2A12808E001FC539 /* train.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F4B2A12808D001FC539 /* train.mp3 */; };
 		178C7F5B2A12808E001FC539 /* thunder.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F4C2A12808D001FC539 /* thunder.mp3 */; };
@@ -63,7 +63,7 @@
 		178C7F352A1014FC001FC539 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
 		178C7F372A10DC85001FC539 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		178C7F392A10E516001FC539 /* CollectionViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtention.swift; sourceTree = "<group>"; };
-		178C7F452A124C43001FC539 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		178C7F452A124C43001FC539 /* AudioPlayerForSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerForSound.swift; sourceTree = "<group>"; };
 		178C7F4A2A12808D001FC539 /* rooster.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rooster.mp3; sourceTree = "<group>"; };
 		178C7F4B2A12808D001FC539 /* train.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = train.mp3; sourceTree = "<group>"; };
 		178C7F4C2A12808D001FC539 /* thunder.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunder.mp3; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 		178C7F252A0E8EFF001FC539 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				178C7F452A124C43001FC539 /* AudioPlayer.swift */,
+				178C7F452A124C43001FC539 /* AudioPlayerForSound.swift */,
 				178C7F332A0FF5C4001FC539 /* Images.swift */,
 				17D1D9142A17CFAA00A173E1 /* Sound.swift */,
 				17D1D9162A17D2E300A173E1 /* AllSounds.swift */,
@@ -342,7 +342,7 @@
 				17D1D9242A1BF1C800A173E1 /* CustomButtonView.swift in Sources */,
 				178C7F2D2A0E9F41001FC539 /* Helper.swift in Sources */,
 				17D1D9192A19359D00A173E1 /* SavedData.swift in Sources */,
-				178C7F462A124C43001FC539 /* AudioPlayer.swift in Sources */,
+				178C7F462A124C43001FC539 /* AudioPlayerForSound.swift in Sources */,
 				17D147792A1E85BA0037D278 /* Animations.swift in Sources */,
 				178C7F112A0E8CC2001FC539 /* SceneDelegate.swift in Sources */,
 			);
@@ -487,7 +487,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TerraScape/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -517,7 +517,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TerraScape/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (

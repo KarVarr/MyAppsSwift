@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let audioPlayer = AudioPlayerForSound()
     var currentPlayer: AVAudioPlayer?
     var currentSoundIndex: Int = 0
+    let toolbar = ToolbarView()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -34,17 +35,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         commandCenter.playCommand.addTarget { [unowned self] event in
             print("should play sound")
             if currentSoundIndex < audioPlayer.players.count {
-                currentPlayer?.stop()
                 currentPlayer = audioPlayer.players[currentSoundIndex]
-                currentPlayer?.play()
+                toolbar.audioPlayer.playAllSound()
+                toolbar.updatePlayButtonState(true)
             }
+            
             return .success
         }
         
         commandCenter.pauseCommand.isEnabled = true
         commandCenter.pauseCommand.addTarget { [unowned self] event in
             print("should pause sound")
-            currentPlayer?.pause()
+            toolbar.audioPlayer.stopAllSound()
+            toolbar.updatePlayButtonState(false)
             return .success
         }
     }
@@ -92,7 +95,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        
+        if toolbar.onOffButton {
+            audioPlayer.playAllSound()
+        } else {
+            audioPlayer.stopAllSound()
+        }
     }
     
 }

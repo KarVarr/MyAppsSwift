@@ -120,6 +120,16 @@ class ToolbarView: UIView {
         print(onOffButton)
     }
     
+    func updatePlayButtonState(_ isPlaying: Bool) {
+            let image = isPlaying ? UIImage(named: "pause")?.withTintColor(.white, renderingMode: .alwaysOriginal) : UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+            
+            UIView.transition(with: self.playButton.customButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.playButton.customButton.setImage(image, for: .normal)
+            }, completion: nil)
+            
+            onOffButton = isPlaying
+        }
+    
     
     @objc func settingButtonPressed() {
         
