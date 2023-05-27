@@ -57,7 +57,6 @@ class ToolbarView: UIView {
         playButton.customButton.addTarget(self, action: #selector(playButtonForSound), for: .touchUpInside)
         
         
-        animationForSettingButton()
         
         settingButton.customButton.setImage(UIImage(named: "gear")?.withTintColor(.secondaryLabel, renderingMode: .alwaysOriginal), for: .normal)
         settingButton.customButton.addTarget(self, action: #selector(settingButtonPressed), for: .touchUpInside)
@@ -86,16 +85,6 @@ class ToolbarView: UIView {
         ])
         
     }
-    
-    func animationForSettingButton() {
-        let rotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
-        rotationAnimation.values = [0, Double.pi * 2]
-        rotationAnimation.duration = 60.0
-        rotationAnimation.repeatCount = .infinity
-        
-        self.settingButton.customButton.layer.add(rotationAnimation, forKey: "rotationAnimation")
-    }
-    
     
     @objc func playButtonForSound() {
         
