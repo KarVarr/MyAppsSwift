@@ -17,6 +17,9 @@ enum Helpers {
     
     enum Strings {
         static let navigationTitle = "TerraScape"
+        static let settingsTitle = "Settings"
+        static let settingsAboutTitleLabel = "About"
+        static let settingsAboutText = "Experience TerraScape, the ultimate productivity tool for staying focused and relaxed. Immerse yourself in a variety of ambient sounds, from gentle rain to the cozy ambiance of a coffee house. TerraScape works like magic, enhancing productivity and creating a serene environment. Tune out distractions with soothing rain sounds or find inspiration in the vibrant energy of a café."
     }
     
     enum Colors {
@@ -26,6 +29,8 @@ enum Helpers {
         
         static let deselectWhiteGradient = [UIColor(white: 1, alpha: 0.15).cgColor, UIColor(white: 1, alpha: 0.3).cgColor]
         static let selectWhiteGradient = [UIColor(white: 1, alpha: 0.5).cgColor, UIColor(white: 1, alpha: 0.8).cgColor]
+        
+        static let settingsViewBackground = UIColor(red: 0.07, green: 0.76, blue: 0.91, alpha: 0.95)
         
         static let mainViewGradient = [UIColor(red: 0.07, green: 0.76, blue: 0.91, alpha: 1.00).cgColor, UIColor(red: 0.77, green: 0.44, blue: 0.93, alpha: 1.00).cgColor, UIColor(red: 0.96, green: 0.31, blue: 0.35, alpha: 1.00).cgColor]
         
