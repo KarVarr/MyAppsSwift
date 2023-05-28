@@ -8,29 +8,45 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    let verticalStackViewForText = CustomStackView()
+    let horizontalStackViewForButtons = CustomStackView()
+    
     let titleLabel = CustomLabelView()
     let aboutTitleLabel = CustomLabelView()
     let aboutTextLabel = CustomLabelView()
+    
+    let rateAppButton = CustomButtonView()
+    let reportAProblemButton = CustomButtonView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        
         addViews()
         settings()
+        labelsSetting()
+        stackViewSetting()
+        buttonsSetting()
         layout()
     }
     
+    
     func addViews() {
-        view.addSubview(titleLabel.customLabel)
-        view.addSubview(aboutTitleLabel.customLabel)
-        view.addSubview(aboutTextLabel.customLabel)
+        view.addSubview(verticalStackViewForText.customStackView)
+        verticalStackViewForText.customStackView.addArrangedSubview(titleLabel.customLabel)
+        verticalStackViewForText.customStackView.addArrangedSubview(aboutTitleLabel.customLabel)
+        verticalStackViewForText.customStackView.addArrangedSubview(aboutTextLabel.customLabel)
+        
+        view.addSubview(horizontalStackViewForButtons.customStackView)
+        horizontalStackViewForButtons.customStackView.addArrangedSubview(rateAppButton.customButton)
+        horizontalStackViewForButtons.customStackView.addArrangedSubview(reportAProblemButton.customButton)
+  
     }
     
     func settings() {
         view.backgroundColor = Helpers.Colors.settingsViewBackground
         
+    }
+    
+    func labelsSetting() {
         titleLabel.customLabel.text = Helpers.Strings.settingsTitle
         titleLabel.customLabel.font = UIFont(name: "Thonburi", size: 18)
         
@@ -45,24 +61,41 @@ class SettingsViewController: UIViewController {
         aboutTextLabel.customLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 18)
     }
     
+    func stackViewSetting() {
+        verticalStackViewForText.customStackView.axis = .vertical
+        verticalStackViewForText.customStackView.alignment = .center
+        verticalStackViewForText.customStackView.spacing = 20.0
+        
+        horizontalStackViewForButtons.customStackView.axis = .horizontal
+        horizontalStackViewForButtons.customStackView.distribution = .fillEqually
+        horizontalStackViewForButtons.customStackView.alignment = .center
+        
+    }
+    
+    func buttonsSetting() {
+        rateAppButton.customButton.setTitle("Rate", for: .normal)
+        reportAProblemButton.customButton.setTitle("Report", for: .normal)
+    }
+    
     func layout() {
-        let title = titleLabel.customLabel
-        let aboutTitle = aboutTitleLabel.customLabel
-        let aboutText = aboutTextLabel.customLabel
+        let verticalStackViewForText = verticalStackViewForText.customStackView
+        let horizontalStackViewForButtons = horizontalStackViewForButtons.customStackView
         
         NSLayoutConstraint.activate([
-            title.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            title.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            verticalStackViewForText.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            verticalStackViewForText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            verticalStackViewForText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            verticalStackViewForText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            aboutTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            aboutTitle.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 20),
-            
-            aboutText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            aboutText.topAnchor.constraint(equalTo: aboutTitle.bottomAnchor, constant: 30),
-            aboutText.widthAnchor.constraint(equalToConstant: view.frame.size.width - 30),
-            
+            horizontalStackViewForButtons.topAnchor.constraint(equalTo: verticalStackViewForText.bottomAnchor, constant: 40),
+            horizontalStackViewForButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            horizontalStackViewForButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            horizontalStackViewForButtons.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
+        
     }
+    
+   
     
 
   
