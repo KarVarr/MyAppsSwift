@@ -24,15 +24,17 @@ struct StartScreenView: View {
                         .frame(maxWidth: geo.size.width - circleWidth, maxHeight: geo.size.width - circleWidth)
                         .position(x: geo.size.width / 2, y: geo.size.height / circlePosition)
                         .shadow(radius: 15, x: 15, y: 15)
-                        .onTapGesture {
-                            startButton()
-                        }
+                        
                     
                     Text(titleForButton)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(.white.opacity(0.8))
                         .bold()
                         .font(.largeTitle)
+                        .position(x: geo.size.width / 2, y: geo.size.height / circlePosition)
                     
+                }
+                .onTapGesture {
+                    startButton()
                 }
                 
                 
@@ -42,15 +44,15 @@ struct StartScreenView: View {
     
     func startButton() {
         if titleForButton == "START"  {
+            titleForButton = "STOP"
             withAnimation {
-                titleForButton = "STOP"
                 
                 circleWidth = 150
                 circlePosition = 4
             }
         } else {
+            titleForButton = "START"
             withAnimation {
-                titleForButton = "START"
                 
                 circleWidth = 50
                 circlePosition = 2

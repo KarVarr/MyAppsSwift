@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		173F01C62A236B1600782653 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01C52A236B1600782653 /* SettingsViewController.swift */; };
 		178C7F0F2A0E8CC2001FC539 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F0E2A0E8CC2001FC539 /* AppDelegate.swift */; };
 		178C7F112A0E8CC2001FC539 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F102A0E8CC2001FC539 /* SceneDelegate.swift */; };
 		178C7F132A0E8CC2001FC539 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F122A0E8CC2001FC539 /* MainViewController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		173F01C52A236B1600782653 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		178C7F0B2A0E8CC2001FC539 /* TerraScape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TerraScape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		178C7F0E2A0E8CC2001FC539 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		178C7F102A0E8CC2001FC539 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				178C7F122A0E8CC2001FC539 /* MainViewController.swift */,
 				178C7F392A10E516001FC539 /* CollectionViewExtention.swift */,
+				173F01C52A236B1600782653 /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				178C7F2F2A0EBD6B001FC539 /* CustomLabelView.swift in Sources */,
 				178C7F342A0FF5C4001FC539 /* Images.swift in Sources */,
 				178C7F722A155225001FC539 /* CustomUISlider.swift in Sources */,
+				173F01C62A236B1600782653 /* SettingsViewController.swift in Sources */,
 				178C7F0F2A0E8CC2001FC539 /* AppDelegate.swift in Sources */,
 				178C7F282A0E8F43001FC539 /* UICollectionView.swift in Sources */,
 				17D1D9242A1BF1C800A173E1 /* CustomButtonView.swift in Sources */,

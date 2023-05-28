@@ -13,6 +13,8 @@ import MediaPlayer
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    
     let audioPlayer = AudioPlayerForSound()
     var currentPlayer: AVAudioPlayer?
     var currentSoundIndex: Int = 0

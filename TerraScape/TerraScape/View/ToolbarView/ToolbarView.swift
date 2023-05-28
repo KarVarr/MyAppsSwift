@@ -10,6 +10,8 @@ import AVFAudio
 import AVFoundation
 
 class ToolbarView: UIView {
+    weak var parentViewController: UIViewController?
+    
     var audioPlayer = AudioPlayerForSound()
     
     let label = ToolbarLabel()
@@ -121,7 +123,10 @@ class ToolbarView: UIView {
     
     
     @objc func settingButtonPressed() {
+        let settingVC = SettingsViewController()
         
+        settingVC.modalPresentationStyle = .formSheet
+        parentViewController?.present(settingVC, animated: true)
     }
     
 }
