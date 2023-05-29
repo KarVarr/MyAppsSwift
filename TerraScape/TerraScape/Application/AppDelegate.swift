@@ -16,8 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     let audioPlayer = AudioPlayerForSound()
-    var currentPlayer: AVAudioPlayer?
-    var currentSoundIndex: Int = 0
     let toolbar = ToolbarView()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -25,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupRemoteControl()
         setupNowPlayingInfo()
         configureAudioSession()
+        
+        
         return true
     }
     
@@ -36,20 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         commandCenter.playCommand.isEnabled = true
         commandCenter.playCommand.addTarget { [unowned self] event in
             print("should play sound")
-//            if currentSoundIndex < audioPlayer.players.count {
-//                currentPlayer = audioPlayer.players[currentSoundIndex]
-//                toolbar.audioPlayer.playAllSound()
-//                toolbar.updatePlayButtonState(true)
-//            }
-            toolbar.playButtonForSound()
-            return .success
+            if !self.toolbar.audioPlayer.players.first!.isPlaying {
+                self.audioPlayer.players.first?.play()
+                return .success
+            }
+            return .commandFailed
         }
         
         commandCenter.pauseCommand.isEnabled = true
         commandCenter.pauseCommand.addTarget { [unowned self] event in
             print("should pause sound")
             toolbar.audioPlayer.stopAllSound()
-            toolbar.updatePlayButtonState(false)
             return .success
         }
     }
@@ -69,6 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
     
+    //MARK: - Playing sound background
     func configureAudioSession() {
         let audioSession = AVAudioSession.sharedInstance()
         do {
@@ -97,12 +95,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        if toolbar.onOffButton {
-            audioPlayer.playAllSound()
-        } else {
-            audioPlayer.stopAllSound()
-        }
+        
     }
+    
+    
     
 }
 

@@ -13,7 +13,6 @@ import MediaPlayer
 
 class AudioPlayerForSound {
     let allSounds = AllSounds()
-    let name = Images()
     
     var players: [AVAudioPlayer] = []
 
