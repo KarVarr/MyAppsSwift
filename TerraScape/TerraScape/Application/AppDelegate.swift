@@ -36,12 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         commandCenter.playCommand.isEnabled = true
         commandCenter.playCommand.addTarget { [unowned self] event in
             print("should play sound")
-            if currentSoundIndex < audioPlayer.players.count {
-                currentPlayer = audioPlayer.players[currentSoundIndex]
-                toolbar.audioPlayer.playAllSound()
-                toolbar.updatePlayButtonState(true)
-            }
-            
+//            if currentSoundIndex < audioPlayer.players.count {
+//                currentPlayer = audioPlayer.players[currentSoundIndex]
+//                toolbar.audioPlayer.playAllSound()
+//                toolbar.updatePlayButtonState(true)
+//            }
+            toolbar.playButtonForSound()
             return .success
         }
         
