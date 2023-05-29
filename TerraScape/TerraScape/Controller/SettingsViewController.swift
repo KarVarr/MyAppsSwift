@@ -29,7 +29,6 @@ class SettingsViewController: UIViewController {
         layout()
     }
     
-    
     func addViews() {
         view.addSubview(verticalStackViewForText.customStackView)
         verticalStackViewForText.customStackView.addArrangedSubview(titleLabel.customLabel)
@@ -88,8 +87,9 @@ class SettingsViewController: UIViewController {
         }
         
         rateAppButton.customButton.setTitle("Rate", for: .normal)
-        reportAProblemButton.customButton.setTitle("Report", for: .normal)
         
+        reportAProblemButton.customButton.setTitle("Report", for: .normal)
+        reportAProblemButton.customButton.addTarget(self, action: #selector(sendEmailAboutABug), for: .touchUpInside)
     }
     
     func layout() {
@@ -111,29 +111,24 @@ class SettingsViewController: UIViewController {
             
             reportAProblemButton.widthAnchor.constraint(lessThanOrEqualToConstant: 30),
             reportAProblemButton.heightAnchor.constraint(equalToConstant: 44),
-
+            
             rateAppButton.widthAnchor.constraint(lessThanOrEqualToConstant: 30),
             rateAppButton.heightAnchor.constraint(equalToConstant: 44),
         ])
         
     }
-    
-    
-    
-    
-    
-    
+   
 }
 
 
 extension SettingsViewController: MFMailComposeViewControllerDelegate {
-    func sendEmailAboutABug() {
+    @objc func sendEmailAboutABug() {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients(["megatr9n@gmail.com"])
-            mail.setMessageBody("<p>Hello there is a problem in your application: </p>", isHTML: true)
-            mail.setSubject("Bug in the application TerraScape")
+            mail.setToRecipients([Helpers.Strings.EmailReport.email])
+            mail.setMessageBody(Helpers.Strings.EmailReport.messageBody, isHTML: true)
+            mail.setSubject(Helpers.Strings.EmailReport.subject)
             
             present(mail, animated: true)
         } else {
@@ -141,6 +136,7 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
             
             let ac = UIAlertController(title: "Error", message: "Enable email sending in settings", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
         }
     }
     

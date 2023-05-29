@@ -20,6 +20,15 @@ enum Helpers {
         static let settingsTitle = "Settings"
         static let settingsAboutTitleLabel = "About"
         static let settingsAboutText = "Experience TerraScape, the ultimate productivity tool for staying focused and relaxed. Immerse yourself in a variety of ambient sounds, from gentle rain to the cozy ambiance of a coffee house. TerraScape works like magic, enhancing productivity and creating a serene environment. Tune out distractions with soothing rain sounds or find inspiration in the vibrant energy of a café."
+        
+        enum EmailReport {
+            static let email = "vardaniankaren88@gmail.com"
+            static let subject = "Bug in the app TerraScape"
+            static let deviceName = UIDevice.current.modelName
+            static let deviceModel = UIDevice.current.systemVersion
+            static let deviceOsName = UIDevice.current.systemName
+            static let messageBody = "<p>\(deviceName) \(deviceOsName) \(deviceModel)</p>"
+        }
     }
     
     enum Colors {
