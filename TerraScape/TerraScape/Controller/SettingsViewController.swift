@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class SettingsViewController: UIViewController {
     let verticalStackViewForText = CustomStackView()
@@ -120,6 +121,32 @@ class SettingsViewController: UIViewController {
     
     
     
+    
+    
+}
+
+
+extension SettingsViewController: MFMailComposeViewControllerDelegate {
+    func sendEmailAboutABug() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["megatr9n@gmail.com"])
+            mail.setMessageBody("<p>Hello there is a problem in your application: </p>", isHTML: true)
+            mail.setSubject("Bug in the application TerraScape")
+            
+            present(mail, animated: true)
+        } else {
+            print("Error: Sending emails is not enabled in settings")
+            
+            let ac = UIAlertController(title: "Error", message: "Enable email sending in settings", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
     
     
 }
