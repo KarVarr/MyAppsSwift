@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import MessageUI
+
 
 class SettingsViewController: UIViewController {
     let verticalStackViewForText = CustomStackView()
@@ -18,6 +18,7 @@ class SettingsViewController: UIViewController {
     
     let rateAppButton = CustomButtonView()
     let reportAProblemButton = CustomButtonView()
+    let closeModuleButton = CustomButtonView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,26 +40,27 @@ class SettingsViewController: UIViewController {
         horizontalStackViewForButtons.customStackView.addArrangedSubview(rateAppButton.customButton)
         horizontalStackViewForButtons.customStackView.addArrangedSubview(reportAProblemButton.customButton)
         
+        view.addSubview(closeModuleButton.customButton)
     }
     
     func settings() {
         view.backgroundColor = Helpers.Colors.settingsViewBackground
-        
     }
     
     func labelsSetting() {
         titleLabel.customLabel.text = Helpers.Strings.settingsTitle
-        titleLabel.customLabel.font = UIFont(name: "Thonburi", size: 18)
+        titleLabel.customLabel.font = Helpers.Fonts.Thonburi(with: 18)
+        titleLabel.customLabel.textColor = Helpers.Colors.settingsWhite.withAlphaComponent(0.6)
         
         aboutTitleLabel.customLabel.text = Helpers.Strings.settingsAboutTitleLabel
-        aboutTitleLabel.customLabel.textColor = .white
-        aboutTitleLabel.customLabel.font = UIFont(name: "GillSans-Bold", size: 32)
+        aboutTitleLabel.customLabel.textColor = Helpers.Colors.settingsWhite
+        aboutTitleLabel.customLabel.font = Helpers.Fonts.GillSansBold(with: 32)
         
         aboutTextLabel.customLabel.text = Helpers.Strings.settingsAboutText
         aboutTextLabel.customLabel.textAlignment = .center
         aboutTextLabel.customLabel.numberOfLines = 0
-        aboutTextLabel.customLabel.textColor = .white
-        aboutTextLabel.customLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 18)
+        aboutTextLabel.customLabel.textColor = Helpers.Colors.settingsWhite
+        aboutTextLabel.customLabel.font = Helpers.Fonts.AppleSDGothicNeoRegular(with: 18)
     }
     
     func stackViewSetting() {
@@ -68,7 +70,7 @@ class SettingsViewController: UIViewController {
         
         horizontalStackViewForButtons.customStackView.axis = .horizontal
         horizontalStackViewForButtons.customStackView.distribution = .fillEqually
-        horizontalStackViewForButtons.customStackView.spacing = 40.0
+        horizontalStackViewForButtons.customStackView.spacing = 60.0
         horizontalStackViewForButtons.customStackView.alignment = .center
         
     }
@@ -82,7 +84,7 @@ class SettingsViewController: UIViewController {
             button.layer.cornerRadius = Helpers.Radius.cornerRadius
             button.layer.shadowColor = UIColor.black.cgColor
             button.layer.shadowRadius = 4
-            button.layer.shadowOpacity = 0.3
+            button.layer.shadowOpacity = 0.1
             button.layer.shadowOffset = CGSize(width: 5, height: 5)
         }
         
@@ -90,6 +92,10 @@ class SettingsViewController: UIViewController {
         
         reportAProblemButton.customButton.setTitle("Report", for: .normal)
         reportAProblemButton.customButton.addTarget(self, action: #selector(sendEmailAboutABug), for: .touchUpInside)
+        
+        closeModuleButton.customButton.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
+        closeModuleButton.customButton.tintColor = Helpers.Colors.settingsWhite.withAlphaComponent(0.6)
+        closeModuleButton.customButton.addTarget(self, action: #selector(closeModule), for: .touchUpInside)
     }
     
     func layout() {
@@ -97,6 +103,7 @@ class SettingsViewController: UIViewController {
         let horizontalStackViewForButtons = horizontalStackViewForButtons.customStackView
         let rateAppButton = rateAppButton.customButton
         let reportAProblemButton = reportAProblemButton.customButton
+        let closeModuleButton = closeModuleButton.customButton
         
         NSLayoutConstraint.activate([
             verticalStackViewForText.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
@@ -114,35 +121,15 @@ class SettingsViewController: UIViewController {
             
             rateAppButton.widthAnchor.constraint(lessThanOrEqualToConstant: 30),
             rateAppButton.heightAnchor.constraint(equalToConstant: 44),
+            
+            closeModuleButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            closeModuleButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
         ])
         
     }
+    
+    @objc func closeModule() {
+        dismiss(animated: true)
+    }
    
-}
-
-
-extension SettingsViewController: MFMailComposeViewControllerDelegate {
-    @objc func sendEmailAboutABug() {
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients([Helpers.Strings.EmailReport.email])
-            mail.setMessageBody(Helpers.Strings.EmailReport.messageBody, isHTML: true)
-            mail.setSubject(Helpers.Strings.EmailReport.subject)
-            
-            present(mail, animated: true)
-        } else {
-            print("Error: Sending emails is not enabled in settings")
-            
-            let ac = UIAlertController(title: "Error", message: "Enable email sending in settings", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            present(ac, animated: true)
-        }
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-    }
-    
-    
 }

@@ -33,10 +33,6 @@ class MainViewController: UIViewController {
     
     var initialToolbarWidth: CGFloat = -300
     
-    
-   
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,9 +59,7 @@ class MainViewController: UIViewController {
         //            view.backgroundColor = .black
         //        }
     }
-    
-    
-    
+   
     func addViews() {
         view.addSubview(smallBall.customUIView)
         view.addSubview(mediumBall.customUIView)
@@ -76,7 +70,6 @@ class MainViewController: UIViewController {
     }
     
     func settings() {
-        
         
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds

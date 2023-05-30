@@ -18,17 +18,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
 
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        CGSize(width: (view.frame.size.width )  , height: (view.frame.size.width )  )
-//    }
-    
-    //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //        collectionView.deselectItem(at: indexPath, animated: true)
-    //
-    //        //        guard let cell = collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell else { return }
-    //
-    //    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allSounds.sounds.count
         
@@ -44,18 +33,14 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.volumeOfSound.customSlider.addTarget(self, action: #selector(volumeSliderChanged), for: .valueChanged)
         cell.volumeOfSound.customSlider.tag = indexPath.item
         
-        
-        
         if cellsToUpdate.contains(indexPath) {
             cellsToUpdate.remove(at: cellsToUpdate.firstIndex(of: indexPath)!)
         }
-        
-        
         return cell
     }
     
     
-    /**This function plays\stops each song individually! */
+    /**This function plays\stops all songs ! */
     @objc func volumeSliderChanged(_ sender: UISlider) {
         
         let soundIndex = sender.tag
@@ -68,7 +53,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             player.volume = sender.value
         }
         
-        
         savedData.save()
         
         let indexPath = IndexPath(item: soundIndex, section: 0)
@@ -76,9 +60,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cellsToUpdate.append(indexPath)
         }
         
-        
 //        uiCollectionView.customCollectionView.reloadItems(at: cellsToUpdate)
         cellsToUpdate.removeAll()
-        
+       
     }
 }

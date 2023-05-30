@@ -34,9 +34,6 @@ class ToolbarView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
-    
     func addViews() {
         addSubview(label.toolbarLabel.customLabel)
         addSubview(settingButton.customButton)
@@ -53,14 +50,12 @@ class ToolbarView: UIView {
         layer.shadowOpacity = 0.7
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 4
-        
-        
+   
     }
     
     func buttonsSetting() {
         playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
         playButton.customButton.addTarget(self, action: #selector(playButtonForSound), for: .touchUpInside)
-        
         
         
         settingButton.customButton.setImage(UIImage(named: "gear")?.withTintColor(.secondaryLabel, renderingMode: .alwaysOriginal), for: .normal)
@@ -113,7 +108,6 @@ class ToolbarView: UIView {
         
         print(onOffButton)
     }
-    
    
     @objc func settingButtonPressed() {
         let settingVC = SettingsViewController()

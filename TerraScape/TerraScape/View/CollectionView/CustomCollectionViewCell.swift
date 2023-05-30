@@ -29,8 +29,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
     func addViews() {
         contentView.addSubview(volumeOfSound.customSlider)
         contentView.addSubview(nameOfSound.customLabel)
@@ -55,32 +53,16 @@ class CustomCollectionViewCell: UICollectionViewCell {
         gradient.frame = bounds
         gradient.colors = Helpers.Colors.deselectWhiteGradient
         gradient.endPoint = CGPoint(x: 0, y: 0.25)
-
-//        let gradientBorder = CAGradientLayer()
-//        gradientBorder.frame = CGRect(origin: CGPointZero, size: self.bounds.size)
-//        gradientBorder.startPoint = CGPointMake(1.0, 0.2)
-//        gradientBorder.endPoint = CGPointMake(0.0, 0.2)
-//        gradientBorder.colors = Helpers.Colors.deselectWhiteGradient
-//
-//
-//        let shapeLayer = CAShapeLayer()
-//        shapeLayer.lineWidth = 4
-//        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: Helpers.Radius.cornerRadius, height: Helpers.Radius.cornerRadius))
-//        shapeLayer.path = path.cgPath
-//        shapeLayer.fillColor = nil
-//        shapeLayer.strokeColor = UIColor.white.cgColor
-//        gradientBorder.mask = shapeLayer
-
-
+        
         contentView.addSubview(blurEffectView)
-//        layer.addSublayer(gradientBorder)
         layer.insertSublayer(gradient, at: 0)
         layer.cornerRadius = Helpers.Radius.cornerRadius
         clipsToBounds = true
         backgroundColor = .clear
         
         sliderView.customUIView.layer.cornerRadius = 15
-        sliderView.customUIView.backgroundColor = .white.withAlphaComponent(0.5)
+        sliderView.customUIView.clipsToBounds = true
+        sliderView.customUIView.backgroundColor = UIColor(white: 1, alpha: 0.5)
     }
     
     
@@ -97,23 +79,20 @@ class CustomCollectionViewCell: UICollectionViewCell {
             name.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             name.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             
-
             image.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 10),
             image.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
             image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50),
-//            image.widthAnchor.constraint(greaterThanOrEqualToConstant: image.frame.size.width),
-//            image.heightAnchor.constraint(equalToConstant: 100),
-
+            
             sliderView.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 10),
             sliderView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             sliderView.leadingAnchor.constraint(equalTo: image.leadingAnchor),
             sliderView.trailingAnchor.constraint(equalTo: image.trailingAnchor),
             sliderView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             sliderView.heightAnchor.constraint(equalToConstant: 30),
-
+            
             volume.topAnchor.constraint(equalTo: sliderView.topAnchor),
             volume.bottomAnchor.constraint(equalTo: sliderView.bottomAnchor),
             volume.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
@@ -121,7 +100,5 @@ class CustomCollectionViewCell: UICollectionViewCell {
             
         ])
     }
-    
-    
     
 }

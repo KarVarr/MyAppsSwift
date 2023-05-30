@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		173F01C62A236B1600782653 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01C52A236B1600782653 /* SettingsViewController.swift */; };
 		173F01C82A237D9900782653 /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01C72A237D9900782653 /* CustomStackView.swift */; };
+		173F01CB2A2511FE00782653 /* SettingViewController + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01CA2A2511FE00782653 /* SettingViewController + ext.swift */; };
+		173F01EF2A252EA200782653 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01EE2A252EA200782653 /* Slider.swift */; };
 		178C7F0F2A0E8CC2001FC539 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F0E2A0E8CC2001FC539 /* AppDelegate.swift */; };
 		178C7F112A0E8CC2001FC539 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F102A0E8CC2001FC539 /* SceneDelegate.swift */; };
 		178C7F132A0E8CC2001FC539 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F122A0E8CC2001FC539 /* MainViewController.swift */; };
@@ -51,6 +53,8 @@
 /* Begin PBXFileReference section */
 		173F01C52A236B1600782653 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		173F01C72A237D9900782653 /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
+		173F01CA2A2511FE00782653 /* SettingViewController + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingViewController + ext.swift"; sourceTree = "<group>"; };
+		173F01EE2A252EA200782653 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		178C7F0B2A0E8CC2001FC539 /* TerraScape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TerraScape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		178C7F0E2A0E8CC2001FC539 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		178C7F102A0E8CC2001FC539 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		173F01C92A2511C300782653 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				173F01CA2A2511FE00782653 /* SettingViewController + ext.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		178C7F022A0E8CC2001FC539 = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +201,7 @@
 		178C7F2B2A0E9F14001FC539 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				173F01C92A2511C300782653 /* Extentions */,
 				178C7F2C2A0E9F41001FC539 /* Helper.swift */,
 			);
 			path = Helpers;
@@ -203,6 +216,7 @@
 				178C7F712A155225001FC539 /* CustomUISlider.swift */,
 				17D1D9232A1BF1C800A173E1 /* CustomButtonView.swift */,
 				173F01C72A237D9900782653 /* CustomStackView.swift */,
+				173F01EE2A252EA200782653 /* Slider.swift */,
 			);
 			path = ElementsView;
 			sourceTree = "<group>";
@@ -344,7 +358,9 @@
 				178C7F2F2A0EBD6B001FC539 /* CustomLabelView.swift in Sources */,
 				178C7F342A0FF5C4001FC539 /* Images.swift in Sources */,
 				178C7F722A155225001FC539 /* CustomUISlider.swift in Sources */,
+				173F01EF2A252EA200782653 /* Slider.swift in Sources */,
 				173F01C62A236B1600782653 /* SettingsViewController.swift in Sources */,
+				173F01CB2A2511FE00782653 /* SettingViewController + ext.swift in Sources */,
 				178C7F0F2A0E8CC2001FC539 /* AppDelegate.swift in Sources */,
 				178C7F282A0E8F43001FC539 /* UICollectionView.swift in Sources */,
 				17D1D9242A1BF1C800A173E1 /* CustomButtonView.swift in Sources */,

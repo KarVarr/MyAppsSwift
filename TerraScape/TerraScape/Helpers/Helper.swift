@@ -10,11 +10,12 @@ import UIKit
 
 
 enum Helpers {
-    
+    //MARK: - KEYS
     enum Keys {
         static let collectionCell = "customCollectionCell"
     }
     
+    //MARK: - STRINGS
     enum Strings {
         static let navigationTitle = "TerraScape"
         static let settingsTitle = "Settings"
@@ -31,7 +32,10 @@ enum Helpers {
         }
     }
     
+    //MARK: - COLORS
     enum Colors {
+        static let settingsWhite = UIColor.white
+        
         static let cellBackgroundColor = UIColor(red: 0.23, green: 0.60, blue: 0.73, alpha: 1.00)
         
         static let navigationBarBackgroundColor = UIColor.clear
@@ -39,7 +43,7 @@ enum Helpers {
         static let deselectWhiteGradient = [UIColor(white: 1, alpha: 0.15).cgColor, UIColor(white: 1, alpha: 0.3).cgColor]
         static let selectWhiteGradient = [UIColor(white: 1, alpha: 0.5).cgColor, UIColor(white: 1, alpha: 0.8).cgColor]
         
-        static let settingsViewBackground = UIColor(red: 0.07, green: 0.76, blue: 0.91, alpha: 0.95)
+        static let settingsViewBackground = UIColor(red: 0.07, green: 0.76, blue: 0.91, alpha: 0.98)
         
         static let mainViewGradient = [UIColor(red: 0.07, green: 0.76, blue: 0.91, alpha: 1.00).cgColor, UIColor(red: 0.77, green: 0.44, blue: 0.93, alpha: 1.00).cgColor, UIColor(red: 0.96, green: 0.31, blue: 0.35, alpha: 1.00).cgColor]
         
@@ -52,12 +56,28 @@ enum Helpers {
         static let largeBallGradient = [UIColor(red: 0.01, green: 0.00, blue: 0.12, alpha: 1.00).cgColor,UIColor(red: 0.45, green: 0.01, blue: 0.75, alpha: 1.00).cgColor, UIColor(red: 0.93, green: 0.22, blue: 0.74, alpha: 1.00).cgColor]
         
         
-        static let sliderTrackMinimumColor = UIColor(red: 1.00, green: 1.00, blue: 0.53, alpha: 1.00)
+        static let sliderTrackMinimumColor = UIColor.white
         
     }
     
+    //MARK: - RADIUS
     enum Radius {
         static let cornerRadius = 20.0
+    }
+    
+    //MARK: - FONTS
+    enum Fonts {
+        static func AppleSDGothicNeoRegular(with size: CGFloat) -> UIFont {
+            UIFont(name: "AppleSDGothicNeo-Regular", size: size) ?? UIFont()
+        }
+        
+        static func GillSansBold(with size: CGFloat) -> UIFont {
+            UIFont(name: "GillSans-Bold", size: size) ?? UIFont()
+        }
+        
+        static func Thonburi (with size: CGFloat) -> UIFont {
+            UIFont(name: "Thonburi", size: size) ?? UIFont()
+        }
     }
     
 }
