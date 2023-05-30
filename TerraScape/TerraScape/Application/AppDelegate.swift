@@ -31,24 +31,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupRemoteControl() {
         UIApplication.shared.beginReceivingRemoteControlEvents()
         
-        let commandCenter = MPRemoteCommandCenter.shared()
-        
-        commandCenter.playCommand.isEnabled = true
-        commandCenter.playCommand.addTarget { [unowned self] event in
-            print("should play sound")
-            if !self.toolbar.audioPlayer.players.first!.isPlaying {
-                self.audioPlayer.players.first?.play()
-                return .success
-            }
-            return .commandFailed
-        }
-        
-        commandCenter.pauseCommand.isEnabled = true
-        commandCenter.pauseCommand.addTarget { [unowned self] event in
-            print("should pause sound")
-            toolbar.audioPlayer.stopAllSound()
-            return .success
-        }
+//        let commandCenter = MPRemoteCommandCenter.shared()
+//
+//        commandCenter.playCommand.isEnabled = true
+//        commandCenter.playCommand.addTarget { [unowned self] event in
+//            print("should play sound")
+//            if !self.toolbar.audioPlayer.players.first!.isPlaying {
+//                self.audioPlayer.players.first?.play()
+//                return .success
+//            }
+//            return .commandFailed
+//        }
+//
+//        commandCenter.pauseCommand.isEnabled = true
+//        commandCenter.pauseCommand.addTarget { [unowned self] event in
+//            print("should pause sound")
+////            toolbar.audioPlayer.stopAllSound()
+//            return .success
+//        }
     }
     
     func setupNowPlayingInfo() {

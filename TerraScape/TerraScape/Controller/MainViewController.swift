@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        savedData.load()
+        allSounds.sounds = savedData.load()
         
         addViews()
         settings()

@@ -53,7 +53,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             player.volume = sender.value
         }
         
-        savedData.save()
+        savedData.save(sounds: allSounds.sounds)
         
         let indexPath = IndexPath(item: soundIndex, section: 0)
         if !cellsToUpdate.contains(indexPath) {

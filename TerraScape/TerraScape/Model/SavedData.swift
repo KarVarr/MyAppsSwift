@@ -13,11 +13,11 @@ class SavedData {
     
     private let soundKey = "sound"
     
-    func save() {
+    func save(sounds: [Sound]) {
         let jsonEncoder = JSONEncoder()
         
         do {
-            let savedData = try jsonEncoder.encode(allSounds.sounds)
+            let savedData = try jsonEncoder.encode(sounds)
             let defaults = UserDefaults.standard
             defaults.set(savedData, forKey: soundKey)
         } catch {
@@ -26,17 +26,20 @@ class SavedData {
     }
     
     
-    func load() {
+    func load() -> [Sound] {
         let defaults = UserDefaults.standard
         
         if let savedData = defaults.object(forKey: soundKey) as? Data {
             let jsonDecoder = JSONDecoder()
             
             do {
-                allSounds.sounds = try jsonDecoder.decode([Sound].self, from: savedData)
+                return try jsonDecoder.decode([Sound].self, from: savedData)
             } catch {
                 print("Failed to load sound \(error.localizedDescription)")
             }
         }
+        
+        return []
     }
+
 }

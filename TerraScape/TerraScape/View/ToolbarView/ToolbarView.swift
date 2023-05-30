@@ -11,6 +11,7 @@ import AVFoundation
 
 class ToolbarView: UIView {
     weak var parentViewController: UIViewController?
+    var allSounds = AllSounds()
     
     var audioPlayer = AudioPlayerForSound()
     
@@ -88,27 +89,36 @@ class ToolbarView: UIView {
     
     @objc func playButtonForSound() {
         
-        if onOffButton {
-            audioPlayer.playAllSound()
+        for index in 0..<allSounds.sounds.count {
+            var sound = allSounds.sounds[index]
             
-            UIView.transition(with: self.playButton.customButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
-                self.playButton.customButton.setImage(UIImage(named: "pause")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-            }, completion: nil)
+            if sound.onOff {
+                audioPlayer.playAllSound()
+                
+                UIView.transition(with: self.playButton.customButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                    self.playButton.customButton.setImage(UIImage(named: "pause")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+                }, completion: nil)
+                
+                sound.onOff = false
+                sound.volume = CustomUISlider().customSlider.value
+            } else {
+                audioPlayer.stopAllSound()
+                
+                UIView.transition(with: self.playButton.customButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                    self.playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+                }, completion: nil)
+                
+                sound.onOff = true
+                SavedData().load()
+            }
             
-            onOffButton = false
-        } else {
-            audioPlayer.stopAllSound()
-            
-            UIView.transition(with: self.playButton.customButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
-                self.playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-            }, completion: nil)
-            
-            onOffButton = true
+            allSounds.sounds[index] = sound
+//            print(sound.onOff)
+            print(sound.volume)
         }
-        
-        print(onOffButton)
     }
-   
+    
+    
     @objc func settingButtonPressed() {
         let settingVC = SettingsViewController()
         

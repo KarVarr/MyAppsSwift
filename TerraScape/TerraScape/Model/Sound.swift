@@ -11,5 +11,5 @@ struct Sound: Codable {
     let name: String
     var volume: Float
     let image: String
-    var onOff: Bool
+    var onOff: Bool 
 }
