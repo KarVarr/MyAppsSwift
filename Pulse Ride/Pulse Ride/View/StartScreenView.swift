@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StartScreenView: View {
+    let hapticTouch = HapticsTouchGenerator()
     @State  var titleForButton = "START"
     
     @State private var circleWidth: CGFloat = 50
@@ -40,7 +41,7 @@ struct StartScreenView: View {
                             .animation(.easeOut)
                             .position(x: geo.size.width / 2, y: geo.size.height - 100)
                             .onAppear {
-                                DispatchQueue.main.asyncAfter(deadline: .now()  + 1.5) {
+                                DispatchQueue.main.asyncAfter(deadline: .now()) {
                                     showSliderView = true
                                 }
                             }
@@ -50,7 +51,10 @@ struct StartScreenView: View {
                 }
                 .onTapGesture {
                     startButton()
+                    
                 }
+
+
                 
                 
             }
@@ -59,6 +63,7 @@ struct StartScreenView: View {
     
     func startButton() {
         if titleForButton == "START"  {
+            hapticTouch.simpleSuccess()
             titleForButton = "STOP"
             withAnimation {
                 

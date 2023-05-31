@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SliderView: View {
-    @State var value: Double = 0
+    @State var value: Double = 5
     
     var body: some View {
         VStack {
