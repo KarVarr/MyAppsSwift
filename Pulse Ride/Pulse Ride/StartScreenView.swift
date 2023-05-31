@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct StartScreenView: View {
-    @State private var titleForButton = "START"
+    @State  var titleForButton = "START"
     
     @State private var circleWidth: CGFloat = 50
     @State private var circlePosition: CGFloat = 2
+    @State private var showSliderView = false
     
     var body: some View {
         VStack{
@@ -24,7 +25,7 @@ struct StartScreenView: View {
                         .frame(maxWidth: geo.size.width - circleWidth, maxHeight: geo.size.width - circleWidth)
                         .position(x: geo.size.width / 2, y: geo.size.height / circlePosition)
                         .shadow(radius: 15, x: 15, y: 15)
-                        
+                    
                     
                     Text(titleForButton)
                         .foregroundColor(.white.opacity(0.8))
@@ -32,6 +33,20 @@ struct StartScreenView: View {
                         .font(.largeTitle)
                         .position(x: geo.size.width / 2, y: geo.size.height / circlePosition)
                     
+                    if titleForButton == "STOP" {
+                        SliderView()
+                            .padding(30)
+                            .opacity(showSliderView ? 1 : 0)
+                            .animation(.easeOut)
+                            .position(x: geo.size.width / 2, y: geo.size.height - 100)
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now()  + 1.5) {
+                                    showSliderView = true
+                                }
+                            }
+                        
+                        
+                    }
                 }
                 .onTapGesture {
                     startButton()
