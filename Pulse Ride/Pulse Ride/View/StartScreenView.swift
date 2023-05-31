@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct StartScreenView: View {
-    let hapticTouch = HapticsTouchGenerator()
     @State  var titleForButton = "START"
     
     @State private var circleWidth: CGFloat = 50
     @State private var circlePosition: CGFloat = 2
     @State private var showSliderView = false
+    
+    
     
     var body: some View {
         VStack{
@@ -45,17 +46,15 @@ struct StartScreenView: View {
                                     showSliderView = true
                                 }
                             }
-                        
-                        
                     }
                 }
-                .onTapGesture {
-                    startButton()
-                    
+                .onAppear {
+                    ContentView().prepareHaptics()
                 }
-
-
-                
+                .onTapGesture {
+                    ContentView().complexSuccess()
+                    startButton()
+                }
                 
             }
         }
@@ -63,17 +62,15 @@ struct StartScreenView: View {
     
     func startButton() {
         if titleForButton == "START"  {
-            hapticTouch.simpleSuccess()
             titleForButton = "STOP"
+            
             withAnimation {
-                
                 circleWidth = 150
                 circlePosition = 4
             }
         } else {
             titleForButton = "START"
             withAnimation {
-                
                 circleWidth = 50
                 circlePosition = 2
             }

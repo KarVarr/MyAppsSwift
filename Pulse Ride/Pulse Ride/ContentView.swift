@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import CoreHaptics
 
 struct ContentView: View {
-    let startScreen = StartScreenView()
-    let hapticTouch = HapticsTouchGenerator()
+    @State private var engine: CHHapticEngine?
+    @State private var isPlaying = false
     
     var body: some View {
         VStack {
@@ -18,22 +19,78 @@ struct ContentView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 StartScreenView()
-                    .onTapGesture {
-                        hapticTouch.simpleSuccess()
+                  
+            }
+            
+            Text("Tap")
+                .padding(.bottom, 100)
+                .onAppear {
+                    prepareHaptics()
+                }
+                .onTapGesture {
+                    if !isPlaying {
+                        startLoop()
+                    } else {
+                        stopLoop()
                     }
-            }
-            Button {
-                hapticTouch.simpleSuccess()
-            } label: {
-                Text("Tap")
-            }
 
-            
-           
-            
+                }
+        
+        }
+        
+        
+        
+    }
+    
+    func simpleSuccess() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+    }
+    
+    func prepareHaptics() {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+
+        do {
+            engine = try CHHapticEngine()
+            try engine?.start()
+        } catch {
+            print("There was an error creating the engine: \(error.localizedDescription)")
+        }
+    }
+
+    func complexSuccess() {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+        var events = [CHHapticEvent]()
+
+        for val in stride(from: 0.5, to: 1, by: 0.1) {
+            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(val))
+            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(val))
+            let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: val)
+            events.append(event)
         }
         
 
+        do {
+            let pattern = try CHHapticPattern(events: events, parameters: [])
+            let player = try engine?.makePlayer(with: pattern)
+            try player?.start(atTime: 0)
+        } catch {
+            print("Failed to play pattern: \(error.localizedDescription).")
+        }
+    }
+    
+    func startLoop() {
+        isPlaying = true
+        DispatchQueue.global(qos: .background).async {
+            while self.isPlaying {
+                self.complexSuccess()
+                Thread.sleep(forTimeInterval: 1)
+            }
+        }
+    }
+    
+    func stopLoop() {
+        isPlaying = false
     }
     
 }
