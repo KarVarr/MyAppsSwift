@@ -109,7 +109,7 @@ class ToolbarView: UIView {
                 }, completion: nil)
                 
                 sound.onOff = true
-                SavedData().load()
+                
             }
             
             allSounds.sounds[index] = sound
