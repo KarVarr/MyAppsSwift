@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		173F01BF2A229ECC00782653 /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01BE2A229ECC00782653 /* StartScreenView.swift */; };
+		173F01F22A279D0C00782653 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173F01F12A279D0C00782653 /* Launch Screen.storyboard */; };
 		17CB83AB2A1FD516008F7CEC /* Pulse_RideApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB83AA2A1FD516008F7CEC /* Pulse_RideApp.swift */; };
 		17CB83AD2A1FD516008F7CEC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB83AC2A1FD516008F7CEC /* ContentView.swift */; };
 		17CB83AF2A1FD518008F7CEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CB83AE2A1FD518008F7CEC /* Assets.xcassets */; };
@@ -16,6 +17,8 @@
 
 /* Begin PBXFileReference section */
 		173F01BE2A229ECC00782653 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
+		173F01F02A279BE000782653 /* Pulse-Ride-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Pulse-Ride-Info.plist"; sourceTree = SOURCE_ROOT; };
+		173F01F12A279D0C00782653 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		17CB83A72A1FD516008F7CEC /* Pulse Ride.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pulse Ride.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CB83AA2A1FD516008F7CEC /* Pulse_RideApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pulse_RideApp.swift; sourceTree = "<group>"; };
 		17CB83AC2A1FD516008F7CEC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +77,7 @@
 		17CB83A92A1FD516008F7CEC /* Pulse Ride */ = {
 			isa = PBXGroup;
 			children = (
+				173F01F02A279BE000782653 /* Pulse-Ride-Info.plist */,
 				173F01C22A229EE700782653 /* ViewModel */,
 				173F01C12A229EE000782653 /* View */,
 				173F01C02A229ED500782653 /* Model */,
@@ -82,6 +86,7 @@
 				173F01BE2A229ECC00782653 /* StartScreenView.swift */,
 				17CB83AE2A1FD518008F7CEC /* Assets.xcassets */,
 				17CB83B02A1FD518008F7CEC /* Preview Content */,
+				173F01F12A279D0C00782653 /* Launch Screen.storyboard */,
 			);
 			path = "Pulse Ride";
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				173F01F22A279D0C00782653 /* Launch Screen.storyboard in Resources */,
 				17CB83B22A1FD518008F7CEC /* Preview Assets.xcassets in Resources */,
 				17CB83AF2A1FD518008F7CEC /* Assets.xcassets in Resources */,
 			);
@@ -298,11 +304,12 @@
 				DEVELOPMENT_TEAM = LA9F8MT28T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pulse-Ride-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,9 +317,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.karen.Pulse-Ride";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -327,11 +337,12 @@
 				DEVELOPMENT_TEAM = LA9F8MT28T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pulse-Ride-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,9 +350,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.karen.Pulse-Ride";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
