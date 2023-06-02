@@ -12,7 +12,8 @@ struct StartScreenView: View {
     @Binding var engine: CHHapticEngine?
     var startButtonAction: () -> Void
     
-    @State  var titleForButton = "START"
+    @State private var buttonIsPressed = false
+    @State private var buttonImageColor = 0.5
     @State private var circleWidth: CGFloat = 50
     
     
@@ -29,11 +30,13 @@ struct StartScreenView: View {
                         .shadow(radius: 15, x: 15, y: 15)
                     
                     
-                    Text(titleForButton)
-                        .foregroundColor(.white.opacity(0.8))
-                        .bold()
-                        .font(.largeTitle)
+                    Image(systemName: "power")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(.white.opacity(buttonImageColor))
+                        .frame(width: geo.size.width / 3, height: geo.size.height / 3)
                         .position(x: geo.size.width / 2, y: geo.size.height / 2)
+                        .shadow(radius: 5, x: -1, y: -4)
                 }
                 .onAppear {
                     do {
@@ -52,17 +55,19 @@ struct StartScreenView: View {
     }
     
     func startButton() {
-        if titleForButton == "START"  {
-            titleForButton = "STOP"
-            
+        if !buttonIsPressed {
+            buttonImageColor = 1
             withAnimation {
                 circleWidth = 150
             }
+            buttonIsPressed = true
         } else {
-            titleForButton = "START"
+            buttonImageColor = 0.5
+            
             withAnimation {
                 circleWidth = 50
             }
+            buttonIsPressed = false
         }
     }
 }
