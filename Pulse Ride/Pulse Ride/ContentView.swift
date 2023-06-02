@@ -13,34 +13,53 @@ struct ContentView: View {
     @State private var isPlaying = false
     @State private var count = 10
     @State private var value = 0.5
+    var power = [0.2, 0.5, 0.8]
+    @State private var sharpness = 0.5
     
     var body: some View {
         VStack {
-            ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color(red: 0.98, green: 0.33, blue: 0.78), Color(red: 0.73, green: 0.11, blue: 0.45)]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all)
-                
-                StartScreenView()
-                
-            }
-            
-            Text("Tap")
-                .padding(.bottom, 100)
+            GeometryReader { geo in
+                ZStack {
+                    
+                    LinearGradient(gradient: Gradient(colors: [Color(red: 0.98, green: 0.33, blue: 0.78), Color(red: 0.73, green: 0.11, blue: 0.45)]), startPoint: .top, endPoint: .bottom)
+                        .edgesIgnoringSafeArea(.all)
+                    
+                    StartScreenView(engine: $engine, startButtonAction: nomNomPattern)
+                    
+                    Slider(value: $value, in: 0.1...1.0)
+                        .padding()
+                        .position(x: geo.size.width / 2, y: geo.size.height - 150)
+                        
+                    
+                }
                 .onAppear {
                     prepareHaptics()
                 }
-                .onTapGesture {
-//                    triggerSelectionFeedback()
-//                    count = 10
-                     nomNomPattern()
-                }
-            
-            Slider(value: $value, in: 0.1...1.0)
-                .padding()
-            
-            
+                
+                
+                
+                //            Text("Tap")
+                //                .padding(.bottom, 100)
+                //                .onAppear {
+                //                    prepareHaptics()
+                //                }
+                //                .onTapGesture {
+                ////                    triggerSelectionFeedback()
+                ////                    count = 10
+                //                     nomNomPattern()
+                //                }
+                //
+                
+                //            Picker("Power", selection: $sharpness) {
+                //                ForEach(power, id: \.self) {
+                //                    Text(String(format: "%.1f", $0))
+                //                }
+                //            }
+                //            .pickerStyle(.segmented)
+                //            .padding()
+                
+            }
         }
-        
         
         
     }
@@ -117,14 +136,14 @@ struct ContentView: View {
         }
     }
     
-    private func nomNomPattern()  {
+    func nomNomPattern()  {
         var events = [CHHapticEvent]()
         
       let rumble1 = CHHapticEvent(
         eventType: .hapticContinuous,
         parameters: [
             CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(value)),
-          CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.8)
+          CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(value))
         ],
         relativeTime: 0,
         duration: 1.5)
