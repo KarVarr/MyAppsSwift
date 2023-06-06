@@ -36,7 +36,6 @@ struct StartScreenView: View {
                         .foregroundColor(.white.opacity(buttonImageColor))
                         .frame(width: geo.size.width / 4, height: geo.size.height / 3)
                         .position(x: geo.size.width / 2, y: geo.size.height / 2)
-                        .shadow(radius: 5, x: -1, y: -4)
                         .scaleEffect(scale)
                         .animation(.easeIn(duration: 1), value: scale)
                 }

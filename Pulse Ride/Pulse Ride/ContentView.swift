@@ -13,15 +13,12 @@ import CoreHaptics
 struct ContentView: View {
     @State private var engine: CHHapticEngine?
     @State private var isPlaying = false
-    @State private var count = 10
-    @State private var value = 0.5
-    var power = [0.2, 0.5, 0.8]
+    @State private var value: Float = 0.5
     @State private var sharpness = 0.5
     
     var body: some View {
-        NavigationView {
-            
             VStack {
+                
                 GeometryReader { geo in
                     ZStack {
                         
@@ -29,28 +26,64 @@ struct ContentView: View {
                             .edgesIgnoringSafeArea(.all)
                         
                         VStack {
+                            
+                            Spacer()
+                            HStack(alignment: .center) {
+                                Button {
+                                    
+                                } label: {
+                                    Image(systemName: "questionmark.circle")
+                                        .foregroundColor(.white)
+                                        .font(.largeTitle)
+                                }
+                                .padding(.horizontal)
+                                Spacer()
+                                Text("Pulse Ride")
+                                    .font(.largeTitle)
+                                    .fontWeight(.black)
+                                .foregroundColor(.white)
+                                Spacer()
+                                Button {
+                                    
+                                } label: {
+                                    Image(systemName: "gear")
+                                        .foregroundColor(.white)
+                                        .font(.largeTitle)
+                                }
+                                .padding(.horizontal)
+
+                            }
+                            
+                            Spacer(minLength: 100)
+                            
+                            VStack {
+                                Text("Press the button")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                Text("to start massage")
+                                    .font(.title3)
+                                    .foregroundColor(.white.opacity(0.5))
+                            }
+                            
                             StartScreenView(engine: $engine, startButtonAction: nomNomPattern)
-                            
-                            
-                            //                        Slider(value: $value, in: 0.0...1.0, step: 0.1, minimumValueLabel: Image(systemName: "aqi.low"), maximumValueLabel: Image(systemName: "aqi.medium"), label: {})
-                            //                            .padding()
-                            //                            .position(x: geo.size.width / 2, y: geo.size.height - 150)
-                            //                            .padding(.vertical)
-                            //                            .foregroundColor(.white)
-                            //                            .tint(.orange)
                             
                             HStack {
                                 Image("snail")
                                     .resizable()
                                     .frame(width: 35, height: 35)
                                     .foregroundColor(.white)
-                                SliderView()
+                                    .opacity(0.8)
+                                SliderView(percentage: $value)
                                     .frame(width: geo.size.width - 110, height: 44)
                                 Image("rabbit")
                                     .resizable()
                                     .frame(width: 35, height: 35)
+                                    .opacity(0.8)
                             }
                             .padding(.vertical)
+                            
+                            Spacer(minLength: 70)
                         }
                     }
                     .onAppear {
@@ -59,7 +92,7 @@ struct ContentView: View {
                     
                 }
             }
-            .navigationTitle("Pulse Ride")
+            
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -71,25 +104,25 @@ struct ContentView: View {
                     
                 }
             }
-        }
         
         
+        
     }
     
-    func simpleSuccess() {
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.warning)
-    }
-    
-    func selectionFeedback() {
-        let feedbackGenerator = UISelectionFeedbackGenerator()
-        feedbackGenerator.selectionChanged()
-    }
-    
-    func impactFeedback() {
-        let impactGenerator = UIImpactFeedbackGenerator(style: .heavy)
-        impactGenerator.impactOccurred()
-    }
+//    func simpleSuccess() {
+//        let generator = UINotificationFeedbackGenerator()
+//        generator.notificationOccurred(.warning)
+//    }
+//
+//    func selectionFeedback() {
+//        let feedbackGenerator = UISelectionFeedbackGenerator()
+//        feedbackGenerator.selectionChanged()
+//    }
+//
+//    func impactFeedback() {
+//        let impactGenerator = UIImpactFeedbackGenerator(style: .heavy)
+//        impactGenerator.impactOccurred()
+//    }
     
     func prepareHaptics() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
@@ -103,23 +136,23 @@ struct ContentView: View {
     }
     
     
-    func triggerSelectionFeedback() {
-        guard count > 0 else {
-            return
-        }
-        
-        impactFeedback()
-        simpleSuccess()
-        selectionFeedback()
-        
-        count -= 1
-        
-        if count > 0 {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                triggerSelectionFeedback()
-            }
-        }
-    }
+//    func triggerSelectionFeedback() {
+//        guard count > 0 else {
+//            return
+//        }
+//
+//        impactFeedback()
+//        simpleSuccess()
+//        selectionFeedback()
+//
+//        count -= 1
+//
+//        if count > 0 {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                triggerSelectionFeedback()
+//            }
+//        }
+//    }
     
     func nomNomPattern()  {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
@@ -132,18 +165,18 @@ struct ContentView: View {
                 CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(value))
             ],
             relativeTime: 0,
-            duration: 1.5)
+            duration: 2)
         events.append(rumble1)
         
-        let rumble2 = CHHapticEvent(
-            eventType: .hapticContinuous,
-            parameters: [
-                CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.4),
-                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.3)
-            ],
-            relativeTime: 1.5,
-            duration: 0.5)
-        events.append(rumble2)
+//        let rumble2 = CHHapticEvent(
+//            eventType: .hapticContinuous,
+//            parameters: [
+//                CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.4),
+//                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.3)
+//            ],
+//            relativeTime: 1.5,
+//            duration: 0.5)
+//        events.append(rumble2)
         
         
         do {

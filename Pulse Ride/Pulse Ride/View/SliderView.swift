@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SliderView: View {
-    @State var percentage: Float = 0.5
+    @Binding var percentage: Float
     
     var body: some View {
         
@@ -18,14 +18,14 @@ struct SliderView: View {
                     .foregroundColor(.white.opacity(0.4))
                 Rectangle()
                     .foregroundColor(.white.opacity(0.8))
-                    .frame(width: geo.size.width * CGFloat(self.percentage / 1.0))
+                    .frame(width: geo.size.width * CGFloat((self.percentage - 0.1) / 1.0))
                     
             }
             .shadow(radius: 5)
             .cornerRadius(12)
             .gesture(DragGesture(minimumDistance: 0)
                 .onChanged({ value in
-                    self.percentage = min(max(0, Float(value.location.x / geo.size.width * 1.0)), 1.0)
+                    self.percentage = min(max(0, Float(value.location.x / geo.size.width * 1.0 + 0.1)), 1.0)
                 }))
         }
         .shadow(radius: 4)
@@ -39,6 +39,6 @@ struct SliderView: View {
 
 struct SliderView_Previews: PreviewProvider {
     static var previews: some View {
-        SliderView()
+        SliderView(percentage: .constant(0.5))
     }
 }
