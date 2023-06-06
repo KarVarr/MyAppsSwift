@@ -39,8 +39,18 @@ struct ContentView: View {
                             //                            .foregroundColor(.white)
                             //                            .tint(.orange)
                             
-                            SliderView()
-                                .frame(width: geo.size.width - 60, height: 88)
+                            HStack {
+                                Image("snail")
+                                    .resizable()
+                                    .frame(width: 35, height: 35)
+                                    .foregroundColor(.white)
+                                SliderView()
+                                    .frame(width: geo.size.width - 110, height: 44)
+                                Image("rabbit")
+                                    .resizable()
+                                    .frame(width: 35, height: 35)
+                            }
+                            .padding(.vertical)
                         }
                     }
                     .onAppear {
