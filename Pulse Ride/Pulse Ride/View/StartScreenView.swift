@@ -14,9 +14,9 @@ struct StartScreenView: View {
     
     @State private var buttonIsPressed = false
     @State private var buttonImageColor = 0.5
-    @State private var circleWidth: CGFloat = 50
+    @State private var shadowRadius = 15
     
-    
+    @State private var scale = 1.5
     
     var body: some View {
         VStack{
@@ -25,18 +25,20 @@ struct StartScreenView: View {
                     Circle()
                         .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 0.98, green: 0.33, blue: 0.78), Color(red: 0.73, green: 0.11, blue: 0.45)]), startPoint: .topLeading, endPoint: .bottomTrailing))
                     
-                        .frame(maxWidth: geo.size.width - circleWidth, maxHeight: geo.size.width - circleWidth)
+                        .frame(maxWidth: geo.size.width / 1.5, maxHeight: geo.size.width )
                         .position(x: geo.size.width / 2, y: geo.size.height / 2)
-                        .shadow(radius: 15, x: 15, y: 15)
+                        .shadow(radius: CGFloat(shadowRadius), x: CGFloat(shadowRadius), y: CGFloat(shadowRadius))
                     
                     
                     Image(systemName: "power")
                         .resizable()
                         .scaledToFit()
                         .foregroundColor(.white.opacity(buttonImageColor))
-                        .frame(width: geo.size.width / 3, height: geo.size.height / 3)
+                        .frame(width: geo.size.width / 4, height: geo.size.height / 3)
                         .position(x: geo.size.width / 2, y: geo.size.height / 2)
                         .shadow(radius: 5, x: -1, y: -4)
+                        .scaleEffect(scale)
+                        .animation(.easeIn(duration: 1), value: scale)
                 }
                 .onAppear {
                     do {
@@ -51,21 +53,21 @@ struct StartScreenView: View {
                 }
                 
             }
+            
         }
     }
     
     func startButton() {
         if !buttonIsPressed {
-            buttonImageColor = 1
             withAnimation {
-                circleWidth = 150
+                buttonImageColor = 1
+                shadowRadius = 5
             }
             buttonIsPressed = true
         } else {
-            buttonImageColor = 0.5
-            
             withAnimation {
-                circleWidth = 50
+                buttonImageColor = 0.5
+                shadowRadius = 15
             }
             buttonIsPressed = false
         }
