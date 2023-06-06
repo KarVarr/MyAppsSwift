@@ -16,6 +16,8 @@ struct ContentView: View {
     @State private var value: Float = 0.5
     @State private var sharpness = 0.5
     
+    @State private var showingAlertNotVibration = false
+    
     var body: some View {
             VStack {
                 
@@ -30,11 +32,14 @@ struct ContentView: View {
                             Spacer()
                             HStack(alignment: .center) {
                                 Button {
-                                    
+                                    showingAlertNotVibration = true
                                 } label: {
                                     Image(systemName: "questionmark.circle")
                                         .foregroundColor(.white)
                                         .font(.largeTitle)
+                                }
+                                .alert(isPresented: $showingAlertNotVibration) {
+                                    Alert(title: Text("Not Vibrating?"), message: Text(Helpers.String.alertMessage), dismissButton: .default(Text("Got it!")))
                                 }
                                 .padding(.horizontal)
                                 Spacer()
