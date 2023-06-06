@@ -27,11 +27,17 @@ struct ContentView: View {
                             .edgesIgnoringSafeArea(.all)
                         
                         StartScreenView(engine: $engine, startButtonAction: nomNomPattern)
-                        
-                        Slider(value: $value, in: 0.1...1.0)
+
+                        Slider(value: $value, in: 0.0...1.0, step: 0.1, minimumValueLabel: Image(systemName: "aqi.low"), maximumValueLabel: Image(systemName: "aqi.medium"), label: {})
                             .padding()
                             .position(x: geo.size.width / 2, y: geo.size.height - 150)
+                            .padding(.vertical)
+                            .foregroundColor(.white)
+                            .tint(.orange)
+                            
                         
+                        
+                            
                         
                     }
                     .onAppear {
