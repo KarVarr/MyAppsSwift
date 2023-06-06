@@ -11,6 +11,7 @@
 		173F01F22A279D0C00782653 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173F01F12A279D0C00782653 /* Launch Screen.storyboard */; };
 		173F01F42A27A64C00782653 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01F32A27A64C00782653 /* SliderView.swift */; };
 		173F01F82A27B93200782653 /* HapticsTouchGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01F72A27B93200782653 /* HapticsTouchGenerator.swift */; };
+		173F01FA2A2F8C4000782653 /* SliderShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01F92A2F8C4000782653 /* SliderShapeView.swift */; };
 		17CB83AB2A1FD516008F7CEC /* Pulse_RideApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB83AA2A1FD516008F7CEC /* Pulse_RideApp.swift */; };
 		17CB83AD2A1FD516008F7CEC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB83AC2A1FD516008F7CEC /* ContentView.swift */; };
 		17CB83AF2A1FD518008F7CEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CB83AE2A1FD518008F7CEC /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		173F01F12A279D0C00782653 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		173F01F32A27A64C00782653 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		173F01F72A27B93200782653 /* HapticsTouchGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsTouchGenerator.swift; sourceTree = "<group>"; };
+		173F01F92A2F8C4000782653 /* SliderShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderShapeView.swift; sourceTree = "<group>"; };
 		17CB83A72A1FD516008F7CEC /* Pulse Ride.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pulse Ride.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CB83AA2A1FD516008F7CEC /* Pulse_RideApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pulse_RideApp.swift; sourceTree = "<group>"; };
 		17CB83AC2A1FD516008F7CEC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			children = (
 				173F01F32A27A64C00782653 /* SliderView.swift */,
 				173F01BE2A229ECC00782653 /* StartScreenView.swift */,
+				173F01F92A2F8C4000782653 /* SliderShapeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				173F01BF2A229ECC00782653 /* StartScreenView.swift in Sources */,
+				173F01FA2A2F8C4000782653 /* SliderShapeView.swift in Sources */,
 				173F01F42A27A64C00782653 /* SliderView.swift in Sources */,
 				173F01F82A27B93200782653 /* HapticsTouchGenerator.swift in Sources */,
 				17CB83AD2A1FD516008F7CEC /* ContentView.swift in Sources */,

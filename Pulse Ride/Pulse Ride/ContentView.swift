@@ -8,6 +8,8 @@
 import SwiftUI
 import CoreHaptics
 
+
+
 struct ContentView: View {
     @State private var engine: CHHapticEngine?
     @State private var isPlaying = false
@@ -26,19 +28,20 @@ struct ContentView: View {
                         LinearGradient(gradient: Gradient(colors: [Color(red: 0.98, green: 0.33, blue: 0.78), Color(red: 0.73, green: 0.11, blue: 0.45)]), startPoint: .top, endPoint: .bottom)
                             .edgesIgnoringSafeArea(.all)
                         
-                        StartScreenView(engine: $engine, startButtonAction: nomNomPattern)
-
-                        Slider(value: $value, in: 0.0...1.0, step: 0.1, minimumValueLabel: Image(systemName: "aqi.low"), maximumValueLabel: Image(systemName: "aqi.medium"), label: {})
-                            .padding()
-                            .position(x: geo.size.width / 2, y: geo.size.height - 150)
-                            .padding(.vertical)
-                            .foregroundColor(.white)
-                            .tint(.orange)
+                        VStack {
+                            StartScreenView(engine: $engine, startButtonAction: nomNomPattern)
                             
-                        
-                        
                             
-                        
+                            //                        Slider(value: $value, in: 0.0...1.0, step: 0.1, minimumValueLabel: Image(systemName: "aqi.low"), maximumValueLabel: Image(systemName: "aqi.medium"), label: {})
+                            //                            .padding()
+                            //                            .position(x: geo.size.width / 2, y: geo.size.height - 150)
+                            //                            .padding(.vertical)
+                            //                            .foregroundColor(.white)
+                            //                            .tint(.orange)
+                            
+                            SliderView()
+                                .frame(width: geo.size.width - 60, height: 88)
+                        }
                     }
                     .onAppear {
                         prepareHaptics()
@@ -55,7 +58,7 @@ struct ContentView: View {
                         Image(systemName: "gear")
                             .foregroundColor(.white)
                     }
-
+                    
                 }
             }
         }
