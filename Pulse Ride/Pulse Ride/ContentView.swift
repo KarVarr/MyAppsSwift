@@ -13,9 +13,14 @@ import CoreHaptics
 struct ContentView: View {
     @State private var engineRunning = false
     @State private var engine: CHHapticEngine?
+    @State private var patternPlayer: CHHapticPatternPlayer?
+    
     @State private var isPlaying = false
     @State private var value: Float = 0.5
     @State private var sharpness = 0.5
+    
+    @State private var buttonImageColor = 0.5
+    @State private var shadowRadius = 15
     
     @State private var showingAlertNotVibration = false
     
@@ -47,7 +52,7 @@ struct ContentView: View {
                                 Text("Pulse Ride")
                                     .font(.largeTitle)
                                     .fontWeight(.black)
-                                .foregroundColor(.white)
+                                    .foregroundColor(.white)
                                 Spacer()
                                 Button {
                                     
@@ -57,22 +62,15 @@ struct ContentView: View {
                                         .font(.largeTitle)
                                 }
                                 .padding(.horizontal)
-
+                                
                             }
                             
                             Spacer(minLength: 100)
                             
-                            VStack {
-                                Text("Press the button")
-                                    .font(.title)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                                Text("to start massage")
-                                    .font(.title3)
-                                    .foregroundColor(.white.opacity(0.5))
-                            }
+                            StackTextVertical(title: Helpers.String.pressButtonTextTitle, subtitle: Helpers.String.pressButtonTextSubtitle)
                             
-                            StartScreenView(engine: $engine, startButtonAction: nomNomPattern, prepare: prepareHaptics, stop: stopHaptics)
+//                            StartScreenView(engine: $engine, startButtonAction: nomNomPattern, prepare: prepareHaptics, stop: stopHaptics)
+                            
                             
                             HStack {
                                 Image("snail")
@@ -90,6 +88,8 @@ struct ContentView: View {
                             .padding(.vertical)
                             
                             Spacer(minLength: 70)
+                            
+                            
                         }
                     }
                     .onAppear {
@@ -115,6 +115,23 @@ struct ContentView: View {
         
     }
     
+    
+    func startStopButton()  {
+        if !isPlaying {
+            withAnimation {
+                buttonImageColor = 1
+                shadowRadius = 5
+            }
+            isPlaying = true
+        } else {
+            withAnimation {
+                buttonImageColor = 0.5
+                shadowRadius = 15
+            }
+            isPlaying = false
+            
+        }
+    }
 //    func simpleSuccess() {
 //        let generator = UINotificationFeedbackGenerator()
 //        generator.notificationOccurred(.warning)
@@ -161,29 +178,10 @@ struct ContentView: View {
         }
 
     
-    
-//    func triggerSelectionFeedback() {
-//        guard count > 0 else {
-//            return
-//        }
-//
-//        impactFeedback()
-//        simpleSuccess()
-//        selectionFeedback()
-//
-//        count -= 1
-//
-//        if count > 0 {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                triggerSelectionFeedback()
-//            }
-//        }
-//    }
-    
-    func nomNomPattern()  {
+    func nomNomPattern() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         var events = [CHHapticEvent]()
-        
+
         let rumble1 = CHHapticEvent(
             eventType: .hapticContinuous,
             parameters: [
@@ -193,26 +191,21 @@ struct ContentView: View {
             relativeTime: 0,
             duration: 2)
         events.append(rumble1)
-        
-//        let rumble2 = CHHapticEvent(
-//            eventType: .hapticContinuous,
-//            parameters: [
-//                CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.4),
-//                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.3)
-//            ],
-//            relativeTime: 1.5,
-//            duration: 0.5)
-//        events.append(rumble2)
-        
-        
+
         do {
             let pattern = try CHHapticPattern(events: events, parameters: [])
             let player = try engine?.makePlayer(with: pattern)
             try player?.start(atTime: 0)
+            
+            patternPlayer = player
+            
         } catch {
             print("Failed to play pattern: \(error.localizedDescription).")
         }
     }
+    
+   
+
     
     
     

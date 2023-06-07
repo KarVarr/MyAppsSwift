@@ -16,5 +16,8 @@ struct Helpers {
         
         2) |Setting -> Accessibility -> Touch| and switch on 'Vibration'
         """
+        
+        static let pressButtonTextTitle = "Press the button"
+        static let pressButtonTextSubtitle = "to start massage"
     }
 }

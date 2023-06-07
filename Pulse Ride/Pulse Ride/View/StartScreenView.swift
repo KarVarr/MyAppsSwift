@@ -72,7 +72,7 @@ struct StartScreenView: View {
                 shadowRadius = 15
             }
             buttonIsPressed = false
-            
+            stop()
         }
     }
 }
