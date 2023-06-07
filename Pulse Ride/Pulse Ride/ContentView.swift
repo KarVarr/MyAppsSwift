@@ -11,6 +11,7 @@ import CoreHaptics
 
 
 struct ContentView: View {
+    @State private var engineRunning = false
     @State private var engine: CHHapticEngine?
     @State private var isPlaying = false
     @State private var value: Float = 0.5
@@ -71,7 +72,7 @@ struct ContentView: View {
                                     .foregroundColor(.white.opacity(0.5))
                             }
                             
-                            StartScreenView(engine: $engine, startButtonAction: nomNomPattern)
+                            StartScreenView(engine: $engine, startButtonAction: nomNomPattern, prepare: prepareHaptics, stop: stopHaptics)
                             
                             HStack {
                                 Image("snail")
@@ -133,12 +134,32 @@ struct ContentView: View {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         
         do {
-            engine = try CHHapticEngine()
-            try engine?.start()
+            if engine == nil {
+                engine = try CHHapticEngine()
+                
+            }
+            if let engine = engine, !engineRunning {
+                try engine.start()
+                engineRunning = true
+            }
         } catch {
             print("There was an error creating the engine: \(error.localizedDescription)")
         }
     }
+    
+    func stopHaptics() {
+            if let engine = engine, engineRunning {
+                engine.stop(completionHandler: { error in
+                    if let error = error {
+                        print("Error stopping haptic engine: \(error.localizedDescription)")
+                    } else {
+                        self.engine = nil
+                        engineRunning = false
+                    }
+                })
+            }
+        }
+
     
     
 //    func triggerSelectionFeedback() {

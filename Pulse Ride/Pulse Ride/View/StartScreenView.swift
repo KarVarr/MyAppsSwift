@@ -11,6 +11,8 @@ import CoreHaptics
 struct StartScreenView: View {
     @Binding var engine: CHHapticEngine?
     var startButtonAction: () -> Void
+    var prepare: () -> Void
+    var stop: () -> Void
     
     @State private var buttonIsPressed = false
     @State private var buttonImageColor = 0.5
@@ -40,14 +42,15 @@ struct StartScreenView: View {
                         .animation(.easeIn(duration: 1), value: scale)
                 }
                 .onAppear {
-                    do {
-                        try engine?.start()
-                    } catch {
-                        print("Failed to start the haptic engine: \(error)")
-                    }
+                    prepare()
+                    
                 }
                 .onTapGesture {
-                    startButtonAction()
+                    if !buttonIsPressed {
+                        startButtonAction()
+                    } else {
+                       stop()
+                    }
                     startButton()
                 }
                 
@@ -69,12 +72,13 @@ struct StartScreenView: View {
                 shadowRadius = 15
             }
             buttonIsPressed = false
+            
         }
     }
 }
 
 struct StartScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        StartScreenView(engine: .constant(nil), startButtonAction: {})
+        StartScreenView(engine: .constant(nil), startButtonAction: {}, prepare: {}, stop: {})
     }
 }
