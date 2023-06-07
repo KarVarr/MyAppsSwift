@@ -15,6 +15,7 @@
 		173F02032A30F90F00782653 /* StackTextVertical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F02022A30F90F00782653 /* StackTextVertical.swift */; };
 		173F02052A30FB8B00782653 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F02042A30FB8B00782653 /* CustomNavBar.swift */; };
 		173F02072A30FDA300782653 /* CustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F02062A30FDA300782653 /* CustomImage.swift */; };
+		173F02092A31029500782653 /* CustomRectangleForAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F02082A31029500782653 /* CustomRectangleForAnimation.swift */; };
 		17CB83AB2A1FD516008F7CEC /* Pulse_RideApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB83AA2A1FD516008F7CEC /* Pulse_RideApp.swift */; };
 		17CB83AD2A1FD516008F7CEC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB83AC2A1FD516008F7CEC /* ContentView.swift */; };
 		17CB83AF2A1FD518008F7CEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CB83AE2A1FD518008F7CEC /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		173F02022A30F90F00782653 /* StackTextVertical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTextVertical.swift; sourceTree = "<group>"; };
 		173F02042A30FB8B00782653 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
 		173F02062A30FDA300782653 /* CustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
+		173F02082A31029500782653 /* CustomRectangleForAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRectangleForAnimation.swift; sourceTree = "<group>"; };
 		17CB83A72A1FD516008F7CEC /* Pulse Ride.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pulse Ride.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CB83AA2A1FD516008F7CEC /* Pulse_RideApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pulse_RideApp.swift; sourceTree = "<group>"; };
 		17CB83AC2A1FD516008F7CEC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				173F02022A30F90F00782653 /* StackTextVertical.swift */,
 				173F02042A30FB8B00782653 /* CustomNavBar.swift */,
 				173F02062A30FDA300782653 /* CustomImage.swift */,
+				173F02082A31029500782653 /* CustomRectangleForAnimation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				173F02032A30F90F00782653 /* StackTextVertical.swift in Sources */,
 				173F01BF2A229ECC00782653 /* StartScreenView.swift in Sources */,
 				173F02052A30FB8B00782653 /* CustomNavBar.swift in Sources */,
+				173F02092A31029500782653 /* CustomRectangleForAnimation.swift in Sources */,
 				173F01FF2A2FB86C00782653 /* Helpers.swift in Sources */,
 				173F01F42A27A64C00782653 /* SliderView.swift in Sources */,
 				173F01F82A27B93200782653 /* HapticsTouchGenerator.swift in Sources */,
