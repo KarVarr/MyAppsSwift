@@ -22,7 +22,7 @@ struct ContentView: View {
     @State private var buttonImageColor = 0.5
     @State private var shadowRadius = 15
     
-    @State private var showingAlertNotVibration = false
+    
     
     var body: some View {
             VStack {
@@ -34,56 +34,25 @@ struct ContentView: View {
                             .edgesIgnoringSafeArea(.all)
                         
                         VStack {
-                            
                             Spacer()
-                            HStack(alignment: .center) {
-                                Button {
-                                    showingAlertNotVibration = true
-                                } label: {
-                                    Image(systemName: "questionmark.circle")
-                                        .foregroundColor(.white)
-                                        .font(.largeTitle)
-                                }
-                                .alert(isPresented: $showingAlertNotVibration) {
-                                    Alert(title: Text("Not Vibrating?"), message: Text(Helpers.String.alertMessage), dismissButton: .default(Text("Got it!")))
-                                }
-                                .padding(.horizontal)
-                                Spacer()
-                                Text("Pulse Ride")
-                                    .font(.largeTitle)
-                                    .fontWeight(.black)
-                                    .foregroundColor(.white)
-                                Spacer()
-                                Button {
-                                    
-                                } label: {
-                                    Image(systemName: "gear")
-                                        .foregroundColor(.white)
-                                        .font(.largeTitle)
-                                }
-                                .padding(.horizontal)
-                                
-                            }
+                            //MARK: - NAVBAR
+                            CustomNavBar()
                             
                             Spacer(minLength: 100)
                             
                             StackTextVertical(title: Helpers.String.pressButtonTextTitle, subtitle: Helpers.String.pressButtonTextSubtitle)
                             
+                            //MARK: - BUTTON
+                            
 //                            StartScreenView(engine: $engine, startButtonAction: nomNomPattern, prepare: prepareHaptics, stop: stopHaptics)
                             
                             
+                            //MARK: - SLIDER
                             HStack {
-                                Image("snail")
-                                    .resizable()
-                                    .frame(width: 35, height: 35)
-                                    .foregroundColor(.white)
-                                    .opacity(0.8)
+                                CustomImage(imageName: "snail")
                                 SliderView(percentage: $value)
                                     .frame(width: geo.size.width - 110, height: 44)
-                                Image("rabbit")
-                                    .resizable()
-                                    .frame(width: 35, height: 35)
-                                    .opacity(0.8)
+                                CustomImage(imageName: "rabbit")
                             }
                             .padding(.vertical)
                             

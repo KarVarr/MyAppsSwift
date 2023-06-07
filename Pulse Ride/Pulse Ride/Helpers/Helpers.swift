@@ -19,5 +19,6 @@ struct Helpers {
         
         static let pressButtonTextTitle = "Press the button"
         static let pressButtonTextSubtitle = "to start massage"
+        static let mainTitle = "Pulse Ride"
     }
 }
