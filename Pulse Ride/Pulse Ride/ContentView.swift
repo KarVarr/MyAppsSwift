@@ -45,15 +45,20 @@ struct ContentView: View {
                         
                         Spacer(minLength: 100)
                         
-                        if isPlaying {
-                            HStack {
-                                ForEach(0..<rectangleHeight.count, id: \.self) { index in
-                                    CustomRectangleForAnimation(width: 15, height: CGFloat(rectangleHeight[index]), color: .white.opacity(0.8))
+                        //MARK: - TEXT AND ANIMATION
+                        VStack {
+                            if isPlaying {
+                                HStack {
+                                    ForEach(0..<rectangleHeight.count, id: \.self) { index in
+                                        CustomRectangleForAnimation(width: 15, height: CGFloat(rectangleHeight[index]), color: .white.opacity(0.8))
+                                    }
                                 }
+                            } else {
+                                StackTextVertical(title: Helpers.String.pressButtonTextTitle, subtitle: Helpers.String.pressButtonTextSubtitle)
                             }
-                        } else {
-                            StackTextVertical(title: Helpers.String.pressButtonTextTitle, subtitle: Helpers.String.pressButtonTextSubtitle)
                         }
+                        .frame(height: 80)
+
                         
                         //MARK: - BUTTON
                         
