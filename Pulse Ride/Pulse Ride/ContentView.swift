@@ -28,6 +28,7 @@ struct ContentView: View {
     @State private var rectangleHeight =  [40, 30, 50, 60, 80, 50, 40, 70, 50, 30, 60 ,80 ,40]
     let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
     
+    let imagesForButtons = ["turtle", "snail", "rabbit"]
     
     var body: some View {
         VStack {
@@ -58,7 +59,7 @@ struct ContentView: View {
                             }
                         }
                         .frame(height: 80)
-
+                        
                         
                         //MARK: - BUTTON
                         
@@ -103,14 +104,18 @@ struct ContentView: View {
                         
                         
                         //MARK: - SLIDER
-                        HStack {
-                            CustomImage(imageName: "snail")
-                            SliderView(percentage: $value)
-                                .frame(width: geo.size.width - 110, height: 44)
-                            CustomImage(imageName: "rabbit")
+                        //                        HStack {
+                        //                            CustomImage(imageName: "snail")
+                        //                            SliderView(percentage: $value)
+                        //                                .frame(width: geo.size.width - 110, height: 44)
+                        //                            CustomImage(imageName: "rabbit")
+                        //                        }
+                        //                        .padding(.vertical)
+                        HStack(spacing: 30) {
+                            ForEach(imagesForButtons, id: \.self) {image in
+                                CustomButtonForIntensity(action: {}, imageName: image)
+                            }
                         }
-                        .padding(.vertical)
-                        
                         Spacer(minLength: 70)
                         
                         
@@ -132,7 +137,7 @@ struct ContentView: View {
                 }
             }
             
-
+            
         }
         
     }
