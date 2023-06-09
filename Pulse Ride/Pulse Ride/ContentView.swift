@@ -111,11 +111,13 @@ struct ContentView: View {
                         //                            CustomImage(imageName: "rabbit")
                         //                        }
                         //                        .padding(.vertical)
+                        
                         HStack(spacing: 30) {
                             ForEach(imagesForButtons, id: \.self) {image in
-                                CustomButtonForIntensity(action: {}, imageName: image)
-                            }
+                                CustomButtonForIntensity(action: {}, imageName: image, buttonColor: .white)
+                            } 
                         }
+                        
                         Spacer(minLength: 70)
                         
                         
