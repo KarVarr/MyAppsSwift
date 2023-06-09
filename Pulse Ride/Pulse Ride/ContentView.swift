@@ -28,7 +28,9 @@ struct ContentView: View {
     @State private var rectangleHeight =  [40, 30, 50, 60, 80, 50, 40, 70, 50, 30, 60 ,80 ,40]
     let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
     
-    let imagesForButtons = ["turtle", "snail", "rabbit"]
+    let imagesForButtons = ["snail", "tornado", "rocket"]
+    @State private var selectedButton = "tornado"
+    @State private var selectedButtonIndex: Int? = nil
     
     var body: some View {
         VStack {
@@ -106,11 +108,15 @@ struct ContentView: View {
                         //MARK: - BUTTONS
                         
                         HStack(spacing: 30) {
-                            ForEach(imagesForButtons, id: \.self) {image in
-                                CustomButtonForIntensity(action: {}, imageName: image)
+                            ForEach(imagesForButtons.indices, id: \.self) { index in
+                                CustomButtonForIntensity(action: {
+                                    buttonTapped(index: index)
+                                }, imageName: imagesForButtons[index])
                             } 
                         }
                         Spacer(minLength: 70)
+                        
+                        
                     }
                 }
                 .onAppear {
@@ -224,7 +230,14 @@ struct ContentView: View {
         }
     }
     
-    
+    func buttonTapped(index: Int) {
+            if selectedButtonIndex == index {
+                // Same button tapped again, deselect it
+                selectedButtonIndex = nil
+            } else {
+                selectedButtonIndex = index
+            }
+        }
     
     
     
