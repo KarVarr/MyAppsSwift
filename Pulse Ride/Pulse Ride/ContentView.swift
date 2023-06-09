@@ -103,24 +103,14 @@ struct ContentView: View {
                         //                            StartScreenView(engine: $engine, startButtonAction: nomNomPattern, prepare: prepareHaptics, stop: stopHaptics)
                         
                         
-                        //MARK: - SLIDER
-                        //                        HStack {
-                        //                            CustomImage(imageName: "snail")
-                        //                            SliderView(percentage: $value)
-                        //                                .frame(width: geo.size.width - 110, height: 44)
-                        //                            CustomImage(imageName: "rabbit")
-                        //                        }
-                        //                        .padding(.vertical)
+                        //MARK: - BUTTONS
                         
                         HStack(spacing: 30) {
                             ForEach(imagesForButtons, id: \.self) {image in
-                                CustomButtonForIntensity(action: {}, imageName: image, buttonColor: .white)
+                                CustomButtonForIntensity(action: {}, imageName: image)
                             } 
                         }
-                        
                         Spacer(minLength: 70)
-                        
-                        
                     }
                 }
                 .onAppear {

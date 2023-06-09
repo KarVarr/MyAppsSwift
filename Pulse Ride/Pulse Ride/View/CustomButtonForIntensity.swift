@@ -10,7 +10,7 @@ import SwiftUI
 struct CustomButtonForIntensity: View {
     var action: () -> Void
     var imageName: String
-    var buttonColor: Color
+    @State private var buttonColor = Color.white
     
     @State private var isPressed = false
     
@@ -20,7 +20,7 @@ struct CustomButtonForIntensity: View {
                 Circle()
                     .strokeBorder(
                         LinearGradient(
-                            gradient: Gradient(colors: [buttonColor.opacity(0.7), buttonColor.opacity(0.3)]),
+                            gradient: Gradient(colors: [.white.opacity(0.7), .white.opacity(0.3)]),
                             startPoint: .top,
                             endPoint: .bottom
                         ), lineWidth: isPressed ? 5 : 2)
@@ -34,7 +34,8 @@ struct CustomButtonForIntensity: View {
                                 )
                             )
                     )
-                    .shadow(radius: isPressed ? 2 : 5)
+                    
+                    .shadow(radius: isPressed ? 3 : 7)
                 
                 
                 Image(imageName)
@@ -42,20 +43,27 @@ struct CustomButtonForIntensity: View {
                     .frame(width: 40, height: 40)
             }
             .frame(width: 100, height: 100)
-            .scaleEffect(isPressed ? 0.5 : 1.0)
+            .scaleEffect(isPressed ? 0.93 : 1.0)
+            .buttonStyle(PlainButtonStyle())
+            .onTapGesture {
+                withAnimation {
+                    isPressed.toggle()
+                    if buttonColor == Color.white {
+                        self.buttonColor = Color.secondary
+                    } else {
+                        self.buttonColor = Color.white
+                    }
+                }
+                action()
+            }
         }
-        .buttonStyle(PlainButtonStyle())
-        .onTapGesture {
-            isPressed.toggle()
-            
-            action()
-        }
+        
         
     }
 }
 
 struct CustomButtonForIntensity_Previews: PreviewProvider {
     static var previews: some View {
-        CustomButtonForIntensity(action: {}, imageName: "rabit", buttonColor: .white)
+        CustomButtonForIntensity(action: {}, imageName: "rabit")
     }
 }
