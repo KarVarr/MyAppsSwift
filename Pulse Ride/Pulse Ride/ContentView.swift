@@ -46,7 +46,7 @@ struct ContentView: View {
                         //MARK: - NAVBAR
                         CustomNavBar()
                         
-                        Spacer(minLength: 100)
+                        Spacer(minLength: 5)
                         
                         //MARK: - TEXT AND ANIMATION
                         VStack {
@@ -114,7 +114,7 @@ struct ContentView: View {
                                 }, imageName: imagesForButtons[index])
                             } 
                         }
-                        Spacer(minLength: 70)
+                        Spacer(minLength: 30)
                         
                         
                     }

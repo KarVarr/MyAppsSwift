@@ -23,12 +23,17 @@ struct CustomNavBar: View {
                 Alert(title: Text("Not Vibrating?"), message: Text(Helpers.String.alertMessage), dismissButton: .default(Text("Got it!")))
             }
             .padding(.horizontal)
+            
             Spacer()
+            
             Text(Helpers.String.mainTitle)
-                .font(.largeTitle)
+                .font(.custom("Chalkduster", size: 26))
                 .fontWeight(.black)
                 .foregroundColor(.white)
+                .kerning(5)
+            
             Spacer()
+            
             Button {
                 
             } label: {
