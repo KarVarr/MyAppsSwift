@@ -10,9 +10,7 @@ import SwiftUI
 struct CustomButtonForIntensity: View {
     var action: () -> Void
     var imageName: String
-    @State private var buttonColor = Color.white
     
-    @State private var isPressed = false
     
     var body: some View {
         Button(action: action) {
@@ -23,47 +21,36 @@ struct CustomButtonForIntensity: View {
                             gradient: Gradient(colors: [.white.opacity(0.7), .white.opacity(0.3)]),
                             startPoint: .top,
                             endPoint: .bottom
-                        ), lineWidth: isPressed ? 5 : 2)
+                        ), lineWidth: 5 )
                     .background(
                         Circle()
                             .fill(
                                 LinearGradient(
-                                    gradient: Gradient(colors: [buttonColor.opacity(0.7), buttonColor.opacity(0.3)]),
+                                    gradient: Gradient(colors: [Color.secondary.opacity(0.7), Color.secondary.opacity(0.3)]),
                                     startPoint: .top,
                                     endPoint: .bottom
                                 )
                             )
+                        
                     )
-                    
-                    .shadow(radius: isPressed ? 3 : 7)
+                
+                    .shadow(radius: 3)
                 
                 
                 Image(imageName)
                     .resizable()
                     .frame(width: 40, height: 40)
             }
-            .frame(width: 100, height: 100)
-            .scaleEffect(isPressed ? 0.93 : 1.0)
+            .frame(width: 90, height: 90)
+            
             .buttonStyle(PlainButtonStyle())
-            .onTapGesture {
-                withAnimation {
-                    isPressed.toggle()
-                    if buttonColor == Color.white {
-                        self.buttonColor = Color.secondary
-                    } else {
-                        self.buttonColor = Color.white
-                    }
-                }
-                action()
-            }
+            
         }
-        
-        
     }
-}
-
-struct CustomButtonForIntensity_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomButtonForIntensity(action: {}, imageName: "rabit")
+    
+    struct CustomButtonForIntensity_Previews: PreviewProvider {
+        static var previews: some View {
+            CustomButtonForIntensity(action: {}, imageName: "rabit")
+        }
     }
 }

@@ -30,7 +30,6 @@ struct ContentView: View {
     
     let imagesForButtons = ["snail", "tornado", "rocket"]
     @State private var selectedButton = "tornado"
-    @State private var selectedButtonIndex: Int? = nil
     
     var body: some View {
         VStack {
@@ -46,7 +45,7 @@ struct ContentView: View {
                         //MARK: - NAVBAR
                         CustomNavBar()
                         
-                        Spacer(minLength: 5)
+                        Spacer(minLength: 50)
                         
                         //MARK: - TEXT AND ANIMATION
                         VStack {
@@ -108,10 +107,12 @@ struct ContentView: View {
                         //MARK: - BUTTONS
                         
                         HStack(spacing: 30) {
-                            ForEach(imagesForButtons.indices, id: \.self) { index in
+                            ForEach(imagesForButtons, id: \.self) { image in
                                 CustomButtonForIntensity(action: {
-                                    buttonTapped(index: index)
-                                }, imageName: imagesForButtons[index])
+                                    
+                                }, imageName: image)
+                                
+                                
                             } 
                         }
                         Spacer(minLength: 30)
@@ -229,19 +230,6 @@ struct ContentView: View {
             print("Failed to play pattern: \(error.localizedDescription).")
         }
     }
-    
-    func buttonTapped(index: Int) {
-            if selectedButtonIndex == index {
-                // Same button tapped again, deselect it
-                selectedButtonIndex = nil
-            } else {
-                selectedButtonIndex = index
-            }
-        }
-    
-    
-    
-    
     
 }
 
