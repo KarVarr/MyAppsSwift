@@ -16,8 +16,9 @@ struct ContentView: View {
     @State private var patternPlayer: CHHapticPatternPlayer?
     
     @State private var isPlaying = false
-    @State private var value: Float = 0.5
+    @State private var valueForIntensity: Float = 0.5
     @State private var sharpness = 0.5
+    @State private var durationWithButtons = 1
     
     @State private var buttonIsPressed = false
     @State private var buttonImageColor = 0.5
@@ -29,7 +30,6 @@ struct ContentView: View {
     let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
     
     let imagesForButtons = ["snail", "tornado", "rocket"]
-    @State private var selectedButton = "tornado"
     
     var body: some View {
         VStack {
@@ -61,7 +61,6 @@ struct ContentView: View {
                         }
                         .frame(height: 80)
                         
-                        
                         //MARK: - BUTTON
                         
                         VStack{
@@ -90,7 +89,7 @@ struct ContentView: View {
                                 }
                                 .onTapGesture {
                                     if !buttonIsPressed {
-                                        nomNomPattern()
+                                        generalHapticVibration()
                                     } else {
                                         
                                     }
@@ -109,11 +108,18 @@ struct ContentView: View {
                         HStack(spacing: 30) {
                             ForEach(imagesForButtons, id: \.self) { image in
                                 CustomButtonForIntensity(action: {
-                                    
+                                    impactFeedback()
+                                    switch image {
+                                    case "snail": durationWithButtons = 1
+                                    case "tornado": durationWithButtons = 2
+                                    case "rocket": durationWithButtons = 3
+                                    default:
+                                        break
+                                    }
                                 }, imageName: image)
                                 
                                 
-                            } 
+                            }
                         }
                         Spacer(minLength: 30)
                         
@@ -159,20 +165,11 @@ struct ContentView: View {
             buttonIsPressed = false
         }
     }
-    //    func simpleSuccess() {
-    //        let generator = UINotificationFeedbackGenerator()
-    //        generator.notificationOccurred(.warning)
-    //    }
-    //
-    //    func selectionFeedback() {
-    //        let feedbackGenerator = UISelectionFeedbackGenerator()
-    //        feedbackGenerator.selectionChanged()
-    //    }
-    //
-    //    func impactFeedback() {
-    //        let impactGenerator = UIImpactFeedbackGenerator(style: .heavy)
-    //        impactGenerator.impactOccurred()
-    //    }
+    
+    func impactFeedback() {
+        let impactGenerator = UIImpactFeedbackGenerator(style: .soft)
+        impactGenerator.impactOccurred()
+    }
     
     func prepareHaptics() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
@@ -205,19 +202,19 @@ struct ContentView: View {
     }
     
     
-    func nomNomPattern() {
+    func generalHapticVibration() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         var events = [CHHapticEvent]()
         
-        let rumble1 = CHHapticEvent(
+        let vibration = CHHapticEvent(
             eventType: .hapticContinuous,
             parameters: [
-                CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(value)),
-                CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(value))
+                CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(valueForIntensity)),
+                CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(valueForIntensity))
             ],
             relativeTime: 0,
-            duration: 2)
-        events.append(rumble1)
+            duration: TimeInterval(durationWithButtons))
+        events.append(vibration)
         
         do {
             let pattern = try CHHapticPattern(events: events, parameters: [])
