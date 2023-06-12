@@ -26,7 +26,7 @@ struct CustomButtonForIntensity: View {
                         Circle()
                             .fill(
                                 LinearGradient(
-                                    gradient: Gradient(colors: [Color.secondary.opacity(0.7), Color.secondary.opacity(0.3)]),
+                                    gradient: Gradient(colors: [Color.secondary.opacity(0.5), Color.secondary.opacity(0.3)]),
                                     startPoint: .top,
                                     endPoint: .bottom
                                 )
