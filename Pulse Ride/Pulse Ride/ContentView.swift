@@ -16,7 +16,7 @@ struct ContentView: View {
     @State private var patternPlayer: CHHapticPatternPlayer?
     
     @State private var isPlaying = false
-    @State private var valueForIntensity: Float = 0.5
+    @State private var valueForIntensity: Float = 0.3
     @State private var sharpness = 0.5
     @State private var durationWithButtons = 1
     
@@ -30,6 +30,8 @@ struct ContentView: View {
     let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
     
     let imagesForButtons = ["snail", "tornado", "rocket"]
+    
+    @State private var hapticIsPlaying = false
     
     var body: some View {
         VStack {
@@ -85,23 +87,14 @@ struct ContentView: View {
                                 }
                                 .onAppear {
                                     prepareHaptics()
-                                    
                                 }
                                 .onTapGesture {
-                                    if !buttonIsPressed {
-                                        generalHapticVibration()
-                                    } else {
-                                        
-                                    }
                                     startButton()
                                 }
                                 
                             }
                             
                         }
-                        
-                        //                            StartScreenView(engine: $engine, startButtonAction: nomNomPattern, prepare: prepareHaptics, stop: stopHaptics)
-                        
                         
                         //MARK: - BUTTONS
                         
@@ -110,9 +103,9 @@ struct ContentView: View {
                                 CustomButtonForIntensity(action: {
                                     impactFeedback()
                                     switch image {
-                                    case "snail": durationWithButtons = 1
-                                    case "tornado": durationWithButtons = 2
-                                    case "rocket": durationWithButtons = 3
+                                    case "snail": valueForIntensity = 0.3
+                                    case "tornado": valueForIntensity = 0.6
+                                    case "rocket": valueForIntensity = 0.9
                                     default:
                                         break
                                     }
@@ -156,6 +149,7 @@ struct ContentView: View {
             }
             isPlaying = true
             buttonIsPressed = true
+            generalHapticVibration()
         } else {
             withAnimation {
                 buttonImageColor = 0.5
@@ -163,6 +157,7 @@ struct ContentView: View {
             }
             isPlaying = false
             buttonIsPressed = false
+            stopHapticVibrationLoop()
         }
     }
     
@@ -188,47 +183,107 @@ struct ContentView: View {
         }
     }
     
-    func stopHaptics() {
-        if let engine = engine, engineRunning {
-            engine.stop(completionHandler: { error in
-                if let error = error {
-                    print("Error stopping haptic engine: \(error.localizedDescription)")
-                } else {
-                    self.engine = nil
-                    engineRunning = false
-                }
-            })
-        }
-    }
+//    func stopHaptics() {
+//        if let engine = engine, engineRunning {
+//            engine.stop(completionHandler: { error in
+//                if let error = error {
+//                    print("Error stopping haptic engine: \(error.localizedDescription)")
+//                } else {
+//                    self.engine = nil
+//                    engineRunning = false
+//                }
+//            })
+//        }
+//    }
     
     
     func generalHapticVibration() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         var events = [CHHapticEvent]()
         
-        let vibration = CHHapticEvent(
-            eventType: .hapticContinuous,
-            parameters: [
-                CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(valueForIntensity)),
-                CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(valueForIntensity))
-            ],
-            relativeTime: 0,
-            duration: TimeInterval(durationWithButtons))
-        events.append(vibration)
+//        let vibration = CHHapticEvent(
+//            eventType: .hapticContinuous,
+//            parameters: [
+//                CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(0.4)),
+//                CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(0.9))
+//            ],
+//            relativeTime: 0,
+//        duration: 3)
+//        events.append(vibration)
+//
+//        let vibrationSoft = CHHapticEvent(
+//            eventType: .hapticContinuous,
+//            parameters: [
+//                CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(0.5)),
+//                CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(0.5))
+//            ],
+//            relativeTime: 3,
+//            duration: 2)
+//        events.append(vibrationSoft)
+        
+        for i in stride(from: 0, to: 1, by: 0.1) {
+            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(i))
+            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(i))
+            let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: i)
+            events.append(event)
+        }
+
+        for i in stride(from: 0, to: 1, by: 0.1) {
+            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(1 - i))
+            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(1 - i))
+            let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 1 + i)
+            events.append(event)
+        }
+        
         
         do {
             let pattern = try CHHapticPattern(events: events, parameters: [])
             let player = try engine?.makePlayer(with: pattern)
-            try player?.start(atTime: 0)
-            
+//
             patternPlayer = player
+            startHapticVibrationLoop()
+//
+//            try player?.start(atTime: 0)
             
         } catch {
             print("Failed to play pattern: \(error.localizedDescription).")
         }
     }
     
+    func startHapticVibrationLoop() {
+        if hapticIsPlaying {
+            return
+        }
+        
+        hapticIsPlaying = true
+        
+        DispatchQueue.global().async {
+            while self.hapticIsPlaying {
+                do {
+                    try self.patternPlayer?.start(atTime: 0)
+                } catch {
+                    print("Failed to start haptic vibration: \(error.localizedDescription).")
+                }
+            }
+        }
+    }
+    
+    func stopHapticVibrationLoop() {
+        hapticIsPlaying = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.milliseconds(1)) {
+            do {
+                try self.patternPlayer?.stop(atTime: 0)
+            } catch {
+                print("Failed to stop haptic vibration: \(error.localizedDescription).")
+            }
+        }
+    }
+    
+    
+    
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
