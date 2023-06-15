@@ -11,6 +11,7 @@ import CoreHaptics
 
 
 struct ContentView: View {
+    
     @State private var engineRunning = false
     @State private var engine: CHHapticEngine?
     @State private var patternPlayer: CHHapticPatternPlayer?
@@ -86,10 +87,11 @@ struct ContentView: View {
                                         .animation(.easeIn(duration: 1), value: scale)
                                 }
                                 .onAppear {
-                                    prepareHaptics()
+                                    MassageViewModel.shared.setupHapticEngine()
                                 }
                                 .onTapGesture {
                                     startButton()
+                                    MassageViewModel.shared.toggleVibration()
                                 }
                                 
                             }
@@ -101,11 +103,14 @@ struct ContentView: View {
                         HStack(spacing: 30) {
                             ForEach(imagesForButtons, id: \.self) { image in
                                 CustomButtonForIntensity(action: {
-                                    impactFeedback()
+                                    MassageViewModel.shared.impactFeedback(.soft)
                                     switch image {
-                                    case "snail": valueForIntensity = 0.4
-                                    case "tornado": valueForIntensity = 0.7
-                                    case "rocket": valueForIntensity = 1.0
+                                    case "snail":
+                                        MassageViewModel.shared.valueOfIntensity = 0.5
+                                    case "tornado":
+                                        MassageViewModel.shared.valueOfIntensity = 0.75
+                                    case "rocket":
+                                        MassageViewModel.shared.valueOfIntensity = 1.0
                                     default:
                                         break
                                     }
@@ -120,7 +125,7 @@ struct ContentView: View {
                     }
                 }
                 .onAppear {
-                    prepareHaptics()
+                    
                 }
             }
         }
@@ -140,95 +145,21 @@ struct ContentView: View {
         
     }
     
-    
     func startButton() {
         if !buttonIsPressed {
             withAnimation {
                 buttonImageColor = 1
                 shadowRadius = 5
             }
-            isPlaying = true
             buttonIsPressed = true
         } else {
             withAnimation {
                 buttonImageColor = 0.5
                 shadowRadius = 15
             }
-            isPlaying = false
             buttonIsPressed = false
         }
     }
-    
-    func impactFeedback() {
-        let impactGenerator = UIImpactFeedbackGenerator(style: .soft)
-        impactGenerator.impactOccurred()
-    }
-    
-    func prepareHaptics() {
-        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
-        
-        do {
-            if engine == nil {
-                engine = try CHHapticEngine()
-                
-            }
-            if let engine = engine, !engineRunning {
-                try engine.start()
-                engineRunning = true
-            }
-        } catch {
-            print("There was an error creating the engine: \(error.localizedDescription)")
-        }
-    }
-    
-    //MARK: - HAPTIC VIBRATION
-    
-    private func startVibration() {
-        guard let engine = engine else { return }
-
-        let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.9)
-        let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.1)
-        let event = CHHapticEvent(eventType: .hapticContinuous, parameters: [intensity, sharpness], relativeTime: 0, duration: .infinity)
-
-        do {
-            let pattern = try CHHapticPattern(events: [event], parameters: [])
-            let player = try engine.makePlayer(with: pattern)
-            try player.start(atTime: 0)
-
-            DispatchQueue.main.async {
-                self.isPlaying = true
-            }
-        } catch {
-            print("Error playing haptic pattern: \(error.localizedDescription)")
-        }
-    }
-    
-    
-    private var isVibrating = false
-
-    private func stopVibration() {
-        guard let engine = engine else { return }
-
-        engine.stop(completionHandler: { error in
-            if let error = error {
-                print("Error stopping haptic engine: \(error.localizedDescription)")
-            } else {
-                DispatchQueue.main.async {
-                    self.isPlaying = false
-                }
-            }
-        })
-    }
-
-    func toggleVibration() {
-        if isVibrating {
-            stopVibration()
-        } else {
-            startVibration()
-        }
-    }
-
-
     
 }
 

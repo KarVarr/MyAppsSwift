@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		172150902A3B671F00137CFA /* MassageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1721508F2A3B671F00137CFA /* MassageViewModel.swift */; };
 		173F01BF2A229ECC00782653 /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01BE2A229ECC00782653 /* StartScreenView.swift */; };
 		173F01F22A279D0C00782653 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173F01F12A279D0C00782653 /* Launch Screen.storyboard */; };
 		173F01F42A27A64C00782653 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01F32A27A64C00782653 /* SliderView.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1721508F2A3B671F00137CFA /* MassageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassageViewModel.swift; sourceTree = "<group>"; };
 		173F01BE2A229ECC00782653 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
 		173F01F02A279BE000782653 /* Pulse-Ride-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Pulse-Ride-Info.plist"; sourceTree = SOURCE_ROOT; };
 		173F01F12A279D0C00782653 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		173F01C22A229EE700782653 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1721508F2A3B671F00137CFA /* MassageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				173F01F82A27B93200782653 /* HapticsTouchGenerator.swift in Sources */,
 				17CB83AD2A1FD516008F7CEC /* ContentView.swift in Sources */,
 				17CB83AB2A1FD516008F7CEC /* Pulse_RideApp.swift in Sources */,
+				172150902A3B671F00137CFA /* MassageViewModel.swift in Sources */,
 				173F02072A30FDA300782653 /* CustomImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

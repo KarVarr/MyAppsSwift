@@ -14,6 +14,7 @@ struct CustomNavBar: View {
         HStack(alignment: .center) {
             Button {
                 showingAlertNotVibration = true
+                MassageViewModel.shared.impactFeedback(.light)
             } label: {
                 Image(systemName: "questionmark.circle")
                     .foregroundColor(.white)
