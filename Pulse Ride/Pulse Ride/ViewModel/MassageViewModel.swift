@@ -51,7 +51,7 @@ class MassageViewModel: ObservableObject {
             try engine.start()
             
             let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(valueOfIntensity))
-            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.1)
+            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.2)
             let event = CHHapticEvent(eventType: .hapticContinuous, parameters: [intensity, sharpness], relativeTime: 0, duration: .infinity)
             
             let pattern = try CHHapticPattern(events: [event], parameters: [])

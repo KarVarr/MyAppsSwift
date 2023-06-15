@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct CustomNavBar: View {
+    @StateObject private var massageVM = MassageViewModel.shared
     @State private var showingAlertNotVibration = false
     
     var body: some View {
         HStack(alignment: .center) {
             Button {
                 showingAlertNotVibration = true
-                MassageViewModel.shared.impactFeedback(.light)
+                massageVM.impactFeedback(.light)
             } label: {
                 Image(systemName: "questionmark.circle")
                     .foregroundColor(.white)

@@ -11,15 +11,13 @@ import CoreHaptics
 
 
 struct ContentView: View {
+    @StateObject private var massageVM = MassageViewModel.shared
     
     @State private var engineRunning = false
     @State private var engine: CHHapticEngine?
     @State private var patternPlayer: CHHapticPatternPlayer?
     
     @State private var isPlaying = false
-    @State private var valueForIntensity: Float = 0.5
-    @State private var sharpness = 0.5
-    @State private var durationWithButtons = 1
     
     @State private var buttonIsPressed = false
     @State private var buttonImageColor = 0.5
@@ -86,12 +84,9 @@ struct ContentView: View {
                                         .scaleEffect(scale)
                                         .animation(.easeIn(duration: 1), value: scale)
                                 }
-                                .onAppear {
-                                    MassageViewModel.shared.setupHapticEngine()
-                                }
                                 .onTapGesture {
                                     startButton()
-                                    MassageViewModel.shared.toggleVibration()
+                                    massageVM.toggleVibration()
                                 }
                                 
                             }
@@ -103,14 +98,14 @@ struct ContentView: View {
                         HStack(spacing: 30) {
                             ForEach(imagesForButtons, id: \.self) { image in
                                 CustomButtonForIntensity(action: {
-                                    MassageViewModel.shared.impactFeedback(.soft)
+                                    massageVM.impactFeedback(.soft)
                                     switch image {
                                     case "snail":
-                                        MassageViewModel.shared.valueOfIntensity = 0.5
+                                        massageVM.valueOfIntensity = 0.6
                                     case "tornado":
-                                        MassageViewModel.shared.valueOfIntensity = 0.75
+                                        massageVM.valueOfIntensity = 0.8
                                     case "rocket":
-                                        MassageViewModel.shared.valueOfIntensity = 1.0
+                                        massageVM.valueOfIntensity = 1.0
                                     default:
                                         break
                                     }
@@ -125,7 +120,7 @@ struct ContentView: View {
                     }
                 }
                 .onAppear {
-                    
+                    massageVM.setupHapticEngine()
                 }
             }
         }
@@ -152,12 +147,14 @@ struct ContentView: View {
                 shadowRadius = 5
             }
             buttonIsPressed = true
+            isPlaying = true
         } else {
             withAnimation {
                 buttonImageColor = 0.5
                 shadowRadius = 15
             }
             buttonIsPressed = false
+            isPlaying = false
         }
     }
     

@@ -10,8 +10,6 @@
 		172150902A3B671F00137CFA /* MassageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1721508F2A3B671F00137CFA /* MassageViewModel.swift */; };
 		173F01BF2A229ECC00782653 /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01BE2A229ECC00782653 /* StartScreenView.swift */; };
 		173F01F22A279D0C00782653 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173F01F12A279D0C00782653 /* Launch Screen.storyboard */; };
-		173F01F42A27A64C00782653 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01F32A27A64C00782653 /* SliderView.swift */; };
-		173F01F82A27B93200782653 /* HapticsTouchGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01F72A27B93200782653 /* HapticsTouchGenerator.swift */; };
 		173F01FF2A2FB86C00782653 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01FE2A2FB86C00782653 /* Helpers.swift */; };
 		173F02032A30F90F00782653 /* StackTextVertical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F02022A30F90F00782653 /* StackTextVertical.swift */; };
 		173F02052A30FB8B00782653 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F02042A30FB8B00782653 /* CustomNavBar.swift */; };
@@ -29,8 +27,6 @@
 		173F01BE2A229ECC00782653 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
 		173F01F02A279BE000782653 /* Pulse-Ride-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Pulse-Ride-Info.plist"; sourceTree = SOURCE_ROOT; };
 		173F01F12A279D0C00782653 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		173F01F32A27A64C00782653 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
-		173F01F72A27B93200782653 /* HapticsTouchGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsTouchGenerator.swift; sourceTree = "<group>"; };
 		173F01FE2A2FB86C00782653 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		173F02022A30F90F00782653 /* StackTextVertical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTextVertical.swift; sourceTree = "<group>"; };
 		173F02042A30FB8B00782653 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
@@ -58,7 +54,6 @@
 		173F01C02A229ED500782653 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				173F01F72A27B93200782653 /* HapticsTouchGenerator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -66,13 +61,14 @@
 		173F01C12A229EE000782653 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				173F01F32A27A64C00782653 /* SliderView.swift */,
 				173F01BE2A229ECC00782653 /* StartScreenView.swift */,
 				173F02022A30F90F00782653 /* StackTextVertical.swift */,
 				173F02042A30FB8B00782653 /* CustomNavBar.swift */,
 				173F02062A30FDA300782653 /* CustomImage.swift */,
 				173F02082A31029500782653 /* CustomRectangleForAnimation.swift */,
 				173F020A2A32545D00782653 /* CustomButtonForIntensity.swift */,
+				17CB83AC2A1FD516008F7CEC /* ContentView.swift */,
+				17CB83AA2A1FD516008F7CEC /* Pulse_RideApp.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,8 +113,6 @@
 				173F01C22A229EE700782653 /* ViewModel */,
 				173F01C12A229EE000782653 /* View */,
 				173F01C02A229ED500782653 /* Model */,
-				17CB83AA2A1FD516008F7CEC /* Pulse_RideApp.swift */,
-				17CB83AC2A1FD516008F7CEC /* ContentView.swift */,
 				17CB83AE2A1FD518008F7CEC /* Assets.xcassets */,
 				17CB83B02A1FD518008F7CEC /* Preview Content */,
 				173F01F12A279D0C00782653 /* Launch Screen.storyboard */,
@@ -211,8 +205,6 @@
 				173F020B2A32545D00782653 /* CustomButtonForIntensity.swift in Sources */,
 				173F02092A31029500782653 /* CustomRectangleForAnimation.swift in Sources */,
 				173F01FF2A2FB86C00782653 /* Helpers.swift in Sources */,
-				173F01F42A27A64C00782653 /* SliderView.swift in Sources */,
-				173F01F82A27B93200782653 /* HapticsTouchGenerator.swift in Sources */,
 				17CB83AD2A1FD516008F7CEC /* ContentView.swift in Sources */,
 				17CB83AB2A1FD516008F7CEC /* Pulse_RideApp.swift in Sources */,
 				172150902A3B671F00137CFA /* MassageViewModel.swift in Sources */,
