@@ -12,6 +12,7 @@ import CoreHaptics
 
 struct ContentView: View {
     @StateObject private var massageVM = MassageViewModel.shared
+    var imagesNameForButtons = ImagesNameForButtons()
     
     @State private var engineRunning = false
     @State private var engine: CHHapticEngine?
@@ -28,8 +29,7 @@ struct ContentView: View {
     @State private var rectangleHeight =  [40, 30, 50, 60, 80, 50, 40, 70, 50, 30, 60 ,80 ,40]
     let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
     
-    let imagesForButtons = ["snail", "tornado", "rocket"]
-    
+
     @State private var hapticIsPlaying = false
     
     var body: some View {
@@ -96,7 +96,7 @@ struct ContentView: View {
                         //MARK: - BUTTONS
                         
                         HStack(spacing: 30) {
-                            ForEach(imagesForButtons, id: \.self) { image in
+                            ForEach(imagesNameForButtons.nameForImages, id: \.self) { image in
                                 CustomButtonForIntensity(action: {
                                     massageVM.impactFeedback(.soft)
                                     switch image {

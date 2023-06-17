@@ -20,6 +20,7 @@
 		17CB83AD2A1FD516008F7CEC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB83AC2A1FD516008F7CEC /* ContentView.swift */; };
 		17CB83AF2A1FD518008F7CEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CB83AE2A1FD518008F7CEC /* Assets.xcassets */; };
 		17CB83B22A1FD518008F7CEC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CB83B12A1FD518008F7CEC /* Preview Assets.xcassets */; };
+		17D4BAE32A3E195200BB1376 /* ImagesNameForButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D4BAE22A3E195200BB1376 /* ImagesNameForButtons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		17CB83AC2A1FD516008F7CEC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		17CB83AE2A1FD518008F7CEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17CB83B12A1FD518008F7CEC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		17D4BAE22A3E195200BB1376 /* ImagesNameForButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesNameForButtons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		173F01C02A229ED500782653 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				17D4BAE22A3E195200BB1376 /* ImagesNameForButtons.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				173F020B2A32545D00782653 /* CustomButtonForIntensity.swift in Sources */,
 				173F02092A31029500782653 /* CustomRectangleForAnimation.swift in Sources */,
 				173F01FF2A2FB86C00782653 /* Helpers.swift in Sources */,
+				17D4BAE32A3E195200BB1376 /* ImagesNameForButtons.swift in Sources */,
 				17CB83AD2A1FD516008F7CEC /* ContentView.swift in Sources */,
 				17CB83AB2A1FD516008F7CEC /* Pulse_RideApp.swift in Sources */,
 				172150902A3B671F00137CFA /* MassageViewModel.swift in Sources */,
