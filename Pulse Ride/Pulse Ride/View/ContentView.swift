@@ -43,9 +43,9 @@ struct ContentView: View {
                     
                     VStack {
                         Spacer()
+                        
                         //MARK: - NAVBAR
                         CustomNavBar()
-                        
                         Spacer(minLength: 50)
                         
                         //MARK: - TEXT AND ANIMATION
@@ -62,7 +62,7 @@ struct ContentView: View {
                         }
                         .frame(height: 80)
                         
-                        //MARK: - BUTTON
+                        //MARK: - MAIN BUTTON
                         
                         VStack{
                             GeometryReader { geo in

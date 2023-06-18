@@ -61,6 +61,25 @@ class MassageViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self.isVibrating = true
             }
+            
+            DispatchQueue.global(qos: .userInteractive).async {
+                while self.isVibrating {
+                    // Create a dynamic parameter for the intensity
+                    let dynamicIntensity = CHHapticDynamicParameter(parameterID: .hapticIntensityControl, value: Float(self.valueOfIntensity), relativeTime: 0)
+                    
+                    do {
+                        // Apply the dynamic parameter to the player
+                        try player.sendParameters([dynamicIntensity], atTime: 0)
+                    } catch {
+                        print("Error updating haptic intensity: \(error.localizedDescription)")
+                    }
+                    
+                    // Sleep for a short duration before updating again
+                    usleep(100_000) // Sleep for 100 milliseconds (adjust as needed)
+                }
+            }
+            
+            
         } catch {
             print("Error playing haptic pattern: \(error.localizedDescription)")
         }
