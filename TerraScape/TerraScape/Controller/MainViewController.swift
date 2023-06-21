@@ -84,7 +84,6 @@ class MainViewController: UIViewController {
         toolbar.parentViewController = self
         toolbar.audioPlayer = audioPlayer
         
-        
     }
     //MARK: - LAYOUT
     
@@ -107,7 +106,6 @@ class MainViewController: UIViewController {
             toolbar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
             toolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             toolbar.heightAnchor.constraint(equalToConstant: 70),
-            
             
             smallBall.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             smallBall.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
