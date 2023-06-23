@@ -89,9 +89,11 @@ class SettingsViewController: UIViewController {
         }
         
         rateAppButton.customButton.setTitle("Rate", for: .normal)
+        rateAppButton.customButton.addTarget(self, action: #selector(rateButtonTapped), for: .touchUpInside)
         
         reportAProblemButton.customButton.setTitle("Report", for: .normal)
         reportAProblemButton.customButton.addTarget(self, action: #selector(sendEmailAboutABug), for: .touchUpInside)
+        
         
         closeModuleButton.customButton.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
         closeModuleButton.customButton.tintColor = Helpers.Colors.settingsWhite.withAlphaComponent(0.6)
