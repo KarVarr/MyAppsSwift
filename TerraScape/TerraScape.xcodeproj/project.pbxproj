@@ -157,6 +157,7 @@
 		178C7F232A0E8D5E001FC539 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				173F01C92A2511C300782653 /* Extentions */,
 				178C7F122A0E8CC2001FC539 /* MainViewController.swift */,
 				178C7F392A10E516001FC539 /* CollectionViewExtention.swift */,
 				173F01C52A236B1600782653 /* SettingsViewController.swift */,
@@ -201,7 +202,6 @@
 		178C7F2B2A0E9F14001FC539 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				173F01C92A2511C300782653 /* Extentions */,
 				178C7F2C2A0E9F41001FC539 /* Helper.swift */,
 			);
 			path = Helpers;

@@ -33,6 +33,20 @@ class MainViewController: UIViewController {
     
     var initialToolbarWidth: CGFloat = -300
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let toolbarTrailingConstraint = toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: initialToolbarWidth)
+        toolbarTrailingConstraint.isActive = true
+        
+        view.layoutIfNeeded()
+        UIView.animate(withDuration: 1.0) {
+            toolbarTrailingConstraint.constant = -20
+            self.view.layoutIfNeeded()
+        }
+        
+        print("WILL LOAD HERE ------------------------")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,22 +58,13 @@ class MainViewController: UIViewController {
         collectionView()
         createCircles()
         
-        
-        //        let modelName = UIDevice.current.modelName
-        //
-        //        switch modelName {
-        //        case "iPhone X":
-        //            view.backgroundColor = .blue
-        //        case "iPhone 14 Pro":
-        //            view.backgroundColor = .red
-        //
-        //        case "iPhone 14 Pro Max":
-        //            view.backgroundColor = .green
-        //        default:
-        //            view.backgroundColor = .black
-        //        }
     }
+
    
+    deinit {
+        print("MAIN DEINIT")
+    }
+    
     func addViews() {
         view.addSubview(smallBall.customUIView)
         view.addSubview(mediumBall.customUIView)
@@ -94,8 +99,8 @@ class MainViewController: UIViewController {
         let bigBall = bigBall.customUIView
         let largeBall = largeBall.customUIView
         
-        let toolbarTrailingConstraint = toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: initialToolbarWidth)
-        toolbarTrailingConstraint.isActive = true
+//        let toolbarTrailingConstraint = toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: initialToolbarWidth)
+//        toolbarTrailingConstraint.isActive = true
         
         NSLayoutConstraint.activate([
             collection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -130,11 +135,11 @@ class MainViewController: UIViewController {
         ])
         
         // Animate the toolbar appearance with the updated width
-        view.layoutIfNeeded()
-        UIView.animate(withDuration: 1.0) {
-            toolbarTrailingConstraint.constant = -20 
-            self.view.layoutIfNeeded()
-        }
+//        view.layoutIfNeeded()
+//        UIView.animate(withDuration: 1.0) {
+//            toolbarTrailingConstraint.constant = -20
+//            self.view.layoutIfNeeded()
+//        }
     }
     
     //MARK: - ANIMATION

@@ -29,6 +29,7 @@ class SettingsViewController: UIViewController {
         buttonsSetting()
         layout()
     }
+
     
     func addViews() {
         view.addSubview(verticalStackViewForText.customStackView)

@@ -38,6 +38,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     
+   
     
     /**This function plays\stops all songs ! */
     @objc func volumeSliderChanged(_ sender: UISlider) {
