@@ -57,6 +57,7 @@ enum Helpers {
         
         
         static let sliderTrackMinimumColor = UIColor.white
+        static let buttonsForSettingColor = UIColor(red: 0.93, green: 0.22, blue: 0.74, alpha: 0.85)
         
     }
     

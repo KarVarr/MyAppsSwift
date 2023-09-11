@@ -70,8 +70,8 @@ class SettingsViewController: UIViewController {
         verticalStackViewForText.customStackView.spacing = 20.0
         
         horizontalStackViewForButtons.customStackView.axis = .horizontal
-        horizontalStackViewForButtons.customStackView.distribution = .fillEqually
-        horizontalStackViewForButtons.customStackView.spacing = 60.0
+        horizontalStackViewForButtons.customStackView.distribution = .equalSpacing
+//        horizontalStackViewForButtons.customStackView.spacing = 60.0
         horizontalStackViewForButtons.customStackView.alignment = .center
         
     }
@@ -81,7 +81,7 @@ class SettingsViewController: UIViewController {
         
         for button in buttons {
             button.tintColor = .black
-            button.backgroundColor = .white
+            button.backgroundColor = Helpers.Colors.buttonsForSettingColor
             button.layer.cornerRadius = Helpers.Radius.cornerRadius
             button.layer.shadowColor = UIColor.black.cgColor
             button.layer.shadowRadius = 4
@@ -95,8 +95,10 @@ class SettingsViewController: UIViewController {
         reportAProblemButton.customButton.setTitle("Report", for: .normal)
         reportAProblemButton.customButton.addTarget(self, action: #selector(sendEmailAboutABug), for: .touchUpInside)
         
-        closeModuleButton.customButton.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
+        closeModuleButton.customButton.setImage(UIImage(systemName: "xmark"), for: .normal)
         closeModuleButton.customButton.tintColor = Helpers.Colors.settingsWhite.withAlphaComponent(0.6)
+        closeModuleButton.customButton.contentVerticalAlignment = .fill
+        closeModuleButton.customButton.contentHorizontalAlignment = .fill
         closeModuleButton.customButton.addTarget(self, action: #selector(closeModule), for: .touchUpInside)
     }
     
@@ -109,8 +111,8 @@ class SettingsViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             verticalStackViewForText.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-            verticalStackViewForText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            verticalStackViewForText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            verticalStackViewForText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            verticalStackViewForText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             verticalStackViewForText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             horizontalStackViewForButtons.topAnchor.constraint(equalTo: verticalStackViewForText.bottomAnchor, constant: 40),
@@ -118,10 +120,10 @@ class SettingsViewController: UIViewController {
             horizontalStackViewForButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             horizontalStackViewForButtons.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            reportAProblemButton.widthAnchor.constraint(lessThanOrEqualToConstant: 30),
+            reportAProblemButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.4),
             reportAProblemButton.heightAnchor.constraint(equalToConstant: 44),
             
-            rateAppButton.widthAnchor.constraint(lessThanOrEqualToConstant: 30),
+            rateAppButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.4),
             rateAppButton.heightAnchor.constraint(equalToConstant: 44),
             
             closeModuleButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),

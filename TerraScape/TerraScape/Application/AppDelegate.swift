@@ -20,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        setupRemoteControl()
-        setupNowPlayingInfo()
-        configureAudioSession()
+//        setupRemoteControl()
+//        setupNowPlayingInfo()
+//        configureAudioSession()
         
         
         return true
@@ -55,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var nowPlayingInfo = [String: Any]()
         nowPlayingInfo[MPMediaItemPropertyTitle] = Helpers.Strings.navigationTitle
         nowPlayingInfo[MPMediaItemPropertyArtist] = UIImage(named: "AppIcon")
+        
         
         if let image = UIImage(named: "AppIcon") {
             nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
