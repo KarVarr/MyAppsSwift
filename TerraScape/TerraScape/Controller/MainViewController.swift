@@ -43,8 +43,6 @@ class MainViewController: UIViewController {
             toolbarTrailingConstraint.constant = -20
             self.view.layoutIfNeeded()
         }
-        
-        print("WILL LOAD HERE ------------------------")
     }
     
     override func viewDidLoad() {
@@ -60,10 +58,6 @@ class MainViewController: UIViewController {
         
     }
 
-   
-    deinit {
-        print("MAIN DEINIT")
-    }
     
     func addViews() {
         view.addSubview(smallBall.customUIView)

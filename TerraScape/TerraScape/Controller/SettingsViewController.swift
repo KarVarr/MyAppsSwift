@@ -96,6 +96,7 @@ class SettingsViewController: UIViewController {
         reportAProblemButton.customButton.addTarget(self, action: #selector(sendEmailAboutABug), for: .touchUpInside)
         
         
+        
         closeModuleButton.customButton.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
         closeModuleButton.customButton.tintColor = Helpers.Colors.settingsWhite.withAlphaComponent(0.6)
         closeModuleButton.customButton.addTarget(self, action: #selector(closeModule), for: .touchUpInside)

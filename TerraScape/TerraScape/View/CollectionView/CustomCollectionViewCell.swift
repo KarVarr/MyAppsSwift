@@ -25,6 +25,19 @@ class CustomCollectionViewCell: UICollectionViewCell {
         
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.topLeft, .topRight, .bottomLeft, .bottomRight], cornerRadii: CGSize(width: Helpers.Radius.cornerRadius, height: Helpers.Radius.cornerRadius))
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        layer.mask = maskLayer
+        
+        
+        clipsToBounds = true
+        backgroundColor = .clear
+    }
+    
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -56,9 +69,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
         
         contentView.addSubview(blurEffectView)
         layer.insertSublayer(gradient, at: 0)
-        layer.cornerRadius = Helpers.Radius.cornerRadius
-        clipsToBounds = true
-        backgroundColor = .clear
+//        clipsToBounds = true
+//        backgroundColor = .clear
         
         sliderView.customUIView.layer.cornerRadius = 15
         sliderView.customUIView.clipsToBounds = true
@@ -71,7 +83,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
         let image = imageOfSound.customImageView
         let name = nameOfSound.customLabel
         let volume = volumeOfSound.customSlider
-        
         let sliderView = sliderView.customUIView
         
         NSLayoutConstraint.activate([
