@@ -29,7 +29,7 @@ class SettingsViewController: UIViewController {
         buttonsSetting()
         layout()
     }
-
+    
     
     func addViews() {
         view.addSubview(verticalStackViewForText.customStackView)
@@ -95,8 +95,6 @@ class SettingsViewController: UIViewController {
         reportAProblemButton.customButton.setTitle("Report", for: .normal)
         reportAProblemButton.customButton.addTarget(self, action: #selector(sendEmailAboutABug), for: .touchUpInside)
         
-        
-        
         closeModuleButton.customButton.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
         closeModuleButton.customButton.tintColor = Helpers.Colors.settingsWhite.withAlphaComponent(0.6)
         closeModuleButton.customButton.addTarget(self, action: #selector(closeModule), for: .touchUpInside)
@@ -128,6 +126,8 @@ class SettingsViewController: UIViewController {
             
             closeModuleButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
             closeModuleButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            closeModuleButton.widthAnchor.constraint(equalToConstant: 44),
+            closeModuleButton.heightAnchor.constraint(equalToConstant: 44),
         ])
         
     }
@@ -135,5 +135,5 @@ class SettingsViewController: UIViewController {
     @objc func closeModule() {
         dismiss(animated: true)
     }
-   
+    
 }
