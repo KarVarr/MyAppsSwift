@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
     
     let uiCollectionView = CustomUICollectionView()
     
-    let images = Images()
+//    let images = Images()
     let smallBall = CustomUIView()
     let mediumBall = CustomUIView()
     let bigBall = CustomUIView()
@@ -48,7 +48,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        allSounds.sounds = savedData.load()
+//        allSounds.sounds = savedData.load()
         
         addViews()
         settings()

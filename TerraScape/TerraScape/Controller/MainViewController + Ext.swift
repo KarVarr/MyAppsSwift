@@ -27,16 +27,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         let sound = allSounds.sounds[indexPath.item]
         DispatchQueue.main.async {
-            print(sound)
             cell.nameOfSound.customLabel.text = sound.name.capitalized
             cell.volumeOfSound.customSlider.value = sound.volume
         }
-        
         cell.imageOfSound.customImageView.image = UIImage(named: sound.name)
-        
-        
-        //        cell.nameOfSound.customLabel.text = sound.name.capitalized
-        //        cell.volumeOfSound.customSlider.value = sound.volume
+    
         
         cell.volumeOfSound.customSlider.addTarget(self, action: #selector(volumeSliderChanged), for: .valueChanged)
         cell.volumeOfSound.customSlider.tag = indexPath.item
@@ -62,7 +57,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             player.volume = sender.value
         }
         
-        savedData.save(sounds: allSounds.sounds)
+        //        savedData.save(sounds: allSounds.sounds)
         
         let indexPath = IndexPath(item: soundIndex, section: 0)
         if !cellsToUpdate.contains(indexPath) {
@@ -71,6 +66,5 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         //        uiCollectionView.customCollectionView.reloadItems(at: cellsToUpdate)
         cellsToUpdate.removeAll()
-        
     }
 }

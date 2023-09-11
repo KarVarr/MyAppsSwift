@@ -61,7 +61,7 @@ class SettingsViewController: UIViewController {
         aboutTextLabel.customLabel.textAlignment = .center
         aboutTextLabel.customLabel.numberOfLines = 0
         aboutTextLabel.customLabel.textColor = Helpers.Colors.settingsWhite
-        aboutTextLabel.customLabel.font = Helpers.Fonts.AppleSDGothicNeoRegular(with: 18)
+        aboutTextLabel.customLabel.font = UIFont.systemFont(ofSize: 18)
     }
     
     func stackViewSetting() {
@@ -71,7 +71,6 @@ class SettingsViewController: UIViewController {
         
         horizontalStackViewForButtons.customStackView.axis = .horizontal
         horizontalStackViewForButtons.customStackView.distribution = .equalSpacing
-//        horizontalStackViewForButtons.customStackView.spacing = 60.0
         horizontalStackViewForButtons.customStackView.alignment = .center
         
     }
@@ -95,7 +94,9 @@ class SettingsViewController: UIViewController {
         reportAProblemButton.customButton.setTitle("Report", for: .normal)
         reportAProblemButton.customButton.addTarget(self, action: #selector(sendEmailAboutABug), for: .touchUpInside)
         
-        closeModuleButton.customButton.setImage(UIImage(systemName: "xmark"), for: .normal)
+        DispatchQueue.main.async {
+            self.closeModuleButton.customButton.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        }
         closeModuleButton.customButton.tintColor = Helpers.Colors.settingsWhite.withAlphaComponent(0.6)
         closeModuleButton.customButton.contentVerticalAlignment = .fill
         closeModuleButton.customButton.contentHorizontalAlignment = .fill
