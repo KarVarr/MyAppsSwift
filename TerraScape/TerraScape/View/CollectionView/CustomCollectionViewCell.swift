@@ -23,7 +23,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
         layout()
     }
     
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -38,11 +37,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
         let maskLayer = CAShapeLayer()
         maskLayer.path = path.cgPath
         layer.mask = maskLayer
-        
+
         clipsToBounds = true
         backgroundColor = .clear
-        
         imageOfSound.customImageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+
     }
     
     func addViews() {
@@ -73,6 +72,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(blurEffectView)
         layer.insertSublayer(gradient, at: 0)
         
+        
         sliderView.customUIView.layer.cornerRadius = 15
         sliderView.customUIView.clipsToBounds = true
         sliderView.customUIView.backgroundColor = UIColor(white: 1, alpha: 0.5)
@@ -102,7 +102,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
             sliderView.leadingAnchor.constraint(equalTo: image.leadingAnchor),
             sliderView.trailingAnchor.constraint(equalTo: image.trailingAnchor),
             sliderView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-//            sliderView.heightAnchor.constraint(equalToConstant: 30),
             
             volume.topAnchor.constraint(equalTo: sliderView.topAnchor),
             volume.bottomAnchor.constraint(equalTo: sliderView.bottomAnchor),

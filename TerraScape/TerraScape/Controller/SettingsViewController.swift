@@ -23,13 +23,16 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addViews()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         settings()
         labelsSetting()
         stackViewSetting()
         buttonsSetting()
         layout()
     }
-    
     
     private func addViews() {
         view.addSubview(verticalStackViewForText.customStackView)
@@ -51,21 +54,19 @@ class SettingsViewController: UIViewController {
     private func labelsSetting() {
         DispatchQueue.main.async {
             self.titleLabel.customLabel.font = Helpers.Fonts.Thonburi(with: 18)
+            self.titleLabel.customLabel.text = Helpers.Strings.settingsTitle
+            self.titleLabel.customLabel.textColor = Helpers.Colors.settingsWhite.withAlphaComponent(0.6)
+        
             self.aboutTitleLabel.customLabel.font = Helpers.Fonts.GillSansBold(with: 32)
+            self.aboutTitleLabel.customLabel.text = Helpers.Strings.settingsAboutTitleLabel
+            self.aboutTitleLabel.customLabel.textColor = Helpers.Colors.settingsWhite
+        
             self.aboutTextLabel.customLabel.font = Helpers.Fonts.AppleSDGothicNeoRegular(with: 18)
+            self.aboutTextLabel.customLabel.text = Helpers.Strings.settingsAboutText
+            self.aboutTextLabel.customLabel.textAlignment = .center
+            self.aboutTextLabel.customLabel.numberOfLines = 0
+            self.aboutTextLabel.customLabel.textColor = Helpers.Colors.settingsWhite
         }
-        
-        
-        titleLabel.customLabel.text = Helpers.Strings.settingsTitle
-        titleLabel.customLabel.textColor = Helpers.Colors.settingsWhite.withAlphaComponent(0.6)
-        
-        aboutTitleLabel.customLabel.text = Helpers.Strings.settingsAboutTitleLabel
-        aboutTitleLabel.customLabel.textColor = Helpers.Colors.settingsWhite
-        
-        aboutTextLabel.customLabel.text = Helpers.Strings.settingsAboutText
-        aboutTextLabel.customLabel.textAlignment = .center
-        aboutTextLabel.customLabel.numberOfLines = 0
-        aboutTextLabel.customLabel.textColor = Helpers.Colors.settingsWhite
     }
     
     private func stackViewSetting() {

@@ -5,8 +5,8 @@
 //  Created by Karen Vardanian on 14.05.2023.
 //
 
-import AVFoundation
 import UIKit
+
 
 
 //MARK: - CUSTOM COLLECTION VIEW
@@ -17,8 +17,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         uiCollectionView.customCollectionView.dataSource = self
     }
     
-   
- 
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allSounds.sounds.count
     }
@@ -27,14 +26,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Helpers.Keys.collectionCell, for: indexPath) as! CustomCollectionViewCell
         
         let sound = allSounds.sounds[indexPath.item]
-        DispatchQueue.main.async {
-            cell.nameOfSound.customLabel.text = sound.name.capitalized
-            cell.volumeOfSound.customSlider.value = sound.volume
-        }
-        cell.imageOfSound.customImageView.image = UIImage(named: sound.name)
-    
         
-        cell.volumeOfSound.customSlider.addTarget(self, action: #selector(volumeSliderChanged), for: .valueChanged)
+        cell.imageOfSound.customImageView.image = UIImage(named: sound.image)
+        cell.nameOfSound.customLabel.text = sound.name.capitalized
+        cell.volumeOfSound.customSlider.value = sound.volume
+        cell.volumeOfSound.customSlider.addTarget(self, action: #selector(self.volumeSliderChanged), for: .valueChanged)
         cell.volumeOfSound.customSlider.tag = indexPath.item
         
         if cellsToUpdate.contains(indexPath) {
@@ -65,7 +61,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cellsToUpdate.append(indexPath)
         }
         
-        //        uiCollectionView.customCollectionView.reloadItems(at: cellsToUpdate)
+//           uiCollectionView.customCollectionView.reloadItems(at: cellsToUpdate)
         cellsToUpdate.removeAll()
     }
 }

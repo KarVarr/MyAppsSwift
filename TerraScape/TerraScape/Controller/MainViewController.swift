@@ -19,14 +19,11 @@ class MainViewController: UIViewController {
     let audioPlayer = AudioPlayerForSound()
     
     let uiCollectionView = CustomUICollectionView()
-    
-//    let images = Images()
     let smallBall = CustomUIView()
     let mediumBall = CustomUIView()
     let bigBall = CustomUIView()
     let largeBall = CustomUIView()
-    
-    
+
     let toolbar = ToolbarView()
     
     let animations = Animations()

@@ -276,6 +276,8 @@
 			dependencies = (
 			);
 			name = TerraScape;
+			packageProductDependencies = (
+			);
 			productName = TerraScape;
 			productReference = 178C7F0B2A0E8CC2001FC539 /* TerraScape.app */;
 			productType = "com.apple.product-type.application";
@@ -304,6 +306,8 @@
 				Base,
 			);
 			mainGroup = 178C7F022A0E8CC2001FC539;
+			packageReferences = (
+			);
 			productRefGroup = 178C7F0C2A0E8CC2001FC539 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
