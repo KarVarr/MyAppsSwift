@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController {
     }
     
     
-    func addViews() {
+    private func addViews() {
         view.addSubview(verticalStackViewForText.customStackView)
         verticalStackViewForText.customStackView.addArrangedSubview(titleLabel.customLabel)
         verticalStackViewForText.customStackView.addArrangedSubview(aboutTitleLabel.customLabel)
@@ -44,27 +44,31 @@ class SettingsViewController: UIViewController {
         view.addSubview(closeModuleButton.customButton)
     }
     
-    func settings() {
+    private func settings() {
         view.backgroundColor = Helpers.Colors.settingsViewBackground
     }
     
-    func labelsSetting() {
+    private func labelsSetting() {
+        DispatchQueue.main.async {
+            self.titleLabel.customLabel.font = Helpers.Fonts.Thonburi(with: 18)
+            self.aboutTitleLabel.customLabel.font = Helpers.Fonts.GillSansBold(with: 32)
+            self.aboutTextLabel.customLabel.font = Helpers.Fonts.AppleSDGothicNeoRegular(with: 18)
+        }
+        
+        
         titleLabel.customLabel.text = Helpers.Strings.settingsTitle
-        titleLabel.customLabel.font = Helpers.Fonts.Thonburi(with: 18)
         titleLabel.customLabel.textColor = Helpers.Colors.settingsWhite.withAlphaComponent(0.6)
         
         aboutTitleLabel.customLabel.text = Helpers.Strings.settingsAboutTitleLabel
         aboutTitleLabel.customLabel.textColor = Helpers.Colors.settingsWhite
-        aboutTitleLabel.customLabel.font = Helpers.Fonts.GillSansBold(with: 32)
         
         aboutTextLabel.customLabel.text = Helpers.Strings.settingsAboutText
         aboutTextLabel.customLabel.textAlignment = .center
         aboutTextLabel.customLabel.numberOfLines = 0
         aboutTextLabel.customLabel.textColor = Helpers.Colors.settingsWhite
-        aboutTextLabel.customLabel.font = UIFont.systemFont(ofSize: 18)
     }
     
-    func stackViewSetting() {
+    private func stackViewSetting() {
         verticalStackViewForText.customStackView.axis = .vertical
         verticalStackViewForText.customStackView.alignment = .center
         verticalStackViewForText.customStackView.spacing = 20.0
@@ -75,7 +79,7 @@ class SettingsViewController: UIViewController {
         
     }
     
-    func buttonsSetting() {
+    private func buttonsSetting() {
         let buttons: [UIButton] = [rateAppButton.customButton, reportAProblemButton.customButton]
         
         for button in buttons {
@@ -103,7 +107,7 @@ class SettingsViewController: UIViewController {
         closeModuleButton.customButton.addTarget(self, action: #selector(closeModule), for: .touchUpInside)
     }
     
-    func layout() {
+    private func layout() {
         let verticalStackViewForText = verticalStackViewForText.customStackView
         let horizontalStackViewForButtons = horizontalStackViewForButtons.customStackView
         let rateAppButton = rateAppButton.customButton
