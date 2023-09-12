@@ -8,7 +8,7 @@
 import Foundation
 
 
-class Images {
+struct Images {
     let allImages = ["thunder",
                      "rain",
                      "bonfire",

@@ -19,16 +19,16 @@ class AudioPlayerForSound {
         
         for sound in allSounds.sounds {
             if let path = Bundle.main.path(forResource: sound.name, ofType: "mp3") {
-                let url = URL(fileURLWithPath: path)
+                let url = URL(filePath: path)
                 do {
                     let player = try AVAudioPlayer(contentsOf: url)
                     player.numberOfLoops = -1
-                    player.prepareToPlay()
+//                    player.prepareToPlay()
                     player.volume = 0.0
                     players.append(player)
 
                 } catch let error as NSError {
-                    print("Failed to create audio player: \(error.localizedDescription)")
+                    print("Failed to create audio player: \(error)")
                 }
             }
 
@@ -36,11 +36,11 @@ class AudioPlayerForSound {
     }
    
     
-    func playAllSound() {
+    func playAllSounds() {
         players.forEach{$0.play()}
     }
 
-    func stopAllSound() {
+    func stopAllSounds() {
         players.forEach{$0.stop()}
     }
     

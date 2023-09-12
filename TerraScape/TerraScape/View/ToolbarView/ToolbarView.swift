@@ -93,7 +93,7 @@ class ToolbarView: UIView {
             var sound = allSounds.sounds[index]
             
             if sound.onOff {
-                audioPlayer.playAllSound()
+                audioPlayer.playAllSounds()
                 
                 UIView.transition(with: self.playButton.customButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
                     self.playButton.customButton.setImage(UIImage(named: "pause")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
@@ -102,7 +102,7 @@ class ToolbarView: UIView {
                 sound.onOff = false
                 sound.volume = CustomUISlider().customSlider.value
             } else {
-                audioPlayer.stopAllSound()
+                audioPlayer.stopAllSounds()
                 
                 UIView.transition(with: self.playButton.customButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
                     self.playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
