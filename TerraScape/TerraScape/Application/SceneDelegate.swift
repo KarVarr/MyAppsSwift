@@ -43,12 +43,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        mainViewController?.createCircles()
-        
+        mainViewController?.animations.animateCircles(in: mainViewController!)
+
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         
+        
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
 

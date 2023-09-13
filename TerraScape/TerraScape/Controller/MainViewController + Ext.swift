@@ -20,16 +20,23 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allSounds.sounds.count
+        return sounds.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Helpers.Keys.collectionCell, for: indexPath) as! CustomCollectionViewCell
+
+        let sound = sounds[indexPath.item]
+//        DispatchQueue.global().async {
+//            if let image = UIImage(named: sound.image) {
+//                DispatchQueue.main.async {
+//
+//                }
+//            }
+//        }
         
-        let sound = allSounds.sounds[indexPath.item]
-        
-        cell.imageOfSound.customImageView.image = UIImage(named: sound.image)
-        cell.nameOfSound.customLabel.text = sound.name.capitalized
+        cell.imageOfSound.customImageView.image = UIImage(named: sound.image ?? "owl")
+        cell.nameOfSound.customLabel.text = sound.name?.capitalized
         cell.volumeOfSound.customSlider.value = sound.volume
         cell.volumeOfSound.customSlider.addTarget(self, action: #selector(self.volumeSliderChanged), for: .valueChanged)
         cell.volumeOfSound.customSlider.tag = indexPath.item
@@ -46,7 +53,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     @objc func volumeSliderChanged(_ sender: UISlider) {
         
         let soundIndex = sender.tag
-        allSounds.sounds[soundIndex].volume = sender.value
+        sounds[soundIndex].volume = sender.value
         
         let player = audioPlayer.players[soundIndex]
         player.volume = sender.value

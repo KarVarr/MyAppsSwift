@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     let savedData = SavedData()
     var cellsToUpdate: [IndexPath] = []
     
-    let allSounds = AllSounds()
+    var allSounds = AllSounds()
     let audioPlayer = AudioPlayerForSound()
     
     let uiCollectionView = CustomUICollectionView()
@@ -30,6 +30,23 @@ class MainViewController: UIViewController {
     
     var initialToolbarWidth: CGFloat = -300
     
+    let images = Images()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var sounds = [Sound]()
+    
+   
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        addViews()
+        settings()
+        layout()
+        collectionView()
+        animations.createCircles(in: self)
+        getData()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let toolbarTrailingConstraint = toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: initialToolbarWidth)
@@ -40,21 +57,20 @@ class MainViewController: UIViewController {
             toolbarTrailingConstraint.constant = -20
             self.view.layoutIfNeeded()
         }
+        
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-//        allSounds.sounds = savedData.load()
-        
-        addViews()
-        settings()
-        layout()
-        collectionView()
-        createCircles()
-        
-    }
-
+     func getData() {
+            for value in images.allImages {
+                let sound = Sound(context: context)
+                sound.name = value
+                sound.image = value
+                sound.onOff = false
+                sound.volume = 0.0
+                sounds.append(sound)
+            }
+         print(sounds)
+        }
     
     func addViews() {
         view.addSubview(smallBall.customUIView)
@@ -89,10 +105,7 @@ class MainViewController: UIViewController {
         let mediumBall = mediumBall.customUIView
         let bigBall = bigBall.customUIView
         let largeBall = largeBall.customUIView
-        
-//        let toolbarTrailingConstraint = toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: initialToolbarWidth)
-//        toolbarTrailingConstraint.isActive = true
-        
+                
         NSLayoutConstraint.activate([
             collection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
@@ -124,33 +137,7 @@ class MainViewController: UIViewController {
             largeBall.heightAnchor.constraint(equalToConstant: 200),
             
         ])
-        
-        // Animate the toolbar appearance with the updated width
-//        view.layoutIfNeeded()
-//        UIView.animate(withDuration: 1.0) {
-//            toolbarTrailingConstraint.constant = -20
-//            self.view.layoutIfNeeded()
-//        }
     }
     
-    //MARK: - ANIMATION
     
-    func createCircles() {
-        willEnterForeground()
-        
-        animations.createGradientLayerForCircle(for: smallBall.customUIView, in: view, of: 37.5, with: Helpers.Colors.smallBallGradient, start: CGPoint(x: 0.1, y: 0.5), end: CGPoint(x: 0.5, y: 0.5))
-        
-        animations.createGradientLayerForCircle(for: mediumBall.customUIView, in: view, of: 50, with: Helpers.Colors.mediumBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
-        
-        animations.createGradientLayerForCircle(for: bigBall.customUIView, in: view, of: 75, with: Helpers.Colors.bigBallGradient, start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0))
-        
-        animations.createGradientLayerForCircle(for: largeBall.customUIView, in: view, of: 100, with: Helpers.Colors.largeBallGradient, start: CGPoint(x: 0.1, y: 0.5), end: CGPoint(x: 0.5, y: 0.5))
-    }
-    
-    func willEnterForeground() {
-        animations.animateBalls(for: smallBall.customUIView, in: view, to: 180, path: true, time: 11)
-        animations.animateBalls(for: mediumBall.customUIView, in: view, to: 150, path: false, time: 15)
-        animations.animateBalls(for: bigBall.customUIView, in: view, to: 210, path: false, time: 13)
-        animations.animateBalls(for: largeBall.customUIView, in: view, to: 270, path: true, time: 30)
-    }
 }

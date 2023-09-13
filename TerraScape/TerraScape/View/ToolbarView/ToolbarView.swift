@@ -25,16 +25,12 @@ class ToolbarView: UIView {
         super.init(frame: frame)
         
         addViews()
-        
-        layout()
-        
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
         settings()
         buttonsSetting()
+        layout()
     }
+    
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -74,7 +70,7 @@ class ToolbarView: UIView {
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: centerXAnchor),
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
-            label.widthAnchor.constraint(greaterThanOrEqualTo: label.widthAnchor),
+//            label.widthAnchor.constraint(greaterThanOrEqualTo: label.widthAnchor),
             
             playButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             playButton.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -91,41 +87,38 @@ class ToolbarView: UIView {
     }
     
     @objc func playButtonForSound() {
-        
-        for index in 0..<allSounds.sounds.count {
-            var sound = allSounds.sounds[index]
-            
-            if sound.onOff {
-                audioPlayer.playAllSounds()
-                
-                UIView.transition(with: self.playButton.customButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
-                    self.playButton.customButton.setImage(UIImage(named: "pause")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-                }, completion: nil)
-                
-                sound.onOff = false
-                sound.volume = CustomUISlider().customSlider.value
-            } else {
-                audioPlayer.stopAllSounds()
-                
-                UIView.transition(with: self.playButton.customButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
-                    self.playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-                }, completion: nil)
-                
-                sound.onOff = true
-                
-            }
-            
-            allSounds.sounds[index] = sound
-//            print(sound.onOff)
-            print(sound.volume)
-        }
+//        for index in 0..<allSounds.sounds.count {
+//            var sound = allSounds.sounds[index]
+//            
+//            if sound.onOff {
+//                audioPlayer.playAllSounds()
+//                self.layoutIfNeeded()
+//                UIView.transition(with: self.playButton.customButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
+//                    self.playButton.customButton.setImage(UIImage(named: "pause")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+//                    self.layoutIfNeeded()
+//                })
+//                sound.onOff = false
+//                sound.volume = CustomCollectionViewCell().volumeOfSound.customSlider.value
+//                
+//            } else {
+//                audioPlayer.stopAllSounds()
+//                self.layoutIfNeeded()
+//                UIView.transition(with: self.playButton.customButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
+//                    self.playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+//                    self.layoutIfNeeded()
+//                })
+//                sound.onOff = true
+//            }
+//            allSounds.sounds[index] = sound
+//            print(sound.volume)
+//        }
     }
     
     
     @objc func settingButtonPressed() {
         let settingVC = SettingsViewController()
         
-        settingVC.modalPresentationStyle = .formSheet
+        settingVC.modalPresentationStyle = .popover
         parentViewController?.present(settingVC, animated: true)
     }
     

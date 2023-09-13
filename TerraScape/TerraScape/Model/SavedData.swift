@@ -6,40 +6,33 @@
 //
 
 import Foundation
-
+import CoreData
+import UIKit
 
 class SavedData {
     let allSounds = AllSounds()
     
     private let soundKey = "sound"
     
-    func save(sounds: [Sound]) {
-        let jsonEncoder = JSONEncoder()
-        
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    func save() {
         do {
-            let savedData = try jsonEncoder.encode(sounds)
-            let defaults = UserDefaults.standard
-            defaults.set(savedData, forKey: soundKey)
+            try context.save()
         } catch {
-            print("Failed to save sound: \(error.localizedDescription)")
-        }
-    }
-    
-    
-    func load() -> [Sound] {
-        let defaults = UserDefaults.standard
-        
-        if let savedData = defaults.object(forKey: soundKey) as? Data {
-            let jsonDecoder = JSONDecoder()
-            
-            do {
-                return try jsonDecoder.decode([Sound].self, from: savedData)
-            } catch {
-                print("Failed to load sound \(error.localizedDescription)")
-            }
+            print("Not saved \(error)")
         }
         
-        return []
+        //reload?
     }
-
+    
+//    func load() {
+//        let request: NSFetchRequest<Sound> = Sound.fetchRequest()
+//        do {
+//            allSounds.sounds = try context.fetch(request)
+//        } catch {
+//            print("Load not work \(error)")
+//        }
+//    }
+    
 }

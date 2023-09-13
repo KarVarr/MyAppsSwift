@@ -11,14 +11,12 @@ import MediaPlayer
 
 
 class AudioPlayerForSound {
-    let allSounds = AllSounds()
-    
+    let images = Images()
     var players: [AVAudioPlayer] = []
-
+    
     init() {
-        
-        for sound in allSounds.sounds {
-            if let path = Bundle.main.path(forResource: sound.name, ofType: "mp3") {
+        for sound in images.allImages {
+            if let path = Bundle.main.path(forResource: sound, ofType: "mp3") {
                 let url = URL(filePath: path)
                 do {
                     let player = try AVAudioPlayer(contentsOf: url)
@@ -26,20 +24,18 @@ class AudioPlayerForSound {
                     player.prepareToPlay()
                     player.volume = 0.0
                     players.append(player)
-
                 } catch let error as NSError {
                     print("Failed to create audio player: \(error)")
                 }
             }
-
+            
         }
     }
-   
-    
+
     func playAllSounds() {
         players.forEach{$0.play()}
     }
-
+    
     func stopAllSounds() {
         players.forEach{$0.stop()}
     }

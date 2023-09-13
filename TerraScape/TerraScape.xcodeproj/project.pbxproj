@@ -41,8 +41,8 @@
 		178C7F662A12808E001FC539 /* bird.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F572A12808E001FC539 /* bird.mp3 */; };
 		178C7F682A1284C6001FC539 /* sheep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F672A1284C6001FC539 /* sheep.mp3 */; };
 		178C7F722A155225001FC539 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F712A155225001FC539 /* CustomUISlider.swift */; };
+		1799E4442AB1DA32007BB5FF /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1799E4422AB1DA32007BB5FF /* DataModel.xcdatamodeld */; };
 		17D147792A1E85BA0037D278 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D147782A1E85BA0037D278 /* Animations.swift */; };
-		17D1D9152A17CFAA00A173E1 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D9142A17CFAA00A173E1 /* Sound.swift */; };
 		17D1D9172A17D2E300A173E1 /* AllSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D9162A17D2E300A173E1 /* AllSounds.swift */; };
 		17D1D9192A19359D00A173E1 /* SavedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D9182A19359D00A173E1 /* SavedData.swift */; };
 		17D1D91F2A1BEC2900A173E1 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D91E2A1BEC2900A173E1 /* ToolbarView.swift */; };
@@ -87,8 +87,8 @@
 		178C7F572A12808E001FC539 /* bird.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird.mp3; sourceTree = "<group>"; };
 		178C7F672A1284C6001FC539 /* sheep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sheep.mp3; sourceTree = "<group>"; };
 		178C7F712A155225001FC539 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
+		1799E4432AB1DA32007BB5FF /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		17D147782A1E85BA0037D278 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
-		17D1D9142A17CFAA00A173E1 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		17D1D9162A17D2E300A173E1 /* AllSounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSounds.swift; sourceTree = "<group>"; };
 		17D1D9182A19359D00A173E1 /* SavedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedData.swift; sourceTree = "<group>"; };
 		17D1D91E2A1BEC2900A173E1 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
@@ -180,9 +180,9 @@
 			children = (
 				178C7F452A124C43001FC539 /* AudioPlayerForSound.swift */,
 				178C7F332A0FF5C4001FC539 /* Images.swift */,
-				17D1D9142A17CFAA00A173E1 /* Sound.swift */,
 				17D1D9162A17D2E300A173E1 /* AllSounds.swift */,
 				17D1D9182A19359D00A173E1 /* SavedData.swift */,
+				1799E4422AB1DA32007BB5FF /* DataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -354,7 +354,6 @@
 				17D1D91F2A1BEC2900A173E1 /* ToolbarView.swift in Sources */,
 				178C7F362A1014FC001FC539 /* CustomUIView.swift in Sources */,
 				178C7F132A0E8CC2001FC539 /* MainViewController.swift in Sources */,
-				17D1D9152A17CFAA00A173E1 /* Sound.swift in Sources */,
 				178C7F2A2A0E9F04001FC539 /* CustomCollectionViewCell.swift in Sources */,
 				17D1D9222A1BEDBE00A173E1 /* ToolbarLabel.swift in Sources */,
 				17D1D9172A17D2E300A173E1 /* AllSounds.swift in Sources */,
@@ -371,6 +370,7 @@
 				178C7F2D2A0E9F41001FC539 /* Helper.swift in Sources */,
 				17D1D9192A19359D00A173E1 /* SavedData.swift in Sources */,
 				178C7F462A124C43001FC539 /* AudioPlayerForSound.swift in Sources */,
+				1799E4442AB1DA32007BB5FF /* DataModel.xcdatamodeld in Sources */,
 				17D147792A1E85BA0037D278 /* Animations.swift in Sources */,
 				178C7F112A0E8CC2001FC539 /* SceneDelegate.swift in Sources */,
 			);
@@ -586,6 +586,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1799E4422AB1DA32007BB5FF /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1799E4432AB1DA32007BB5FF /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 1799E4432AB1DA32007BB5FF /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 178C7F032A0E8CC2001FC539 /* Project object */;
 }
