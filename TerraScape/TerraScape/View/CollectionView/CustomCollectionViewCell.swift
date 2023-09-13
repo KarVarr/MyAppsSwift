@@ -40,8 +40,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
         
         clipsToBounds = true
         backgroundColor = .clear
-        //        imageOfSound.customImageView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-        
     }
     
     func addViews() {

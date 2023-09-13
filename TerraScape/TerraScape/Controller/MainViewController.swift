@@ -30,12 +30,7 @@ class MainViewController: UIViewController {
     
     var initialToolbarWidth: CGFloat = -300
     
-    let images = Images()
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var sounds = [Sound]()
-    
-   
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +39,6 @@ class MainViewController: UIViewController {
         layout()
         collectionView()
         animations.createCircles(in: self)
-        getData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,17 +54,6 @@ class MainViewController: UIViewController {
         
     }
     
-     func getData() {
-            for value in images.allImages {
-                let sound = Sound(context: context)
-                sound.name = value
-                sound.image = value
-                sound.onOff = false
-                sound.volume = 0.0
-                sounds.append(sound)
-            }
-         print(sounds)
-        }
     
     func addViews() {
         view.addSubview(smallBall.customUIView)
