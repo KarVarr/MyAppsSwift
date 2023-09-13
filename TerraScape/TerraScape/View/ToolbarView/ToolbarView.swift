@@ -25,10 +25,15 @@ class ToolbarView: UIView {
         super.init(frame: frame)
         
         addViews()
-        settings()
-        buttonsSetting()
+        
         layout()
         
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        settings()
+        buttonsSetting()
     }
     
     required init?(coder: NSCoder) {
@@ -42,7 +47,6 @@ class ToolbarView: UIView {
     }
     
     func settings() {
-        
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .black
         layer.cornerRadius = 35
@@ -51,7 +55,6 @@ class ToolbarView: UIView {
         layer.shadowOpacity = 0.7
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 4
-   
     }
     
     func buttonsSetting() {

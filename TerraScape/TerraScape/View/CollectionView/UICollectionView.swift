@@ -13,7 +13,9 @@ class CustomUICollectionView {
         layout.scrollDirection = .vertical
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = .leastNonzeroMagnitude
+        layout.minimumInteritemSpacing = 5
+        
+        
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
