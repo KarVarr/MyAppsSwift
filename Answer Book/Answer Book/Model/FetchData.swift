@@ -8,17 +8,20 @@
 import Foundation
 
 struct FetchData {
-    func decodeAPI(completion: @escaping (Answer) -> Void) {
-        guard let url = URL(string: "https://www.eightballapi.com/api") else { return }
+    func decodeAPI<T: Decodable>(at urlString: String, completion: @escaping (T?) -> Void) {
+        guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
                 do {
-                    let answer = try JSONDecoder().decode(Answer.self, from: data)
-                    completion(answer)
+                    let decodedData = try JSONDecoder().decode(T.self, from: data)
+                    completion(decodedData)
                 } catch {
                     print(error)
+                    completion(nil)
                 }
+            } else {
+                completion(nil)
             }
         }.resume()
     }
