@@ -10,7 +10,7 @@ import AVFoundation
 import MediaPlayer
 
 
-class AudioPlayerForSound {
+final class AudioPlayerForSound {
     let images = Images()
     var players: [AVAudioPlayer] = []
     

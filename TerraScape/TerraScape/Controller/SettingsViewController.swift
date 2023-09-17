@@ -53,18 +53,15 @@ class SettingsViewController: UIViewController {
     
     private func labelsSetting() {
         DispatchQueue.main.async {
-//            self.titleLabel.customLabel.font = Helpers.Fonts.Thonburi(with: 18)
-            self.titleLabel.customLabel.font = UIFont.systemFont(ofSize: 18)
+            self.titleLabel.customLabel.font = Helpers.Fonts.Thonburi(with: 18)
             self.titleLabel.customLabel.text = Helpers.Strings.settingsTitle
             self.titleLabel.customLabel.textColor = Helpers.Colors.settingsWhite.withAlphaComponent(0.6)
         
-//            self.aboutTitleLabel.customLabel.font = Helpers.Fonts.GillSansBold(with: 32)
-            self.aboutTitleLabel.customLabel.font = UIFont.systemFont(ofSize: 32)
+            self.aboutTitleLabel.customLabel.font = Helpers.Fonts.GillSansBold(with: 32)
             self.aboutTitleLabel.customLabel.text = Helpers.Strings.settingsAboutTitleLabel
             self.aboutTitleLabel.customLabel.textColor = Helpers.Colors.settingsWhite
         
-//            self.aboutTextLabel.customLabel.font = Helpers.Fonts.AppleSDGothicNeoRegular(with: 18)
-            self.aboutTextLabel.customLabel.font = UIFont.systemFont(ofSize: 18)
+            self.aboutTextLabel.customLabel.font = Helpers.Fonts.AppleSDGothicNeoRegular(with: 18)
             self.aboutTextLabel.customLabel.text = Helpers.Strings.settingsAboutText
             self.aboutTextLabel.customLabel.textAlignment = .center
             self.aboutTextLabel.customLabel.numberOfLines = 0
@@ -80,7 +77,6 @@ class SettingsViewController: UIViewController {
         horizontalStackViewForButtons.customStackView.axis = .horizontal
         horizontalStackViewForButtons.customStackView.distribution = .equalSpacing
         horizontalStackViewForButtons.customStackView.alignment = .center
-        
     }
     
     private func buttonsSetting() {

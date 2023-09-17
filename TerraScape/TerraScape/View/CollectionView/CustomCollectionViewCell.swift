@@ -53,7 +53,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
         let customTrackLayer = CALayer()
         customTrackLayer.backgroundColor = UIColor.red.cgColor
         volumeOfSound.customSlider.layer.addSublayer(customTrackLayer)
-        
     }
     
     func settings() {

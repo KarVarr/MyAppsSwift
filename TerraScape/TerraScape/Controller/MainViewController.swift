@@ -12,7 +12,6 @@ import AVFoundation
 import MediaPlayer
 
 class MainViewController: UIViewController {
-    let savedData = SavedData()
     var cellsToUpdate: [IndexPath] = []
     
     var allSounds = AllSounds()
@@ -23,22 +22,18 @@ class MainViewController: UIViewController {
     let mediumBall = CustomUIView()
     let bigBall = CustomUIView()
     let largeBall = CustomUIView()
-
+    
     let toolbar = ToolbarView()
     
     let animations = Animations()
     
     var initialToolbarWidth: CGFloat = -300
     
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addViews()
-        settings()
-        layout()
-        collectionView()
-        animations.createCircles(in: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +46,14 @@ class MainViewController: UIViewController {
             toolbarTrailingConstraint.constant = -20
             self.view.layoutIfNeeded()
         }
-        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        settings()
+        layout()
+        collectionView()
+        animations.createCircles(in: self)
     }
     
     
@@ -65,7 +67,6 @@ class MainViewController: UIViewController {
     }
     
     func settings() {
-        
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds
         gradient.colors = Helpers.Colors.mainViewGradient
@@ -88,7 +89,7 @@ class MainViewController: UIViewController {
         let mediumBall = mediumBall.customUIView
         let bigBall = bigBall.customUIView
         let largeBall = largeBall.customUIView
-                
+        
         NSLayoutConstraint.activate([
             collection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),

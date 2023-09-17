@@ -25,12 +25,10 @@ class ToolbarView: UIView {
         super.init(frame: frame)
         
         addViews()
-        settings()
-        buttonsSetting()
         layout()
+        buttonsSetting()
+        settings()
     }
-    
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -70,7 +68,6 @@ class ToolbarView: UIView {
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: centerXAnchor),
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
-            //            label.widthAnchor.constraint(greaterThanOrEqualTo: label.widthAnchor),
             
             playButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             playButton.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -110,9 +107,9 @@ class ToolbarView: UIView {
         let settingVC = SettingsViewController()
         
         settingVC.modalPresentationStyle = .popover
-        parentViewController?.present(settingVC, animated: true)
+        parentViewController?.present(settingVC, animated: true, completion: nil)
     }
-    
+
 }
 
 
