@@ -9,12 +9,15 @@ import UIKit
 
 class MainViewController: UIViewController {
     let askButton = ButtonView()
-    let answerLabel = LabelView()
-
+    var answerLabel = LabelView()
+    let fetch = FetchData()
+    let answer = Answer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addViews()
+        answerLabel.label.text = "Ask some question!"
     }
     
     override func viewWillLayoutSubviews() {
@@ -35,8 +38,9 @@ class MainViewController: UIViewController {
         askButton.button.setTitle("Ask", for: .normal)
         askButton.button.backgroundColor = .orange
         askButton.button.layer.cornerRadius = askButton.button.frame.height / 2
+        askButton.button.addTarget(self, action: #selector(askButtonPressed), for: .touchUpInside)
         
-        answerLabel.label.text = "Ask some question!"
+        
     }
     
     private func layoutView() {
@@ -56,5 +60,12 @@ class MainViewController: UIViewController {
     }
 
 
+    @objc func askButtonPressed () {
+        fetch.decodeAPI { [unowned self] answer in
+            DispatchQueue.main.async {
+                self.answerLabel.label.text = answer.reading
+            }
+        }
+    }
 }
 
