@@ -8,9 +8,14 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    let viewBoxForQuotes = ViewBoxView()
     let askButton = ButtonView()
     var answerLabel = LabelView()
-    var quotesLabel = LabelView()
+    var quotesLabelForQuote = LabelView()
+    var quotesLabelForAuthor = LabelView()
+    var quotesLabelOfDayTitle = LabelView()
+    var quotesLabelOfDayDate = LabelView()
+    
     
     let fetch = FetchData()
     let answer = Answer()
@@ -23,8 +28,9 @@ class MainViewController: UIViewController {
         
         addViews()
         answerLabel.label.text = "Ask some question!"
-        quotesLabel.label.text = "It is the mark of an educated mind to be able to entertain a thought without accepting it."
-        
+        quotesLabelForQuote.label.text = "It is the mark of an educated mind to be able to entertain a thought without accepting it."
+        quotesLabelForAuthor.label.text = "VAN GOG"
+        viewBoxForQuotes.viewBox.backgroundColor = .orange
     }
     
     override func viewWillLayoutSubviews() {
@@ -34,23 +40,30 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getQuotes()
+        quotesLabelOfDayTitle.label.text = "Quote of the Day"
+        quotesLabelOfDayDate.label.text = "\(Date())"
+//        getQuotes()
     }
     
     //MARK: - Settings
     
     private func addViews() {
+        view.addSubview(viewBoxForQuotes.viewBox)
+        viewBoxForQuotes.viewBox.addSubview(quotesLabelOfDayTitle.label)
+        viewBoxForQuotes.viewBox.addSubview(quotesLabelOfDayDate.label)
+        viewBoxForQuotes.viewBox.addSubview(quotesLabelForQuote.label)
+        viewBoxForQuotes.viewBox.addSubview(quotesLabelForAuthor.label)
+        
         view.addSubview(askButton.button)
         view.addSubview(answerLabel.label)
-        view.addSubview(quotesLabel.label)
         
     }
     
     private func settingView() {
         view.backgroundColor = .white
         
-        quotesLabel.label.numberOfLines = 0
-        quotesLabel.label.layer.borderWidth = 1
+        quotesLabelForQuote.label.numberOfLines = 0
+        quotesLabelForQuote.label.layer.borderWidth = 1
         
         askButton.button.setTitle("Ask question", for: .normal)
         askButton.button.backgroundColor = .orange
@@ -59,15 +72,33 @@ class MainViewController: UIViewController {
     }
     
     private func layoutView() {
+        let viewBoxForQuotes = viewBoxForQuotes.viewBox
+        let title = quotesLabelOfDayTitle.label
+        let date = quotesLabelOfDayDate.label
+        let quote = quotesLabelForQuote.label
+        let author = quotesLabelForAuthor.label
         let askButton = askButton.button
         let answerLabel = answerLabel.label
-        let quotesLabel = quotesLabel.label
         
         NSLayoutConstraint.activate([
-            quotesLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            quotesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            quotesLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            quotesLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
+            viewBoxForQuotes.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            viewBoxForQuotes.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            viewBoxForQuotes.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            viewBoxForQuotes.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
+            
+            title.centerXAnchor.constraint(equalTo: viewBoxForQuotes.centerXAnchor),
+            title.topAnchor.constraint(equalTo: viewBoxForQuotes.topAnchor, constant: 10),
+            
+            date.centerXAnchor.constraint(equalTo: viewBoxForQuotes.centerXAnchor),
+            date.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 5),
+            
+            quote.centerXAnchor.constraint(equalTo: viewBoxForQuotes.centerXAnchor),
+            quote.centerYAnchor.constraint(equalTo: viewBoxForQuotes.centerYAnchor),
+            quote.leadingAnchor.constraint(equalTo: viewBoxForQuotes.leadingAnchor, constant: 10),
+            quote.trailingAnchor.constraint(equalTo: viewBoxForQuotes.trailingAnchor, constant: -10),
+            
+            author.trailingAnchor.constraint(equalTo: viewBoxForQuotes.trailingAnchor, constant: -15),
+            author.bottomAnchor.constraint(equalTo: viewBoxForQuotes.bottomAnchor, constant: -15),
             
             
             answerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -90,7 +121,8 @@ class MainViewController: UIViewController {
         fetch.decodeAPI(at: quotesUrl) { [unowned self] (quotes: [Quotes]?) in
             DispatchQueue.main.async {
                 quotes?.forEach {
-                    self.quotesLabel.label.text = $0.q
+                    self.quotesLabelForQuote.label.text = "\"\($0.q)\""
+                    self.quotesLabelForAuthor.label.text = $0.a
                 }
             }
         }
