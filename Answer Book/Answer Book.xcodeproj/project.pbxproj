@@ -18,6 +18,9 @@
 		179416582AB71828005882D0 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416572AB71828005882D0 /* FetchData.swift */; };
 		1794165A2AB75DA2005882D0 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416592AB75DA2005882D0 /* Quotes.swift */; };
 		1794165C2AB76BA1005882D0 /* ViewBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794165B2AB76BA1005882D0 /* ViewBoxView.swift */; };
+		1794165E2AB77C4E005882D0 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794165D2AB77C4E005882D0 /* Helper.swift */; };
+		179416602AB77F4F005882D0 /* MVCSettings + Ext .swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794165F2AB77F4F005882D0 /* MVCSettings + Ext .swift */; };
+		179416622AB78175005882D0 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416612AB78175005882D0 /* ActivityIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		179416572AB71828005882D0 /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
 		179416592AB75DA2005882D0 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 		1794165B2AB76BA1005882D0 /* ViewBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBoxView.swift; sourceTree = "<group>"; };
+		1794165D2AB77C4E005882D0 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		1794165F2AB77F4F005882D0 /* MVCSettings + Ext .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MVCSettings + Ext .swift"; sourceTree = "<group>"; };
+		179416612AB78175005882D0 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +72,7 @@
 		179416362AB71003005882D0 /* Answer Book */ = {
 			isa = PBXGroup;
 			children = (
-				179416502AB71149005882D0 /* Helper */,
+				179416502AB71149005882D0 /* Helpers */,
 				1794164F2AB7113F005882D0 /* Application */,
 				1794164E2AB71136005882D0 /* Model */,
 				1794164D2AB71109005882D0 /* View */,
@@ -89,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				1794163B2AB71003005882D0 /* MainViewController.swift */,
+				1794165F2AB77F4F005882D0 /* MVCSettings + Ext .swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -100,6 +107,7 @@
 				179416512AB711FA005882D0 /* ButtonView.swift */,
 				179416532AB7149B005882D0 /* LabelView.swift */,
 				1794165B2AB76BA1005882D0 /* ViewBoxView.swift */,
+				179416612AB78175005882D0 /* ActivityIndicatorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -123,11 +131,12 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		179416502AB71149005882D0 /* Helper */ = {
+		179416502AB71149005882D0 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1794165D2AB77C4E005882D0 /* Helper.swift */,
 			);
-			path = Helper;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,11 +212,14 @@
 				1794165C2AB76BA1005882D0 /* ViewBoxView.swift in Sources */,
 				1794165A2AB75DA2005882D0 /* Quotes.swift in Sources */,
 				1794163C2AB71003005882D0 /* MainViewController.swift in Sources */,
+				179416622AB78175005882D0 /* ActivityIndicatorView.swift in Sources */,
 				179416582AB71828005882D0 /* FetchData.swift in Sources */,
 				179416382AB71003005882D0 /* AppDelegate.swift in Sources */,
 				179416522AB711FA005882D0 /* ButtonView.swift in Sources */,
 				179416562AB717DD005882D0 /* Answer.swift in Sources */,
+				1794165E2AB77C4E005882D0 /* Helper.swift in Sources */,
 				1794163A2AB71003005882D0 /* SceneDelegate.swift in Sources */,
+				179416602AB77F4F005882D0 /* MVCSettings + Ext .swift in Sources */,
 				179416542AB7149B005882D0 /* LabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
