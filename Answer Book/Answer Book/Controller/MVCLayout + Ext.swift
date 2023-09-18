@@ -61,17 +61,13 @@ extension MainViewController {
             
             authorLabel.trailingAnchor.constraint(equalTo: viewBoxForQuotes.trailingAnchor, constant: -20),
             authorLabel.bottomAnchor.constraint(equalTo: viewBoxForQuotes.bottomAnchor, constant: -15),
-            
+
             viewBoxForAnswer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             viewBoxForAnswer.topAnchor.constraint(equalTo: viewBoxForQuotes.bottomAnchor, constant: 20),
             viewBoxForAnswer.bottomAnchor.constraint(equalTo: askButton.topAnchor, constant: -20),
             viewBoxForAnswer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             viewBoxForAnswer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-//
-//            magicBallImage.centerXAnchor.constraint(equalTo: viewBoxForAnswer.centerXAnchor),
-//            magicBallImage.centerYAnchor.constraint(equalTo: viewBoxForAnswer.centerYAnchor),
-//            magicBallImage.widthAnchor.constraint(lessThanOrEqualToConstant: 340),
-//            magicBallImage.heightAnchor.constraint(lessThanOrEqualToConstant: 340),
+
             magicBallImage.leadingAnchor.constraint(equalTo: viewBoxForAnswer.leadingAnchor),
             magicBallImage.trailingAnchor.constraint(equalTo: viewBoxForAnswer.trailingAnchor),
             magicBallImage.topAnchor.constraint(equalTo: viewBoxForAnswer.topAnchor),

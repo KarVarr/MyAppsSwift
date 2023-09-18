@@ -26,7 +26,6 @@ class MainViewController: UIViewController {
     let magicBallInside = ViewBoxView()
     let magicBallImage = ImageViewView()
     
-    
     //MARK: - ViewDidLoad
     
     override func viewDidLoad() {
@@ -59,19 +58,42 @@ class MainViewController: UIViewController {
     }
     
     @objc func askButtonPressed () {
+        viewBoxForAnswer.viewBox.layer.removeAllAnimations()
+        
         answerLabel.label.font = Helper.Font.noteworthyLight(with: 22)
         answerLabel.label.text = "..."
         askButton.button.setTitle("...", for: .normal)
         askButton.button.backgroundColor = Helper.Colors.lightYellow
         askButton.button.isEnabled = false
         
-        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { [weak self] _ in
-            self?.askButton.button.isEnabled = true
-            self?.askButton.button.backgroundColor = Helper.Colors.yellow
-            self?.askButton.button.setTitle("SHAKE AGAIN!", for: .normal)
-            self?.getAnswer()
+        //MARK: Animation
+        let animationDuration = 0.1
+        
+        view.layoutIfNeeded()
+        UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveEaseInOut], animations: {
+            self.viewBoxForAnswer.viewBox.transform = CGAffineTransform(translationX: 15, y: 0)
+            self.view.layoutIfNeeded()
+        }) { _ in
+            UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveEaseInOut, .repeat]) {
+                self.viewBoxForAnswer.viewBox.transform = CGAffineTransform(translationX: -15, y: 0)
+                self.view.layoutIfNeeded()
+            }
+        }
+        
+        view.layoutIfNeeded()
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
+            UIView.animate(withDuration: 0.3) {
+                self?.viewBoxForAnswer.viewBox.layer.removeAllAnimations()
+                self?.viewBoxForAnswer.viewBox.transform = .identity
+                self?.getAnswer()
+                self?.askButton.button.isEnabled = true
+                self?.askButton.button.backgroundColor = Helper.Colors.yellow
+                self?.askButton.button.setTitle("SHAKE AGAIN!", for: .normal)
+                self?.view.layoutIfNeeded()
+            }
         }
     }
+    
     
     //MARK: - Get data
     func getQuotes() {

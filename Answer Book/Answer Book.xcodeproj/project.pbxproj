@@ -23,7 +23,6 @@
 		179416622AB78175005882D0 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416612AB78175005882D0 /* ActivityIndicatorView.swift */; };
 		179416652AB84569005882D0 /* MVCLayout + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416642AB84569005882D0 /* MVCLayout + Ext.swift */; };
 		179416672AB87781005882D0 /* ImageViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416662AB87781005882D0 /* ImageViewView.swift */; };
-		1794166A2AB8AC65005882D0 /* UIColor + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416692AB8AC65005882D0 /* UIColor + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +44,6 @@
 		179416612AB78175005882D0 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		179416642AB84569005882D0 /* MVCLayout + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MVCLayout + Ext.swift"; sourceTree = "<group>"; };
 		179416662AB87781005882D0 /* ImageViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewView.swift; sourceTree = "<group>"; };
-		179416692AB8AC65005882D0 /* UIColor + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,18 +140,9 @@
 		179416502AB71149005882D0 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				179416682AB8AC48005882D0 /* Extentions */,
 				1794165D2AB77C4E005882D0 /* Helper.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		179416682AB8AC48005882D0 /* Extentions */ = {
-			isa = PBXGroup;
-			children = (
-				179416692AB8AC65005882D0 /* UIColor + Ext.swift */,
-			);
-			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +222,6 @@
 				179416582AB71828005882D0 /* FetchData.swift in Sources */,
 				179416652AB84569005882D0 /* MVCLayout + Ext.swift in Sources */,
 				179416382AB71003005882D0 /* AppDelegate.swift in Sources */,
-				1794166A2AB8AC65005882D0 /* UIColor + Ext.swift in Sources */,
 				179416522AB711FA005882D0 /* ButtonView.swift in Sources */,
 				179416562AB717DD005882D0 /* Answer.swift in Sources */,
 				1794165E2AB77C4E005882D0 /* Helper.swift in Sources */,
