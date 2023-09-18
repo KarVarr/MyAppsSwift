@@ -52,7 +52,6 @@ class MainViewController: UIViewController {
     }
     
     //MARK: - Functions
-    
     func getDateFromNow() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy"
@@ -60,37 +59,42 @@ class MainViewController: UIViewController {
     }
     
     @objc func askButtonPressed () {
-        
         answerLabel.label.font = Helper.Font.noteworthyLight(with: 22)
         answerLabel.label.text = "..."
         askButton.button.setTitle("...", for: .normal)
+        askButton.button.backgroundColor = Helper.Colors.lightYellow
         askButton.button.isEnabled = false
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3, flags: .barrier) { [weak self] in
-            self?.getAnswer()
+        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { [weak self] _ in
             self?.askButton.button.isEnabled = true
+            self?.askButton.button.backgroundColor = Helper.Colors.yellow
             self?.askButton.button.setTitle("SHAKE AGAIN!", for: .normal)
+            self?.getAnswer()
         }
-
     }
     
-    
+    //MARK: - Get data
     func getQuotes() {
-        fetchData.decodeAPI(at: Helper.URL.quotesUrl) { [unowned self] (quotes: [Quotes]?) in
-            DispatchQueue.main.async {
-                quotes?.forEach {
-                    self.quotesLabelForQuote.label.text = "\"\($0.q)\""
-                    self.quotesLabelForAuthor.label.text = $0.a
-                    self.activityIndicatorView.indicator.stopAnimating()
+        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+            self.fetchData.decodeAPI(at: Helper.URL.quotesUrl) { (quotes: [Quotes]?) in
+                DispatchQueue.main.async {
+                    quotes?.forEach {
+                        self.quotesLabelForQuote.label.text = "\"\($0.q)\""
+                        self.quotesLabelForAuthor.label.text = $0.a
+                        self.activityIndicatorView.indicator.stopAnimating()
+                    }
                 }
             }
         }
+        
     }
     
     func getAnswer() {
-        fetchData.decodeAPI(at: Helper.URL.answerUrl) { [unowned self] (answer: Answer?) in
-            DispatchQueue.main.async {
-                self.answerLabel.label.text = answer?.reading
+        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+            self.fetchData.decodeAPI(at: Helper.URL.answerUrl) { (answer: Answer?) in
+                DispatchQueue.main.async {
+                    self.answerLabel.label.text = answer?.reading
+                }
             }
         }
     }

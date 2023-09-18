@@ -13,6 +13,7 @@ class ButtonView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Ask question", for: .normal)
         button.titleLabel?.font = Helper.Font.noteworthyBold(with: 20)
+        button.backgroundColor = Helper.Colors.yellow
         return button
     }()
 }

@@ -29,7 +29,7 @@ extension MainViewController {
     
     func settingView() {
         overrideUserInterfaceStyle = .dark
-        view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
+        view.backgroundColor = Helper.Colors.darkViolet
         
         answerLabel.label.text = "8"
         answerLabel.label.font = UIFont.systemFont(ofSize: 72)
@@ -89,8 +89,6 @@ extension MainViewController {
     
     //MARK: - Button
     func settingsForAskButton() {
-        askButton.button.backgroundColor = .white
-//        askButton.button.setTitle("Ask question", for: .normal)
         askButton.button.layer.cornerRadius = askButton.button.frame.height / 2
         askButton.button.addTarget(self, action: #selector(askButtonPressed), for: .touchUpInside)
     }
