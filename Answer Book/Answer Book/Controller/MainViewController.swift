@@ -30,8 +30,7 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        blurEffect(for: circle)
-        blurEffect(for: viewBoxForQuotes)
+        blurEffect()
         addViews()
         getQuotes()
         circle.viewBox.backgroundColor = .magenta

@@ -10,7 +10,8 @@ import UIKit
 class LabelView {
     let label: UILabel = {
        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false 
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
         return label
     }()
 }
