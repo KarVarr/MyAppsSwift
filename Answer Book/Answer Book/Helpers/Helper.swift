@@ -22,16 +22,24 @@ enum Helper {
     }
     
     enum Font {
-        static func AppleSDGothicNeoRegular(with size: CGFloat) -> UIFont {
+        static func appleSDGothicNeoRegular(with size: CGFloat) -> UIFont {
             UIFont(name: "AppleSDGothicNeo-Regular", size: size) ?? UIFont()
         }
         
-        static func GillSansBold(with size: CGFloat) -> UIFont {
+        static func gillSansBold(with size: CGFloat) -> UIFont {
             UIFont(name: "GillSans-Bold", size: size) ?? UIFont()
         }
         
-        static func Thonburi (with size: CGFloat) -> UIFont {
+        static func thonburi (with size: CGFloat) -> UIFont {
             UIFont(name: "Thonburi", size: size) ?? UIFont()
+        }
+        
+        static func snellRoundhand (with size: CGFloat) -> UIFont {
+            UIFont(name: "SnellRoundhand", size: size) ?? UIFont()
+        }
+        
+        static func americanTypewriter (with size: CGFloat) -> UIFont {
+            UIFont(name: "AmericanTypewriter", size: size) ?? UIFont()
         }
     }
 }

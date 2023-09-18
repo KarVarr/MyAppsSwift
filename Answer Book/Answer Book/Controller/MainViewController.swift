@@ -17,15 +17,17 @@ class MainViewController: UIViewController {
     var quotesLabelOfDayDate = LabelView()
     let activityIndicatorView = ActivityIndicatorView()
     
-    let circle = ViewBoxView()
+    let circleTopCornerQuote = ViewBoxView()
+    let circleBottomCornerQuote = ViewBoxView()
     
     let fetchData = FetchData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         settingView()
-    
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,16 +35,18 @@ class MainViewController: UIViewController {
         blurEffect()
         addViews()
         getQuotes()
-        circle.viewBox.backgroundColor = .magenta
+        
     }
     
     override func viewDidLayoutSubviews() {
         settingsForQuotes()
         layoutView()
         settingsForAskButton()
+        createCircle(for: circleTopCornerQuote, withColor: UIColor.magenta)
+        createCircle(for: circleBottomCornerQuote, withColor: UIColor.cyan)
     }
-  
     
+   
     
     func getDateFromNow() -> String {
         let dateFormatter = DateFormatter()

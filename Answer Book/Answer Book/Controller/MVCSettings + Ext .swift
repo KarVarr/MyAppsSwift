@@ -10,7 +10,8 @@ import UIKit
 extension MainViewController {
     
     func addViews() {
-        view.addSubview(circle.viewBox)
+        view.addSubview(circleTopCornerQuote.viewBox)
+        view.addSubview(circleBottomCornerQuote.viewBox)
         view.addSubview(viewBoxForQuotes.viewBox)
         viewBoxForQuotes.viewBox.addSubview(activityIndicatorView.indicator)
         viewBoxForQuotes.viewBox.addSubview(quotesLabelOfDayTitle.label)
@@ -23,10 +24,12 @@ extension MainViewController {
     }
     
     func settingView() {
-        view.backgroundColor = .darkGray
+        overrideUserInterfaceStyle = .dark
+        view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
         answerLabel.label.text = "Ask some question!"
     }
     
+    //MARK: - Quotes
     func settingsForQuotes() {
         viewBoxForQuotes.viewBox.clipsToBounds = true
         viewBoxForQuotes.viewBox.layer.cornerRadius = 30
@@ -34,19 +37,19 @@ extension MainViewController {
         viewBoxForQuotes.viewBox.layer.borderColor = UIColor.white.withAlphaComponent(0.8).cgColor
         
         quotesLabelOfDayTitle.label.text = Helper.String.quotesTitle
-        quotesLabelOfDayTitle.label.font = Helper.Font.GillSansBold(with: 20)
-        
+        quotesLabelOfDayTitle.label.font = Helper.Font.gillSansBold(with: 16)
         
         quotesLabelOfDayDate.label.text = getDateFromNow()
-        quotesLabelOfDayDate.label.font = Helper.Font.GillSansBold(with: 12)
-        quotesLabelOfDayDate.label.textColor = .secondaryLabel
-        
+        quotesLabelOfDayDate.label.font = Helper.Font.gillSansBold(with: 12)
+        quotesLabelOfDayDate.label.textColor = .white.withAlphaComponent(0.5)
         
         quotesLabelForQuote.label.numberOfLines = 0
         quotesLabelForQuote.label.textAlignment = .center
-        quotesLabelForQuote.label.font = Helper.Font.Thonburi(with: 24)
+        quotesLabelForQuote.label.font = Helper.Font.americanTypewriter(with: 20)
+        
+        quotesLabelForAuthor.label.font = Helper.Font.snellRoundhand(with: 20)
+        quotesLabelForAuthor.label.textColor = .white.withAlphaComponent(0.9)
     }
-    
     
     func blurEffect() {
         let blurEffect = UIBlurEffect(style: .light)
@@ -63,60 +66,23 @@ extension MainViewController {
         viewBoxForQuotes.viewBox.layer.insertSublayer(gradientLayer, at: 0)
     }
     
+    //MARK: - Button
     func settingsForAskButton() {
-        askButton.button.backgroundColor = .magenta
+        askButton.button.backgroundColor = .white
         askButton.button.setTitle("Ask question", for: .normal)
         askButton.button.layer.cornerRadius = askButton.button.frame.height / 2
         askButton.button.addTarget(self, action: #selector(askButtonPressed), for: .touchUpInside)
     }
-    
-    func layoutView() {
-        let viewBoxForQuotes = viewBoxForQuotes.viewBox
-        let titleLabel = quotesLabelOfDayTitle.label
-        let dateLabel = quotesLabelOfDayDate.label
-        let quoteLabel = quotesLabelForQuote.label
-        let authorLabel = quotesLabelForAuthor.label
-        let activityIndicator = activityIndicatorView.indicator
-        let askButton = askButton.button
-        let answerLabel = answerLabel.label
+    //MARK: - Circles
+    func createCircle(for circle: ViewBoxView, withColor color: UIColor) {
+        circle.viewBox.backgroundColor = .clear
         
-        NSLayoutConstraint.activate([
-            circle.viewBox.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            circle.viewBox.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
-            circle.viewBox.widthAnchor.constraint(equalToConstant: 200),
-            circle.viewBox.heightAnchor.constraint(equalToConstant: 200),
-            
-            viewBoxForQuotes.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            viewBoxForQuotes.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            viewBoxForQuotes.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            viewBoxForQuotes.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
-            
-            activityIndicator.centerXAnchor.constraint(equalTo: viewBoxForQuotes.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: viewBoxForQuotes.centerYAnchor),
-            activityIndicator.widthAnchor.constraint(equalToConstant: 100),
-            activityIndicator.heightAnchor.constraint(equalToConstant: 100),
-            
-            titleLabel.centerXAnchor.constraint(equalTo: viewBoxForQuotes.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: viewBoxForQuotes.topAnchor, constant: 10),
-            
-            dateLabel.centerXAnchor.constraint(equalTo: viewBoxForQuotes.centerXAnchor),
-            dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
-            
-            quoteLabel.centerXAnchor.constraint(equalTo: viewBoxForQuotes.centerXAnchor),
-            quoteLabel.centerYAnchor.constraint(equalTo: viewBoxForQuotes.centerYAnchor),
-            quoteLabel.leadingAnchor.constraint(equalTo: viewBoxForQuotes.leadingAnchor, constant: 10),
-            quoteLabel.trailingAnchor.constraint(equalTo: viewBoxForQuotes.trailingAnchor, constant: -10),
-            
-            authorLabel.trailingAnchor.constraint(equalTo: viewBoxForQuotes.trailingAnchor, constant: -20),
-            authorLabel.bottomAnchor.constraint(equalTo: viewBoxForQuotes.bottomAnchor, constant: -15),
-            
-            answerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            answerLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
-            askButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            askButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 20),
-            askButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
-            askButton.heightAnchor.constraint(equalToConstant: 80)
-        ])
+        let circleLayer = CALayer()
+        circleLayer.bounds = circle.viewBox.bounds
+        circleLayer.position = CGPoint(x: circle.viewBox.bounds.midX, y: circle.viewBox.bounds.midY)
+        circleLayer.cornerRadius = circle.viewBox.bounds.width / 2
+        circleLayer.backgroundColor = color.cgColor
+        
+        circle.viewBox.layer.addSublayer(circleLayer)
     }
 }
