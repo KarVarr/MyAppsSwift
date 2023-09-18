@@ -77,8 +77,6 @@ extension MainViewController {
             magicBallImage.topAnchor.constraint(equalTo: viewBoxForAnswer.topAnchor),
             magicBallImage.bottomAnchor.constraint(equalTo: viewBoxForAnswer.bottomAnchor),
             
-            
-            
             magicBallInside.centerXAnchor.constraint(equalTo: viewBoxForAnswer.centerXAnchor),
             magicBallInside.centerYAnchor.constraint(equalTo: viewBoxForAnswer.centerYAnchor),
             magicBallInside.widthAnchor.constraint(equalToConstant: 150),

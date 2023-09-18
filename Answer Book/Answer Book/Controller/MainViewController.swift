@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
     let magicBallImage = ImageViewView()
     
     
-//MARK: - ViewDidLoad
+    //MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,18 +40,18 @@ class MainViewController: UIViewController {
         addViews()
         getQuotes()
     }
-
+    
     override func viewDidLayoutSubviews() {
+        settingsForAskButton()
         settingsForQuotes()
         settingsForAnswer()
         layoutView()
-        settingsForAskButton()
         createCircle(for: circleTopCornerQuote, withColor: UIColor.magenta)
         createCircle(for: circleBottomCornerQuote, withColor: UIColor.cyan)
         createCircle(for: magicBallInside, withColor: UIColor.white)
     }
     
-//MARK: - Functions
+    //MARK: - Functions
     
     func getDateFromNow() -> String {
         let dateFormatter = DateFormatter()
@@ -60,8 +60,20 @@ class MainViewController: UIViewController {
     }
     
     @objc func askButtonPressed () {
-        getAnswer()
+        
+        answerLabel.label.font = Helper.Font.noteworthyLight(with: 22)
+        answerLabel.label.text = "..."
+        askButton.button.setTitle("...", for: .normal)
+        askButton.button.isEnabled = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, flags: .barrier) { [weak self] in
+            self?.getAnswer()
+            self?.askButton.button.isEnabled = true
+            self?.askButton.button.setTitle("SHAKE AGAIN!", for: .normal)
+        }
+
     }
+    
     
     func getQuotes() {
         fetchData.decodeAPI(at: Helper.URL.quotesUrl) { [unowned self] (quotes: [Quotes]?) in
@@ -79,10 +91,9 @@ class MainViewController: UIViewController {
         fetchData.decodeAPI(at: Helper.URL.answerUrl) { [unowned self] (answer: Answer?) in
             DispatchQueue.main.async {
                 self.answerLabel.label.text = answer?.reading
-                self.answerLabel.label.font = Helper.Font.noteworthyLight(with: 22)
             }
         }
     }
-   
+    
 }
 

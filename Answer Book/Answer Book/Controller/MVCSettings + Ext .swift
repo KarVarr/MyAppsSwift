@@ -35,8 +35,6 @@ extension MainViewController {
         answerLabel.label.font = UIFont.systemFont(ofSize: 72)
     }
     
-    
-    
     //MARK: - Quotes
     func settingsForQuotes() {
         viewBoxForQuotes.viewBox.clipsToBounds = true
@@ -64,13 +62,13 @@ extension MainViewController {
         
         magicBallInside.viewBox.layer.cornerRadius = magicBallInside.viewBox.bounds.width / 2
         
-        magicBallImage.imageContainer.image = UIImage(named: "ball")
+        DispatchQueue.main.async { [weak self] in
+            self?.magicBallImage.imageContainer.image = UIImage(named: "ball")
+        }
         magicBallImage.imageContainer.layer.shadowOpacity = 10
         magicBallImage.imageContainer.layer.shadowColor = UIColor.black.withAlphaComponent(0.7).cgColor
         magicBallImage.imageContainer.layer.shadowRadius = 20
         magicBallImage.imageContainer.layer.shadowOffset = CGSize(width: 10, height: 10)
-        
-        
     }
     
     //MARK: - Blur Effect
@@ -92,10 +90,11 @@ extension MainViewController {
     //MARK: - Button
     func settingsForAskButton() {
         askButton.button.backgroundColor = .white
-        askButton.button.setTitle("Ask question", for: .normal)
+//        askButton.button.setTitle("Ask question", for: .normal)
         askButton.button.layer.cornerRadius = askButton.button.frame.height / 2
         askButton.button.addTarget(self, action: #selector(askButtonPressed), for: .touchUpInside)
     }
+    
     //MARK: - Circles
     func createCircle(for circle: ViewBoxView, withColor color: UIColor) {
         circle.viewBox.backgroundColor = .clear
@@ -106,7 +105,6 @@ extension MainViewController {
         circleLayer.cornerRadius = circle.viewBox.bounds.width / 2
         circleLayer.backgroundColor = color.cgColor
         circleLayer.masksToBounds = true
-        
         
         circle.viewBox.layer.addSublayer(circleLayer)
     }

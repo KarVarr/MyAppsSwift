@@ -10,7 +10,9 @@ import UIKit
 class ButtonView {
     let button: UIButton = {
         let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false 
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Ask question", for: .normal)
+        button.titleLabel?.font = Helper.Font.noteworthyBold(with: 20)
         return button
     }()
 }

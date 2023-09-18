@@ -11,7 +11,6 @@ class ImageViewView {
     let imageContainer: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-//        image.clipsToBounds = true
         image.contentMode = .scaleAspectFit
         
         return image
