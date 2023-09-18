@@ -8,6 +8,8 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    let fetchData = FetchData()
+    
     let viewBoxForQuotes = ViewBoxView()
     var quotesLabelForQuote = LabelView()
     var quotesLabelForAuthor = LabelView()
@@ -21,13 +23,13 @@ class MainViewController: UIViewController {
     
     let circleTopCornerQuote = ViewBoxView()
     let circleBottomCornerQuote = ViewBoxView()
+    let magicBallInside = ViewBoxView()
     
-    let fetchData = FetchData()
     
-
+//MARK: - ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         settingView()
     }
     
@@ -36,19 +38,19 @@ class MainViewController: UIViewController {
         blurEffect()
         addViews()
         getQuotes()
-        
     }
 
-    
     override func viewDidLayoutSubviews() {
         settingsForQuotes()
+        settingsForAnswer()
         layoutView()
         settingsForAskButton()
         createCircle(for: circleTopCornerQuote, withColor: UIColor.magenta)
         createCircle(for: circleBottomCornerQuote, withColor: UIColor.cyan)
     }
     
-
+//MARK: - Functions
+    
     func getDateFromNow() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy"
@@ -74,9 +76,9 @@ class MainViewController: UIViewController {
     func getAnswer() {
         fetchData.decodeAPI(at: Helper.URL.answerUrl) { [unowned self] (answer: Answer?) in
             DispatchQueue.main.async {
-                self.answerLabel.label.text = answer?.reading
-            }
+                self.answerLabel.label.text = answer?.reading            }
         }
     }
+   
 }
 

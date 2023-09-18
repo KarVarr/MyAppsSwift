@@ -41,5 +41,11 @@ enum Helper {
         static func americanTypewriter (with size: CGFloat) -> UIFont {
             UIFont(name: "AmericanTypewriter", size: size) ?? UIFont()
         }
+        
+        static func noteworthyLight (with size: CGFloat) -> UIFont {
+            UIFont(name: "Noteworthy-Light", size: size) ?? UIFont()
+        }
+        
+        
     }
 }

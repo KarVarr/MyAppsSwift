@@ -12,6 +12,8 @@ class LabelView {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
+        label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
 }

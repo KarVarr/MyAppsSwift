@@ -20,18 +20,21 @@ extension MainViewController {
         viewBoxForQuotes.viewBox.addSubview(quotesLabelForAuthor.label)
         
         view.addSubview(viewBoxForAnswer.viewBox)
+        viewBoxForAnswer.viewBox.addSubview(magicBallInside.viewBox)
         viewBoxForAnswer.viewBox.addSubview(answerLabel.label)
+        
         view.addSubview(askButton.button)
     }
     
     func settingView() {
         overrideUserInterfaceStyle = .dark
         view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
-        answerLabel.label.text = "Ask some question!"
         
-       
+        answerLabel.label.text = "🎱"
         
     }
+    
+    
     
     //MARK: - Quotes
     func settingsForQuotes() {
@@ -47,19 +50,25 @@ extension MainViewController {
         quotesLabelOfDayDate.label.font = Helper.Font.gillSansBold(with: 12)
         quotesLabelOfDayDate.label.textColor = .white.withAlphaComponent(0.5)
         
-        quotesLabelForQuote.label.numberOfLines = 0
-        quotesLabelForQuote.label.textAlignment = .center
         quotesLabelForQuote.label.font = Helper.Font.americanTypewriter(with: 20)
         
         quotesLabelForAuthor.label.font = Helper.Font.snellRoundhand(with: 20)
         quotesLabelForAuthor.label.textColor = .white.withAlphaComponent(0.9)
-        
-        viewBoxForAnswer.viewBox.layer.borderWidth = 3
+    }
+    //MARK: - Answer
+    func settingsForAnswer() {
+        viewBoxForAnswer.viewBox.layer.borderWidth = 1
         viewBoxForAnswer.viewBox.layer.borderColor = UIColor.white.cgColor
-        viewBoxForAnswer.viewBox.layer.cornerRadius = 20
-        viewBoxForAnswer.viewBox.backgroundColor = .orange
+        viewBoxForAnswer.viewBox.backgroundColor = .clear
+        
+        answerLabel.label.textColor = .tertiarySystemGroupedBackground
+        answerLabel.label.font = Helper.Font.noteworthyLight(with: 24)
+        
+        magicBallInside.viewBox.backgroundColor = .white
+        magicBallInside.viewBox.layer.cornerRadius = magicBallInside.viewBox.bounds.width / 2
     }
     
+    //MARK: - Blur Effect
     func blurEffect() {
         let blurEffect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: blurEffect)
