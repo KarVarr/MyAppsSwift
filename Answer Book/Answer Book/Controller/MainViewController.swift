@@ -9,25 +9,26 @@ import UIKit
 
 class MainViewController: UIViewController {
     let viewBoxForQuotes = ViewBoxView()
-    let askButton = ButtonView()
-    var answerLabel = LabelView()
     var quotesLabelForQuote = LabelView()
     var quotesLabelForAuthor = LabelView()
     var quotesLabelOfDayTitle = LabelView()
     var quotesLabelOfDayDate = LabelView()
     let activityIndicatorView = ActivityIndicatorView()
     
+    let viewBoxForAnswer = ViewBoxView()
+    var answerLabel = LabelView()
+    let askButton = ButtonView()
+    
     let circleTopCornerQuote = ViewBoxView()
     let circleBottomCornerQuote = ViewBoxView()
     
     let fetchData = FetchData()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         settingView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +38,7 @@ class MainViewController: UIViewController {
         getQuotes()
         
     }
+
     
     override func viewDidLayoutSubviews() {
         settingsForQuotes()
@@ -46,8 +48,7 @@ class MainViewController: UIViewController {
         createCircle(for: circleBottomCornerQuote, withColor: UIColor.cyan)
     }
     
-   
-    
+
     func getDateFromNow() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy"

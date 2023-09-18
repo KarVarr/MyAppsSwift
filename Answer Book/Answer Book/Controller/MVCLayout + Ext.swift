@@ -10,19 +10,21 @@ import UIKit
 
 extension MainViewController {
     func layoutView() {
+        let circleTop = circleTopCornerQuote.viewBox
+        let circleBottom = circleBottomCornerQuote.viewBox
+        
         let viewBoxForQuotes = viewBoxForQuotes.viewBox
         let titleLabel = quotesLabelOfDayTitle.label
         let dateLabel = quotesLabelOfDayDate.label
         let quoteLabel = quotesLabelForQuote.label
         let authorLabel = quotesLabelForAuthor.label
         let activityIndicator = activityIndicatorView.indicator
-        let askButton = askButton.button
+        
+        let viewBoxForAnswer = viewBoxForAnswer.viewBox
         let answerLabel = answerLabel.label
         
-        let circleTop = circleTopCornerQuote.viewBox
-        let circleBottom = circleBottomCornerQuote.viewBox
-        
-        
+        let askButton = askButton.button
+    
         NSLayoutConstraint.activate([
             circleTop.topAnchor.constraint(equalTo: viewBoxForQuotes.topAnchor, constant: -30),
             circleTop.trailingAnchor.constraint(equalTo: viewBoxForQuotes.trailingAnchor, constant: 30),
@@ -58,8 +60,14 @@ extension MainViewController {
             authorLabel.trailingAnchor.constraint(equalTo: viewBoxForQuotes.trailingAnchor, constant: -20),
             authorLabel.bottomAnchor.constraint(equalTo: viewBoxForQuotes.bottomAnchor, constant: -15),
             
-            answerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            answerLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            viewBoxForAnswer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            viewBoxForAnswer.topAnchor.constraint(equalTo: viewBoxForQuotes.bottomAnchor, constant: 20),
+            viewBoxForAnswer.bottomAnchor.constraint(equalTo: askButton.topAnchor, constant: -20),
+            viewBoxForAnswer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            viewBoxForAnswer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            
+            answerLabel.centerXAnchor.constraint(equalTo: viewBoxForAnswer.centerXAnchor),
+            answerLabel.centerYAnchor.constraint(equalTo: viewBoxForAnswer.centerYAnchor),
             
             askButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             askButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),

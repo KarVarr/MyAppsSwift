@@ -19,14 +19,18 @@ extension MainViewController {
         viewBoxForQuotes.viewBox.addSubview(quotesLabelForQuote.label)
         viewBoxForQuotes.viewBox.addSubview(quotesLabelForAuthor.label)
         
+        view.addSubview(viewBoxForAnswer.viewBox)
+        viewBoxForAnswer.viewBox.addSubview(answerLabel.label)
         view.addSubview(askButton.button)
-        view.addSubview(answerLabel.label)
     }
     
     func settingView() {
         overrideUserInterfaceStyle = .dark
         view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
         answerLabel.label.text = "Ask some question!"
+        
+       
+        
     }
     
     //MARK: - Quotes
@@ -49,6 +53,11 @@ extension MainViewController {
         
         quotesLabelForAuthor.label.font = Helper.Font.snellRoundhand(with: 20)
         quotesLabelForAuthor.label.textColor = .white.withAlphaComponent(0.9)
+        
+        viewBoxForAnswer.viewBox.layer.borderWidth = 3
+        viewBoxForAnswer.viewBox.layer.borderColor = UIColor.white.cgColor
+        viewBoxForAnswer.viewBox.layer.cornerRadius = 20
+        viewBoxForAnswer.viewBox.backgroundColor = .orange
     }
     
     func blurEffect() {
