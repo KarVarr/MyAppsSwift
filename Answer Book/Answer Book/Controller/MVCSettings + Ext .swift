@@ -20,6 +20,7 @@ extension MainViewController {
         viewBoxForQuotes.viewBox.addSubview(quotesLabelForAuthor.label)
         
         view.addSubview(viewBoxForAnswer.viewBox)
+        viewBoxForAnswer.viewBox.addSubview(magicBallImage.imageContainer)
         viewBoxForAnswer.viewBox.addSubview(magicBallInside.viewBox)
         viewBoxForAnswer.viewBox.addSubview(answerLabel.label)
         
@@ -30,8 +31,8 @@ extension MainViewController {
         overrideUserInterfaceStyle = .dark
         view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
         
-        answerLabel.label.text = "🎱"
-        
+        answerLabel.label.text = "8"
+        answerLabel.label.font = UIFont.systemFont(ofSize: 72)
     }
     
     
@@ -57,15 +58,19 @@ extension MainViewController {
     }
     //MARK: - Answer
     func settingsForAnswer() {
-        viewBoxForAnswer.viewBox.layer.borderWidth = 1
-        viewBoxForAnswer.viewBox.layer.borderColor = UIColor.white.cgColor
         viewBoxForAnswer.viewBox.backgroundColor = .clear
         
         answerLabel.label.textColor = .tertiarySystemGroupedBackground
-        answerLabel.label.font = Helper.Font.noteworthyLight(with: 24)
         
-        magicBallInside.viewBox.backgroundColor = .white
         magicBallInside.viewBox.layer.cornerRadius = magicBallInside.viewBox.bounds.width / 2
+        
+        magicBallImage.imageContainer.image = UIImage(named: "ball")
+        magicBallImage.imageContainer.layer.shadowOpacity = 10
+        magicBallImage.imageContainer.layer.shadowColor = UIColor.black.withAlphaComponent(0.7).cgColor
+        magicBallImage.imageContainer.layer.shadowRadius = 20
+        magicBallImage.imageContainer.layer.shadowOffset = CGSize(width: 10, height: 10)
+        
+        
     }
     
     //MARK: - Blur Effect
@@ -100,6 +105,8 @@ extension MainViewController {
         circleLayer.position = CGPoint(x: circle.viewBox.bounds.midX, y: circle.viewBox.bounds.midY)
         circleLayer.cornerRadius = circle.viewBox.bounds.width / 2
         circleLayer.backgroundColor = color.cgColor
+        circleLayer.masksToBounds = true
+        
         
         circle.viewBox.layer.addSublayer(circleLayer)
     }

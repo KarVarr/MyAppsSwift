@@ -22,6 +22,7 @@ extension MainViewController {
         
         let viewBoxForAnswer = viewBoxForAnswer.viewBox
         let magicBallInside = magicBallInside.viewBox
+        let magicBallImage = magicBallImage.imageContainer
         let answerLabel = answerLabel.label
         
         let askButton = askButton.button
@@ -66,20 +67,31 @@ extension MainViewController {
             viewBoxForAnswer.bottomAnchor.constraint(equalTo: askButton.topAnchor, constant: -20),
             viewBoxForAnswer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             viewBoxForAnswer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+//
+//            magicBallImage.centerXAnchor.constraint(equalTo: viewBoxForAnswer.centerXAnchor),
+//            magicBallImage.centerYAnchor.constraint(equalTo: viewBoxForAnswer.centerYAnchor),
+//            magicBallImage.widthAnchor.constraint(lessThanOrEqualToConstant: 340),
+//            magicBallImage.heightAnchor.constraint(lessThanOrEqualToConstant: 340),
+            magicBallImage.leadingAnchor.constraint(equalTo: viewBoxForAnswer.leadingAnchor),
+            magicBallImage.trailingAnchor.constraint(equalTo: viewBoxForAnswer.trailingAnchor),
+            magicBallImage.topAnchor.constraint(equalTo: viewBoxForAnswer.topAnchor),
+            magicBallImage.bottomAnchor.constraint(equalTo: viewBoxForAnswer.bottomAnchor),
+            
+            
             
             magicBallInside.centerXAnchor.constraint(equalTo: viewBoxForAnswer.centerXAnchor),
             magicBallInside.centerYAnchor.constraint(equalTo: viewBoxForAnswer.centerYAnchor),
-            magicBallInside.widthAnchor.constraint(equalToConstant: 170),
-            magicBallInside.heightAnchor.constraint(equalToConstant: 170),
+            magicBallInside.widthAnchor.constraint(equalToConstant: 150),
+            magicBallInside.heightAnchor.constraint(equalToConstant: 150),
             
             answerLabel.centerXAnchor.constraint(equalTo: viewBoxForAnswer.centerXAnchor),
             answerLabel.centerYAnchor.constraint(equalTo: viewBoxForAnswer.centerYAnchor),
-            answerLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 150),
+            answerLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 130),
             
             askButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             askButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             askButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
-            askButton.heightAnchor.constraint(equalToConstant: 80)
+            askButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }

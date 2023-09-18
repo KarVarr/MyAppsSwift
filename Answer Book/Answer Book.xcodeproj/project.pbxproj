@@ -22,6 +22,7 @@
 		179416602AB77F4F005882D0 /* MVCSettings + Ext .swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794165F2AB77F4F005882D0 /* MVCSettings + Ext .swift */; };
 		179416622AB78175005882D0 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416612AB78175005882D0 /* ActivityIndicatorView.swift */; };
 		179416652AB84569005882D0 /* MVCLayout + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416642AB84569005882D0 /* MVCLayout + Ext.swift */; };
+		179416672AB87781005882D0 /* ImageViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416662AB87781005882D0 /* ImageViewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		1794165F2AB77F4F005882D0 /* MVCSettings + Ext .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MVCSettings + Ext .swift"; sourceTree = "<group>"; };
 		179416612AB78175005882D0 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		179416642AB84569005882D0 /* MVCLayout + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MVCLayout + Ext.swift"; sourceTree = "<group>"; };
+		179416662AB87781005882D0 /* ImageViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				179416532AB7149B005882D0 /* LabelView.swift */,
 				1794165B2AB76BA1005882D0 /* ViewBoxView.swift */,
 				179416612AB78175005882D0 /* ActivityIndicatorView.swift */,
+				179416662AB87781005882D0 /* ImageViewView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				179416562AB717DD005882D0 /* Answer.swift in Sources */,
 				1794165E2AB77C4E005882D0 /* Helper.swift in Sources */,
 				1794163A2AB71003005882D0 /* SceneDelegate.swift in Sources */,
+				179416672AB87781005882D0 /* ImageViewView.swift in Sources */,
 				179416602AB77F4F005882D0 /* MVCSettings + Ext .swift in Sources */,
 				179416542AB7149B005882D0 /* LabelView.swift in Sources */,
 			);

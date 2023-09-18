@@ -24,6 +24,7 @@ class MainViewController: UIViewController {
     let circleTopCornerQuote = ViewBoxView()
     let circleBottomCornerQuote = ViewBoxView()
     let magicBallInside = ViewBoxView()
+    let magicBallImage = ImageViewView()
     
     
 //MARK: - ViewDidLoad
@@ -47,6 +48,7 @@ class MainViewController: UIViewController {
         settingsForAskButton()
         createCircle(for: circleTopCornerQuote, withColor: UIColor.magenta)
         createCircle(for: circleBottomCornerQuote, withColor: UIColor.cyan)
+        createCircle(for: magicBallInside, withColor: UIColor.white)
     }
     
 //MARK: - Functions
@@ -76,7 +78,9 @@ class MainViewController: UIViewController {
     func getAnswer() {
         fetchData.decodeAPI(at: Helper.URL.answerUrl) { [unowned self] (answer: Answer?) in
             DispatchQueue.main.async {
-                self.answerLabel.label.text = answer?.reading            }
+                self.answerLabel.label.text = answer?.reading
+                self.answerLabel.label.font = Helper.Font.noteworthyLight(with: 22)
+            }
         }
     }
    
