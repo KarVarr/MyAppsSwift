@@ -8,21 +8,23 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    let fetchData = FetchData()
+    let dataFetcher = DataFetcher()
     
-    let viewBoxForQuotes = ViewBoxView()
-    var quotesLabelForQuote = LabelView()
-    var quotesLabelForAuthor = LabelView()
-    var quotesLabelOfDayTitle = LabelView()
-    var quotesLabelOfDayDate = LabelView()
-    let activityIndicatorView = ActivityIndicatorView()
+    // Views for displaying quotes
+    let quoteViewBox = ViewBoxView()
+    var quoteLabel = LabelView()
+    var authorLabel = LabelView()
+    var titleLabel = LabelView()
+    var dateLabel = LabelView()
+    let activityIndicator = ActivityIndicatorView()
     
-    let viewBoxForAnswer = ViewBoxView()
+    // Views for answering questions
+    let answerViewBox = ViewBoxView()
     var answerLabel = LabelView()
-    let askButton = ButtonView()
+    let shakeButton = ButtonView()
     
-    let circleTopCornerQuote = ViewBoxView()
-    let circleBottomCornerQuote = ViewBoxView()
+    let topCornerCircle = ViewBoxView()
+    let bottomCornerCircle = ViewBoxView()
     let magicBallInside = ViewBoxView()
     let magicBallImage = ImageViewView()
     
@@ -36,74 +38,78 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         blurEffect()
-        addViews()
-        getQuotes()
+        addSubviews()
+        fetchQuotes()
     }
     
     override func viewDidLayoutSubviews() {
-        settingsForAskButton()
-        settingsForQuotes()
-        settingsForAnswer()
         layoutView()
-        createCircle(for: circleTopCornerQuote, withColor: UIColor.magenta)
-        createCircle(for: circleBottomCornerQuote, withColor: UIColor.cyan)
+        createCircle(for: topCornerCircle, withColor: UIColor.magenta)
+        createCircle(for: bottomCornerCircle, withColor: UIColor.cyan)
         createCircle(for: magicBallInside, withColor: UIColor.white)
+        
+        configureShakeButton()
+        configureQuotesViews()
+        configureAnswerView()
+        
     }
     
     //MARK: - Functions
-    func getDateFromNow() -> String {
+    func getCurrentDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy"
         return dateFormatter.string(from: Date())
     }
     
-    @objc func askButtonPressed () {
-        viewBoxForAnswer.viewBox.layer.removeAllAnimations()
+    @objc func shakeButtonPressed () {
+        // Reset animation
+        answerViewBox.viewBox.layer.removeAllAnimations()
         
+        // Update UI for shaking
         answerLabel.label.font = Helper.Font.noteworthyLight(with: 22)
         answerLabel.label.text = "..."
-        askButton.button.setTitle("...", for: .normal)
-        askButton.button.backgroundColor = Helper.Colors.lightYellow
-        askButton.button.isEnabled = false
+        shakeButton.button.setTitle("...", for: .normal)
+        shakeButton.button.backgroundColor = Helper.Colors.lightYellow
+        shakeButton.button.isEnabled = false
         
-        //MARK: Animation
+        // Animate shaking
         let animationDuration = 0.1
-        
         view.layoutIfNeeded()
         UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveEaseInOut], animations: {
-            self.viewBoxForAnswer.viewBox.transform = CGAffineTransform(translationX: 15, y: 0)
+            self.answerViewBox.viewBox.transform = CGAffineTransform(translationX: 15, y: 0)
             self.view.layoutIfNeeded()
         }) { _ in
             UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveEaseInOut, .repeat]) {
-                self.viewBoxForAnswer.viewBox.transform = CGAffineTransform(translationX: -15, y: 0)
+                self.answerViewBox.viewBox.transform = CGAffineTransform(translationX: -15, y: 0)
                 self.view.layoutIfNeeded()
             }
         }
         
         view.layoutIfNeeded()
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
-            UIView.animate(withDuration: 0.3) {
-                self?.viewBoxForAnswer.viewBox.layer.removeAllAnimations()
-                self?.viewBoxForAnswer.viewBox.transform = .identity
-                self?.getAnswer()
-                self?.askButton.button.isEnabled = true
-                self?.askButton.button.backgroundColor = Helper.Colors.yellow
-                self?.askButton.button.setTitle("SHAKE AGAIN!", for: .normal)
-                self?.view.layoutIfNeeded()
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+                self?.fetchAnswer(completion: {
+                    self?.answerViewBox.viewBox.layer.removeAllAnimations()
+                    self?.answerViewBox.viewBox.transform = .identity
+                    self?.shakeButton.button.isEnabled = true
+                    self?.shakeButton.button.backgroundColor = Helper.Colors.yellow
+                    self?.shakeButton.button.setTitle("SHAKE AGAIN!", for: .normal)
+                    self?.view.layoutIfNeeded()
+                })
             }
         }
     }
     
     
     //MARK: - Get data
-    func getQuotes() {
+    func fetchQuotes() {
         DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
-            self.fetchData.decodeAPI(at: Helper.URL.quotesUrl) { (quotes: [Quotes]?) in
+            self.dataFetcher.decodeAPI(at: Helper.URL.quotesUrl) { (quotes: [Quotes]?) in
                 DispatchQueue.main.async {
                     quotes?.forEach {
-                        self.quotesLabelForQuote.label.text = "\"\($0.q)\""
-                        self.quotesLabelForAuthor.label.text = $0.a
-                        self.activityIndicatorView.indicator.stopAnimating()
+                        self.quoteLabel.label.text = "\"\($0.q)\""
+                        self.authorLabel.label.text = $0.a
+                        self.activityIndicator.indicator.stopAnimating()
                     }
                 }
             }
@@ -111,11 +117,13 @@ class MainViewController: UIViewController {
         
     }
     
-    func getAnswer() {
+    func fetchAnswer(completion: @escaping () -> Void) {
         DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
-            self.fetchData.decodeAPI(at: Helper.URL.answerUrl) { (answer: Answer?) in
+            self.dataFetcher.decodeAPI(at: Helper.URL.answerUrl) { (answer: Answer?) in
                 DispatchQueue.main.async {
                     self.answerLabel.label.text = answer?.reading
+                    
+                    completion()
                 }
             }
         }

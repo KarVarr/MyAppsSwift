@@ -10,22 +10,22 @@ import UIKit
 
 extension MainViewController {
     func layoutView() {
-        let circleTop = circleTopCornerQuote.viewBox
-        let circleBottom = circleBottomCornerQuote.viewBox
+        let circleTop = topCornerCircle.viewBox
+        let circleBottom = bottomCornerCircle.viewBox
         
-        let viewBoxForQuotes = viewBoxForQuotes.viewBox
-        let titleLabel = quotesLabelOfDayTitle.label
-        let dateLabel = quotesLabelOfDayDate.label
-        let quoteLabel = quotesLabelForQuote.label
-        let authorLabel = quotesLabelForAuthor.label
-        let activityIndicator = activityIndicatorView.indicator
+        let viewBoxForQuotes = quoteViewBox.viewBox
+        let titleLabel = titleLabel.label
+        let dateLabel = dateLabel.label
+        let quoteLabel = quoteLabel.label
+        let authorLabel = authorLabel.label
+        let activityIndicator = activityIndicator.indicator
         
-        let viewBoxForAnswer = viewBoxForAnswer.viewBox
+        let viewBoxForAnswer = answerViewBox.viewBox
         let magicBallInside = magicBallInside.viewBox
         let magicBallImage = magicBallImage.imageContainer
         let answerLabel = answerLabel.label
         
-        let askButton = askButton.button
+        let askButton = shakeButton.button
     
         NSLayoutConstraint.activate([
             circleTop.topAnchor.constraint(equalTo: viewBoxForQuotes.topAnchor, constant: -30),

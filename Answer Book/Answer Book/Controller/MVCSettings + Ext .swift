@@ -9,22 +9,22 @@ import UIKit
 
 extension MainViewController {
     
-    func addViews() {
-        view.addSubview(circleTopCornerQuote.viewBox)
-        view.addSubview(circleBottomCornerQuote.viewBox)
-        view.addSubview(viewBoxForQuotes.viewBox)
-        viewBoxForQuotes.viewBox.addSubview(activityIndicatorView.indicator)
-        viewBoxForQuotes.viewBox.addSubview(quotesLabelOfDayTitle.label)
-        viewBoxForQuotes.viewBox.addSubview(quotesLabelOfDayDate.label)
-        viewBoxForQuotes.viewBox.addSubview(quotesLabelForQuote.label)
-        viewBoxForQuotes.viewBox.addSubview(quotesLabelForAuthor.label)
+    func addSubviews() {
+        view.addSubview(topCornerCircle.viewBox)
+        view.addSubview(bottomCornerCircle.viewBox)
+        view.addSubview(quoteViewBox.viewBox)
+        quoteViewBox.viewBox.addSubview(activityIndicator.indicator)
+        quoteViewBox.viewBox.addSubview(titleLabel.label)
+        quoteViewBox.viewBox.addSubview(dateLabel.label)
+        quoteViewBox.viewBox.addSubview(quoteLabel.label)
+        quoteViewBox.viewBox.addSubview(authorLabel.label)
         
-        view.addSubview(viewBoxForAnswer.viewBox)
-        viewBoxForAnswer.viewBox.addSubview(magicBallImage.imageContainer)
-        viewBoxForAnswer.viewBox.addSubview(magicBallInside.viewBox)
-        viewBoxForAnswer.viewBox.addSubview(answerLabel.label)
+        view.addSubview(answerViewBox.viewBox)
+        answerViewBox.viewBox.addSubview(magicBallImage.imageContainer)
+        answerViewBox.viewBox.addSubview(magicBallInside.viewBox)
+        answerViewBox.viewBox.addSubview(answerLabel.label)
         
-        view.addSubview(askButton.button)
+        view.addSubview(shakeButton.button)
     }
     
     func settingView() {
@@ -36,27 +36,27 @@ extension MainViewController {
     }
     
     //MARK: - Quotes
-    func settingsForQuotes() {
-        viewBoxForQuotes.viewBox.clipsToBounds = true
-        viewBoxForQuotes.viewBox.layer.cornerRadius = 30
-        viewBoxForQuotes.viewBox.layer.borderWidth = 1
-        viewBoxForQuotes.viewBox.layer.borderColor = UIColor.white.withAlphaComponent(0.8).cgColor
+    func configureQuotesViews() {
+        quoteViewBox.viewBox.clipsToBounds = true
+        quoteViewBox.viewBox.layer.cornerRadius = 30
+        quoteViewBox.viewBox.layer.borderWidth = 1
+        quoteViewBox.viewBox.layer.borderColor = UIColor.white.withAlphaComponent(0.8).cgColor
         
-        quotesLabelOfDayTitle.label.text = Helper.String.quotesTitle
-        quotesLabelOfDayTitle.label.font = Helper.Font.gillSansBold(with: 16)
+        titleLabel.label.text = Helper.String.quotesTitle
+        titleLabel.label.font = Helper.Font.gillSansBold(with: 16)
         
-        quotesLabelOfDayDate.label.text = getDateFromNow()
-        quotesLabelOfDayDate.label.font = Helper.Font.gillSansBold(with: 12)
-        quotesLabelOfDayDate.label.textColor = .white.withAlphaComponent(0.5)
+        dateLabel.label.text = getCurrentDate()
+        dateLabel.label.font = Helper.Font.gillSansBold(with: 12)
+        dateLabel.label.textColor = .white.withAlphaComponent(0.5)
         
-        quotesLabelForQuote.label.font = Helper.Font.americanTypewriter(with: 20)
+        quoteLabel.label.font = Helper.Font.americanTypewriter(with: 20)
         
-        quotesLabelForAuthor.label.font = Helper.Font.snellRoundhand(with: 20)
-        quotesLabelForAuthor.label.textColor = .white.withAlphaComponent(0.9)
+        authorLabel.label.font = Helper.Font.snellRoundhand(with: 20)
+        authorLabel.label.textColor = .white.withAlphaComponent(0.9)
     }
     //MARK: - Answer
-    func settingsForAnswer() {
-        viewBoxForAnswer.viewBox.backgroundColor = .clear
+    func configureAnswerView() {
+        answerViewBox.viewBox.backgroundColor = .clear
         
         answerLabel.label.textColor = .tertiarySystemGroupedBackground
         
@@ -75,22 +75,22 @@ extension MainViewController {
     func blurEffect() {
         let blurEffect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = viewBoxForQuotes.viewBox.bounds
+        blurView.frame = quoteViewBox.viewBox.bounds
         blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = viewBoxForQuotes.viewBox.bounds
+        gradientLayer.frame = quoteViewBox.viewBox.bounds
         gradientLayer.colors = Helper.Colors.whiteGradient
         gradientLayer.endPoint = CGPoint(x: 0, y: 0.25)
         
-        viewBoxForQuotes.viewBox.addSubview(blurView)
-        viewBoxForQuotes.viewBox.layer.insertSublayer(gradientLayer, at: 0)
+        quoteViewBox.viewBox.addSubview(blurView)
+        quoteViewBox.viewBox.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     //MARK: - Button
-    func settingsForAskButton() {
-        askButton.button.layer.cornerRadius = askButton.button.frame.height / 2
-        askButton.button.addTarget(self, action: #selector(askButtonPressed), for: .touchUpInside)
+    func configureShakeButton() {
+        shakeButton.button.layer.cornerRadius = shakeButton.button.frame.height / 2
+        shakeButton.button.addTarget(self, action: #selector(shakeButtonPressed), for: .touchUpInside)
     }
     
     //MARK: - Circles

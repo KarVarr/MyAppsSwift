@@ -15,7 +15,7 @@
 		179416522AB711FA005882D0 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416512AB711FA005882D0 /* ButtonView.swift */; };
 		179416542AB7149B005882D0 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416532AB7149B005882D0 /* LabelView.swift */; };
 		179416562AB717DD005882D0 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416552AB717DD005882D0 /* Answer.swift */; };
-		179416582AB71828005882D0 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416572AB71828005882D0 /* FetchData.swift */; };
+		179416582AB71828005882D0 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416572AB71828005882D0 /* DataFetcher.swift */; };
 		1794165A2AB75DA2005882D0 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416592AB75DA2005882D0 /* Quotes.swift */; };
 		1794165C2AB76BA1005882D0 /* ViewBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794165B2AB76BA1005882D0 /* ViewBoxView.swift */; };
 		1794165E2AB77C4E005882D0 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794165D2AB77C4E005882D0 /* Helper.swift */; };
@@ -36,7 +36,7 @@
 		179416512AB711FA005882D0 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		179416532AB7149B005882D0 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		179416552AB717DD005882D0 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
-		179416572AB71828005882D0 /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
+		179416572AB71828005882D0 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		179416592AB75DA2005882D0 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 		1794165B2AB76BA1005882D0 /* ViewBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBoxView.swift; sourceTree = "<group>"; };
 		1794165D2AB77C4E005882D0 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				179416552AB717DD005882D0 /* Answer.swift */,
-				179416572AB71828005882D0 /* FetchData.swift */,
+				179416572AB71828005882D0 /* DataFetcher.swift */,
 				179416592AB75DA2005882D0 /* Quotes.swift */,
 			);
 			path = Model;
@@ -219,7 +219,7 @@
 				1794165A2AB75DA2005882D0 /* Quotes.swift in Sources */,
 				1794163C2AB71003005882D0 /* MainViewController.swift in Sources */,
 				179416622AB78175005882D0 /* ActivityIndicatorView.swift in Sources */,
-				179416582AB71828005882D0 /* FetchData.swift in Sources */,
+				179416582AB71828005882D0 /* DataFetcher.swift in Sources */,
 				179416652AB84569005882D0 /* MVCLayout + Ext.swift in Sources */,
 				179416382AB71003005882D0 /* AppDelegate.swift in Sources */,
 				179416522AB711FA005882D0 /* ButtonView.swift in Sources */,
