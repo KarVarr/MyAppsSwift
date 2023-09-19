@@ -89,12 +89,14 @@ class MainViewController: UIViewController {
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
                 self?.fetchAnswer(completion: {
-                    self?.answerViewBox.viewBox.layer.removeAllAnimations()
-                    self?.answerViewBox.viewBox.transform = .identity
-                    self?.shakeButton.button.isEnabled = true
-                    self?.shakeButton.button.backgroundColor = Helper.Colors.yellow
-                    self?.shakeButton.button.setTitle("SHAKE AGAIN!", for: .normal)
-                    self?.view.layoutIfNeeded()
+                    DispatchQueue.main.async {
+                        self?.answerViewBox.viewBox.layer.removeAllAnimations()
+                        self?.answerViewBox.viewBox.transform = .identity
+                        self?.shakeButton.button.isEnabled = true
+                        self?.shakeButton.button.backgroundColor = Helper.Colors.yellow
+                        self?.shakeButton.button.setTitle("SHAKE AGAIN!", for: .normal)
+                        self?.view.layoutIfNeeded()
+                    }
                 })
             }
         }
@@ -104,13 +106,20 @@ class MainViewController: UIViewController {
     //MARK: - Get data
     func fetchQuotes() {
         DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
-            self.dataFetcher.decodeAPI(at: Helper.URL.quotesUrl) { (quotes: [Quotes]?) in
+            self.dataFetcher.decodeAPI(at: Helper.URL.quotesUrl) { (result: Result<[Quotes], Error>) in
                 DispatchQueue.main.async {
-                    quotes?.forEach {
-                        self.quoteLabel.label.text = "\"\($0.q)\""
-                        self.authorLabel.label.text = $0.a
-                        self.activityIndicator.indicator.stopAnimating()
+                    switch result {
+                    case .success(let quotes):
+                        quotes.forEach {
+                            self.quoteLabel.label.text = "\"\($0.q)\""
+                            self.authorLabel.label.text = $0.a
+                            self.activityIndicator.indicator.stopAnimating()
+                        }
+                    case .failure(let error):
+                        print("Error with Quotes: \(error)")
+                        Helper.Alert.showNoInternetAlert(from: self)
                     }
+                    
                 }
             }
         }
@@ -119,12 +128,20 @@ class MainViewController: UIViewController {
     
     func fetchAnswer(completion: @escaping () -> Void) {
         DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
-            self.dataFetcher.decodeAPI(at: Helper.URL.answerUrl) { (answer: Answer?) in
+            self.dataFetcher.decodeAPI(at: Helper.URL.answerUrl) { (result: Result<Answer, Error>) in
                 DispatchQueue.main.async {
-                    self.answerLabel.label.text = answer?.reading
-                    
-                    completion()
+                    switch result {
+                    case .success(let answer):
+                        self.answerLabel.label.text = answer.reading
+                    case .failure(let error):
+                        if let dataFetchError = error as? DataFetchError, dataFetchError == .noData {
+                            Helper.Alert.showNoInternetAlert(from: self)
+                        } else {
+                            Helper.Alert.showNoInternetAlert(from: self)
+                        }
+                    }
                 }
+                completion()
             }
         }
     }

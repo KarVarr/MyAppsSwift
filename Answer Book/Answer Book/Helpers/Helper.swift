@@ -28,7 +28,7 @@ enum Helper {
         static func gillSansBold(with size: CGFloat) -> UIFont {
             UIFont(name: "GillSans-Bold", size: size) ?? UIFont()
         }
- 
+        
         static func snellRoundhand (with size: CGFloat) -> UIFont {
             UIFont(name: "SnellRoundhand", size: size) ?? UIFont()
         }
@@ -43,6 +43,14 @@ enum Helper {
         
         static func noteworthyBold (with size: CGFloat) -> UIFont {
             UIFont(name: "Noteworthy-Bold", size: size) ?? UIFont()
+        }
+    }
+    
+    enum Alert {
+        static func showNoInternetAlert(from viewController: UIViewController) {
+            let alert = UIAlertController(title: "Bad connection", message: "Check your internet connection and try again!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            viewController.present(alert, animated: true)
         }
     }
 }

@@ -7,23 +7,39 @@
 
 import Foundation
 
+enum DataFetchError: Error {
+    case invalidURL
+    case noData
+}
+
 struct DataFetcher {
-    func decodeAPI<T: Decodable>(at urlString: String, completion: @escaping (T?) -> Void) {
-        guard let url = URL(string: urlString) else { return }
+    func decodeAPI<T: Decodable>(at urlString: String, completion: @escaping (Result<T, Error>) -> Void) {
+        guard let url = URL(string: urlString) else {
+            completion(.failure(DataFetchError.invalidURL))
+            return
+        }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data {
-                do {
-                    let decodedData = try JSONDecoder().decode(T.self, from: data)
-                    completion(decodedData)
-                } catch {
-                    print(error)
-                    completion(nil)
-                }
-            } else {
-                completion(nil)
+            if let error = error {
+                completion(.failure(error))
+                return
             }
+            
+            guard let data = data else {
+                completion(.failure(DataFetchError.noData))
+                return
+            }
+            
+            do {
+                let decodedData = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(decodedData))
+            } catch {
+                completion(.failure(error))
+            }
+            
         }.resume()
     }
 }
+
+
 
