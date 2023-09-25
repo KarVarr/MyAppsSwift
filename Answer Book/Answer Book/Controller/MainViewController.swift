@@ -25,8 +25,9 @@ class MainViewController: UIViewController {
     
     let topCornerCircle = ViewBoxView()
     let bottomCornerCircle = ViewBoxView()
-    let magicBallInside = ViewBoxView()
+    let circleInsideBall = ViewBoxView()
     let magicBallImage = ImageViewView()
+    
     
     //MARK: - ViewDidLoad
     
@@ -46,20 +47,15 @@ class MainViewController: UIViewController {
         layoutView()
         createCircle(for: topCornerCircle, withColor: UIColor.magenta)
         createCircle(for: bottomCornerCircle, withColor: UIColor.cyan)
-        createCircle(for: magicBallInside, withColor: UIColor.white)
+        createCircle(for: circleInsideBall, withColor: UIColor.white)
         
         configureShakeButton()
         configureQuotesViews()
         configureAnswerView()
-        
     }
     
-    //MARK: - Functions
-    func getCurrentDate() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yy"
-        return dateFormatter.string(from: Date())
-    }
+   
+    
     
 }
 

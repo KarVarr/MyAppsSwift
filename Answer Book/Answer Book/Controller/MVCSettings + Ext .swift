@@ -9,6 +9,7 @@ import UIKit
 
 extension MainViewController {
     
+    
     func addSubviews() {
         view.addSubview(topCornerCircle.viewBox)
         view.addSubview(bottomCornerCircle.viewBox)
@@ -21,7 +22,7 @@ extension MainViewController {
         
         view.addSubview(answerViewBox.viewBox)
         answerViewBox.viewBox.addSubview(magicBallImage.imageContainer)
-        answerViewBox.viewBox.addSubview(magicBallInside.viewBox)
+        answerViewBox.viewBox.addSubview(circleInsideBall.viewBox)
         answerViewBox.viewBox.addSubview(answerLabel.label)
         
         view.addSubview(shakeButton.button)
@@ -51,7 +52,7 @@ extension MainViewController {
         
         quoteLabel.label.font = Helper.Font.americanTypewriter(with: dynamicFontSize(20))
         quoteLabel.label.adjustsFontSizeToFitWidth = true
-       
+        
         
         authorLabel.label.font = Helper.Font.snellRoundhand(with: dynamicFontSize(20))
         authorLabel.label.textColor = .white.withAlphaComponent(0.9)
@@ -62,8 +63,8 @@ extension MainViewController {
         answerViewBox.viewBox.backgroundColor = .clear
         
         answerLabel.label.textColor = .tertiarySystemGroupedBackground
-        
-        magicBallInside.viewBox.layer.cornerRadius = magicBallInside.viewBox.bounds.width / 2
+    
+        circleInsideBall.viewBox.layer.cornerRadius = circleInsideBall.viewBox.bounds.width / 2
         
         DispatchQueue.main.async { [weak self] in
             self?.magicBallImage.imageContainer.image = UIImage(named: "ball")
@@ -116,4 +117,23 @@ extension MainViewController {
         let calculatedFontSize = screenWidth / 375 * FontSize
         return calculatedFontSize
     }
+    
+    //MARK: - Functions
+    private func getCurrentDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yy"
+        return dateFormatter.string(from: Date())
+    }
+    
+    
+    func dynamicWidth() -> Double {
+        var width = 0.0
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            width = 0.45
+        } else if UIDevice.current.userInterfaceIdiom == .pad {
+            width = 0.3
+        }
+        return width
+    }
+  
 }
