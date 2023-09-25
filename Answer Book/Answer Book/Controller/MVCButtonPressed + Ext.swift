@@ -13,7 +13,7 @@ extension MainViewController {
         answerViewBox.viewBox.layer.removeAllAnimations()
         
         // Update UI for shaking
-        answerLabel.label.font = Helper.Font.noteworthyLight(with: 22)
+        answerLabel.label.font = Helper.Font.noteworthyLight(with: dynamicFontSize(21))
         answerLabel.label.text = "..."
         shakeButton.button.setTitle("...", for: .normal)
         shakeButton.button.backgroundColor = Helper.Colors.lightYellow
@@ -23,11 +23,11 @@ extension MainViewController {
         let animationDuration = 0.1
         view.layoutIfNeeded()
         UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveEaseInOut], animations: {
-            self.answerViewBox.viewBox.transform = CGAffineTransform(translationX: 15, y: 0)
+            self.answerViewBox.viewBox.transform = CGAffineTransform(translationX: 15, y: 3)
             self.view.layoutIfNeeded()
         }) { _ in
             UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveEaseInOut, .repeat]) {
-                self.answerViewBox.viewBox.transform = CGAffineTransform(translationX: -15, y: 0)
+                self.answerViewBox.viewBox.transform = CGAffineTransform(translationX: -15, y: -3)
                 self.view.layoutIfNeeded()
             }
         }

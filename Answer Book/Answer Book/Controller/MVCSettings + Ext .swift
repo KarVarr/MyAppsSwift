@@ -112,7 +112,7 @@ extension MainViewController {
     }
     
     //MARK: - Dynamic Font size
-    private func dynamicFontSize(_ FontSize: CGFloat) -> CGFloat {
+    func dynamicFontSize(_ FontSize: CGFloat) -> CGFloat {
         let screenWidth = UIScreen.main.bounds.size.width
         let calculatedFontSize = screenWidth / 375 * FontSize
         return calculatedFontSize
@@ -125,13 +125,12 @@ extension MainViewController {
         return dateFormatter.string(from: Date())
     }
     
-    
     func dynamicWidth() -> Double {
         var width = 0.0
         if UIDevice.current.userInterfaceIdiom == .phone {
             width = 0.45
         } else if UIDevice.current.userInterfaceIdiom == .pad {
-            width = 0.3
+            width = 0.35
         }
         return width
     }

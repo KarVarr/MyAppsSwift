@@ -83,7 +83,7 @@ extension MainViewController {
             
             answerLabel.centerXAnchor.constraint(equalTo: viewBoxForAnswer.centerXAnchor),
             answerLabel.centerYAnchor.constraint(equalTo: viewBoxForAnswer.centerYAnchor),
-            answerLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 130),
+            answerLabel.widthAnchor.constraint(equalTo: circleInsideBall.widthAnchor, multiplier: 0.8),
             
             askButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             askButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
