@@ -61,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		177F3B602AC1A6F600D0876C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				179416572AB71828005882D0 /* DataFetcher.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		1794162B2AB71003005882D0 = {
 			isa = PBXGroup;
 			children = (
@@ -80,8 +88,9 @@
 		179416362AB71003005882D0 /* Answer Book */ = {
 			isa = PBXGroup;
 			children = (
-				179416502AB71149005882D0 /* Helpers */,
 				1794164F2AB7113F005882D0 /* Application */,
+				179416502AB71149005882D0 /* Helpers */,
+				177F3B602AC1A6F600D0876C /* Networking */,
 				1794164E2AB71136005882D0 /* Model */,
 				1794164D2AB71109005882D0 /* View */,
 				1794164C2AB710FF005882D0 /* Controller */,
@@ -127,7 +136,6 @@
 		1794164E2AB71136005882D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				179416572AB71828005882D0 /* DataFetcher.swift */,
 				179416552AB717DD005882D0 /* Answer.swift */,
 				179416592AB75DA2005882D0 /* Quotes.swift */,
 			);
