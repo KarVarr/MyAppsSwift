@@ -11,8 +11,7 @@ class ButtonView {
     let button: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Shake Ball", for: .normal)
-        button.titleLabel?.font = Helper.Font.noteworthyBold(with: 20)
+        button.setTitle(Helper.String.buttonTitleBeforePress, for: .normal)
         button.backgroundColor = Helper.Colors.yellow
         return button
     }()

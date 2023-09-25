@@ -88,7 +88,7 @@ extension MainViewController {
             askButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             askButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             askButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
-            askButton.heightAnchor.constraint(equalToConstant: 50)
+            askButton.heightAnchor.constraint(equalTo: askButton.widthAnchor, multiplier: 0.2),
         ])
     }
 }

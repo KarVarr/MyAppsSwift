@@ -15,6 +15,9 @@ enum Helper {
     
     enum String {
         static let quotesTitle = "Quote of the Day"
+        static let buttonTitleBeforePress = "Shake Ball"
+        static let buttonTitleAfterPress = "SHAKE AGAIN!"
+        static let threeDots = "..."
     }
     
     enum Colors {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		177F3B642AC2192C00D0876C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177F3B632AC2192C00D0876C /* Media.xcassets */; };
 		179416382AB71003005882D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416372AB71003005882D0 /* AppDelegate.swift */; };
 		1794163A2AB71003005882D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416392AB71003005882D0 /* SceneDelegate.swift */; };
 		1794163C2AB71003005882D0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794163B2AB71003005882D0 /* MainViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		177F3B632AC2192C00D0876C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		179416342AB71003005882D0 /* Answer Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Answer Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		179416372AB71003005882D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		179416392AB71003005882D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				179416402AB71005005882D0 /* Assets.xcassets */,
 				179416452AB71005005882D0 /* Info.plist */,
+				177F3B632AC2192C00D0876C /* Media.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				179416442AB71005005882D0 /* LaunchScreen.storyboard in Resources */,
+				177F3B642AC2192C00D0876C /* Media.xcassets in Resources */,
 				179416412AB71005005882D0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

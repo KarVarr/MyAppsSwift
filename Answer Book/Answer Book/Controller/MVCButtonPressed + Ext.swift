@@ -14,8 +14,8 @@ extension MainViewController {
         
         // Update UI for shaking
         answerLabel.label.font = Helper.Font.noteworthyLight(with: dynamicFontSize(21))
-        answerLabel.label.text = "..."
-        shakeButton.button.setTitle("...", for: .normal)
+        answerLabel.label.text = Helper.String.threeDots
+        shakeButton.button.setTitle(Helper.String.threeDots, for: .normal)
         shakeButton.button.backgroundColor = Helper.Colors.lightYellow
         shakeButton.button.isEnabled = false
         
@@ -41,7 +41,7 @@ extension MainViewController {
                         self?.answerViewBox.viewBox.transform = .identity
                         self?.shakeButton.button.isEnabled = true
                         self?.shakeButton.button.backgroundColor = Helper.Colors.yellow
-                        self?.shakeButton.button.setTitle("SHAKE AGAIN!", for: .normal)
+                        self?.shakeButton.button.setTitle(Helper.String.buttonTitleAfterPress, for: .normal)
                         self?.view.layoutIfNeeded()
                     }
                 })
