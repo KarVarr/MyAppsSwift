@@ -9,25 +9,34 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let dataFetcher = DataFetcher()
+    
     let scrollView = CustomScrollView()
     
     let verticalStackView = CustomStackView()
-    let pictureOfDayImageView = CustomImageView()
-    let titleLabel = CustomLabel()
-    let dateLabel = CustomLabel()
-    let explanationLabel = CustomLabel()
+    var pictureOfDayImageView = CustomImageView()
+    var titleLabel = CustomLabel()
+    var dateLabel = CustomLabel()
+    var explanationLabel = CustomLabel()
     
     let separateLineForToolbar = CustomView()
     let customToolbar = CustomView()
     
+    let urlNasa = "https://api.nasa.gov/planetary/apod?api_key=kOZ9oe3uvIOL9jm2Jjqzesdkl6cp48PWhpsNZLeM"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addSubviews()
+        settingView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchPictureOfTheDay()
     }
     
     override func viewWillLayoutSubviews() {
-        addSubviews()
-        settingView()
         layoutView()
     }
     
@@ -56,16 +65,11 @@ class ViewController: UIViewController {
         verticalStackView.sView.alignment = .center
         verticalStackView.sView.axis = .vertical
         verticalStackView.sView.spacing = 20
+       
         
-        verticalStackView.sView.layer.borderWidth = 3
-        verticalStackView.sView.layer.borderColor = UIColor.green.cgColor
-                
-        scrollView.scroll.layer.borderWidth = 2
-        scrollView.scroll.layer.borderColor = UIColor.red.cgColor
-        
-        titleLabel.label.text = "Title"
-        dateLabel.label.text = "Date 23.09.2023"
-        explanationLabel.label.text = "Do you see the horse's head?   What you are seeing is not the famous Horsehead nebula toward Orion, but rather a fainter nebula that only takes on a familiar form with deeper imaging.  The main part of the here-imaged molecular cloud complex is  reflection nebula IC 4592.  Reflection nebulas are made up of very fine dust that normally appears dark but can look quite blue when reflecting the visible light of energetic nearby stars.  In this case, the source of much of the reflected light is a star at the eye of the horse.  That star is part of Nu Scorpii, one of the brighter star systems toward the constellation of the Scorpion (Scorpius).   A second reflection nebula dubbed IC 4601 is visible surrounding two stars above and to the right of the image center."
+        titleLabel.label.text = ""
+        dateLabel.label.text = ""
+        explanationLabel.label.text = ""
     }
     
     func layoutView() {
@@ -73,8 +77,8 @@ class ViewController: UIViewController {
         
         let verticalStackView = verticalStackView.sView
         let pictureOfDayImageView = pictureOfDayImageView.customImage
-        let titleLabel = titleLabel.label
-        let dateLabel = dateLabel.label
+        //        let titleLabel = titleLabel.label
+        //        let dateLabel = dateLabel.label
         let explanationLabel = explanationLabel.label
         
         let separateLineForToolbar = separateLineForToolbar.view
@@ -97,9 +101,9 @@ class ViewController: UIViewController {
             pictureOfDayImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
             pictureOfDayImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
             
-//            titleLabel.topAnchor.constraint(equalTo: pictureOfDayImageView.bottomAnchor),
-//            dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-//            explanationLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
+            //            titleLabel.topAnchor.constraint(equalTo: pictureOfDayImageView.bottomAnchor),
+            //            dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            //            explanationLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
             explanationLabel.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor, constant: 20),
             explanationLabel.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: -20),
             
@@ -114,6 +118,30 @@ class ViewController: UIViewController {
             customToolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             customToolbar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1),
         ])
+    }
+    
+    
+    func fetchPictureOfTheDay () {
+        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+            self.dataFetcher.decodeAPI(at: self.urlNasa) { (result: Result<AstronomyPictureOfTheDay, Error>) in
+                switch result {
+                case .success(let pictureOfTheDay):
+                    if let imageUrl = URL(string: pictureOfTheDay.url), let imageData = try? Data(contentsOf: imageUrl), let image = UIImage(data: imageData) {
+                        
+                        DispatchQueue.main.async {
+                            self.pictureOfDayImageView.customImage.image = image
+                            self.titleLabel.label.text = pictureOfTheDay.title
+                            self.dateLabel.label.text = pictureOfTheDay.date
+                            self.explanationLabel.label.text = pictureOfTheDay.explanation
+                        }
+                    }
+                    
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }
+        }
+
     }
     
 }
