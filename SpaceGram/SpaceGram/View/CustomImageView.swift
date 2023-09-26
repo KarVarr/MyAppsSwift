@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageView {
+class CustomImageView {
     let customImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false

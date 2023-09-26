@@ -9,9 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let pictureOfDayImageView = ImageView()
+    let pictureOfDayImageView = CustomImageView()
     let customToolbar = CustomView()
     let separateLineForToolbar = CustomView()
+    let scrollView = CustomScrollView()
+    let verticalStackView = CustomView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,11 @@ class ViewController: UIViewController {
     }
     
     func addSubviews() {
-        view.addSubview(pictureOfDayImageView.customImage)
+        view.addSubview(scrollView.scroll)
+        scrollView.scroll.addSubview(verticalStackView.view)
+        
+        verticalStackView.view.addSubview(pictureOfDayImageView.customImage)
+        
         view.addSubview(customToolbar.view)
         view.addSubview(separateLineForToolbar.view)
     }
@@ -36,13 +42,30 @@ class ViewController: UIViewController {
         
         customToolbar.view.backgroundColor = .blue
         separateLineForToolbar.view.backgroundColor = .systemPink.withAlphaComponent(0.5)
+        pictureOfDayImageView.customImage.image = UIImage(systemName: "plus")
+        scrollView.scroll.showsVerticalScrollIndicator = false
     }
     
     func layoutView() {
+        let scrollView = scrollView.scroll
+        let pictureOfDayImageView = pictureOfDayImageView.customImage
         let customToolbar = customToolbar.view
         let separateLineForToolbar = separateLineForToolbar.view
         
+        
         NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: customToolbar.topAnchor),
+            
+            pictureOfDayImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
+            pictureOfDayImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
+            pictureOfDayImageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
+            pictureOfDayImageView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            pictureOfDayImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
+            pictureOfDayImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+            
             separateLineForToolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             separateLineForToolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             separateLineForToolbar.bottomAnchor.constraint(equalTo: customToolbar.topAnchor),
@@ -56,11 +79,4 @@ class ViewController: UIViewController {
         ])
     }
     
-    @objc func composeItem() {
-        
-    }
-    
-    @objc func deleteItem() {
-        
-    }
 }
