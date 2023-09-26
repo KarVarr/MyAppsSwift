@@ -16,6 +16,8 @@
 		177F3B8C2AC350C400D0876C /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B8B2AC350C400D0876C /* CustomView.swift */; };
 		177F3B8E2AC3573700D0876C /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B8D2AC3573700D0876C /* CustomScrollView.swift */; };
 		177F3B902AC35E3F00D0876C /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B8F2AC35E3F00D0876C /* CustomStackView.swift */; };
+		177F3B922AC362ED00D0876C /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B912AC362ED00D0876C /* CustomLabel.swift */; };
+		177F3B952AC366BA00D0876C /* AstronomyPictureOfTheDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B942AC366BA00D0876C /* AstronomyPictureOfTheDay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		177F3B8B2AC350C400D0876C /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		177F3B8D2AC3573700D0876C /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
 		177F3B8F2AC35E3F00D0876C /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
+		177F3B912AC362ED00D0876C /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		177F3B942AC366BA00D0876C /* AstronomyPictureOfTheDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronomyPictureOfTheDay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +66,9 @@
 		177F3B702AC3473300D0876C /* SpaceGram */ = {
 			isa = PBXGroup;
 			children = (
+				177F3B962AC3675000D0876C /* Networking */,
 				177F3B862AC347B900D0876C /* Application */,
+				177F3B932AC3668500D0876C /* Model */,
 				177F3B872AC347C100D0876C /* View */,
 				177F3B882AC34A7B00D0876C /* Controller */,
 				177F3B852AC3478900D0876C /* Resources */,
@@ -96,6 +102,7 @@
 				177F3B8B2AC350C400D0876C /* CustomView.swift */,
 				177F3B8D2AC3573700D0876C /* CustomScrollView.swift */,
 				177F3B8F2AC35E3F00D0876C /* CustomStackView.swift */,
+				177F3B912AC362ED00D0876C /* CustomLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -106,6 +113,21 @@
 				177F3B752AC3473300D0876C /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		177F3B932AC3668500D0876C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				177F3B942AC366BA00D0876C /* AstronomyPictureOfTheDay.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		177F3B962AC3675000D0876C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +206,9 @@
 				177F3B762AC3473300D0876C /* ViewController.swift in Sources */,
 				177F3B902AC35E3F00D0876C /* CustomStackView.swift in Sources */,
 				177F3B722AC3473300D0876C /* AppDelegate.swift in Sources */,
+				177F3B952AC366BA00D0876C /* AstronomyPictureOfTheDay.swift in Sources */,
 				177F3B742AC3473300D0876C /* SceneDelegate.swift in Sources */,
+				177F3B922AC362ED00D0876C /* CustomLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
