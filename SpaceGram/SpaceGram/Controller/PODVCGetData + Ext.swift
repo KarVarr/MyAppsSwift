@@ -19,7 +19,7 @@ extension PictureOfDayViewController {
                         DispatchQueue.main.async {
                             self.activityIndicatorViewForPictureOfDay.indicator.stopAnimating()
                             self.pictureOfDayImageView.customImage.image = image
-                            self.titleLabel.label.text = "Title: \(pictureOfTheDay.title)"
+                            self.titleLabel.label.text = pictureOfTheDay.title
                             self.pictureOfTheDayTitleLabel.label.text = Helper.String.titlePictureOfTheDay
                             self.pictureOfTheDayDateLabel.label.text = pictureOfTheDay.date
                             self.explanationLabel.label.text = pictureOfTheDay.explanation
