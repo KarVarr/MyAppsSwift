@@ -9,44 +9,69 @@ import UIKit
 
 extension PictureOfDayViewController {
     func addSubviews() {
-        
         view.addSubview(starsView.view)
         
         //Scroll View
         view.addSubview(scrollView.scroll)
-        scrollView.scroll.addSubview(verticalStackView.sView)
-        scrollView.scroll.addSubview(horizontalStackViewForTitleAndDate.sView)
+        scrollView.scroll.addSubview(starsView.view)
         scrollView.scroll.addSubview(activityIndicatorViewForPictureOfDay.indicator)
+        scrollView.scroll.addSubview(horizontalStackViewForTitleAndDate.sView)
+        scrollView.scroll.addSubview(pictureOfDayImageView.customImage)
+        scrollView.scroll.addSubview(viewForAbout.view)
         
         //Horizontal StackView
         horizontalStackViewForTitleAndDate.sView.addArrangedSubview(pictureOfTheDayTitleLabel.label)
         horizontalStackViewForTitleAndDate.sView.addArrangedSubview(pictureOfTheDayDateLabel.label)
         
-        //Vertical StackView
-        verticalStackView.sView.addArrangedSubview(pictureOfDayImageView.customImage)
-        verticalStackView.sView.addArrangedSubview(titleLabel.label)
-        verticalStackView.sView.addArrangedSubview(dateLabel.label)
-        verticalStackView.sView.addArrangedSubview(explanationLabel.label)
+        viewForAbout.view.addSubview(titleLabel.label)
+        viewForAbout.view.addSubview(explanationLabel.label)
         
         view.addSubview(customToolbar.view)
         view.addSubview(separateLineForToolbar.view)
     }
     
     func settingView() {
-        view.backgroundColor = Helper.Colors.darkBlue
+        
         starsView.view.backgroundColor = .clear
         
+        configureNavigation()
         configureStackViews()
         configureToolbar()
+        configureCustomView()
+        addGradientLayer()
         
-        title = "SpaceGram"
+        
         
         pictureOfDayImageView.customImage.layer.cornerRadius = 30
         scrollView.scroll.showsVerticalScrollIndicator = false
+        
     }
     
-    private func configureStackViews() {
+    //MARK: - Navigation
+    private func configureNavigation() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+    }
+    
+    //MARK: - Gradient
+    private func addGradientLayer() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = Helper.Colors.blueGradient
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.5)
+        viewForAbout.view.layer.insertSublayer(gradientLayer, at: 0)
         
+        let gradientLayerForView = CAGradientLayer()
+        gradientLayerForView.frame = view.bounds
+        gradientLayerForView.colors = Helper.Colors.darkBlueGradient
+        gradientLayerForView.endPoint = CGPoint(x: 0.5, y: 0.5)
+        gradientLayerForView.locations = [0.4, 1.0]
+        self.view.layer.insertSublayer(gradientLayerForView, at: 0)
+    }
+    
+    //MARK: - StackView
+    private func configureStackViews() {
         horizontalStackViewForTitleAndDate.sView.axis = .horizontal
         horizontalStackViewForTitleAndDate.sView.alignment = .center
         horizontalStackViewForTitleAndDate.sView.distribution = .equalSpacing
@@ -56,9 +81,19 @@ extension PictureOfDayViewController {
         verticalStackView.sView.spacing = 20
     }
     
-    func configureToolbar() {
+    //MARK: - Toolbar
+    private func configureToolbar() {
         customToolbar.view.backgroundColor = Helper.Colors.lightCyan
         separateLineForToolbar.view.backgroundColor = Helper.Colors.lightYellow
+    }
+    
+    //MARK: - Custom View
+    private func configureCustomView() {
+        viewForAbout.view.layer.borderColor = UIColor.lightGray.cgColor
+        viewForAbout.view.layer.borderWidth = 1
+        viewForAbout.view.layer.cornerRadius = 30
+        viewForAbout.view.clipsToBounds = true
+        
     }
     
     
@@ -72,6 +107,12 @@ extension PictureOfDayViewController {
         for _ in 0..<100 {
             let star = UIView()
             star.backgroundColor = Helper.Colors.lightYellow
+            star.layer.shadowOffset = .zero
+            star.layer.shadowOpacity = 0.5
+            star.layer.shadowColor = UIColor.white.cgColor
+            star.layer.shadowRadius = 5
+//            star.layer.shadowPath = UIBezierPath(ovalIn: star.bounds).cgPath
+            
             let x = CGFloat.random(in: 0..<starsView.view.bounds.width)
             let y = CGFloat.random(in: 0..<starsView.view.bounds.height)
             let intRandom = CGFloat.random(in: 2..<8)

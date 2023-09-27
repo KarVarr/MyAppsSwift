@@ -17,13 +17,15 @@ extension PictureOfDayViewController {
         let activityIndicatorPicture = activityIndicatorViewForPictureOfDay.indicator
         
         let horizontalStackViewForTitleAndDate = horizontalStackViewForTitleAndDate.sView
-//        let pictureOfTheDayTitleLabel = pictureOfTheDayTitleLabel.label
-//        let pictureOfTheDayDateLabel = pictureOfTheDayDateLabel.label
+        //        let pictureOfTheDayTitleLabel = pictureOfTheDayTitleLabel.label
+        //        let pictureOfTheDayDateLabel = pictureOfTheDayDateLabel.label
         
-        let verticalStackView = verticalStackView.sView
+//        let verticalStackView = verticalStackView.sView
         let pictureOfDayImageView = pictureOfDayImageView.customImage
-        //        let titleLabel = titleLabel.label
-        //        let dateLabel = dateLabel.label
+        
+        let viewForAbout = viewForAbout.view
+        let titleLabel = titleLabel.label
+//        let dateLabel = dateLabel.label
         let explanationLabel = explanationLabel.label
         
         let separateLineForToolbar = separateLineForToolbar.view
@@ -38,33 +40,46 @@ extension PictureOfDayViewController {
             
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: separateLineForToolbar.topAnchor, constant: -3),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: separateLineForToolbar.topAnchor, constant: -10),
+            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             horizontalStackViewForTitleAndDate.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             horizontalStackViewForTitleAndDate.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            horizontalStackViewForTitleAndDate.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-            horizontalStackViewForTitleAndDate.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            horizontalStackViewForTitleAndDate.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
+            horizontalStackViewForTitleAndDate.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
             
-            verticalStackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            verticalStackView.topAnchor.constraint(equalTo: horizontalStackViewForTitleAndDate.bottomAnchor, constant: 20),
-            verticalStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            verticalStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            verticalStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+//            verticalStackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+//            verticalStackView.topAnchor.constraint(equalTo: horizontalStackViewForTitleAndDate.bottomAnchor, constant: 20),
+//            verticalStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+//            verticalStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+//            verticalStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             
             activityIndicatorPicture.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             activityIndicatorPicture.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
             
-            pictureOfDayImageView.topAnchor.constraint(equalTo: verticalStackView.topAnchor),
-            pictureOfDayImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
-            pictureOfDayImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
+            pictureOfDayImageView.topAnchor.constraint(equalTo: horizontalStackViewForTitleAndDate.bottomAnchor, constant: 20),
+            pictureOfDayImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
+            pictureOfDayImageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
+            pictureOfDayImageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 0.3),
+//            pictureOfDayImageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.8),
+            
+            viewForAbout.topAnchor.constraint(equalTo: pictureOfDayImageView.bottomAnchor, constant: 20),
+            viewForAbout.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
+            viewForAbout.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
+            viewForAbout.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+//            viewForAbout.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+//            viewForAbout.widthAnchor.constraint(equalToConstant: 300),
+            viewForAbout.heightAnchor.constraint(equalTo: explanationLabel.heightAnchor, multiplier: 1.15),
+            
+            titleLabel.topAnchor.constraint(equalTo: viewForAbout.topAnchor, constant: 20),
+            titleLabel.centerXAnchor.constraint(equalTo: viewForAbout.centerXAnchor),
             
             
-            //            titleLabel.topAnchor.constraint(equalTo: pictureOfDayImageView.bottomAnchor),
-            //            dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            //            explanationLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
-            explanationLabel.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor, constant: 20),
-            explanationLabel.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: -20),
+            explanationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            explanationLabel.leadingAnchor.constraint(equalTo: viewForAbout.leadingAnchor, constant: 10),
+            explanationLabel.trailingAnchor.constraint(equalTo: viewForAbout.trailingAnchor, constant: -10),
+            explanationLabel.centerXAnchor.constraint(equalTo: viewForAbout.centerXAnchor),
             
             separateLineForToolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             separateLineForToolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),

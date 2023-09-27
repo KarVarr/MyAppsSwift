@@ -25,6 +25,8 @@ class PictureOfDayViewController: UIViewController {
     let pictureOfTheDayTitleLabel = CustomLabel()
     let pictureOfTheDayDateLabel = CustomLabel()
     var pictureOfDayImageView = CustomImageView()
+    
+    let viewForAbout = CustomView()
     var titleLabel = CustomLabel()
     var dateLabel = CustomLabel()
     var explanationLabel = CustomLabel()
@@ -42,6 +44,7 @@ class PictureOfDayViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         fetchPictureOfTheDay()
     }
     

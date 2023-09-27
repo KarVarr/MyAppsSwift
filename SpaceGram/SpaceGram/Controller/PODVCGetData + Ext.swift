@@ -10,7 +10,7 @@ import UIKit
 
 extension PictureOfDayViewController {
     func fetchPictureOfTheDay () {
-        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+        DispatchQueue.global(qos: .userInteractive).async { [unowned self] in
             self.dataFetcher.decodeAPI(at: Helper.URL.nasaPictureOfTheDayUrl) { (result: Result<AstronomyPictureOfTheDay, Error>) in
                 switch result {
                 case .success(let pictureOfTheDay):
