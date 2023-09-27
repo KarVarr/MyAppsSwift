@@ -95,31 +95,33 @@ extension PictureOfDayViewController {
         viewForAbout.view.clipsToBounds = true
         
     }
-    
+        
     
     func makeStars() {
         starsView.view.frame = view.bounds
-        
-        for star in starsView.view.subviews {
-            star.removeFromSuperview()
-        }
-        
-        for _ in 0..<100 {
+     
+        for _ in 0..<50 {
             let star = UIView()
             star.backgroundColor = Helper.Colors.lightYellow
             star.layer.shadowOffset = .zero
-            star.layer.shadowOpacity = 0.5
-            star.layer.shadowColor = UIColor.white.cgColor
-            star.layer.shadowRadius = 5
-//            star.layer.shadowPath = UIBezierPath(ovalIn: star.bounds).cgPath
+            star.layer.shadowColor = Helper.Colors.milkWhite.cgColor
+            star.layer.shadowRadius = 4
+
             
             let x = CGFloat.random(in: 0..<starsView.view.bounds.width)
             let y = CGFloat.random(in: 0..<starsView.view.bounds.height)
-            let intRandom = CGFloat.random(in: 2..<8)
+            let intRandom = CGFloat.random(in: 2..<12)
             star.frame = CGRect(x: x, y: y, width: intRandom, height: intRandom)
             star.layer.cornerRadius = star.bounds.width / 2
             
             starsView.view.addSubview(star)
+            
+            //Animation
+            view.layoutIfNeeded()
+            UIView.animate(withDuration: 3, delay: 0, options: [.repeat, .autoreverse]) {
+                star.layer.shadowOpacity = 2
+                self.view.layoutIfNeeded()
+            }
         }
     }
 }

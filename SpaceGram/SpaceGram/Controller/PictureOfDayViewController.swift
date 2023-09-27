@@ -35,6 +35,8 @@ class PictureOfDayViewController: UIViewController {
     let separateLineForToolbar = CustomView()
     let customToolbar = CustomView()
     
+    var shadowOpacity: Float = 0.1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
