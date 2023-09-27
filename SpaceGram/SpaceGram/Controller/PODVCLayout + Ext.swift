@@ -12,7 +12,13 @@ extension PictureOfDayViewController {
     func layoutView() {
         let scrollView = scrollView.scroll
         
+        let starsView = starsView.view
+        
         let activityIndicatorPicture = activityIndicatorViewForPictureOfDay.indicator
+        
+        let horizontalStackViewForTitleAndDate = horizontalStackViewForTitleAndDate.sView
+//        let pictureOfTheDayTitleLabel = pictureOfTheDayTitleLabel.label
+//        let pictureOfTheDayDateLabel = pictureOfTheDayDateLabel.label
         
         let verticalStackView = verticalStackView.sView
         let pictureOfDayImageView = pictureOfDayImageView.customImage
@@ -25,13 +31,23 @@ extension PictureOfDayViewController {
         
         
         NSLayoutConstraint.activate([
+            starsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            starsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            starsView.topAnchor.constraint(equalTo: view.topAnchor),
+            starsView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: separateLineForToolbar.topAnchor, constant: -3),
             
+            horizontalStackViewForTitleAndDate.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            horizontalStackViewForTitleAndDate.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            horizontalStackViewForTitleAndDate.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            horizontalStackViewForTitleAndDate.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            
             verticalStackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            verticalStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            verticalStackView.topAnchor.constraint(equalTo: horizontalStackViewForTitleAndDate.bottomAnchor, constant: 20),
             verticalStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             verticalStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             verticalStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),

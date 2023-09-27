@@ -20,7 +20,8 @@ extension PictureOfDayViewController {
                             self.activityIndicatorViewForPictureOfDay.indicator.stopAnimating()
                             self.pictureOfDayImageView.customImage.image = image
                             self.titleLabel.label.text = "Title: \(pictureOfTheDay.title)"
-                            self.dateLabel.label.text = "Date: \(pictureOfTheDay.date)"
+                            self.pictureOfTheDayTitleLabel.label.text = "Picture of The Day"
+                            self.pictureOfTheDayDateLabel.label.text = pictureOfTheDay.date
                             self.explanationLabel.label.text = pictureOfTheDay.explanation
                             
                         }

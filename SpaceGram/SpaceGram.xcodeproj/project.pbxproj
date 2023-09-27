@@ -123,8 +123,8 @@
 			children = (
 				177F3B752AC3473300D0876C /* PictureOfDayViewController.swift */,
 				17B7B5042AC44B13009A5767 /* PODVCLayout + Ext.swift */,
-				17B7B5062AC44B5C009A5767 /* PODVCGetData + Ext.swift */,
 				17B7B5082AC44B9C009A5767 /* PODVCSettings + Ext.swift */,
+				17B7B5062AC44B5C009A5767 /* PODVCGetData + Ext.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
