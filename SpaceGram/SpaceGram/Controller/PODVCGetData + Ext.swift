@@ -11,7 +11,7 @@ import UIKit
 extension PictureOfDayViewController {
     func fetchPictureOfTheDay () {
         DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
-            self.dataFetcher.decodeAPI(at: self.urlNasa) { (result: Result<AstronomyPictureOfTheDay, Error>) in
+            self.dataFetcher.decodeAPI(at: Helper.URL.nasaPictureOfTheDayUrl) { (result: Result<AstronomyPictureOfTheDay, Error>) in
                 switch result {
                 case .success(let pictureOfTheDay):
                     if let imageUrl = URL(string: pictureOfTheDay.url), let imageData = try? Data(contentsOf: imageUrl), let image = UIImage(data: imageData) {
@@ -20,14 +20,12 @@ extension PictureOfDayViewController {
                             self.activityIndicatorViewForPictureOfDay.indicator.stopAnimating()
                             self.pictureOfDayImageView.customImage.image = image
                             self.titleLabel.label.text = "Title: \(pictureOfTheDay.title)"
-                            self.pictureOfTheDayTitleLabel.label.text = "Picture of The Day"
+                            self.pictureOfTheDayTitleLabel.label.text = Helper.String.titlePictureOfTheDay
                             self.pictureOfTheDayDateLabel.label.text = pictureOfTheDay.date
                             self.explanationLabel.label.text = pictureOfTheDay.explanation
                             
                         }
-                        
                     }
-                    
                     
                 case .failure(let error):
                     print("Error: \(error)")

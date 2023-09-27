@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1710F1E82AC4861D0032927B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710F1E72AC4861D0032927B /* Helper.swift */; };
+		1710F1EA2AC487680032927B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710F1E92AC487680032927B /* Keys.swift */; };
 		177F3B722AC3473300D0876C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B712AC3473300D0876C /* AppDelegate.swift */; };
 		177F3B742AC3473300D0876C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B732AC3473300D0876C /* SceneDelegate.swift */; };
 		177F3B762AC3473300D0876C /* PictureOfDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B752AC3473300D0876C /* PictureOfDayViewController.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1710F1E72AC4861D0032927B /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		1710F1E92AC487680032927B /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		177F3B6E2AC3473300D0876C /* SpaceGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		177F3B712AC3473300D0876C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		177F3B732AC3473300D0876C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1710F1E62AC4860B0032927B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1710F1E72AC4861D0032927B /* Helper.swift */,
+				1710F1E92AC487680032927B /* Keys.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		177F3B652AC3473300D0876C = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +89,7 @@
 		177F3B702AC3473300D0876C /* SpaceGram */ = {
 			isa = PBXGroup;
 			children = (
+				1710F1E62AC4860B0032927B /* Helpers */,
 				177F3B962AC3675000D0876C /* Networking */,
 				177F3B862AC347B900D0876C /* Application */,
 				177F3B932AC3668500D0876C /* Model */,
@@ -216,7 +230,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				177F3B8C2AC350C400D0876C /* CustomView.swift in Sources */,
+				1710F1EA2AC487680032927B /* Keys.swift in Sources */,
 				177F3B8A2AC34AAE00D0876C /* CustomImageView.swift in Sources */,
+				1710F1E82AC4861D0032927B /* Helper.swift in Sources */,
 				17B7B5072AC44B5C009A5767 /* PODVCGetData + Ext.swift in Sources */,
 				177F3B8E2AC3573700D0876C /* CustomScrollView.swift in Sources */,
 				177F3B762AC3473300D0876C /* PictureOfDayViewController.swift in Sources */,

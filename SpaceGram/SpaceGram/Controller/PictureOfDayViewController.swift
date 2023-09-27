@@ -30,8 +30,6 @@ class PictureOfDayViewController: UIViewController {
     let separateLineForToolbar = CustomView()
     let customToolbar = CustomView()
     
-    let urlNasa = "https://api.nasa.gov/planetary/apod?api_key=kOZ9oe3uvIOL9jm2Jjqzesdkl6cp48PWhpsNZLeM"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
