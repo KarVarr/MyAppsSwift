@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		177F3B722AC3473300D0876C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B712AC3473300D0876C /* AppDelegate.swift */; };
 		177F3B742AC3473300D0876C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B732AC3473300D0876C /* SceneDelegate.swift */; };
-		177F3B762AC3473300D0876C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B752AC3473300D0876C /* ViewController.swift */; };
+		177F3B762AC3473300D0876C /* PictureOfDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B752AC3473300D0876C /* PictureOfDayViewController.swift */; };
 		177F3B7B2AC3473400D0876C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177F3B7A2AC3473400D0876C /* Assets.xcassets */; };
 		177F3B7E2AC3473400D0876C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177F3B7C2AC3473400D0876C /* LaunchScreen.storyboard */; };
 		177F3B8A2AC34AAE00D0876C /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B892AC34AAE00D0876C /* CustomImageView.swift */; };
@@ -19,13 +19,17 @@
 		177F3B922AC362ED00D0876C /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B912AC362ED00D0876C /* CustomLabel.swift */; };
 		177F3B952AC366BA00D0876C /* AstronomyPictureOfTheDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B942AC366BA00D0876C /* AstronomyPictureOfTheDay.swift */; };
 		177F3B982AC367B500D0876C /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B972AC367B500D0876C /* DataFetcher.swift */; };
+		17B7B5032AC44456009A5767 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7B5022AC44456009A5767 /* ActivityIndicatorView.swift */; };
+		17B7B5052AC44B13009A5767 /* PODVCLayout + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7B5042AC44B13009A5767 /* PODVCLayout + Ext.swift */; };
+		17B7B5072AC44B5C009A5767 /* PODVCGetData + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7B5062AC44B5C009A5767 /* PODVCGetData + Ext.swift */; };
+		17B7B5092AC44B9C009A5767 /* PODVCSettings + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7B5082AC44B9C009A5767 /* PODVCSettings + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		177F3B6E2AC3473300D0876C /* SpaceGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		177F3B712AC3473300D0876C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		177F3B732AC3473300D0876C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		177F3B752AC3473300D0876C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		177F3B752AC3473300D0876C /* PictureOfDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfDayViewController.swift; sourceTree = "<group>"; };
 		177F3B7A2AC3473400D0876C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		177F3B7D2AC3473400D0876C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		177F3B7F2AC3473400D0876C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -36,6 +40,10 @@
 		177F3B912AC362ED00D0876C /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		177F3B942AC366BA00D0876C /* AstronomyPictureOfTheDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronomyPictureOfTheDay.swift; sourceTree = "<group>"; };
 		177F3B972AC367B500D0876C /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		17B7B5022AC44456009A5767 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		17B7B5042AC44B13009A5767 /* PODVCLayout + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PODVCLayout + Ext.swift"; sourceTree = "<group>"; };
+		17B7B5062AC44B5C009A5767 /* PODVCGetData + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PODVCGetData + Ext.swift"; sourceTree = "<group>"; };
+		17B7B5082AC44B9C009A5767 /* PODVCSettings + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PODVCSettings + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +113,7 @@
 				177F3B8D2AC3573700D0876C /* CustomScrollView.swift */,
 				177F3B8F2AC35E3F00D0876C /* CustomStackView.swift */,
 				177F3B912AC362ED00D0876C /* CustomLabel.swift */,
+				17B7B5022AC44456009A5767 /* ActivityIndicatorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -112,7 +121,10 @@
 		177F3B882AC34A7B00D0876C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				177F3B752AC3473300D0876C /* ViewController.swift */,
+				177F3B752AC3473300D0876C /* PictureOfDayViewController.swift */,
+				17B7B5042AC44B13009A5767 /* PODVCLayout + Ext.swift */,
+				17B7B5062AC44B5C009A5767 /* PODVCGetData + Ext.swift */,
+				17B7B5082AC44B9C009A5767 /* PODVCSettings + Ext.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -161,7 +173,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					177F3B6D2AC3473300D0876C = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -205,14 +217,18 @@
 			files = (
 				177F3B8C2AC350C400D0876C /* CustomView.swift in Sources */,
 				177F3B8A2AC34AAE00D0876C /* CustomImageView.swift in Sources */,
+				17B7B5072AC44B5C009A5767 /* PODVCGetData + Ext.swift in Sources */,
 				177F3B8E2AC3573700D0876C /* CustomScrollView.swift in Sources */,
-				177F3B762AC3473300D0876C /* ViewController.swift in Sources */,
+				177F3B762AC3473300D0876C /* PictureOfDayViewController.swift in Sources */,
 				177F3B902AC35E3F00D0876C /* CustomStackView.swift in Sources */,
 				177F3B982AC367B500D0876C /* DataFetcher.swift in Sources */,
+				17B7B5032AC44456009A5767 /* ActivityIndicatorView.swift in Sources */,
 				177F3B722AC3473300D0876C /* AppDelegate.swift in Sources */,
+				17B7B5052AC44B13009A5767 /* PODVCLayout + Ext.swift in Sources */,
 				177F3B952AC366BA00D0876C /* AstronomyPictureOfTheDay.swift in Sources */,
 				177F3B742AC3473300D0876C /* SceneDelegate.swift in Sources */,
 				177F3B922AC362ED00D0876C /* CustomLabel.swift in Sources */,
+				17B7B5092AC44B9C009A5767 /* PODVCSettings + Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +282,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -326,6 +343,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -356,8 +374,7 @@
 				INFOPLIST_FILE = SpaceGram/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,8 +400,7 @@
 				INFOPLIST_FILE = SpaceGram/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
