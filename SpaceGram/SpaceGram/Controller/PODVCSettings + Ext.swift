@@ -32,8 +32,6 @@ extension PictureOfDayViewController {
     
     func settingView() {
         
-        starsView.view.backgroundColor = .clear
-        
         configureNavigation()
         configureStackViews()
         configureToolbar()
@@ -41,9 +39,14 @@ extension PictureOfDayViewController {
         addGradientLayer()
         
         
-        
         pictureOfDayImageView.customImage.layer.cornerRadius = 30
+        
         scrollView.scroll.showsVerticalScrollIndicator = false
+        
+        pictureOfTheDayTitleLabel.label.font = Helper.Font.CopperplateBold(with: 22)
+        pictureOfTheDayTitleLabel.label.textColor = Helper.Colors.darkMagenta
+        pictureOfTheDayDateLabel.label.textColor = Helper.Colors.darkMagenta
+        pictureOfTheDayDateLabel.label.font = Helper.Font.CopperplateBold(with: 18)
         
     }
     
@@ -75,16 +78,12 @@ extension PictureOfDayViewController {
         horizontalStackViewForTitleAndDate.sView.axis = .horizontal
         horizontalStackViewForTitleAndDate.sView.alignment = .center
         horizontalStackViewForTitleAndDate.sView.distribution = .equalSpacing
-        
-        verticalStackView.sView.alignment = .center
-        verticalStackView.sView.axis = .vertical
-        verticalStackView.sView.spacing = 20
     }
     
     //MARK: - Toolbar
     private func configureToolbar() {
-        customToolbar.view.backgroundColor = Helper.Colors.lightCyan
-        separateLineForToolbar.view.backgroundColor = Helper.Colors.lightYellow
+        customToolbar.view.backgroundColor = Helper.Colors.lightSkyBlue
+        separateLineForToolbar.view.backgroundColor = Helper.Colors.lightGray.withAlphaComponent(0.8)
     }
     
     //MARK: - Custom View
@@ -94,10 +93,13 @@ extension PictureOfDayViewController {
         viewForAbout.view.layer.cornerRadius = 30
         viewForAbout.view.clipsToBounds = true
         
+        titleLabel.label.font = Helper.Font.DINCondensedBold(with: 24)
+        explanationLabel.label.font = Helper.Font.AppleSDGothicNeoBold(with: 18)
     }
         
     
     func makeStars() {
+        starsView.view.backgroundColor = .clear
         starsView.view.frame = view.bounds
      
         for _ in 0..<50 {

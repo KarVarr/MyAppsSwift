@@ -41,7 +41,7 @@ extension PictureOfDayViewController {
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: separateLineForToolbar.topAnchor, constant: -10),
+            scrollView.bottomAnchor.constraint(equalTo: separateLineForToolbar.topAnchor),
             scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             horizontalStackViewForTitleAndDate.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
@@ -70,7 +70,7 @@ extension PictureOfDayViewController {
             viewForAbout.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
 //            viewForAbout.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
 //            viewForAbout.widthAnchor.constraint(equalToConstant: 300),
-            viewForAbout.heightAnchor.constraint(equalTo: explanationLabel.heightAnchor, multiplier: 1.15),
+            viewForAbout.heightAnchor.constraint(equalTo: explanationLabel.heightAnchor, multiplier: 1.2),
             
             titleLabel.topAnchor.constraint(equalTo: viewForAbout.topAnchor, constant: 20),
             titleLabel.centerXAnchor.constraint(equalTo: viewForAbout.centerXAnchor),
@@ -84,7 +84,7 @@ extension PictureOfDayViewController {
             separateLineForToolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             separateLineForToolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             separateLineForToolbar.bottomAnchor.constraint(equalTo: customToolbar.topAnchor),
-            separateLineForToolbar.heightAnchor.constraint(equalToConstant: 1.0),
+            separateLineForToolbar.heightAnchor.constraint(equalToConstant: 0.4),
             
             customToolbar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             customToolbar.bottomAnchor.constraint(equalTo: view.bottomAnchor),
