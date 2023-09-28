@@ -51,14 +51,7 @@ extension PictureOfDayViewController {
         
     }
     
-    func addImagesToToolbar() {
-        for imageName in imagesForToolbar.images {
-            let imageView = CustomImageView()
-            imageView.customImage.image = UIImage(named: imageName)
-            imageView.customImage.contentMode = .scaleAspectFit
-            horizontalVStackForToolbar.sView.addArrangedSubview(imageView.customImage)
-        }
-    }
+    
     
     //MARK: - Navigation
     private func configureNavigation() {
@@ -93,9 +86,51 @@ extension PictureOfDayViewController {
         horizontalVStackForToolbar.sView.alignment = .center
         horizontalVStackForToolbar.sView.distribution = .fillEqually
         horizontalVStackForToolbar.sView.spacing = 20
-        
     }
     
+    func addImagesToToolbar() {
+        for imageName in imagesForToolbar.images {
+            let imageView = CustomImageView()
+            imageView.customImage.image = UIImage(named: imageName)
+            imageView.customImage.contentMode = .scaleAspectFit
+            imageView.customImage.isUserInteractionEnabled = true
+            imageView.customImage.image = imageView.customImage.image?.withRenderingMode(.alwaysTemplate)
+            imageView.customImage.tintColor = Helper.Colors.darkBlue
+            horizontalVStackForToolbar.sView.addArrangedSubview(imageView.customImage)
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
+            imageView.customImage.addGestureRecognizer(tapGesture)
+        }
+    }
+    
+    @objc func imageTapped(_ sender: UITapGestureRecognizer) {
+        guard let tappedImageView = sender.view as? UIImageView else { return }
+        
+        for subview in horizontalVStackForToolbar.sView.arrangedSubviews {
+            if let imageView = subview as? UIImageView {
+                view.layoutIfNeeded()
+                if imageView == tappedImageView {
+                    UIView.animate(withDuration: 0.3) {
+                        imageView.tintColor = Helper.Colors.yellow
+                        imageView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                        self.view.layoutIfNeeded()
+                    }
+                } else {
+                    UIView.animate(withDuration: 0.3) {
+                        imageView.tintColor = Helper.Colors.darkBlue
+                        imageView.transform = .identity
+                        self.view.layoutIfNeeded()
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    //MARK: - View for Title and Date
     private func configureViewContainersForTitleAndDate() {
         viewContainerForTitleAndDate.view.clipsToBounds = true
         viewContainerForTitleAndDate.view.layer.cornerRadius = 30
