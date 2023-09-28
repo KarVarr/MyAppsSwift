@@ -15,13 +15,13 @@ extension PictureOfDayViewController {
         view.addSubview(scrollView.scroll)
         scrollView.scroll.addSubview(starsView.view)
         scrollView.scroll.addSubview(activityIndicatorViewForPictureOfDay.indicator)
-        scrollView.scroll.addSubview(horizontalStackViewForTitleAndDate.sView)
+        scrollView.scroll.addSubview(viewContainerForTitleAndDate.view)
         scrollView.scroll.addSubview(pictureOfDayImageView.customImage)
         scrollView.scroll.addSubview(viewForAbout.view)
         
         //Horizontal StackView
-        horizontalStackViewForTitleAndDate.sView.addArrangedSubview(pictureOfTheDayTitleLabel.label)
-        horizontalStackViewForTitleAndDate.sView.addArrangedSubview(pictureOfTheDayDateLabel.label)
+        viewContainerForTitleAndDate.view.addSubview(pictureOfTheDayTitleLabel.label)
+        viewContainerForTitleAndDate.view.addSubview(pictureOfTheDayDateLabel.label)
         
         viewForAbout.view.addSubview(titleLabel.label)
         viewForAbout.view.addSubview(explanationLabel.label)
@@ -33,7 +33,7 @@ extension PictureOfDayViewController {
     func settingView() {
         
         configureNavigation()
-        configureStackViews()
+        configureViewContainersForTitleAndDate()
         configureToolbar()
         configureCustomView()
         addGradientLayer()
@@ -44,8 +44,8 @@ extension PictureOfDayViewController {
         scrollView.scroll.showsVerticalScrollIndicator = false
         
         pictureOfTheDayTitleLabel.label.font = Helper.Font.CopperplateBold(with: 22)
-        pictureOfTheDayTitleLabel.label.textColor = Helper.Colors.darkMagenta
-        pictureOfTheDayDateLabel.label.textColor = Helper.Colors.darkMagenta
+        pictureOfTheDayTitleLabel.label.textColor = Helper.Colors.milkWhite
+        pictureOfTheDayDateLabel.label.textColor = Helper.Colors.milkWhite
         pictureOfTheDayDateLabel.label.font = Helper.Font.CopperplateBold(with: 18)
         
     }
@@ -71,13 +71,13 @@ extension PictureOfDayViewController {
         gradientLayerForView.endPoint = CGPoint(x: 0.5, y: 0.5)
         gradientLayerForView.locations = [0.4, 1.0]
         self.view.layer.insertSublayer(gradientLayerForView, at: 0)
+        
     }
     
     //MARK: - StackView
-    private func configureStackViews() {
-        horizontalStackViewForTitleAndDate.sView.axis = .horizontal
-        horizontalStackViewForTitleAndDate.sView.alignment = .center
-        horizontalStackViewForTitleAndDate.sView.distribution = .equalSpacing
+    private func configureViewContainersForTitleAndDate() {
+        viewContainerForTitleAndDate.view.clipsToBounds = true
+        viewContainerForTitleAndDate.view.layer.cornerRadius = 30
     }
     
     //MARK: - Toolbar
@@ -96,19 +96,34 @@ extension PictureOfDayViewController {
         titleLabel.label.font = Helper.Font.DINCondensedBold(with: 24)
         explanationLabel.label.font = Helper.Font.AppleSDGothicNeoBold(with: 18)
     }
+    
+    //MARK: - Blur
+    func blurEffect() {
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = view.bounds
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
+        let gradientLayerForHStack = CAGradientLayer()
+        gradientLayerForHStack.frame = view.bounds
+        gradientLayerForHStack.colors = Helper.Colors.pinkAndBlueGradient
+        gradientLayerForHStack.endPoint = CGPoint(x: 0, y: 0.5)
+        
+        viewContainerForTitleAndDate.view.addSubview(blurView)
+        viewContainerForTitleAndDate.view.layer.insertSublayer(gradientLayerForHStack, at: 0)
+    }
     
     func makeStars() {
         starsView.view.backgroundColor = .clear
         starsView.view.frame = view.bounds
-     
+        
         for _ in 0..<50 {
             let star = UIView()
             star.backgroundColor = Helper.Colors.lightYellow
             star.layer.shadowOffset = .zero
-            star.layer.shadowColor = Helper.Colors.milkWhite.cgColor
+            star.layer.shadowColor = Helper.Colors.white.cgColor
             star.layer.shadowRadius = 4
-
+            
             
             let x = CGFloat.random(in: 0..<starsView.view.bounds.width)
             let y = CGFloat.random(in: 0..<starsView.view.bounds.height)
@@ -120,8 +135,9 @@ extension PictureOfDayViewController {
             
             //Animation
             view.layoutIfNeeded()
-            UIView.animate(withDuration: 3, delay: 0, options: [.repeat, .autoreverse]) {
-                star.layer.shadowOpacity = 2
+            UIView.animate(withDuration: 6, delay: 0, options: [.repeat, .autoreverse]) {
+                star.backgroundColor = Helper.Colors.yellow
+                star.layer.shadowOpacity = 3
                 self.view.layoutIfNeeded()
             }
         }

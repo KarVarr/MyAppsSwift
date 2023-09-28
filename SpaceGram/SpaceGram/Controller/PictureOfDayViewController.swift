@@ -18,9 +18,7 @@ class PictureOfDayViewController: UIViewController {
     let scrollView = CustomScrollView()
     let activityIndicatorViewForPictureOfDay = ActivityIndicatorView()
     
-    //StackView
-    let horizontalStackViewForTitleAndDate = CustomStackView()
-    let verticalStackView = CustomStackView()
+    let viewContainerForTitleAndDate = CustomView()
     
     let pictureOfTheDayTitleLabel = CustomLabel()
     let pictureOfTheDayDateLabel = CustomLabel()
@@ -39,13 +37,14 @@ class PictureOfDayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        blurEffect()
         addSubviews()
         settingView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+      
         
         fetchPictureOfTheDay()
     }
@@ -54,6 +53,9 @@ class PictureOfDayViewController: UIViewController {
         super.viewWillLayoutSubviews()
         makeStars()
         layoutView()
+       
     }
+    
+    
     
 }
