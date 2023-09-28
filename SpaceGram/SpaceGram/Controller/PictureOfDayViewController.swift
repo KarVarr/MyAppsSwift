@@ -10,6 +10,7 @@ import UIKit
 class PictureOfDayViewController: UIViewController {
     
     let dataFetcher = DataFetcher()
+    let imagesForToolbar = ImagesForToolbar()
     
     //Stars on the view
     let starsView = CustomView()
@@ -17,6 +18,7 @@ class PictureOfDayViewController: UIViewController {
     //Scroll and activityIndicator
     let scrollView = CustomScrollView()
     let activityIndicatorViewForPictureOfDay = ActivityIndicatorView()
+    
     
     let viewContainerForTitleAndDate = CustomView()
     
@@ -32,8 +34,12 @@ class PictureOfDayViewController: UIViewController {
     //Toolbar
     let separateLineForToolbar = CustomView()
     let customToolbar = CustomView()
+    let horizontalVStackForToolbar = CustomStackView()
+    let homeImageToolbar = CustomImageView()
+    let planetImageToolbar = CustomImageView()
+    let albumImageToolbar = CustomImageView()
+    let userImageToolbar = CustomImageView()
     
-    var shadowOpacity: Float = 0.1
     
     override func viewDidLoad() {
         super.viewDidLoad()

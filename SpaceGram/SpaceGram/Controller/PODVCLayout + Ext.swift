@@ -16,7 +16,7 @@ extension PictureOfDayViewController {
         
         let activityIndicatorPicture = activityIndicatorViewForPictureOfDay.indicator
         
-        let viewContainerForHStack = viewContainerForTitleAndDate.view
+        let viewContainerForTitleAndDate = viewContainerForTitleAndDate.view
         let pictureOfTheDayTitleLabel = pictureOfTheDayTitleLabel.label
         let pictureOfTheDayDateLabel = pictureOfTheDayDateLabel.label
         let pictureOfDayImageView = pictureOfDayImageView.customImage
@@ -28,36 +28,46 @@ extension PictureOfDayViewController {
         
         let separateLineForToolbar = separateLineForToolbar.view
         let customToolbar = customToolbar.view
+        let horizontalVStackForToolbar = horizontalVStackForToolbar.sView
         
         
+        //MARK: - Scroll view and activity indicator
         NSLayoutConstraint.activate([
             starsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             starsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             starsView.topAnchor.constraint(equalTo: view.topAnchor),
             starsView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
+        
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: separateLineForToolbar.topAnchor),
             scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            viewContainerForHStack.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            viewContainerForHStack.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            viewContainerForHStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
-            viewContainerForHStack.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
-            viewContainerForHStack.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.07),
-            
-            pictureOfTheDayTitleLabel.centerYAnchor.constraint(equalTo: viewContainerForHStack.centerYAnchor),
-            pictureOfTheDayTitleLabel.leadingAnchor.constraint(equalTo: viewContainerForHStack.leadingAnchor, constant: 10),
-            
-            pictureOfTheDayDateLabel.centerYAnchor.constraint(equalTo: viewContainerForHStack.centerYAnchor),
-            pictureOfTheDayDateLabel.trailingAnchor.constraint(equalTo: viewContainerForHStack.trailingAnchor, constant: -10),
-            
             activityIndicatorPicture.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             activityIndicatorPicture.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
             
-            pictureOfDayImageView.topAnchor.constraint(equalTo: viewContainerForHStack.bottomAnchor, constant: 20),
+        ])
+        
+        //MARK: - ViewContainer for Title and Date
+        NSLayoutConstraint.activate([
+            viewContainerForTitleAndDate.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            viewContainerForTitleAndDate.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            viewContainerForTitleAndDate.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
+            viewContainerForTitleAndDate.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
+            viewContainerForTitleAndDate.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.07),
+            
+            pictureOfTheDayTitleLabel.centerYAnchor.constraint(equalTo: viewContainerForTitleAndDate.centerYAnchor),
+            pictureOfTheDayTitleLabel.leadingAnchor.constraint(equalTo: viewContainerForTitleAndDate.leadingAnchor, constant: 10),
+            
+            pictureOfTheDayDateLabel.centerYAnchor.constraint(equalTo: viewContainerForTitleAndDate.centerYAnchor),
+            pictureOfTheDayDateLabel.trailingAnchor.constraint(equalTo: viewContainerForTitleAndDate.trailingAnchor, constant: -10),
+            
+        ])
+        
+        //MARK: - Picture of Day, Title and Explanation
+        NSLayoutConstraint.activate([
+            pictureOfDayImageView.topAnchor.constraint(equalTo: viewContainerForTitleAndDate.bottomAnchor, constant: 20),
             pictureOfDayImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
             pictureOfDayImageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
             pictureOfDayImageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 0.3),
@@ -75,7 +85,11 @@ extension PictureOfDayViewController {
             explanationLabel.leadingAnchor.constraint(equalTo: viewForAbout.leadingAnchor, constant: 10),
             explanationLabel.trailingAnchor.constraint(equalTo: viewForAbout.trailingAnchor, constant: -10),
             explanationLabel.centerXAnchor.constraint(equalTo: viewForAbout.centerXAnchor),
-            
+        ])
+        
+        
+        //MARK: - Toolbar
+        NSLayoutConstraint.activate([
             separateLineForToolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             separateLineForToolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             separateLineForToolbar.bottomAnchor.constraint(equalTo: customToolbar.topAnchor),
@@ -86,6 +100,11 @@ extension PictureOfDayViewController {
             customToolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             customToolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             customToolbar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1),
+            
+            horizontalVStackForToolbar.topAnchor.constraint(equalTo: customToolbar.topAnchor, constant: 10),
+            horizontalVStackForToolbar.leadingAnchor.constraint(equalTo: customToolbar.leadingAnchor, constant: 10),
+            horizontalVStackForToolbar.trailingAnchor.constraint(equalTo: customToolbar.trailingAnchor, constant: -10),
+            horizontalVStackForToolbar.bottomAnchor.constraint(equalTo: customToolbar.bottomAnchor, constant: -10),
         ])
     }
 }

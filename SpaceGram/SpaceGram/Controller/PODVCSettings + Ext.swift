@@ -26,18 +26,19 @@ extension PictureOfDayViewController {
         viewForAbout.view.addSubview(titleLabel.label)
         viewForAbout.view.addSubview(explanationLabel.label)
         
-        view.addSubview(customToolbar.view)
         view.addSubview(separateLineForToolbar.view)
+        view.addSubview(customToolbar.view)
+        customToolbar.view.addSubview(horizontalVStackForToolbar.sView)
     }
     
     func settingView() {
         
         configureNavigation()
         configureViewContainersForTitleAndDate()
+        configureStackViews()
         configureToolbar()
         configureCustomView()
         addGradientLayer()
-        
         
         pictureOfDayImageView.customImage.layer.cornerRadius = 30
         
@@ -48,6 +49,15 @@ extension PictureOfDayViewController {
         pictureOfTheDayDateLabel.label.textColor = Helper.Colors.milkWhite
         pictureOfTheDayDateLabel.label.font = Helper.Font.CopperplateBold(with: 18)
         
+    }
+    
+    func addImagesToToolbar() {
+        for imageName in imagesForToolbar.images {
+            let imageView = CustomImageView()
+            imageView.customImage.image = UIImage(named: imageName)
+            imageView.customImage.contentMode = .scaleAspectFit
+            horizontalVStackForToolbar.sView.addArrangedSubview(imageView.customImage)
+        }
     }
     
     //MARK: - Navigation
@@ -68,13 +78,24 @@ extension PictureOfDayViewController {
         let gradientLayerForView = CAGradientLayer()
         gradientLayerForView.frame = view.bounds
         gradientLayerForView.colors = Helper.Colors.darkBlueGradient
-        gradientLayerForView.endPoint = CGPoint(x: 0.5, y: 0.5)
-        gradientLayerForView.locations = [0.4, 1.0]
+        gradientLayerForView.endPoint = CGPoint(x: 0.5, y: 1)
+        gradientLayerForView.locations = [0.2]
         self.view.layer.insertSublayer(gradientLayerForView, at: 0)
         
     }
     
     //MARK: - StackView
+    private func configureStackViews() {
+        
+        addImagesToToolbar()
+        
+        horizontalVStackForToolbar.sView.axis = .horizontal
+        horizontalVStackForToolbar.sView.alignment = .center
+        horizontalVStackForToolbar.sView.distribution = .fillEqually
+        horizontalVStackForToolbar.sView.spacing = 20
+        
+    }
+    
     private func configureViewContainersForTitleAndDate() {
         viewContainerForTitleAndDate.view.clipsToBounds = true
         viewContainerForTitleAndDate.view.layer.cornerRadius = 30
