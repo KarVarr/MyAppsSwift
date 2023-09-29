@@ -1,5 +1,5 @@
 //
-//  PODVCLayout + Ext.swift
+//  Layout + Ext.swift
 //  SpaceGram
 //
 //  Created by Karen Vardanian on 27.09.2023.

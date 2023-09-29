@@ -50,8 +50,6 @@ class PictureOfDayViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-      
-        
         fetchPictureOfTheDay()
     }
     
@@ -59,7 +57,6 @@ class PictureOfDayViewController: UIViewController {
         super.viewWillLayoutSubviews()
         makeStars()
         layoutView()
-       
     }
     
     

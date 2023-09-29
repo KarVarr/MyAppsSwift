@@ -21,8 +21,8 @@ enum Helper {
     
     //MARK: - Colors
     enum Colors {
-        static let blueGradient = [UIColor(red: 0.15, green: 0.00, blue: 0.36, alpha: 0.7).cgColor, UIColor(red: 0.58, green: 0.00, blue: 1.00, alpha: 0.4).cgColor]
-        static let pinkAndBlueGradient = [UIColor(red: 0.94, green: 0.20, blue: 0.85, alpha: 0.7).cgColor, UIColor(red: 0.54, green: 1.00, blue: 0.99, alpha: 0.3).cgColor]
+        static let blueGradient = [UIColor(red: 0.15, green: 0.00, blue: 0.36, alpha: 0.3).cgColor, UIColor(red: 0.58, green: 0.00, blue: 1.00, alpha: 0.1).cgColor]
+        static let pinkAndBlueGradient = [UIColor(red: 0.94, green: 0.20, blue: 0.85, alpha: 0.3).cgColor, UIColor(red: 0.54, green: 1.00, blue: 0.99, alpha: 0.2).cgColor]
         static let darkBlueGradient = [Helper.Colors.veryDarkBlue.cgColor, Helper.Colors.lightSkyBlue.cgColor]
         
         
