@@ -28,10 +28,10 @@ extension PictureOfDayViewController {
         
         addImagesToToolbar()
         
-        horizontalVStackForToolbar.sView.axis = .horizontal
-        horizontalVStackForToolbar.sView.alignment = .center
-        horizontalVStackForToolbar.sView.distribution = .fillEqually
-        horizontalVStackForToolbar.sView.spacing = 20
+        horizontalStackForToolbar.sView.axis = .horizontal
+        horizontalStackForToolbar.sView.alignment = .center
+        horizontalStackForToolbar.sView.distribution = .fillEqually
+        horizontalStackForToolbar.sView.spacing = 20
     }
     
     private func addImagesToToolbar() {
@@ -42,7 +42,7 @@ extension PictureOfDayViewController {
             imageView.customImage.isUserInteractionEnabled = true
             imageView.customImage.image = imageView.customImage.image?.withRenderingMode(.alwaysTemplate)
             imageView.customImage.tintColor = Helper.Colors.darkBlue
-            horizontalVStackForToolbar.sView.addArrangedSubview(imageView.customImage)
+            horizontalStackForToolbar.sView.addArrangedSubview(imageView.customImage)
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
             imageView.customImage.addGestureRecognizer(tapGesture)
@@ -52,7 +52,7 @@ extension PictureOfDayViewController {
     @objc func imageTapped(_ sender: UITapGestureRecognizer) {
         guard let tappedImageView = sender.view as? UIImageView else { return }
         
-        for subview in horizontalVStackForToolbar.sView.arrangedSubviews {
+        for subview in horizontalStackForToolbar.sView.arrangedSubviews {
             if let imageView = subview as? UIImageView {
                 view.layoutIfNeeded()
                 if imageView == tappedImageView {

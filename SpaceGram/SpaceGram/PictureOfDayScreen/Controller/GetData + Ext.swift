@@ -17,7 +17,7 @@ extension PictureOfDayViewController {
                     if let imageUrl = URL(string: pictureOfTheDay.url), let imageData = try? Data(contentsOf: imageUrl), let image = UIImage(data: imageData) {
                         
                         DispatchQueue.main.async {
-                            self.activityIndicatorViewForPictureOfDay.indicator.stopAnimating()
+                            self.hideSkeleton()
                             self.pictureOfDayImageView.customImage.image = image
                             self.pictureOfDayImageView.customImage.layer.borderWidth = 0.6
                             self.pictureOfDayImageView.customImage.layer.borderColor = Helper.Colors.lightGray.withAlphaComponent(0.8).cgColor

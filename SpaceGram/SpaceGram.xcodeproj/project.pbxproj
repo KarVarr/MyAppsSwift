@@ -28,7 +28,7 @@
 		17B7B5092AC44B9C009A5767 /* Settings + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7B5082AC44B9C009A5767 /* Settings + Ext.swift */; };
 		17CE446A2AC6E0B5001128C4 /* Navigation + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE44692AC6E0B5001128C4 /* Navigation + Ext.swift */; };
 		17CE446C2AC6E17B001128C4 /* Effects + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE446B2AC6E17B001128C4 /* Effects + Ext.swift */; };
-		17D1AAF92AC71B32007C31E6 /* Skeleton + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1AAF82AC71B32007C31E6 /* Skeleton + Ext.swift */; };
+		17D1AAFC2AC72F6A007C31E6 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 17D1AAFB2AC72F6A007C31E6 /* SkeletonView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +55,6 @@
 		17B7B5082AC44B9C009A5767 /* Settings + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings + Ext.swift"; sourceTree = "<group>"; };
 		17CE44692AC6E0B5001128C4 /* Navigation + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation + Ext.swift"; sourceTree = "<group>"; };
 		17CE446B2AC6E17B001128C4 /* Effects + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effects + Ext.swift"; sourceTree = "<group>"; };
-		17D1AAF82AC71B32007C31E6 /* Skeleton + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skeleton + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17D1AAFC2AC72F6A007C31E6 /* SkeletonView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +150,6 @@
 				17B7B5082AC44B9C009A5767 /* Settings + Ext.swift */,
 				17B7B5062AC44B5C009A5767 /* GetData + Ext.swift */,
 				17CE44692AC6E0B5001128C4 /* Navigation + Ext.swift */,
-				17D1AAF82AC71B32007C31E6 /* Skeleton + Ext.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -219,6 +218,9 @@
 			dependencies = (
 			);
 			name = SpaceGram;
+			packageProductDependencies = (
+				17D1AAFB2AC72F6A007C31E6 /* SkeletonView */,
+			);
 			productName = SpaceGram;
 			productReference = 177F3B6E2AC3473300D0876C /* SpaceGram.app */;
 			productType = "com.apple.product-type.application";
@@ -247,6 +249,9 @@
 				Base,
 			);
 			mainGroup = 177F3B652AC3473300D0876C;
+			packageReferences = (
+				17D1AAFA2AC72F6A007C31E6 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+			);
 			productRefGroup = 177F3B6F2AC3473300D0876C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -285,7 +290,6 @@
 				177F3B762AC3473300D0876C /* PictureOfDayViewController.swift in Sources */,
 				177F3B902AC35E3F00D0876C /* CustomStackView.swift in Sources */,
 				177F3B982AC367B500D0876C /* DataFetcher.swift in Sources */,
-				17D1AAF92AC71B32007C31E6 /* Skeleton + Ext.swift in Sources */,
 				17B7B5032AC44456009A5767 /* ActivityIndicatorView.swift in Sources */,
 				177F3B722AC3473300D0876C /* AppDelegate.swift in Sources */,
 				17B7B5052AC44B13009A5767 /* Layout + Ext.swift in Sources */,
@@ -500,6 +504,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		17D1AAFA2AC72F6A007C31E6 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.30.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		17D1AAFB2AC72F6A007C31E6 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17D1AAFA2AC72F6A007C31E6 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 177F3B662AC3473300D0876C /* Project object */;
 }

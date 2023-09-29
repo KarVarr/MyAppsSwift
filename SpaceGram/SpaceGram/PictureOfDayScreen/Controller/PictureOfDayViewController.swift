@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class PictureOfDayViewController: UIViewController {
     
@@ -17,7 +18,6 @@ class PictureOfDayViewController: UIViewController {
     
     //Scroll and activityIndicator
     let scrollView = CustomScrollView()
-    let activityIndicatorViewForPictureOfDay = ActivityIndicatorView()
 
     let viewContainerForTitleAndDate = CustomView()
     
@@ -33,23 +33,20 @@ class PictureOfDayViewController: UIViewController {
     //Toolbar
     let separateLineForToolbar = CustomView()
     let customToolbar = CustomView()
-    let horizontalVStackForToolbar = CustomStackView()
+    let horizontalStackForToolbar = CustomStackView()
     let homeImageToolbar = CustomImageView()
     let planetImageToolbar = CustomImageView()
     let albumImageToolbar = CustomImageView()
     let userImageToolbar = CustomImageView()
     
     
-    var currentScale: CGFloat = 1.0
-    var currentAngle: CGFloat = 0.0
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         blurEffect()
         addSubviews()
         settingView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,6 +59,7 @@ class PictureOfDayViewController: UIViewController {
         super.viewWillLayoutSubviews()
         makeStars()
         layoutView()
+        
     }
     
     

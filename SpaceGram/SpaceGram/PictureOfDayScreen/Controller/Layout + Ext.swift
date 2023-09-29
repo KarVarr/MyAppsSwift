@@ -14,8 +14,6 @@ extension PictureOfDayViewController {
         
         let starsView = starsView.view
         
-        let activityIndicatorPicture = activityIndicatorViewForPictureOfDay.indicator
-        
         let viewContainerForTitleAndDate = viewContainerForTitleAndDate.view
         let pictureOfTheDayTitleLabel = pictureOfTheDayTitleLabel.label
         let pictureOfTheDayDateLabel = pictureOfTheDayDateLabel.label
@@ -28,7 +26,7 @@ extension PictureOfDayViewController {
         
         let separateLineForToolbar = separateLineForToolbar.view
         let customToolbar = customToolbar.view
-        let horizontalVStackForToolbar = horizontalVStackForToolbar.sView
+        let horizontalVStackForToolbar = horizontalStackForToolbar.sView
         
         
         //MARK: - Scroll view and activity indicator
@@ -44,9 +42,7 @@ extension PictureOfDayViewController {
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            activityIndicatorPicture.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            activityIndicatorPicture.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
-            
+
         ])
         
         //MARK: - ViewContainer for Title and Date
@@ -73,8 +69,8 @@ extension PictureOfDayViewController {
             pictureOfDayImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
 
             viewForAbout.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            viewForAbout.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            viewForAbout.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            viewForAbout.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            viewForAbout.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             viewForAbout.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             viewForAbout.heightAnchor.constraint(equalTo: explanationLabel.heightAnchor, multiplier: 1.2),
 

@@ -10,17 +10,16 @@ import UIKit
 extension PictureOfDayViewController {
     func addSubviews() {
         view.addSubview(starsView.view)
-        //Horizontal StackView
         
+        //MARK: - Horizontal StackView
         view.addSubview(viewContainerForTitleAndDate.view)
         viewContainerForTitleAndDate.view.addSubview(pictureOfTheDayTitleLabel.label)
         viewContainerForTitleAndDate.view.addSubview(pictureOfTheDayDateLabel.label)
         
         view.addSubview(pictureOfDayImageView.customImage)
         
-        //Scroll View
+        //MARK: - Scroll View
         view.addSubview(scrollView.scroll)
-        scrollView.scroll.addSubview(activityIndicatorViewForPictureOfDay.indicator)
         scrollView.scroll.addSubview(viewForAbout.view)
         
         viewForAbout.view.addSubview(titleLabel.label)
@@ -29,11 +28,12 @@ extension PictureOfDayViewController {
         
         view.addSubview(separateLineForToolbar.view)
         view.addSubview(customToolbar.view)
-        customToolbar.view.addSubview(horizontalVStackForToolbar.sView)
+        customToolbar.view.addSubview(horizontalStackForToolbar.sView)
     }
     
     func settingView() {
         scrollView.scroll.delegate = self
+        
         
         configureCustomView()
         configureNavigation()
@@ -41,14 +41,18 @@ extension PictureOfDayViewController {
         configureStackViews()
         configureToolbar()
         addGradientLayer()
+        showSkeleton()
         
+        pictureOfDayImageView.customImage.isSkeletonable = true
         pictureOfDayImageView.customImage.layer.cornerRadius = 30
         
         scrollView.scroll.showsVerticalScrollIndicator = false
+        
     }
     
     //MARK: - View for Title and Date
     private func configureViewContainersForTitleAndDate() {
+        viewContainerForTitleAndDate.view.isSkeletonable = true
         viewContainerForTitleAndDate.view.clipsToBounds = true
         viewContainerForTitleAndDate.view.layer.cornerRadius = 30
         
@@ -60,10 +64,34 @@ extension PictureOfDayViewController {
     
     //MARK: - Custom View for About
     private func configureCustomView() {
+        viewForAbout.view.isSkeletonable = true
+        viewForAbout.view.clipsToBounds = true
+        viewForAbout.view.layer.cornerRadius = 30
+        
         titleLabel.label.font = Helper.Font.DINCondensedBold(with: 36)
         titleLabel.label.textAlignment = .center
         explanationLabel.label.font = Helper.Font.AppleSDGothicNeoBold(with: 22)
         explanationLabel.label.textAlignment = .center
+        
+    }
+    
+    //MARK: - Skeleton
+    private func showSkeleton() {
+        let arrayOfElementsForSkeleton = [viewContainerForTitleAndDate.view, pictureOfDayImageView.customImage, viewForAbout.view]
+        
+        arrayOfElementsForSkeleton.forEach {
+            $0.showGradientSkeleton(usingGradient: .init(baseColor: Helper.Colors.darkMagenta),animated: true, delay: 0)
+        }
+        
+    }
+    
+    func hideSkeleton() {
+        let arrayOfElementsForSkeleton = [viewContainerForTitleAndDate.view, pictureOfDayImageView.customImage, viewForAbout.view]
+        
+        arrayOfElementsForSkeleton.forEach {
+            $0.hideSkeleton()
+        }
+        
         
     }
     
