@@ -21,7 +21,7 @@ extension PictureOfDayViewController {
         
         let viewForAbout = viewForAbout.view
         let titleLabel = titleLabel.label
-
+        
         let explanationLabel = explanationLabel.label
         
         let separateLineForToolbar = separateLineForToolbar.view
@@ -29,20 +29,12 @@ extension PictureOfDayViewController {
         let horizontalVStackForToolbar = horizontalStackForToolbar.sView
         
         
-        //MARK: - Scroll view and activity indicator
+        //MARK: - StarsView
         NSLayoutConstraint.activate([
             starsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             starsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             starsView.topAnchor.constraint(equalTo: view.topAnchor),
             starsView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: pictureOfDayImageView.bottomAnchor, constant: 20),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-
         ])
         
         //MARK: - ViewContainer for Title and Date
@@ -61,26 +53,35 @@ extension PictureOfDayViewController {
             
         ])
         
-        //MARK: - Picture of Day, Title and Explanation
+        //MARK: - Picture of Day
         NSLayoutConstraint.activate([
             pictureOfDayImageView.topAnchor.constraint(equalTo: viewContainerForTitleAndDate.bottomAnchor, constant: 20),
             pictureOfDayImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             pictureOfDayImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             pictureOfDayImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
-
+        ])
+        
+        //MARK: - ScrollView, Title and Explanation
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            scrollView.topAnchor.constraint(equalTo: pictureOfDayImageView.bottomAnchor, constant: 20),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
             viewForAbout.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            viewForAbout.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            viewForAbout.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            viewForAbout.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            viewForAbout.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             viewForAbout.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             viewForAbout.heightAnchor.constraint(equalTo: explanationLabel.heightAnchor, multiplier: 1.2),
-
+            
             titleLabel.topAnchor.constraint(equalTo: viewForAbout.topAnchor, constant: 20),
             titleLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             
             explanationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             explanationLabel.leadingAnchor.constraint(equalTo: viewForAbout.leadingAnchor, constant: 10),
             explanationLabel.trailingAnchor.constraint(equalTo: viewForAbout.trailingAnchor, constant: -10),
-
+            
         ])
         
         

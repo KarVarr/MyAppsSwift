@@ -18,21 +18,15 @@ extension PictureOfDayViewController: UIScrollViewDelegate {
         
         let gradientLayerForHStack = CAGradientLayer()
         gradientLayerForHStack.frame = view.bounds
-        gradientLayerForHStack.colors = Helper.Colors.pinkAndBlueGradient
+        gradientLayerForHStack.colors = Helper.Colors.blueGradient
         gradientLayerForHStack.endPoint = CGPoint(x: 0, y: 0.5)
         
-        viewContainerForTitleAndDate.view.addSubview(blurView)
+//        viewContainerForTitleAndDate.view.addSubview(blurView)
         viewContainerForTitleAndDate.view.layer.insertSublayer(gradientLayerForHStack, at: 0)
     }
     
     //MARK: - Gradient
     func addGradientLayer() {
-        //        let gradientLayer = CAGradientLayer()
-        //        gradientLayer.frame = view.bounds
-        //        gradientLayer.colors = Helper.Colors.blueGradient
-        //        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.5)
-        //        viewForAbout.view.layer.insertSublayer(gradientLayer, at: 0)
-        
         let gradientLayerForView = CAGradientLayer()
         gradientLayerForView.frame = view.bounds
         gradientLayerForView.colors = Helper.Colors.darkBlueGradient

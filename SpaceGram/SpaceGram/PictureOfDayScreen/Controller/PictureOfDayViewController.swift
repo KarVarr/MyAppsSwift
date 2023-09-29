@@ -16,15 +16,16 @@ class PictureOfDayViewController: UIViewController {
     //Stars on the view
     let starsView = CustomView()
     
-    //Scroll and activityIndicator
-    let scrollView = CustomScrollView()
-
+    //HorizontalView For Title and Date
     let viewContainerForTitleAndDate = CustomView()
-    
     let pictureOfTheDayTitleLabel = CustomLabel()
     let pictureOfTheDayDateLabel = CustomLabel()
+    
+    //Picture Of The Day
     var pictureOfDayImageView = CustomImageView()
-
+    
+    //Scroll and ViewForAbout. Title and date label.
+    let scrollView = CustomScrollView()
     let viewForAbout = CustomView()
     var titleLabel = CustomLabel()
     var dateLabel = CustomLabel()
@@ -40,28 +41,23 @@ class PictureOfDayViewController: UIViewController {
     let userImageToolbar = CustomImageView()
     
     
-
+    //MARK: - ViewDidLoad ect.
     override func viewDidLoad() {
         super.viewDidLoad()
         blurEffect()
         addSubviews()
         settingView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchPictureOfTheDay()
-        
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         makeStars()
         layoutView()
-        
     }
-    
-    
     
 }
