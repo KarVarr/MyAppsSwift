@@ -40,8 +40,8 @@ extension PictureOfDayViewController {
         
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: separateLineForToolbar.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: pictureOfDayImageView.bottomAnchor, constant: 20),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             activityIndicatorPicture.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
@@ -51,10 +51,10 @@ extension PictureOfDayViewController {
         
         //MARK: - ViewContainer for Title and Date
         NSLayoutConstraint.activate([
-            viewContainerForTitleAndDate.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            viewContainerForTitleAndDate.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            viewContainerForTitleAndDate.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
-            viewContainerForTitleAndDate.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
+            viewContainerForTitleAndDate.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            viewContainerForTitleAndDate.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            viewContainerForTitleAndDate.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            viewContainerForTitleAndDate.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             viewContainerForTitleAndDate.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.07),
             
             pictureOfTheDayTitleLabel.centerYAnchor.constraint(equalTo: viewContainerForTitleAndDate.centerYAnchor),
@@ -68,23 +68,23 @@ extension PictureOfDayViewController {
         //MARK: - Picture of Day, Title and Explanation
         NSLayoutConstraint.activate([
             pictureOfDayImageView.topAnchor.constraint(equalTo: viewContainerForTitleAndDate.bottomAnchor, constant: 20),
-            pictureOfDayImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
-            pictureOfDayImageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
-            pictureOfDayImageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 0.3),
+            pictureOfDayImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            pictureOfDayImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            pictureOfDayImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
 
-            viewForAbout.topAnchor.constraint(equalTo: pictureOfDayImageView.bottomAnchor, constant: 20),
-            viewForAbout.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
-            viewForAbout.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
+            viewForAbout.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            viewForAbout.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            viewForAbout.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             viewForAbout.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             viewForAbout.heightAnchor.constraint(equalTo: explanationLabel.heightAnchor, multiplier: 1.2),
-            
+
             titleLabel.topAnchor.constraint(equalTo: viewForAbout.topAnchor, constant: 20),
-            titleLabel.centerXAnchor.constraint(equalTo: viewForAbout.centerXAnchor),
+            titleLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             
             explanationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             explanationLabel.leadingAnchor.constraint(equalTo: viewForAbout.leadingAnchor, constant: 10),
             explanationLabel.trailingAnchor.constraint(equalTo: viewForAbout.trailingAnchor, constant: -10),
-            explanationLabel.centerXAnchor.constraint(equalTo: viewForAbout.centerXAnchor),
+
         ])
         
         

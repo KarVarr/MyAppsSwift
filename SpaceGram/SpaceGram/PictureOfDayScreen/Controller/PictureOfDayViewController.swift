@@ -18,14 +18,13 @@ class PictureOfDayViewController: UIViewController {
     //Scroll and activityIndicator
     let scrollView = CustomScrollView()
     let activityIndicatorViewForPictureOfDay = ActivityIndicatorView()
-    
-    
+
     let viewContainerForTitleAndDate = CustomView()
     
     let pictureOfTheDayTitleLabel = CustomLabel()
     let pictureOfTheDayDateLabel = CustomLabel()
     var pictureOfDayImageView = CustomImageView()
-    
+
     let viewForAbout = CustomView()
     var titleLabel = CustomLabel()
     var dateLabel = CustomLabel()
@@ -41,8 +40,13 @@ class PictureOfDayViewController: UIViewController {
     let userImageToolbar = CustomImageView()
     
     
+    var currentScale: CGFloat = 1.0
+    var currentAngle: CGFloat = 0.0
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         blurEffect()
         addSubviews()
         settingView()
@@ -51,6 +55,7 @@ class PictureOfDayViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchPictureOfTheDay()
+        
     }
     
     override func viewWillLayoutSubviews() {

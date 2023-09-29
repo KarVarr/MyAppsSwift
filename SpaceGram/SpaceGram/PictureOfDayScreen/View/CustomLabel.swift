@@ -12,7 +12,7 @@ class CustomLabel {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.textColor = Helper.Colors.milkWhite
+        label.textColor = Helper.Colors.lightOrange
         return label
     }()
 }

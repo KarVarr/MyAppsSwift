@@ -57,7 +57,7 @@ extension PictureOfDayViewController {
                 view.layoutIfNeeded()
                 if imageView == tappedImageView {
                     UIView.animate(withDuration: 0.3) {
-                        imageView.tintColor = Helper.Colors.yellow
+                        imageView.tintColor = Helper.Colors.lightOrange
                         imageView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
                         self.view.layoutIfNeeded()
                     }

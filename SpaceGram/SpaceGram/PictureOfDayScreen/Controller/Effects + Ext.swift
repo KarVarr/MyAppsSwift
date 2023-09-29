@@ -7,7 +7,8 @@
 
 import UIKit
 
-extension PictureOfDayViewController {
+extension PictureOfDayViewController: UIScrollViewDelegate {
+  
     //MARK: - Blur
     func blurEffect() {
         let blurEffect = UIBlurEffect(style: .light)
@@ -26,11 +27,11 @@ extension PictureOfDayViewController {
     
     //MARK: - Gradient
     func addGradientLayer() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.bounds
-        gradientLayer.colors = Helper.Colors.blueGradient
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.5)
-        viewForAbout.view.layer.insertSublayer(gradientLayer, at: 0)
+        //        let gradientLayer = CAGradientLayer()
+        //        gradientLayer.frame = view.bounds
+        //        gradientLayer.colors = Helper.Colors.blueGradient
+        //        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.5)
+        //        viewForAbout.view.layer.insertSublayer(gradientLayer, at: 0)
         
         let gradientLayerForView = CAGradientLayer()
         gradientLayerForView.frame = view.bounds
