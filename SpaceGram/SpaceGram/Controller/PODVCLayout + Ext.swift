@@ -101,10 +101,10 @@ extension PictureOfDayViewController {
             customToolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             customToolbar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1),
             
-            horizontalVStackForToolbar.topAnchor.constraint(equalTo: customToolbar.topAnchor, constant: 20),
+            horizontalVStackForToolbar.topAnchor.constraint(equalTo: customToolbar.topAnchor, constant: 15),
             horizontalVStackForToolbar.leadingAnchor.constraint(equalTo: customToolbar.leadingAnchor, constant: 15),
             horizontalVStackForToolbar.trailingAnchor.constraint(equalTo: customToolbar.trailingAnchor, constant: -15),
-            horizontalVStackForToolbar.bottomAnchor.constraint(equalTo: customToolbar.bottomAnchor, constant: -20),
+            horizontalVStackForToolbar.bottomAnchor.constraint(equalTo: customToolbar.bottomAnchor, constant: -30),
         ])
     }
 }
