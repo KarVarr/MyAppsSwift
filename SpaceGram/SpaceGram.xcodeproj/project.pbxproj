@@ -34,6 +34,7 @@
 		17D1AB042AC745C0007C31E6 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1AB032AC745C0007C31E6 /* PeopleViewController.swift */; };
 		17D1AB062AC74D30007C31E6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1AB052AC74D30007C31E6 /* TabBarController.swift */; };
 		17D1AB082AC74DC7007C31E6 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1AB072AC74DC7007C31E6 /* NavBarController.swift */; };
+		17D1AB0C2AC81D3A007C31E6 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1AB0B2AC81D3A007C31E6 /* BaseController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		17D1AB032AC745C0007C31E6 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		17D1AB052AC74D30007C31E6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		17D1AB072AC74DC7007C31E6 /* NavBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
+		17D1AB0B2AC81D3A007C31E6 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 			children = (
 				17D1AB052AC74D30007C31E6 /* TabBarController.swift */,
 				17D1AB072AC74DC7007C31E6 /* NavBarController.swift */,
+				17D1AB0B2AC81D3A007C31E6 /* BaseController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			files = (
 				17D1AB002AC7458D007C31E6 /* PlanetViewController.swift in Sources */,
 				17CE446C2AC6E17B001128C4 /* Effects + Ext.swift in Sources */,
+				17D1AB0C2AC81D3A007C31E6 /* BaseController.swift in Sources */,
 				1710F1EC2AC5E4D40032927B /* ImagesForToolbar.swift in Sources */,
 				17D1AB042AC745C0007C31E6 /* PeopleViewController.swift in Sources */,
 				177F3B8C2AC350C400D0876C /* CustomView.swift in Sources */,

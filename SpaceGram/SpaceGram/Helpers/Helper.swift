@@ -14,9 +14,34 @@ enum Helper {
         static let nasaPictureOfTheDayUrl = "https://api.nasa.gov/planetary/apod?api_key=\(Keys.nasaApiKey)"
     }
     
+    //MARK: - Images
+    enum Images {
+        enum TabBar {
+            static func icon(for tab: Tabs) -> UIImage? {
+                switch tab {
+                case .pictureOfDay: return UIImage(named: "home")
+                case .planets: return UIImage(named: "planet")
+                case .images: return UIImage(named: "album")
+                case .peoples: return UIImage(named: "user")
+                }
+            }
+        }
+    }
+    
     //MARK: - Strings
-    enum String {
+    enum Strings {
         static let titlePictureOfTheDay = "Picture of The Day"
+        
+        enum TabBar {
+            static func title(for tab: Tabs) -> String {
+                switch tab {
+                case .pictureOfDay: return "Picture of The Day"
+                case .planets: return "Planets"
+                case .images: return "Space images"
+                case .peoples: return "People from space"
+                }
+            }
+        }
     }
     
     //MARK: - Colors
@@ -42,24 +67,24 @@ enum Helper {
     
     //MARK: - Fonts
     enum Font {
-            static func AppleSDGothicNeoBold(with size: CGFloat) -> UIFont {
-                UIFont(name: "AppleSDGothicNeo-Bold", size: size) ?? UIFont()
-            }
-            
-            static func CopperplateBold (with size: CGFloat) -> UIFont {
-                UIFont(name: "Copperplate-Bold", size: size) ?? UIFont()
-            }
-            
-            static func DINCondensedBold (with size: CGFloat) -> UIFont {
-                UIFont(name: "DINCondensed-Bold", size: size) ?? UIFont()
-            }
-            
-            static func noteworthyLight (with size: CGFloat) -> UIFont {
-                UIFont(name: "Noteworthy-Light", size: size) ?? UIFont()
-            }
-            
-            static func noteworthyBold (with size: CGFloat) -> UIFont {
-                UIFont(name: "Noteworthy-Bold", size: size) ?? UIFont()
-            }
+        static func AppleSDGothicNeoBold(with size: CGFloat) -> UIFont {
+            UIFont(name: "AppleSDGothicNeo-Bold", size: size) ?? UIFont()
         }
+        
+        static func CopperplateBold (with size: CGFloat) -> UIFont {
+            UIFont(name: "Copperplate-Bold", size: size) ?? UIFont()
+        }
+        
+        static func DINCondensedBold (with size: CGFloat) -> UIFont {
+            UIFont(name: "DINCondensed-Bold", size: size) ?? UIFont()
+        }
+        
+        static func noteworthyLight (with size: CGFloat) -> UIFont {
+            UIFont(name: "Noteworthy-Light", size: size) ?? UIFont()
+        }
+        
+        static func noteworthyBold (with size: CGFloat) -> UIFont {
+            UIFont(name: "Noteworthy-Bold", size: size) ?? UIFont()
+        }
+    }
 }

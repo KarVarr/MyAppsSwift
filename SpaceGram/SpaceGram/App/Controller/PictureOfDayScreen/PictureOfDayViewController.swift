@@ -8,7 +8,7 @@
 import UIKit
 import SkeletonView
 
-class PictureOfDayViewController: UIViewController {
+class PictureOfDayViewController: BaseController {
     
     let dataFetcher = DataFetcher()
     let imagesForToolbar = ImagesForToolbar()

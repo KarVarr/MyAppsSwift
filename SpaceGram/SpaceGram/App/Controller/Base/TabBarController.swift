@@ -19,7 +19,7 @@ final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureAppearance()
-        switchTo(tab: .planets)
+        switchTo(tab: .pictureOfDay)
     }
     
     func switchTo(tab: Tabs) {
@@ -29,30 +29,74 @@ final class TabBarController: UITabBarController {
     private func configureAppearance() {
         tabBar.tintColor = Helper.Colors.lightOrange
         tabBar.barTintColor = Helper.Colors.darkBlue
-        tabBar.backgroundColor = .white
+        tabBar.backgroundColor = Helper.Colors.lightSkyBlue
         
-        tabBar.layer.borderColor = Helper.Colors.lightGray.cgColor
-        tabBar.layer.borderWidth = 1
-        tabBar.layer.masksToBounds = true
+//        tabBar.layer.borderColor = Helper.Colors.lightGray.cgColor
+//        tabBar.layer.borderWidth = 1
+//        tabBar.layer.masksToBounds = true
+        
+//        let picture = PictureOfDayViewController()
+//        let planets = PlanetViewController()
+//        let images = ImagesViewController()
+//        let people = PeopleViewController()
+//        
+//        
+//        let pictureNav = UINavigationController(rootViewController: picture)
+//        let planetsNav =  UINavigationController(rootViewController: planets)
+//        let imagesNav =  UINavigationController(rootViewController: images)
+//        let peopleNav =  UINavigationController(rootViewController: people)
+//        
+//        
+//        setViewControllers([
+//            pictureNav,
+//            planetsNav,
+//            imagesNav,
+//            peopleNav
+//        ], animated: false)
+        
+        
         
         let controllers: [NavBarController] = Tabs.allCases.map { tab in
             let controller = NavBarController(rootViewController: getController(for: tab))
             
-            controller.tabBarItem = UITabBarItem(title: R.Strings.TabBar.title(for: tab), image: R.Images.TabBar.icon(for: tab), tag: tab.rawValue)
+            // Load the original image
+                let originalImage = Helper.Images.TabBar.icon(for: tab)
+                
+                // Resize the image
+                let resizedImage = originalImage?.resized(to: CGSize(width: 30, height: 30))
+            
+                // Установите отступы для изображения и заголовка
+                controller.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0) // Подстройте значения по вашему выбору
+                controller.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -6) // Подстройте значения по вашему выбору
+            
+            
+            
+            controller.tabBarItem = UITabBarItem(title: Helper.Strings.TabBar.title(for: tab), image: resizedImage, tag: tab.rawValue)
+            
             
             return controller
         }
         
-        setViewControllers(controllers, animated:  false)
+        
+        setViewControllers(controllers, animated: true)
     }
     
     private func getController(for tab: Tabs) -> BaseController {
         switch tab {
-        case .pictureOfDay: return OverviewController()
-        case .planets: return SessionController()
-        case .images: return ProgressController()
-        case .peoples: return SettingsController()
+        case .pictureOfDay: return PictureOfDayViewController()
+        case .planets: return PlanetViewController()
+        case .images: return ImagesViewController()
+        case .peoples: return PeopleViewController()
         }
     }
     
+}
+
+extension UIImage {
+    func resized(to newSize: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(newSize, false, UIScreen.main.scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: newSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
 }
