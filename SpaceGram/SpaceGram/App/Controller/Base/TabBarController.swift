@@ -28,7 +28,7 @@ final class TabBarController: UITabBarController {
     
     private func configureAppearance() {
         tabBar.tintColor = Helper.Colors.lightOrange
-        tabBar.barTintColor = Helper.Colors.darkBlue
+        tabBar.unselectedItemTintColor = Helper.Colors.darkBlue
         tabBar.backgroundColor = Helper.Colors.lightSkyBlue
         
 //        tabBar.layer.borderColor = Helper.Colors.lightGray.cgColor

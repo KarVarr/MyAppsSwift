@@ -52,6 +52,7 @@ class PictureOfDayViewController: BaseController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchPictureOfTheDay()
+        
     }
     
     override func viewWillLayoutSubviews() {
