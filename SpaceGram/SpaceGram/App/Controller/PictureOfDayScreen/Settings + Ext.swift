@@ -23,6 +23,7 @@ extension PictureOfDayViewController {
         pictureOfDayImageView.customImage.layer.cornerRadius = 30
         pictureOfDayImageView.customImage.layer.borderWidth = 1
         pictureOfDayImageView.customImage.layer.borderColor = Helper.Colors.lightGray.cgColor
+        pictureOfDayImageView.customImage.isUserInteractionEnabled = true
         
         buttonHDPictureOfDay.button.clipsToBounds = true
         buttonHDPictureOfDay.button.setTitle("HD", for: .normal)
@@ -35,7 +36,11 @@ extension PictureOfDayViewController {
     }
     
     @objc func buttonHDPressed() {
+        let hdVC = HDPictureViewController()
+        navigationController?.pushViewController(hdVC, animated: true)
         
+        hdVC.hdPictureOfDay.customImage.image = pictureOfDayImageView.customImage.image
+        hdVC.navigationItem.title = titleLabel.label.text
     }
     
     

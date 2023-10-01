@@ -36,6 +36,8 @@
 		17D1AB0C2AC81D3A007C31E6 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1AB0B2AC81D3A007C31E6 /* BaseController.swift */; };
 		17D1AB0E2AC971E9007C31E6 /* AddSubviews + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1AB0D2AC971E9007C31E6 /* AddSubviews + Ext.swift */; };
 		17D1AB102AC9A283007C31E6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1AB0F2AC9A283007C31E6 /* CustomButton.swift */; };
+		17D1AB122AC9A987007C31E6 /* HDPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1AB112AC9A987007C31E6 /* HDPictureViewController.swift */; };
+		17D1AB162AC9B016007C31E6 /* UIImageView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1AB152AC9B016007C31E6 /* UIImageView + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 		17D1AB0B2AC81D3A007C31E6 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		17D1AB0D2AC971E9007C31E6 /* AddSubviews + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddSubviews + Ext.swift"; sourceTree = "<group>"; };
 		17D1AB0F2AC9A283007C31E6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		17D1AB112AC9A987007C31E6 /* HDPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDPictureViewController.swift; sourceTree = "<group>"; };
+		17D1AB152AC9B016007C31E6 /* UIImageView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				1710F1E72AC4861D0032927B /* Helper.swift */,
-				1710F1E92AC487680032927B /* Keys.swift */,
+				17D1AB142AC9AFF2007C31E6 /* Extentions */,
+				17A99ECA2AC9B0430015A9E9 /* Keys */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -182,6 +187,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		17A99ECA2AC9B0430015A9E9 /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				1710F1E92AC487680032927B /* Keys.swift */,
+			);
+			path = Keys;
+			sourceTree = "<group>";
+		};
 		17CE44652AC6DF77001128C4 /* PictureOfDayScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +204,7 @@
 				17B7B5082AC44B9C009A5767 /* Settings + Ext.swift */,
 				17B7B5062AC44B5C009A5767 /* GetData + Ext.swift */,
 				17D1AB0D2AC971E9007C31E6 /* AddSubviews + Ext.swift */,
+				17D1AB132AC9AFCF007C31E6 /* HDPictureViewController */,
 			);
 			path = PictureOfDayScreen;
 			sourceTree = "<group>";
@@ -237,6 +251,22 @@
 				177F3B882AC34A7B00D0876C /* Controller */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		17D1AB132AC9AFCF007C31E6 /* HDPictureViewController */ = {
+			isa = PBXGroup;
+			children = (
+				17D1AB112AC9A987007C31E6 /* HDPictureViewController.swift */,
+			);
+			path = HDPictureViewController;
+			sourceTree = "<group>";
+		};
+		17D1AB142AC9AFF2007C31E6 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				17D1AB152AC9B016007C31E6 /* UIImageView + Ext.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +347,7 @@
 			files = (
 				17D1AB102AC9A283007C31E6 /* CustomButton.swift in Sources */,
 				17D1AB002AC7458D007C31E6 /* PlanetViewController.swift in Sources */,
+				17D1AB122AC9A987007C31E6 /* HDPictureViewController.swift in Sources */,
 				17CE446C2AC6E17B001128C4 /* Effects + Ext.swift in Sources */,
 				17D1AB0C2AC81D3A007C31E6 /* BaseController.swift in Sources */,
 				1710F1EC2AC5E4D40032927B /* ImagesForToolbar.swift in Sources */,
@@ -340,6 +371,7 @@
 				177F3B952AC366BA00D0876C /* AstronomyPictureOfTheDay.swift in Sources */,
 				177F3B742AC3473300D0876C /* SceneDelegate.swift in Sources */,
 				177F3B922AC362ED00D0876C /* CustomLabel.swift in Sources */,
+				17D1AB162AC9B016007C31E6 /* UIImageView + Ext.swift in Sources */,
 				17B7B5092AC44B9C009A5767 /* Settings + Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

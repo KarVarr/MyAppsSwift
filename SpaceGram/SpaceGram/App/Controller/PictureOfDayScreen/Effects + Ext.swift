@@ -18,7 +18,6 @@ extension PictureOfDayViewController: UIScrollViewDelegate {
         gradientLayerForView.endPoint = CGPoint(x: 0.5, y: 1)
         gradientLayerForView.locations = [0.2]
         self.view.layer.insertSublayer(gradientLayerForView, at: 0)
-        
     }
     
     //MARK: - Making a Stars
