@@ -9,21 +9,6 @@ import UIKit
 
 extension PictureOfDayViewController: UIScrollViewDelegate {
   
-    //MARK: - Blur
-    func blurEffect() {
-        let blurEffect = UIBlurEffect(style: .light)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = view.bounds
-        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        let gradientLayerForHStack = CAGradientLayer()
-        gradientLayerForHStack.frame = view.bounds
-        gradientLayerForHStack.colors = Helper.Colors.blueGradient
-        gradientLayerForHStack.endPoint = CGPoint(x: 0, y: 0.5)
-        
-//        viewContainerForTitleAndDate.view.addSubview(blurView)
-        viewContainerForTitleAndDate.view.layer.insertSublayer(gradientLayerForHStack, at: 0)
-    }
     
     //MARK: - Gradient
     func addGradientLayer() {

@@ -18,13 +18,10 @@ extension PictureOfDayViewController {
                         
                         DispatchQueue.main.async {
                             self.hideSkeleton()
-                            
-                            self.pictureOfTheDayTitleLabel.label.text = Helper.Strings.titlePictureOfTheDay
-                            self.pictureOfTheDayDateLabel.label.text = pictureOfTheDay.date
+                        
                             self.pictureOfDayImageView.customImage.image = image
                             self.titleLabel.label.text = pictureOfTheDay.title
                             self.explanationLabel.label.text = pictureOfTheDay.explanation
-                            
                         }
                     }
                     

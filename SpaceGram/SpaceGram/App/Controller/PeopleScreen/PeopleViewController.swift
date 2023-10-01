@@ -14,6 +14,7 @@ class PeopleViewController: BaseController {
 
         view.backgroundColor = .turquoise
         setNavTitle(title: .peoples)
+        
     }
     
 

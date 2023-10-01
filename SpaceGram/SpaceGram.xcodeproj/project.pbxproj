@@ -26,7 +26,6 @@
 		17B7B5052AC44B13009A5767 /* Layout + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7B5042AC44B13009A5767 /* Layout + Ext.swift */; };
 		17B7B5072AC44B5C009A5767 /* GetData + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7B5062AC44B5C009A5767 /* GetData + Ext.swift */; };
 		17B7B5092AC44B9C009A5767 /* Settings + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7B5082AC44B9C009A5767 /* Settings + Ext.swift */; };
-		17CE446A2AC6E0B5001128C4 /* Navigation + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE44692AC6E0B5001128C4 /* Navigation + Ext.swift */; };
 		17CE446C2AC6E17B001128C4 /* Effects + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE446B2AC6E17B001128C4 /* Effects + Ext.swift */; };
 		17D1AAFC2AC72F6A007C31E6 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 17D1AAFB2AC72F6A007C31E6 /* SkeletonView */; };
 		17D1AB002AC7458D007C31E6 /* PlanetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1AAFF2AC7458D007C31E6 /* PlanetViewController.swift */; };
@@ -60,7 +59,6 @@
 		17B7B5042AC44B13009A5767 /* Layout + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Layout + Ext.swift"; sourceTree = "<group>"; };
 		17B7B5062AC44B5C009A5767 /* GetData + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetData + Ext.swift"; sourceTree = "<group>"; };
 		17B7B5082AC44B9C009A5767 /* Settings + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings + Ext.swift"; sourceTree = "<group>"; };
-		17CE44692AC6E0B5001128C4 /* Navigation + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation + Ext.swift"; sourceTree = "<group>"; };
 		17CE446B2AC6E17B001128C4 /* Effects + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effects + Ext.swift"; sourceTree = "<group>"; };
 		17D1AAFF2AC7458D007C31E6 /* PlanetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetViewController.swift; sourceTree = "<group>"; };
 		17D1AB012AC745A9007C31E6 /* ImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 				17B7B5042AC44B13009A5767 /* Layout + Ext.swift */,
 				17B7B5082AC44B9C009A5767 /* Settings + Ext.swift */,
 				17B7B5062AC44B5C009A5767 /* GetData + Ext.swift */,
-				17CE44692AC6E0B5001128C4 /* Navigation + Ext.swift */,
 				17D1AB0D2AC971E9007C31E6 /* AddSubviews + Ext.swift */,
 			);
 			path = PictureOfDayScreen;
@@ -322,7 +319,6 @@
 				17D1AB042AC745C0007C31E6 /* PeopleViewController.swift in Sources */,
 				177F3B8C2AC350C400D0876C /* CustomView.swift in Sources */,
 				17D1AB062AC74D30007C31E6 /* TabBarController.swift in Sources */,
-				17CE446A2AC6E0B5001128C4 /* Navigation + Ext.swift in Sources */,
 				17D1AB082AC74DC7007C31E6 /* NavBarController.swift in Sources */,
 				1710F1EA2AC487680032927B /* Keys.swift in Sources */,
 				177F3B8A2AC34AAE00D0876C /* CustomImageView.swift in Sources */,

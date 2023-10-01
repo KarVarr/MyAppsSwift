@@ -30,12 +30,11 @@ enum Helper {
     
     //MARK: - Strings
     enum Strings {
-        static let titlePictureOfTheDay = "Picture of The Day"
         
-        enum TabBar {
+        enum NavBar {
             static func title(for tab: Tabs) -> String {
                 switch tab {
-                case .pictureOfDay: return "Photo"
+                case .pictureOfDay: return "Picture of The Day"
                 case .planets: return "Planets"
                 case .images: return "Space"
                 case .peoples: return "People"
@@ -73,6 +72,10 @@ enum Helper {
         
         static func CopperplateBold (with size: CGFloat) -> UIFont {
             UIFont(name: "Copperplate-Bold", size: size) ?? UIFont()
+        }
+        
+        static func Copperplate (with size: CGFloat) -> UIFont {
+            UIFont(name: "Copperplate", size: size) ?? UIFont()
         }
         
         static func DINCondensedBold (with size: CGFloat) -> UIFont {

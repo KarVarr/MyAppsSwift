@@ -10,14 +10,10 @@ import Foundation
 
 extension PictureOfDayViewController {
     override func addSubviews() {
-         
+        /* Stars */
          view.addSubview(starsView.view)
          
-         /* Horizontal StackView */
-         view.addSubview(viewContainerForTitleAndDate.view)
-         viewContainerForTitleAndDate.view.addSubview(pictureOfTheDayTitleLabel.label)
-         viewContainerForTitleAndDate.view.addSubview(pictureOfTheDayDateLabel.label)
-         
+        /* Main imageView */
          view.addSubview(pictureOfDayImageView.customImage)
          
          /* Scroll View */

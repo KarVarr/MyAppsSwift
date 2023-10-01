@@ -15,11 +15,11 @@ final class NavBarController: UINavigationController {
     }
     
     private func configureAppearance() {
-        view.backgroundColor = Helper.Colors.white
+        view.backgroundColor = .white
 //        navigationBar.isTranslucent = false
         navigationBar.standardAppearance.titleTextAttributes = [
             .foregroundColor: Helper.Colors.lightOrange,
-            .font: Helper.Font.AppleSDGothicNeoBold(with: 17),
+            .font: Helper.Font.Copperplate(with: 20),
         ]
     }
 }

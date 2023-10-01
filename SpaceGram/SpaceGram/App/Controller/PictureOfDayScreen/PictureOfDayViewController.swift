@@ -16,11 +16,6 @@ class PictureOfDayViewController: BaseController {
     //Stars on the view
     let starsView = CustomView()
     
-    //HorizontalView For Title and Date
-    let viewContainerForTitleAndDate = CustomView()
-    let pictureOfTheDayTitleLabel = CustomLabel()
-    let pictureOfTheDayDateLabel = CustomLabel()
-    
     //Picture Of The Day
     var pictureOfDayImageView = CustomImageView()
     
@@ -44,10 +39,8 @@ class PictureOfDayViewController: BaseController {
     //MARK: - ViewDidLoad ect.
     override func viewDidLoad() {
         super.viewDidLoad()
-        blurEffect()
         addSubviews()
         settingView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
