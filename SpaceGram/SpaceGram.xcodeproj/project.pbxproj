@@ -22,6 +22,10 @@
 		177F3B922AC362ED00D0876C /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B912AC362ED00D0876C /* CustomLabel.swift */; };
 		177F3B952AC366BA00D0876C /* AstronomyPictureOfTheDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B942AC366BA00D0876C /* AstronomyPictureOfTheDay.swift */; };
 		177F3B982AC367B500D0876C /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B972AC367B500D0876C /* DataFetcher.swift */; };
+		17A99ECC2AC9B2CD0015A9E9 /* AddSubviewsHD+ Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A99ECB2AC9B2CD0015A9E9 /* AddSubviewsHD+ Ext.swift */; };
+		17A99ECE2AC9B3270015A9E9 /* SettingsHD + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A99ECD2AC9B3270015A9E9 /* SettingsHD + Ext.swift */; };
+		17A99ED02AC9B3500015A9E9 /* LayoutHD + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A99ECF2AC9B3500015A9E9 /* LayoutHD + Ext.swift */; };
+		17A99ED22AC9B4030015A9E9 /* EffectsHD + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A99ED12AC9B4030015A9E9 /* EffectsHD + Ext.swift */; };
 		17B7B5032AC44456009A5767 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7B5022AC44456009A5767 /* ActivityIndicatorView.swift */; };
 		17B7B5052AC44B13009A5767 /* Layout + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7B5042AC44B13009A5767 /* Layout + Ext.swift */; };
 		17B7B5072AC44B5C009A5767 /* GetData + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7B5062AC44B5C009A5767 /* GetData + Ext.swift */; };
@@ -58,6 +62,10 @@
 		177F3B912AC362ED00D0876C /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		177F3B942AC366BA00D0876C /* AstronomyPictureOfTheDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronomyPictureOfTheDay.swift; sourceTree = "<group>"; };
 		177F3B972AC367B500D0876C /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		17A99ECB2AC9B2CD0015A9E9 /* AddSubviewsHD+ Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddSubviewsHD+ Ext.swift"; sourceTree = "<group>"; };
+		17A99ECD2AC9B3270015A9E9 /* SettingsHD + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsHD + Ext.swift"; sourceTree = "<group>"; };
+		17A99ECF2AC9B3500015A9E9 /* LayoutHD + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutHD + Ext.swift"; sourceTree = "<group>"; };
+		17A99ED12AC9B4030015A9E9 /* EffectsHD + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsHD + Ext.swift"; sourceTree = "<group>"; };
 		17B7B5022AC44456009A5767 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		17B7B5042AC44B13009A5767 /* Layout + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Layout + Ext.swift"; sourceTree = "<group>"; };
 		17B7B5062AC44B5C009A5767 /* GetData + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetData + Ext.swift"; sourceTree = "<group>"; };
@@ -257,6 +265,10 @@
 			isa = PBXGroup;
 			children = (
 				17D1AB112AC9A987007C31E6 /* HDPictureViewController.swift */,
+				17A99ECB2AC9B2CD0015A9E9 /* AddSubviewsHD+ Ext.swift */,
+				17A99ECD2AC9B3270015A9E9 /* SettingsHD + Ext.swift */,
+				17A99ECF2AC9B3500015A9E9 /* LayoutHD + Ext.swift */,
+				17A99ED12AC9B4030015A9E9 /* EffectsHD + Ext.swift */,
 			);
 			path = HDPictureViewController;
 			sourceTree = "<group>";
@@ -351,10 +363,12 @@
 				17CE446C2AC6E17B001128C4 /* Effects + Ext.swift in Sources */,
 				17D1AB0C2AC81D3A007C31E6 /* BaseController.swift in Sources */,
 				1710F1EC2AC5E4D40032927B /* ImagesForToolbar.swift in Sources */,
+				17A99ECE2AC9B3270015A9E9 /* SettingsHD + Ext.swift in Sources */,
 				17D1AB042AC745C0007C31E6 /* PeopleViewController.swift in Sources */,
 				177F3B8C2AC350C400D0876C /* CustomView.swift in Sources */,
 				17D1AB062AC74D30007C31E6 /* TabBarController.swift in Sources */,
 				17D1AB082AC74DC7007C31E6 /* NavBarController.swift in Sources */,
+				17A99ED02AC9B3500015A9E9 /* LayoutHD + Ext.swift in Sources */,
 				1710F1EA2AC487680032927B /* Keys.swift in Sources */,
 				177F3B8A2AC34AAE00D0876C /* CustomImageView.swift in Sources */,
 				1710F1E82AC4861D0032927B /* Helper.swift in Sources */,
@@ -367,9 +381,11 @@
 				177F3B722AC3473300D0876C /* AppDelegate.swift in Sources */,
 				17D1AB022AC745A9007C31E6 /* ImagesViewController.swift in Sources */,
 				17D1AB0E2AC971E9007C31E6 /* AddSubviews + Ext.swift in Sources */,
+				17A99ED22AC9B4030015A9E9 /* EffectsHD + Ext.swift in Sources */,
 				17B7B5052AC44B13009A5767 /* Layout + Ext.swift in Sources */,
 				177F3B952AC366BA00D0876C /* AstronomyPictureOfTheDay.swift in Sources */,
 				177F3B742AC3473300D0876C /* SceneDelegate.swift in Sources */,
+				17A99ECC2AC9B2CD0015A9E9 /* AddSubviewsHD+ Ext.swift in Sources */,
 				177F3B922AC362ED00D0876C /* CustomLabel.swift in Sources */,
 				17D1AB162AC9B016007C31E6 /* UIImageView + Ext.swift in Sources */,
 				17B7B5092AC44B9C009A5767 /* Settings + Ext.swift in Sources */,

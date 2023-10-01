@@ -18,6 +18,7 @@ class PictureOfDayViewController: BaseController {
     
     //Picture Of The Day
     var pictureOfDayImageView = CustomImageView()
+    var pictureOfDayImageViewHD = CustomImageView()
     
     //Button HD Picture Of The Day
     var buttonHDPictureOfDay = CustomButton()

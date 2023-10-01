@@ -16,7 +16,7 @@ extension PictureOfDayViewController {
         addGradientLayer()
         showSkeleton()
     }
-
+    
     //MARK: - Picture Of The Day ImageView / Button HD for Picture of The Day
     private func configurePictureOfDayImageView() {
         pictureOfDayImageView.customImage.isSkeletonable = true
@@ -39,7 +39,7 @@ extension PictureOfDayViewController {
         let hdVC = HDPictureViewController()
         navigationController?.pushViewController(hdVC, animated: true)
         
-        hdVC.hdPictureOfDay.customImage.image = pictureOfDayImageView.customImage.image
+        hdVC.hdPictureOfDay.customImage.image = pictureOfDayImageViewHD.customImage.image
         hdVC.navigationItem.title = titleLabel.label.text
     }
     
