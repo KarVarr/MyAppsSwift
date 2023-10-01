@@ -11,21 +11,22 @@ import Foundation
 extension PictureOfDayViewController {
     override func addSubviews() {
         /* Stars */
-         view.addSubview(starsView.view)
-         
+        view.addSubview(starsView.view)
+        
         /* Main imageView */
-         view.addSubview(pictureOfDayImageView.customImage)
-         
-         /* Scroll View */
-         view.addSubview(scrollView.scroll)
-         scrollView.scroll.addSubview(viewForAbout.view)
-         
-         viewForAbout.view.addSubview(titleLabel.label)
-         viewForAbout.view.addSubview(explanationLabel.label)
-         
-         /* Toolbar */
-         view.addSubview(separateLineForToolbar.view)
-         view.addSubview(customToolbar.view)
-         customToolbar.view.addSubview(horizontalStackForToolbar.sView)
-     }
+        view.addSubview(pictureOfDayImageView.customImage)
+        pictureOfDayImageView.customImage.addSubview(buttonHDPictureOfDay.button)
+        
+        /* Scroll View */
+        view.addSubview(scrollView.scroll)
+        scrollView.scroll.addSubview(viewForAbout.view)
+        
+        viewForAbout.view.addSubview(titleLabel.label)
+        viewForAbout.view.addSubview(explanationLabel.label)
+        
+        /* Toolbar */
+        view.addSubview(separateLineForToolbar.view)
+        view.addSubview(customToolbar.view)
+        customToolbar.view.addSubview(horizontalStackForToolbar.sView)
+    }
 }

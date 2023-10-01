@@ -35,6 +35,7 @@
 		17D1AB082AC74DC7007C31E6 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1AB072AC74DC7007C31E6 /* NavBarController.swift */; };
 		17D1AB0C2AC81D3A007C31E6 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1AB0B2AC81D3A007C31E6 /* BaseController.swift */; };
 		17D1AB0E2AC971E9007C31E6 /* AddSubviews + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1AB0D2AC971E9007C31E6 /* AddSubviews + Ext.swift */; };
+		17D1AB102AC9A283007C31E6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1AB0F2AC9A283007C31E6 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		17D1AB072AC74DC7007C31E6 /* NavBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
 		17D1AB0B2AC81D3A007C31E6 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		17D1AB0D2AC971E9007C31E6 /* AddSubviews + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddSubviews + Ext.swift"; sourceTree = "<group>"; };
+		17D1AB0F2AC9A283007C31E6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				177F3B8F2AC35E3F00D0876C /* CustomStackView.swift */,
 				177F3B912AC362ED00D0876C /* CustomLabel.swift */,
 				17B7B5022AC44456009A5767 /* ActivityIndicatorView.swift */,
+				17D1AB0F2AC9A283007C31E6 /* CustomButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17D1AB102AC9A283007C31E6 /* CustomButton.swift in Sources */,
 				17D1AB002AC7458D007C31E6 /* PlanetViewController.swift in Sources */,
 				17CE446C2AC6E17B001128C4 /* Effects + Ext.swift in Sources */,
 				17D1AB0C2AC81D3A007C31E6 /* BaseController.swift in Sources */,

@@ -15,7 +15,7 @@ enum Tabs: Int, CaseIterable {
 }
 
 final class TabBarController: UITabBarController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureAppearance()
@@ -31,39 +31,15 @@ final class TabBarController: UITabBarController {
         tabBar.unselectedItemTintColor = Helper.Colors.darkBlue
         tabBar.backgroundColor = Helper.Colors.lightSkyBlue
         
-//        tabBar.layer.borderColor = Helper.Colors.lightGray.cgColor
-//        tabBar.layer.borderWidth = 1
-//        tabBar.layer.masksToBounds = true
-        
-//        let picture = PictureOfDayViewController()
-//        let planets = PlanetViewController()
-//        let images = ImagesViewController()
-//        let people = PeopleViewController()
-//        
-//        
-//        let pictureNav = UINavigationController(rootViewController: picture)
-//        let planetsNav =  UINavigationController(rootViewController: planets)
-//        let imagesNav =  UINavigationController(rootViewController: images)
-//        let peopleNav =  UINavigationController(rootViewController: people)
-//        
-//        
-//        setViewControllers([
-//            pictureNav,
-//            planetsNav,
-//            imagesNav,
-//            peopleNav
-//        ], animated: false)
-        
-        
-        
         let controllers: [NavBarController] = Tabs.allCases.map { tab in
             let controller = NavBarController(rootViewController: getController(for: tab))
-
+            
             controller.tabBarItem = UITabBarItem(
                 title: nil,
                 image: Helper.Images.TabBar.icon(for: tab),
                 tag: tab.rawValue
             )
+            controller.tabBarItem.imageInsets = UIEdgeInsets(top: 12, left: 0, bottom: -12, right: 0)
             return controller
         }
         setViewControllers(controllers, animated: true)

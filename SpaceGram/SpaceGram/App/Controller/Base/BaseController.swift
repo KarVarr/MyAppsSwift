@@ -40,19 +40,6 @@ class BaseController: UIViewController {
 
 extension BaseController {
     func setNavTitle(title: Tabs) {
-//        let titleText: String
-        
-//        switch title {
-//        case .pictureOfDay:
-//            titleText = "Photo".uppercased()
-//        case .planets:
-//            titleText = "Planets".uppercased()
-//        case .images:
-//            titleText = "Images".uppercased()
-//        case .peoples:
-//            titleText = "Peoples".uppercased()
-//        }
-    
         navigationItem.title = Helper.Strings.NavBar.title(for: title)
     }
     

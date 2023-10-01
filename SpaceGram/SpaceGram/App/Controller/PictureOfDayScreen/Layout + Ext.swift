@@ -15,6 +15,7 @@ extension PictureOfDayViewController {
         let starsView = starsView.view
         
         let pictureOfDayImageView = pictureOfDayImageView.customImage
+        let buttonHDPictureOfDay = buttonHDPictureOfDay.button
         
         let viewForAbout = viewForAbout.view
         let titleLabel = titleLabel.label
@@ -34,28 +35,17 @@ extension PictureOfDayViewController {
             starsView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
         
-        //MARK: - ViewContainer for Title and Date
-//        NSLayoutConstraint.activate([
-//            viewContainerForTitleAndDate.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            viewContainerForTitleAndDate.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            viewContainerForTitleAndDate.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-//            viewContainerForTitleAndDate.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-//            viewContainerForTitleAndDate.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.07),
-//            
-//            pictureOfTheDayTitleLabel.centerYAnchor.constraint(equalTo: viewContainerForTitleAndDate.centerYAnchor),
-//            pictureOfTheDayTitleLabel.leadingAnchor.constraint(equalTo: viewContainerForTitleAndDate.leadingAnchor, constant: 10),
-//            
-//            pictureOfTheDayDateLabel.centerYAnchor.constraint(equalTo: viewContainerForTitleAndDate.centerYAnchor),
-//            pictureOfTheDayDateLabel.trailingAnchor.constraint(equalTo: viewContainerForTitleAndDate.trailingAnchor, constant: -10),
-//            
-//        ])
-//        
         //MARK: - Picture of Day
         NSLayoutConstraint.activate([
             pictureOfDayImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor ,constant: 20),
             pictureOfDayImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             pictureOfDayImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             pictureOfDayImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
+            
+            buttonHDPictureOfDay.trailingAnchor.constraint(equalTo: pictureOfDayImageView.trailingAnchor, constant: -20),
+            buttonHDPictureOfDay.bottomAnchor.constraint(equalTo: pictureOfDayImageView.bottomAnchor, constant: -20),
+            buttonHDPictureOfDay.widthAnchor.constraint(equalToConstant: 44),
+            buttonHDPictureOfDay.heightAnchor.constraint(equalToConstant: 44),
         ])
         
         //MARK: - ScrollView, Title and Explanation

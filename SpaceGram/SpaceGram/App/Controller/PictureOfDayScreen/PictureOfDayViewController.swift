@@ -19,6 +19,9 @@ class PictureOfDayViewController: BaseController {
     //Picture Of The Day
     var pictureOfDayImageView = CustomImageView()
     
+    //Button HD Picture Of The Day
+    var buttonHDPictureOfDay = CustomButton()
+    
     //Scroll and ViewForAbout. Title and date label.
     let scrollView = CustomScrollView()
     let viewForAbout = CustomView()
