@@ -9,7 +9,7 @@ import UIKit
 
 
 extension PictureOfDayViewController {
-    func layoutView() {
+    override func layoutView() {
         let scrollView = scrollView.scroll
         
         let starsView = starsView.view

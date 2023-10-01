@@ -7,56 +7,66 @@
 
 import UIKit
 
+
 enum NavBarPosition {
     case left
     case right
 }
 
+
 class BaseController: UIViewController {
-   
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupViews()
-        constaintViews()
-//        configureAppearance()
+        addSubviews()
+        settingView()
+        layoutView()
+        
     }
-    
 }
 
 @objc extension BaseController {
-    func setupViews() {}
-    func constaintViews() {}
-//    func configureAppearance() {
-//        view.backgroundColor = R.Colors.background
-//    }
-    
+    func addSubviews() {}
+    func settingView() {}
+    func layoutView() {}
+   
     func nabBarLeftButtonHandler() {
         print("Left tapped")
     }
-   @objc func nabBarRightButtonHandler() {
+    func nabBarRightButtonHandler() {
         print("Right tapped")
     }
 }
 
 extension BaseController {
+    func setNavTitle(title: Tabs) {
+        switch title {
+        case .pictureOfDay:
+            navigationItem.title = "Photo".uppercased()
+        case .planets:
+            navigationItem.title = "Planets".uppercased()
+        case .images:
+            navigationItem.title = "Images".uppercased()
+        case .peoples:
+            navigationItem.title = "Peoples".uppercased()
+        }
+    }
+    
     func addNavBarButton(at position: NavBarPosition, with title: String) {
-//        let button = UIButton(type: .system)
-//        button.setTitle(title, for: .normal)
-//        button.setTitleColor(R.Colors.active, for: .normal)
-//        button.setTitleColor(R.Colors.inActive, for: .disabled)
-//        button.titleLabel?.font = R.Fonts.helveticaRegular(with: 17)
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(Helper.Colors.lightOrange, for: .normal)
+        button.setTitleColor(Helper.Colors.darkBlue, for: .disabled)
+        button.titleLabel?.font = Helper.Font.AppleSDGothicNeoBold(with: 17)
         
-//        switch position {
-//        case .left :
-//            button.addTarget(self, action: #selector(nabBarLeftButtonHandler), for: .touchUpInside)
-//            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
-//        case .right:
-//            button.addTarget(self, action: #selector(nabBarRightButtonHandler), for: .touchUpInside)
-//            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
-//        }
+        switch position {
+        case .left :
+            button.addTarget(self, action: #selector(nabBarLeftButtonHandler), for: .touchUpInside)
+            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        case .right:
+            button.addTarget(self, action: #selector(nabBarRightButtonHandler), for: .touchUpInside)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+        }
         
     }
 }

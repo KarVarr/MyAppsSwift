@@ -64,12 +64,8 @@ final class TabBarController: UITabBarController {
                 image: Helper.Images.TabBar.icon(for: tab),
                 tag: tab.rawValue
             )
-            
-            
             return controller
         }
-        
-        
         setViewControllers(controllers, animated: true)
     }
     
@@ -81,14 +77,5 @@ final class TabBarController: UITabBarController {
         case .peoples: return PeopleViewController()
         }
     }
-    
 }
 
-//extension UIImage {
-//    func resized(to newSize: CGSize) -> UIImage? {
-//        UIGraphicsBeginImageContextWithOptions(newSize, false, UIScreen.main.scale)
-//        defer { UIGraphicsEndImageContext() }
-//        draw(in: CGRect(origin: .zero, size: newSize))
-//        return UIGraphicsGetImageFromCurrentImageContext()
-//    }
-//}

@@ -8,35 +8,13 @@
 import UIKit
 
 extension PictureOfDayViewController {
-    func addSubviews() {
+    override func settingView() {
+        setNavTitle(title: .pictureOfDay)
         
-        view.addSubview(starsView.view)
-        
-        /* Horizontal StackView */
-        view.addSubview(viewContainerForTitleAndDate.view)
-        viewContainerForTitleAndDate.view.addSubview(pictureOfTheDayTitleLabel.label)
-        viewContainerForTitleAndDate.view.addSubview(pictureOfTheDayDateLabel.label)
-        
-        view.addSubview(pictureOfDayImageView.customImage)
-        
-        /* Scroll View */
-        view.addSubview(scrollView.scroll)
-        scrollView.scroll.addSubview(viewForAbout.view)
-        
-        viewForAbout.view.addSubview(titleLabel.label)
-        viewForAbout.view.addSubview(explanationLabel.label)
-        
-        /* Toolbar */
-        view.addSubview(separateLineForToolbar.view)
-        view.addSubview(customToolbar.view)
-        customToolbar.view.addSubview(horizontalStackForToolbar.sView)
-    }
-    
-    func settingView() {
         configureViewContainersForTitleAndDate()
         configurePictureOfDayImageView()
         configureCustomView()
-        configureNavigation()
+//        configureNavigation()
         configureStackViews()
         configureToolbar()
         addGradientLayer()

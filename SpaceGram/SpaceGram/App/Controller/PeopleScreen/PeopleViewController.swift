@@ -13,6 +13,7 @@ class PeopleViewController: BaseController {
         super.viewDidLoad()
 
         view.backgroundColor = .turquoise
+        setNavTitle(title: .peoples)
     }
     
 

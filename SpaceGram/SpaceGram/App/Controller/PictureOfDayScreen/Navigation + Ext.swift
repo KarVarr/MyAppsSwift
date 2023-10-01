@@ -14,8 +14,10 @@ extension PictureOfDayViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
+        
     }
     
+    //TODO: delete this tab bar
     
     //MARK: - Toolbar
     func configureToolbar() {

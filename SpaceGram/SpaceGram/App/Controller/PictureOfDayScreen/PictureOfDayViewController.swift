@@ -47,6 +47,7 @@ class PictureOfDayViewController: BaseController {
         blurEffect()
         addSubviews()
         settingView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

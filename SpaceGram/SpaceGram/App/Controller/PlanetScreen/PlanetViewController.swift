@@ -13,6 +13,8 @@ class PlanetViewController: BaseController {
         super.viewDidLoad()
 
         view.backgroundColor = .magenta
+        setNavTitle(title: .planets)
+        
     }
     
     deinit {

@@ -13,6 +13,7 @@ class ImagesViewController: BaseController {
         super.viewDidLoad()
 
         view.backgroundColor = .orange
+        setNavTitle(title: .images)
     }
     deinit {
         print("Images VC deinit")
