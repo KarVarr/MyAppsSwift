@@ -16,5 +16,8 @@ class PeopleViewController: BaseController {
     }
     
 
+    deinit {
+        print("Peoples VC deinit")
+    }
 
 }

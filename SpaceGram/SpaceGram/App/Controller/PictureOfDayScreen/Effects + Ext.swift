@@ -37,7 +37,7 @@ extension PictureOfDayViewController: UIScrollViewDelegate {
     }
     
     //MARK: - Making a Stars
-    func removeStars() {
+    private func removeStars() {
         for subview in starsView.view.subviews {
             subview.removeFromSuperview()
         }

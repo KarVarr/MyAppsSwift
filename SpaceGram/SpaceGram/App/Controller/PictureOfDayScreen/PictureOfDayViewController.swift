@@ -52,7 +52,6 @@ class PictureOfDayViewController: BaseController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchPictureOfTheDay()
-        
     }
     
     override func viewWillLayoutSubviews() {
@@ -61,4 +60,8 @@ class PictureOfDayViewController: BaseController {
         layoutView()
     }
     
+    deinit {
+        print("Picture of the day VC deinit")
+    }
+
 }

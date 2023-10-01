@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M8 5.07026C9.17669 4.38958 10.5429 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 10.5429 4.38958 9.17669 5.07026 8" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M13.8309 14.9264C8.40242 17.8185 3.18203 18.8529 2.17085 17.2367C1.63758 16.3844 2.38148 14.9651 4 13.3897M17.8486 6.19085C19.8605 5.81929 21.3391 5.98001 21.8291 6.76327C22.6266 8.03781 20.5682 10.5801 17 13.0164" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px" viewBox="0 0 30 30" version="1.1">
+<g id="surface1">
+<path style="fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke:rgb(10.980392%,15.294118%,29.803922%);stroke-opacity:1;stroke-miterlimit:4;" d="M 8 5.06875 C 9.178125 4.390625 10.54375 4 12 4 C 16.41875 4 20 7.58125 20 12 C 20 16.41875 16.41875 20 12 20 C 7.58125 20 4 16.41875 4 12 C 4 10.54375 4.390625 9.178125 5.06875 8 " transform="matrix(1.25,0,0,1.25,0,0)"/>
+<path style="fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(10.980392%,15.294118%,29.803922%);stroke-opacity:1;stroke-miterlimit:4;" d="M 13.83125 14.925 C 8.403125 17.81875 3.18125 18.853125 2.171875 17.2375 C 1.6375 16.384375 2.38125 14.965625 4 13.390625 M 17.85 6.190625 C 19.859375 5.81875 21.340625 5.98125 21.828125 6.7625 C 22.628125 8.0375 20.56875 10.58125 17 13.015625 " transform="matrix(1.25,0,0,1.25,0,0)"/>
+</g>
 </svg>

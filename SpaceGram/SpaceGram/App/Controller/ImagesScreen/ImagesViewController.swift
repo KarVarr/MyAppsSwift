@@ -14,5 +14,8 @@ class ImagesViewController: BaseController {
 
         view.backgroundColor = .orange
     }
+    deinit {
+        print("Images VC deinit")
+    }
 
 }

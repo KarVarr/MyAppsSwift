@@ -58,20 +58,12 @@ final class TabBarController: UITabBarController {
         
         let controllers: [NavBarController] = Tabs.allCases.map { tab in
             let controller = NavBarController(rootViewController: getController(for: tab))
-            
-            // Load the original image
-                let originalImage = Helper.Images.TabBar.icon(for: tab)
-                
-                // Resize the image
-                let resizedImage = originalImage?.resized(to: CGSize(width: 30, height: 30))
-            
-                // Установите отступы для изображения и заголовка
-                controller.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0) // Подстройте значения по вашему выбору
-                controller.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -6) // Подстройте значения по вашему выбору
-            
-            
-            
-            controller.tabBarItem = UITabBarItem(title: Helper.Strings.TabBar.title(for: tab), image: resizedImage, tag: tab.rawValue)
+
+            controller.tabBarItem = UITabBarItem(
+                title: Helper.Strings.TabBar.title(for: tab),
+                image: Helper.Images.TabBar.icon(for: tab),
+                tag: tab.rawValue
+            )
             
             
             return controller
@@ -92,11 +84,11 @@ final class TabBarController: UITabBarController {
     
 }
 
-extension UIImage {
-    func resized(to newSize: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(newSize, false, UIScreen.main.scale)
-        defer { UIGraphicsEndImageContext() }
-        draw(in: CGRect(origin: .zero, size: newSize))
-        return UIGraphicsGetImageFromCurrentImageContext()
-    }
-}
+//extension UIImage {
+//    func resized(to newSize: CGSize) -> UIImage? {
+//        UIGraphicsBeginImageContextWithOptions(newSize, false, UIScreen.main.scale)
+//        defer { UIGraphicsEndImageContext() }
+//        draw(in: CGRect(origin: .zero, size: newSize))
+//        return UIGraphicsGetImageFromCurrentImageContext()
+//    }
+//}

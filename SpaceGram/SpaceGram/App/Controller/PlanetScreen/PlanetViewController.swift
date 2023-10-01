@@ -15,6 +15,9 @@ class PlanetViewController: BaseController {
         view.backgroundColor = .magenta
     }
     
+    deinit {
+        print("Planet VC deinit")
+    }
 
 
 }

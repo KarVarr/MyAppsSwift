@@ -19,10 +19,10 @@ enum Helper {
         enum TabBar {
             static func icon(for tab: Tabs) -> UIImage? {
                 switch tab {
-                case .pictureOfDay: return UIImage(named: "home")
+                case .pictureOfDay: return UIImage(named: "photo")
                 case .planets: return UIImage(named: "planet")
-                case .images: return UIImage(named: "album")
-                case .peoples: return UIImage(named: "user")
+                case .images: return UIImage(named: "images")
+                case .peoples: return UIImage(named: "peoples")
                 }
             }
         }
@@ -35,10 +35,10 @@ enum Helper {
         enum TabBar {
             static func title(for tab: Tabs) -> String {
                 switch tab {
-                case .pictureOfDay: return "Picture of The Day"
+                case .pictureOfDay: return "Photo"
                 case .planets: return "Planets"
-                case .images: return "Space images"
-                case .peoples: return "People from space"
+                case .images: return "Space"
+                case .peoples: return "People"
                 }
             }
         }
