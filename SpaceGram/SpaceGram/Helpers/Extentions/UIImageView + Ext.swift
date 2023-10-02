@@ -26,9 +26,29 @@ import UIKit
 
 
 extension UIImageView {
+    
     private var originalTransform: CGAffineTransform {
         return CGAffineTransform.identity
     }
+    private var originalCenter: CGPoint {
+            get {
+                return .zero
+            }
+            set {
+               
+            }
+        }
+    
+    private var originalScale: CGFloat {
+        get {
+            return 1.0
+        }
+        set {
+           
+        }
+    }
+
+
     
     func enableZoomRotationPan() {
         isUserInteractionEnabled = true
@@ -48,16 +68,7 @@ extension UIImageView {
         addGestureRecognizer(doubleTapGesture)
     }
     
-    @objc private func handlePinch(_ gesture: UIPinchGestureRecognizer) {
-        guard let view = gesture.view else { return }
-        
-        if gesture.state == .changed || gesture.state == .ended {
-            view.transform = view.transform.scaledBy(x: gesture.scale, y: gesture.scale)
-            gesture.scale = 1.0
-        } else if gesture.state == .ended {
-            view.transform = .identity
-        }
-    }
+  
     
     @objc private func handleRotation(_ gesture: UIRotationGestureRecognizer) {
         guard let view = gesture.view else { return }
@@ -70,6 +81,17 @@ extension UIImageView {
         }
     }
     
+    @objc private func handlePinch(_ gesture: UIPinchGestureRecognizer) {
+        guard let view = gesture.view else { return }
+        
+        if gesture.state == .changed || gesture.state == .ended {
+            view.transform = view.transform.scaledBy(x: gesture.scale, y: gesture.scale)
+            gesture.scale = 1.0
+        } else if gesture.state == .ended {
+            originalScale = view.transform.a // Сохраняем текущий масштаб
+        }
+    }
+
     @objc private func handlePan(_ gesture: UIPanGestureRecognizer) {
         guard let view = gesture.view else { return }
         
@@ -78,26 +100,29 @@ extension UIImageView {
             view.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
             gesture.setTranslation(.zero, in: view.superview)
         } else if gesture.state == .ended {
-            view.transform = .identity
+            originalCenter = view.center // Сохраняем текущую позицию
         }
     }
+
     
     @objc private func handleDoubleTap(_ gesture: UITapGestureRecognizer) {
-            guard let view = gesture.view else { return }
+        guard let view = gesture.view else { return }
 
-            if gesture.state == .ended {
-                let currentTransform = view.transform
+        if gesture.state == .ended {
+            let currentTransform = view.transform
 
-                UIView.animate(withDuration: 0.3) {
-                    if currentTransform == self.originalTransform {
-                        view.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-                    } else {
-                        view.transform = self.originalTransform
-                    }
+            UIView.animate(withDuration: 0.3) {
+                if currentTransform == self.originalTransform {
+                    view.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
+                } else {
+                    view.transform = self.originalTransform
+                    view.center = self.originalCenter
+                    view.transform = view.transform.scaledBy(x: self.originalScale, y: self.originalScale)
                 }
             }
         }
-    
+    }
+
     private func resetTransform(_ view: UIView) {
         UIView.animate(withDuration: 0.3) {
             view.transform = .identity

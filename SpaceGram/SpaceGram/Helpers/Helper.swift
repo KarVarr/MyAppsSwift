@@ -35,9 +35,9 @@ enum Helper {
             static func title(for tab: Tabs) -> String {
                 switch tab {
                 case .pictureOfDay: return "Picture of The Day"
-                case .planets: return "Planets"
-                case .images: return "Space"
-                case .peoples: return "People"
+                case .planets: return "P l a n e t s"
+                case .images: return "S p a c e"
+                case .peoples: return "P e o p l e"
                 }
             }
         }
