@@ -26,6 +26,7 @@
 		17A99ECE2AC9B3270015A9E9 /* SettingsHD + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A99ECD2AC9B3270015A9E9 /* SettingsHD + Ext.swift */; };
 		17A99ED02AC9B3500015A9E9 /* LayoutHD + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A99ECF2AC9B3500015A9E9 /* LayoutHD + Ext.swift */; };
 		17A99ED22AC9B4030015A9E9 /* EffectsHD + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A99ED12AC9B4030015A9E9 /* EffectsHD + Ext.swift */; };
+		17A99ED42ACB4BD50015A9E9 /* Skeleton + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A99ED32ACB4BD50015A9E9 /* Skeleton + Ext.swift */; };
 		17B7B5032AC44456009A5767 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7B5022AC44456009A5767 /* ActivityIndicatorView.swift */; };
 		17B7B5052AC44B13009A5767 /* Layout + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7B5042AC44B13009A5767 /* Layout + Ext.swift */; };
 		17B7B5072AC44B5C009A5767 /* GetData + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7B5062AC44B5C009A5767 /* GetData + Ext.swift */; };
@@ -66,6 +67,7 @@
 		17A99ECD2AC9B3270015A9E9 /* SettingsHD + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsHD + Ext.swift"; sourceTree = "<group>"; };
 		17A99ECF2AC9B3500015A9E9 /* LayoutHD + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutHD + Ext.swift"; sourceTree = "<group>"; };
 		17A99ED12AC9B4030015A9E9 /* EffectsHD + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsHD + Ext.swift"; sourceTree = "<group>"; };
+		17A99ED32ACB4BD50015A9E9 /* Skeleton + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skeleton + Ext.swift"; sourceTree = "<group>"; };
 		17B7B5022AC44456009A5767 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		17B7B5042AC44B13009A5767 /* Layout + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Layout + Ext.swift"; sourceTree = "<group>"; };
 		17B7B5062AC44B5C009A5767 /* GetData + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetData + Ext.swift"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				17B7B5082AC44B9C009A5767 /* Settings + Ext.swift */,
 				17B7B5062AC44B5C009A5767 /* GetData + Ext.swift */,
 				17D1AB0D2AC971E9007C31E6 /* AddSubviews + Ext.swift */,
+				17A99ED32ACB4BD50015A9E9 /* Skeleton + Ext.swift */,
 				17D1AB132AC9AFCF007C31E6 /* HDPictureViewController */,
 			);
 			path = PictureOfDayScreen;
@@ -384,6 +387,7 @@
 				17A99ED22AC9B4030015A9E9 /* EffectsHD + Ext.swift in Sources */,
 				17B7B5052AC44B13009A5767 /* Layout + Ext.swift in Sources */,
 				177F3B952AC366BA00D0876C /* AstronomyPictureOfTheDay.swift in Sources */,
+				17A99ED42ACB4BD50015A9E9 /* Skeleton + Ext.swift in Sources */,
 				177F3B742AC3473300D0876C /* SceneDelegate.swift in Sources */,
 				17A99ECC2AC9B2CD0015A9E9 /* AddSubviewsHD+ Ext.swift in Sources */,
 				177F3B922AC362ED00D0876C /* CustomLabel.swift in Sources */,
