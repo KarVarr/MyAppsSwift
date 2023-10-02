@@ -9,6 +9,7 @@ import Foundation
 
 extension HDPictureViewController {
     override func addSubviews() {
-        view.addSubview(hdPictureOfDay.customImage)
+        view.addSubview(scrollViewForImage.scroll)
+        scrollViewForImage.scroll.addSubview(hdPictureOfDay.customImage)
     }
 }

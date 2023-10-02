@@ -9,6 +9,7 @@ import UIKit
 
 class HDPictureViewController: BaseController {
     let hdPictureOfDay = CustomImageView()
+    let scrollViewForImage = CustomScrollView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +17,6 @@ class HDPictureViewController: BaseController {
         addSubviews()
         settingView()
         layoutView()
-        
     }
 }
 

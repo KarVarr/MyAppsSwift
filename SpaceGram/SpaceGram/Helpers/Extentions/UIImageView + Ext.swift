@@ -30,23 +30,6 @@ extension UIImageView {
     private var originalTransform: CGAffineTransform {
         return CGAffineTransform.identity
     }
-    private var originalCenter: CGPoint {
-            get {
-                return .zero
-            }
-            set {
-               
-            }
-        }
-    
-    private var originalScale: CGFloat {
-        get {
-            return 1.0
-        }
-        set {
-           
-        }
-    }
 
 
     
@@ -88,7 +71,7 @@ extension UIImageView {
             view.transform = view.transform.scaledBy(x: gesture.scale, y: gesture.scale)
             gesture.scale = 1.0
         } else if gesture.state == .ended {
-            originalScale = view.transform.a // Сохраняем текущий масштаб
+            
         }
     }
 
@@ -100,7 +83,7 @@ extension UIImageView {
             view.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
             gesture.setTranslation(.zero, in: view.superview)
         } else if gesture.state == .ended {
-            originalCenter = view.center // Сохраняем текущую позицию
+            
         }
     }
 
@@ -116,8 +99,6 @@ extension UIImageView {
                     view.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
                 } else {
                     view.transform = self.originalTransform
-                    view.center = self.originalCenter
-                    view.transform = view.transform.scaledBy(x: self.originalScale, y: self.originalScale)
                 }
             }
         }

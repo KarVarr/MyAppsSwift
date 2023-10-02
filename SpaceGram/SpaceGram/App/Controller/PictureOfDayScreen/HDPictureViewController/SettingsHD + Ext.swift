@@ -13,6 +13,7 @@ extension HDPictureViewController {
     override func settingView() {
         configureNavigation()
         configureImage()
+        configureScrollView()
         addGradientLayer()
     }
     
@@ -22,9 +23,10 @@ extension HDPictureViewController {
 
     private func configureImage() {
         hdPictureOfDay.customImage.contentMode = .scaleAspectFit
-        hdPictureOfDay.customImage.enableZoomRotationPan()
+//        hdPictureOfDay.customImage.enableZoomRotationPan()
     }
     
+  
     
     @objc func actionPressed() {
         
