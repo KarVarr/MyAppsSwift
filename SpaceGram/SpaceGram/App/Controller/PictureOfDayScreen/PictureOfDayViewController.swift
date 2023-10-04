@@ -11,7 +11,7 @@ import SkeletonView
 class PictureOfDayViewController: BaseController {
     
     let dataFetcher = DataFetcher()
-    let imagesForToolbar = ImagesForToolbar()
+    let imagesForToolbar = ImageNamesForToolbar()
     
     //Stars on the view
     let starsView = CustomView()

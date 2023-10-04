@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct ImagesForToolbar {
+struct ImageNamesForToolbar {
     let images = ["home", "planet", "album", "user"]
 }

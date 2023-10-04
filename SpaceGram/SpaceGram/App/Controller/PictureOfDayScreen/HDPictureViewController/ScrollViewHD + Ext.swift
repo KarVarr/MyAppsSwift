@@ -1,5 +1,5 @@
 //
-//  ScrollView + Ext.swift
+//  ScrollViewHD + Ext.swift
 //  SpaceGram
 //
 //  Created by Karen Vardanian on 02.10.2023.

@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension HDPictureViewController {
     
     override func settingView() {
@@ -19,17 +18,26 @@ extension HDPictureViewController {
     
     private func configureNavigation() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(actionPressed))
-    }
-
-    private func configureImage() {
-        hdPictureOfDay.customImage.contentMode = .scaleAspectFit
-//        hdPictureOfDay.customImage.enableZoomRotationPan()
+        
+        
     }
     
-  
+    private func configureImage() {
+        hdPictureOfDay.customImage.contentMode = .scaleAspectFit
+    }
+    
+    
     
     @objc func actionPressed() {
         
+        guard let imageHD = hdPictureOfDay.customImage.image else { return }
+        
+        let activityVC = UIActivityViewController(activityItems: [imageHD], applicationActivities: nil)
+        
+        activityVC.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        activityVC.popoverPresentationController?.permittedArrowDirections = .any
+        
+        present(activityVC, animated: true)
     }
     
 }
