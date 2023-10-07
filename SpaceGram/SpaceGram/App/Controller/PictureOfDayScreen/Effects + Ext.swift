@@ -9,6 +9,8 @@ import UIKit
 
 extension PictureOfDayViewController: UIScrollViewDelegate {
   
+   
+
     
     //MARK: - Gradient
     func addGradientLayer() {
