@@ -22,11 +22,6 @@ extension PictureOfDayViewController {
         
         let explanationLabel = explanationLabel.label
         
-        let separateLineForToolbar = separateLineForToolbar.view
-        let customToolbar = customToolbar.view
-        let horizontalVStackForToolbar = horizontalStackForToolbar.sView
-        
-        
         //MARK: - StarsView
         NSLayoutConstraint.activate([
             starsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -71,24 +66,5 @@ extension PictureOfDayViewController {
             
         ])
         
-        
-        //MARK: - Toolbar
-        NSLayoutConstraint.activate([
-            separateLineForToolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            separateLineForToolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            separateLineForToolbar.bottomAnchor.constraint(equalTo: customToolbar.topAnchor),
-            separateLineForToolbar.heightAnchor.constraint(equalToConstant: 0.4),
-            
-            customToolbar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            customToolbar.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            customToolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            customToolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            customToolbar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1),
-            
-            horizontalVStackForToolbar.topAnchor.constraint(equalTo: customToolbar.topAnchor, constant: 15),
-            horizontalVStackForToolbar.leadingAnchor.constraint(equalTo: customToolbar.leadingAnchor, constant: 15),
-            horizontalVStackForToolbar.trailingAnchor.constraint(equalTo: customToolbar.trailingAnchor, constant: -15),
-            horizontalVStackForToolbar.bottomAnchor.constraint(equalTo: customToolbar.bottomAnchor, constant: -30),
-        ])
     }
 }

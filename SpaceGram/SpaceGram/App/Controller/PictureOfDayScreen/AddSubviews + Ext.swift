@@ -24,9 +24,5 @@ extension PictureOfDayViewController {
         viewForAbout.view.addSubview(titleLabel.label)
         viewForAbout.view.addSubview(explanationLabel.label)
         
-        /* Toolbar */
-        view.addSubview(separateLineForToolbar.view)
-        view.addSubview(customToolbar.view)
-        customToolbar.view.addSubview(horizontalStackForToolbar.sView)
     }
 }
