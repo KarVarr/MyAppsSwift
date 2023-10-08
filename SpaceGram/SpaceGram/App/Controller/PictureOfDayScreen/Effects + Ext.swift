@@ -8,7 +8,14 @@
 import UIKit
 
 extension PictureOfDayViewController: UIScrollViewDelegate {
-  
+    
+    //MARK: - Dynamic Font size
+    func dynamicFontSize(_ fontSize: CGFloat) -> CGFloat {
+        let screenWidth = UIScreen.main.bounds.size.width
+        let calculatedFontSize = screenWidth / 375 * fontSize
+        return calculatedFontSize
+    }
+    
     //MARK: - Gradient
     func addGradientLayer() {
         let gradientLayerForView = CAGradientLayer()
@@ -28,7 +35,7 @@ extension PictureOfDayViewController: UIScrollViewDelegate {
     
     func makeStars() {
         removeStars()
-
+        
         starsView.view.layer.removeAllAnimations()
         starsView.view.backgroundColor = .clear
         starsView.view.frame = view.bounds

@@ -16,6 +16,7 @@ extension PictureOfDayViewController {
         pictureOfDayImageView.customImage.layer.borderWidth = 1
         pictureOfDayImageView.customImage.layer.borderColor = Helper.Colors.lightGray.cgColor
         pictureOfDayImageView.customImage.isUserInteractionEnabled = true
+        pictureOfDayImageView.customImage.contentMode = .scaleAspectFill
         
         buttonHDPictureOfDay.button.clipsToBounds = true
         buttonHDPictureOfDay.button.setTitle("HD", for: .normal)

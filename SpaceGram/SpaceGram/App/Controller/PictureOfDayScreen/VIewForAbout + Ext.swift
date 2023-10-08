@@ -17,13 +17,13 @@ extension PictureOfDayViewController {
         scrollView.scroll.clipsToBounds = true
         scrollView.scroll.layer.cornerRadius = 30
         
-        titleLabel.label.font = Helper.Font.DINCondensedBold(with: 36)
+        titleLabel.label.font = Helper.Font.DINCondensedBold(with: dynamicFontSize(36))
         titleLabel.label.textAlignment = .center
-        explanationLabel.label.font = Helper.Font.AppleSDGothicNeoBold(with: 22)
+        explanationLabel.label.font = Helper.Font.AppleSDGothicNeoBold(with: dynamicFontSize(22))
         explanationLabel.label.textAlignment = .center
         
         let attributedText = NSMutableAttributedString(string: explanationLabel.label.text ?? "")
-        let lineHeight: CGFloat = 2
+        let lineHeight: CGFloat = 4
         let paragraphStyle = NSMutableParagraphStyle()
         
         paragraphStyle.lineHeightMultiple = lineHeight
@@ -32,5 +32,5 @@ extension PictureOfDayViewController {
         explanationLabel.label.attributedText = attributedText
         
     }
- 
+    
 }
