@@ -10,9 +10,10 @@
 		1710F1E82AC4861D0032927B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710F1E72AC4861D0032927B /* Helper.swift */; };
 		1710F1EA2AC487680032927B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710F1E92AC487680032927B /* Keys.swift */; };
 		1710F1EC2AC5E4D40032927B /* ImageNamesForToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710F1EB2AC5E4D40032927B /* ImageNamesForToolbar.swift */; };
-		17496B2E2AD1FD89006D3499 /* StarWarsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17496B2D2AD1FD89006D3499 /* StarWarsTextView.swift */; };
 		17496B302AD28ECF006D3499 /* RefreshControl + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17496B2F2AD28ECF006D3499 /* RefreshControl + Ext.swift */; };
 		17496B322AD28F2E006D3499 /* CustomRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17496B312AD28F2E006D3499 /* CustomRefreshControl.swift */; };
+		17496B342AD2A65E006D3499 /* ImageView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17496B332AD2A65E006D3499 /* ImageView + Ext.swift */; };
+		17496B362AD2A6A0006D3499 /* VIewForAbout + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17496B352AD2A6A0006D3499 /* VIewForAbout + Ext.swift */; };
 		177F3B722AC3473300D0876C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B712AC3473300D0876C /* AppDelegate.swift */; };
 		177F3B742AC3473300D0876C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B732AC3473300D0876C /* SceneDelegate.swift */; };
 		177F3B762AC3473300D0876C /* PictureOfDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F3B752AC3473300D0876C /* PictureOfDayViewController.swift */; };
@@ -52,9 +53,10 @@
 		1710F1E72AC4861D0032927B /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		1710F1E92AC487680032927B /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		1710F1EB2AC5E4D40032927B /* ImageNamesForToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNamesForToolbar.swift; sourceTree = "<group>"; };
-		17496B2D2AD1FD89006D3499 /* StarWarsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsTextView.swift; sourceTree = "<group>"; };
 		17496B2F2AD28ECF006D3499 /* RefreshControl + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RefreshControl + Ext.swift"; sourceTree = "<group>"; };
 		17496B312AD28F2E006D3499 /* CustomRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRefreshControl.swift; sourceTree = "<group>"; };
+		17496B332AD2A65E006D3499 /* ImageView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView + Ext.swift"; sourceTree = "<group>"; };
+		17496B352AD2A6A0006D3499 /* VIewForAbout + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VIewForAbout + Ext.swift"; sourceTree = "<group>"; };
 		177F3B6E2AC3473300D0876C /* SpaceGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		177F3B712AC3473300D0876C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		177F3B732AC3473300D0876C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,7 +194,6 @@
 			children = (
 				177F3B942AC366BA00D0876C /* AstronomyPictureOfTheDay.swift */,
 				1710F1EB2AC5E4D40032927B /* ImageNamesForToolbar.swift */,
-				17496B2D2AD1FD89006D3499 /* StarWarsTextView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,8 +223,10 @@
 				17B7B5082AC44B9C009A5767 /* Settings + Ext.swift */,
 				17B7B5062AC44B5C009A5767 /* GetData + Ext.swift */,
 				17D1AB0D2AC971E9007C31E6 /* AddSubviews + Ext.swift */,
-				17A99ED32ACB4BD50015A9E9 /* Skeleton + Ext.swift */,
+				17496B332AD2A65E006D3499 /* ImageView + Ext.swift */,
 				17496B2F2AD28ECF006D3499 /* RefreshControl + Ext.swift */,
+				17496B352AD2A6A0006D3499 /* VIewForAbout + Ext.swift */,
+				17A99ED32ACB4BD50015A9E9 /* Skeleton + Ext.swift */,
 				17D1AB132AC9AFCF007C31E6 /* HDPictureViewController */,
 			);
 			path = PictureOfDayScreen;
@@ -371,7 +374,6 @@
 			files = (
 				17D1AB102AC9A283007C31E6 /* CustomButton.swift in Sources */,
 				17D1AB002AC7458D007C31E6 /* PlanetViewController.swift in Sources */,
-				17496B2E2AD1FD89006D3499 /* StarWarsTextView.swift in Sources */,
 				17D1AB122AC9A987007C31E6 /* HDPictureViewController.swift in Sources */,
 				17CE446C2AC6E17B001128C4 /* Effects + Ext.swift in Sources */,
 				17D1AB0C2AC81D3A007C31E6 /* BaseController.swift in Sources */,
@@ -397,9 +399,11 @@
 				17D1AB022AC745A9007C31E6 /* ImagesViewController.swift in Sources */,
 				17D1AB0E2AC971E9007C31E6 /* AddSubviews + Ext.swift in Sources */,
 				17A99ED22AC9B4030015A9E9 /* EffectsHD + Ext.swift in Sources */,
+				17496B362AD2A6A0006D3499 /* VIewForAbout + Ext.swift in Sources */,
 				17B7B5052AC44B13009A5767 /* Layout + Ext.swift in Sources */,
 				177F3B952AC366BA00D0876C /* AstronomyPictureOfTheDay.swift in Sources */,
 				17A99ED42ACB4BD50015A9E9 /* Skeleton + Ext.swift in Sources */,
+				17496B342AD2A65E006D3499 /* ImageView + Ext.swift in Sources */,
 				177F3B742AC3473300D0876C /* SceneDelegate.swift in Sources */,
 				17496B322AD28F2E006D3499 /* CustomRefreshControl.swift in Sources */,
 				17A99ECC2AC9B2CD0015A9E9 /* AddSubviewsHD+ Ext.swift in Sources */,

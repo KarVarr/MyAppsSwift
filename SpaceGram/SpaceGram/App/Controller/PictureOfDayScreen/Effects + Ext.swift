@@ -9,9 +9,6 @@ import UIKit
 
 extension PictureOfDayViewController: UIScrollViewDelegate {
   
-   
-
-    
     //MARK: - Gradient
     func addGradientLayer() {
         let gradientLayerForView = CAGradientLayer()
@@ -33,7 +30,6 @@ extension PictureOfDayViewController: UIScrollViewDelegate {
         removeStars()
 
         starsView.view.layer.removeAllAnimations()
-        
         starsView.view.backgroundColor = .clear
         starsView.view.frame = view.bounds
         

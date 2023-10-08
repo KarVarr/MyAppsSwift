@@ -11,8 +11,7 @@ import SkeletonView
 class PictureOfDayViewController: BaseController {
     
     let dataFetcher = DataFetcher()
-//    let imagesForToolbar = ImageNamesForToolbar()
-    
+
     //Stars on the view
     let starsView = CustomView()
     
@@ -40,12 +39,12 @@ class PictureOfDayViewController: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        makeStars()
         fetchPictureOfTheDay()
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        makeStars()
         layoutView()
     }
     
