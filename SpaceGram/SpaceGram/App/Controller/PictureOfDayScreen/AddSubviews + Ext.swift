@@ -20,6 +20,7 @@ extension PictureOfDayViewController {
         /* Scroll View */
         view.addSubview(scrollView.scroll)
         scrollView.scroll.addSubview(viewForAbout.view)
+        scrollView.scroll.addSubview(refreshControl.refresh)
         
         viewForAbout.view.addSubview(titleLabel.label)
         viewForAbout.view.addSubview(explanationLabel.label)

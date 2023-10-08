@@ -13,6 +13,7 @@ extension PictureOfDayViewController {
         
         configurePictureOfDayImageView()
         configureCustomView()
+        configureRefresh()
         addGradientLayer()
         showSkeleton()
     }
@@ -70,12 +71,14 @@ extension PictureOfDayViewController {
         explanationLabel.label.layer.shadowOpacity = 1
         explanationLabel.label.layer.shadowRadius = 1
         explanationLabel.label.layer.shadowColor = Helper.Colors.darkBlue.cgColor
+        
+        
         starWarsStyleText()
     }
     
     private func starWarsStyleText() {
    
-        let perspective: CGFloat = -1 / 1000
+        let perspective: CGFloat = -3.0 / 500.0
         var transform = CATransform3DIdentity
         transform.m34 = perspective
 
@@ -85,6 +88,8 @@ extension PictureOfDayViewController {
         
         viewForAbout.view.layer.transform = transform
     }
+    
+ 
     
     
 }

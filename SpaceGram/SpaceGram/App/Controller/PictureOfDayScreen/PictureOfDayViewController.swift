@@ -11,7 +11,7 @@ import SkeletonView
 class PictureOfDayViewController: BaseController {
     
     let dataFetcher = DataFetcher()
-    let imagesForToolbar = ImageNamesForToolbar()
+//    let imagesForToolbar = ImageNamesForToolbar()
     
     //Stars on the view
     let starsView = CustomView()
@@ -25,20 +25,11 @@ class PictureOfDayViewController: BaseController {
     
     //Scroll and ViewForAbout. Title and date label.
     let scrollView = CustomScrollView()
+    let refreshControl = CustomRefreshControl()
     let viewForAbout = CustomView()
     var titleLabel = CustomLabel()
     var dateLabel = CustomLabel()
     var explanationLabel = CustomLabel()
-    
-    //Toolbar
-    let separateLineForToolbar = CustomView()
-    let customToolbar = CustomView()
-    let horizontalStackForToolbar = CustomStackView()
-    let homeImageToolbar = CustomImageView()
-    let planetImageToolbar = CustomImageView()
-    let albumImageToolbar = CustomImageView()
-    let userImageToolbar = CustomImageView()
-    
     
     //MARK: - ViewDidLoad ect.
     override func viewDidLoad() {
@@ -61,5 +52,5 @@ class PictureOfDayViewController: BaseController {
     deinit {
         print("Picture of the day VC deinit")
     }
-
+    
 }
