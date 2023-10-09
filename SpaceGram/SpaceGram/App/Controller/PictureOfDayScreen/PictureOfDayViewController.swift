@@ -35,12 +35,13 @@ class PictureOfDayViewController: BaseController {
         super.viewDidLoad()
         addSubviews()
         settingView()
+        getData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         makeStars()
-        fetchPictureOfTheDay()
+        
     }
     
     override func viewWillLayoutSubviews() {

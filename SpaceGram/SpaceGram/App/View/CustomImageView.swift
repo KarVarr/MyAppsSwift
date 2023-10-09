@@ -11,7 +11,6 @@ class CustomImageView {
     let customImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-//        image.contentMode = .scaleToFill
         image.clipsToBounds = true
         return image
     }()

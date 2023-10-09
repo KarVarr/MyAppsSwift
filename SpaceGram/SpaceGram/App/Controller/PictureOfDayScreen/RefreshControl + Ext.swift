@@ -13,7 +13,9 @@ extension PictureOfDayViewController {
     }
     
     @objc func refreshData(_ sender: UIRefreshControl) {
-        fetchPictureOfTheDay()
+        showSkeleton()
+        getData()
+        
         sender.endRefreshing()
     }
 }

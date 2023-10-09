@@ -9,7 +9,7 @@ import UIKit
 
 
 extension PictureOfDayViewController {
-    func fetchPictureOfTheDay () {
+    func getData () {
         DispatchQueue.global(qos: .userInteractive).async { [unowned self] in
             self.dataFetcher.decodeAPI(at: Helper.URL.nasaPictureOfTheDayUrl) { (result: Result<AstronomyPictureOfTheDay, Error>) in
                 switch result {
@@ -32,6 +32,7 @@ extension PictureOfDayViewController {
                     }
                     
                 case .failure(let error):
+                    print("Error fetching data: \(error)")
                     print("Error: \(error)")
                 }
             }
