@@ -1,5 +1,5 @@
 //
-//  MVCLayout + Ext.swift
+//  Layout + Ext.swift
 //  Answer Book
 //
 //  Created by Karen Vardanian on 18.09.2023.
@@ -9,8 +9,7 @@ import UIKit
 
 
 extension MainViewController {
-    
-    
+
     func layoutView() {
         let circleTop = topCornerCircle.viewBox
         let circleBottom = bottomCornerCircle.viewBox
@@ -29,6 +28,7 @@ extension MainViewController {
         
         let askButton = shakeButton.button
         
+        //MARK: - QUOTES
         NSLayoutConstraint.activate([
             circleTop.topAnchor.constraint(equalTo: viewBoxForQuotes.topAnchor, constant: -30),
             circleTop.trailingAnchor.constraint(equalTo: viewBoxForQuotes.trailingAnchor, constant: 30),
@@ -63,7 +63,10 @@ extension MainViewController {
             
             authorLabel.trailingAnchor.constraint(equalTo: viewBoxForQuotes.trailingAnchor, constant: -20),
             authorLabel.bottomAnchor.constraint(equalTo: viewBoxForQuotes.bottomAnchor, constant: -15),
-            
+        ])
+        
+        //MARK: - THE BALL 8
+        NSLayoutConstraint.activate([
             viewBoxForAnswer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             viewBoxForAnswer.topAnchor.constraint(equalTo: viewBoxForQuotes.bottomAnchor, constant: 20),
             viewBoxForAnswer.bottomAnchor.constraint(equalTo: askButton.topAnchor, constant: -20),
@@ -80,15 +83,18 @@ extension MainViewController {
             circleInsideBall.widthAnchor.constraint(equalTo: magicBallImage.widthAnchor, multiplier: dynamicWidth()),
             circleInsideBall.heightAnchor.constraint(equalTo: magicBallImage.widthAnchor, multiplier: dynamicWidth()),
             
-            
             answerLabel.centerXAnchor.constraint(equalTo: viewBoxForAnswer.centerXAnchor),
             answerLabel.centerYAnchor.constraint(equalTo: viewBoxForAnswer.centerYAnchor),
             answerLabel.widthAnchor.constraint(equalTo: circleInsideBall.widthAnchor, multiplier: 0.8),
+        ])
             
+        //MARK: - BUTTON
+        NSLayoutConstraint.activate([
             askButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             askButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             askButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
             askButton.heightAnchor.constraint(equalTo: askButton.widthAnchor, multiplier: 0.2),
         ])
+        
     }
 }

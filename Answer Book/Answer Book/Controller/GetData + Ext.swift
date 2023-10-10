@@ -1,5 +1,5 @@
 //
-//  MVCGetData + Ext.swift
+//  GetData + Ext.swift
 //  Answer Book
 //
 //  Created by Karen Vardanian on 19.09.2023.

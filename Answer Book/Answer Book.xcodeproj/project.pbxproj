@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		171A74452AD5C61600718A1A /* AddSubview + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A74442AD5C61600718A1A /* AddSubview + Ext.swift */; };
 		177F3B642AC2192C00D0876C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177F3B632AC2192C00D0876C /* Media.xcassets */; };
 		179416382AB71003005882D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416372AB71003005882D0 /* AppDelegate.swift */; };
 		1794163A2AB71003005882D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416392AB71003005882D0 /* SceneDelegate.swift */; };
@@ -20,15 +21,16 @@
 		1794165A2AB75DA2005882D0 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416592AB75DA2005882D0 /* Quotes.swift */; };
 		1794165C2AB76BA1005882D0 /* ViewBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794165B2AB76BA1005882D0 /* ViewBoxView.swift */; };
 		1794165E2AB77C4E005882D0 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794165D2AB77C4E005882D0 /* Helper.swift */; };
-		179416602AB77F4F005882D0 /* MVCSettings + Ext .swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794165F2AB77F4F005882D0 /* MVCSettings + Ext .swift */; };
+		179416602AB77F4F005882D0 /* Settings + Ext .swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794165F2AB77F4F005882D0 /* Settings + Ext .swift */; };
 		179416622AB78175005882D0 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416612AB78175005882D0 /* ActivityIndicatorView.swift */; };
-		179416652AB84569005882D0 /* MVCLayout + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416642AB84569005882D0 /* MVCLayout + Ext.swift */; };
+		179416652AB84569005882D0 /* Layout + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416642AB84569005882D0 /* Layout + Ext.swift */; };
 		179416672AB87781005882D0 /* ImageViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416662AB87781005882D0 /* ImageViewView.swift */; };
-		1794166C2ABA3301005882D0 /* MVCGetData + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794166B2ABA3301005882D0 /* MVCGetData + Ext.swift */; };
-		1794166E2ABA33A2005882D0 /* MVCButtonPressed + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794166D2ABA33A2005882D0 /* MVCButtonPressed + Ext.swift */; };
+		1794166C2ABA3301005882D0 /* GetData + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794166B2ABA3301005882D0 /* GetData + Ext.swift */; };
+		1794166E2ABA33A2005882D0 /* ButtonPressed + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794166D2ABA33A2005882D0 /* ButtonPressed + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		171A74442AD5C61600718A1A /* AddSubview + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddSubview + Ext.swift"; sourceTree = "<group>"; };
 		177F3B632AC2192C00D0876C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		179416342AB71003005882D0 /* Answer Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Answer Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		179416372AB71003005882D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,12 +46,12 @@
 		179416592AB75DA2005882D0 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 		1794165B2AB76BA1005882D0 /* ViewBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBoxView.swift; sourceTree = "<group>"; };
 		1794165D2AB77C4E005882D0 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		1794165F2AB77F4F005882D0 /* MVCSettings + Ext .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MVCSettings + Ext .swift"; sourceTree = "<group>"; };
+		1794165F2AB77F4F005882D0 /* Settings + Ext .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings + Ext .swift"; sourceTree = "<group>"; };
 		179416612AB78175005882D0 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
-		179416642AB84569005882D0 /* MVCLayout + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MVCLayout + Ext.swift"; sourceTree = "<group>"; };
+		179416642AB84569005882D0 /* Layout + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Layout + Ext.swift"; sourceTree = "<group>"; };
 		179416662AB87781005882D0 /* ImageViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewView.swift; sourceTree = "<group>"; };
-		1794166B2ABA3301005882D0 /* MVCGetData + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MVCGetData + Ext.swift"; sourceTree = "<group>"; };
-		1794166D2ABA33A2005882D0 /* MVCButtonPressed + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MVCButtonPressed + Ext.swift"; sourceTree = "<group>"; };
+		1794166B2ABA3301005882D0 /* GetData + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetData + Ext.swift"; sourceTree = "<group>"; };
+		1794166D2ABA33A2005882D0 /* ButtonPressed + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ButtonPressed + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,10 +117,11 @@
 			isa = PBXGroup;
 			children = (
 				1794163B2AB71003005882D0 /* MainViewController.swift */,
-				1794165F2AB77F4F005882D0 /* MVCSettings + Ext .swift */,
-				179416642AB84569005882D0 /* MVCLayout + Ext.swift */,
-				1794166B2ABA3301005882D0 /* MVCGetData + Ext.swift */,
-				1794166D2ABA33A2005882D0 /* MVCButtonPressed + Ext.swift */,
+				1794165F2AB77F4F005882D0 /* Settings + Ext .swift */,
+				179416642AB84569005882D0 /* Layout + Ext.swift */,
+				1794166B2ABA3301005882D0 /* GetData + Ext.swift */,
+				1794166D2ABA33A2005882D0 /* ButtonPressed + Ext.swift */,
+				171A74442AD5C61600718A1A /* AddSubview + Ext.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -234,20 +237,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				1794165C2AB76BA1005882D0 /* ViewBoxView.swift in Sources */,
+				171A74452AD5C61600718A1A /* AddSubview + Ext.swift in Sources */,
 				1794165A2AB75DA2005882D0 /* Quotes.swift in Sources */,
-				1794166C2ABA3301005882D0 /* MVCGetData + Ext.swift in Sources */,
+				1794166C2ABA3301005882D0 /* GetData + Ext.swift in Sources */,
 				1794163C2AB71003005882D0 /* MainViewController.swift in Sources */,
 				179416622AB78175005882D0 /* ActivityIndicatorView.swift in Sources */,
 				179416582AB71828005882D0 /* DataFetcher.swift in Sources */,
-				179416652AB84569005882D0 /* MVCLayout + Ext.swift in Sources */,
+				179416652AB84569005882D0 /* Layout + Ext.swift in Sources */,
 				179416382AB71003005882D0 /* AppDelegate.swift in Sources */,
 				179416522AB711FA005882D0 /* ButtonView.swift in Sources */,
 				179416562AB717DD005882D0 /* Answer.swift in Sources */,
 				1794165E2AB77C4E005882D0 /* Helper.swift in Sources */,
-				1794166E2ABA33A2005882D0 /* MVCButtonPressed + Ext.swift in Sources */,
+				1794166E2ABA33A2005882D0 /* ButtonPressed + Ext.swift in Sources */,
 				1794163A2AB71003005882D0 /* SceneDelegate.swift in Sources */,
 				179416672AB87781005882D0 /* ImageViewView.swift in Sources */,
-				179416602AB77F4F005882D0 /* MVCSettings + Ext .swift in Sources */,
+				179416602AB77F4F005882D0 /* Settings + Ext .swift in Sources */,
 				179416542AB7149B005882D0 /* LabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
