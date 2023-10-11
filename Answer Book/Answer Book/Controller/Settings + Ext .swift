@@ -18,27 +18,7 @@ extension MainViewController {
         answerLabel.label.font = UIFont.systemFont(ofSize: dynamicFontSize(72))
     }
     
-    //MARK: - Quotes
-    func configureQuotesViews() {
-        quoteViewBox.viewBox.clipsToBounds = true
-        quoteViewBox.viewBox.layer.cornerRadius = 30
-        quoteViewBox.viewBox.layer.borderWidth = 1
-        quoteViewBox.viewBox.layer.borderColor = UIColor.white.withAlphaComponent(0.8).cgColor
-        
-        titleLabel.label.text = Helper.String.quotesTitle
-        titleLabel.label.font = Helper.Font.gillSansBold(with: dynamicFontSize(16))
-        
-        dateLabel.label.text = getCurrentDate()
-        dateLabel.label.font = Helper.Font.gillSansBold(with: dynamicFontSize(12))
-        dateLabel.label.textColor = .white.withAlphaComponent(0.5)
-        
-        quoteLabel.label.font = Helper.Font.americanTypewriter(with: dynamicFontSize(20))
-        quoteLabel.label.adjustsFontSizeToFitWidth = true
-        
-        
-        authorLabel.label.font = Helper.Font.snellRoundhand(with: dynamicFontSize(20))
-        authorLabel.label.textColor = .white.withAlphaComponent(0.9)
-    }
+ 
     
     //MARK: - Answer
     func configureAnswerView() {
@@ -102,7 +82,7 @@ extension MainViewController {
     }
     
     //MARK: - Functions
-    private func getCurrentDate() -> String {
+     func getCurrentDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy"
         return dateFormatter.string(from: Date())
