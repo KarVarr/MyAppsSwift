@@ -12,6 +12,7 @@ extension MainViewController {
     func configureAnswerView() {
         answerViewBox.viewBox.backgroundColor = .clear
         
+        
         answerLabel.label.textColor = .tertiarySystemGroupedBackground
     
         circleInsideBall.viewBox.layer.cornerRadius = circleInsideBall.viewBox.bounds.width / 2

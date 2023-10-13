@@ -20,8 +20,6 @@ extension MainViewController {
     
  
     
-   
-    
     //MARK: - Blur Effect
     func blurEffect() {
         let blurEffect = UIBlurEffect(style: .light)

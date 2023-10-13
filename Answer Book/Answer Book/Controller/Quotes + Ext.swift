@@ -25,7 +25,6 @@ extension MainViewController {
         quoteLabel.label.font = Helper.Font.americanTypewriter(with: dynamicFontSize(20))
         quoteLabel.label.adjustsFontSizeToFitWidth = true
         
-        
         authorLabel.label.font = Helper.Font.snellRoundhand(with: dynamicFontSize(20))
         authorLabel.label.textColor = .white.withAlphaComponent(0.9)
     }
