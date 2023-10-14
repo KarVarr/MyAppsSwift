@@ -9,7 +9,6 @@ import UIKit
 
 extension MainViewController {
     
-    
     func settingView() {
         overrideUserInterfaceStyle = .dark
         view.backgroundColor = Helper.Colors.darkViolet
@@ -17,12 +16,6 @@ extension MainViewController {
         answerLabel.label.text = "8"
         answerLabel.label.font = UIFont.systemFont(ofSize: dynamicFontSize(72))
     }
-    
- 
-    
-
-    
-    
     
     //MARK: - Circles
     func createCircle(for circle: ViewBoxView, withColor color: UIColor) {

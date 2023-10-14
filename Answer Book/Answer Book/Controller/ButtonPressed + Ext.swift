@@ -15,6 +15,7 @@ extension MainViewController {
         shakeButton.button.addTarget(self, action: #selector(shakeButtonPressed), for: .touchUpInside)
     }
     
+    
     @objc func shakeButtonPressed () {
         // Reset animation
         answerViewBox.viewBox.layer.removeAllAnimations()
@@ -25,7 +26,7 @@ extension MainViewController {
         shakeButton.button.setTitle(Helper.String.threeDots, for: .normal)
         shakeButton.button.backgroundColor = Helper.Colors.lightYellow
         shakeButton.button.isEnabled = false
-        
+     
         // Animate shaking
         let animationDuration = 0.1
         view.layoutIfNeeded()
@@ -39,6 +40,7 @@ extension MainViewController {
             }
         }
         
+        // Fetch Answer
         view.layoutIfNeeded()
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {

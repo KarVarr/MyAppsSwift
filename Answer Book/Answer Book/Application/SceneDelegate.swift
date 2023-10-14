@@ -10,12 +10,14 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
+    var mainViewController: MainViewController?
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = MainViewController()
+        self.mainViewController = MainViewController()
+        window.rootViewController = mainViewController
         window.makeKeyAndVisible()
         self.window = window
     }
@@ -46,6 +48,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        mainViewController?.answerLabel.label.text = "8"
+        mainViewController?.answerLabel.label.font = UIFont.systemFont(ofSize: MainViewController().dynamicFontSize(72))
     }
     
     
