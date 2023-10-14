@@ -10,6 +10,7 @@
 		171A74452AD5C61600718A1A /* AddSubview + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A74442AD5C61600718A1A /* AddSubview + Ext.swift */; };
 		171A74472AD6526A00718A1A /* Quotes + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A74462AD6526A00718A1A /* Quotes + Ext.swift */; };
 		171A74492AD7A37B00718A1A /* Answer + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A74482AD7A37B00718A1A /* Answer + Ext.swift */; };
+		171A746D2ADA94A300718A1A /* Effects + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A746C2ADA94A300718A1A /* Effects + Ext.swift */; };
 		177F3B642AC2192C00D0876C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177F3B632AC2192C00D0876C /* Media.xcassets */; };
 		179416382AB71003005882D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416372AB71003005882D0 /* AppDelegate.swift */; };
 		1794163A2AB71003005882D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179416392AB71003005882D0 /* SceneDelegate.swift */; };
@@ -35,6 +36,7 @@
 		171A74442AD5C61600718A1A /* AddSubview + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddSubview + Ext.swift"; sourceTree = "<group>"; };
 		171A74462AD6526A00718A1A /* Quotes + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quotes + Ext.swift"; sourceTree = "<group>"; };
 		171A74482AD7A37B00718A1A /* Answer + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Answer + Ext.swift"; sourceTree = "<group>"; };
+		171A746C2ADA94A300718A1A /* Effects + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effects + Ext.swift"; sourceTree = "<group>"; };
 		177F3B632AC2192C00D0876C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		179416342AB71003005882D0 /* Answer Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Answer Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		179416372AB71003005882D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				171A74462AD6526A00718A1A /* Quotes + Ext.swift */,
 				171A74482AD7A37B00718A1A /* Answer + Ext.swift */,
 				1794166D2ABA33A2005882D0 /* ButtonPressed + Ext.swift */,
+				171A746C2ADA94A300718A1A /* Effects + Ext.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				1794163A2AB71003005882D0 /* SceneDelegate.swift in Sources */,
 				179416672AB87781005882D0 /* ImageViewView.swift in Sources */,
 				179416602AB77F4F005882D0 /* Settings + Ext .swift in Sources */,
+				171A746D2ADA94A300718A1A /* Effects + Ext.swift in Sources */,
 				179416542AB7149B005882D0 /* LabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
