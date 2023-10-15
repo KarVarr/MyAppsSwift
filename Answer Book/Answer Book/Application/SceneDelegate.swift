@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import NotificationCenter
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     var mainViewController: MainViewController?
-    
-    
+    let notificationCenter = UNUserNotificationCenter.current()
+        
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
@@ -30,8 +31,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        requestAuthorization()
+        scheduleNotification()
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
@@ -45,11 +46,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
         mainViewController?.answerLabel.label.text = "8"
         mainViewController?.answerLabel.label.font = UIFont.systemFont(ofSize: MainViewController().dynamicFontSize(72))
+    }
+    
+    func requestAuthorization() {
+        notificationCenter.requestAuthorization(options: [.alert,.sound]) { granted, error in
+            print("Permission granted \(granted)")
+        }
+    }
+    
+    func scheduleNotification() {
+        let content = UNMutableNotificationContent()
+        
+        content.title = "New quote of the Day"
+        content.sound = UNNotificationSound.default
+        
+        let identifier = "quote"
+        
+        var triggerDaily = DateComponents()
+        triggerDaily.hour = 8
+        triggerDaily.minute = 0
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+        
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        notificationCenter.add(request)
     }
     
     

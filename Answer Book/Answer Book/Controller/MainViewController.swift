@@ -10,6 +10,8 @@ import UIKit
 class MainViewController: UIViewController {
     let dataFetcher = DataFetcher()
     
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     // Views for displaying quotes
     let quoteViewBox = ViewBoxView()
     var quoteLabel = LabelView()
@@ -41,6 +43,7 @@ class MainViewController: UIViewController {
         blurEffect()
         addSubviews()
         fetchQuotes()
+        
     }
     
     override func viewDidLayoutSubviews() {
