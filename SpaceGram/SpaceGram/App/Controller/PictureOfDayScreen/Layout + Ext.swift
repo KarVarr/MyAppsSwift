@@ -59,6 +59,8 @@ extension PictureOfDayViewController {
             
             titleLabel.topAnchor.constraint(equalTo: viewForAbout.topAnchor, constant: 20),
             titleLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             
             explanationLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             explanationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),

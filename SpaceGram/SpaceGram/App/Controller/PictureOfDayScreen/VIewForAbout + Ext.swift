@@ -17,7 +17,7 @@ extension PictureOfDayViewController {
         scrollView.scroll.clipsToBounds = true
         scrollView.scroll.layer.cornerRadius = 30
         
-        titleLabel.label.font = Helper.Font.DINCondensedBold(with: dynamicFontSize(36))
+        titleLabel.label.font = Helper.Font.DINCondensedBold(with: dynamicFontSize(38))
         titleLabel.label.textAlignment = .center
         explanationLabel.label.font = Helper.Font.AppleSDGothicNeoBold(with: dynamicFontSize(22))
         explanationLabel.label.textAlignment = .center
