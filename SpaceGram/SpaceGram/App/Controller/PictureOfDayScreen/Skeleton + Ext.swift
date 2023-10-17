@@ -14,7 +14,7 @@ extension PictureOfDayViewController {
         let arrayOfElementsForSkeleton = [pictureOfDayImageView.customImage, scrollView.scroll]
         
         arrayOfElementsForSkeleton.forEach {
-            $0.showGradientSkeleton(usingGradient: .init(baseColor: Helper.Colors.lightGray),animated: true, delay: 0)
+            $0.showGradientSkeleton(usingGradient: .init(baseColor: Helper.Colors.darkBlue),animated: true, delay: 0)
         }
     }
     
