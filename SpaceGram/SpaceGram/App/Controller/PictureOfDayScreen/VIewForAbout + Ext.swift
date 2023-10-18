@@ -30,7 +30,6 @@ extension PictureOfDayViewController {
         paragraphStyle.alignment = .center
         attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
         explanationLabel.label.attributedText = attributedText
-        
     }
     
 }

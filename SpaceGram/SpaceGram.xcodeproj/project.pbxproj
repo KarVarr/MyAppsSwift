@@ -11,6 +11,7 @@
 		1710F1EA2AC487680032927B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710F1E92AC487680032927B /* Keys.swift */; };
 		1710F1EC2AC5E4D40032927B /* ImageNamesForToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710F1EB2AC5E4D40032927B /* ImageNamesForToolbar.swift */; };
 		171A74432AD2BF4900718A1A /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 171A74422AD2BF4900718A1A /* Media.xcassets */; };
+		171A74732ADF8ACC00718A1A /* Stars + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A74722ADF8ACC00718A1A /* Stars + Ext.swift */; };
 		17496B302AD28ECF006D3499 /* RefreshControl + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17496B2F2AD28ECF006D3499 /* RefreshControl + Ext.swift */; };
 		17496B322AD28F2E006D3499 /* CustomRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17496B312AD28F2E006D3499 /* CustomRefreshControl.swift */; };
 		17496B342AD2A65E006D3499 /* ImageView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17496B332AD2A65E006D3499 /* ImageView + Ext.swift */; };
@@ -55,6 +56,7 @@
 		1710F1E92AC487680032927B /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		1710F1EB2AC5E4D40032927B /* ImageNamesForToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNamesForToolbar.swift; sourceTree = "<group>"; };
 		171A74422AD2BF4900718A1A /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		171A74722ADF8ACC00718A1A /* Stars + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stars + Ext.swift"; sourceTree = "<group>"; };
 		17496B2F2AD28ECF006D3499 /* RefreshControl + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RefreshControl + Ext.swift"; sourceTree = "<group>"; };
 		17496B312AD28F2E006D3499 /* CustomRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRefreshControl.swift; sourceTree = "<group>"; };
 		17496B332AD2A65E006D3499 /* ImageView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView + Ext.swift"; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				17496B332AD2A65E006D3499 /* ImageView + Ext.swift */,
 				17496B2F2AD28ECF006D3499 /* RefreshControl + Ext.swift */,
 				17496B352AD2A6A0006D3499 /* VIewForAbout + Ext.swift */,
+				171A74722ADF8ACC00718A1A /* Stars + Ext.swift */,
 				17A99ED32ACB4BD50015A9E9 /* Skeleton + Ext.swift */,
 				17D1AB132AC9AFCF007C31E6 /* HDPictureViewController */,
 			);
@@ -397,6 +400,7 @@
 				17A99ED62ACB57D20015A9E9 /* ScrollViewHD + Ext.swift in Sources */,
 				177F3B762AC3473300D0876C /* PictureOfDayViewController.swift in Sources */,
 				177F3B902AC35E3F00D0876C /* CustomStackView.swift in Sources */,
+				171A74732ADF8ACC00718A1A /* Stars + Ext.swift in Sources */,
 				177F3B982AC367B500D0876C /* DataFetcher.swift in Sources */,
 				17B7B5032AC44456009A5767 /* ActivityIndicatorView.swift in Sources */,
 				177F3B722AC3473300D0876C /* AppDelegate.swift in Sources */,
