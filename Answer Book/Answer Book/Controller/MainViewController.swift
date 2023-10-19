@@ -36,14 +36,13 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         settingView()
+        fetchQuotes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         blurEffect()
         addSubviews()
-        fetchQuotes()
-        
     }
     
     override func viewDidLayoutSubviews() {
