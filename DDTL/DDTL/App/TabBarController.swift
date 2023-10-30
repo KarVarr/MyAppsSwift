@@ -8,6 +8,11 @@
 import Foundation
 import UIKit
 
+enum Tabs: Int, CaseIterable {
+    case myListViewController
+    case worldListViewController
+}
+
 final class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
@@ -21,9 +26,24 @@ final class TabBarController: UITabBarController {
         tabBar.unselectedItemTintColor = .black
         tabBar.backgroundColor = .green
         
-        let controller = UINavigationController(rootViewController: ViewController())
-        controller.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
+        let controllers: [NavBarController] = Tabs.allCases.map { tab in
         
-        setViewControllers([controller], animated: true)
+            let controller = NavBarController(rootViewController: getController(for: tab))
+            controller.tabBarItem = UITabBarItem(
+                title: Helper.Strings.NavBar.title(for: tab),
+                image: Helper.Images.images(for: tab),
+                tag: tab.rawValue)
+            
+            return controller
+        }
+        
+        setViewControllers(controllers, animated: true)
+    }
+    
+    private func getController(for tab: Tabs) -> UIViewController {
+        switch tab {
+        case .myListViewController: MyListViewController()
+        case .worldListViewController: WorldListViewController()
+        }
     }
 }
