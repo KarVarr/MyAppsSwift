@@ -16,6 +16,7 @@
 		17C3593B2AF02CA800E154BE /* WorldListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3593A2AF02CA800E154BE /* WorldListViewController.swift */; };
 		17C3593D2AF02F0F00E154BE /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3593C2AF02F0F00E154BE /* NavBarController.swift */; };
 		17C359402AF02FD000E154BE /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3593F2AF02FD000E154BE /* Helper.swift */; };
+		17C359492AF16C9D00E154BE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359482AF16C9D00E154BE /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		17C3593A2AF02CA800E154BE /* WorldListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldListViewController.swift; sourceTree = "<group>"; };
 		17C3593C2AF02F0F00E154BE /* NavBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
 		17C3593F2AF02FD000E154BE /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		17C359482AF16C9D00E154BE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +84,9 @@
 		17C359362AF01D7A00E154BE /* App */ = {
 			isa = PBXGroup;
 			children = (
-				17C359252AF017AC00E154BE /* MyListViewController.swift */,
-				17C359382AF01FB500E154BE /* TabBarController.swift */,
-				17C3593A2AF02CA800E154BE /* WorldListViewController.swift */,
-				17C3593C2AF02F0F00E154BE /* NavBarController.swift */,
+				17C359432AF166F400E154BE /* Model */,
+				17C359422AF166ED00E154BE /* View */,
+				17C359412AF166DD00E154BE /* Controller */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -106,6 +107,64 @@
 				17C3593F2AF02FD000E154BE /* Helper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		17C359412AF166DD00E154BE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				17C359472AF16C8300E154BE /* BaseController */,
+				17C359442AF1670200E154BE /* MyListController */,
+				17C359452AF1671C00E154BE /* WorldListController */,
+				17C359462AF16C6800E154BE /* NavigationControllers */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		17C359422AF166ED00E154BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		17C359432AF166F400E154BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		17C359442AF1670200E154BE /* MyListController */ = {
+			isa = PBXGroup;
+			children = (
+				17C359252AF017AC00E154BE /* MyListViewController.swift */,
+			);
+			path = MyListController;
+			sourceTree = "<group>";
+		};
+		17C359452AF1671C00E154BE /* WorldListController */ = {
+			isa = PBXGroup;
+			children = (
+				17C3593A2AF02CA800E154BE /* WorldListViewController.swift */,
+			);
+			path = WorldListController;
+			sourceTree = "<group>";
+		};
+		17C359462AF16C6800E154BE /* NavigationControllers */ = {
+			isa = PBXGroup;
+			children = (
+				17C3593C2AF02F0F00E154BE /* NavBarController.swift */,
+				17C359382AF01FB500E154BE /* TabBarController.swift */,
+			);
+			path = NavigationControllers;
+			sourceTree = "<group>";
+		};
+		17C359472AF16C8300E154BE /* BaseController */ = {
+			isa = PBXGroup;
+			children = (
+				17C359482AF16C9D00E154BE /* BaseViewController.swift */,
+			);
+			path = BaseController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +242,7 @@
 				17C3593D2AF02F0F00E154BE /* NavBarController.swift in Sources */,
 				17C359392AF01FB500E154BE /* TabBarController.swift in Sources */,
 				17C3593B2AF02CA800E154BE /* WorldListViewController.swift in Sources */,
+				17C359492AF16C9D00E154BE /* BaseViewController.swift in Sources */,
 				17C359222AF017AC00E154BE /* AppDelegate.swift in Sources */,
 				17C359242AF017AC00E154BE /* SceneDelegate.swift in Sources */,
 			);

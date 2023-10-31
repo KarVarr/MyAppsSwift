@@ -11,7 +11,16 @@ enum Helper {
     //MARK: - STRINGS
     enum Strings {
         
-        enum NavBar {
+        enum NavTitle {
+            static func title(for tab: Tabs) -> String {
+                switch tab {
+                case .myListViewController: "Don't Do This"
+                case .worldListViewController: "Don't Do This World"
+                }
+            }
+        }
+        
+        enum TabBar {
             static func title(for tab: Tabs) -> String {
                 switch tab {
                 case .myListViewController: "My list"

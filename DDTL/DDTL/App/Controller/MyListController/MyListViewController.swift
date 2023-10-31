@@ -7,13 +7,17 @@
 
 import UIKit
 
-class MyListViewController: UIViewController {
+class MyListViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .orange
+        
+        setNavTitle(title: .myListViewController)
     }
 
 
 }
+
+
 

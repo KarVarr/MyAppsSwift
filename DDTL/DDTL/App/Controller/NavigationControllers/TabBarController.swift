@@ -30,7 +30,7 @@ final class TabBarController: UITabBarController {
         
             let controller = NavBarController(rootViewController: getController(for: tab))
             controller.tabBarItem = UITabBarItem(
-                title: Helper.Strings.NavBar.title(for: tab),
+                title: Helper.Strings.TabBar.title(for: tab),
                 image: Helper.Images.images(for: tab),
                 tag: tab.rawValue)
             
