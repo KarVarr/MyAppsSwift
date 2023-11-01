@@ -8,15 +8,19 @@
 import UIKit
 
 class MyListViewController: BaseViewController {
-    let tableView = UITableViewController()
+    let tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .orange
         
         setNavTitle(title: .myListViewController)
-        
-        tableView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.frame = view.bounds
+
+        view.addSubview(tableView)
     }
 
 
@@ -24,7 +28,7 @@ class MyListViewController: BaseViewController {
 
 extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
