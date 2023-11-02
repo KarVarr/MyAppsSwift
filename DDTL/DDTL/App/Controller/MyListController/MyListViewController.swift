@@ -8,19 +8,19 @@
 import UIKit
 
 class MyListViewController: BaseViewController {
-    let tableView = UITableView()
+    let customTableView = CustomTableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .orange
         
         setNavTitle(title: .myListViewController)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.frame = view.bounds
+        customTableView.table.delegate = self
+        customTableView.table.dataSource = self
+        customTableView.table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        customTableView.table.frame = view.bounds
 
-        view.addSubview(tableView)
+        view.addSubview(customTableView.table)
     }
 
 
