@@ -5,4 +5,15 @@
 //  Created by Karen Vardanian on 02.11.2023.
 //
 
-import Foundation
+import UIKit
+
+
+extension MyListViewController {
+    func configureView() {
+        view.backgroundColor = .orange
+        
+        setNavTitle(title: .myListViewController)
+       
+        
+    }
+}

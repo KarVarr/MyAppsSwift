@@ -20,6 +20,7 @@
 		17C3594B2AF3F56D00E154BE /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3594A2AF3F56D00E154BE /* CustomTableView.swift */; };
 		17C3594D2AF3F68200E154BE /* CustomTableView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3594C2AF3F68200E154BE /* CustomTableView + Ext.swift */; };
 		17C3594F2AF3F6BF00E154BE /* AddViews + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3594E2AF3F6BF00E154BE /* AddViews + Ext.swift */; };
+		17C359512AF3F7B700E154BE /* ConfigureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359502AF3F7B700E154BE /* ConfigureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		17C3594A2AF3F56D00E154BE /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
 		17C3594C2AF3F68200E154BE /* CustomTableView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTableView + Ext.swift"; sourceTree = "<group>"; };
 		17C3594E2AF3F6BF00E154BE /* AddViews + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViews + Ext.swift"; sourceTree = "<group>"; };
+		17C359502AF3F7B700E154BE /* ConfigureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				17C359252AF017AC00E154BE /* MyListViewController.swift */,
 				17C3594C2AF3F68200E154BE /* CustomTableView + Ext.swift */,
 				17C3594E2AF3F6BF00E154BE /* AddViews + Ext.swift */,
+				17C359502AF3F7B700E154BE /* ConfigureView.swift */,
 			);
 			path = MyListController;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				17C3593D2AF02F0F00E154BE /* NavBarController.swift in Sources */,
 				17C359392AF01FB500E154BE /* TabBarController.swift in Sources */,
 				17C3593B2AF02CA800E154BE /* WorldListViewController.swift in Sources */,
+				17C359512AF3F7B700E154BE /* ConfigureView.swift in Sources */,
 				17C3594B2AF3F56D00E154BE /* CustomTableView.swift in Sources */,
 				17C359492AF16C9D00E154BE /* BaseViewController.swift in Sources */,
 				17C359222AF017AC00E154BE /* AppDelegate.swift in Sources */,
