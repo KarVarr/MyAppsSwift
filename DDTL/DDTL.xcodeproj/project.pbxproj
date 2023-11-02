@@ -18,6 +18,8 @@
 		17C359402AF02FD000E154BE /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3593F2AF02FD000E154BE /* Helper.swift */; };
 		17C359492AF16C9D00E154BE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359482AF16C9D00E154BE /* BaseViewController.swift */; };
 		17C3594B2AF3F56D00E154BE /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3594A2AF3F56D00E154BE /* CustomTableView.swift */; };
+		17C3594D2AF3F68200E154BE /* CustomTableView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3594C2AF3F68200E154BE /* CustomTableView + Ext.swift */; };
+		17C3594F2AF3F6BF00E154BE /* AddViews + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3594E2AF3F6BF00E154BE /* AddViews + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		17C3593F2AF02FD000E154BE /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		17C359482AF16C9D00E154BE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		17C3594A2AF3F56D00E154BE /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
+		17C3594C2AF3F68200E154BE /* CustomTableView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTableView + Ext.swift"; sourceTree = "<group>"; };
+		17C3594E2AF3F6BF00E154BE /* AddViews + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViews + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				17C359252AF017AC00E154BE /* MyListViewController.swift */,
+				17C3594C2AF3F68200E154BE /* CustomTableView + Ext.swift */,
+				17C3594E2AF3F6BF00E154BE /* AddViews + Ext.swift */,
 			);
 			path = MyListController;
 			sourceTree = "<group>";
@@ -241,7 +247,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				17C359262AF017AC00E154BE /* MyListViewController.swift in Sources */,
+				17C3594F2AF3F6BF00E154BE /* AddViews + Ext.swift in Sources */,
 				17C359402AF02FD000E154BE /* Helper.swift in Sources */,
+				17C3594D2AF3F68200E154BE /* CustomTableView + Ext.swift in Sources */,
 				17C3593D2AF02F0F00E154BE /* NavBarController.swift in Sources */,
 				17C359392AF01FB500E154BE /* TabBarController.swift in Sources */,
 				17C3593B2AF02CA800E154BE /* WorldListViewController.swift in Sources */,
