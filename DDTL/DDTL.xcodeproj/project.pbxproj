@@ -25,6 +25,7 @@
 		17C359552AF5539100E154BE /* LayoutView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359542AF5539100E154BE /* LayoutView + Ext.swift */; };
 		17C359572AF55D2400E154BE /* MyListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359562AF55D2400E154BE /* MyListData.swift */; };
 		17C3595C2AF55DE400E154BE /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3595B2AF55DE400E154BE /* TableViewCell.swift */; };
+		17C3595E2AF55F4A00E154BE /* CustomLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3595D2AF55F4A00E154BE /* CustomLabelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		17C359542AF5539100E154BE /* LayoutView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutView + Ext.swift"; sourceTree = "<group>"; };
 		17C359562AF55D2400E154BE /* MyListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListData.swift; sourceTree = "<group>"; };
 		17C3595B2AF55DE400E154BE /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		17C3595D2AF55F4A00E154BE /* CustomLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +141,9 @@
 		17C359422AF166ED00E154BE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				17C359582AF55D8F00E154BE /* TableView */,
 				17C359522AF552B500E154BE /* CustomButtonView.swift */,
+				17C3595D2AF55F4A00E154BE /* CustomLabelView.swift */,
+				17C359582AF55D8F00E154BE /* TableView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				17C359492AF16C9D00E154BE /* BaseViewController.swift in Sources */,
 				17C359532AF552B500E154BE /* CustomButtonView.swift in Sources */,
 				17C359572AF55D2400E154BE /* MyListData.swift in Sources */,
+				17C3595E2AF55F4A00E154BE /* CustomLabelView.swift in Sources */,
 				17C359222AF017AC00E154BE /* AppDelegate.swift in Sources */,
 				17C359242AF017AC00E154BE /* SceneDelegate.swift in Sources */,
 			);

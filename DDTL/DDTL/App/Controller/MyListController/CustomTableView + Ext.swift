@@ -11,7 +11,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     func configureCustomTableView() {
         customTableView.table.delegate = self
         customTableView.table.dataSource = self
-        customTableView.table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        customTableView.table.register(TableViewCell.self, forCellReuseIdentifier: Helper.Keys.tableViewCellKey)
         customTableView.table.frame = view.bounds
     }
     
@@ -24,8 +24,11 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "number - \(indexPath.row)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.tableViewCellKey, for: indexPath) as! TableViewCell
+        
+        cell.titleLabel.label.text = "Don't bye fast food \(indexPath.row)"
+        cell.dateLabel.label.text = "3 days"
+        
         
         return cell
     }

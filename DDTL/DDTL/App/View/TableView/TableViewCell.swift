@@ -8,18 +8,43 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-
+    let titleLabel = CustomLabelView()
+    let dateLabel = CustomLabelView()
+    
+   
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
+        addViews()
+        layoutCell()
+    }
+    
+    private func addViews() {
+        contentView.addSubview(titleLabel.label)
+        contentView.addSubview(dateLabel.label)
+    }
+    
+    private func layoutCell() {
+        let titleLabel = titleLabel.label
+        let dateLabel = dateLabel.label
+        
+        NSLayoutConstraint.activate([
+            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            
+            dateLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
+        ])
     }
     
     
-
+    
 }
+

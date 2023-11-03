@@ -8,6 +8,9 @@
 import UIKit
 
 enum Helper {
+    enum Keys {
+        static let tableViewCellKey = "myListCell"
+    }
     //MARK: - STRINGS
     enum Strings {
         
