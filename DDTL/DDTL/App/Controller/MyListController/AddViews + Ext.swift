@@ -12,6 +12,4 @@ extension MyListViewController {
     func addViews() {
         view.addSubview(customTableView.table)
     }
-    
-    
 }
