@@ -9,10 +9,10 @@ import UIKit
 
 extension AddNewTaskViewController {
     func closeButtonConfigure() {
-        closeButton.button.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
-        closeButton.button.backgroundColor = .clear
-        closeButton.button.titleLabel?.font = UIFont.systemFont(ofSize: 44)
+        closeButton.button.setImage(UIImage(named: "closeButton"), for: .normal)
+        closeButton.button.imageView?.contentMode = .scaleAspectFit
         closeButton.button.tintColor = .white
+        closeButton.button.layer.cornerRadius = 22
         
         closeButton.button.addTarget(self, action: #selector(closeView), for: .touchUpInside)
     }

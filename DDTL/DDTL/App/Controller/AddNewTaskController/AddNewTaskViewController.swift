@@ -15,4 +15,8 @@ class AddNewTaskViewController: BaseViewController {
         
         closeButtonConfigure()
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+    }
 }
