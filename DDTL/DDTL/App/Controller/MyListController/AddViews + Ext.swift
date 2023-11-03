@@ -11,5 +11,6 @@ import UIKit
 extension MyListViewController {
     func addViews() {
         view.addSubview(customTableView.table)
+        view.addSubview(addButton.button)
     }
 }
