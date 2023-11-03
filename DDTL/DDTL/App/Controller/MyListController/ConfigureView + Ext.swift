@@ -9,11 +9,11 @@ import UIKit
 
 
 extension MyListViewController {
-    func configureView() {
+    override func configureView() {
         view.backgroundColor = .orange
         
         setNavTitle(title: .myListViewController)
-       
-        
+  
     }
+    
 }

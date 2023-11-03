@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17BD5A912AF56F690075681B /* AddViewANT + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD5A902AF56F690075681B /* AddViewANT + Ext.swift */; };
 		17C359222AF017AC00E154BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359212AF017AC00E154BE /* AppDelegate.swift */; };
 		17C359242AF017AC00E154BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359232AF017AC00E154BE /* SceneDelegate.swift */; };
 		17C359262AF017AC00E154BE /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359252AF017AC00E154BE /* MyListViewController.swift */; };
@@ -26,9 +27,14 @@
 		17C359572AF55D2400E154BE /* MyListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359562AF55D2400E154BE /* MyListData.swift */; };
 		17C3595C2AF55DE400E154BE /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3595B2AF55DE400E154BE /* TableViewCell.swift */; };
 		17C3595E2AF55F4A00E154BE /* CustomLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3595D2AF55F4A00E154BE /* CustomLabelView.swift */; };
+		17C359612AF565C800E154BE /* AddNewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359602AF565C800E154BE /* AddNewTaskViewController.swift */; };
+		17C359632AF56A8F00E154BE /* AddButtonConfigure + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359622AF56A8F00E154BE /* AddButtonConfigure + Ext.swift */; };
+		17C359652AF56B2A00E154BE /* LayoutViewANT + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359642AF56B2A00E154BE /* LayoutViewANT + Ext.swift */; };
+		17C359672AF56BF000E154BE /* CloseButtonConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359662AF56BF000E154BE /* CloseButtonConfigure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17BD5A902AF56F690075681B /* AddViewANT + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewANT + Ext.swift"; sourceTree = "<group>"; };
 		17C3591E2AF017AC00E154BE /* DDTL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDTL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C359212AF017AC00E154BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17C359232AF017AC00E154BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +56,10 @@
 		17C359562AF55D2400E154BE /* MyListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListData.swift; sourceTree = "<group>"; };
 		17C3595B2AF55DE400E154BE /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		17C3595D2AF55F4A00E154BE /* CustomLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelView.swift; sourceTree = "<group>"; };
+		17C359602AF565C800E154BE /* AddNewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewController.swift; sourceTree = "<group>"; };
+		17C359622AF56A8F00E154BE /* AddButtonConfigure + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddButtonConfigure + Ext.swift"; sourceTree = "<group>"; };
+		17C359642AF56B2A00E154BE /* LayoutViewANT + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutViewANT + Ext.swift"; sourceTree = "<group>"; };
+		17C359662AF56BF000E154BE /* CloseButtonConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonConfigure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,10 +140,11 @@
 		17C359412AF166DD00E154BE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				17C359462AF16C6800E154BE /* NavigationControllers */,
 				17C359472AF16C8300E154BE /* BaseController */,
 				17C359442AF1670200E154BE /* MyListController */,
 				17C359452AF1671C00E154BE /* WorldListController */,
-				17C359462AF16C6800E154BE /* NavigationControllers */,
+				17C3595F2AF5654300E154BE /* AddNewTaskController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -164,6 +175,7 @@
 				17C3594E2AF3F6BF00E154BE /* AddViews + Ext.swift */,
 				17C359502AF3F7B700E154BE /* ConfigureView + Ext.swift */,
 				17C359542AF5539100E154BE /* LayoutView + Ext.swift */,
+				17C359622AF56A8F00E154BE /* AddButtonConfigure + Ext.swift */,
 			);
 			path = MyListController;
 			sourceTree = "<group>";
@@ -200,6 +212,17 @@
 				17C3595B2AF55DE400E154BE /* TableViewCell.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		17C3595F2AF5654300E154BE /* AddNewTaskController */ = {
+			isa = PBXGroup;
+			children = (
+				17C359602AF565C800E154BE /* AddNewTaskViewController.swift */,
+				17BD5A902AF56F690075681B /* AddViewANT + Ext.swift */,
+				17C359642AF56B2A00E154BE /* LayoutViewANT + Ext.swift */,
+				17C359662AF56BF000E154BE /* CloseButtonConfigure.swift */,
+			);
+			path = AddNewTaskController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,9 +297,13 @@
 			files = (
 				17C359552AF5539100E154BE /* LayoutView + Ext.swift in Sources */,
 				17C3595C2AF55DE400E154BE /* TableViewCell.swift in Sources */,
+				17BD5A912AF56F690075681B /* AddViewANT + Ext.swift in Sources */,
+				17C359672AF56BF000E154BE /* CloseButtonConfigure.swift in Sources */,
 				17C359262AF017AC00E154BE /* MyListViewController.swift in Sources */,
 				17C3594F2AF3F6BF00E154BE /* AddViews + Ext.swift in Sources */,
+				17C359632AF56A8F00E154BE /* AddButtonConfigure + Ext.swift in Sources */,
 				17C359402AF02FD000E154BE /* Helper.swift in Sources */,
+				17C359652AF56B2A00E154BE /* LayoutViewANT + Ext.swift in Sources */,
 				17C3594D2AF3F68200E154BE /* CustomTableView + Ext.swift in Sources */,
 				17C3593D2AF02F0F00E154BE /* NavBarController.swift in Sources */,
 				17C359392AF01FB500E154BE /* TabBarController.swift in Sources */,
@@ -288,6 +315,7 @@
 				17C359572AF55D2400E154BE /* MyListData.swift in Sources */,
 				17C3595E2AF55F4A00E154BE /* CustomLabelView.swift in Sources */,
 				17C359222AF017AC00E154BE /* AppDelegate.swift in Sources */,
+				17C359612AF565C800E154BE /* AddNewTaskViewController.swift in Sources */,
 				17C359242AF017AC00E154BE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

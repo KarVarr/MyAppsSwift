@@ -14,19 +14,12 @@ class MyListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        configureView()
-        configureCustomTableView()
-        addViews()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        layoutView()
-    }
 
+        configureCustomTableView()
+        addButtonConfigure()
+    }
     
+   
 }
 
 

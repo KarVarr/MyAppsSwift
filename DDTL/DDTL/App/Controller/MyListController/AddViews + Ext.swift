@@ -9,7 +9,7 @@ import UIKit
 
 
 extension MyListViewController {
-    func addViews() {
+    override func addViews() {
         view.addSubview(customTableView.table)
         view.addSubview(addButton.button)
     }

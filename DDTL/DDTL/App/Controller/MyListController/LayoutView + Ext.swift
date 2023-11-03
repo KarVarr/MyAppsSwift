@@ -10,7 +10,7 @@ import UIKit
 
 extension MyListViewController {
     
-    func layoutView() {
+    override func layoutView() {
         let addButton = addButton.button
         
         NSLayoutConstraint.activate([
