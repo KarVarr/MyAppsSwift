@@ -23,6 +23,8 @@
 		17C359512AF3F7B700E154BE /* ConfigureView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359502AF3F7B700E154BE /* ConfigureView + Ext.swift */; };
 		17C359532AF552B500E154BE /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359522AF552B500E154BE /* CustomButtonView.swift */; };
 		17C359552AF5539100E154BE /* LayoutView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359542AF5539100E154BE /* LayoutView + Ext.swift */; };
+		17C359572AF55D2400E154BE /* MyListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359562AF55D2400E154BE /* MyListData.swift */; };
+		17C3595C2AF55DE400E154BE /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3595B2AF55DE400E154BE /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		17C359502AF3F7B700E154BE /* ConfigureView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureView + Ext.swift"; sourceTree = "<group>"; };
 		17C359522AF552B500E154BE /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
 		17C359542AF5539100E154BE /* LayoutView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutView + Ext.swift"; sourceTree = "<group>"; };
+		17C359562AF55D2400E154BE /* MyListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListData.swift; sourceTree = "<group>"; };
+		17C3595B2AF55DE400E154BE /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +139,7 @@
 		17C359422AF166ED00E154BE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				17C3594A2AF3F56D00E154BE /* CustomTableView.swift */,
+				17C359582AF55D8F00E154BE /* TableView */,
 				17C359522AF552B500E154BE /* CustomButtonView.swift */,
 			);
 			path = View;
@@ -144,6 +148,7 @@
 		17C359432AF166F400E154BE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				17C359562AF55D2400E154BE /* MyListData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,6 +188,15 @@
 				17C359482AF16C9D00E154BE /* BaseViewController.swift */,
 			);
 			path = BaseController;
+			sourceTree = "<group>";
+		};
+		17C359582AF55D8F00E154BE /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				17C3594A2AF3F56D00E154BE /* CustomTableView.swift */,
+				17C3595B2AF55DE400E154BE /* TableViewCell.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17C359552AF5539100E154BE /* LayoutView + Ext.swift in Sources */,
+				17C3595C2AF55DE400E154BE /* TableViewCell.swift in Sources */,
 				17C359262AF017AC00E154BE /* MyListViewController.swift in Sources */,
 				17C3594F2AF3F6BF00E154BE /* AddViews + Ext.swift in Sources */,
 				17C359402AF02FD000E154BE /* Helper.swift in Sources */,
@@ -267,6 +282,7 @@
 				17C3594B2AF3F56D00E154BE /* CustomTableView.swift in Sources */,
 				17C359492AF16C9D00E154BE /* BaseViewController.swift in Sources */,
 				17C359532AF552B500E154BE /* CustomButtonView.swift in Sources */,
+				17C359572AF55D2400E154BE /* MyListData.swift in Sources */,
 				17C359222AF017AC00E154BE /* AppDelegate.swift in Sources */,
 				17C359242AF017AC00E154BE /* SceneDelegate.swift in Sources */,
 			);

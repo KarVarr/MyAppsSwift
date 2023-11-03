@@ -15,6 +15,9 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         customTableView.table.frame = view.bounds
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 88
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 100
