@@ -9,7 +9,7 @@ import UIKit
 
 class CustomButtonView {
     let button: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button

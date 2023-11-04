@@ -12,5 +12,6 @@ extension AddNewTaskViewController {
         view.addSubview(closeButton.button)
         view.addSubview(titleTextField.textField)
         view.addSubview(descriptionTextField.textField)
+        view.addSubview(closeButtonCALayer.view)
     }
 }
