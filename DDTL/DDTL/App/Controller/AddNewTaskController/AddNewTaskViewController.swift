@@ -5,18 +5,23 @@
 //  Created by Karen Vardanian on 03.11.2023.
 //
 
-import Foundation
+
+import UIKit
 
 class AddNewTaskViewController: BaseViewController {
+    
     let closeButton = CustomButtonView()
+    let titleTextField = CustomTextField()
+    let descriptionTextField = CustomTextField()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .orange
+        view.backgroundColor = .white
+        
         
         closeButtonConfigure()
+        textFieldConfigure()
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-    }
+    
 }

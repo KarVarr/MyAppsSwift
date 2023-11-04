@@ -11,8 +11,7 @@ extension AddNewTaskViewController {
     func closeButtonConfigure() {
         closeButton.button.setImage(UIImage(named: "closeButton"), for: .normal)
         closeButton.button.imageView?.contentMode = .scaleAspectFit
-        closeButton.button.tintColor = .white
-        closeButton.button.layer.cornerRadius = 22
+        closeButton.button.tintColor = .systemPink
         
         closeButton.button.addTarget(self, action: #selector(closeView), for: .touchUpInside)
     }
