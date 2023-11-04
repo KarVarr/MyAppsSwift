@@ -22,6 +22,5 @@ class AddNewTaskViewController: BaseViewController {
         closeButtonConfigure()
         textFieldConfigure()
     }
-    
-    
+  
 }

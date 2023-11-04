@@ -24,10 +24,11 @@ extension AddNewTaskViewController {
         
         //MARK: - Title TextField
         NSLayoutConstraint.activate([
-            titleTextField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+            titleTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleTextField.heightAnchor.constraint(equalToConstant: 44),
-            titleTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            titleTextField.topAnchor.constraint(equalTo: closeButton.bottomAnchor, constant: 30),
             titleTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            titleTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         ])
     }
 }
