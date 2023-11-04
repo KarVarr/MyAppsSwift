@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17BD5A912AF56F690075681B /* AddViewANT + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD5A902AF56F690075681B /* AddViewANT + Ext.swift */; };
+		17BD5A942AF645C30075681B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD5A932AF645C30075681B /* Keys.swift */; };
 		17C359222AF017AC00E154BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359212AF017AC00E154BE /* AppDelegate.swift */; };
 		17C359242AF017AC00E154BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359232AF017AC00E154BE /* SceneDelegate.swift */; };
 		17C359262AF017AC00E154BE /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359252AF017AC00E154BE /* MyListViewController.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		17BD5A902AF56F690075681B /* AddViewANT + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewANT + Ext.swift"; sourceTree = "<group>"; };
+		17BD5A932AF645C30075681B /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		17C3591E2AF017AC00E154BE /* DDTL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDTL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C359212AF017AC00E154BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17C359232AF017AC00E154BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17BD5A922AF645A10075681B /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				17BD5A932AF645C30075681B /* Keys.swift */,
+			);
+			path = Keys;
+			sourceTree = "<group>";
+		};
 		17C359152AF017AC00E154BE = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +142,7 @@
 		17C3593E2AF02FC200E154BE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				17BD5A922AF645A10075681B /* Keys */,
 				17C3593F2AF02FD000E154BE /* Helper.swift */,
 			);
 			path = Helpers;
@@ -299,6 +310,7 @@
 				17C3595C2AF55DE400E154BE /* TableViewCell.swift in Sources */,
 				17BD5A912AF56F690075681B /* AddViewANT + Ext.swift in Sources */,
 				17C359672AF56BF000E154BE /* CloseButtonConfigure.swift in Sources */,
+				17BD5A942AF645C30075681B /* Keys.swift in Sources */,
 				17C359262AF017AC00E154BE /* MyListViewController.swift in Sources */,
 				17C3594F2AF3F6BF00E154BE /* AddViews + Ext.swift in Sources */,
 				17C359632AF56A8F00E154BE /* AddButtonConfigure + Ext.swift in Sources */,
