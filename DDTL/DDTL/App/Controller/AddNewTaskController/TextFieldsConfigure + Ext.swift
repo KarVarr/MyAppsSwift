@@ -32,21 +32,6 @@ extension AddNewTaskViewController: UITextFieldDelegate {
         titleTextField.textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
-    //    @objc func textFieldDidChange(_ textField: UITextField) {
-    //        if textField == titleTextField.textField {
-    //            view.layoutIfNeeded()
-    //            UIView.animate(withDuration: 0.7) {
-    //                if let text = textField.text, !text.isEmpty {
-    //                    self.doneButtonCALayer.view.isHidden = true
-    //                    self.closeDoneButtonCALayer.view.isHidden = false
-    //                } else {
-    //                    self.doneButtonCALayer.view.isHidden = false
-    //                    self.closeDoneButtonCALayer.view.isHidden = true
-    //                }
-    //                self.view.layoutIfNeeded()
-    //            }
-    //        }
-    //    }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         if textField == titleTextField.textField {
