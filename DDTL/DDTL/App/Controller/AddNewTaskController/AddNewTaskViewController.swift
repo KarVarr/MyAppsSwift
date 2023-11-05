@@ -12,6 +12,8 @@ import UIKit
 
 class AddNewTaskViewController: BaseViewController {
     
+    
+    let navTitle = CustomLabelView()
     let closeButton = CustomButtonView()
     let titleTextField = CustomTextField()
     let descriptionTextField = CustomTextField()
@@ -23,7 +25,7 @@ class AddNewTaskViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+        navTitle.label.text = "Add task"
         
         closeButtonConfigure()
         textFieldConfigure()

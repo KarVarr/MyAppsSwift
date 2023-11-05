@@ -10,10 +10,16 @@ import UIKit
 extension AddNewTaskViewController {
     
     override func layoutView() {
+        let navTitle = navTitle.label
         let closeButton = closeButton.button
         let titleTextField = titleTextField.textField
 //        let descriptionTextField = descriptionTextField.textField
-//        let crossCheckView = closeButtonCALayer.view
+
+        //MARK: - Nav Title
+        NSLayoutConstraint.activate([
+            navTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            navTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+        ])
         
         //MARK: - Add Button
         NSLayoutConstraint.activate([
@@ -32,12 +38,5 @@ extension AddNewTaskViewController {
             titleTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         ])
         
-        //MARK: - Cross Check View
-//        NSLayoutConstraint.activate([
-//            crossCheckView.widthAnchor.constraint(equalToConstant: 100),
-//            crossCheckView.heightAnchor.constraint(equalToConstant: 100),
-//            crossCheckView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-//            crossCheckView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 30),
-//        ])
     }
 }
