@@ -21,14 +21,19 @@ class AddNewTaskViewController: BaseViewController {
     let closeButtonCALayer = CustomView()
     let doneButtonCALayer = CustomView()
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        textFieldConfigure()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        navTitle.label.text = "Add task"
+        navTitle.label.text = "A D D   T A S K"
+        navTitle.label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         
         closeButtonConfigure()
-        textFieldConfigure()
+//        textFieldConfigure()
         closeButtonCAShapeLayer()
         doneButtonCAShapeLayer()
         

@@ -14,10 +14,12 @@ extension AddNewTaskViewController: UITextFieldDelegate {
         titleTextField.textField.delegate = self
         titleTextField.textField.placeholder = "Type here some text"
         
-        //border
-        titleTextField.textField.layer.borderWidth = 1.0
-        titleTextField.textField.layer.cornerRadius = 22
-        titleTextField.textField.layer.borderColor = UIColor.systemPink.cgColor
+        
+        // Bottom border
+        let bottomBorder = CALayer()
+        bottomBorder.frame = CGRect(x: 0, y: titleTextField.textField.frame.height - 1, width: titleTextField.textField.frame.width, height: 1)
+        bottomBorder.backgroundColor = UIColor.systemPink.cgColor
+        titleTextField.textField.layer.addSublayer(bottomBorder)
         
         //font
         titleTextField.textField.font = UIFont.systemFont(ofSize: 20, weight: .bold)

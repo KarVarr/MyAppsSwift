@@ -18,6 +18,7 @@ extension AddNewTaskViewController {
         //MARK: - Nav Title
         NSLayoutConstraint.activate([
             navTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            navTitle.heightAnchor.constraint(equalToConstant: 50),
             navTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
         ])
         
