@@ -13,6 +13,7 @@ extension AddNewTaskViewController: UITextFieldDelegate {
     func textFieldConfigure () {
         titleTextField.textField.delegate = self
         titleTextField.textField.placeholder = "Type here some text"
+        descriptionTextField.textField.placeholder = "Description"
         
         
         // Bottom border
