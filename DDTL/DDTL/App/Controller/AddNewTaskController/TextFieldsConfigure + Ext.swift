@@ -23,7 +23,7 @@ extension AddNewTaskViewController: UITextFieldDelegate {
         titleTextField.textField.layer.addSublayer(bottomBorder)
         
         //Border
-        descriptionTextField.textField.layer.borderWidth = 3
+        descriptionTextField.textField.layer.borderWidth = 1
         descriptionTextField.textField.layer.borderColor = UIColor.systemPink.cgColor
         descriptionTextField.textField.layer.cornerRadius = 10
         //font
