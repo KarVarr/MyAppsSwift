@@ -13,16 +13,16 @@ extension AddNewTaskViewController: UITextFieldDelegate {
     func textFieldConfigure () {
         titleTextField.textField.delegate = self
         titleTextField.textField.placeholder = "Type here some text"
-        descriptionTextField.textField.placeholder = "Description"
         
         
         // Bottom border
         let bottomBorder = CALayer()
-        bottomBorder.frame = CGRect(x: 0, y: titleTextField.textField.frame.height - 1, width: titleTextField.textField.frame.width, height: 1)
+        bottomBorder.frame = CGRect(x: 0,
+                                    y: titleTextField.textField.frame.height - 1,
+                                    width: titleTextField.textField.frame.width,
+                                    height: 1)
         bottomBorder.backgroundColor = UIColor.systemPink.cgColor
         titleTextField.textField.layer.addSublayer(bottomBorder)
-        
-        //Border
         
         //font
         titleTextField.textField.font = UIFont.systemFont(ofSize: 20, weight: .bold)
@@ -57,7 +57,6 @@ extension AddNewTaskViewController: UITextFieldDelegate {
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         textField.resignFirstResponder()
         return true
     }

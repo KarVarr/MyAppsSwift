@@ -16,7 +16,7 @@ class AddNewTaskViewController: BaseViewController {
     let navTitle = CustomLabelView()
     let closeButton = CustomButtonView()
     let titleTextField = CustomTextField()
-    let descriptionTextField = CustomTextField()
+    let descriptionTextView = CustomTextView()
     
     let closeButtonCALayer = CustomView()
     let doneButtonCALayer = CustomView()
@@ -32,6 +32,8 @@ class AddNewTaskViewController: BaseViewController {
         navTitle.label.text = "A D D    T A S K"
         navTitle.label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         
+        
+        descriptionTextView.textView.text = "Hello epta"
         closeButtonConfigure()
 //        textFieldConfigure()
         closeButtonCAShapeLayer()

@@ -13,8 +13,8 @@ extension AddNewTaskViewController {
         let navTitle = navTitle.label
         let closeButton = closeButton.button
         let titleTextField = titleTextField.textField
-        let descriptionTextField = descriptionTextField.textField
-
+        let descriptionTextView = descriptionTextView.textView
+        
         //MARK: - Nav Title
         NSLayoutConstraint.activate([
             navTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -41,11 +41,12 @@ extension AddNewTaskViewController {
         
         //MARK: - Description TextField
         NSLayoutConstraint.activate([
-            descriptionTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            descriptionTextField.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 20),
-            descriptionTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            descriptionTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            descriptionTextField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
+            descriptionTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            descriptionTextView.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 20),
+            descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            descriptionTextView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
+            descriptionTextView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4),
         ])
         
     }

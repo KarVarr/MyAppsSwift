@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1728D5432B00D5A9004CDCE5 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */; };
 		17BD5A912AF56F690075681B /* AddViewANT + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD5A902AF56F690075681B /* AddViewANT + Ext.swift */; };
 		17BD5A942AF645C30075681B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD5A932AF645C30075681B /* Keys.swift */; };
 		17BD5A962AF647AC0075681B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD5A952AF647AC0075681B /* CustomTextField.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		17BD5A902AF56F690075681B /* AddViewANT + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewANT + Ext.swift"; sourceTree = "<group>"; };
 		17BD5A932AF645C30075681B /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		17BD5A952AF647AC0075681B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				17BD5A952AF647AC0075681B /* CustomTextField.swift */,
 				17BD5A992AF6B8E40075681B /* CustomView.swift */,
 				17C359582AF55D8F00E154BE /* TableView */,
+				1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				17C359402AF02FD000E154BE /* Helper.swift in Sources */,
 				17C359652AF56B2A00E154BE /* LayoutViewANT + Ext.swift in Sources */,
 				17C3594D2AF3F68200E154BE /* CustomTableView + Ext.swift in Sources */,
+				1728D5432B00D5A9004CDCE5 /* CustomTextView.swift in Sources */,
 				17C3593D2AF02F0F00E154BE /* NavBarController.swift in Sources */,
 				17C359392AF01FB500E154BE /* TabBarController.swift in Sources */,
 				17C3593B2AF02CA800E154BE /* WorldListViewController.swift in Sources */,

@@ -12,7 +12,7 @@ extension AddNewTaskViewController {
         view.addSubview(navTitle.label)
         view.addSubview(closeButton.button)
         view.addSubview(titleTextField.textField)
-        view.addSubview(descriptionTextField.textField)
+        view.addSubview(descriptionTextView.textView)
         view.addSubview(closeButtonCALayer.view)
     }
 }
