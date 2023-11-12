@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1728D5432B00D5A9004CDCE5 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */; };
+		1728D5452B00DB26004CDCE5 /* TextViewConfigure + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */; };
 		17BD5A912AF56F690075681B /* AddViewANT + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD5A902AF56F690075681B /* AddViewANT + Ext.swift */; };
 		17BD5A942AF645C30075681B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD5A932AF645C30075681B /* Keys.swift */; };
 		17BD5A962AF647AC0075681B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD5A952AF647AC0075681B /* CustomTextField.swift */; };
@@ -35,11 +36,12 @@
 		17C359612AF565C800E154BE /* AddNewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359602AF565C800E154BE /* AddNewTaskViewController.swift */; };
 		17C359632AF56A8F00E154BE /* AddButtonConfigure + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359622AF56A8F00E154BE /* AddButtonConfigure + Ext.swift */; };
 		17C359652AF56B2A00E154BE /* LayoutViewANT + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359642AF56B2A00E154BE /* LayoutViewANT + Ext.swift */; };
-		17C359672AF56BF000E154BE /* CloseButtonConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359662AF56BF000E154BE /* CloseButtonConfigure.swift */; };
+		17C359672AF56BF000E154BE /* CloseButtonConfigure + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359662AF56BF000E154BE /* CloseButtonConfigure + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextViewConfigure + Ext.swift"; sourceTree = "<group>"; };
 		17BD5A902AF56F690075681B /* AddViewANT + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewANT + Ext.swift"; sourceTree = "<group>"; };
 		17BD5A932AF645C30075681B /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		17BD5A952AF647AC0075681B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -69,7 +71,7 @@
 		17C359602AF565C800E154BE /* AddNewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewController.swift; sourceTree = "<group>"; };
 		17C359622AF56A8F00E154BE /* AddButtonConfigure + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddButtonConfigure + Ext.swift"; sourceTree = "<group>"; };
 		17C359642AF56B2A00E154BE /* LayoutViewANT + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutViewANT + Ext.swift"; sourceTree = "<group>"; };
-		17C359662AF56BF000E154BE /* CloseButtonConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonConfigure.swift; sourceTree = "<group>"; };
+		17C359662AF56BF000E154BE /* CloseButtonConfigure + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CloseButtonConfigure + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,8 +244,9 @@
 				17C359602AF565C800E154BE /* AddNewTaskViewController.swift */,
 				17BD5A902AF56F690075681B /* AddViewANT + Ext.swift */,
 				17C359642AF56B2A00E154BE /* LayoutViewANT + Ext.swift */,
-				17C359662AF56BF000E154BE /* CloseButtonConfigure.swift */,
+				17C359662AF56BF000E154BE /* CloseButtonConfigure + Ext.swift */,
 				17BD5A972AF64A9B0075681B /* TextFieldsConfigure + Ext.swift */,
+				1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */,
 			);
 			path = AddNewTaskController;
 			sourceTree = "<group>";
@@ -321,7 +324,7 @@
 				17C359552AF5539100E154BE /* LayoutView + Ext.swift in Sources */,
 				17C3595C2AF55DE400E154BE /* TableViewCell.swift in Sources */,
 				17BD5A912AF56F690075681B /* AddViewANT + Ext.swift in Sources */,
-				17C359672AF56BF000E154BE /* CloseButtonConfigure.swift in Sources */,
+				17C359672AF56BF000E154BE /* CloseButtonConfigure + Ext.swift in Sources */,
 				17BD5A942AF645C30075681B /* Keys.swift in Sources */,
 				17C359262AF017AC00E154BE /* MyListViewController.swift in Sources */,
 				17C3594F2AF3F6BF00E154BE /* AddViews + Ext.swift in Sources */,
@@ -336,6 +339,7 @@
 				17C359512AF3F7B700E154BE /* ConfigureView + Ext.swift in Sources */,
 				17C3594B2AF3F56D00E154BE /* CustomTableView.swift in Sources */,
 				17C359492AF16C9D00E154BE /* BaseViewController.swift in Sources */,
+				1728D5452B00DB26004CDCE5 /* TextViewConfigure + Ext.swift in Sources */,
 				17C359532AF552B500E154BE /* CustomButtonView.swift in Sources */,
 				17C359572AF55D2400E154BE /* MyListData.swift in Sources */,
 				17BD5A9A2AF6B8E50075681B /* CustomView.swift in Sources */,

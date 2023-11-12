@@ -21,7 +21,7 @@ extension AddNewTaskViewController: UITextFieldDelegate {
                                     y: titleTextField.textField.frame.height - 1,
                                     width: titleTextField.textField.frame.width,
                                     height: 1)
-        bottomBorder.backgroundColor = UIColor.systemPink.cgColor
+        bottomBorder.backgroundColor = Helper.Colors.lightPink.cgColor
         titleTextField.textField.layer.addSublayer(bottomBorder)
         
         //font

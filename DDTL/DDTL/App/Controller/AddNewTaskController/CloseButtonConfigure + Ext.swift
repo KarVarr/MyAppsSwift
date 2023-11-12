@@ -1,5 +1,5 @@
 //
-//  CloseButtonConfigure.swift
+//  CloseButtonConfigure + Ext.swift
 //  DDTL
 //
 //  Created by Karen Vardanian on 03.11.2023.
@@ -28,7 +28,7 @@ extension AddNewTaskViewController {
     func closeButtonCAShapeLayer() {
         let crossLayer = CAShapeLayer()
         crossLayer.lineWidth = 5
-        crossLayer.strokeColor = UIColor.systemPink.cgColor
+        crossLayer.strokeColor = Helper.Colors.pink.cgColor
         crossLayer.lineCap = .round
         
         let crossPath = UIBezierPath()
@@ -46,7 +46,7 @@ extension AddNewTaskViewController {
     func doneButtonCAShapeLayer() {
         let checkmarkLayer = CAShapeLayer()
         checkmarkLayer.lineWidth = 5
-        checkmarkLayer.strokeColor = UIColor.systemBlue.cgColor
+        checkmarkLayer.strokeColor = Helper.Colors.blue.cgColor
         checkmarkLayer.lineCap = .round
         checkmarkLayer.lineJoin = .round
         checkmarkLayer.fillColor = UIColor.clear.cgColor

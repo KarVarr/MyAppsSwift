@@ -28,12 +28,17 @@ class AddNewTaskViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = Helper.Colors.palePink
         navTitle.label.text = "A D D    T A S K"
         navTitle.label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         
         
         descriptionTextView.textView.text = "Hello epta"
+        descriptionTextView.textView.backgroundColor = Helper.Colors.palePink
+        descriptionTextView.textView.textColor = Helper.Colors.darkGreen
+        descriptionTextView.textView.font = UIFont.systemFont(ofSize: 18)
+        
+        
         closeButtonConfigure()
 //        textFieldConfigure()
         closeButtonCAShapeLayer()
