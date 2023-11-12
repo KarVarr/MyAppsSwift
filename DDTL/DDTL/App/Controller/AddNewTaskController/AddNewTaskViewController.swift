@@ -21,6 +21,8 @@ class AddNewTaskViewController: BaseViewController {
     let closeButtonCALayer = CustomView()
     let doneButtonCALayer = CustomView()
     
+    var textForDescription = ""
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         textFieldConfigure()
@@ -33,14 +35,9 @@ class AddNewTaskViewController: BaseViewController {
         navTitle.label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         
         
-        descriptionTextView.textView.text = "Hello epta"
-        descriptionTextView.textView.backgroundColor = Helper.Colors.palePink
-        descriptionTextView.textView.textColor = Helper.Colors.darkGreen
-        descriptionTextView.textView.font = UIFont.systemFont(ofSize: 18)
         
-        
+        textViewConfigure()
         closeButtonConfigure()
-//        textFieldConfigure()
         closeButtonCAShapeLayer()
         doneButtonCAShapeLayer()
         

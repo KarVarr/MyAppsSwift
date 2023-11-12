@@ -10,7 +10,7 @@ import UIKit
 
 extension AddNewTaskViewController: UITextFieldDelegate {
     
-    func textFieldConfigure () {
+    func textFieldConfigure() {
         titleTextField.textField.delegate = self
         titleTextField.textField.placeholder = "Type here some text"
         

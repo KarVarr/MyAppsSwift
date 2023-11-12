@@ -22,6 +22,7 @@ extension AddNewTaskViewController {
     
     @objc func closeView() {
         dismiss(animated: true)
+        
     }
     
     

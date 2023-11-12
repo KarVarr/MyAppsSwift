@@ -51,6 +51,7 @@ enum Helper {
         static let lightBlue = UIColor(red: 0.68, green: 0.87, blue: 0.99, alpha: 1.00)
         static let blue = UIColor(red: 0.00, green: 0.66, blue: 1.00, alpha: 1.00)
         static let darkGreen = UIColor(red: 0.23, green: 0.30, blue: 0.22, alpha: 1.00)
+        static let placeholder = UIColor(red: 0.66, green: 0.66, blue: 0.66, alpha: 0.8)
     }
 }
 
