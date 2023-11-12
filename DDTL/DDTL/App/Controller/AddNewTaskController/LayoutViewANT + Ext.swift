@@ -45,7 +45,7 @@ extension AddNewTaskViewController {
             descriptionTextField.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 20),
             descriptionTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             descriptionTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            descriptionTextField.heightAnchor.constraint(greaterThanOrEqualTo: view.heightAnchor, multiplier: 0.4),
+            descriptionTextField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
         ])
         
     }
