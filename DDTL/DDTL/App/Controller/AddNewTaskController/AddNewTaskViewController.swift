@@ -11,8 +11,6 @@ import UIKit
 
 
 class AddNewTaskViewController: BaseViewController {
-    
-    
     let navTitle = CustomLabelView()
     let closeButton = CustomButtonView()
     let titleTextField = CustomTextField()
@@ -21,6 +19,7 @@ class AddNewTaskViewController: BaseViewController {
     let closeButtonCALayer = CustomView()
     let doneButtonCALayer = CustomView()
     
+    weak var delegate: DataDelegate?
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -33,11 +32,12 @@ class AddNewTaskViewController: BaseViewController {
         navTitle.label.text = "A D D    T A S K"
         navTitle.label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         
+        
         textViewConfigure()
         closeButtonConfigure()
         
         updateButtonLayers()
     }
-
+    
 }
 

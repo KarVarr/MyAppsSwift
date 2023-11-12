@@ -20,16 +20,17 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return myListData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.tableViewCellKey, for: indexPath) as! TableViewCell
+
+        let myList = myListData[indexPath.row]
+        cell.titleLabel.label.text = myList.title
+        cell.dateLabel.label.text = myList.description
         
-        cell.titleLabel.label.text = "Don't bye fast food \(indexPath.row)"
-        cell.dateLabel.label.text = "3 days"
-        
-        
+ 
         return cell
     }
     

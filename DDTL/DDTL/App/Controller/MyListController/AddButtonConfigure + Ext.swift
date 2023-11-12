@@ -21,7 +21,7 @@ extension MyListViewController {
     
     @objc func addNewTask() {
         let addNewTaskViewController = AddNewTaskViewController()
-        
+        addNewTaskViewController.delegate = self
         present(addNewTaskViewController, animated: true)
     }
 }

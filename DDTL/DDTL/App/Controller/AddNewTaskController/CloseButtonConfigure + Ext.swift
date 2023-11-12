@@ -20,9 +20,20 @@ extension AddNewTaskViewController {
     }
     
     @objc func closeView() {
-        dismiss(animated: true)
+        saveData()
     }
     
+    func saveData() {
+        guard let title = titleTextField.textField.text, let description = descriptionTextView.textView.text else {
+            print("No data for title and description")
+            return
+        }
+        DispatchQueue.main.async {
+            self.delegate?.didEnterData(title: title, description: description, date: nil, likes: nil)
+        }
+        
+        dismiss(animated: true)
+    }
     
     func closeButtonCAShapeLayer() {
         let crossLayer = CAShapeLayer()
