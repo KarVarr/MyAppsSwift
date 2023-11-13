@@ -13,6 +13,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         customTableView.table.dataSource = self
         customTableView.table.register(TableViewCell.self, forCellReuseIdentifier: Helper.Keys.tableViewCellKey)
         customTableView.table.frame = view.bounds
+        customTableView.table.backgroundColor = Helper.Colors.lightBlue
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

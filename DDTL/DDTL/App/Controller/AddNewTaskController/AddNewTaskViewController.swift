@@ -30,6 +30,7 @@ class AddNewTaskViewController: BaseViewController {
         super.viewDidLoad()
         view.backgroundColor = Helper.Colors.palePink
         navTitle.label.text = "A D D    T A S K"
+        navTitle.label.textColor = .black
         navTitle.label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         
         
