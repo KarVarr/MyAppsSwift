@@ -30,7 +30,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         let myList = myListData[indexPath.row]
         cell.titleLabel.label.text = myList.title
         cell.dateLabel.label.text = myList.description
-        
+        cell.backgroundColor = Helper.Colors.lightBlue
  
         return cell
     }
