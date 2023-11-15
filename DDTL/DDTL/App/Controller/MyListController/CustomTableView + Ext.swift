@@ -26,13 +26,22 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.tableViewCellKey, for: indexPath) as! TableViewCell
-
+        
         let myList = myListData[indexPath.row]
         cell.titleLabel.label.text = myList.title
-        cell.dateLabel.label.text = myList.description
+        cell.dateLabel.label.text =  daysSinceCreation(for: MyListData()) + 1 <= 1 ? String("Day One") : String("\(daysSinceCreation(for: MyListData())) days")
         cell.backgroundColor = Helper.Colors.lightBlue
- 
+        
         return cell
+    }
+    
+    func daysSinceCreation(for task: MyListData) -> Int {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        if let creationDate = task.creationDate, let days = calendar.dateComponents([.day], from: creationDate, to: currentDate).day {
+            return days
+        }
+        return 0
     }
     
     

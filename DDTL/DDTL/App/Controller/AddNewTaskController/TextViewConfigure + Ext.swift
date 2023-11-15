@@ -12,16 +12,14 @@ extension AddNewTaskViewController: UITextViewDelegate {
     func textViewConfigure() {
         descriptionTextView.textView.delegate = self
         
-        let placeholder = Helper.Strings.AddNewTaskVC.textViewPlaceholder
-        
-        descriptionTextView.textView.text = placeholder
+        descriptionTextView.textView.text = Helper.Strings.AddNewTaskVC.textViewPlaceholder
         descriptionTextView.textView.backgroundColor = Helper.Colors.palePink
         descriptionTextView.textView.textColor = Helper.Colors.placeholder
         descriptionTextView.textView.font = UIFont.systemFont(ofSize: 18)
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Describe your idea in detail here..." {
+        if textView.text == Helper.Strings.AddNewTaskVC.textViewPlaceholder {
             descriptionTextView.textView.text = ""
             descriptionTextView.textView.textColor = UIColor.black
         }
@@ -29,7 +27,7 @@ extension AddNewTaskViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            descriptionTextView.textView.text = "Describe your idea in detail here..."
+            descriptionTextView.textView.text = Helper.Strings.AddNewTaskVC.textViewPlaceholder
             descriptionTextView.textView.textColor = Helper.Colors.placeholder
         }
     }

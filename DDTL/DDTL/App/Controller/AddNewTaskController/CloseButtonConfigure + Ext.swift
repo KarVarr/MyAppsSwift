@@ -28,18 +28,22 @@ extension AddNewTaskViewController {
             print("No data for title and description")
             return
         }
+        
+        let creationDate = Date()
         DispatchQueue.main.async { [weak self] in
-            
-            if (title == "" && description == Helper.Strings.AddNewTaskVC.textViewPlaceholder) || (title == "" && description != "") {
+            if title.isEmpty && description == Helper.Strings.AddNewTaskVC.textViewPlaceholder {
                 self?.dismiss(animated: true)
-            } else if title != "" && description == Helper.Strings.AddNewTaskVC.textViewPlaceholder {
-                self?.delegate?.didEnterData(title: title, description: nil, date: nil, likes: nil)
+            } else if title.isEmpty && description != "" {
+                self?.alertNoTitle()
+            } else if !title.isEmpty && description == Helper.Strings.AddNewTaskVC.textViewPlaceholder {
+                self?.delegate?.didEnterData(title: title, description: nil, creationDate: creationDate, likes: nil)
+                self?.dismiss(animated: true)
             } else {
-                self?.delegate?.didEnterData(title: title, description: description, date: nil, likes: nil)
+                self?.delegate?.didEnterData(title: title, description: description, creationDate: creationDate, likes: nil)
+                self?.dismiss(animated: true)
             }
         }
         
-        dismiss(animated: true)
     }
     
     func closeButtonCAShapeLayer() {
@@ -76,6 +80,12 @@ extension AddNewTaskViewController {
         checkmarkLayer.path = checkmarkPath.cgPath
         
         doneButtonCALayer.view.layer.addSublayer(checkmarkLayer)
+    }
+    
+    func alertNoTitle() {
+        let alert = UIAlertController(title: "No Title", message: "Please enter the title", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
     
 }
