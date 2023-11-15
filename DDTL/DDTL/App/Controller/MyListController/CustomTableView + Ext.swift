@@ -35,6 +35,19 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    //MARK: - Delete Row
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            print("Deleted row")
+            
+            self.myListData.remove(at: indexPath.row)
+            self.customTableView.table.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+    }
+    
+    
+    //MARK: - Days Counter
     func daysSinceCreation(for task: MyListData) -> Int {
         let currentDate = Date()
         let calendar = Calendar.current
