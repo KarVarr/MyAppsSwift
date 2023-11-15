@@ -18,6 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = tabBarController
+        
+        if #available(iOS 13.0, *) {
+            window.overrideUserInterfaceStyle = .light
+        }
+        
         window.makeKeyAndVisible()
         self.window = window
     }
