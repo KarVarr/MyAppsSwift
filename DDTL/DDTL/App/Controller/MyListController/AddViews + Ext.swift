@@ -12,6 +12,10 @@ extension MyListViewController {
     override func addViews() {
         view.addSubview(customTableView.table)
         view.addSubview(addButton.button)
-        view.addSubview(pointingFingerImageView.imageView)
+        
+        view.addSubview(verticalStackViewForLabelAndPointingFingerImageView.stack)
+        verticalStackViewForLabelAndPointingFingerImageView.stack.addArrangedSubview(pointingFingerTitle.label)
+        verticalStackViewForLabelAndPointingFingerImageView.stack.addArrangedSubview(pointingFingerImageView.imageView)
+        
     }
 }

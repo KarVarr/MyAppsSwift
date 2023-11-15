@@ -16,6 +16,9 @@ class MyListViewController: BaseViewController, DataDelegate {
     var myListData: [MyListData] = []
     
     let customTableView = CustomTableView()
+    let verticalStackViewForLabelAndPointingFingerImageView = CustomStackView()
+    
+    let pointingFingerTitle = CustomLabelView()
     let pointingFingerImageView = CustomImageView()
     let addButton = CustomButtonView()
     
@@ -23,6 +26,15 @@ class MyListViewController: BaseViewController, DataDelegate {
         super.viewDidLoad()
        
         configureCustomTableView()
+        
+        verticalStackViewForLabelAndPointingFingerImageView.stack.axis = .vertical
+        verticalStackViewForLabelAndPointingFingerImageView.stack.alignment = .center
+        verticalStackViewForLabelAndPointingFingerImageView.stack.spacing = 10
+        verticalStackViewForLabelAndPointingFingerImageView.stack.layer.borderWidth = 3
+        
+        pointingFingerTitle.label.text = "Add new task"
+        pointingFingerTitle.label.font = UIFont.systemFont(ofSize: 28,weight: .bold)
+        
         configurePointingFingerImageView()
         addButtonConfigure()
 
@@ -35,10 +47,7 @@ class MyListViewController: BaseViewController, DataDelegate {
     }
     
     
-    func configurePointingFingerImageView() {
-        pointingFingerImageView.imageView.image = UIImage(named: "imageOfFinger")
-        pointingFingerImageView.imageView.transform = CGAffineTransform(rotationAngle: -.pi / 7.5)
-    }
+
   
 }
 
