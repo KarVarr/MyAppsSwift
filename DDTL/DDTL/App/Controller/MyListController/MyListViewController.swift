@@ -16,13 +16,14 @@ class MyListViewController: BaseViewController, DataDelegate {
     var myListData: [MyListData] = []
     
     let customTableView = CustomTableView()
-
+    let pointingFingerImageView = CustomImageView()
     let addButton = CustomButtonView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
         configureCustomTableView()
+        configurePointingFingerImageView()
         addButtonConfigure()
 
     }
@@ -33,6 +34,11 @@ class MyListViewController: BaseViewController, DataDelegate {
         customTableView.table.reloadData()
     }
     
+    
+    func configurePointingFingerImageView() {
+        pointingFingerImageView.imageView.image = UIImage(named: "imageOfFinger")
+        pointingFingerImageView.imageView.transform = CGAffineTransform(rotationAngle: -.pi / 7.5)
+    }
   
 }
 

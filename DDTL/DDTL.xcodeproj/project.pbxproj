@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1728D5432B00D5A9004CDCE5 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */; };
 		1728D5452B00DB26004CDCE5 /* TextViewConfigure + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */; };
+		17AAE44D2B0544F600F2000F /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AAE44C2B0544F600F2000F /* CustomImageView.swift */; };
 		17BD5A912AF56F690075681B /* AddViewANT + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD5A902AF56F690075681B /* AddViewANT + Ext.swift */; };
 		17BD5A942AF645C30075681B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD5A932AF645C30075681B /* Keys.swift */; };
 		17BD5A962AF647AC0075681B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD5A952AF647AC0075681B /* CustomTextField.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextViewConfigure + Ext.swift"; sourceTree = "<group>"; };
+		17AAE44C2B0544F600F2000F /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		17BD5A902AF56F690075681B /* AddViewANT + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewANT + Ext.swift"; sourceTree = "<group>"; };
 		17BD5A932AF645C30075681B /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		17BD5A952AF647AC0075681B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				17BD5A992AF6B8E40075681B /* CustomView.swift */,
 				17C359582AF55D8F00E154BE /* TableView */,
 				1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */,
+				17AAE44C2B0544F600F2000F /* CustomImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				1728D5452B00DB26004CDCE5 /* TextViewConfigure + Ext.swift in Sources */,
 				17C359532AF552B500E154BE /* CustomButtonView.swift in Sources */,
 				17C359572AF55D2400E154BE /* MyListData.swift in Sources */,
+				17AAE44D2B0544F600F2000F /* CustomImageView.swift in Sources */,
 				17BD5A9A2AF6B8E50075681B /* CustomView.swift in Sources */,
 				17C3595E2AF55F4A00E154BE /* CustomLabelView.swift in Sources */,
 				17BD5A962AF647AC0075681B /* CustomTextField.swift in Sources */,
