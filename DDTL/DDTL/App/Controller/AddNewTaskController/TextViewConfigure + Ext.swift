@@ -12,7 +12,7 @@ extension AddNewTaskViewController: UITextViewDelegate {
     func textViewConfigure() {
         descriptionTextView.textView.delegate = self
         
-        let placeholder = "Describe your idea in detail here..."
+        let placeholder = Helper.Strings.AddNewTaskVC.textViewPlaceholder
         
         descriptionTextView.textView.text = placeholder
         descriptionTextView.textView.backgroundColor = Helper.Colors.palePink

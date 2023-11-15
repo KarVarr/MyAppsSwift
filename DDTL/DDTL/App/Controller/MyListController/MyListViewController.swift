@@ -9,7 +9,7 @@ import UIKit
 
 
 protocol DataDelegate: AnyObject {
-    func didEnterData(title: String, description: String, date: Date?, likes: Int?)
+    func didEnterData(title: String?, description: String?, date: Date?, likes: Int?)
 }
 
 class MyListViewController: BaseViewController, DataDelegate {
@@ -27,7 +27,7 @@ class MyListViewController: BaseViewController, DataDelegate {
 
     }
     
-    func didEnterData(title: String, description: String, date: Date?, likes: Int?) {
+    func didEnterData(title: String?, description: String?, date: Date?, likes: Int?) {
         let newTask = MyListData(title: title, description: description)
         myListData.append(newTask)
         customTableView.table.reloadData()

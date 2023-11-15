@@ -28,8 +28,15 @@ extension AddNewTaskViewController {
             print("No data for title and description")
             return
         }
-        DispatchQueue.main.async {
-            self.delegate?.didEnterData(title: title, description: description, date: nil, likes: nil)
+        DispatchQueue.main.async { [weak self] in
+            
+            if (title == "" && description == Helper.Strings.AddNewTaskVC.textViewPlaceholder) || (title == "" && description != "") {
+                self?.dismiss(animated: true)
+            } else if title != "" && description == Helper.Strings.AddNewTaskVC.textViewPlaceholder {
+                self?.delegate?.didEnterData(title: title, description: nil, date: nil, likes: nil)
+            } else {
+                self?.delegate?.didEnterData(title: title, description: description, date: nil, likes: nil)
+            }
         }
         
         dismiss(animated: true)
