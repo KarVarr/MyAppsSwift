@@ -13,6 +13,9 @@ enum Helper {
     }
     //MARK: - STRINGS
     enum Strings {
+        enum AddNewTaskVC {
+            static let title = "A D D   T A S K"
+        }
         
         enum NavTitle {
             static func title(for tab: Tabs) -> String {
