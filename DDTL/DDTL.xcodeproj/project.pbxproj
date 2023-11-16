@@ -11,7 +11,9 @@
 		1728D5452B00DB26004CDCE5 /* TextViewConfigure + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */; };
 		17AAE44D2B0544F600F2000F /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AAE44C2B0544F600F2000F /* CustomImageView.swift */; };
 		17AAE44F2B0548C000F2000F /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AAE44E2B0548C000F2000F /* CustomStackView.swift */; };
-		17AAE4512B05494100F2000F /* ConfigureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AAE4502B05494100F2000F /* ConfigureImageView.swift */; };
+		17AAE4512B05494100F2000F /* ConfigureImageView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AAE4502B05494100F2000F /* ConfigureImageView + Ext.swift */; };
+		17AAE4532B054EDA00F2000F /* ConfigureStackView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AAE4522B054EDA00F2000F /* ConfigureStackView + Ext.swift */; };
+		17AAE4552B054F1500F2000F /* ConfigureLabel + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AAE4542B054F1500F2000F /* ConfigureLabel + Ext.swift */; };
 		17BD5A912AF56F690075681B /* AddViewANT + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD5A902AF56F690075681B /* AddViewANT + Ext.swift */; };
 		17BD5A942AF645C30075681B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD5A932AF645C30075681B /* Keys.swift */; };
 		17BD5A962AF647AC0075681B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD5A952AF647AC0075681B /* CustomTextField.swift */; };
@@ -47,7 +49,9 @@
 		1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextViewConfigure + Ext.swift"; sourceTree = "<group>"; };
 		17AAE44C2B0544F600F2000F /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		17AAE44E2B0548C000F2000F /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
-		17AAE4502B05494100F2000F /* ConfigureImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureImageView.swift; sourceTree = "<group>"; };
+		17AAE4502B05494100F2000F /* ConfigureImageView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureImageView + Ext.swift"; sourceTree = "<group>"; };
+		17AAE4522B054EDA00F2000F /* ConfigureStackView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureStackView + Ext.swift"; sourceTree = "<group>"; };
+		17AAE4542B054F1500F2000F /* ConfigureLabel + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureLabel + Ext.swift"; sourceTree = "<group>"; };
 		17BD5A902AF56F690075681B /* AddViewANT + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewANT + Ext.swift"; sourceTree = "<group>"; };
 		17BD5A932AF645C30075681B /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		17BD5A952AF647AC0075681B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -203,12 +207,14 @@
 			isa = PBXGroup;
 			children = (
 				17C359252AF017AC00E154BE /* MyListViewController.swift */,
-				17C3594C2AF3F68200E154BE /* CustomTableView + Ext.swift */,
 				17C3594E2AF3F6BF00E154BE /* AddViews + Ext.swift */,
 				17C359502AF3F7B700E154BE /* ConfigureView + Ext.swift */,
 				17C359542AF5539100E154BE /* LayoutView + Ext.swift */,
+				17C3594C2AF3F68200E154BE /* CustomTableView + Ext.swift */,
+				17AAE4522B054EDA00F2000F /* ConfigureStackView + Ext.swift */,
+				17AAE4542B054F1500F2000F /* ConfigureLabel + Ext.swift */,
+				17AAE4502B05494100F2000F /* ConfigureImageView + Ext.swift */,
 				17C359622AF56A8F00E154BE /* AddButtonConfigure + Ext.swift */,
-				17AAE4502B05494100F2000F /* ConfigureImageView.swift */,
 			);
 			path = MyListController;
 			sourceTree = "<group>";
@@ -338,6 +344,7 @@
 				17BD5A942AF645C30075681B /* Keys.swift in Sources */,
 				17C359262AF017AC00E154BE /* MyListViewController.swift in Sources */,
 				17C3594F2AF3F6BF00E154BE /* AddViews + Ext.swift in Sources */,
+				17AAE4532B054EDA00F2000F /* ConfigureStackView + Ext.swift in Sources */,
 				17C359632AF56A8F00E154BE /* AddButtonConfigure + Ext.swift in Sources */,
 				17C359402AF02FD000E154BE /* Helper.swift in Sources */,
 				17C359652AF56B2A00E154BE /* LayoutViewANT + Ext.swift in Sources */,
@@ -350,12 +357,13 @@
 				17C3594B2AF3F56D00E154BE /* CustomTableView.swift in Sources */,
 				17C359492AF16C9D00E154BE /* BaseViewController.swift in Sources */,
 				1728D5452B00DB26004CDCE5 /* TextViewConfigure + Ext.swift in Sources */,
-				17AAE4512B05494100F2000F /* ConfigureImageView.swift in Sources */,
+				17AAE4512B05494100F2000F /* ConfigureImageView + Ext.swift in Sources */,
 				17C359532AF552B500E154BE /* CustomButtonView.swift in Sources */,
 				17C359572AF55D2400E154BE /* MyListData.swift in Sources */,
 				17AAE44D2B0544F600F2000F /* CustomImageView.swift in Sources */,
 				17BD5A9A2AF6B8E50075681B /* CustomView.swift in Sources */,
 				17C3595E2AF55F4A00E154BE /* CustomLabelView.swift in Sources */,
+				17AAE4552B054F1500F2000F /* ConfigureLabel + Ext.swift in Sources */,
 				17BD5A962AF647AC0075681B /* CustomTextField.swift in Sources */,
 				17C359222AF017AC00E154BE /* AppDelegate.swift in Sources */,
 				17BD5A982AF64A9B0075681B /* TextFieldsConfigure + Ext.swift in Sources */,
