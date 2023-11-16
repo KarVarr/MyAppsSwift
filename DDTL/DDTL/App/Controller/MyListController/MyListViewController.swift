@@ -14,6 +14,7 @@ protocol DataDelegate: AnyObject {
 
 class MyListViewController: BaseViewController, DataDelegate {
     var myListData: [MyListData] = []
+    var isHiddenStackView = false
     
     let customTableView = CustomTableView()
     let verticalStackViewForLabelAndPointingFingerImageView = CustomStackView()
@@ -24,31 +25,30 @@ class MyListViewController: BaseViewController, DataDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         configureCustomTableView()
-        
-        verticalStackViewForLabelAndPointingFingerImageView.stack.axis = .vertical
-        verticalStackViewForLabelAndPointingFingerImageView.stack.alignment = .center
-        verticalStackViewForLabelAndPointingFingerImageView.stack.spacing = 10
-        verticalStackViewForLabelAndPointingFingerImageView.stack.layer.borderWidth = 3
-        
-        pointingFingerTitle.label.text = "Add new task"
-        pointingFingerTitle.label.font = UIFont.systemFont(ofSize: 28,weight: .bold)
-        
+        configureStackView()
+        configureLabel()
         configurePointingFingerImageView()
         addButtonConfigure()
-
     }
+    
+    
     
     func didEnterData(title: String?, description: String?, creationDate: Date?, likes: Int?) {
         let newTask = MyListData(title: title, description: description, date: creationDate)
         myListData.append(newTask)
+        
+        if !myListData.isEmpty {
+            verticalStackViewForLabelAndPointingFingerImageView.stack.isHidden = true
+        } else {
+            verticalStackViewForLabelAndPointingFingerImageView.stack.isHidden = false
+        }
+        
         customTableView.table.reloadData()
     }
     
     
-
-  
 }
 
 

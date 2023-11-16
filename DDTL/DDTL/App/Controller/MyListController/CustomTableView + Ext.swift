@@ -42,10 +42,14 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             
             self.myListData.remove(at: indexPath.row)
             self.customTableView.table.deleteRows(at: [indexPath], with: .fade)
+            
+            if myListData.isEmpty {
+                verticalStackViewForLabelAndPointingFingerImageView.stack.isHidden = false
+            }
         }
         
     }
-    
+  
     
     //MARK: - Days Counter
     func daysSinceCreation(for task: MyListData) -> Int {
@@ -56,6 +60,5 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return 0
     }
-    
     
 }
