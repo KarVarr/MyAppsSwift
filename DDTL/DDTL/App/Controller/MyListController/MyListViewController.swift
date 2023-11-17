@@ -33,6 +33,12 @@ class MyListViewController: BaseViewController, DataDelegate {
         addButtonConfigure()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        customTableView.table.reloadData()
+        print("table is reloaded")
+    }
+    
     
     
     func didEnterData(title: String?, description: String?, creationDate: Date?, likes: Int?) {
