@@ -39,6 +39,11 @@ class MyListViewController: BaseViewController, DataDelegate {
         print("table is reloaded")
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        animationPointingFingerImageView()
+    }
+    
     
     
     func didEnterData(title: String?, description: String?, creationDate: Date?, likes: Int?) {
