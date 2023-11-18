@@ -57,5 +57,12 @@ enum Helper {
         static let darkGreen = UIColor(red: 0.23, green: 0.30, blue: 0.22, alpha: 1.00)
         static let placeholder = UIColor(red: 0.66, green: 0.66, blue: 0.66, alpha: 0.8)
     }
+    
+    //MARK: - Fonts
+    enum Fonts {
+        static func Chalkduster(with size: CGFloat) -> UIFont {
+            UIFont(name: "Chalkduster", size: size) ?? UIFont()
+        }
+    }
 }
 
