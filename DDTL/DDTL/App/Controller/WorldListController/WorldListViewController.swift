@@ -12,7 +12,7 @@ class WorldListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .cyan
+        view.backgroundColor = Helper.Colors.beige
         
         setNavTitle(title: .worldListViewController)
     }

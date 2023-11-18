@@ -54,9 +54,15 @@ class MyListViewController: BaseViewController, DataDelegate {
         myListData.append(newTask)
         
         if !myListData.isEmpty {
-            verticalStackViewForLabelAndPointingFingerImageView.stack.isHidden = true
+            pointingFingerImageView.imageView.isHidden = true
+            pointingFingerLabelTop.label.isHidden = true
+            pointingFingerLabelMiddle.label.isHidden = true
+            pointingFingerLabelBottom.label.isHidden = true
         } else {
-            verticalStackViewForLabelAndPointingFingerImageView.stack.isHidden = false
+            pointingFingerImageView.imageView.isHidden = false
+            pointingFingerLabelTop.label.isHidden = false
+            pointingFingerLabelMiddle.label.isHidden = false
+            pointingFingerLabelBottom.label.isHidden = false
         }
         
         customTableView.table.reloadData()

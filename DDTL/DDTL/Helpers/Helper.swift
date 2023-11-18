@@ -35,6 +35,12 @@ enum Helper {
                 }
             }
         }
+        
+        enum MyListVC {
+            static let titleTop = "CREATE"
+            static let titleMiddle = "A"
+            static let titleBottom = "TASK"
+        }
     }
     
     //MARK: - Images
@@ -51,6 +57,7 @@ enum Helper {
     enum Colors {
         static let mainColorFromIcon = UIColor(red: 0.35, green: 0.66, blue: 0.65, alpha: 1.00)
         static let placeholder = UIColor(red: 0.66, green: 0.66, blue: 0.66, alpha: 0.8)
+        static let beige = UIColor(red: 0.91, green: 0.81, blue: 0.73, alpha: 1.00)
         static let redOrange = UIColor(red: 0.98, green: 0.18, blue: 0.18, alpha: 1.00)
         static let blue = UIColor(red: 0.00, green: 0.66, blue: 1.00, alpha: 1.00)
         static let darkBlue = UIColor(red: 0.11, green: 0.17, blue: 0.25, alpha: 1.00)

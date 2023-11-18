@@ -9,9 +9,9 @@ import UIKit
 
 extension MyListViewController {
     func configureLabel() {
-        settings(pointingFingerLabelTop, with: "ADD", x: 0, y: -300)
-        settings(pointingFingerLabelMiddle, with: "NEW", x: -300, y: 0)
-        settings(pointingFingerLabelBottom, with: "TASK", x: 300, y: 0)
+        settings(pointingFingerLabelTop, with: Helper.Strings.MyListVC.titleTop, x: 0, y: -300)
+        settings(pointingFingerLabelMiddle, with: Helper.Strings.MyListVC.titleMiddle, x: -300, y: 0)
+        settings(pointingFingerLabelBottom, with: Helper.Strings.MyListVC.titleBottom, x: 300, y: 0)
     }
     
     func animationPointingTitleLabels() {
@@ -20,7 +20,7 @@ extension MyListViewController {
         
         
         for (labels, time) in labelsDictionary {
-            UIView.animate(withDuration: 1, delay: time,  options: .curveEaseIn) {
+            UIView.animate(withDuration: 0.5, delay: time,  options: .curveEaseIn) {
                 labels.transform = CGAffineTransform(translationX: 0, y: 0)
                 self.view.layoutIfNeeded()
             }

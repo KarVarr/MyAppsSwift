@@ -26,11 +26,11 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.tableViewCellKey, for: indexPath) as! TableViewCell
+        cell.backgroundColor = Helper.Colors.beige
         
         let myList = myListData[indexPath.row]
         cell.titleLabel.label.text = myList.title
-        cell.dateLabel.label.text =  daysSinceCreation(for: MyListData()) + 1 <= 1 ? String("Day One") : String("\(daysSinceCreation(for: MyListData())) days")
-        cell.backgroundColor = Helper.Colors.lightBlue
+        cell.dateLabel.label.text =  daysSinceCreation(for: myList) + 1 <= 1 ? String("Day One") : String("\(daysSinceCreation(for: MyListData())) days")
         
         return cell
     }
@@ -44,7 +44,10 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             self.customTableView.table.deleteRows(at: [indexPath], with: .fade)
             
             if myListData.isEmpty {
-                verticalStackViewForLabelAndPointingFingerImageView.stack.isHidden = false
+                pointingFingerImageView.imageView.isHidden = false
+                pointingFingerLabelTop.label.isHidden = false
+                pointingFingerLabelMiddle.label.isHidden = false
+                pointingFingerLabelBottom.label.isHidden = false
             }
         }
         
