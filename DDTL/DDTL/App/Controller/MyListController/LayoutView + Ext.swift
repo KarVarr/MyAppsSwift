@@ -17,19 +17,29 @@ extension MyListViewController {
         let pointingFingerImageView = pointingFingerImageView.imageView
         
         //MARK: - Vertical StackView for Pointing Finger ImageView and Pointing Finger Title Label
+//        NSLayoutConstraint.activate([
+//            verticalStackViewForLabelAndPointingFingerImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+//            verticalStackViewForLabelAndPointingFingerImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+//            verticalStackViewForLabelAndPointingFingerImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+//            verticalStackViewForLabelAndPointingFingerImageView.bottomAnchor.constraint(equalTo: addButton.topAnchor, constant: -10),
+//            
+//            pointingFingerTitle.topAnchor.constraint(equalTo: verticalStackViewForLabelAndPointingFingerImageView.topAnchor),
+//            pointingFingerTitle.centerXAnchor.constraint(equalTo: verticalStackViewForLabelAndPointingFingerImageView.centerXAnchor),
+//            
+//            pointingFingerImageView.topAnchor.constraint(equalTo: pointingFingerTitle.bottomAnchor),
+//            pointingFingerImageView.leadingAnchor.constraint(equalTo: verticalStackViewForLabelAndPointingFingerImageView.leadingAnchor),
+//            pointingFingerImageView.trailingAnchor.constraint(equalTo: verticalStackViewForLabelAndPointingFingerImageView.trailingAnchor),
+//            pointingFingerImageView.bottomAnchor.constraint(equalTo: verticalStackViewForLabelAndPointingFingerImageView.bottomAnchor)
+//        ])
+        
+        //MARK: - PointingFinger ImageView
         NSLayoutConstraint.activate([
-            verticalStackViewForLabelAndPointingFingerImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            verticalStackViewForLabelAndPointingFingerImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            verticalStackViewForLabelAndPointingFingerImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            verticalStackViewForLabelAndPointingFingerImageView.bottomAnchor.constraint(equalTo: addButton.topAnchor, constant: -10),
+            pointingFingerImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pointingFingerImageView.bottomAnchor.constraint(equalTo: addButton.topAnchor, constant: 30),
+            pointingFingerImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            pointingFingerImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
-            pointingFingerTitle.topAnchor.constraint(equalTo: verticalStackViewForLabelAndPointingFingerImageView.topAnchor),
-            pointingFingerTitle.centerXAnchor.constraint(equalTo: verticalStackViewForLabelAndPointingFingerImageView.centerXAnchor),
             
-            pointingFingerImageView.topAnchor.constraint(equalTo: pointingFingerTitle.bottomAnchor),
-            pointingFingerImageView.leadingAnchor.constraint(equalTo: verticalStackViewForLabelAndPointingFingerImageView.leadingAnchor),
-            pointingFingerImageView.trailingAnchor.constraint(equalTo: verticalStackViewForLabelAndPointingFingerImageView.trailingAnchor),
-            pointingFingerImageView.bottomAnchor.constraint(equalTo: verticalStackViewForLabelAndPointingFingerImageView.bottomAnchor)
         ])
         
         

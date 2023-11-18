@@ -10,7 +10,7 @@ import UIKit
 extension MyListViewController {
     func addButtonConfigure() {
         
-        addButton.button.backgroundColor = Helper.Colors.pink
+        addButton.button.backgroundColor = Helper.Colors.lightBlue
         addButton.button.setTitleColor(.black, for: .normal)
         addButton.button.setTitle("+", for: .normal)
         addButton.button.titleLabel?.font = UIFont.systemFont(ofSize: 44, weight: .bold)
