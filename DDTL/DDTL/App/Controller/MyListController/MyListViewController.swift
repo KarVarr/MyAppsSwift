@@ -19,7 +19,9 @@ class MyListViewController: BaseViewController, DataDelegate {
     let customTableView = CustomTableView()
     let verticalStackViewForLabelAndPointingFingerImageView = CustomStackView()
     
-    let pointingFingerTitle = CustomLabelView()
+    let pointingFingerLabelTop = CustomLabelView()
+    let pointingFingerLabelMiddle = CustomLabelView()
+    let pointingFingerLabelBottom = CustomLabelView()
     let pointingFingerImageView = CustomImageView()
     let addButton = CustomButtonView()
     
@@ -41,6 +43,7 @@ class MyListViewController: BaseViewController, DataDelegate {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        animationPointingTitleLabels()
         animationPointingFingerImageView()
     }
     

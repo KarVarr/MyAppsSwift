@@ -18,7 +18,7 @@ extension MyListViewController {
     func animationPointingFingerImageView() {
         view.layoutIfNeeded()
          
-        UIView.animate(withDuration: 1, delay: 1, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut) {
+        UIView.animate(withDuration: 1, delay: 2, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut) {
             self.pointingFingerImageView.imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
             self.pointingFingerImageView.imageView.transform = CGAffineTransform(rotationAngle: -.pi / 7.5)
             self.view.layoutIfNeeded()

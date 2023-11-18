@@ -13,11 +13,9 @@ extension MyListViewController {
         view.addSubview(customTableView.table)
         view.addSubview(addButton.button)
         view.addSubview(pointingFingerImageView.imageView)
-        
-        
-//        view.addSubview(verticalStackViewForLabelAndPointingFingerImageView.stack)
-//        verticalStackViewForLabelAndPointingFingerImageView.stack.addArrangedSubview(pointingFingerTitle.label)
-//        verticalStackViewForLabelAndPointingFingerImageView.stack.addArrangedSubview(pointingFingerImageView.imageView)
+        view.addSubview(pointingFingerLabelTop.label)
+        view.addSubview(pointingFingerLabelMiddle.label)
+        view.addSubview(pointingFingerLabelBottom.label)
         
     }
 }
