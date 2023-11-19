@@ -15,7 +15,7 @@ extension AddNewTaskViewController: UITextViewDelegate {
         descriptionTextView.textView.text = Helper.Strings.AddNewTaskVC.textViewPlaceholder
         descriptionTextView.textView.backgroundColor = Helper.Colors.palePink
         descriptionTextView.textView.textColor = Helper.Colors.placeholder
-        descriptionTextView.textView.font = UIFont.systemFont(ofSize: 18)
+        descriptionTextView.textView.font = Helper.Fonts.ChalkboardSERegular(with: 18)
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

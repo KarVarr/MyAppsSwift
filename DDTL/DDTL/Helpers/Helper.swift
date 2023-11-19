@@ -16,6 +16,7 @@ enum Helper {
         enum AddNewTaskVC {
             static let title = "A D D   T A S K"
             static let textViewPlaceholder = "Describe your idea in detail here..."
+            static let textFieldPlaceholder = "Type here some text"
         }
         
         enum NavTitle {

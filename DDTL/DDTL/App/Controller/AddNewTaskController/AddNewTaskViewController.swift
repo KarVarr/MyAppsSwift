@@ -28,11 +28,6 @@ class AddNewTaskViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Helper.Colors.palePink
-        navTitle.label.text = Helper.Strings.AddNewTaskVC.title
-        navTitle.label.textColor = .black
-        navTitle.label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        
         
         textViewConfigure()
         closeButtonConfigure()

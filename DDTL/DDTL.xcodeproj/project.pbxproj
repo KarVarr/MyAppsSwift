@@ -13,6 +13,7 @@
 		173FB2002B0A4011002C20F7 /* UIImage + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173FB1FF2B0A4011002C20F7 /* UIImage + Ext.swift */; };
 		173FB2022B0A53ED002C20F7 /* BlackOpsOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173FB2012B0A53ED002C20F7 /* BlackOpsOne-Regular.ttf */; };
 		173FB2042B0A556E002C20F7 /* Righteous-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173FB2032B0A556E002C20F7 /* Righteous-Regular.ttf */; };
+		173FB2062B0A881A002C20F7 /* ConfigureViewANT + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173FB2052B0A881A002C20F7 /* ConfigureViewANT + Ext.swift */; };
 		17AAE44D2B0544F600F2000F /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AAE44C2B0544F600F2000F /* CustomImageView.swift */; };
 		17AAE44F2B0548C000F2000F /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AAE44E2B0548C000F2000F /* CustomStackView.swift */; };
 		17AAE4512B05494100F2000F /* ConfigureImageView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AAE4502B05494100F2000F /* ConfigureImageView + Ext.swift */; };
@@ -55,6 +56,7 @@
 		173FB1FF2B0A4011002C20F7 /* UIImage + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Ext.swift"; sourceTree = "<group>"; };
 		173FB2012B0A53ED002C20F7 /* BlackOpsOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BlackOpsOne-Regular.ttf"; sourceTree = "<group>"; };
 		173FB2032B0A556E002C20F7 /* Righteous-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Righteous-Regular.ttf"; sourceTree = "<group>"; };
+		173FB2052B0A881A002C20F7 /* ConfigureViewANT + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewANT + Ext.swift"; sourceTree = "<group>"; };
 		17AAE44C2B0544F600F2000F /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		17AAE44E2B0548C000F2000F /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		17AAE4502B05494100F2000F /* ConfigureImageView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureImageView + Ext.swift"; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 			children = (
 				17C359602AF565C800E154BE /* AddNewTaskViewController.swift */,
 				17BD5A902AF56F690075681B /* AddViewANT + Ext.swift */,
+				173FB2052B0A881A002C20F7 /* ConfigureViewANT + Ext.swift */,
 				17C359642AF56B2A00E154BE /* LayoutViewANT + Ext.swift */,
 				17C359662AF56BF000E154BE /* CloseButtonConfigure + Ext.swift */,
 				17BD5A972AF64A9B0075681B /* TextFieldsConfigure + Ext.swift */,
@@ -381,6 +384,7 @@
 				17C359652AF56B2A00E154BE /* LayoutViewANT + Ext.swift in Sources */,
 				17C3594D2AF3F68200E154BE /* CustomTableView + Ext.swift in Sources */,
 				1728D5432B00D5A9004CDCE5 /* CustomTextView.swift in Sources */,
+				173FB2062B0A881A002C20F7 /* ConfigureViewANT + Ext.swift in Sources */,
 				17C3593D2AF02F0F00E154BE /* NavBarController.swift in Sources */,
 				173FB2002B0A4011002C20F7 /* UIImage + Ext.swift in Sources */,
 				17C359392AF01FB500E154BE /* TabBarController.swift in Sources */,

@@ -12,12 +12,11 @@ extension MyListViewController {
         
         addButton.button.setImage(UIImage(named: "addSquareFull")?.withRenderingMode(.alwaysTemplate), for: .normal)
         addButton.button.tintColor = Helper.Colors.pink
-        addButton.button.titleLabel?.font = UIFont.systemFont(ofSize: 52, weight: .light)
         addButton.button.layer.cornerRadius = 33
         
-        addButton.button.layer.shadowRadius = 7
+        addButton.button.layer.shadowRadius = 3
         addButton.button.layer.shadowOffset = CGSize(width: 2, height: 2)
-        addButton.button.layer.shadowOpacity = 5
+        addButton.button.layer.shadowOpacity = 3
         addButton.button.layer.shadowColor = UIColor.black.withAlphaComponent(0.5).cgColor
         
         
