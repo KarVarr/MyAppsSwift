@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1728D5432B00D5A9004CDCE5 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */; };
 		1728D5452B00DB26004CDCE5 /* TextViewConfigure + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */; };
+		173FB1FD2B0A341C002C20F7 /* BungeeShade-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173FB1FC2B0A341C002C20F7 /* BungeeShade-Regular.ttf */; };
 		17AAE44D2B0544F600F2000F /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AAE44C2B0544F600F2000F /* CustomImageView.swift */; };
 		17AAE44F2B0548C000F2000F /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AAE44E2B0548C000F2000F /* CustomStackView.swift */; };
 		17AAE4512B05494100F2000F /* ConfigureImageView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AAE4502B05494100F2000F /* ConfigureImageView + Ext.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextViewConfigure + Ext.swift"; sourceTree = "<group>"; };
+		173FB1FC2B0A341C002C20F7 /* BungeeShade-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BungeeShade-Regular.ttf"; sourceTree = "<group>"; };
 		17AAE44C2B0544F600F2000F /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		17AAE44E2B0548C000F2000F /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		17AAE4502B05494100F2000F /* ConfigureImageView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureImageView + Ext.swift"; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		173FB1FB2B0A340E002C20F7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				173FB1FC2B0A341C002C20F7 /* BungeeShade-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		17BD5A922AF645A10075681B /* Keys */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +172,7 @@
 		17C3593E2AF02FC200E154BE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				173FB1FB2B0A340E002C20F7 /* Fonts */,
 				17BD5A922AF645A10075681B /* Keys */,
 				17C3593F2AF02FD000E154BE /* Helper.swift */,
 			);
@@ -324,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				173FB1FD2B0A341C002C20F7 /* BungeeShade-Regular.ttf in Resources */,
 				17C3592E2AF017AE00E154BE /* LaunchScreen.storyboard in Resources */,
 				17C3592B2AF017AE00E154BE /* Assets.xcassets in Resources */,
 			);

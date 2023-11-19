@@ -34,12 +34,12 @@ class BaseViewController: UIViewController {
 extension BaseViewController {
     func setNavTitle(title: Tabs) {
         navigationItem.title = Helper.Strings.NavTitle.title(for: title)
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = Helper.Colors.mainColorFromIcon
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white, .font: Helper.Fonts.ChalkboardSERegular(with: 24)]
+        appearance.titleTextAttributes = [.foregroundColor: Helper.Colors.darkGreen, .font: Helper.Fonts.BungeeShadeRegular(with: 24)]
+//        appearance.largeTitleTextAttributes = [.foregroundColor: Helper.Colors.beige, .font: Helper.Fonts.BungeeShadeRegular(with: 24)]
         
         navigationController?.navigationBar.tintColor = Helper.Colors.mainColorFromIcon
         navigationController?.navigationBar.standardAppearance = appearance

@@ -73,6 +73,10 @@ enum Helper {
         static func ChalkboardSERegular(with size: CGFloat) -> UIFont {
             UIFont(name: "ChalkboardSE-Regular", size: size) ?? UIFont()
         }
+        
+        static func BungeeShadeRegular(with size: CGFloat) -> UIFont {
+            UIFont(name: "BungeeShade-Regular", size: size) ?? UIFont()
+        }
     }
 }
 
