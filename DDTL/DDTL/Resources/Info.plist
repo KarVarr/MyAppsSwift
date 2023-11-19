@@ -5,6 +5,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>BungeeShade-Regular.ttf</string>
+		<string>BlackOpsOne-Regular.ttf</string>
+		<string>Righteous-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

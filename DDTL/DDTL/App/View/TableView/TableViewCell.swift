@@ -23,12 +23,18 @@ class TableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         addViews()
+        configureCell()
         layoutCell()
     }
     
     private func addViews() {
         contentView.addSubview(titleLabel.label)
         contentView.addSubview(dateLabel.label)
+    }
+    
+    private func configureCell() {
+        titleLabel.label.font = Helper.Fonts.RighteousRegular(with: 22)
+        dateLabel.label.font = Helper.Fonts.BlackOpsOneRegular(with: 16)
     }
     
     private func layoutCell() {

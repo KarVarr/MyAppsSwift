@@ -29,7 +29,7 @@ extension MyListViewController {
     
     private func settings(_ label: CustomLabelView, with text: String, x numberX: CGFloat, y numberY: CGFloat) {
         label.label.text = text
-        label.label.font = Helper.Fonts.ChalkboardSERegular(with: 28)
+        label.label.font = Helper.Fonts.ChalkboardSERegular(with: 38)
         label.label.textColor = Helper.Colors.darkBlue
         
         label.label.layer.shadowColor = Helper.Colors.redOrange.cgColor

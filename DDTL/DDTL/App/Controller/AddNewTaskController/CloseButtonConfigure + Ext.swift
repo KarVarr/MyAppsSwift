@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreGraphics
 
 extension AddNewTaskViewController {
     func closeButtonConfigure() {

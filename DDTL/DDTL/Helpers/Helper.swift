@@ -79,7 +79,16 @@ enum Helper {
         
         static func BungeeShadeRegular(with size: CGFloat) -> UIFont {
             UIFont(name: "BungeeShade-Regular", size: size) ?? UIFont()
+        } 
+        
+        static func BlackOpsOneRegular(with size: CGFloat) -> UIFont {
+            UIFont(name: "BlackOpsOne-Regular", size: size) ?? UIFont()
         }
+        
+        static func RighteousRegular(with size: CGFloat) -> UIFont {
+            UIFont(name: "Righteous-Regular", size: size) ?? UIFont()
+        }
+        
     }
 }
 

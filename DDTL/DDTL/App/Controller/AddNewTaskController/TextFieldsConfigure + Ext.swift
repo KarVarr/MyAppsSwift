@@ -62,7 +62,7 @@ extension AddNewTaskViewController: UITextFieldDelegate {
     
     //MARK: - MAX LENGTH
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 30
+        let maxLength = 25
         let currentString = (textField.text ?? "") as NSString
         let newString = currentString.replacingCharacters(in: range, with: string)
         
