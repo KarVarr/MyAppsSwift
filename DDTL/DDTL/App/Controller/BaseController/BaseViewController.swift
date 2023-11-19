@@ -38,7 +38,7 @@ extension BaseViewController {
         
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = Helper.Colors.mainColorFromIcon
-        appearance.titleTextAttributes = [.foregroundColor: Helper.Colors.darkGreen, .font: Helper.Fonts.BungeeShadeRegular(with: 24)]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black, .font: Helper.Fonts.BungeeShadeRegular(with: 24)]
 //        appearance.largeTitleTextAttributes = [.foregroundColor: Helper.Colors.beige, .font: Helper.Fonts.BungeeShadeRegular(with: 24)]
         
         navigationController?.navigationBar.tintColor = Helper.Colors.mainColorFromIcon

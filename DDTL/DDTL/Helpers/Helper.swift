@@ -22,7 +22,7 @@ enum Helper {
             static func title(for tab: Tabs) -> String {
                 switch tab {
                 case .myListViewController: "Don't Do This"
-                case .worldListViewController: "Don't Do This World"
+                case .worldListViewController: "World list"
                 }
             }
         }
@@ -47,8 +47,10 @@ enum Helper {
     enum Images {
         static func images(for tab: Tabs) -> UIImage {
             switch tab {
-            case .myListViewController: UIImage(systemName: "list.dash.header.rectangle") ?? UIImage()
-            case .worldListViewController: UIImage(systemName: "list.bullet.rectangle") ?? UIImage()
+//            case .myListViewController: UIImage(systemName: "list.dash.header.rectangle") ?? UIImage()
+//            case .worldListViewController: UIImage(systemName: "list.bullet.rectangle") ?? UIImage()
+            case .myListViewController: UIImage(named: "person") ?? UIImage()
+            case .worldListViewController: UIImage(named: "world") ?? UIImage()
             }
         }
     }
