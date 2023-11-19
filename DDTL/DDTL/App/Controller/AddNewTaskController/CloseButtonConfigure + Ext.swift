@@ -24,7 +24,7 @@ extension AddNewTaskViewController {
     }
     
     func saveData() {
-        guard let title = titleTextField.textField.text, let description = descriptionTextView.textView.text else {
+        guard let title = titleTextField.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines), let description = descriptionTextView.textView.text else {
             print("No data for title and description")
             return
         }

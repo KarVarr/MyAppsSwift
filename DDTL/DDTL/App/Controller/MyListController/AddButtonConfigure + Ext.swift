@@ -10,9 +10,8 @@ import UIKit
 extension MyListViewController {
     func addButtonConfigure() {
         
-        addButton.button.backgroundColor = Helper.Colors.lightPink
-        addButton.button.setTitleColor(Helper.Colors.darkBlue, for: .normal)
-        addButton.button.setTitle("+", for: .normal)
+        addButton.button.setImage(UIImage(named: "addSquareFull")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        addButton.button.tintColor = Helper.Colors.pink
         addButton.button.titleLabel?.font = UIFont.systemFont(ofSize: 52, weight: .light)
         addButton.button.layer.cornerRadius = 33
         

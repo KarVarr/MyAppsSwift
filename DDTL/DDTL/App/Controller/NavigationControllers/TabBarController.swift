@@ -27,16 +27,16 @@ final class TabBarController: UITabBarController {
         tabBar.backgroundColor = Helper.Colors.palePink
         
         let controllers: [NavBarController] = Tabs.allCases.map { tab in
-        
+            
             let controller = NavBarController(rootViewController: getController(for: tab))
             
-        
+            
             
             controller.tabBarItem = UITabBarItem(
                 title: Helper.Strings.TabBar.title(for: tab),
                 image: Helper.Images.images(for: tab).resized(to: CGSize(width: 28, height: 28)),
                 tag: tab.rawValue)
-//            controller.tabBarItem.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0)
+            
             return controller
         }
         

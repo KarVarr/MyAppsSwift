@@ -62,12 +62,13 @@ enum Helper {
         static let beige = UIColor(red: 0.91, green: 0.81, blue: 0.73, alpha: 1.00)
         static let redOrange = UIColor(red: 0.98, green: 0.18, blue: 0.18, alpha: 1.00)
         static let blue = UIColor(red: 0.00, green: 0.66, blue: 1.00, alpha: 1.00)
-        static let darkBlue = UIColor(red: 0.11, green: 0.17, blue: 0.25, alpha: 1.00)
+        static let darkBlue = UIColor(red: 0.15, green: 0.15, blue: 0.23, alpha: 1.00)
         static let lightBlue = UIColor(red: 0.68, green: 0.87, blue: 0.99, alpha: 1.00)
         static let pink = UIColor(red: 0.97, green: 0.46, blue: 0.67, alpha: 1.00)
         static let palePink = UIColor(red: 1.00, green: 0.96, blue: 0.96, alpha: 1.00)
         static let lightPink = UIColor(red: 1.00, green: 0.87, blue: 0.87, alpha: 1.00)
         static let darkGreen = UIColor(red: 0.23, green: 0.30, blue: 0.22, alpha: 1.00)
+        
     }
     
     //MARK: - Fonts

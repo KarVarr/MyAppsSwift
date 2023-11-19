@@ -54,14 +54,13 @@ extension AddNewTaskViewController: UITextFieldDelegate {
         }
     }
     
-    
-    
+    //MARK: - Hide Keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-    
+    //MARK: - MAX LENGTH
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let maxLength = 30
         let currentString = (textField.text ?? "") as NSString

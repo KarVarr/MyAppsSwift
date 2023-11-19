@@ -205,11 +205,11 @@
 		17C359422AF166ED00E154BE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				17C359582AF55D8F00E154BE /* TableView */,
 				17C359522AF552B500E154BE /* CustomButtonView.swift */,
 				17C3595D2AF55F4A00E154BE /* CustomLabelView.swift */,
 				17BD5A952AF647AC0075681B /* CustomTextField.swift */,
 				17BD5A992AF6B8E40075681B /* CustomView.swift */,
-				17C359582AF55D8F00E154BE /* TableView */,
 				1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */,
 				17AAE44C2B0544F600F2000F /* CustomImageView.swift */,
 				17AAE44E2B0548C000F2000F /* CustomStackView.swift */,

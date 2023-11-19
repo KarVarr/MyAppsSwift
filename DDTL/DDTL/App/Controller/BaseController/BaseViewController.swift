@@ -37,9 +37,14 @@ extension BaseViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = Helper.Colors.mainColorFromIcon
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.black, .font: Helper.Fonts.BungeeShadeRegular(with: 24)]
-//        appearance.largeTitleTextAttributes = [.foregroundColor: Helper.Colors.beige, .font: Helper.Fonts.BungeeShadeRegular(with: 24)]
+        appearance.titleTextAttributes = [.foregroundColor: Helper.Colors.darkBlue, .font: Helper.Fonts.BungeeShadeRegular(with: 24)]
+        
+        switch title {
+        case .myListViewController:
+            appearance.backgroundColor = Helper.Colors.mainColorFromIcon
+        case .worldListViewController:
+            appearance.backgroundColor = Helper.Colors.beige
+        }
         
         navigationController?.navigationBar.tintColor = Helper.Colors.mainColorFromIcon
         navigationController?.navigationBar.standardAppearance = appearance
