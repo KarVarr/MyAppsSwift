@@ -9,8 +9,6 @@ import UIKit
 
 extension MyListViewController {
     func configureStackView() {
-        verticalStackViewForLabelAndPointingFingerImageView.stack.axis = .vertical
-        verticalStackViewForLabelAndPointingFingerImageView.stack.alignment = .center
-        verticalStackViewForLabelAndPointingFingerImageView.stack.spacing = 10
+       
     }
 }
