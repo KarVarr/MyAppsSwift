@@ -18,8 +18,6 @@ extension MyListViewController {
         let pointingFingerImageView = pointingFingerImageView.imageView
         
 
-        
-        
         //MARK: - PointingFinger Labels
         NSLayoutConstraint.activate([
             pointingFingerTop.centerXAnchor.constraint(equalTo: view.centerXAnchor),

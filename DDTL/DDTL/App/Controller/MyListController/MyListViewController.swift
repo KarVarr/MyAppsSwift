@@ -17,7 +17,7 @@ class MyListViewController: BaseViewController, DataDelegate {
     var isHiddenStackView = false
     
     let customTableView = CustomTableView()
-    let verticalStackViewForLabelAndPointingFingerImageView = CustomStackView()
+
     
     let pointingFingerLabelTop = CustomLabelView()
     let pointingFingerLabelMiddle = CustomLabelView()
