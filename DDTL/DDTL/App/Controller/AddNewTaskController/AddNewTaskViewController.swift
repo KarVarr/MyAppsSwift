@@ -33,6 +33,7 @@ class AddNewTaskViewController: BaseViewController {
         closeButtonConfigure()
         
         updateButtonLayers()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

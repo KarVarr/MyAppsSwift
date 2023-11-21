@@ -10,6 +10,7 @@ import UIKit
 
 protocol DataDelegate: AnyObject {
     func didEnterData(title: String?, description: String?, creationDate: Date?, likes: Int?)
+    func colorChangeForAddButton()
 }
 
 class MyListViewController: BaseViewController, DataDelegate {
@@ -25,6 +26,9 @@ class MyListViewController: BaseViewController, DataDelegate {
     let pointingFingerImageView = CustomImageView()
     let addButton = CustomButtonView()
     
+    var updateTimer: Timer?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +43,9 @@ class MyListViewController: BaseViewController, DataDelegate {
         super.viewWillAppear(animated)
         customTableView.table.reloadData()
         print("table is reloaded")
-        changeIconColor()
+        colorChangeForAddButton()
+        print("timer is active")
+        updateTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(updateTable), userInfo: nil, repeats: true)
     }
     
     override func viewWillLayoutSubviews() {
@@ -69,6 +75,16 @@ class MyListViewController: BaseViewController, DataDelegate {
         customTableView.table.reloadData()
     }
     
+    @objc func updateTable() {
+        customTableView.table.reloadData()
+        print("Timer !!! 10 sec refresh table")
+    }
+    
+    
+    deinit {
+        print("deinit")
+        updateTimer?.invalidate()
+    }
     
 }
 

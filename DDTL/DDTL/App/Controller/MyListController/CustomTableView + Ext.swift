@@ -29,8 +29,15 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = Helper.Colors.beige
         
         let myList = myListData[indexPath.row]
+        
+        let minutesSinceCreation = minutesSinceCreation(for: myList)
+        let days = minutesSinceCreation   // Convert minutes to days
+        cell.dateLabel.label.text = days == 0 ? String("DAY ONE") : String("\(days + 1) DAYS")
+        print(days)
+        print(minutesSinceCreation)
+        
         cell.titleLabel.label.text = myList.title
-        cell.dateLabel.label.text =  daysSinceCreation(for: myList) + 1 <= 1 ? String("Day One") : String("\(daysSinceCreation(for: myList)) days")
+//        cell.dateLabel.label.text =  daysSinceCreation(for: myList) + 1 <= 1 ? String("Day One") : String("\(daysSinceCreation(for: myList)) days")
         
         return cell
     }
@@ -49,10 +56,12 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
                 pointingFingerLabelMiddle.label.isHidden = false
                 pointingFingerLabelBottom.label.isHidden = false
             }
+            
+            colorChangeForAddButton()
         }
         
     }
-  
+    
     
     //MARK: - Days Counter
     func daysSinceCreation(for task: MyListData) -> Int {
@@ -60,6 +69,16 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         let calendar = Calendar.current
         if let creationDate = task.creationDate, let days = calendar.dateComponents([.day], from: creationDate, to: currentDate).day {
             return days
+        }
+        return 0
+    }
+    
+    //MARK: - Days Counter
+    func minutesSinceCreation(for task: MyListData) -> Int {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        if let creationDate = task.creationDate, let minutes = calendar.dateComponents([.minute], from: creationDate, to: currentDate).minute {
+            return minutes
         }
         return 0
     }

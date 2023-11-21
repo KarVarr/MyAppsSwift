@@ -46,6 +46,8 @@ extension AddNewTaskViewController {
             }
         }
         
+        delegate?.colorChangeForAddButton()
+        
     }
     
     func closeButtonCAShapeLayer() {
