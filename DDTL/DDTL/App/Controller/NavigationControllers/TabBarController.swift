@@ -23,7 +23,7 @@ final class TabBarController: UITabBarController {
     
     private func configureAppearance() {
         tabBar.tintColor = Helper.Colors.pink
-        tabBar.unselectedItemTintColor = .black
+        tabBar.unselectedItemTintColor = Helper.Colors.darkBlue
         tabBar.backgroundColor = Helper.Colors.palePink
         
         let controllers: [NavBarController] = Tabs.allCases.map { tab in

@@ -35,5 +35,11 @@ class AddNewTaskViewController: BaseViewController {
         updateButtonLayers()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        titleTextField.textField.becomeFirstResponder()
+    }
+    
 }
 

@@ -39,6 +39,7 @@ class MyListViewController: BaseViewController, DataDelegate {
         super.viewWillAppear(animated)
         customTableView.table.reloadData()
         print("table is reloaded")
+        changeIconColor()
     }
     
     override func viewWillLayoutSubviews() {

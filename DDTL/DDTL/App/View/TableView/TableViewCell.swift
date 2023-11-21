@@ -33,8 +33,11 @@ class TableViewCell: UITableViewCell {
     }
     
     private func configureCell() {
-        titleLabel.label.font = Helper.Fonts.RighteousRegular(with: 22)
+        titleLabel.label.font = Helper.Fonts.RighteousRegular(with: 28)
+        titleLabel.label.textColor = Helper.Colors.darkBlue
+        
         dateLabel.label.font = Helper.Fonts.BlackOpsOneRegular(with: 16)
+        dateLabel.label.textColor = Helper.Colors.placeholder
     }
     
     private func layoutCell() {
@@ -42,11 +45,17 @@ class TableViewCell: UITableViewCell {
         let dateLabel = dateLabel.label
         
         NSLayoutConstraint.activate([
+//            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+//            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+//            
+            dateLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+//            dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
+        ])
+        
+        NSLayoutConstraint.activate([
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            
-            dateLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
+            titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
     }
     

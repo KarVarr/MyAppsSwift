@@ -9,7 +9,7 @@ import UIKit
 
 extension MyListViewController {
     func addButtonConfigure() {
-        
+       
         addButton.button.setImage(UIImage(named: "addSquareFull")?.withRenderingMode(.alwaysTemplate), for: .normal)
         addButton.button.tintColor = Helper.Colors.pink
         addButton.button.layer.cornerRadius = 33
@@ -21,12 +21,19 @@ extension MyListViewController {
         
         
         addButton.button.addTarget(self, action: #selector(addNewTask), for: .touchUpInside)
+        
     }
     
     @objc func addNewTask() {
         let addNewTaskViewController = AddNewTaskViewController()
         addNewTaskViewController.delegate = self
         present(addNewTaskViewController, animated: true)
+    }
+    
+    func changeIconColor() {
+        print("Before button configuration: \(myListData.count)")
+        addButton.button.tintColor = myListData.count >= 7 ? Helper.Colors.pink.withAlphaComponent(0.5) :  Helper.Colors.pink
+        print("Before button configuration: \(myListData.count)")
     }
 }
 

@@ -16,6 +16,7 @@ extension AddNewTaskViewController {
         
         closeButton.button.addTarget(self, action: #selector(closeView), for: .touchUpInside)
         
+        //Create CALayer button, Close and Done
         closeButtonCAShapeLayer()
         doneButtonCAShapeLayer()
     }
