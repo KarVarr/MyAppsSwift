@@ -49,6 +49,7 @@
 		17C359672AF56BF000E154BE /* CloseButtonConfigure + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359662AF56BF000E154BE /* CloseButtonConfigure + Ext.swift */; };
 		17C9CB5C2B0E61F20014DDCC /* CustomRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9CB5B2B0E61F20014DDCC /* CustomRefreshControl.swift */; };
 		17C9CB5E2B0E63B50014DDCC /* ConfigureRefreshControl + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9CB5D2B0E63B50014DDCC /* ConfigureRefreshControl + Ext.swift */; };
+		17C9CB612B0E72D70014DDCC /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9CB602B0E72D70014DDCC /* TaskDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		17C359662AF56BF000E154BE /* CloseButtonConfigure + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CloseButtonConfigure + Ext.swift"; sourceTree = "<group>"; };
 		17C9CB5B2B0E61F20014DDCC /* CustomRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRefreshControl.swift; sourceTree = "<group>"; };
 		17C9CB5D2B0E63B50014DDCC /* ConfigureRefreshControl + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureRefreshControl + Ext.swift"; sourceTree = "<group>"; };
+		17C9CB602B0E72D70014DDCC /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 				17C359442AF1670200E154BE /* MyListController */,
 				17C359452AF1671C00E154BE /* WorldListController */,
 				17C3595F2AF5654300E154BE /* AddNewTaskController */,
+				17C9CB5F2B0E728D0014DDCC /* TaskDetailsViewController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -301,6 +304,14 @@
 				1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */,
 			);
 			path = AddNewTaskController;
+			sourceTree = "<group>";
+		};
+		17C9CB5F2B0E728D0014DDCC /* TaskDetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				17C9CB602B0E72D70014DDCC /* TaskDetailsViewController.swift */,
+			);
+			path = TaskDetailsViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,6 +413,7 @@
 				1728D5452B00DB26004CDCE5 /* TextViewConfigure + Ext.swift in Sources */,
 				17AAE4512B05494100F2000F /* ConfigureImageView + Ext.swift in Sources */,
 				17C359532AF552B500E154BE /* CustomButtonView.swift in Sources */,
+				17C9CB612B0E72D70014DDCC /* TaskDetailsViewController.swift in Sources */,
 				17C359572AF55D2400E154BE /* MyListData.swift in Sources */,
 				17AAE44D2B0544F600F2000F /* CustomImageView.swift in Sources */,
 				17BD5A9A2AF6B8E50075681B /* CustomView.swift in Sources */,

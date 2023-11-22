@@ -14,7 +14,6 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         customTableView.table.register(TableViewCell.self, forCellReuseIdentifier: Helper.Keys.tableViewCellKey)
         customTableView.table.frame = view.bounds
         customTableView.table.backgroundColor = Helper.Colors.mainColorFromIcon
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -23,6 +22,13 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myListData.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let taskDetailsVC = TaskDetailsViewController()
+        present(taskDetailsVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,7 +67,6 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             colorChangeForAddButton()
             updateRefreshControlState()
         }
-        
     }
     
     
