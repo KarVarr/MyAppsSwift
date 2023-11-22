@@ -20,7 +20,7 @@ extension MyListViewController {
         
         
         for (labels, time) in labelsDictionary {
-            UIView.animate(withDuration: 0.5, delay: time,  options: .curveEaseIn) {
+            UIView.animate(withDuration: 0.5, delay: time, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseIn) {
                 labels.transform = CGAffineTransform(translationX: 0, y: 0)
                 self.view.layoutIfNeeded()
             }
