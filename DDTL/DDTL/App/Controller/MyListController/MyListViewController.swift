@@ -18,26 +18,32 @@ class MyListViewController: BaseViewController, DataDelegate {
     var isHiddenStackView = false
     
     let customTableView = CustomTableView()
-
     
+    let refreshControl = CustomRefreshControl()
     let pointingFingerLabelTop = CustomLabelView()
     let pointingFingerLabelMiddle = CustomLabelView()
     let pointingFingerLabelBottom = CustomLabelView()
     let pointingFingerImageView = CustomImageView()
     let addButton = CustomButtonView()
     
+    
     var updateTimer: Timer?
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         configureCustomTableView()
         configureStackView()
         configureLabel()
         configurePointingFingerImageView()
         addButtonConfigure()
+        
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -52,6 +58,7 @@ class MyListViewController: BaseViewController, DataDelegate {
         super.viewWillLayoutSubviews()
         animationPointingTitleLabels()
         animationPointingFingerImageView()
+        configureRefreshControl()
     }
     
     
@@ -65,11 +72,13 @@ class MyListViewController: BaseViewController, DataDelegate {
             pointingFingerLabelTop.label.isHidden = true
             pointingFingerLabelMiddle.label.isHidden = true
             pointingFingerLabelBottom.label.isHidden = true
+            
         } else {
             pointingFingerImageView.imageView.isHidden = false
             pointingFingerLabelTop.label.isHidden = false
             pointingFingerLabelMiddle.label.isHidden = false
             pointingFingerLabelBottom.label.isHidden = false
+            
         }
         
         customTableView.table.reloadData()
@@ -79,6 +88,7 @@ class MyListViewController: BaseViewController, DataDelegate {
         customTableView.table.reloadData()
         print("Timer !!! 10 sec refresh table")
     }
+    
     
     
     deinit {

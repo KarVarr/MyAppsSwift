@@ -47,6 +47,8 @@
 		17C359632AF56A8F00E154BE /* AddButtonConfigure + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359622AF56A8F00E154BE /* AddButtonConfigure + Ext.swift */; };
 		17C359652AF56B2A00E154BE /* LayoutViewANT + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359642AF56B2A00E154BE /* LayoutViewANT + Ext.swift */; };
 		17C359672AF56BF000E154BE /* CloseButtonConfigure + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359662AF56BF000E154BE /* CloseButtonConfigure + Ext.swift */; };
+		17C9CB5C2B0E61F20014DDCC /* CustomRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9CB5B2B0E61F20014DDCC /* CustomRefreshControl.swift */; };
+		17C9CB5E2B0E63B50014DDCC /* ConfigureRefreshControl + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9CB5D2B0E63B50014DDCC /* ConfigureRefreshControl + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +94,8 @@
 		17C359622AF56A8F00E154BE /* AddButtonConfigure + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddButtonConfigure + Ext.swift"; sourceTree = "<group>"; };
 		17C359642AF56B2A00E154BE /* LayoutViewANT + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutViewANT + Ext.swift"; sourceTree = "<group>"; };
 		17C359662AF56BF000E154BE /* CloseButtonConfigure + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CloseButtonConfigure + Ext.swift"; sourceTree = "<group>"; };
+		17C9CB5B2B0E61F20014DDCC /* CustomRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRefreshControl.swift; sourceTree = "<group>"; };
+		17C9CB5D2B0E63B50014DDCC /* ConfigureRefreshControl + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureRefreshControl + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +224,7 @@
 				1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */,
 				17AAE44C2B0544F600F2000F /* CustomImageView.swift */,
 				17AAE44E2B0548C000F2000F /* CustomStackView.swift */,
+				17C9CB5B2B0E61F20014DDCC /* CustomRefreshControl.swift */,
 				17C359582AF55D8F00E154BE /* TableView */,
 			);
 			path = View;
@@ -245,6 +250,7 @@
 				17AAE4542B054F1500F2000F /* ConfigureLabel + Ext.swift */,
 				17AAE4502B05494100F2000F /* ConfigureImageView + Ext.swift */,
 				17C359622AF56A8F00E154BE /* AddButtonConfigure + Ext.swift */,
+				17C9CB5D2B0E63B50014DDCC /* ConfigureRefreshControl + Ext.swift */,
 			);
 			path = MyListController;
 			sourceTree = "<group>";
@@ -370,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17C9CB5E2B0E63B50014DDCC /* ConfigureRefreshControl + Ext.swift in Sources */,
 				17AAE44F2B0548C000F2000F /* CustomStackView.swift in Sources */,
 				17C359552AF5539100E154BE /* LayoutView + Ext.swift in Sources */,
 				17C3595C2AF55DE400E154BE /* TableViewCell.swift in Sources */,
@@ -398,6 +405,7 @@
 				17C359572AF55D2400E154BE /* MyListData.swift in Sources */,
 				17AAE44D2B0544F600F2000F /* CustomImageView.swift in Sources */,
 				17BD5A9A2AF6B8E50075681B /* CustomView.swift in Sources */,
+				17C9CB5C2B0E61F20014DDCC /* CustomRefreshControl.swift in Sources */,
 				17C3595E2AF55F4A00E154BE /* CustomLabelView.swift in Sources */,
 				17AAE4552B054F1500F2000F /* ConfigureLabel + Ext.swift in Sources */,
 				17BD5A962AF647AC0075681B /* CustomTextField.swift in Sources */,
