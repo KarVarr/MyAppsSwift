@@ -11,7 +11,6 @@ import UIKit
 class CustomRefreshControl {
     let refresh: UIRefreshControl = {
        let refresh = UIRefreshControl()
-        
         return refresh
     }()
 }

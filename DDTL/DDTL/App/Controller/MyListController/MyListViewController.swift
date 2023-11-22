@@ -16,9 +16,9 @@ protocol DataDelegate: AnyObject {
 class MyListViewController: BaseViewController, DataDelegate {
     var myListData: [MyListData] = []
     var isHiddenStackView = false
+    var updateTimer: Timer?
     
     let customTableView = CustomTableView()
-    
     let refreshControl = CustomRefreshControl()
     let pointingFingerLabelTop = CustomLabelView()
     let pointingFingerLabelMiddle = CustomLabelView()
@@ -26,24 +26,15 @@ class MyListViewController: BaseViewController, DataDelegate {
     let pointingFingerImageView = CustomImageView()
     let addButton = CustomButtonView()
     
-    
-    var updateTimer: Timer?
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         configureCustomTableView()
         configureStackView()
         configureLabel()
         configurePointingFingerImageView()
         addButtonConfigure()
-        
     }
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -61,36 +52,7 @@ class MyListViewController: BaseViewController, DataDelegate {
         configureRefreshControl()
     }
     
-    
-    
-    func didEnterData(title: String?, description: String?, creationDate: Date?, likes: Int?) {
-        let newTask = MyListData(title: title, description: description, date: creationDate)
-        myListData.append(newTask)
-        
-        if !myListData.isEmpty {
-            pointingFingerImageView.imageView.isHidden = true
-            pointingFingerLabelTop.label.isHidden = true
-            pointingFingerLabelMiddle.label.isHidden = true
-            pointingFingerLabelBottom.label.isHidden = true
-            
-        } else {
-            pointingFingerImageView.imageView.isHidden = false
-            pointingFingerLabelTop.label.isHidden = false
-            pointingFingerLabelMiddle.label.isHidden = false
-            pointingFingerLabelBottom.label.isHidden = false
-            
-        }
-        
-        customTableView.table.reloadData()
-    }
-    
-    @objc func updateTable() {
-        customTableView.table.reloadData()
-        print("Timer !!! 10 sec refresh table")
-    }
-    
-    
-    
+    //MARK: - DEINIT
     deinit {
         print("deinit")
         updateTimer?.invalidate()

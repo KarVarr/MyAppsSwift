@@ -15,7 +15,6 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         customTableView.table.frame = view.bounds
         customTableView.table.backgroundColor = Helper.Colors.mainColorFromIcon
         
-        customTableView.table.addSubview(refreshControl.refresh)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -60,6 +59,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             colorChangeForAddButton()
+            updateRefreshControlState()
         }
         
     }

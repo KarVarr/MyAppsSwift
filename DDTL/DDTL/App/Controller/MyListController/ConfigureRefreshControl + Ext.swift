@@ -11,10 +11,9 @@ extension MyListViewController {
     func configureRefreshControl() {
         refreshControl.refresh.tintColor = Helper.Colors.pink
         refreshControl.refresh.addTarget(self, action: #selector(refresh), for: .valueChanged)
-    
     }
     
-    @objc func refresh() {
+    @objc private func refresh() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { [weak self] in
             self?.customTableView.table.reloadData()
             print("table reloaded from refresh")
