@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1728D5432B00D5A9004CDCE5 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */; };
 		1728D5452B00DB26004CDCE5 /* TextViewConfigure + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */; };
+		172C01E12B0FCE7B00D088A8 /* AddViewsTD + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C01E02B0FCE7B00D088A8 /* AddViewsTD + Ext.swift */; };
+		172C01E32B0FCE9400D088A8 /* ConfigureViewTD + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C01E22B0FCE9400D088A8 /* ConfigureViewTD + Ext.swift */; };
+		172C01E52B0FCEA100D088A8 /* LayoutViewTD + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C01E42B0FCEA100D088A8 /* LayoutViewTD + Ext.swift */; };
 		173FB1FD2B0A341C002C20F7 /* BungeeShade-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173FB1FC2B0A341C002C20F7 /* BungeeShade-Regular.ttf */; };
 		173FB2002B0A4011002C20F7 /* UIImage + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173FB1FF2B0A4011002C20F7 /* UIImage + Ext.swift */; };
 		173FB2022B0A53ED002C20F7 /* BlackOpsOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173FB2012B0A53ED002C20F7 /* BlackOpsOne-Regular.ttf */; };
@@ -55,6 +58,9 @@
 /* Begin PBXFileReference section */
 		1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextViewConfigure + Ext.swift"; sourceTree = "<group>"; };
+		172C01E02B0FCE7B00D088A8 /* AddViewsTD + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewsTD + Ext.swift"; sourceTree = "<group>"; };
+		172C01E22B0FCE9400D088A8 /* ConfigureViewTD + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewTD + Ext.swift"; sourceTree = "<group>"; };
+		172C01E42B0FCEA100D088A8 /* LayoutViewTD + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutViewTD + Ext.swift"; sourceTree = "<group>"; };
 		173FB1FC2B0A341C002C20F7 /* BungeeShade-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BungeeShade-Regular.ttf"; sourceTree = "<group>"; };
 		173FB1FF2B0A4011002C20F7 /* UIImage + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Ext.swift"; sourceTree = "<group>"; };
 		173FB2012B0A53ED002C20F7 /* BlackOpsOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BlackOpsOne-Regular.ttf"; sourceTree = "<group>"; };
@@ -310,6 +316,9 @@
 			isa = PBXGroup;
 			children = (
 				17C9CB602B0E72D70014DDCC /* TaskDetailsViewController.swift */,
+				172C01E02B0FCE7B00D088A8 /* AddViewsTD + Ext.swift */,
+				172C01E22B0FCE9400D088A8 /* ConfigureViewTD + Ext.swift */,
+				172C01E42B0FCEA100D088A8 /* LayoutViewTD + Ext.swift */,
 			);
 			path = TaskDetailsViewController;
 			sourceTree = "<group>";
@@ -397,6 +406,7 @@
 				17C359262AF017AC00E154BE /* MyListViewController.swift in Sources */,
 				17C3594F2AF3F6BF00E154BE /* AddViews + Ext.swift in Sources */,
 				17AAE4532B054EDA00F2000F /* ConfigureStackView + Ext.swift in Sources */,
+				172C01E52B0FCEA100D088A8 /* LayoutViewTD + Ext.swift in Sources */,
 				17C359632AF56A8F00E154BE /* AddButtonConfigure + Ext.swift in Sources */,
 				17C359402AF02FD000E154BE /* Helper.swift in Sources */,
 				17C359652AF56B2A00E154BE /* LayoutViewANT + Ext.swift in Sources */,
@@ -407,6 +417,7 @@
 				173FB2002B0A4011002C20F7 /* UIImage + Ext.swift in Sources */,
 				17C359392AF01FB500E154BE /* TabBarController.swift in Sources */,
 				17C3593B2AF02CA800E154BE /* WorldListViewController.swift in Sources */,
+				172C01E12B0FCE7B00D088A8 /* AddViewsTD + Ext.swift in Sources */,
 				17C359512AF3F7B700E154BE /* ConfigureView + Ext.swift in Sources */,
 				17C3594B2AF3F56D00E154BE /* CustomTableView.swift in Sources */,
 				17C359492AF16C9D00E154BE /* BaseViewController.swift in Sources */,
@@ -423,6 +434,7 @@
 				17BD5A962AF647AC0075681B /* CustomTextField.swift in Sources */,
 				17C359222AF017AC00E154BE /* AppDelegate.swift in Sources */,
 				17BD5A982AF64A9B0075681B /* TextFieldsConfigure + Ext.swift in Sources */,
+				172C01E32B0FCE9400D088A8 /* ConfigureViewTD + Ext.swift in Sources */,
 				17C359612AF565C800E154BE /* AddNewTaskViewController.swift in Sources */,
 				17C359242AF017AC00E154BE /* SceneDelegate.swift in Sources */,
 			);

@@ -9,7 +9,11 @@ import Foundation
 
 
 class TaskDetailsViewController: BaseViewController {
-    override func configureView() {
-        view.backgroundColor = .orange
+    
+    let customViewForTitleAndDescription = CustomView()
+    let customViewForDateAndLikes = CustomView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
 }
