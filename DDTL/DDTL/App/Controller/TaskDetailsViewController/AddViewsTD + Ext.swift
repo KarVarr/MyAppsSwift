@@ -10,6 +10,8 @@ import Foundation
 
 extension TaskDetailsViewController {
     override func addViews() {
-        
+        view.addSubview(navigationTitle.label)
+        view.addSubview(customViewForTitleAndDescription.view)
+        view.addSubview(customViewForDateAndLikes.view)
     }
 }

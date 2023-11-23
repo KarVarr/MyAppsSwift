@@ -10,6 +10,7 @@ import Foundation
 
 class TaskDetailsViewController: BaseViewController {
     
+    let navigationTitle = CustomLabelView()
     let customViewForTitleAndDescription = CustomView()
     let customViewForDateAndLikes = CustomView()
     

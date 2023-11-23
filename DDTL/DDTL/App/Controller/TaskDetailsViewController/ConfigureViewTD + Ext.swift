@@ -10,7 +10,17 @@ import Foundation
 
 extension TaskDetailsViewController {
     override func configureView() {
-        view.backgroundColor = .orange
+        view.backgroundColor = Helper.Colors.black
+        
+        navigationTitle.label.text = "D E T A I L S"
+        navigationTitle.label.textColor = Helper.Colors.pink
+        navigationTitle.label.font = Helper.Fonts.BungeeShadeRegular(with: 24)
+        
+        customViewForTitleAndDescription.view.backgroundColor = .white
+        customViewForTitleAndDescription.view.layer.cornerRadius = 35
+        
+        customViewForDateAndLikes.view.backgroundColor = .white
+        customViewForDateAndLikes.view.layer.cornerRadius = 35
     }
 
 }
