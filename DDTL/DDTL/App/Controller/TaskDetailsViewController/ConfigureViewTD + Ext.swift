@@ -21,6 +21,12 @@ extension TaskDetailsViewController {
         
         customViewForDateAndLikes.view.backgroundColor = .white
         customViewForDateAndLikes.view.layer.cornerRadius = 35
+        
+        taskTitle.label.text = "TITLE"
+        taskDescription.label.text = "Description"
+        taskDate.label.text = "DATE 13/13/13"
+        taskLikes.label.text = "444"
+        
     }
 
 }
