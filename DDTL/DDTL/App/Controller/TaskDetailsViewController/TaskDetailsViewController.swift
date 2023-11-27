@@ -14,6 +14,11 @@ class TaskDetailsViewController: BaseViewController {
     let customViewForTitleAndDescription = CustomView()
     let customViewForDateAndLikes = CustomView()
     
+    let taskTitle = CustomLabelView()
+    let taskDescription = CustomLabelView()
+    let taskDate = CustomLabelView()
+    let taskLikes = CustomLabelView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

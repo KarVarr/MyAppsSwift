@@ -13,7 +13,7 @@ extension TaskDetailsViewController {
         view.backgroundColor = Helper.Colors.black
         
         navigationTitle.label.text = "D E T A I L S"
-        navigationTitle.label.textColor = Helper.Colors.pink
+        navigationTitle.label.textColor = Helper.Colors.placeholder
         navigationTitle.label.font = Helper.Fonts.BungeeShadeRegular(with: 24)
         
         customViewForTitleAndDescription.view.backgroundColor = .white

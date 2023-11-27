@@ -12,6 +12,10 @@ extension TaskDetailsViewController {
         let navigationTitle = navigationTitle.label
         let viewForTitle = customViewForTitleAndDescription.view
         let viewForDate = customViewForDateAndLikes.view
+        taskTitle = taskTitle.label
+        taskDescription = taskDescription.label
+        taskDate = taskDate.label
+        taskLikes = taskLikes.label
         
         //MARK: - NAVIGATION TITLE
         NSLayoutConstraint.activate([
