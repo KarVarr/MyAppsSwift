@@ -12,6 +12,25 @@ extension MyListViewController {
         settings(pointingFingerLabelTop, with: Helper.Strings.MyListVC.titleTop, x: 0, y: -300)
         settings(pointingFingerLabelMiddle, with: Helper.Strings.MyListVC.titleMiddle, x: -300, y: 0)
         settings(pointingFingerLabelBottom, with: Helper.Strings.MyListVC.titleBottom, x: 300, y: 0)
+        
+        
+        // create a view with size 400 x 400
+        let viewG = UIView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
+        
+        // Create a gradient layer
+        let gradient = CAGradientLayer()
+        
+        // gradient colors in order which they will visually appear
+        gradient.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
+        
+        // Gradient from left to right
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        
+        // set the gradient layer to the same size as the view
+        gradient.frame = viewG.bounds
+        // add the gradient layer to the views layer for rendering
+        viewG.layer.addSublayer(gradient)
     }
     
     func animationPointingTitleLabels() {
@@ -40,4 +59,6 @@ extension MyListViewController {
         
         label.label.transform = CGAffineTransform(translationX: numberX, y: numberY)
     }
+    
+    
 }

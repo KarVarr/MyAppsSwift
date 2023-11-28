@@ -25,6 +25,7 @@ class TableViewCell: UITableViewCell {
         addViews()
         configureCell()
         layoutCell()
+
     }
     
     private func addViews() {

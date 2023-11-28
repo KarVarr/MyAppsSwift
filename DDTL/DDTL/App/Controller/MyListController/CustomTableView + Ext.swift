@@ -44,6 +44,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         print(minutesSinceCreation)
         
         cell.titleLabel.label.text = myList.title
+        
 //        cell.dateLabel.label.text =  daysSinceCreation(for: myList) + 1 <= 1 ? String("Day One") : String("\(daysSinceCreation(for: myList)) days")
         
         return cell

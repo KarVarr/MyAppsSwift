@@ -5,7 +5,7 @@
 //  Created by Karen Vardanian on 23.11.2023.
 //
 
-import Foundation
+import UIKit
 
 
 extension TaskDetailsViewController {
@@ -26,7 +26,14 @@ extension TaskDetailsViewController {
         taskDescription.label.text = "Description"
         taskDate.label.text = "DATE 13/13/13"
         taskLikes.label.text = "444"
-        
+       
     }
+    
 
+    
 }
+
+
+
+
+
