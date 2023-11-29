@@ -339,6 +339,8 @@
 			dependencies = (
 			);
 			name = DDTL;
+			packageProductDependencies = (
+			);
 			productName = DDTL;
 			productReference = 17C3591E2AF017AC00E154BE /* DDTL.app */;
 			productType = "com.apple.product-type.application";
@@ -367,6 +369,8 @@
 				Base,
 			);
 			mainGroup = 17C359152AF017AC00E154BE;
+			packageReferences = (
+			);
 			productRefGroup = 17C3591F2AF017AC00E154BE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

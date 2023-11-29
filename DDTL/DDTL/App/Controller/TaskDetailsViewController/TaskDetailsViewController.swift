@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 
 class TaskDetailsViewController: BaseViewController {
+    var selectedTask: MyListData?
     
     let navigationTitle = CustomLabelView()
     let customViewForTitleAndDescription = CustomView()
@@ -23,3 +25,5 @@ class TaskDetailsViewController: BaseViewController {
         super.viewDidLoad()
     }
 }
+
+

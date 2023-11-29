@@ -22,18 +22,15 @@ extension TaskDetailsViewController {
         customViewForDateAndLikes.view.backgroundColor = .white
         customViewForDateAndLikes.view.layer.cornerRadius = 35
         
-        taskTitle.label.text = "TITLE"
-        taskDescription.label.text = "Description"
-        taskDate.label.text = "DATE 13/13/13"
-        taskLikes.label.text = "444"
-       
+        taskTitle.label.text = selectedTask?.title
+        taskDescription.label.text = selectedTask?.description
+        if #available(iOS 15.0, *) {
+            taskDate.label.text = selectedTask?.creationDate?.formatted()
+        } 
+        taskLikes.label.text = "\(selectedTask?.likes ?? 0)"
     }
     
 
     
 }
-
-
-
-
 

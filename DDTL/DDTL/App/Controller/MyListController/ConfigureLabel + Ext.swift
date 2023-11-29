@@ -7,30 +7,13 @@
 
 import UIKit
 
+
+
 extension MyListViewController {
     func configureLabel() {
         settings(pointingFingerLabelTop, with: Helper.Strings.MyListVC.titleTop, x: 0, y: -300)
         settings(pointingFingerLabelMiddle, with: Helper.Strings.MyListVC.titleMiddle, x: -300, y: 0)
         settings(pointingFingerLabelBottom, with: Helper.Strings.MyListVC.titleBottom, x: 300, y: 0)
-        
-        
-        // create a view with size 400 x 400
-        let viewG = UIView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
-        
-        // Create a gradient layer
-        let gradient = CAGradientLayer()
-        
-        // gradient colors in order which they will visually appear
-        gradient.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
-        
-        // Gradient from left to right
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-        
-        // set the gradient layer to the same size as the view
-        gradient.frame = viewG.bounds
-        // add the gradient layer to the views layer for rendering
-        viewG.layer.addSublayer(gradient)
     }
     
     func animationPointingTitleLabels() {
@@ -39,12 +22,13 @@ extension MyListViewController {
         
         
         for (labels, time) in labelsDictionary {
-            UIView.animate(withDuration: 0.5, delay: time, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseIn) {
+            UIView.animate(withDuration: 0.5, delay: time, options: .curveEaseIn) {
                 labels.transform = CGAffineTransform(translationX: 0, y: 0)
                 self.view.layoutIfNeeded()
             }
         }
     }
+    
     
     private func settings(_ label: CustomLabelView, with text: String, x numberX: CGFloat, y numberY: CGFloat) {
         label.label.text = text

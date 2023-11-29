@@ -13,8 +13,7 @@ extension MyListViewController {
         pointingFingerImageView.imageView.transform = CGAffineTransform(scaleX: 0, y: 0)
     }
     
-    
-    
+
     func animationPointingFingerImageView() {
         view.layoutIfNeeded()
          

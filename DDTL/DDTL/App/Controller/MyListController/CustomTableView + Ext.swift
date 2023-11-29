@@ -8,6 +8,7 @@
 import UIKit
 
 extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
+
     func configureCustomTableView() {
         customTableView.table.delegate = self
         customTableView.table.dataSource = self
@@ -28,6 +29,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let taskDetailsVC = TaskDetailsViewController()
+        taskDetailsVC.selectedTask = myListData[indexPath.row]
         present(taskDetailsVC, animated: true)
     }
     
