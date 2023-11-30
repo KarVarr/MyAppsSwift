@@ -15,7 +15,7 @@ extension AddNewTaskViewController: UITextViewDelegate {
         
         descriptionTextView.textView.text = Helper.Strings.AddNewTaskVC.textViewPlaceholder
         descriptionTextView.textView.backgroundColor = Helper.Colors.palePink
-//        descriptionTextView.textView.textColor = Helper.Colors.placeholder
+        descriptionTextView.textView.textColor = Helper.Colors.placeholder
         descriptionTextView.textView.font = Helper.Fonts.ChalkboardSERegular(with: 18)
         
     
