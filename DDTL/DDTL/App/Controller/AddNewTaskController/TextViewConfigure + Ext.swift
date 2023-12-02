@@ -18,10 +18,6 @@ extension AddNewTaskViewController: UITextViewDelegate {
         descriptionTextView.textView.textColor = Helper.Colors.placeholder
         descriptionTextView.textView.font = Helper.Fonts.ChalkboardSERegular(with: 18)
         
-    
-        
-        
-    
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
