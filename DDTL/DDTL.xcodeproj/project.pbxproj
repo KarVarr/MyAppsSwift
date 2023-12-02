@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1719D42E2B1B442700347214 /* ConfigureLabelTD + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1719D42D2B1B442700347214 /* ConfigureLabelTD + Ext.swift */; };
 		1728D5432B00D5A9004CDCE5 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */; };
 		1728D5452B00DB26004CDCE5 /* TextViewConfigure + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */; };
 		172C01E12B0FCE7B00D088A8 /* AddViewsTD + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C01E02B0FCE7B00D088A8 /* AddViewsTD + Ext.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1719D42D2B1B442700347214 /* ConfigureLabelTD + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureLabelTD + Ext.swift"; sourceTree = "<group>"; };
 		1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextViewConfigure + Ext.swift"; sourceTree = "<group>"; };
 		172C01E02B0FCE7B00D088A8 /* AddViewsTD + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewsTD + Ext.swift"; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				172C01E02B0FCE7B00D088A8 /* AddViewsTD + Ext.swift */,
 				172C01E22B0FCE9400D088A8 /* ConfigureViewTD + Ext.swift */,
 				172C01E42B0FCEA100D088A8 /* LayoutViewTD + Ext.swift */,
+				1719D42D2B1B442700347214 /* ConfigureLabelTD + Ext.swift */,
 			);
 			path = TaskDetailsViewController;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				17C359552AF5539100E154BE /* LayoutView + Ext.swift in Sources */,
 				17C3595C2AF55DE400E154BE /* TableViewCell.swift in Sources */,
 				17BD5A912AF56F690075681B /* AddViewANT + Ext.swift in Sources */,
+				1719D42E2B1B442700347214 /* ConfigureLabelTD + Ext.swift in Sources */,
 				17C359672AF56BF000E154BE /* CloseButtonConfigure + Ext.swift in Sources */,
 				17BD5A942AF645C30075681B /* Keys.swift in Sources */,
 				17C359262AF017AC00E154BE /* MyListViewController.swift in Sources */,

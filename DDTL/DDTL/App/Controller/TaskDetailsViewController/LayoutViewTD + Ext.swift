@@ -48,7 +48,8 @@ extension TaskDetailsViewController {
             taskTitle.leadingAnchor.constraint(equalTo: viewForTitle.leadingAnchor, constant: 10),
             
             taskDescription.topAnchor.constraint(equalTo: taskTitle.bottomAnchor, constant: 30),
-            taskDescription.leadingAnchor.constraint(equalTo: viewForTitle.leadingAnchor, constant: 10)
+            taskDescription.leadingAnchor.constraint(equalTo: viewForTitle.leadingAnchor, constant: 10),
+            taskDescription.trailingAnchor.constraint(equalTo: viewForTitle.trailingAnchor, constant: -10),
         ])
         
         //MARK: - taskDate and taskLikes
