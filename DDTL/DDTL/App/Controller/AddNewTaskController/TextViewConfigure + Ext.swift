@@ -13,7 +13,7 @@ extension AddNewTaskViewController: UITextViewDelegate {
     func textViewConfigure() {
         descriptionTextView.textView.delegate = self
         
-        descriptionTextView.textView.text = Helper.Strings.AddNewTaskVC.textViewPlaceholder
+        descriptionTextView.textView.text = Helper.Strings.AddNewTaskVC.textViewPlaceholder.trimmingCharacters(in: .whitespacesAndNewlines)
         descriptionTextView.textView.backgroundColor = Helper.Colors.palePink
         descriptionTextView.textView.textColor = Helper.Colors.placeholder
         descriptionTextView.textView.font = Helper.Fonts.ChalkboardSERegular(with: 18)
