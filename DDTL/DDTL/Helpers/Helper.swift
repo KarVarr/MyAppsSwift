@@ -9,7 +9,8 @@ import UIKit
 
 enum Helper {
     enum Keys {
-        static let tableViewCellKey = "myListCell"
+        static let myListVCTableViewCellKey = "myListCell"
+        static let worldListVCTableViewCell = "worldListCell"
     }
     //MARK: - STRINGS
     enum Strings {

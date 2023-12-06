@@ -11,12 +11,8 @@ class MyListVCTableViewCell: UITableViewCell {
     let titleLabel = CustomLabelView()
     let dateLabel = CustomLabelView()
     
-   
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -46,12 +42,8 @@ class MyListVCTableViewCell: UITableViewCell {
         let dateLabel = dateLabel.label
         
         NSLayoutConstraint.activate([
-//            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-//            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-//            
             dateLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-//            dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
         ])
         
         NSLayoutConstraint.activate([
