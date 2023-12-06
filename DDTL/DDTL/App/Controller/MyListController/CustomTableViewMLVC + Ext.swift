@@ -1,5 +1,5 @@
 //
-//  CustomTableView + Ext.swift
+//  CustomTableViewMLVC + Ext.swift
 //  DDTL
 //
 //  Created by Karen Vardanian on 02.11.2023.
