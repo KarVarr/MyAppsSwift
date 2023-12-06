@@ -8,13 +8,12 @@
 import UIKit
 
 class WorldListViewController: BaseViewController {
+    let tableViewWLVC = CustomTableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = Helper.Colors.beige
         
-        setNavTitle(title: .worldListViewController)
     }
     
 

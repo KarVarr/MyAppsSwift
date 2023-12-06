@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1719D42E2B1B442700347214 /* ConfigureLabelTD + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1719D42D2B1B442700347214 /* ConfigureLabelTD + Ext.swift */; };
+		171BC87D2B20D25500B78294 /* AddViewsWVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171BC87C2B20D25500B78294 /* AddViewsWVC + Ext.swift */; };
+		171BC87F2B20D27B00B78294 /* ConfigureWVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171BC87E2B20D27B00B78294 /* ConfigureWVC + Ext.swift */; };
+		171BC8812B20D2A400B78294 /* LayoutWVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171BC8802B20D2A400B78294 /* LayoutWVC + Ext.swift */; };
 		1728D5432B00D5A9004CDCE5 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */; };
 		1728D5452B00DB26004CDCE5 /* TextViewConfigure + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */; };
 		172C01E12B0FCE7B00D088A8 /* AddViewsTD + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C01E02B0FCE7B00D088A8 /* AddViewsTD + Ext.swift */; };
@@ -58,6 +61,9 @@
 
 /* Begin PBXFileReference section */
 		1719D42D2B1B442700347214 /* ConfigureLabelTD + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureLabelTD + Ext.swift"; sourceTree = "<group>"; };
+		171BC87C2B20D25500B78294 /* AddViewsWVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewsWVC + Ext.swift"; sourceTree = "<group>"; };
+		171BC87E2B20D27B00B78294 /* ConfigureWVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureWVC + Ext.swift"; sourceTree = "<group>"; };
+		171BC8802B20D2A400B78294 /* LayoutWVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutWVC + Ext.swift"; sourceTree = "<group>"; };
 		1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextViewConfigure + Ext.swift"; sourceTree = "<group>"; };
 		172C01E02B0FCE7B00D088A8 /* AddViewsTD + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewsTD + Ext.swift"; sourceTree = "<group>"; };
@@ -270,6 +276,9 @@
 			isa = PBXGroup;
 			children = (
 				17C3593A2AF02CA800E154BE /* WorldListViewController.swift */,
+				171BC87C2B20D25500B78294 /* AddViewsWVC + Ext.swift */,
+				171BC87E2B20D27B00B78294 /* ConfigureWVC + Ext.swift */,
+				171BC8802B20D2A400B78294 /* LayoutWVC + Ext.swift */,
 			);
 			path = WorldListController;
 			sourceTree = "<group>";
@@ -416,8 +425,11 @@
 				17AAE4532B054EDA00F2000F /* ConfigureStackView + Ext.swift in Sources */,
 				172C01E52B0FCEA100D088A8 /* LayoutViewTD + Ext.swift in Sources */,
 				17C359632AF56A8F00E154BE /* AddButtonConfigure + Ext.swift in Sources */,
+				171BC87F2B20D27B00B78294 /* ConfigureWVC + Ext.swift in Sources */,
 				17C359402AF02FD000E154BE /* Helper.swift in Sources */,
 				17C359652AF56B2A00E154BE /* LayoutViewANT + Ext.swift in Sources */,
+				171BC87D2B20D25500B78294 /* AddViewsWVC + Ext.swift in Sources */,
+				171BC8812B20D2A400B78294 /* LayoutWVC + Ext.swift in Sources */,
 				17C3594D2AF3F68200E154BE /* CustomTableView + Ext.swift in Sources */,
 				1728D5432B00D5A9004CDCE5 /* CustomTextView.swift in Sources */,
 				173FB2062B0A881A002C20F7 /* ConfigureViewANT + Ext.swift in Sources */,
