@@ -13,7 +13,7 @@ class WorldListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        configureTableViewWVC()
     }
     
 
