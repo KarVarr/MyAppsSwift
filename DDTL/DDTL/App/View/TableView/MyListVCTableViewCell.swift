@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class MyListVCTableViewCell: UITableViewCell {
     let titleLabel = CustomLabelView()
     let dateLabel = CustomLabelView()
     

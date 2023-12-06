@@ -12,7 +12,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     func configureCustomTableView() {
         customTableView.table.delegate = self
         customTableView.table.dataSource = self
-        customTableView.table.register(TableViewCell.self, forCellReuseIdentifier: Helper.Keys.tableViewCellKey)
+        customTableView.table.register(MyListVCTableViewCell.self, forCellReuseIdentifier: Helper.Keys.tableViewCellKey)
         customTableView.table.frame = view.bounds
         customTableView.table.backgroundColor = Helper.Colors.mainColorFromIcon
     }
@@ -34,7 +34,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.tableViewCellKey, for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.tableViewCellKey, for: indexPath) as! MyListVCTableViewCell
         cell.backgroundColor = Helper.Colors.beige
         
         let myList = myListData[indexPath.row]

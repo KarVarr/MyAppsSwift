@@ -9,6 +9,6 @@ import Foundation
 
 extension WorldListViewController {
     override func addViews() {
-        
+        view.addSubview(tableViewWLVC.table)
     }
 }
