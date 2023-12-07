@@ -20,6 +20,7 @@ class MyListVCTableViewCell: UITableViewCell {
         
         addViews()
         configureCell()
+        configureLabels()
         layoutCell()
 
     }
@@ -30,6 +31,10 @@ class MyListVCTableViewCell: UITableViewCell {
     }
     
     private func configureCell() {
+       
+    }
+    
+    private func configureLabels() {
         titleLabel.label.font = Helper.Fonts.RighteousRegular(with: 28)
         titleLabel.label.textColor = Helper.Colors.darkBlue
         
