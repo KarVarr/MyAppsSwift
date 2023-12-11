@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class CustomImageView {
     let imageView: UIImageView = {
        let image = UIImageView()

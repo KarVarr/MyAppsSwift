@@ -11,7 +11,6 @@ class CustomButtonView {
     let button: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
         return button
     }()
 }

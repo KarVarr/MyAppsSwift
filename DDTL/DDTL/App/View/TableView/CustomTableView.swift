@@ -11,7 +11,6 @@ class CustomTableView {
     let table: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
-        
         return table
     }()
 }

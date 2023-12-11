@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class MyListData {
     var title: String? 
     var description: String?
