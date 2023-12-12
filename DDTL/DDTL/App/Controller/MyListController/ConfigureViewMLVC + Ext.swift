@@ -47,7 +47,4 @@ extension MyListViewController {
             customTableView.table.refreshControl = refreshControl.refresh
         }
     }
-    
-    
-    
 }

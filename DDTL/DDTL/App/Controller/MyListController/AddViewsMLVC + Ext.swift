@@ -16,6 +16,5 @@ extension MyListViewController {
         view.addSubview(pointingFingerLabelTop.label)
         view.addSubview(pointingFingerLabelMiddle.label)
         view.addSubview(pointingFingerLabelBottom.label)
-        
     }
 }

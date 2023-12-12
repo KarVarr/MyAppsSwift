@@ -33,8 +33,6 @@ class MyListViewController: BaseViewController, DataDelegate {
         configureLabel()
         configurePointingFingerImageView()
         addButtonConfigure()
-        
-       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +56,6 @@ class MyListViewController: BaseViewController, DataDelegate {
         print("deinit")
         updateTimer?.invalidate()
     }
-    
 }
 
 

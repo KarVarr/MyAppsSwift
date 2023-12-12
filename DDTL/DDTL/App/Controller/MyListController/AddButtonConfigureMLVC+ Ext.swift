@@ -21,7 +21,6 @@ extension MyListViewController {
         
         
         addButton.button.addTarget(self, action: #selector(addNewTask), for: .touchUpInside)
-        
     }
     
     @objc func addNewTask() {
