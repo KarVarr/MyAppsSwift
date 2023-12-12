@@ -9,7 +9,6 @@ import UIKit
 
 class WorldListVCTableViewCell: UITableViewCell {
     let titleLabel = CustomLabelView()
-    let descriptionLabel = CustomLabelView()
     let dateLabel = CustomLabelView()
     let likesLabel = CustomLabelView()
 
@@ -27,7 +26,6 @@ class WorldListVCTableViewCell: UITableViewCell {
     
     private func addViews() {
         contentView.addSubview(titleLabel.label)
-        contentView.addSubview(descriptionLabel.label)
         contentView.addSubview(dateLabel.label)
         contentView.addSubview(likesLabel.label)
     }
@@ -37,7 +35,29 @@ class WorldListVCTableViewCell: UITableViewCell {
     }
     
     private func layoutCell() {
-       
+        let titleLabel = titleLabel.label
+        let dateLabel = dateLabel.label
+        let likesLabel = likesLabel.label
+        
+        //MARK: - Title Label
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 10),
+        ])
+        
+        //MARK: - Date Label
+        NSLayoutConstraint.activate([
+            dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+        ])
+        
+        //MARK: - Likes Label
+        NSLayoutConstraint.activate([
+            likesLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            likesLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+        ])
     }
 
 }
