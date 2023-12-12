@@ -31,7 +31,9 @@ class WorldListVCTableViewCell: UITableViewCell {
     }
     
     private func configureCell() {
-       
+        titleLabel.label.text = "Don't buy a fast food ect"
+        dateLabel.label.text = "4 days"
+        likesLabel.label.text = "127 likes"
     }
     
     private func layoutCell() {
@@ -42,9 +44,7 @@ class WorldListVCTableViewCell: UITableViewCell {
         //MARK: - Title Label
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 10),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
         ])
         
         //MARK: - Date Label
