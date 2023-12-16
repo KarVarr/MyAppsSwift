@@ -59,11 +59,4 @@ class WorldListVCTableViewCell: UITableViewCell {
             likesLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
         ])
     }
-    
-    func configureCell(with data: ListDataModel) {
-        titleLabel.label.text = data.title
-        dateLabel.label.text = String(describing: data.creationDate)
-        likesLabel.label.text = String(describing: data.likes)
-    }
-
 }

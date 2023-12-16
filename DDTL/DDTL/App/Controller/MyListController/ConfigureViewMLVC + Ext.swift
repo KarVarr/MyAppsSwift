@@ -24,7 +24,6 @@ extension MyListViewController {
         }
         
         updateRefreshControlState()
-       
         customTableView.table.reloadData()
     }
     
@@ -35,9 +34,8 @@ extension MyListViewController {
         pointingFingerLabelBottom.label.isHidden = falseOrTrue
     }
     
-    @objc  func updateTable() {
+    @objc func updateTable() {
         customTableView.table.reloadData()
-        print("Timer !!! 10 sec refresh table")
     }
     
     //MARK: - Refresh Control

@@ -25,17 +25,14 @@ class MyListViewController: BaseViewController, DataDelegate {
     let pointingFingerImageView = CustomImageView()
     let addButton = CustomButtonView()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         configureCustomTableView()
         configureStackView()
         configureLabel()
         configurePointingFingerImageView()
         addButtonConfigure()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

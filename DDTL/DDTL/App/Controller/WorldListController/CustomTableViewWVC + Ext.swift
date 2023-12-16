@@ -31,14 +31,15 @@ extension WorldListViewController: UITableViewDelegate, UITableViewDataSource {
         let worldTask = worldListData.arrayOfListDataModel[indexPath.row]
         
         cell.titleLabel.label.text = worldTask.title
-        cell.likesLabel.label.text = String(describing: worldTask.likes)
-        cell.dateLabel.label.text = String(describing: worldTask.creationDate)
-        tableView.reloadData()
         
-//        let data = worldListData.arrayOfListDataModel[indexPath.row] 
-//            cell.configureCell(with: data)
-//        
+        if let date = worldTask.creationDate {
+            cell.dateLabel.label.text = "\(date)"
+        }
         
+        if let likes = worldTask.likes {
+            cell.likesLabel.label.text = String(likes)
+        }
+     
         return cell
     }
 }

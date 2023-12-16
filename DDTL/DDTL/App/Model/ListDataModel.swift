@@ -13,7 +13,7 @@ class ListDataModel {
     var creationDate: Date?
     var likes: Int?
     
-    init(title: String? = nil, description: String? = nil, date: Date? = nil, likes: Int? = nil) {
+    init(title: String? = nil, description: String? = nil, date: Date? = nil, likes: Int? = 0) {
         self.title = title
         self.description = description
         self.creationDate = date
