@@ -28,16 +28,16 @@ extension WorldListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.worldListVCTableViewCell, for: indexPath) as! WorldListVCTableViewCell
         cell.backgroundColor = Helper.Colors.mainColorFromIcon
         
-//        let worldTask = worldListData?[indexPath.row]
+        let worldTask = worldListData[indexPath.row]
         
-//        cell.titleLabel.label.text = worldTask?.title
-//        cell.likesLabel.label.text = String(describing: worldTask?.likes)
-//        cell.dateLabel.label.text = String(describing: worldTask?.creationDate)
-//        tableView.reloadData()
+        cell.titleLabel.label.text = worldTask.title
+        cell.likesLabel.label.text = String(describing: worldTask.likes)
+        cell.dateLabel.label.text = String(describing: worldTask.creationDate)
+        tableView.reloadData()
         
-        let data = worldListData[indexPath.row] 
-            cell.configureCell(with: data)
-        
+//        let data = worldListData[indexPath.row] 
+//            cell.configureCell(with: data)
+//        
         
         return cell
     }

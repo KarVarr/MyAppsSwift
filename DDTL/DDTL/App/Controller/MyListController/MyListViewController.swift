@@ -34,11 +34,12 @@ class MyListViewController: BaseViewController, DataDelegate {
         configureLabel()
         configurePointingFingerImageView()
         addButtonConfigure()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        customTableView.table.reloadData()
+        updateData()
         print("mylistdata count is \(myListData.count)")
         print("table is reloaded")
         colorChangeForAddButton()
@@ -51,6 +52,12 @@ class MyListViewController: BaseViewController, DataDelegate {
         animationPointingTitleLabels()
         animationPointingFingerImageView()
         configureRefreshControl()
+    }
+    
+    func updateData() {
+        DispatchQueue.main.async {
+            self.customTableView.table.reloadData()
+        }
     }
     
     //MARK: - DEINIT

@@ -92,5 +92,4 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return 0
     }
-    
 }

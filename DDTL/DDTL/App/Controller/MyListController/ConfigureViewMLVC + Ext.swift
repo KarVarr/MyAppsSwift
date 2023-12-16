@@ -24,6 +24,7 @@ extension MyListViewController {
         }
         
         updateRefreshControlState()
+       
         customTableView.table.reloadData()
     }
     
