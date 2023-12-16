@@ -25,6 +25,7 @@ class MyListViewController: BaseViewController, DataDelegate {
     let pointingFingerImageView = CustomImageView()
     let addButton = CustomButtonView()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +39,7 @@ class MyListViewController: BaseViewController, DataDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         customTableView.table.reloadData()
+        print("mylistdata count is \(myListData.count)")
         print("table is reloaded")
         colorChangeForAddButton()
         print("timer is active")

@@ -21,7 +21,7 @@ extension WorldListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return worldListData?.count ?? 0
+        return worldListData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -35,9 +35,9 @@ extension WorldListViewController: UITableViewDelegate, UITableViewDataSource {
 //        cell.dateLabel.label.text = String(describing: worldTask?.creationDate)
 //        tableView.reloadData()
         
-        if let data = worldListData?[indexPath.row] {
+        let data = worldListData[indexPath.row] 
             cell.configureCell(with: data)
-        }
+        
         
         return cell
     }
