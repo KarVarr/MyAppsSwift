@@ -13,7 +13,7 @@ protocol DataDelegate: AnyObject {
 }
 
 class MyListViewController: BaseViewController, DataDelegate {
-    var myListData: [MyListData] = []
+    var myListData = ArrayOfListDataModel.shared
     var isHiddenStackView = false
     var updateTimer: Timer?
     
@@ -29,6 +29,7 @@ class MyListViewController: BaseViewController, DataDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         configureCustomTableView()
         configureStackView()
         configureLabel()
@@ -40,8 +41,7 @@ class MyListViewController: BaseViewController, DataDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateData()
-        print("mylistdata count is \(myListData.count)")
-        print("table is reloaded")
+        print("mylistdata count is \(myListData.arrayOfListDataModel.count)")
         colorChangeForAddButton()
         print("timer is active")
         updateTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(updateTable), userInfo: nil, repeats: true)

@@ -22,14 +22,14 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myListData.count
+        return myListData.arrayOfListDataModel.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let taskDetailsVC = TaskDetailsViewController()
-        taskDetailsVC.selectedTask = myListData[indexPath.row]
+        taskDetailsVC.selectedTask = myListData.arrayOfListDataModel[indexPath.row]
         present(taskDetailsVC, animated: true)
     }
     
@@ -37,7 +37,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.myListVCTableViewCellKey, for: indexPath) as! MyListVCTableViewCell
         cell.backgroundColor = Helper.Colors.beige
         
-        let myList = myListData[indexPath.row]
+        let myList = myListData.arrayOfListDataModel[indexPath.row]
         
         let minutesSinceCreation = minutesSinceCreation(for: myList)
         let days = minutesSinceCreation   // Convert minutes to days
@@ -57,10 +57,10 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             print("Deleted row")
             
-            self.myListData.remove(at: indexPath.row)
+            self.myListData.arrayOfListDataModel.remove(at: indexPath.row)
             self.customTableView.table.deleteRows(at: [indexPath], with: .fade)
             
-            if myListData.isEmpty {
+            if myListData.arrayOfListDataModel.isEmpty {
                 pointingFingerImageView.imageView.isHidden = false
                 pointingFingerLabelTop.label.isHidden = false
                 pointingFingerLabelMiddle.label.isHidden = false
@@ -74,7 +74,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     //MARK: - Days Counter
-    func daysSinceCreation(for task: MyListData) -> Int {
+    func daysSinceCreation(for task: ListDataModel) -> Int {
         let currentDate = Date()
         let calendar = Calendar.current
         if let creationDate = task.creationDate, let days = calendar.dateComponents([.day], from: creationDate, to: currentDate).day {
@@ -84,7 +84,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     //MARK: - Days Counter
-    func minutesSinceCreation(for task: MyListData) -> Int {
+    func minutesSinceCreation(for task: ListDataModel) -> Int {
         let currentDate = Date()
         let calendar = Calendar.current
         if let creationDate = task.creationDate, let minutes = calendar.dateComponents([.minute], from: creationDate, to: currentDate).minute {

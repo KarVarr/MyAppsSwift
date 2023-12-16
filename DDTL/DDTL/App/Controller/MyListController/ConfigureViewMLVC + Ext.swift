@@ -14,10 +14,10 @@ extension MyListViewController {
     }
     
     func didEnterData(title: String?, description: String?, creationDate: Date?, likes: Int?) {
-        let newTask = MyListData(title: title, description: description, date: creationDate)
-        myListData.append(newTask)
+        let newTask = ListDataModel(title: title, description: description, date: creationDate)
+        myListData.arrayOfListDataModel.append(newTask)
         
-        if !myListData.isEmpty {
+        if !myListData.arrayOfListDataModel.isEmpty {
             imageAndLabelIsHidden(condition: true)
         } else {
             imageAndLabelIsHidden(condition: false)
@@ -42,7 +42,7 @@ extension MyListViewController {
     
     //MARK: - Refresh Control
     func updateRefreshControlState() {
-        if myListData.isEmpty {
+        if myListData.arrayOfListDataModel.isEmpty {
             customTableView.table.refreshControl = nil
         } else {
             customTableView.table.refreshControl = refreshControl.refresh

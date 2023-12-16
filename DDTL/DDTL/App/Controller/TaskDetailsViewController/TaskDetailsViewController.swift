@@ -10,7 +10,7 @@ import UIKit
 
 
 class TaskDetailsViewController: BaseViewController {
-    var selectedTask: MyListData?
+    var selectedTask: ListDataModel?
     
     let navigationTitle = CustomLabelView()
     let customViewForTitleAndDescription = CustomView()

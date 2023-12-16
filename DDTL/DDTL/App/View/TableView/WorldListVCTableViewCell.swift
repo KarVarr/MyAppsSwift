@@ -60,7 +60,7 @@ class WorldListVCTableViewCell: UITableViewCell {
         ])
     }
     
-    func configureCell(with data: MyListData) {
+    func configureCell(with data: ListDataModel) {
         titleLabel.label.text = data.title
         dateLabel.label.text = String(describing: data.creationDate)
         likesLabel.label.text = String(describing: data.likes)

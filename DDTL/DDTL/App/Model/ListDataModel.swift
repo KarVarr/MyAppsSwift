@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MyListData { 
+class ListDataModel {
     var title: String?
     var description: String?
     var creationDate: Date?

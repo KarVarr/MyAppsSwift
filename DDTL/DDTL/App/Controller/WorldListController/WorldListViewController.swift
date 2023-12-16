@@ -8,11 +8,12 @@
 import UIKit
 
 class WorldListViewController: BaseViewController {
-    var worldListData: [MyListData] = []
+    var worldListData = ArrayOfListDataModel.shared
     let tableViewWLVC = CustomTableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         configureTableViewWVC()
     }
@@ -20,9 +21,9 @@ class WorldListViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
-        print("array count is \(String(describing: worldListData.count))")
+       
+        print("array count is \(String(describing: worldListData.arrayOfListDataModel.count))")
         updateData()
-        print("view world will appear and reload")
     }
     
     func updateData() {
@@ -30,5 +31,7 @@ class WorldListViewController: BaseViewController {
             self.tableViewWLVC.table.reloadData()
         }
     }
+    
+
  
 }

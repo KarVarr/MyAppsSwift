@@ -13,6 +13,7 @@
 		171BC8812B20D2A400B78294 /* LayoutWVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171BC8802B20D2A400B78294 /* LayoutWVC + Ext.swift */; };
 		171BC8832B20E05500B78294 /* CustomTableViewWVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171BC8822B20E05500B78294 /* CustomTableViewWVC + Ext.swift */; };
 		171BC8872B20E16800B78294 /* WorldListVCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171BC8862B20E16800B78294 /* WorldListVCTableViewCell.swift */; };
+		171FC88D2B2DEFEF00429961 /* ArrayOfListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171FC88C2B2DEFEF00429961 /* ArrayOfListDataModel.swift */; };
 		1728D5432B00D5A9004CDCE5 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */; };
 		1728D5452B00DB26004CDCE5 /* TextViewConfigure + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */; };
 		172C01E12B0FCE7B00D088A8 /* AddViewsTD + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C01E02B0FCE7B00D088A8 /* AddViewsTD + Ext.swift */; };
@@ -49,7 +50,7 @@
 		17C359512AF3F7B700E154BE /* ConfigureViewMLVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359502AF3F7B700E154BE /* ConfigureViewMLVC + Ext.swift */; };
 		17C359532AF552B500E154BE /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359522AF552B500E154BE /* CustomButtonView.swift */; };
 		17C359552AF5539100E154BE /* LayoutViewMLVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359542AF5539100E154BE /* LayoutViewMLVC + Ext.swift */; };
-		17C359572AF55D2400E154BE /* MyListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359562AF55D2400E154BE /* MyListData.swift */; };
+		17C359572AF55D2400E154BE /* ListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359562AF55D2400E154BE /* ListDataModel.swift */; };
 		17C3595C2AF55DE400E154BE /* MyListVCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3595B2AF55DE400E154BE /* MyListVCTableViewCell.swift */; };
 		17C3595E2AF55F4A00E154BE /* CustomLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C3595D2AF55F4A00E154BE /* CustomLabelView.swift */; };
 		17C359612AF565C800E154BE /* AddNewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C359602AF565C800E154BE /* AddNewTaskViewController.swift */; };
@@ -68,6 +69,7 @@
 		171BC8802B20D2A400B78294 /* LayoutWVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutWVC + Ext.swift"; sourceTree = "<group>"; };
 		171BC8822B20E05500B78294 /* CustomTableViewWVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTableViewWVC + Ext.swift"; sourceTree = "<group>"; };
 		171BC8862B20E16800B78294 /* WorldListVCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldListVCTableViewCell.swift; sourceTree = "<group>"; };
+		171FC88C2B2DEFEF00429961 /* ArrayOfListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayOfListDataModel.swift; sourceTree = "<group>"; };
 		1728D5422B00D5A9004CDCE5 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		1728D5442B00DB26004CDCE5 /* TextViewConfigure + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextViewConfigure + Ext.swift"; sourceTree = "<group>"; };
 		172C01E02B0FCE7B00D088A8 /* AddViewsTD + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewsTD + Ext.swift"; sourceTree = "<group>"; };
@@ -106,7 +108,7 @@
 		17C359502AF3F7B700E154BE /* ConfigureViewMLVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewMLVC + Ext.swift"; sourceTree = "<group>"; };
 		17C359522AF552B500E154BE /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
 		17C359542AF5539100E154BE /* LayoutViewMLVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutViewMLVC + Ext.swift"; sourceTree = "<group>"; };
-		17C359562AF55D2400E154BE /* MyListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListData.swift; sourceTree = "<group>"; };
+		17C359562AF55D2400E154BE /* ListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDataModel.swift; sourceTree = "<group>"; };
 		17C3595B2AF55DE400E154BE /* MyListVCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListVCTableViewCell.swift; sourceTree = "<group>"; };
 		17C3595D2AF55F4A00E154BE /* CustomLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelView.swift; sourceTree = "<group>"; };
 		17C359602AF565C800E154BE /* AddNewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewController.swift; sourceTree = "<group>"; };
@@ -254,7 +256,8 @@
 		17C359432AF166F400E154BE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				17C359562AF55D2400E154BE /* MyListData.swift */,
+				17C359562AF55D2400E154BE /* ListDataModel.swift */,
+				171FC88C2B2DEFEF00429961 /* ArrayOfListDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				171BC87F2B20D27B00B78294 /* ConfigureWVC + Ext.swift in Sources */,
 				17C359402AF02FD000E154BE /* Helper.swift in Sources */,
 				17C359652AF56B2A00E154BE /* LayoutViewANT + Ext.swift in Sources */,
+				171FC88D2B2DEFEF00429961 /* ArrayOfListDataModel.swift in Sources */,
 				171BC87D2B20D25500B78294 /* AddViewsWVC + Ext.swift in Sources */,
 				171BC8812B20D2A400B78294 /* LayoutWVC + Ext.swift in Sources */,
 				17C3594D2AF3F68200E154BE /* CustomTableViewMLVC + Ext.swift in Sources */,
@@ -453,7 +457,7 @@
 				17AAE4512B05494100F2000F /* ConfigureImageViewMLVC + Ext.swift in Sources */,
 				17C359532AF552B500E154BE /* CustomButtonView.swift in Sources */,
 				17C9CB612B0E72D70014DDCC /* TaskDetailsViewController.swift in Sources */,
-				17C359572AF55D2400E154BE /* MyListData.swift in Sources */,
+				17C359572AF55D2400E154BE /* ListDataModel.swift in Sources */,
 				17AAE44D2B0544F600F2000F /* CustomImageView.swift in Sources */,
 				17BD5A9A2AF6B8E50075681B /* CustomView.swift in Sources */,
 				17C9CB5C2B0E61F20014DDCC /* CustomRefreshControl.swift in Sources */,

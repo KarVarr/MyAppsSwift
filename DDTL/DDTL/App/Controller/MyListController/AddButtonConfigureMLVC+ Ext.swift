@@ -30,8 +30,8 @@ extension MyListViewController {
     }
     
     func colorChangeForAddButton() {
-        addButton.button.tintColor = myListData.count > 5 ? Helper.Colors.pink.withAlphaComponent(0.5) :  Helper.Colors.pink
-        print("Before button configuration: \(myListData.count)")
+        addButton.button.tintColor = myListData.arrayOfListDataModel.count > 5 ? Helper.Colors.pink.withAlphaComponent(0.5) :  Helper.Colors.pink
+        print("Before button configuration: \(myListData.arrayOfListDataModel.count)")
     }
 }
 
