@@ -8,20 +8,26 @@
 import UIKit
 
 class WorldListVCTableViewCell: UITableViewCell {
+    var worldListCellData = ArrayOfListDataModel.shared
+    
     let titleLabel = CustomLabelView()
     let dateLabel = CustomLabelView()
     let likesLabel = CustomLabelView()
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         addViews()
         configureCell()
         layoutCell()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(likesLabelTapped))
+        likesLabel.label.isUserInteractionEnabled = true
+        likesLabel.label.addGestureRecognizer(tapGesture)
     }
     
     private func addViews() {
@@ -31,9 +37,7 @@ class WorldListVCTableViewCell: UITableViewCell {
     }
     
     private func configureCell() {
-//        titleLabel.label.text = "Don't buy a fast food ect"
-//        dateLabel.label.text = "4 days"
-//        likesLabel.label.text = "127 likes"
+        
     }
     
     private func layoutCell() {
@@ -58,5 +62,14 @@ class WorldListVCTableViewCell: UITableViewCell {
             likesLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             likesLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
         ])
+    }
+    
+    @objc func likesLabelTapped() {
+        if let currentLikes = Int(likesLabel.label.text ?? "0") {
+            // Increment likes count and update the label
+            let newLikes = currentLikes + 1
+            likesLabel.label.text = "\(newLikes)"
+            worldListCellData.arrayOfListDataModel.forEach{$0.likes = newLikes}
+        }
     }
 }
