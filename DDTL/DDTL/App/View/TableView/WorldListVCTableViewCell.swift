@@ -31,9 +31,9 @@ class WorldListVCTableViewCell: UITableViewCell {
     }
     
     private func configureCell() {
-        titleLabel.label.text = "Don't buy a fast food ect"
-        dateLabel.label.text = "4 days"
-        likesLabel.label.text = "127 likes"
+//        titleLabel.label.text = "Don't buy a fast food ect"
+//        dateLabel.label.text = "4 days"
+//        likesLabel.label.text = "127 likes"
     }
     
     private func layoutCell() {
@@ -58,6 +58,12 @@ class WorldListVCTableViewCell: UITableViewCell {
             likesLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             likesLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
         ])
+    }
+    
+    func configureCell(with data: MyListData) {
+        titleLabel.label.text = data.title
+        dateLabel.label.text = String(describing: data.creationDate)
+        likesLabel.label.text = String(describing: data.likes)
     }
 
 }

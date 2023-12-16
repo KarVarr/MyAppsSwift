@@ -21,16 +21,24 @@ extension WorldListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return worldListData?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.worldListVCTableViewCell, for: indexPath) as! WorldListVCTableViewCell
-        
         cell.backgroundColor = Helper.Colors.mainColorFromIcon
+        
+//        let worldTask = worldListData?[indexPath.row]
+        
+//        cell.titleLabel.label.text = worldTask?.title
+//        cell.likesLabel.label.text = String(describing: worldTask?.likes)
+//        cell.dateLabel.label.text = String(describing: worldTask?.creationDate)
+//        tableView.reloadData()
+        
+        if let data = worldListData?[indexPath.row] {
+            cell.configureCell(with: data)
+        }
         
         return cell
     }
-    
-    
 }

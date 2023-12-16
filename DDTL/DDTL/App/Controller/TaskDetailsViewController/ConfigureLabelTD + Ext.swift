@@ -15,7 +15,6 @@ extension TaskDetailsViewController {
             labels.numberOfLines = 0
         }
         
-        
         navigationTitle.label.text = "D E T A I L S"
         navigationTitle.label.textColor = Helper.Colors.placeholder
         navigationTitle.label.font = Helper.Fonts.BungeeShadeRegular(with: 24)
