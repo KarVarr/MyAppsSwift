@@ -14,14 +14,12 @@ class WorldListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         configureTableViewWVC()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
-       
         print("array count is \(String(describing: worldListData.arrayOfListDataModel.count))")
         updateData()
     }
@@ -32,6 +30,4 @@ class WorldListViewController: BaseViewController {
         }
     }
     
-
- 
 }

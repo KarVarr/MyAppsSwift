@@ -36,8 +36,14 @@ extension WorldListViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.titleLabel.label.text = worldTask.title
         
+    
+        let minutesSinceCreation = minutesSinceCreation(for: worldTask)
+        let days = minutesSinceCreation
+        
+        
         if let date = worldTask.creationDate {
-            cell.dateLabel.label.text = "\(date)"
+//            cell.dateLabel.label.text = "\(date)"
+            cell.dateLabel.label.text = days == 0 ? String("DAY ONE") : String("\(days + 1) DAYS")
         }
         
         if let likes = worldTask.likes {
@@ -45,5 +51,14 @@ extension WorldListViewController: UITableViewDelegate, UITableViewDataSource {
         }
      
         return cell
+    }
+    
+    func minutesSinceCreation(for task: ListDataModel) -> Int {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        if let creationDate = task.creationDate, let minutes = calendar.dateComponents([.minute], from: creationDate, to: currentDate).minute {
+            return minutes
+        }
+        return 0
     }
 }
