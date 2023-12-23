@@ -9,6 +9,7 @@ import UIKit
 
 class WorldListVCTableViewCell: UITableViewCell {
     var worldListCellData = ArrayOfListDataModel.shared
+    var indexPath: IndexPath?
     
     let titleLabel = CustomLabelView()
     let dateLabel = CustomLabelView()
@@ -65,11 +66,11 @@ class WorldListVCTableViewCell: UITableViewCell {
     }
     
     @objc func likesLabelTapped() {
-        if let currentLikes = Int(likesLabel.label.text ?? "0") {
+        if let indexPath = indexPath, let currentLikes = Int(likesLabel.label.text ?? "0") {
             // Increment likes count and update the label
             let newLikes = currentLikes + 1
             likesLabel.label.text = "\(newLikes)"
-            worldListCellData.arrayOfListDataModel.forEach{$0.likes = newLikes}
+            worldListCellData.arrayOfListDataModel[indexPath.row].likes = newLikes
         }
     }
 }
