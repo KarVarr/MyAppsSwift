@@ -36,20 +36,16 @@ extension WorldListViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.titleLabel.label.text = worldTask.title
         
-    
+        
         let minutesSinceCreation = minutesSinceCreation(for: worldTask)
         let days = minutesSinceCreation
         
-        
-        if let date = worldTask.creationDate {
-//            cell.dateLabel.label.text = "\(date)"
-            cell.dateLabel.label.text = days == 0 ? String("DAY ONE") : String("\(days + 1) DAYS")
-        }
+        cell.dateLabel.label.text = ("Days under control: \(days + 1)")
         
         if let likes = worldTask.likes {
             cell.likesLabel.label.text = String(likes)
         }
-     
+        
         return cell
     }
     
