@@ -11,6 +11,9 @@ class WorldListViewController: BaseViewController {
     var worldListData = ArrayOfListDataModel.shared
     let tableViewWLVC = CustomTableView()
     
+    var timer: Timer?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,12 +25,18 @@ class WorldListViewController: BaseViewController {
     
         print("array count is \(String(describing: worldListData.arrayOfListDataModel.count))")
         updateData()
+        
+        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(updateView), userInfo: nil, repeats: true)
     }
     
     func updateData() {
         DispatchQueue.main.async {
             self.tableViewWLVC.table.reloadData()
         }
+    }
+    
+    @objc func updateView() {
+        updateData()
     }
     
 }

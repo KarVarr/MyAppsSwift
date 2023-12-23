@@ -67,7 +67,6 @@ class WorldListVCTableViewCell: UITableViewCell {
     
     @objc func likesLabelTapped() {
         if let indexPath = indexPath, let currentLikes = Int(likesLabel.label.text ?? "0") {
-            // Increment likes count and update the label
             let newLikes = currentLikes + 1
             likesLabel.label.text = "\(newLikes)"
             worldListCellData.arrayOfListDataModel[indexPath.row].likes = newLikes
