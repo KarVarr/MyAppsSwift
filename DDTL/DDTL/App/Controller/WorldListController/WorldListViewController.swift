@@ -13,7 +13,6 @@ class WorldListViewController: BaseViewController {
     
     var timer: Timer?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -9,5 +9,6 @@ import UIKit
 
 extension MyListViewController {
     func configureStackView() {
+        
     }
 }

@@ -19,7 +19,5 @@ extension MyListViewController {
             print("table reloaded from refresh")
             self?.refreshControl.refresh.endRefreshing()
         }
-        
-        
     }
 }

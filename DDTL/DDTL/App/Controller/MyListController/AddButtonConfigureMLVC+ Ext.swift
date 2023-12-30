@@ -19,7 +19,6 @@ extension MyListViewController {
         addButton.button.layer.shadowOpacity = 3
         addButton.button.layer.shadowColor = UIColor.black.withAlphaComponent(0.5).cgColor
         
-        
         addButton.button.addTarget(self, action: #selector(addNewTask), for: .touchUpInside)
     }
     

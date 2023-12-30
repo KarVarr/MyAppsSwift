@@ -30,13 +30,11 @@ extension WorldListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.worldListVCTableViewCell, for: indexPath) as! WorldListVCTableViewCell
-        cell.backgroundColor = Helper.Colors.mainColorFromIcon
-        cell.indexPath = indexPath
-        
         let worldTask = worldListData.arrayOfListDataModel[indexPath.row]
         
+        cell.backgroundColor = Helper.Colors.mainColorFromIcon
+        cell.indexPath = indexPath
         cell.titleLabel.label.text = worldTask.title
-        
         
         let minutesSinceCreation = minutesSinceCreation(for: worldTask)
         let days = minutesSinceCreation
