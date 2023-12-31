@@ -20,6 +20,9 @@ extension MyListViewController {
 
         //MARK: - PointingFinger Labels
         NSLayoutConstraint.activate([
+            colorLabel.label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            colorLabel.label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
             pointingFingerTop.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             pointingFingerTop.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             

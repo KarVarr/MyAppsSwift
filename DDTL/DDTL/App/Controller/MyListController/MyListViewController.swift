@@ -23,6 +23,9 @@ class MyListViewController: BaseViewController, DataDelegate {
     let pointingFingerLabelMiddle = CustomLabelView()
     let pointingFingerLabelBottom = CustomLabelView()
     let pointingFingerImageView = CustomImageView()
+    
+    let colorLabel = CustomLabelView()
+    
     let addButton = CustomButtonView()
     
     override func viewDidLoad() {

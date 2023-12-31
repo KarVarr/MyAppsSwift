@@ -14,6 +14,10 @@ extension MyListViewController {
         settings(pointingFingerLabelTop, with: Helper.Strings.MyListVC.titleTop, x: 0, y: -300)
         settings(pointingFingerLabelMiddle, with: Helper.Strings.MyListVC.titleMiddle, x: -300, y: 0)
         settings(pointingFingerLabelBottom, with: Helper.Strings.MyListVC.titleBottom, x: 300, y: 0)
+        
+        colorLabel.label.text = "Gradient text"
+        colorLabel.label.font = UIFont.systemFont(ofSize: 24)
+        colorLabel.label.sizeToFit()
     }
     
     func animationPointingTitleLabels() {
