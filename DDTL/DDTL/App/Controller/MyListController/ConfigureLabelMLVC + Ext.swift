@@ -19,27 +19,8 @@ extension MyListViewController {
         colorLabel.label.font = UIFont.systemFont(ofSize: 24)
         colorLabel.label.sizeToFit()
         
+
         
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = colorLabel.label.bounds
-        gradientLayer.colors = [UIColor.systemPink.cgColor, UIColor.systemBlue.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-        
-        
-        
-        let maskLayer = CAShapeLayer()
-        maskLayer.frame = colorLabel.label.bounds
-        maskLayer.path = CGPath(rect: colorLabel.label.bounds, transform: nil)
-        maskLayer.fillColor = UIColor.clear.cgColor
-        maskLayer.strokeColor = UIColor.white.cgColor
-        maskLayer.lineWidth = colorLabel.label.font.pointSize
-        maskLayer.lineJoin = .round
-        maskLayer.lineCap = .round
-        maskLayer.contents = colorLabel.label.layer.contents
-        
-        gradientLayer.mask = maskLayer
-        colorLabel.label.layer.addSublayer(gradientLayer)
         
         view.addSubview(colorLabel.label)
     }
@@ -74,3 +55,5 @@ extension MyListViewController {
     
     
 }
+
+
