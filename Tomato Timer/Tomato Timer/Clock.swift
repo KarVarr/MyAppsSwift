@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct Clock: View {
-    @State private var currentDate: String = ""
+
+    
     
     var body: some View {
         Color(uiColor: Helper.Colors.background)
@@ -18,38 +19,33 @@ struct Clock: View {
                 VStack(alignment: .leading) {
                     //MARK: - struct
                     HStack {
-                        Text("struct")
-                            .foregroundStyle(Color(uiColor: Helper.Colors.variable))
-                        Text("TomatoTimer")
-                            .foregroundStyle(Color(uiColor: Helper.Colors.typeName))
-                        Text("{")
-                            .foregroundStyle(Color(uiColor: Helper.Colors.brackets))
+                        textAndColor(name: "struct", color: Helper.Colors.variable)
+                        textAndColor(name: "TomatoTimer", color: Helper.Colors.typeName)
+                        textAndColor(name: "{", color: Helper.Colors.brackets)
                     }
-                    //MARK: - current date
+                    //MARK: - Date
                     HStack {
-                        Text("        var")
-                            .foregroundStyle(Color(uiColor: Helper.Colors.variable))
-                        Text("currentDate")
-                            .foregroundStyle(Color(uiColor: Helper.Colors.variableName))
-                        Text(":")
-                            .foregroundStyle(Color(uiColor: Helper.Colors.brackets))
-                            
-                        Text("PM")
-                            .foregroundStyle(Color(uiColor: Helper.Colors.type))
-                        Text("=")
-                            .foregroundStyle(Color(uiColor: Helper.Colors.brackets))
-                        Text("\(currentDate)")
-                            .foregroundStyle(Color(uiColor: Helper.Colors.number))
-                        
+                        textAndColor(name: "        var", color: Helper.Colors.variable)
+                        textAndColor(name: "date", color: Helper.Colors.variableName)
+                        textAndColor(name: "=", color: Helper.Colors.brackets)
+                        textAndColor(name: "\(getCurrentDate())", color: Helper.Colors.number)
+                    }
+                    //MARK: - Time
+                    HStack {
+                        textAndColor(name: "        var", color: Helper.Colors.variable)
+                        Text("\(textAndColor(name: "time", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
+                        textAndColor(name: "PM", color: Helper.Colors.type)
+                        textAndColor(name: "=", color: Helper.Colors.brackets)
+                        textAndColor(name: "\(getCurrentTime())", color: Helper.Colors.number)
                     }
                     
-                    Text("""
-        var time: PM = 22:01
-        var battery: Normal = 56%
-        
-        """
-                    )
-                    .foregroundStyle(.pink)
+//                    Text("""
+//        var \(textAndColor(name:"time", color: Color(uiColor: Helper.Colors.type)))\(textAndColor(name:":",color: Color(uiColor: Helper.Colors.brackets))) PM = 22:01
+//        var battery: Normal = 56%
+//        
+//        """
+                    
+                   
                     .onAppear(perform: {
                         
                     })
@@ -57,8 +53,28 @@ struct Clock: View {
             }
     }
     
-    func variable(name: String, color: any ShapeStyle) -> String{
-        return name
+    //MARK: - Metods
+    
+    func getCurrentDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = Locale.current
+        return dateFormatter.string(from: Date())
+    }
+    
+    func getCurrentTime() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .medium
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = Locale.current
+        return dateFormatter.string(from: Date())
+    }
+
+    
+    func textAndColor(name: String, color: UIColor) -> Text {
+        return Text(name)
+            .foregroundStyle(Color(uiColor: color))
     }
 }
 
