@@ -10,8 +10,15 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        
-        ClockView()
+        Color(uiColor: Helper.Colors.background)
+            .ignoresSafeArea()
+            .overlay {
+                
+                VStack {
+                    ClockView()
+                    TimerView()
+                }
+            }
     }
 }
 

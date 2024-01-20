@@ -40,9 +40,7 @@ struct TimerView: View {
         Color(uiColor: Helper.Colors.background)
             .ignoresSafeArea()
             .overlay {
-                VStack {
-                    ClockView()
-                    
+              
                     ZStack {
                         Circle()
                             .stroke(Color.gray.opacity(0.2), style: strokeStyle)
@@ -70,7 +68,6 @@ struct TimerView: View {
                         }
                     }
                     .frame(width: 300, height: 300)
-                    .padding(.bottom, 100)
                     .onReceive(timer, perform: { _ in
                         guard timerRunning else { return }
                         if countdownTime > 0 {
@@ -82,7 +79,7 @@ struct TimerView: View {
                     })
                     
                     
-                }
+                
                 
                 
             }
