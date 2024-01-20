@@ -7,66 +7,17 @@
 
 import SwiftUI
 
-class BatteryViewModel: ObservableObject {
-    @Published var batteryLevel: Int = 0
-    @Published var batteryStateDescription: String = ""
-    @Published var batteryStateColor: UIColor = Helper.Colors.type
-    
-    init() {
-        UIDevice.current.isBatteryMonitoringEnabled = true
-        self.batteryLevel = Int(UIDevice.current.batteryLevel * 100)
-        getBatteryState()
-    }
-    
-    private func getBatteryState() {
-        let batteryState = UIDevice.current.batteryState
-        self.batteryStateDescription = getBatteryDescription(for: batteryState)
-        self.batteryStateColor = getBatteryColor(for: batteryState)
-    }
-    
-    private func getBatteryColor(for state: UIDevice.BatteryState) -> UIColor {
-        switch state {
-        case .unknown:
-            return Helper.Colors.type
-        case .unplugged:
-            return Helper.Colors.type
-        case .charging:
-            return Helper.Colors.ifElseCondition
-        case .full:
-            return Helper.Colors.type
-        @unknown default:
-            return Helper.Colors.type
-        }
-    }
-    
-    private func getBatteryDescription(for state: UIDevice.BatteryState) -> String {
-        switch state {
-        case .unknown:
-            return "Unknown"
-        case .unplugged:
-            return "On battery power"
-        case .charging:
-            return "Charging"
-        case .full:
-            return "Full"
-        @unknown default:
-            return "Unknown"
-        }
-    }
+enum TimeAMPM {
+    case pm
+    case am
 }
 
-
 struct Clock: View {
-    enum TimeAMPM {
-        case pm
-        case am
-    }
-    
- 
-    
+    @ObservedObject private var batteryViewModel = BatteryViewModel()
+
     @State private var batteryLevel: Float = UIDevice.current.batteryLevel
     @State private var currentTimePeriod: TimeAMPM
-    
+    @State private var 
     init() {
         let currentDate = Date()
         let calendar = Calendar.current
@@ -113,33 +64,22 @@ struct Clock: View {
                         textAndColor(name: "        var", color: Helper.Colors.variable)
                         Text("\(textAndColor(name: "battery", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
                         
-                        switch batteryLevel {
-                        case 0.0..<20.0: textAndColor(name: "Low", color: Helper.Colors.type)
-                        case 20.0..<60.0: textAndColor(name: "Medium", color: Helper.Colors.type)
-                        case 60.0..<100.0: textAndColor(name: "Good", color: Helper.Colors.type)
+                        switch batteryViewModel.batteryLevel {
+                        case 0..<20: textAndColor(name: "Low", color: Helper.Colors.type)
+                        case 20..<60: textAndColor(name: "Medium", color: Helper.Colors.type)
+                        case 60..<100: textAndColor(name: "Good", color: Helper.Colors.type)
                         default:
                             textAndColor(name: "N/A", color: Helper.Colors.type)
                         }
-                    
+                        
+                       
+                        
                         textAndColor(name: "=", color: Helper.Colors.brackets)
-                        textAndColor(name: String(format: "%.0f", batteryLevel * 100), color: Helper.Colors.number)
+                        textAndColor(name: "\(batteryViewModel.batteryLevel)", color: Helper.Colors.number)
                     }
                     //MARK: - End of struct
                     textAndColor(name: "}", color: Helper.Colors.brackets)
-                        .onAppear {
-                            UIDevice.current.isBatteryMonitoringEnabled = true
-                            
-                            NotificationCenter.default.addObserver(
-                                forName: UIDevice.batteryLevelDidChangeNotification,
-                                object: nil,
-                                queue: nil
-                            ) { _ in
-                                batteryLevel = UIDevice.current.batteryLevel
-                            }
-                        }
-                        .onDisappear {
-                            UIDevice.current.isBatteryMonitoringEnabled = false
-                        }
+//
                 }
             }
     }
@@ -165,7 +105,7 @@ struct Clock: View {
     
     func textAndColor(name: String, color: UIColor) -> Text {
         return Text(name)
-            .foregroundStyle(Color(uiColor: color))
+            .foregroundColor(Color(uiColor: color))
     }
 }
 

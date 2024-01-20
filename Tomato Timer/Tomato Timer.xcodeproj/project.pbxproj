@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1765368C2B5BC4C300517AEA /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765368B2B5BC4C300517AEA /* Clock.swift */; };
 		1765368E2B5BC86200517AEA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765368D2B5BC86200517AEA /* Helper.swift */; };
+		176536902B5BF9DA00517AEA /* BatteryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765368F2B5BF9DA00517AEA /* BatteryViewModel.swift */; };
 		17E927502B5AE0C0000BA1F2 /* Tomato_TimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9274F2B5AE0C0000BA1F2 /* Tomato_TimerApp.swift */; };
 		17E927522B5AE0C0000BA1F2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E927512B5AE0C0000BA1F2 /* ContentView.swift */; };
 		17E927542B5AE0C2000BA1F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E927532B5AE0C2000BA1F2 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		1765368B2B5BC4C300517AEA /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		1765368D2B5BC86200517AEA /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		1765368F2B5BF9DA00517AEA /* BatteryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryViewModel.swift; sourceTree = "<group>"; };
 		17E9274C2B5AE0C0000BA1F2 /* Tomato Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tomato Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17E9274F2B5AE0C0000BA1F2 /* Tomato_TimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tomato_TimerApp.swift; sourceTree = "<group>"; };
 		17E927512B5AE0C0000BA1F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				17E927512B5AE0C0000BA1F2 /* ContentView.swift */,
 				17E9275D2B5AE104000BA1F2 /* Timer.swift */,
 				1765368B2B5BC4C300517AEA /* Clock.swift */,
+				1765368F2B5BF9DA00517AEA /* BatteryViewModel.swift */,
 				17E927532B5AE0C2000BA1F2 /* Assets.xcassets */,
 				17E927552B5AE0C2000BA1F2 /* Preview Content */,
 			);
@@ -148,6 +151,7 @@
 			files = (
 				17E9275E2B5AE104000BA1F2 /* Timer.swift in Sources */,
 				17E927522B5AE0C0000BA1F2 /* ContentView.swift in Sources */,
+				176536902B5BF9DA00517AEA /* BatteryViewModel.swift in Sources */,
 				1765368E2B5BC86200517AEA /* Helper.swift in Sources */,
 				1765368C2B5BC4C300517AEA /* Clock.swift in Sources */,
 				17E927502B5AE0C0000BA1F2 /* Tomato_TimerApp.swift in Sources */,
@@ -292,7 +296,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,7 +326,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
