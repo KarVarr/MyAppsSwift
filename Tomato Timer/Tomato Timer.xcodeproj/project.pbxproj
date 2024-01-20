@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1765368C2B5BC4C300517AEA /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765368B2B5BC4C300517AEA /* Clock.swift */; };
 		17E927502B5AE0C0000BA1F2 /* Tomato_TimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9274F2B5AE0C0000BA1F2 /* Tomato_TimerApp.swift */; };
 		17E927522B5AE0C0000BA1F2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E927512B5AE0C0000BA1F2 /* ContentView.swift */; };
 		17E927542B5AE0C2000BA1F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E927532B5AE0C2000BA1F2 /* Assets.xcassets */; };
 		17E927572B5AE0C2000BA1F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E927562B5AE0C2000BA1F2 /* Preview Assets.xcassets */; };
+		17E9275E2B5AE104000BA1F2 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9275D2B5AE104000BA1F2 /* Timer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1765368B2B5BC4C300517AEA /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		17E9274C2B5AE0C0000BA1F2 /* Tomato Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tomato Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17E9274F2B5AE0C0000BA1F2 /* Tomato_TimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tomato_TimerApp.swift; sourceTree = "<group>"; };
 		17E927512B5AE0C0000BA1F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		17E927532B5AE0C2000BA1F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17E927562B5AE0C2000BA1F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		17E9275D2B5AE104000BA1F2 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				17E9274F2B5AE0C0000BA1F2 /* Tomato_TimerApp.swift */,
 				17E927512B5AE0C0000BA1F2 /* ContentView.swift */,
+				17E9275D2B5AE104000BA1F2 /* Timer.swift */,
+				1765368B2B5BC4C300517AEA /* Clock.swift */,
 				17E927532B5AE0C2000BA1F2 /* Assets.xcassets */,
 				17E927552B5AE0C2000BA1F2 /* Preview Content */,
 			);
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E9275E2B5AE104000BA1F2 /* Timer.swift in Sources */,
 				17E927522B5AE0C0000BA1F2 /* ContentView.swift in Sources */,
+				1765368C2B5BC4C300517AEA /* Clock.swift in Sources */,
 				17E927502B5AE0C0000BA1F2 /* Tomato_TimerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
