@@ -14,12 +14,16 @@ class SoundViewModel: ObservableObject {
 
     init() {
         observeSoundStatus()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(soundLevelDidChange(notification:)), name: AVAudioSession.mediaServicesWereResetNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(soundStatusDidChange(notification:)), name: AVAudioSession.silenceSecondaryAudioHintNotification, object: nil)
     }
-    
-    @objc func soundLevelDidChange(notification: Notification) {
-        self.isSoundEnabled = AVAudioSession.sharedInstance().isOtherAudioPlaying
+
+    @objc func soundStatusDidChange(notification: Notification) {
+        if let userInfo = notification.userInfo,
+           let typeRawValue = userInfo[AVAudioSessionSilenceSecondaryAudioHintTypeKey] as? UInt,
+           let type = AVAudioSession.SilenceSecondaryAudioHintType(rawValue: typeRawValue) {
+            self.isSoundEnabled = type != .begin
+        }
     }
 
     func observeSoundStatus() {
@@ -31,3 +35,4 @@ class SoundViewModel: ObservableObject {
         }
     }
 }
+

@@ -15,7 +15,7 @@ struct TimerView: View {
     
     @State private var timerRunning = false
     @State private var countdownTime: CGFloat = 25
-    
+    var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var strokeStyle: StrokeStyle {
         StrokeStyle(lineWidth: 15, lineCap: .round)
@@ -44,14 +44,14 @@ struct TimerView: View {
                     ClockView()
                     
                     ZStack {
-                        RoundedRectangle(cornerSize: CGSize(width: 70, height: 70), style: .continuous)
+                        Circle()
                             .stroke(Color.gray.opacity(0.2), style: strokeStyle)
                         
-                        RoundedRectangle(cornerSize: CGSize(width: 30, height: 30), style: .continuous)
+                        Circle()
                             .trim(from: 0, to: 1 - ((defaultTime - countdownTime) / defaultTime))
                             .stroke(countdownColor, style: strokeStyle)
                             .rotationEffect(.degrees(-90))
-                            .animation(.easeInOut)
+                            .animation(.spring(duration: 1, bounce: 0.4), value: countdownTime)
                         
                         HStack(spacing: 25) {
                             Label("", systemImage: buttonIcon)
@@ -70,16 +70,20 @@ struct TimerView: View {
                         }
                     }
                     .frame(width: 300, height: 300)
-                    //            .onReceive(timer, perform: { _ in
-                    //                guard timerRunning else { return }
-                    //                if countdownTime > 0 {
-                    //                    countdownTime -= 1
-                    //                } else {
-                    //                    timerRunning = false
-                    //                    countdownTime = defaultTime
-                    //                }
-                    //            })
+                    .padding(.bottom, 100)
+                    .onReceive(timer, perform: { _ in
+                        guard timerRunning else { return }
+                        if countdownTime > 0 {
+                            countdownTime -= 1
+                        } else {
+                            timerRunning = false
+                            countdownTime = defaultTime
+                        }
+                    })
+                    
+                    
                 }
+                
                 
             }
     }

@@ -121,7 +121,6 @@ struct ClockView: View {
     private func textAndColor(name: String, color: UIColor) -> Text {
         return Text(name)
             .foregroundColor(Color(uiColor: color))
-        
     }
     
 }
