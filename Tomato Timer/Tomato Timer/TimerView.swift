@@ -1,5 +1,5 @@
 //
-//  Timer.swift
+//  TimerView.swift
 //  Tomato Timer
 //
 //  Created by Karen Vardanian on 19.01.2024.
@@ -9,9 +9,8 @@ import SwiftUI
 import Foundation
 
 
-struct Timer: View {
+struct TimerView: View {
     let defaultTime: CGFloat = 25
-    //    @State private var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     
     
     @State private var timerRunning = false
@@ -42,7 +41,7 @@ struct Timer: View {
             .ignoresSafeArea()
             .overlay {
                 VStack {
-                    Clock()
+                    ClockView()
                     
                     ZStack {
                         RoundedRectangle(cornerSize: CGSize(width: 70, height: 70), style: .continuous)
@@ -87,5 +86,5 @@ struct Timer: View {
 }
 
 #Preview {
-    Timer()
+    TimerView()
 }

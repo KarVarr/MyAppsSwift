@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
+
 class ClockViewModel: ObservableObject {
     @Published var currentTime: String = ""
-    
-    private var timer: Timer?
+    var timer: Timer?
     
     init() {
         startTimer()
@@ -22,10 +22,9 @@ class ClockViewModel: ObservableObject {
     }
     
     func startTimer() {
-        
-//        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-//            self?.updateTime()
-//        }
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            self?.updateTime()
+        }
     }
     
     func stopTimer() {
@@ -35,9 +34,10 @@ class ClockViewModel: ObservableObject {
     
     func updateTime() {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm"
+        dateFormatter.dateFormat = "h:mm:ss"
         dateFormatter.timeZone = TimeZone.current
         dateFormatter.locale = Locale.current
         currentTime = dateFormatter.string(from: Date())
     }
 }
+

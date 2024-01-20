@@ -1,5 +1,5 @@
 //
-//  Clock.swift
+//  ClockView.swift
 //  Tomato Timer
 //
 //  Created by Karen Vardanian on 20.01.2024.
@@ -13,21 +13,21 @@ enum TimeAMPM {
     case am
 }
 
-struct Clock: View {
+struct ClockView: View {
     @ObservedObject private var batteryViewModel = BatteryViewModel()
     @ObservedObject private var soundViewModel = SoundViewModel()
     @ObservedObject private var clockViewModel = ClockViewModel()
     
     @State private var batteryLevel: Float = UIDevice.current.batteryLevel
     @State private var currentTimePeriod: TimeAMPM
+    @State private var currentDate: String = ""
     
-   
     init() {
         let currentDate = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: currentDate)
         _currentTimePeriod = State(initialValue: hour < 12 ? .am : .pm)
-
+        _currentDate = State(initialValue: getCurrentDate())
     }
     
     var body: some View {
@@ -47,7 +47,7 @@ struct Clock: View {
                         textAndColor(name: "        let", color: Helper.Colors.variable).bold()
                         textAndColor(name: "date", color: Helper.Colors.variableName)
                         textAndColor(name: "=", color: Helper.Colors.brackets)
-                        textAndColor(name: "\(getCurrentDate())", color: Helper.Colors.number).bold()
+                        textAndColor(name: "\"\(getCurrentDate())\"", color: Helper.Colors.string).bold()
                     }
                     //MARK: - Time
                     HStack {
@@ -60,7 +60,7 @@ struct Clock: View {
                         }
                         
                         textAndColor(name: "=", color: Helper.Colors.brackets)
-                        textAndColor(name: "\(getCurrentTime())", color: Helper.Colors.number).bold()
+                        textAndColor(name: "\(clockViewModel.currentTime)", color: Helper.Colors.number).bold()
                     }
                     //MARK: - Battery
                     HStack {
@@ -94,14 +94,15 @@ struct Clock: View {
                     textAndColor(name: "}", color: Helper.Colors.brackets)
                     
                 }
+                .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged), perform: { _ in
+                    currentDate = getCurrentDate()
+                })
                 
             }
     }
     
     //MARK: - Metods
-    
-    
-    func getCurrentDate() -> String {
+    private func getCurrentDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         dateFormatter.timeZone = TimeZone.current
@@ -109,22 +110,22 @@ struct Clock: View {
         return dateFormatter.string(from: Date())
     }
     
-    func getCurrentTime() -> String {
+    private func getCurrentTime() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm"
         dateFormatter.timeZone = TimeZone.current
         dateFormatter.locale = Locale.current
         return dateFormatter.string(from: Date())
     }
-
-    func textAndColor(name: String, color: UIColor) -> Text {
+    
+    private func textAndColor(name: String, color: UIColor) -> Text {
         return Text(name)
             .foregroundColor(Color(uiColor: color))
-            
+        
     }
     
 }
 
 #Preview {
-    Clock()
+    ClockView()
 }
