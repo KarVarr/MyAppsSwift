@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 enum TimeAMPM {
     case pm
@@ -14,17 +15,20 @@ enum TimeAMPM {
 
 struct Clock: View {
     @ObservedObject private var batteryViewModel = BatteryViewModel()
-
+    @ObservedObject private var soundViewModel = SoundViewModel()
+    @ObservedObject private var clockViewModel = ClockViewModel()
+    
     @State private var batteryLevel: Float = UIDevice.current.batteryLevel
     @State private var currentTimePeriod: TimeAMPM
-    @State private var 
+    
+   
     init() {
         let currentDate = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: currentDate)
         _currentTimePeriod = State(initialValue: hour < 12 ? .am : .pm)
+
     }
-    
     
     var body: some View {
         Color(uiColor: Helper.Colors.background)
@@ -34,20 +38,20 @@ struct Clock: View {
                 VStack(alignment: .leading) {
                     //MARK: - struct
                     HStack {
-                        textAndColor(name: "struct", color: Helper.Colors.variable)
+                        textAndColor(name: "struct", color: Helper.Colors.variable).bold()
                         textAndColor(name: "TomatoTimer", color: Helper.Colors.typeName)
                         textAndColor(name: "{", color: Helper.Colors.brackets)
                     }
                     //MARK: - Date
                     HStack {
-                        textAndColor(name: "        var", color: Helper.Colors.variable)
+                        textAndColor(name: "        let", color: Helper.Colors.variable).bold()
                         textAndColor(name: "date", color: Helper.Colors.variableName)
                         textAndColor(name: "=", color: Helper.Colors.brackets)
-                        textAndColor(name: "\(getCurrentDate())", color: Helper.Colors.number)
+                        textAndColor(name: "\(getCurrentDate())", color: Helper.Colors.number).bold()
                     }
                     //MARK: - Time
                     HStack {
-                        textAndColor(name: "        var", color: Helper.Colors.variable)
+                        textAndColor(name: "        var", color: Helper.Colors.variable).bold()
                         Text("\(textAndColor(name: "time", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
                         
                         switch currentTimePeriod {
@@ -56,12 +60,12 @@ struct Clock: View {
                         }
                         
                         textAndColor(name: "=", color: Helper.Colors.brackets)
-                        textAndColor(name: "\(getCurrentTime())", color: Helper.Colors.number)
+                        textAndColor(name: "\(getCurrentTime())", color: Helper.Colors.number).bold()
                     }
                     //MARK: - Battery
                     HStack {
                         
-                        textAndColor(name: "        var", color: Helper.Colors.variable)
+                        textAndColor(name: "        var", color: Helper.Colors.variable).bold()
                         Text("\(textAndColor(name: "battery", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
                         
                         switch batteryViewModel.batteryLevel {
@@ -72,19 +76,30 @@ struct Clock: View {
                             textAndColor(name: "N/A", color: Helper.Colors.type)
                         }
                         
-                       
-                        
                         textAndColor(name: "=", color: Helper.Colors.brackets)
-                        textAndColor(name: "\(batteryViewModel.batteryLevel)", color: Helper.Colors.number)
+                        textAndColor(name: "\(batteryViewModel.batteryLevel)", color: Helper.Colors.number).bold()
+                    }
+                    //MARK: - Sound
+                    HStack {
+                        textAndColor(name: "        var", color: Helper.Colors.variable).bold()
+                        Text("\(textAndColor(name: "sound", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
+                        
+                        textAndColor(name: "Disabled", color: Helper.Colors.type)
+                        textAndColor(name: "=", color: Helper.Colors.brackets)
+                        
+                        soundViewModel.isSoundEnabled ? textAndColor(name: "false", color: Helper.Colors.variable).bold() : textAndColor(name: "true", color: Helper.Colors.variable).bold()
+                        
                     }
                     //MARK: - End of struct
                     textAndColor(name: "}", color: Helper.Colors.brackets)
-//
+                    
                 }
+                
             }
     }
     
     //MARK: - Metods
+    
     
     func getCurrentDate() -> String {
         let dateFormatter = DateFormatter()
@@ -101,12 +116,13 @@ struct Clock: View {
         dateFormatter.locale = Locale.current
         return dateFormatter.string(from: Date())
     }
-    
-    
+
     func textAndColor(name: String, color: UIColor) -> Text {
         return Text(name)
             .foregroundColor(Color(uiColor: color))
+            
     }
+    
 }
 
 #Preview {
