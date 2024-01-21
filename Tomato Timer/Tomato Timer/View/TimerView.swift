@@ -49,84 +49,76 @@ struct TimerView: View {
             .ignoresSafeArea()
             .overlay {
                 
-                ZStack {
-                    Circle()
-                        .stroke(Color.gray.opacity(0.2), style: strokeStyle)
-                    
-                    Circle()
-                        .trim(from: 0, to: 1 - ((defaultTime - countdownTime) / defaultTime))
-                        .stroke(countdownColor, style: strokeStyle)
-                        .rotationEffect(.degrees(-90))
-                        .animation(.easeIn, value: countdownTime)
-                    
-                    HStack(spacing: 25) {
-                        Button {
-                            adjustTime(adding: false)
-                        } label: {
-                            Image(systemName: "minus")
-                                .foregroundStyle(Color(uiColor: Helper.Colors.type))
-                                .font(.largeTitle)
-                        }
+                GeometryReader { geometry in
+                    ZStack(alignment: .center) {
+                        Circle()
+                            .stroke(Color.gray.opacity(0.2), style: strokeStyle)
                         
-                        Text(String(format: "%02d:%02d", countdownMinutes, countdownSeconds))
-                            .foregroundStyle(Color(uiColor: Helper.Colors.brackets)).font(.largeTitle.monospacedDigit())
+                        Circle()
+                            .trim(from: 0, to: 1 - ((defaultTime - countdownTime) / defaultTime))
+                            .stroke(countdownColor, style: strokeStyle)
+                            .rotationEffect(.degrees(-90))
+                            .animation(.easeIn, value: countdownTime)
                         
-                        Button {
-                            adjustTime(adding: true)
-                        } label: {
-                            Image(systemName: "plus")
-                                .foregroundStyle(Color(uiColor: Helper.Colors.type))
-                                .font(.largeTitle)
-                        }
-                        
-                    }
-                    VStack(alignment: .center) {
-                        Button("", systemImage: "gobackward") {
-                            withAnimation(.spring(duration: 1, bounce: 0.4)) {
-                                rotationAnimation()
+                        HStack(spacing: 25) {
+                            Button {
+                                adjustTime(adding: false)
+                            } label: {
+                                Image(systemName: "minus")
+                                    .foregroundStyle(Color(uiColor: Helper.Colors.type))
+                                    .font(.largeTitle)
                             }
+                            
+                            Text(String(format: "%02d:%02d", countdownMinutes, countdownSeconds))
+                                .foregroundStyle(Color(uiColor: Helper.Colors.brackets)).font(.largeTitle.monospacedDigit())
+                            
+                            Button {
+                                adjustTime(adding: true)
+                            } label: {
+                                Image(systemName: "plus")
+                                    .foregroundStyle(Color(uiColor: Helper.Colors.type))
+                                    .font(.largeTitle)
+                            }
+                            
+                        }
+                        VStack(alignment: .center) {
+                            Button("", systemImage: "gobackward") {
+                                withAnimation(.spring(duration: 1, bounce: 0.4)) {
+                                    rotationAnimation()
+                                }
+                                timerRunning = false
+                                countdownTime = defaultTime
+                            }
+                            .foregroundStyle(Color(uiColor: Helper.Colors.comments)).font(.largeTitle)
+                            .rotation3DEffect(
+                                .degrees(rotationAngleRepeatButton),
+                                axis: (x: 1.0, y: 0.0, z: 1.0)
+                            )
+                            
+                            Spacer()
+                            
+                            Button("", systemImage: buttonIcon) {
+                                withAnimation(.easeInOut) {
+                                    timerRunning.toggle()
+                                }
+                            }
+                            .foregroundStyle(Color(uiColor: Helper.Colors.variable)).font(.largeTitle)
+                            
+                        }
+                        .padding(.vertical, 40)
+                    }
+                    .frame(width: geometry.size.width - 90, height: geometry.size.width - 90)
+                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+                    .onReceive(timer, perform: { _ in
+                        guard timerRunning else { return }
+                        if countdownTime > 0 {
+                            countdownTime -= 1
+                        } else {
                             timerRunning = false
                             countdownTime = defaultTime
                         }
-                        .foregroundStyle(Color(uiColor: Helper.Colors.comments)).font(.largeTitle)
-                        .rotation3DEffect(
-                            .degrees(rotationAngleRepeatButton),
-                            axis: (x: 1.0, y: 0.0, z: 1.0)
-                        )
-                        
-                        Spacer()
-                        
-                        Button("", systemImage: buttonIcon) {
-                            withAnimation(.easeInOut) {
-                                timerRunning.toggle()
-                            }
-                        }
-                        .foregroundStyle(Color(uiColor: Helper.Colors.variable)).font(.largeTitle)
-                        
-//                        Button(action: {
-//                         
-//                        }, label: {
-//                            Label("", systemImage: buttonIcon)
-//                                .foregroundStyle(Color(uiColor: Helper.Colors.variable)).font(.largeTitle)
-//                                .onTapGesture(perform: {
-//                                    timerRunning.toggle()
-//                                })
-//                        })
-                        
-                    }
-                    .frame(height: 200)
+                    })
                 }
-                .frame(width: 300, height: 300)
-                .onReceive(timer, perform: { _ in
-                    guard timerRunning else { return }
-                    if countdownTime > 0 {
-                        countdownTime -= 1
-                    } else {
-                        timerRunning = false
-                        countdownTime = defaultTime
-                    }
-                })
-                
                 
             }
     }
@@ -135,7 +127,7 @@ struct TimerView: View {
         rotationAngleRepeatButton -= 360
     }
     
-   
+    
     
     func adjustTime(adding: Bool) {
         timerRunning = false
