@@ -13,6 +13,7 @@ struct TimerView: View {
     
     @State private var timerRunning = false
     @State private var countdownTime: CGFloat = 1200
+    @State private var rotationAngleRepeatButton: Double = 0.0
     
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -21,7 +22,7 @@ struct TimerView: View {
     }
     
     var buttonIcon: String {
-        timerRunning ? "pause.circle.fill" : "play.circle.fill"
+        timerRunning ? "pause" : "play"
     }
     
     var countdownColor: Color {
@@ -60,7 +61,7 @@ struct TimerView: View {
                     
                     HStack(spacing: 25) {
                         Button {
-                            minusTime()
+                            adjustTime(adding: false)
                         } label: {
                             Image(systemName: "minus")
                                 .foregroundStyle(Color(uiColor: Helper.Colors.type))
@@ -71,7 +72,7 @@ struct TimerView: View {
                             .foregroundStyle(Color(uiColor: Helper.Colors.brackets)).font(.largeTitle.monospacedDigit())
                         
                         Button {
-                            addTime()
+                            adjustTime(adding: true)
                         } label: {
                             Image(systemName: "plus")
                                 .foregroundStyle(Color(uiColor: Helper.Colors.type))
@@ -79,25 +80,38 @@ struct TimerView: View {
                         }
                         
                     }
-                    VStack {
-                        Button(action: {}, label: {
-                            Label("", systemImage: "gobackward")
-                                .foregroundStyle(Color(uiColor: Helper.Colors.comments)).font(.largeTitle)
-                                .onTapGesture(perform: {
-                                    timerRunning = false
-                                    countdownTime = defaultTime
-                                })
-                        })
+                    VStack(alignment: .center) {
+                        Button("", systemImage: "gobackward") {
+                            withAnimation(.spring(duration: 1, bounce: 0.4)) {
+                                rotationAnimation()
+                            }
+                            timerRunning = false
+                            countdownTime = defaultTime
+                        }
+                        .foregroundStyle(Color(uiColor: Helper.Colors.comments)).font(.largeTitle)
+                        .rotation3DEffect(
+                            .degrees(rotationAngleRepeatButton),
+                            axis: (x: 1.0, y: 0.0, z: 1.0)
+                        )
                         
                         Spacer()
                         
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                            Label("", systemImage: buttonIcon)
-                                .foregroundStyle(Color(uiColor: Helper.Colors.variable)).font(.largeTitle)
-                                .onTapGesture(perform: {
-                                    timerRunning.toggle()
-                                })
-                        })
+                        Button("", systemImage: buttonIcon) {
+                            withAnimation(.easeInOut) {
+                                timerRunning.toggle()
+                            }
+                        }
+                        .foregroundStyle(Color(uiColor: Helper.Colors.variable)).font(.largeTitle)
+                        
+//                        Button(action: {
+//                         
+//                        }, label: {
+//                            Label("", systemImage: buttonIcon)
+//                                .foregroundStyle(Color(uiColor: Helper.Colors.variable)).font(.largeTitle)
+//                                .onTapGesture(perform: {
+//                                    timerRunning.toggle()
+//                                })
+//                        })
                         
                     }
                     .frame(height: 200)
@@ -117,29 +131,35 @@ struct TimerView: View {
             }
     }
     
-    func addTime() {
+    func rotationAnimation() {
+        rotationAngleRepeatButton -= 360
+    }
+    
+   
+    
+    func adjustTime(adding: Bool) {
         timerRunning = false
         countdownTime = defaultTime
-        if defaultTime >= 3600 {
-            defaultTime = 1200
-            countdownTime = 1200
+        
+        if adding {
+            if defaultTime >= 3600 {
+                defaultTime = 3600
+                countdownTime = 3600
+            } else {
+                defaultTime += 300
+                countdownTime += 300
+            }
         } else {
-            defaultTime += 300
-            countdownTime += 300
+            if defaultTime <= 1200 {
+                defaultTime = 1200
+                countdownTime = 1200
+            } else {
+                defaultTime -= 300
+                countdownTime -= 300
+            }
         }
     }
     
-    func minusTime() {
-        timerRunning = false
-        countdownTime = defaultTime
-        if defaultTime <= 1200 {
-            defaultTime = 1200
-            countdownTime = 1200
-        } else {
-            defaultTime -= 300
-            countdownTime -= 300
-        }
-    }
 }
 
 #Preview {
