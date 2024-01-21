@@ -22,6 +22,7 @@ struct ClockView: View {
     @State private var currentTimePeriod: TimeAMPM
     @State private var currentDate: String = ""
     
+    //Set time for focus
     init() {
         let currentDate = Date()
         let calendar = Calendar.current
@@ -79,16 +80,28 @@ struct ClockView: View {
                         textAndColor(name: "=", color: Helper.Colors.brackets)
                         textAndColor(name: "\(batteryViewModel.batteryLevel)", color: Helper.Colors.number).bold()
                     }
-                    //MARK: - Sound
+                    //MARK: - Spacer
                     HStack {
-                        textAndColor(name: "        var", color: Helper.Colors.variable).bold()
-                        Text("\(textAndColor(name: "sound", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
-                        
-                        textAndColor(name: "Disabled", color: Helper.Colors.type)
+                        Text("")
+                    }
+                    //MARK: - Comments
+                    HStack {
+                        textAndColor(name: "        //Set a time for concentration", color: Helper.Colors.comments)
+                    }
+                    //MARK: - Init()
+                    HStack {
+                        Text("\(textAndColor(name: "        init", color: Helper.Colors.variable).bold())\(textAndColor(name: "()", color: Helper.Colors.brackets))")
+                        textAndColor(name: "{", color: Helper.Colors.brackets)
+                    }
+                    HStack {
+                        textAndColor(name: "                var", color: Helper.Colors.variable).bold()
+                        Text("\(textAndColor(name: "pomodoro", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
+                        textAndColor(name: "Seconds", color: Helper.Colors.type)
                         textAndColor(name: "=", color: Helper.Colors.brackets)
-                        
-                        soundViewModel.isSoundEnabled ? textAndColor(name: "false", color: Helper.Colors.variable).bold() : textAndColor(name: "true", color: Helper.Colors.variable).bold()
-                        
+                        textAndColor(name: "1500", color: Helper.Colors.number).bold()
+                    }
+                    HStack {
+                        textAndColor(name: "        }", color: Helper.Colors.brackets)
                     }
                     //MARK: - End of struct
                     textAndColor(name: "}", color: Helper.Colors.brackets)
