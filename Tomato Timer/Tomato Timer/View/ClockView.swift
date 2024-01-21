@@ -17,11 +17,12 @@ struct ClockView: View {
     @ObservedObject private var batteryViewModel = BatteryViewModel()
     @ObservedObject private var soundViewModel = SoundViewModel()
     @ObservedObject private var clockViewModel = ClockViewModel()
+    @ObservedObject private var pomodoroTimeModel = PomodoroTimeModel()
     
     @State private var batteryLevel: Float = UIDevice.current.batteryLevel
     @State private var currentTimePeriod: TimeAMPM
     @State private var currentDate: String = ""
-    @State private var pomodoroTimeInSeconds = 1200
+    
     
     //Set time for focus
     init() {
@@ -30,6 +31,7 @@ struct ClockView: View {
         let hour = calendar.component(.hour, from: currentDate)
         _currentTimePeriod = State(initialValue: hour < 12 ? .am : .pm)
         _currentDate = State(initialValue: getCurrentDate())
+       
     }
     
     var body: some View {
@@ -100,14 +102,10 @@ struct ClockView: View {
                         Text("\(textAndColor(name: "pomodoro", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
                         textAndColor(name: "Minuts", color: Helper.Colors.type)
                         textAndColor(name: "=", color: Helper.Colors.brackets)
-                        textAndColor(name: "\(pomodoroTimeInSeconds / 60)", color: Helper.Colors.number).bold().font(.title3).monospacedDigit()
+                        textAndColor(name: "\(pomodoroTimeModel.pomodoroTimeInSeconds / 60)", color: Helper.Colors.number).bold().font(.title3).monospacedDigit()
                     }
                     .onTapGesture {
-                        if pomodoroTimeInSeconds >= 3600 {
-                            pomodoroTimeInSeconds = 1200
-                        } else {
-                            pomodoroTimeInSeconds += 600
-                        }
+                        pomodoroTimeModel.addSeconds()
                     }
                     
                     HStack {
@@ -150,4 +148,5 @@ struct ClockView: View {
 
 #Preview {
     ClockView()
+
 }
