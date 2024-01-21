@@ -44,6 +44,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		178168A32B5D00950081A3E2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				176536932B5C047800517AEA /* ClockViewModel.swift */,
+				176536912B5BFF7900517AEA /* SoundViewModel.swift */,
+				1765368F2B5BF9DA00517AEA /* BatteryViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		178168A42B5D00A80081A3E2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17E927512B5AE0C0000BA1F2 /* ContentView.swift */,
+				17E9275D2B5AE104000BA1F2 /* TimerView.swift */,
+				1765368B2B5BC4C300517AEA /* ClockView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		17E927432B5AE0C0000BA1F2 = {
 			isa = PBXGroup;
 			children = (
@@ -64,12 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				17E9274F2B5AE0C0000BA1F2 /* Tomato_TimerApp.swift */,
-				17E927512B5AE0C0000BA1F2 /* ContentView.swift */,
-				17E9275D2B5AE104000BA1F2 /* TimerView.swift */,
-				1765368B2B5BC4C300517AEA /* ClockView.swift */,
-				176536932B5C047800517AEA /* ClockViewModel.swift */,
-				176536912B5BFF7900517AEA /* SoundViewModel.swift */,
-				1765368F2B5BF9DA00517AEA /* BatteryViewModel.swift */,
+				178168A42B5D00A80081A3E2 /* View */,
+				178168A32B5D00950081A3E2 /* Model */,
 				17E927532B5AE0C2000BA1F2 /* Assets.xcassets */,
 				17E927552B5AE0C2000BA1F2 /* Preview Content */,
 			);

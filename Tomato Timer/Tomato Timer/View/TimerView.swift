@@ -10,26 +10,25 @@ import Foundation
 
 
 struct TimerView: View {
-    let defaultTime: CGFloat = 25
-    
+    let defaultTime: CGFloat = 1500
+    var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State private var timerRunning = false
-    @State private var countdownTime: CGFloat = 25
-    var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var countdownTime: CGFloat = 1500
     
     var strokeStyle: StrokeStyle {
         StrokeStyle(lineWidth: 15, lineCap: .round)
     }
     
     var buttonIcon: String {
-        timerRunning ? "pause.rectangle.fill" : "play.rectangle.fill"
+        timerRunning ? "pause.circle.fill" : "play.circle.fill"
     }
     
     var countdownColor: Color {
         switch countdownTime {
-        case 6...: return Color.green
-        case 3...: return Color.yellow
-        default: return Color.red
+        case 300...: return Color(uiColor: Helper.Colors.ifElseCondition)
+        case 60...: return Color(uiColor: Helper.Colors.number)
+        default: return Color(uiColor: Helper.Colors.string)
         }
     }
     
@@ -49,18 +48,18 @@ struct TimerView: View {
                             .trim(from: 0, to: 1 - ((defaultTime - countdownTime) / defaultTime))
                             .stroke(countdownColor, style: strokeStyle)
                             .rotationEffect(.degrees(-90))
-                            .animation(.spring(duration: 1, bounce: 0.4), value: countdownTime)
+                            .animation(.easeIn, value: countdownTime)
                         
                         HStack(spacing: 25) {
                             Label("", systemImage: buttonIcon)
-                                .foregroundStyle(.black).font(.title)
+                                .foregroundStyle(Color(uiColor: Helper.Colors.variable)).font(.largeTitle)
                                 .onTapGesture(perform: {
                                     timerRunning.toggle()
                                 })
                             Text("\(Int(countdownTime))")
-                                .font(.largeTitle)
+                                .foregroundStyle(Color(uiColor: Helper.Colors.brackets)) .font(.largeTitle)
                             Label("", systemImage: "gobackward")
-                                .foregroundStyle(.red)
+                                .foregroundStyle(Color(uiColor: Helper.Colors.string)).font(.largeTitle)
                                 .onTapGesture(perform: {
                                     timerRunning = false
                                     countdownTime = defaultTime
