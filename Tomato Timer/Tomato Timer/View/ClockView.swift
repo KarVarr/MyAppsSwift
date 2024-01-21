@@ -21,6 +21,7 @@ struct ClockView: View {
     @State private var batteryLevel: Float = UIDevice.current.batteryLevel
     @State private var currentTimePeriod: TimeAMPM
     @State private var currentDate: String = ""
+    @State private var pomodoroTimeInSeconds = 1200
     
     //Set time for focus
     init() {
@@ -79,6 +80,7 @@ struct ClockView: View {
                         
                         textAndColor(name: "=", color: Helper.Colors.brackets)
                         textAndColor(name: "\(batteryViewModel.batteryLevel)", color: Helper.Colors.number).bold()
+                        textAndColor(name: "%", color: Helper.Colors.number)
                     }
                     //MARK: - Spacer
                     HStack {
@@ -96,10 +98,18 @@ struct ClockView: View {
                     HStack {
                         textAndColor(name: "                var", color: Helper.Colors.variable).bold()
                         Text("\(textAndColor(name: "pomodoro", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
-                        textAndColor(name: "Seconds", color: Helper.Colors.type)
+                        textAndColor(name: "Minuts", color: Helper.Colors.type)
                         textAndColor(name: "=", color: Helper.Colors.brackets)
-                        textAndColor(name: "1500", color: Helper.Colors.number).bold()
+                        textAndColor(name: "\(pomodoroTimeInSeconds / 60)", color: Helper.Colors.number).bold().font(.title3).monospacedDigit()
                     }
+                    .onTapGesture {
+                        if pomodoroTimeInSeconds >= 3600 {
+                            pomodoroTimeInSeconds = 1200
+                        } else {
+                            pomodoroTimeInSeconds += 600
+                        }
+                    }
+                    
                     HStack {
                         textAndColor(name: "        }", color: Helper.Colors.brackets)
                     }
