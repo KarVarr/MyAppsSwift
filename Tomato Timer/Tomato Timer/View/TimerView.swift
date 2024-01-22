@@ -15,7 +15,6 @@ struct TimerView: View {
     @State private var timerRunning = false
     @State private var countdownTime: CGFloat = 1200
     @State private var rotationAngleRepeatButton: Double = 0.0
-    @State private var rotationUpSideDown: Double = 0.0
     
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -45,7 +44,6 @@ struct TimerView: View {
     
     
     var body: some View {
-        
         
         Color(uiColor: Helper.Colors.background)
             .ignoresSafeArea()
@@ -84,36 +82,43 @@ struct TimerView: View {
                             }
                             
                         }
+                        
                         //MARK: - Play/stop and Restart time
                         VStack(alignment: .center) {
-                            Button("", systemImage: "gobackward") {
-                                withAnimation(.spring(duration: 1, bounce: 0.4)) {
+                            Button {
+                                withAnimation(.spring(duration: 1, bounce: 0.6)) {
                                     rotationAnimation()
                                 }
-                                rotationUpSideDown = 0.0
                                 timerRunning = false
                                 countdownTime = defaultTime
+                            } label: {
+                                Image("repeat")
+                                    .resizable()
+                                    .renderingMode(.template)
+                                    .scaledToFit()
+                                    .frame(width: 50)
                             }
                             .foregroundStyle(Color(uiColor: Helper.Colors.comments)).font(.largeTitle)
                             .rotation3DEffect(
                                 .degrees(rotationAngleRepeatButton),
-                                axis: (x: 1.0, y: 0.0, z: 1.0)
+                                axis: (x: 0.0, y: 0.0, z: -1.0)
                             )
                             
                             Spacer()
                             
-                            Button("", systemImage: buttonIcon) {
+                            Button {
                                 withAnimation(.easeInOut) {
                                     timerRunning.toggle()
-                                    rotationAnimationUpSideDown()
                                 }
+                            } label: {
+                                Image(buttonIcon)
+                                    .resizable()
+                                    .renderingMode(.template)
+                                    .scaledToFit()
+                                    .frame(width: 50)
                             }
                             .foregroundStyle(Color(uiColor: Helper.Colors.variable)).font(.largeTitle)
-                            .rotation3DEffect(
-                                .degrees(rotationUpSideDown),
-                                axis: (x: 0.0, y: 0.0, z: 1.0)
-                            )
-                            
+                     
                         }
                         .padding(.vertical, 40)
                     }
@@ -126,6 +131,7 @@ struct TimerView: View {
                         } else {
                             timerRunning = false
                             countdownTime = defaultTime
+                            timerCount = countdownTime
                         }
                     })
                 }
@@ -134,12 +140,9 @@ struct TimerView: View {
     }
     
     func rotationAnimation() {
-        rotationAngleRepeatButton -= 360
+        rotationAngleRepeatButton -= 180
     }
     
-    func rotationAnimationUpSideDown() {
-        rotationUpSideDown += 180
-    }
     
     func adjustTime(adding: Bool) {
         timerRunning = false
