@@ -19,6 +19,7 @@ struct ClockView: View {
     @ObservedObject private var clockViewModel = ClockViewModel()
     @ObservedObject private var pomodoroTimeModel = PomodoroTimeModel()
     
+    @State private var timerCount: CGFloat = 1200
     @State private var batteryLevel: Float = UIDevice.current.batteryLevel
     @State private var currentTimePeriod: TimeAMPM
     @State private var currentDate: String = ""
@@ -50,7 +51,9 @@ struct ClockView: View {
         Color(uiColor: Helper.Colors.background)
             .ignoresSafeArea()
             .overlay {
-                GeometryReader { geometry in
+                
+                VStack(alignment: .center) {
+                    Spacer()
                     VStack(alignment: .leading) {
                         //MARK: - struct
                         HStack {
@@ -60,7 +63,7 @@ struct ClockView: View {
                         }
                         //MARK: - Date
                         HStack {
-                            textAndColor(name: "        let", color: Helper.Colors.variable).bold()
+                            textAndColor(name: "        var", color: Helper.Colors.variable).bold()
                             textAndColor(name: "date", color: Helper.Colors.variableName)
                             textAndColor(name: "=", color: Helper.Colors.brackets)
                             textAndColor(name: "\"\(getCurrentDate())\"", color: Helper.Colors.string).bold()
@@ -93,7 +96,7 @@ struct ClockView: View {
                             }
                             
                             textAndColor(name: "=", color: Helper.Colors.brackets)
-                            Text("\(textAndColor(name: "\(batteryViewModel.batteryLevel)", color: Helper.Colors.number).bold())\(textAndColor(name: "%", color: Helper.Colors.number))")
+                            Text("\(textAndColor(name: "\(batteryViewModel.batteryLevel + 1)", color: Helper.Colors.number).bold())\(textAndColor(name: "%", color: Helper.Colors.number))")
                         }
                         //MARK: - Spacer
                         HStack {
@@ -101,7 +104,7 @@ struct ClockView: View {
                         }
                         //MARK: - Comments
                         HStack {
-                            textAndColor(name: "        //Set a time for concentration", color: Helper.Colors.comments)
+                            textAndColor(name: "        //time for concentration", color: Helper.Colors.comments)
                         }
                         //MARK: - Init()
                         HStack {
@@ -111,10 +114,11 @@ struct ClockView: View {
                         
                         HStack {
                             textAndColor(name: "                var", color: Helper.Colors.variable).bold()
-                            Text("\(textAndColor(name: "pomodoro", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
+                            Text("\(textAndColor(name: "focus", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
                             textAndColor(name: "Minuts", color: Helper.Colors.type)
                             textAndColor(name: "=", color: Helper.Colors.brackets)
-                            textAndColor(name: "\(pomodoroTimeModel.pomodoroTimeInSeconds / 60)", color: Helper.Colors.number).bold().font(.title3).monospacedDigit()
+                            textAndColor(name: String(format: "%.0f",timerCount / 60), color: Helper.Colors.number).bold().font(.title3).monospacedDigit()
+                            
                         }
                         .onTapGesture {
                             pomodoroTimeModel.addSeconds()
@@ -128,13 +132,15 @@ struct ClockView: View {
                         textAndColor(name: "}", color: Helper.Colors.brackets)
                         
                     }
-                    .frame(maxWidth: .infinity)
-                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
-                    .padding(.horizontal, 10)
-                    .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged), perform: { _ in
-                        currentDate = getCurrentDate()
-                    })
+                    //MARK: - TimerView
+                    TimerView(timerCount: $timerCount)
                 }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged), perform: { _ in
+                    currentDate = getCurrentDate()
+                })
+                
             }
     }
     

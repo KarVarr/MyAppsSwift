@@ -13,11 +13,7 @@ struct ContentView: View {
         Color(uiColor: Helper.Colors.background)
             .ignoresSafeArea()
             .overlay {
-                
-                VStack {
-                    ClockView()
-                    TimerView()
-                }
+                ClockView()
             }
     }
 }

@@ -9,11 +9,13 @@ import SwiftUI
 
 
 struct TimerView: View {
-    @State private var defaultTime: CGFloat = 1200
+    @Binding var timerCount: CGFloat
     
+    @State private var defaultTime: CGFloat = 1200
     @State private var timerRunning = false
     @State private var countdownTime: CGFloat = 1200
     @State private var rotationAngleRepeatButton: Double = 0.0
+    @State private var rotationUpSideDown: Double = 0.0
     
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -60,6 +62,7 @@ struct TimerView: View {
                             .rotationEffect(.degrees(-90))
                             .animation(.easeIn, value: countdownTime)
                         
+                        //MARK: - Plus and Minus time
                         HStack(spacing: 25) {
                             Button {
                                 adjustTime(adding: false)
@@ -81,11 +84,13 @@ struct TimerView: View {
                             }
                             
                         }
+                        //MARK: - Play/stop and Restart time
                         VStack(alignment: .center) {
                             Button("", systemImage: "gobackward") {
                                 withAnimation(.spring(duration: 1, bounce: 0.4)) {
                                     rotationAnimation()
                                 }
+                                rotationUpSideDown = 0.0
                                 timerRunning = false
                                 countdownTime = defaultTime
                             }
@@ -100,9 +105,14 @@ struct TimerView: View {
                             Button("", systemImage: buttonIcon) {
                                 withAnimation(.easeInOut) {
                                     timerRunning.toggle()
+                                    rotationAnimationUpSideDown()
                                 }
                             }
                             .foregroundStyle(Color(uiColor: Helper.Colors.variable)).font(.largeTitle)
+                            .rotation3DEffect(
+                                .degrees(rotationUpSideDown),
+                                axis: (x: 0.0, y: 0.0, z: 1.0)
+                            )
                             
                         }
                         .padding(.vertical, 40)
@@ -127,7 +137,9 @@ struct TimerView: View {
         rotationAngleRepeatButton -= 360
     }
     
-    
+    func rotationAnimationUpSideDown() {
+        rotationUpSideDown += 180
+    }
     
     func adjustTime(adding: Bool) {
         timerRunning = false
@@ -137,17 +149,21 @@ struct TimerView: View {
             if defaultTime >= 3600 {
                 defaultTime = 3600
                 countdownTime = 3600
+                timerCount = countdownTime
             } else {
                 defaultTime += 300
                 countdownTime += 300
+                timerCount = countdownTime
             }
         } else {
             if defaultTime <= 1200 {
                 defaultTime = 1200
                 countdownTime = 1200
+                timerCount = countdownTime
             } else {
                 defaultTime -= 300
                 countdownTime -= 300
+                timerCount = countdownTime
             }
         }
     }
@@ -155,5 +171,5 @@ struct TimerView: View {
 }
 
 #Preview {
-    TimerView()
+    TimerView(timerCount: .constant(1200))
 }
