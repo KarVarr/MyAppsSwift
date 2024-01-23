@@ -13,7 +13,7 @@ class BatteryViewModel: ObservableObject {
     init() {
         UIDevice.current.isBatteryMonitoringEnabled = true
         self.batteryLevel = Int(UIDevice.current.batteryLevel * 100)
-        getBatteryState()
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(batteryLevelDidChange(notification:)), name: UIDevice.batteryLevelDidChangeNotification, object: nil)
     }
@@ -22,8 +22,6 @@ class BatteryViewModel: ObservableObject {
         self.batteryLevel = Int(UIDevice.current.batteryLevel * 100)
     }
     
-    private func getBatteryState() {
-        let batteryState = UIDevice.current.batteryState
-    }
+    
 
 }

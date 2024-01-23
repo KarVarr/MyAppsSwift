@@ -19,20 +19,24 @@ struct TimerView: View {
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var strokeStyle: StrokeStyle {
-        StrokeStyle(lineWidth: 15, lineCap: .round)
+        StrokeStyle(lineWidth: 30, lineCap: .round)
     }
     
     var buttonIcon: String {
         timerRunning ? "pause" : "play"
     }
     
-    var countdownColor: Color {
+    var countdownColor: LinearGradient {
         switch countdownTime {
-        case 300...: return Color(uiColor: Helper.Colors.ifElseCondition)
-        case 60...: return Color(uiColor: Helper.Colors.number)
-        default: return Color(uiColor: Helper.Colors.string)
+        case 300...:
+            return LinearGradient(gradient: Gradient(colors: [Color(uiColor: Helper.Colors.ifElseCondition), Color(uiColor: Helper.Colors.number), Color(uiColor: Helper.Colors.type)]), startPoint: .bottomLeading, endPoint: .trailing)
+        case 60...:
+            return LinearGradient(gradient: Gradient(colors: [Color(uiColor: .red), Color(uiColor: .yellow)]), startPoint: .leading, endPoint: .trailing)
+        default:
+            return LinearGradient(gradient: Gradient(colors: [Color(uiColor: .black), Color(uiColor: .cyan)]), startPoint: .bottomLeading, endPoint: .topTrailing)
         }
     }
+
     
     var countdownMinutes: Int {
         return Int(countdownTime / 60)
@@ -59,6 +63,7 @@ struct TimerView: View {
                             .stroke(countdownColor, style: strokeStyle)
                             .rotationEffect(.degrees(-90))
                             .animation(.easeIn, value: countdownTime)
+                            .shadow(radius: 10)
                         
                         //MARK: - Plus and Minus time
                         HStack(spacing: 25) {
@@ -110,6 +115,7 @@ struct TimerView: View {
                                 withAnimation(.easeInOut) {
                                     timerRunning.toggle()
                                 }
+                               
                             } label: {
                                 Image(buttonIcon)
                                     .resizable()
@@ -118,25 +124,34 @@ struct TimerView: View {
                                     .frame(width: 50)
                             }
                             .foregroundStyle(Color(uiColor: Helper.Colors.variable)).font(.largeTitle)
-                     
+                            
                         }
                         .padding(.vertical, 40)
-                    }
-                    .frame(width: geometry.size.width - 90, height: geometry.size.width - 90)
-                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
-                    .onReceive(timer, perform: { _ in
-                        guard timerRunning else { return }
-                        if countdownTime > 0 {
-                            countdownTime -= 1
-                        } else {
-                            timerRunning = false
-                            countdownTime = defaultTime
-                            timerCount = countdownTime
+                        .onReceive(timer) { _ in
+                            handleTimerUpdate()
                         }
-                    })
+                        
+                    }
+                    .frame(width: geometry.size.width , height: geometry.size.width - 50)
+                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+                    
                 }
                 
             }
+    }
+    
+    
+    func handleTimerUpdate() {
+        DispatchQueue.main.async {
+            guard timerRunning else { return }
+            if countdownTime > 0 {
+                countdownTime -= 1
+            } else {
+                timerRunning = false
+                countdownTime = defaultTime
+                timerCount = countdownTime
+            }
+        }
     }
     
     func rotationAnimation() {

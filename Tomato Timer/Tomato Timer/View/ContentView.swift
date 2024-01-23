@@ -8,12 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var timerCount: CGFloat = 1200
     
     var body: some View {
         Color(uiColor: Helper.Colors.background)
             .ignoresSafeArea()
             .overlay {
-                ClockView()
+                VStack(alignment: .center) {
+                    ClockView(timerCount: $timerCount)
+                        .padding(.bottom, 50)
+                    Spacer()
+                    TimerView(timerCount: $timerCount)
+                        .padding(.bottom, 50)
+                }
             }
     }
 }

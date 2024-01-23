@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AVFoundation
 
 enum TimeAMPM {
     case pm
@@ -17,22 +16,23 @@ struct ClockView: View {
     @ObservedObject private var batteryViewModel = BatteryViewModel()
     @ObservedObject private var soundViewModel = SoundViewModel()
     @ObservedObject private var clockViewModel = ClockViewModel()
-    @ObservedObject private var pomodoroTimeModel = PomodoroTimeModel()
     
-    @State private var timerCount: CGFloat = 1200
+    @Binding var timerCount: CGFloat
     @State private var batteryLevel: Float = UIDevice.current.batteryLevel
-    @State private var currentTimePeriod: TimeAMPM
+    @State private var currentTimePeriod: TimeAMPM = .am
     @State private var currentDate: String = ""
     
     
     let screenHeight = UIScreen.main.bounds.height
     var fontSize: CGFloat = 18
     
-    init() {
+    init(timerCount: Binding<CGFloat>  = .constant(0) ) {
         let currentDate = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: currentDate)
+        
         _currentTimePeriod = State(initialValue: hour < 12 ? .am : .pm)
+        _timerCount = Binding(projectedValue: timerCount)
         _currentDate = State(initialValue: getCurrentDate())
         
         switch screenHeight {
@@ -47,13 +47,13 @@ struct ClockView: View {
         }
     }
     
+    
+    
     var body: some View {
         Color(uiColor: Helper.Colors.background)
             .ignoresSafeArea()
             .overlay {
                 
-                VStack(alignment: .center) {
-                    Spacer()
                     VStack(alignment: .leading) {
                         //MARK: - struct
                         HStack {
@@ -120,9 +120,6 @@ struct ClockView: View {
                             textAndColor(name: String(format: "%.0f",timerCount / 60), color: Helper.Colors.number).bold().font(.title3).monospacedDigit()
                             
                         }
-                        .onTapGesture {
-                            pomodoroTimeModel.addSeconds()
-                        }
                         
                         HStack {
                             textAndColor(name: "        }", color: Helper.Colors.brackets)
@@ -130,10 +127,7 @@ struct ClockView: View {
                         }
                         //MARK: - End of struct
                         textAndColor(name: "}", color: Helper.Colors.brackets)
-                        
-                    }
-                    //MARK: - TimerView
-                    TimerView(timerCount: $timerCount)
+                 
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
