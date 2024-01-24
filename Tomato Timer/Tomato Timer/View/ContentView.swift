@@ -28,3 +28,16 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+//struct TomatoTimer {
+//    var date = "24 January 2024"
+//    var time: Int = 8
+//    var battery: Int = 90
+//   
+//    
+//    init() {
+//       
+//    }
+//}
+
+

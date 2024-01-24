@@ -37,13 +37,13 @@ struct ClockView: View {
         
         switch screenHeight {
         case 0..<600:
-            fontSize = 16
+            fontSize = 13
         case 600..<800:
-            fontSize = 18
+            fontSize = 15
         case 800..<1000:
-            fontSize = 22
+            fontSize = 17
         default:
-            fontSize = 24
+            fontSize = 19
         }
     }
     
@@ -54,80 +54,83 @@ struct ClockView: View {
             .ignoresSafeArea()
             .overlay {
                 
-                    VStack(alignment: .leading) {
-                        //MARK: - struct
-                        HStack {
-                            textAndColor(name: "struct", color: Helper.Colors.variable).bold()
-                            textAndColor(name: "TomatoTimer", color: Helper.Colors.typeName)
-                            textAndColor(name: "{", color: Helper.Colors.brackets)
-                        }
-                        //MARK: - Date
-                        HStack {
-                            textAndColor(name: "        var", color: Helper.Colors.variable).bold()
-                            textAndColor(name: "date", color: Helper.Colors.variableName)
-                            textAndColor(name: "=", color: Helper.Colors.brackets)
-                            textAndColor(name: "\"\(getCurrentDate())\"", color: Helper.Colors.string).bold()
-                        }
-                        //MARK: - Time
-                        HStack {
-                            textAndColor(name: "        var", color: Helper.Colors.variable).bold()
-                            Text("\(textAndColor(name: "time", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
-                            
-                            switch currentTimePeriod {
-                            case .am: textAndColor(name: "AM", color: Helper.Colors.type)
-                            case .pm: textAndColor(name: "PM", color: Helper.Colors.type)
-                            }
-                            
-                            textAndColor(name: "=", color: Helper.Colors.brackets)
-                            textAndColor(name: "\(clockViewModel.currentTime)", color: Helper.Colors.number).bold()
-                        }
-                        //MARK: - Battery
-                        HStack {
-                            
-                            textAndColor(name: "        var", color: Helper.Colors.variable).bold()
-                            Text("\(textAndColor(name: "battery", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
-                            
-                            switch batteryViewModel.batteryLevel {
-                            case 0..<20: textAndColor(name: "Low", color: Helper.Colors.type)
-                            case 20..<60: textAndColor(name: "Medium", color: Helper.Colors.type)
-                            case 60..<100: textAndColor(name: "Good", color: Helper.Colors.type)
-                            default:
-                                textAndColor(name: "N/A", color: Helper.Colors.type)
-                            }
-                            
-                            textAndColor(name: "=", color: Helper.Colors.brackets)
-                            Text("\(textAndColor(name: "\(batteryViewModel.batteryLevel + 1)", color: Helper.Colors.number).bold())\(textAndColor(name: "%", color: Helper.Colors.number))")
-                        }
-                        //MARK: - Spacer
-                        HStack {
-                            Text("")
-                        }
-                        //MARK: - Comments
-                        HStack {
-                            textAndColor(name: "        //time for concentration", color: Helper.Colors.comments)
-                        }
-                        //MARK: - Init()
-                        HStack {
-                            Text("\(textAndColor(name: "        init", color: Helper.Colors.variable).bold())\(textAndColor(name: "()", color: Helper.Colors.brackets))")
-                            textAndColor(name: "{", color: Helper.Colors.brackets)
+                VStack(alignment: .leading) {
+                    //MARK: - struct
+                    HStack {
+                        textAndColor(name: "struct", color: Helper.Colors.variable).bold()
+                        textAndColor(name: "TomatoTimer", color: Helper.Colors.typeName)
+                        textAndColor(name: "{", color: Helper.Colors.brackets)
+                        
+                    }
+                    //MARK: - Date
+                    HStack {
+                        textAndColor(name: "    var", color: Helper.Colors.variable).bold()
+                        textAndColor(name: "date", color: Helper.Colors.variableName)
+                        textAndColor(name: "=", color: Helper.Colors.brackets)
+                        textAndColor(name: "\"\(getCurrentDate())\"", color: Helper.Colors.string).bold()
+                    }
+                    //MARK: - Time
+                    HStack {
+                        textAndColor(name: "    var", color: Helper.Colors.variable).bold()
+                        Text("\(textAndColor(name: "time", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
+                        
+                        switch currentTimePeriod {
+                        case .am: textAndColor(name: "AM", color: Helper.Colors.type)
+                        case .pm: textAndColor(name: "PM", color: Helper.Colors.type)
                         }
                         
-                        HStack {
-                            textAndColor(name: "                var", color: Helper.Colors.variable).bold()
-                            Text("\(textAndColor(name: "focus", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
-                            textAndColor(name: "Minuts", color: Helper.Colors.type)
-                            textAndColor(name: "=", color: Helper.Colors.brackets)
-                            textAndColor(name: String(format: "%.0f",timerCount / 60), color: Helper.Colors.number).bold().font(.title3).monospacedDigit()
-                            
+                        textAndColor(name: "=", color: Helper.Colors.brackets)
+                        textAndColor(name: "\(clockViewModel.currentTime)", color: Helper.Colors.number).bold()
+                    }
+                    //MARK: - Battery
+                    HStack {
+                        
+                        textAndColor(name: "    var", color: Helper.Colors.variable).bold()
+                        Text("\(textAndColor(name: "battery", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
+                        
+                        switch batteryViewModel.batteryLevel {
+                        case 0..<20: textAndColor(name: "Low", color: Helper.Colors.type)
+                        case 20..<60: textAndColor(name: "Medium", color: Helper.Colors.type)
+                        case 60..<100: textAndColor(name: "Good", color: Helper.Colors.type)
+                        default:
+                            textAndColor(name: "N/A", color: Helper.Colors.type)
                         }
                         
-                        HStack {
-                            textAndColor(name: "        }", color: Helper.Colors.brackets)
-                            
-                        }
-                        //MARK: - End of struct
-                        textAndColor(name: "}", color: Helper.Colors.brackets)
-                 
+                        textAndColor(name: "=", color: Helper.Colors.brackets)
+                        Text("\(textAndColor(name: "\(batteryViewModel.batteryLevel)", color: Helper.Colors.number).bold())\(textAndColor(name: "%", color: Helper.Colors.number))")
+                    }
+                    //MARK: - Spacer
+                    HStack {
+                        Text("")
+                    }
+                    //MARK: - Comments
+                    HStack {
+                        textAndColor(name: "    //time for concentration", color: Helper.Colors.comments)
+                    }
+                    //MARK: - Init()
+                    HStack {
+                        Text("\(textAndColor(name: "    init", color: Helper.Colors.variable).bold())\(textAndColor(name: "()", color: Helper.Colors.brackets))")
+                        textAndColor(name: "{", color: Helper.Colors.brackets)
+                    }
+                    
+                    
+                    HStack {
+                        textAndColor(name: "       var", color: Helper.Colors.variable).bold()
+                        Text("\(textAndColor(name: "focus", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
+                        textAndColor(name: "Minuts", color: Helper.Colors.type)
+                        textAndColor(name: "=", color: Helper.Colors.brackets)
+                        textAndColor(name: String(format: "%.0f",timerCount / 60), color: Helper.Colors.number).bold().font(.title3).monospacedDigit()
+                        
+                    }
+                    
+                    
+                    HStack {
+                        textAndColor(name: "    }", color: Helper.Colors.brackets)
+                        
+                    }
+                    //MARK: - End of struct
+                    textAndColor(name: "}", color: Helper.Colors.brackets)
+                    
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
@@ -158,7 +161,8 @@ struct ClockView: View {
     private func textAndColor(name: String, color: UIColor) -> Text {
         return Text(name)
             .foregroundColor(Color(uiColor: color))
-            .font(.system(size: fontSize))
+            .font(.system(size: fontSize, weight: .regular, design: .monospaced))
+            
     }
     
 }
