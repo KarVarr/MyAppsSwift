@@ -46,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		170F7F672B61620E002F3912 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1765368D2B5BC86200517AEA /* Helper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		178168A32B5D00950081A3E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				17E9274F2B5AE0C0000BA1F2 /* Tomato_TimerApp.swift */,
+				170F7F672B61620E002F3912 /* Helper */,
 				178168A42B5D00A80081A3E2 /* View */,
 				178168A32B5D00950081A3E2 /* Model */,
 				17E927532B5AE0C2000BA1F2 /* Assets.xcassets */,
@@ -99,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				17E927562B5AE0C2000BA1F2 /* Preview Assets.xcassets */,
-				1765368D2B5BC86200517AEA /* Helper.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";

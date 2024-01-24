@@ -19,7 +19,7 @@ struct TimerView: View {
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var strokeStyle: StrokeStyle {
-        StrokeStyle(lineWidth: 30, lineCap: .round)
+        StrokeStyle(lineWidth: 7, lineCap: .round)
     }
     
     var buttonIcon: String {
@@ -29,11 +29,11 @@ struct TimerView: View {
     var countdownColor: LinearGradient {
         switch countdownTime {
         case 300...:
-            return LinearGradient(gradient: Gradient(colors: [Color(uiColor: Helper.Colors.ifElseCondition), Color(uiColor: Helper.Colors.number), Color(uiColor: Helper.Colors.type)]), startPoint: .bottomLeading, endPoint: .trailing)
+            return Helper.Colors.linearGradientPinkBlue
         case 60...:
-            return LinearGradient(gradient: Gradient(colors: [Color(uiColor: .red), Color(uiColor: .yellow)]), startPoint: .leading, endPoint: .trailing)
+            return Helper.Colors.linearGradientRedOrange
         default:
-            return LinearGradient(gradient: Gradient(colors: [Color(uiColor: .black), Color(uiColor: .cyan)]), startPoint: .bottomLeading, endPoint: .topTrailing)
+            return Helper.Colors.linearGradientDarkGrayBrightRed
         }
     }
 
@@ -63,7 +63,7 @@ struct TimerView: View {
                             .stroke(countdownColor, style: strokeStyle)
                             .rotationEffect(.degrees(-90))
                             .animation(.easeIn, value: countdownTime)
-                            .shadow(radius: 10)
+                            .shadow(color: .black.opacity(0.5), radius: 5, x: 3, y: 3)
                         
                         //MARK: - Plus and Minus time
                         HStack(spacing: 25) {
@@ -74,6 +74,7 @@ struct TimerView: View {
                                     .foregroundStyle(Color(uiColor: Helper.Colors.type))
                                     .font(.largeTitle)
                             }
+                            
                             
                             Text(String(format: "%02d:%02d", countdownMinutes, countdownSeconds))
                                 .foregroundStyle(Color(uiColor: Helper.Colors.brackets)).font(.largeTitle.monospacedDigit())
@@ -87,6 +88,8 @@ struct TimerView: View {
                             }
                             
                         }
+                        
+                        
                         
                         //MARK: - Play/stop and Restart time
                         VStack(alignment: .center) {
@@ -103,6 +106,7 @@ struct TimerView: View {
                                     .scaledToFit()
                                     .frame(width: 50)
                             }
+                            
                             .foregroundStyle(Color(uiColor: Helper.Colors.comments)).font(.largeTitle)
                             .rotation3DEffect(
                                 .degrees(rotationAngleRepeatButton),
@@ -122,10 +126,12 @@ struct TimerView: View {
                                     .renderingMode(.template)
                                     .scaledToFit()
                                     .frame(width: 50)
+                                    
                             }
                             .foregroundStyle(Color(uiColor: Helper.Colors.variable)).font(.largeTitle)
                             
                         }
+                        
                         .padding(.vertical, 40)
                         .onReceive(timer) { _ in
                             handleTimerUpdate()
