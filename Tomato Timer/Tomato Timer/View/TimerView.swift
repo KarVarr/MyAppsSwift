@@ -9,11 +9,13 @@ import SwiftUI
 
 
 struct TimerView: View {
+    let audioViewModel = AudioViewModel()
+    
     @Binding var timerCount: CGFloat
     
-    @State private var defaultTime: CGFloat = 1200
+    @State private var defaultTime: CGFloat = 6
     @State private var timerRunning = false
-    @State private var countdownTime: CGFloat = 1200
+    @State private var countdownTime: CGFloat = 6
     @State private var rotationAngleRepeatButton: Double = 0.0
     @State private var isMinusButtonOnOff: Bool = true
     @State private var isPlusButtonOnOff: Bool = false
@@ -39,7 +41,6 @@ struct TimerView: View {
         }
     }
 
-    
     var countdownMinutes: Int {
         return Int(countdownTime / 60)
     }
@@ -169,6 +170,8 @@ struct TimerView: View {
             if countdownTime > 0 {
                 countdownTime -= 1
             } else {
+                audioViewModel.playSound()
+                sleep(2)
                 timerRunning = false
                 countdownTime = defaultTime
                 timerCount = countdownTime
