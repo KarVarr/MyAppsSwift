@@ -70,7 +70,9 @@ struct TimerView: View {
                         //MARK: - Plus and Minus time
                         HStack(spacing: 40) {
                             Button {
+                                generateHapticFeedback(style: .rigid)
                                 adjustTime(adding: false)
+                                
                             } label: {
                                 Image(systemName: "minus")
                                     .foregroundStyle(isMinusButtonOnOff ? Color(uiColor: Helper.Colors.comments) : Color(uiColor: Helper.Colors.number))
@@ -84,6 +86,7 @@ struct TimerView: View {
                             
                             Button {
                                 adjustTime(adding: true)
+                                generateHapticFeedback(style: .rigid)
                             } label: {
                                 Image(systemName: "plus")
                                     .foregroundStyle(isPlusButtonOnOff ? Color(uiColor: Helper.Colors.comments) : Color(uiColor: Helper.Colors.number))
@@ -101,6 +104,7 @@ struct TimerView: View {
                                 withAnimation(.spring(duration: 1, bounce: 0.6)) {
                                     rotationAnimation()
                                 }
+                                generateHapticFeedback(style: .light)
                                 timerRunning = false
                                 countdownTime = defaultTime
                             } label: {
@@ -110,6 +114,7 @@ struct TimerView: View {
                                     .scaledToFit()
                                     .frame(width: 50)
                             }
+                            
                             
                             .foregroundStyle(Color(uiColor: Helper.Colors.comments)).font(.largeTitle)
                             .rotation3DEffect(
@@ -123,6 +128,7 @@ struct TimerView: View {
                                 withAnimation(.easeInOut) {
                                     timerRunning.toggle()
                                 }
+                                generateHapticFeedback(style: .soft)
                                
                             } label: {
                                 Image(buttonIcon)
@@ -148,6 +154,12 @@ struct TimerView: View {
                 }
                 
             }
+    }
+    
+    func generateHapticFeedback(style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        let generator = UIImpactFeedbackGenerator(style: style)
+        generator.prepare()
+        generator.impactOccurred()
     }
     
     
