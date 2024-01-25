@@ -57,7 +57,7 @@ struct ClockView: View {
                 VStack(alignment: .leading) {
                     //MARK: - struct
                     HStack {
-                        textAndColor(name: "struct", color: Helper.Colors.variable).bold()
+                        textAndColor(name: "class", color: Helper.Colors.variable).bold()
                         textAndColor(name: "TomatoTimer", color: Helper.Colors.typeName)
                         textAndColor(name: "{", color: Helper.Colors.brackets)
                         

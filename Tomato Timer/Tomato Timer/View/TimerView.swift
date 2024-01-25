@@ -68,7 +68,7 @@ struct TimerView: View {
                             .shadow(color: .black.opacity(0.5), radius: 5, x: 3, y: 3)
                         
                         //MARK: - Plus and Minus time
-                        HStack(spacing: 25) {
+                        HStack(spacing: 40) {
                             Button {
                                 adjustTime(adding: false)
                             } label: {

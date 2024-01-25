@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		172A3EC02B62C021001690AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A3EBF2B62C021001690AE /* AppDelegate.swift */; };
 		1765368C2B5BC4C300517AEA /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765368B2B5BC4C300517AEA /* ClockView.swift */; };
 		1765368E2B5BC86200517AEA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765368D2B5BC86200517AEA /* Helper.swift */; };
 		176536902B5BF9DA00517AEA /* BatteryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765368F2B5BF9DA00517AEA /* BatteryViewModel.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		172A3EBF2B62C021001690AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1765368B2B5BC4C300517AEA /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		1765368D2B5BC86200517AEA /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		1765368F2B5BF9DA00517AEA /* BatteryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryViewModel.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		17E9274E2B5AE0C0000BA1F2 /* Tomato Timer */ = {
 			isa = PBXGroup;
 			children = (
+				172A3EBF2B62C021001690AE /* AppDelegate.swift */,
 				17E9274F2B5AE0C0000BA1F2 /* Tomato_TimerApp.swift */,
 				170F7F672B61620E002F3912 /* Helper */,
 				178168A42B5D00A80081A3E2 /* View */,
@@ -190,6 +193,7 @@
 				1765368E2B5BC86200517AEA /* Helper.swift in Sources */,
 				1765368C2B5BC4C300517AEA /* ClockView.swift in Sources */,
 				17E927502B5AE0C0000BA1F2 /* Tomato_TimerApp.swift in Sources */,
+				172A3EC02B62C021001690AE /* AppDelegate.swift in Sources */,
 				176536942B5C047800517AEA /* ClockViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
