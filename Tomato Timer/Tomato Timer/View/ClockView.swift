@@ -18,7 +18,7 @@ struct ClockView: View {
     @ObservedObject private var clockViewModel = ClockViewModel()
     
     @Binding var timerCount: CGFloat
-    @State private var batteryLevel: Float = UIDevice.current.batteryLevel
+    
     @State private var currentTimePeriod: TimeAMPM = .am
     @State private var currentDate: String = ""
     

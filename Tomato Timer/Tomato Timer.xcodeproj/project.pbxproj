@@ -17,7 +17,6 @@
 		176536902B5BF9DA00517AEA /* BatteryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765368F2B5BF9DA00517AEA /* BatteryViewModel.swift */; };
 		176536922B5BFF7900517AEA /* SoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176536912B5BFF7900517AEA /* SoundViewModel.swift */; };
 		176536942B5C047800517AEA /* ClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176536932B5C047800517AEA /* ClockViewModel.swift */; };
-		178168A82B5D16E40081A3E2 /* PomodoroTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178168A72B5D16E40081A3E2 /* PomodoroTimeModel.swift */; };
 		17E927502B5AE0C0000BA1F2 /* Tomato_TimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9274F2B5AE0C0000BA1F2 /* Tomato_TimerApp.swift */; };
 		17E927522B5AE0C0000BA1F2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E927512B5AE0C0000BA1F2 /* ContentView.swift */; };
 		17E927542B5AE0C2000BA1F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E927532B5AE0C2000BA1F2 /* Assets.xcassets */; };
@@ -36,7 +35,6 @@
 		1765368F2B5BF9DA00517AEA /* BatteryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryViewModel.swift; sourceTree = "<group>"; };
 		176536912B5BFF7900517AEA /* SoundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewModel.swift; sourceTree = "<group>"; };
 		176536932B5C047800517AEA /* ClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewModel.swift; sourceTree = "<group>"; };
-		178168A72B5D16E40081A3E2 /* PomodoroTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTimeModel.swift; sourceTree = "<group>"; };
 		17E9274C2B5AE0C0000BA1F2 /* Tomato Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tomato Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17E9274F2B5AE0C0000BA1F2 /* Tomato_TimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tomato_TimerApp.swift; sourceTree = "<group>"; };
 		17E927512B5AE0C0000BA1F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,12 +57,20 @@
 		170F7F672B61620E002F3912 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				172A3EC32B62D4A8001690AE /* notification-friend-online.mp3 */,
-				172A3EC42B62D4A8001690AE /* Notification-wake-up.mp3 */,
-				172A3EC52B62D4A8001690AE /* Portal.mp3 */,
+				172A3EC92B62D9FF001690AE /* Sounds */,
 				1765368D2B5BC86200517AEA /* Helper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		172A3EC92B62D9FF001690AE /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				172A3EC32B62D4A8001690AE /* notification-friend-online.mp3 */,
+				172A3EC42B62D4A8001690AE /* Notification-wake-up.mp3 */,
+				172A3EC52B62D4A8001690AE /* Portal.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		178168A32B5D00950081A3E2 /* Model */ = {
@@ -72,7 +78,6 @@
 			children = (
 				176536932B5C047800517AEA /* ClockViewModel.swift */,
 				176536912B5BFF7900517AEA /* SoundViewModel.swift */,
-				178168A72B5D16E40081A3E2 /* PomodoroTimeModel.swift */,
 				1765368F2B5BF9DA00517AEA /* BatteryViewModel.swift */,
 				172A3EC12B62D439001690AE /* AudioViewModel.swift */,
 			);
@@ -201,7 +206,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				17E9275E2B5AE104000BA1F2 /* TimerView.swift in Sources */,
-				178168A82B5D16E40081A3E2 /* PomodoroTimeModel.swift in Sources */,
 				17E927522B5AE0C0000BA1F2 /* ContentView.swift in Sources */,
 				176536902B5BF9DA00517AEA /* BatteryViewModel.swift in Sources */,
 				172A3EC22B62D439001690AE /* AudioViewModel.swift in Sources */,

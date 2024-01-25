@@ -13,9 +13,9 @@ struct TimerView: View {
     
     @Binding var timerCount: CGFloat
     
-    @State private var defaultTime: CGFloat = 6
+    @State private var defaultTime: CGFloat = 1200
     @State private var timerRunning = false
-    @State private var countdownTime: CGFloat = 6
+    @State private var countdownTime: CGFloat = 1200
     @State private var rotationAngleRepeatButton: Double = 0.0
     @State private var isMinusButtonOnOff: Bool = true
     @State private var isPlusButtonOnOff: Bool = false
@@ -23,7 +23,7 @@ struct TimerView: View {
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var strokeStyle: StrokeStyle {
-        StrokeStyle(lineWidth: 7, lineCap: .round)
+        StrokeStyle(lineWidth: 5, lineCap: .round)
     }
     
     var buttonIcon: String {
@@ -69,7 +69,7 @@ struct TimerView: View {
                             .shadow(color: .black.opacity(0.5), radius: 5, x: 3, y: 3)
                         
                         //MARK: - Plus and Minus time
-                        HStack(spacing: 40) {
+                        HStack(alignment: .center,spacing: 40) {
                             Button {
                                 generateHapticFeedback(style: .rigid)
                                 adjustTime(adding: false)
@@ -83,7 +83,8 @@ struct TimerView: View {
                             
                             
                             Text(String(format: "%02d:%02d", countdownMinutes, countdownSeconds))
-                                .foregroundStyle(Color(uiColor: Helper.Colors.brackets)).font(.largeTitle.monospacedDigit())
+                                .foregroundStyle(.white)
+                                .font(.system(size: 36, weight: .regular, design: .monospaced))
                             
                             Button {
                                 adjustTime(adding: true)
