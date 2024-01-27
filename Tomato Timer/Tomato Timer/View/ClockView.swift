@@ -8,8 +8,11 @@
 import SwiftUI
 
 enum TimeAMPM {
-    case pm
-    case am
+    case pm, am
+}
+
+enum Mood: String {
+    case coding, reading, exercising
 }
 
 struct ClockView: View {
@@ -20,7 +23,9 @@ struct ClockView: View {
     @Binding var timerCount: CGFloat
     
     @State private var currentTimePeriod: TimeAMPM = .am
+    @State private var currentMood: Mood = .coding
     @State private var currentDate: String = ""
+    
     
     
     let screenHeight = UIScreen.main.bounds.height
@@ -35,6 +40,7 @@ struct ClockView: View {
         _timerCount = Binding(projectedValue: timerCount)
         _currentDate = State(initialValue: getCurrentDate())
         
+        //dynamic text size
         switch screenHeight {
         case 0..<600:
             fontSize = 13
@@ -55,7 +61,29 @@ struct ClockView: View {
             .overlay {
                 
                 VStack(alignment: .leading) {
-                    //MARK: - struct
+                    //MARK: - enum
+                    HStack {
+                        textAndColor(name: "enum", color: Helper.Colors.variable).bold()
+                        textAndColor(name: "Mood", color: Helper.Colors.typeName)
+                        textAndColor(name: "{", color: Helper.Colors.brackets)
+                    }
+                    
+                    HStack {
+                        textAndColor(name: "    case", color: Helper.Colors.variable).bold()
+                        textAndColor(name: "coding,", color: Helper.Colors.variableName)
+                        textAndColor(name: "reading,", color: Helper.Colors.variableName)
+                        textAndColor(name: "exercising", color: Helper.Colors.variableName)
+                    }
+                    
+                    //MARK: - End of enum
+                    textAndColor(name: "}", color: Helper.Colors.brackets)
+                    
+                    //MARK: - Spacer
+                    HStack {
+                        Text("")
+                    }
+                    
+                    //MARK: - class
                     HStack {
                         textAndColor(name: "class", color: Helper.Colors.variable).bold()
                         textAndColor(name: "TomatoTimer", color: Helper.Colors.typeName)
@@ -89,7 +117,17 @@ struct ClockView: View {
                         
                         textAndColor(name: "Mood", color: Helper.Colors.type)
                         textAndColor(name: "=", color: Helper.Colors.brackets)
-                        Text("\(textAndColor(name: "\(batteryViewModel.batteryLevel)", color: Helper.Colors.number).bold())\(textAndColor(name: "%", color: Helper.Colors.number))")
+                        textAndColor(name: ".\(currentMood.rawValue)", color: Helper.Colors.ifElseCondition)
+                    }
+                    .onTapGesture {
+                        switch currentMood {
+                        case .coding:
+                            currentMood = .reading
+                        case .reading:
+                            currentMood = .exercising
+                        case .exercising:
+                            currentMood = .coding
+                        }
                     }
                     //MARK: - Focus Duration
                     HStack {
@@ -113,8 +151,7 @@ struct ClockView: View {
                     
                     
                     HStack {
-                        textAndColor(name: "       var", color: Helper.Colors.variable).bold()
-                        textAndColor(name: "focusDuration", color: Helper.Colors.variableName)
+                        textAndColor(name: "        focusDuration", color: Helper.Colors.variableName)
                         textAndColor(name: "=", color: Helper.Colors.brackets)
                         textAndColor(name: String(format: "%.0f",timerCount / 60), color: Helper.Colors.number).bold().font(.title3).monospacedDigit()
                     }
@@ -123,7 +160,7 @@ struct ClockView: View {
                         textAndColor(name: "    }", color: Helper.Colors.brackets)
                         
                     }
-                    //MARK: - End of struct
+                    //MARK: - End of class
                     textAndColor(name: "}", color: Helper.Colors.brackets)
                     
                 }
@@ -157,7 +194,7 @@ struct ClockView: View {
         return Text(name)
             .foregroundColor(Color(uiColor: color))
             .font(.system(size: fontSize, weight: .regular, design: .monospaced))
-            
+        
     }
     
 }
