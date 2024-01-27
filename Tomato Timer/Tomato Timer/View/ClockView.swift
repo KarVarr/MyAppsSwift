@@ -84,20 +84,18 @@ struct ClockView: View {
                     }
                     //MARK: - Battery
                     HStack {
-                        
                         textAndColor(name: "    var", color: Helper.Colors.variable).bold()
-                        Text("\(textAndColor(name: "battery", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
+                        Text("\(textAndColor(name: "activity", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
                         
-                        switch batteryViewModel.batteryLevel {
-                        case 0..<20: textAndColor(name: "Low", color: Helper.Colors.type)
-                        case 20..<60: textAndColor(name: "Medium", color: Helper.Colors.type)
-                        case 60..<100: textAndColor(name: "Good", color: Helper.Colors.type)
-                        default:
-                            textAndColor(name: "N/A", color: Helper.Colors.type)
-                        }
-                        
+                        textAndColor(name: "Mood", color: Helper.Colors.type)
                         textAndColor(name: "=", color: Helper.Colors.brackets)
                         Text("\(textAndColor(name: "\(batteryViewModel.batteryLevel)", color: Helper.Colors.number).bold())\(textAndColor(name: "%", color: Helper.Colors.number))")
+                    }
+                    //MARK: - Focus Duration
+                    HStack {
+                        textAndColor(name: "    var", color: Helper.Colors.variable).bold()
+                        Text("\(textAndColor(name: "focusDuration", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
+                        Text("\(textAndColor(name: "Minuts", color: Helper.Colors.type).bold())\(textAndColor(name: "?", color: Helper.Colors.number))")
                     }
                     //MARK: - Spacer
                     HStack {
@@ -116,13 +114,10 @@ struct ClockView: View {
                     
                     HStack {
                         textAndColor(name: "       var", color: Helper.Colors.variable).bold()
-                        Text("\(textAndColor(name: "focus", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
-                        textAndColor(name: "Minuts", color: Helper.Colors.type)
+                        textAndColor(name: "focusDuration", color: Helper.Colors.variableName)
                         textAndColor(name: "=", color: Helper.Colors.brackets)
                         textAndColor(name: String(format: "%.0f",timerCount / 60), color: Helper.Colors.number).bold().font(.title3).monospacedDigit()
-                        
                     }
-                    
                     
                     HStack {
                         textAndColor(name: "    }", color: Helper.Colors.brackets)

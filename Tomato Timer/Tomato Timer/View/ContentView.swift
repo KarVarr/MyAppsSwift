@@ -29,15 +29,24 @@ struct ContentView: View {
     ContentView()
 }
 
-//struct TomatoTimer {
-//    var date = "24 January 2024"
-//    var time: Int = 8
-//    var battery: Int = 90
-//   
-//    
-//    init() {
-//       
-//    }
-//}
+enum Mood {
+    case coding, reading, exercising
+}
+
+class TomatoTimer {
+    var date = "24 January 2024"
+//    var time: PM = 8:31:22
+    var activity: Mood = .coding
+    var focusDuration: Int?
+    
+    // Дополнительная информация
+    init() {
+        focusDuration = 20
+    }
+}
+
+
+
+
 
 
