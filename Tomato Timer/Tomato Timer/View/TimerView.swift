@@ -158,14 +158,14 @@ struct TimerView: View {
             }
     }
     
-    func generateHapticFeedback(style: UIImpactFeedbackGenerator.FeedbackStyle) {
+    private func generateHapticFeedback(style: UIImpactFeedbackGenerator.FeedbackStyle) {
         let generator = UIImpactFeedbackGenerator(style: style)
         generator.prepare()
         generator.impactOccurred()
     }
     
     
-    func handleTimerUpdate() {
+    private func handleTimerUpdate() {
         DispatchQueue.main.async {
             guard timerRunning else { return }
             if countdownTime > 0 {
@@ -180,13 +180,13 @@ struct TimerView: View {
         }
     }
     
-    func rotationAnimation() {
+    private func rotationAnimation() {
         rotationAngleRepeatButton -= 180
     }
      
 
     
-    func adjustTime(adding: Bool) {
+    private func adjustTime(adding: Bool) {
         timerRunning = false
         countdownTime = defaultTime
 

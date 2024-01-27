@@ -27,7 +27,6 @@ struct ClockView: View {
     @State private var currentDate: String = ""
     
     
-    
     let screenHeight = UIScreen.main.bounds.height
     var fontSize: CGFloat = 18
     
@@ -128,6 +127,7 @@ struct ClockView: View {
                         case .exercising:
                             currentMood = .coding
                         }
+                        generateHapticFeedback(style: .light)
                     }
                     //MARK: - Focus Duration
                     HStack {
@@ -194,7 +194,12 @@ struct ClockView: View {
         return Text(name)
             .foregroundColor(Color(uiColor: color))
             .font(.system(size: fontSize, weight: .regular, design: .monospaced))
-        
+    }
+    
+    private func generateHapticFeedback(style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        let generator = UIImpactFeedbackGenerator(style: style)
+        generator.prepare()
+        generator.impactOccurred()
     }
     
 }
