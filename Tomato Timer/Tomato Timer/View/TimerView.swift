@@ -13,12 +13,12 @@ struct TimerView: View {
     
     @Binding var timerCount: CGFloat
     
-    @State private var defaultTime: CGFloat = 1200
-    @State private var timerRunning = false
-    @State private var countdownTime: CGFloat = 1200
-    @State private var rotationAngleRepeatButton: Double = 0.0
-    @State private var isMinusButtonOnOff: Bool = true
-    @State private var isPlusButtonOnOff: Bool = false
+    @State var defaultTime: CGFloat = 1200
+    @State var timerRunning = false
+    @State var countdownTime: CGFloat = 1200
+    @State var rotationAngleRepeatButton: Double = 0.0
+    @State var isMinusButtonOnOff: Bool = true
+    @State var isPlusButtonOnOff: Bool = false
     
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -40,7 +40,7 @@ struct TimerView: View {
             return Helper.Colors.linearGradientDarkGrayBrightRed
         }
     }
-
+    
     var countdownMinutes: Int {
         return Int(countdownTime / 60)
     }
@@ -83,7 +83,7 @@ struct TimerView: View {
                             
                             
                             Text(String(format: "%02d:%02d", countdownMinutes, countdownSeconds))
-                                .foregroundStyle(.white)
+                                .foregroundStyle(Helper.Colors.linearGradientDarkPinkPurple)
                                 .font(.system(size: 36, weight: .regular, design: .monospaced))
                             
                             Button {
@@ -131,14 +131,14 @@ struct TimerView: View {
                                     timerRunning.toggle()
                                 }
                                 generateHapticFeedback(style: .soft)
-                               
+                                
                             } label: {
                                 Image(buttonIcon)
                                     .resizable()
                                     .renderingMode(.template)
                                     .scaledToFit()
                                     .frame(width: 50)
-                                    
+                                
                             }
                             .foregroundStyle(Color(uiColor: Helper.Colors.variable)).font(.largeTitle)
                             
@@ -158,69 +158,8 @@ struct TimerView: View {
             }
     }
     
-    private func generateHapticFeedback(style: UIImpactFeedbackGenerator.FeedbackStyle) {
-        let generator = UIImpactFeedbackGenerator(style: style)
-        generator.prepare()
-        generator.impactOccurred()
-    }
     
     
-    private func handleTimerUpdate() {
-        DispatchQueue.main.async {
-            guard timerRunning else { return }
-            if countdownTime > 0 {
-                countdownTime -= 1
-            } else {
-                audioViewModel.playSound()
-                sleep(2)
-                timerRunning = false
-                countdownTime = defaultTime
-                timerCount = countdownTime
-            }
-        }
-    }
-    
-    private func rotationAnimation() {
-        rotationAngleRepeatButton -= 180
-    }
-     
-
-    
-    private func adjustTime(adding: Bool) {
-        timerRunning = false
-        countdownTime = defaultTime
-
-        if adding {
-            if defaultTime >= 3600 {
-                isPlusButtonOnOff = true
-                isMinusButtonOnOff = false
-                defaultTime = 3600
-                countdownTime = 3600
-                timerCount = countdownTime
-            } else {
-                isMinusButtonOnOff = false
-                isPlusButtonOnOff = defaultTime + 300 >= 3600
-                defaultTime += 300
-                countdownTime += 300
-                timerCount = countdownTime
-            }
-        } else {
-            if defaultTime <= 1200 {
-                isMinusButtonOnOff = true
-                isPlusButtonOnOff = false
-                defaultTime = 1200
-                countdownTime = 1200
-                timerCount = countdownTime
-            } else {
-                isPlusButtonOnOff = false
-                isMinusButtonOnOff = defaultTime - 300 <= 1200
-                defaultTime -= 300
-                countdownTime -= 300
-                timerCount = countdownTime
-            }
-        }
-    }
-
     
 }
 
