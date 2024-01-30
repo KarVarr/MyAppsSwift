@@ -47,8 +47,7 @@ struct ClockView: View {
         }
     }
     
-    
-    
+    //MARK: - Body 
     var body: some View {
         Color(uiColor: Helper.Colors.background)
             .ignoresSafeArea()
@@ -174,38 +173,11 @@ struct ClockView: View {
             }
     }
     
-    //MARK: - Metods
-    private func getCurrentDate() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        dateFormatter.timeZone = TimeZone.current
-        dateFormatter.locale = Locale.current
-        return dateFormatter.string(from: Date())
-    }
-    
-    private func getCurrentTime() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm"
-        dateFormatter.timeZone = TimeZone.current
-        dateFormatter.locale = Locale.current
-        return dateFormatter.string(from: Date())
-    }
-    
-    private func textAndColor(name: String, color: UIColor) -> Text {
-        return Text(name)
-            .foregroundColor(Color(uiColor: color))
-            .font(.system(size: fontSize, weight: .regular, design: .monospaced))
-    }
-    
-    private func generateHapticFeedback(style: UIImpactFeedbackGenerator.FeedbackStyle) {
-        let generator = UIImpactFeedbackGenerator(style: style)
-        generator.prepare()
-        generator.impactOccurred()
-    }
-    
 }
 
 #Preview {
     ClockView()
     
 }
+
+
