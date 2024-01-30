@@ -36,10 +36,10 @@ struct ContentView: View {
 //class TomatoTimer {
 //    var date = "24 January 2024"
 //    var time: AM PM = 8:31:22
-//    var activity: Mood = .coding
 //
 //    // time for concentration
 //    init() {
+//        var activity: Mood = .coding
 //        let focus = "\(20) minutes"
 //    }
 //}
