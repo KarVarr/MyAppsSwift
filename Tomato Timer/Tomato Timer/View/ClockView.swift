@@ -24,17 +24,13 @@ struct ClockView: View {
     @State private var currentTimePeriod: TimeAMPM = .am
     @State private var currentMood: Mood = .coding
     @State private var currentDate: String = ""
-    
+    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var currentHour: Int = 0
     
     let screenHeight = UIScreen.main.bounds.height
     var fontSize: CGFloat = 18
     
     init(timerCount: Binding<CGFloat>  = .constant(0) ) {
-        let currentDate = Date()
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: currentDate)
-        
-        _currentTimePeriod = State(initialValue: hour < 12 ? .am : .pm)
         _timerCount = Binding(projectedValue: timerCount)
         _currentDate = State(initialValue: getCurrentDate())
         
@@ -100,10 +96,11 @@ struct ClockView: View {
                         textAndColor(name: "    var", color: Helper.Colors.variable).bold()
                         Text("\(textAndColor(name: "time", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
                         
-                        switch currentTimePeriod {
-                        case .am: textAndColor(name: "AM", color: Helper.Colors.type)
-                        case .pm: textAndColor(name: "PM", color: Helper.Colors.type)
-                        }
+                        
+                        textAndColor(name: "AM", color: Helper.Colors.type)
+                            .opacity(currentTimePeriod == .am ? 1 : 0.3)
+                        textAndColor(name: "PM", color: Helper.Colors.type)
+                            .opacity(currentTimePeriod == .pm ? 1 : 0.3)
                         
                         textAndColor(name: "=", color: Helper.Colors.brackets)
                         textAndColor(name: "\(clockViewModel.currentTime)", color: Helper.Colors.number).bold()
@@ -167,6 +164,11 @@ struct ClockView: View {
                 .padding()
                 .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged), perform: { _ in
                     currentDate = getCurrentDate()
+                })
+                .onReceive(timer, perform: { _ in
+                    let calendar = Calendar.current
+                    currentHour = calendar.component(.hour, from: Date())
+                    currentTimePeriod = currentHour >= 12 ? .pm : .am
                 })
                 
             }
