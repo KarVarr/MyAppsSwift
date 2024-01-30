@@ -16,7 +16,6 @@ enum Mood: String {
 }
 
 struct ClockView: View {
-    @ObservedObject private var batteryViewModel = BatteryViewModel()
     @ObservedObject private var soundViewModel = SoundViewModel()
     @ObservedObject private var clockViewModel = ClockViewModel()
     
