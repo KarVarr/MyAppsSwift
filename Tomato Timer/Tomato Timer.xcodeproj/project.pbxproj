@@ -90,11 +90,19 @@
 			children = (
 				17E927512B5AE0C0000BA1F2 /* ContentView.swift */,
 				17E9275D2B5AE104000BA1F2 /* TimerView.swift */,
-				17BD371A2B68E0C200CEB7BA /* TimerView + Ext.swift */,
 				1765368B2B5BC4C300517AEA /* ClockView.swift */,
-				17BD37182B68DE6E00CEB7BA /* ClockView + Ext.swift */,
+				17BD371C2B68E23200CEB7BA /* Extention */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		17BD371C2B68E23200CEB7BA /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				17BD371A2B68E0C200CEB7BA /* TimerView + Ext.swift */,
+				17BD37182B68DE6E00CEB7BA /* ClockView + Ext.swift */,
+			);
+			path = Extention;
 			sourceTree = "<group>";
 		};
 		17E927432B5AE0C0000BA1F2 = {

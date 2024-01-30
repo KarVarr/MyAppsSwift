@@ -30,6 +30,8 @@ struct ClockView: View {
     let screenHeight = UIScreen.main.bounds.height
     var fontSize: CGFloat = 18
     
+    
+    
     init(timerCount: Binding<CGFloat>  = .constant(0) ) {
         _timerCount = Binding(projectedValue: timerCount)
         _currentDate = State(initialValue: getCurrentDate())
@@ -47,7 +49,8 @@ struct ClockView: View {
         }
     }
     
-    //MARK: - Body 
+    
+    //MARK: - Body
     var body: some View {
         Color(uiColor: Helper.Colors.background)
             .ignoresSafeArea()
@@ -124,12 +127,7 @@ struct ClockView: View {
                         }
                         generateHapticFeedback(style: .light)
                     }
-                    //MARK: - Focus Duration
-                    HStack {
-                        textAndColor(name: "    var", color: Helper.Colors.variable).bold()
-                        Text("\(textAndColor(name: "focusDuration", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
-                        Text("\(textAndColor(name: "Minuts", color: Helper.Colors.type).bold())\(textAndColor(name: "?", color: Helper.Colors.number))")
-                    }
+                    
                     //MARK: - Spacer
                     HStack {
                         Text("")
@@ -140,16 +138,29 @@ struct ClockView: View {
                     }
                     //MARK: - Init()
                     HStack {
+                        
                         Text("\(textAndColor(name: "    init", color: Helper.Colors.variable).bold())\(textAndColor(name: "()", color: Helper.Colors.brackets))")
                         textAndColor(name: "{", color: Helper.Colors.brackets)
                     }
                     
                     
                     HStack {
-                        textAndColor(name: "        focusDuration", color: Helper.Colors.variableName)
+                        
+                        textAndColor(name: "        var", color: Helper.Colors.variable).bold()
+                        textAndColor(name: "focus", color: Helper.Colors.variableName)
                         textAndColor(name: "=", color: Helper.Colors.brackets)
-                        textAndColor(name: String(format: "%.0f",timerCount / 60), color: Helper.Colors.number).bold().font(.title3).monospacedDigit()
+                        
+                        textAndColor(name: "\"", color: Helper.Colors.string)
+                        + textAndColor(name: "\\", color: Helper.Colors.white)
+                        + textAndColor(name: "(", color: Helper.Colors.white)
+                        + textAndColor(name: String(format: "%.0f",timerCount / 60), color: Helper.Colors.number).bold().font(.title3).monospacedDigit()
+                        + textAndColor(name: ")", color: Helper.Colors.white)
+                        + textAndColor(name: " minutes", color: Helper.Colors.string)
+                        + textAndColor(name: "\"", color: Helper.Colors.string)
+                        
                     }
+                    
+                    
                     
                     HStack {
                         textAndColor(name: "    }", color: Helper.Colors.brackets)

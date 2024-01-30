@@ -35,13 +35,12 @@ struct ContentView: View {
 //
 //class TomatoTimer {
 //    var date = "24 January 2024"
-////    var time: PM = 8:31:22
+//    var time: AM PM = 8:31:22
 //    var activity: Mood = .coding
-//    var focusDuration: Int?
-//    
-//    // Дополнительная информация
+//
+//    // time for concentration
 //    init() {
-//        focusDuration = 20
+//        let focus = "\(20) minutes"
 //    }
 //}
 
