@@ -26,6 +26,7 @@ extension TimerView {
                 timerRunning = false
                 countdownTime = defaultTime
                 timerCount = countdownTime
+                sessionCount += 1
             }
         }
     }

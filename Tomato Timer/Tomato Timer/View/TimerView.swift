@@ -12,10 +12,11 @@ struct TimerView: View {
     let audioViewModel = AudioViewModel()
     
     @Binding var timerCount: CGFloat
+    @Binding var sessionCount: Int
     
-    @State var defaultTime: CGFloat = 1200
+    @State var defaultTime: CGFloat = 5
     @State var timerRunning = false
-    @State var countdownTime: CGFloat = 1200
+    @State var countdownTime: CGFloat = 5
     @State var rotationAngleRepeatButton: Double = 0.0
     @State var isMinusButtonOnOff: Bool = true
     @State var isPlusButtonOnOff: Bool = false
@@ -99,7 +100,6 @@ struct TimerView: View {
                         }
                         
                         
-                        
                         //MARK: - Play/stop and Restart time
                         VStack(alignment: .center) {
                             Button {
@@ -109,6 +109,7 @@ struct TimerView: View {
                                 generateHapticFeedback(style: .light)
                                 timerRunning = false
                                 countdownTime = defaultTime
+                                sessionCount = 0
                             } label: {
                                 Image("repeat")
                                     .resizable()
@@ -158,11 +159,8 @@ struct TimerView: View {
             }
     }
     
-    
-    
-    
 }
 
 #Preview {
-    TimerView(timerCount: .constant(1200))
+    TimerView(timerCount: .constant(1200), sessionCount: .constant(0))
 }

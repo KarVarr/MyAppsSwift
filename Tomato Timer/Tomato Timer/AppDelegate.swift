@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 
-class AppDelegate: NSObject, UIApplicationDelegate {
-    func applicationDidFinishLaunching(_ application: UIApplication) {
-        application.isIdleTimerDisabled = true
-    }
-}
+//class AppDelegate: NSObject, UIApplicationDelegate {
+//    func applicationDidFinishLaunching(_ application: UIApplication) {
+//        application.isIdleTimerDisabled = true
+//    }
+//}

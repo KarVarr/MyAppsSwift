@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var timerCount: CGFloat = 1200
+    @State private var sessionCount: Int = 0
     
     var body: some View {
         Color(uiColor: Helper.Colors.background)
@@ -19,10 +20,10 @@ struct ContentView: View {
         
             .overlay {
                 VStack(alignment: .center) {
-                    ClockView(timerCount: $timerCount)
+                    ClockView(timerCount: $timerCount, sessionCount: $sessionCount)
                         .padding(.bottom, 50)
                     Spacer()
-                    TimerView(timerCount: $timerCount)
+                    TimerView(timerCount: $timerCount, sessionCount: $sessionCount)
                         .padding(.bottom, 50)
                 }
             }

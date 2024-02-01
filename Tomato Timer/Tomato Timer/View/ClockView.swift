@@ -20,6 +20,7 @@ struct ClockView: View {
     @ObservedObject private var clockViewModel = ClockViewModel()
     
     @Binding var timerCount: CGFloat
+    @Binding var sessionCount: Int
     
     @State private var currentTimePeriod: TimeAMPM = .am
     @State private var currentMood: Mood = .coding
@@ -28,27 +29,40 @@ struct ClockView: View {
     @State private var currentHour: Int = 0
     
     let screenHeight = UIScreen.main.bounds.height
-    var fontSize: CGFloat = 18
     
-    
-    
-    init(timerCount: Binding<CGFloat>  = .constant(0) ) {
-        _timerCount = Binding(projectedValue: timerCount)
-        _currentDate = State(initialValue: getCurrentDate())
-        
-        //dynamic text size
-        switch screenHeight {
+    var fontSize: CGFloat {
+        switch UIScreen.main.bounds.height {
         case 0..<600:
-            fontSize = 13
+            return 13
         case 600..<800:
-            fontSize = 15
+            return 15
         case 800..<1000:
-            fontSize = 17
+            return 17
         default:
-            fontSize = 19
+            return 19
         }
     }
     
+    
+    //    init(timerCount: Binding<CGFloat>  = .constant(0) ) {
+    //        _timerCount = Binding(projectedValue: timerCount)
+    //        _sessionCount = sessionCount
+    //
+    //        _currentDate = State(initialValue: getCurrentDate())
+    //
+    //        //dynamic text size
+    //        switch screenHeight {
+    //        case 0..<600:
+    //            fontSize = 13
+    //        case 600..<800:
+    //            fontSize = 15
+    //        case 800..<1000:
+    //            fontSize = 17
+    //        default:
+    //            fontSize = 19
+    //        }
+    //    }
+    //
     
     //MARK: - Body
     var body: some View {
@@ -114,7 +128,7 @@ struct ClockView: View {
                         
                         textAndColor(name: "Count", color: Helper.Colors.type)
                         textAndColor(name: "=", color: Helper.Colors.brackets)
-                        textAndColor(name: "\(6)", color: Helper.Colors.number)
+                        textAndColor(name: "\(sessionCount)", color: Helper.Colors.number)
                     }
                     .onTapGesture {
                         switch currentMood {
@@ -180,7 +194,6 @@ struct ClockView: View {
                         
                     }
                     
-                    
                     HStack {
                         textAndColor(name: "    }", color: Helper.Colors.brackets)
                         
@@ -191,9 +204,9 @@ struct ClockView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
-                .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged), perform: { _ in
+                .onAppear {
                     currentDate = getCurrentDate()
-                })
+                }
                 .onReceive(timer, perform: { _ in
                     let calendar = Calendar.current
                     currentHour = calendar.component(.hour, from: Date())
@@ -206,7 +219,7 @@ struct ClockView: View {
 }
 
 #Preview {
-    ClockView()
+    ClockView(timerCount: .constant(1200), sessionCount: .constant(0))
     
 }
 
