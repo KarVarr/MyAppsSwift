@@ -107,14 +107,14 @@ struct ClockView: View {
                         textAndColor(name: "=", color: Helper.Colors.brackets)
                         textAndColor(name: "\(clockViewModel.currentTime)", color: Helper.Colors.number).bold()
                     }
-                    //MARK: - Battery
+                    
                     HStack {
                         textAndColor(name: "    var", color: Helper.Colors.variable).bold()
-                        Text("\(textAndColor(name: "activity", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
+                        Text("\(textAndColor(name: "session", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
                         
-                        textAndColor(name: "Mood", color: Helper.Colors.type)
+                        textAndColor(name: "Count", color: Helper.Colors.type)
                         textAndColor(name: "=", color: Helper.Colors.brackets)
-                        textAndColor(name: ".\(currentMood.rawValue)", color: Helper.Colors.ifElseCondition)
+                        textAndColor(name: "\(6)", color: Helper.Colors.number)
                     }
                     .onTapGesture {
                         switch currentMood {
@@ -143,9 +143,29 @@ struct ClockView: View {
                         textAndColor(name: "{", color: Helper.Colors.brackets)
                     }
                     
-                    
+                    //MARK: - Activity
                     HStack {
+                        textAndColor(name: "        var", color: Helper.Colors.variable).bold()
+                        Text("\(textAndColor(name: "activity", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
                         
+                        textAndColor(name: "Mood", color: Helper.Colors.type)
+                        textAndColor(name: "=", color: Helper.Colors.brackets)
+                        textAndColor(name: ".\(currentMood.rawValue)", color: Helper.Colors.ifElseCondition)
+                    }
+                    .onTapGesture {
+                        switch currentMood {
+                        case .coding:
+                            currentMood = .reading
+                        case .reading:
+                            currentMood = .exercising
+                        case .exercising:
+                            currentMood = .coding
+                        }
+                        generateHapticFeedback(style: .light)
+                    }
+                    
+                    //MARK: - Focus
+                    HStack {
                         textAndColor(name: "        var", color: Helper.Colors.variable).bold()
                         textAndColor(name: "focus", color: Helper.Colors.variableName)
                         textAndColor(name: "=", color: Helper.Colors.brackets)
@@ -159,7 +179,6 @@ struct ClockView: View {
                         + textAndColor(name: "\"", color: Helper.Colors.string)
                         
                     }
-                    
                     
                     
                     HStack {
