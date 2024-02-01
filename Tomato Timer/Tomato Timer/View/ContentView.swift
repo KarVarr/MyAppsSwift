@@ -13,6 +13,10 @@ struct ContentView: View {
     var body: some View {
         Color(uiColor: Helper.Colors.background)
             .ignoresSafeArea()
+            .onAppear {
+                UIApplication.shared.isIdleTimerDisabled = true
+            }
+        
             .overlay {
                 VStack(alignment: .center) {
                     ClockView(timerCount: $timerCount)
