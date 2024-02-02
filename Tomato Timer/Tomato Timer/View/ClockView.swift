@@ -12,7 +12,7 @@ enum TimeAMPM {
 }
 
 enum Mood: String {
-    case coding, reading, exercising
+    case coding, reading, cooking
 }
 
 struct ClockView: View {
@@ -82,7 +82,7 @@ struct ClockView: View {
                         textAndColor(name: "    case", color: Helper.Colors.variable).bold()
                         textAndColor(name: "coding,", color: Helper.Colors.variableName)
                         textAndColor(name: "reading,", color: Helper.Colors.variableName)
-                        textAndColor(name: "exercising", color: Helper.Colors.variableName)
+                        textAndColor(name: "cooking", color: Helper.Colors.variableName)
                     }
                     
                     //MARK: - End of enum
@@ -110,8 +110,8 @@ struct ClockView: View {
                     //MARK: - Time
                     HStack {
                         textAndColor(name: "    var", color: Helper.Colors.variable).bold()
-                        Text("\(textAndColor(name: "time", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
-                        
+                        textAndColor(name: "time", color: Helper.Colors.variableName)
+                        + textAndColor(name: ":", color: Helper.Colors.brackets)
                         
                         textAndColor(name: "AM", color: Helper.Colors.type)
                             .opacity(currentTimePeriod == .am ? 1 : 0.3)
@@ -124,23 +124,13 @@ struct ClockView: View {
                     
                     HStack {
                         textAndColor(name: "    var", color: Helper.Colors.variable).bold()
-                        Text("\(textAndColor(name: "session", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
-                        
+                        textAndColor(name: "session", color: Helper.Colors.variableName)
+                        + textAndColor(name: ":", color: Helper.Colors.brackets)
                         textAndColor(name: "Count", color: Helper.Colors.type)
                         textAndColor(name: "=", color: Helper.Colors.brackets)
                         textAndColor(name: "\(sessionCount)", color: Helper.Colors.number)
                     }
-                    .onTapGesture {
-                        switch currentMood {
-                        case .coding:
-                            currentMood = .reading
-                        case .reading:
-                            currentMood = .exercising
-                        case .exercising:
-                            currentMood = .coding
-                        }
-                        generateHapticFeedback(style: .light)
-                    }
+                    
                     
                     //MARK: - Spacer
                     HStack {
@@ -157,11 +147,11 @@ struct ClockView: View {
                         textAndColor(name: "{", color: Helper.Colors.brackets)
                     }
                     
-                    //MARK: - Activity
+                    //MARK: - Action
                     HStack {
                         textAndColor(name: "        var", color: Helper.Colors.variable).bold()
-                        Text("\(textAndColor(name: "activity", color: Helper.Colors.variableName))\(textAndColor(name: ":", color: Helper.Colors.brackets))")
-                        
+                        textAndColor(name: "action", color: Helper.Colors.variableName)
+                        + textAndColor(name: ":", color: Helper.Colors.brackets)
                         textAndColor(name: "Mood", color: Helper.Colors.type)
                         textAndColor(name: "=", color: Helper.Colors.brackets)
                         textAndColor(name: ".\(currentMood.rawValue)", color: Helper.Colors.ifElseCondition)
@@ -171,8 +161,8 @@ struct ClockView: View {
                         case .coding:
                             currentMood = .reading
                         case .reading:
-                            currentMood = .exercising
-                        case .exercising:
+                            currentMood = .cooking
+                        case .cooking:
                             currentMood = .coding
                         }
                         generateHapticFeedback(style: .light)
@@ -204,13 +194,11 @@ struct ClockView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
-                .onAppear {
-                    currentDate = getCurrentDate()
-                }
                 .onReceive(timer, perform: { _ in
                     let calendar = Calendar.current
                     currentHour = calendar.component(.hour, from: Date())
                     currentTimePeriod = currentHour >= 12 ? .pm : .am
+                    currentDate = getCurrentDate()
                 })
                 
             }

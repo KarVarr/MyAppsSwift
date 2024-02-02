@@ -14,9 +14,9 @@ struct TimerView: View {
     @Binding var timerCount: CGFloat
     @Binding var sessionCount: Int
     
-    @State var defaultTime: CGFloat = 5
+    @State var defaultTime: CGFloat = 1200
     @State var timerRunning = false
-    @State var countdownTime: CGFloat = 5
+    @State var countdownTime: CGFloat = 1200
     @State var rotationAngleRepeatButton: Double = 0.0
     @State var isMinusButtonOnOff: Bool = true
     @State var isPlusButtonOnOff: Bool = false
