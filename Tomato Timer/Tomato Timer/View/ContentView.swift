@@ -45,7 +45,7 @@ struct ContentView: View {
 //
 //    // time for concentration
 //    init() {
-//        var activity: Mood = .coding
+//        var activy: Mood = .coding
 //        let focus = "\(20) minutes"
 //    }
 //}

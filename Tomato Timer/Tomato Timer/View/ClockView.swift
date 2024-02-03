@@ -42,27 +42,7 @@ struct ClockView: View {
             return 19
         }
     }
-    
-    
-    //    init(timerCount: Binding<CGFloat>  = .constant(0) ) {
-    //        _timerCount = Binding(projectedValue: timerCount)
-    //        _sessionCount = sessionCount
-    //
-    //        _currentDate = State(initialValue: getCurrentDate())
-    //
-    //        //dynamic text size
-    //        switch screenHeight {
-    //        case 0..<600:
-    //            fontSize = 13
-    //        case 600..<800:
-    //            fontSize = 15
-    //        case 800..<1000:
-    //            fontSize = 17
-    //        default:
-    //            fontSize = 19
-    //        }
-    //    }
-    //
+
     
     //MARK: - Body
     var body: some View {
@@ -130,7 +110,6 @@ struct ClockView: View {
                         textAndColor(name: "=", color: Helper.Colors.brackets)
                         textAndColor(name: "\(sessionCount)", color: Helper.Colors.number)
                     }
-                    
                     
                     //MARK: - Spacer
                     HStack {

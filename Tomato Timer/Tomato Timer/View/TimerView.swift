@@ -99,7 +99,6 @@ struct TimerView: View {
                             
                         }
                         
-                        
                         //MARK: - Play/stop and Restart time
                         VStack(alignment: .center) {
                             Button {
@@ -117,7 +116,6 @@ struct TimerView: View {
                                     .scaledToFit()
                                     .frame(width: 50)
                             }
-                            
                             
                             .foregroundStyle(Color(uiColor: Helper.Colors.comments)).font(.largeTitle)
                             .rotation3DEffect(
