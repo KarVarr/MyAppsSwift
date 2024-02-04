@@ -23,6 +23,7 @@
 		17E927542B5AE0C2000BA1F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E927532B5AE0C2000BA1F2 /* Assets.xcassets */; };
 		17E927572B5AE0C2000BA1F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E927562B5AE0C2000BA1F2 /* Preview Assets.xcassets */; };
 		17E9275E2B5AE104000BA1F2 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9275D2B5AE104000BA1F2 /* TimerView.swift */; };
+		17FB029F2B6FC04400672EA7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17FB029E2B6FC04400672EA7 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		17E927532B5AE0C2000BA1F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17E927562B5AE0C2000BA1F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		17E9275D2B5AE104000BA1F2 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		17FB029E2B6FC04400672EA7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				17E9275D2B5AE104000BA1F2 /* TimerView.swift */,
 				1765368B2B5BC4C300517AEA /* ClockView.swift */,
 				17BD371C2B68E23200CEB7BA /* Extention */,
+				17FB029E2B6FC04400672EA7 /* Launch Screen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17FB029F2B6FC04400672EA7 /* Launch Screen.storyboard in Resources */,
 				172A3EC72B62D4A9001690AE /* Notification-wake-up.mp3 in Resources */,
 				172A3EC62B62D4A9001690AE /* notification-friend-online.mp3 in Resources */,
 				17E927572B5AE0C2000BA1F2 /* Preview Assets.xcassets in Resources */,
