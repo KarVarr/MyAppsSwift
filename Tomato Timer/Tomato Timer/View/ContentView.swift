@@ -34,21 +34,6 @@ struct ContentView: View {
     ContentView()
 }
 
-//enum Mood {
-//    case coding, reading, exercising
-//}
-//
-//class TomatoTimer {
-//    var date = "24 January 2024"
-//    var time: AM PM = 8:31:22
-//    var session: Count = 1
-//
-//    // time for concentration
-//    init() {
-//        var activy: Mood = .coding
-//        let focus = "\(20) minutes"
-//    }
-//}
 
 
 
