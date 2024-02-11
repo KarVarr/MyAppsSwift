@@ -9,8 +9,6 @@ import SwiftUI
 
 @main
 struct Tomato_TimerApp: App {
-//    @UIApplicationDelegateAdaptor(AppDelegate.self) var addDelegate
-    
     var body: some Scene {
         WindowGroup {
             ContentView()
