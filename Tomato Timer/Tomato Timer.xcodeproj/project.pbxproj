@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		172A3EC02B62C021001690AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A3EBF2B62C021001690AE /* AppDelegate.swift */; };
+		172617D22B78BE0F006D1E2D /* ClockViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172617D12B78BE0F006D1E2D /* ClockViewBody.swift */; };
 		172A3EC22B62D439001690AE /* AudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A3EC12B62D439001690AE /* AudioViewModel.swift */; };
 		172A3EC62B62D4A9001690AE /* notification-friend-online.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 172A3EC32B62D4A8001690AE /* notification-friend-online.mp3 */; };
 		172A3EC72B62D4A9001690AE /* Notification-wake-up.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 172A3EC42B62D4A8001690AE /* Notification-wake-up.mp3 */; };
@@ -27,7 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		172A3EBF2B62C021001690AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		172617D12B78BE0F006D1E2D /* ClockViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewBody.swift; sourceTree = "<group>"; };
 		172A3EC12B62D439001690AE /* AudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewModel.swift; sourceTree = "<group>"; };
 		172A3EC32B62D4A8001690AE /* notification-friend-online.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "notification-friend-online.mp3"; sourceTree = "<group>"; };
 		172A3EC42B62D4A8001690AE /* Notification-wake-up.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Notification-wake-up.mp3"; sourceTree = "<group>"; };
@@ -93,6 +93,7 @@
 				17E927512B5AE0C0000BA1F2 /* ContentView.swift */,
 				17E9275D2B5AE104000BA1F2 /* TimerView.swift */,
 				1765368B2B5BC4C300517AEA /* ClockView.swift */,
+				172617D12B78BE0F006D1E2D /* ClockViewBody.swift */,
 				17BD371C2B68E23200CEB7BA /* Extention */,
 				17FB029E2B6FC04400672EA7 /* Launch Screen.storyboard */,
 			);
@@ -127,7 +128,6 @@
 		17E9274E2B5AE0C0000BA1F2 /* Tomato Timer */ = {
 			isa = PBXGroup;
 			children = (
-				172A3EBF2B62C021001690AE /* AppDelegate.swift */,
 				17E9274F2B5AE0C0000BA1F2 /* Tomato_TimerApp.swift */,
 				170F7F672B61620E002F3912 /* Helpers */,
 				178168A42B5D00A80081A3E2 /* View */,
@@ -229,8 +229,8 @@
 				17E927502B5AE0C0000BA1F2 /* Tomato_TimerApp.swift in Sources */,
 				17BD371B2B68E0C200CEB7BA /* TimerView + Ext.swift in Sources */,
 				17BD37192B68DE6E00CEB7BA /* ClockView + Ext.swift in Sources */,
-				172A3EC02B62C021001690AE /* AppDelegate.swift in Sources */,
 				176536942B5C047800517AEA /* ClockViewModel.swift in Sources */,
+				172617D22B78BE0F006D1E2D /* ClockViewBody.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
