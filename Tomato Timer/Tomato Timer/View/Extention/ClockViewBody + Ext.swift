@@ -61,7 +61,7 @@ extension ClockView {
                             .opacity(currentTimePeriod == .pm ? 1 : 0.3)
                         
                         textAndColor(name: "=", color: Helper.Colors.brackets)
-                        textAndColor(name: "\(clockViewModel.currentTime)", color: Helper.Colors.number).bold()
+                        isLoading ? textAndColor(name: "00:00:00", color: Helper.Colors.number).bold() : textAndColor(name: "\(clockViewModel.currentTime)", color: Helper.Colors.number).bold()
                     }
                     
                     HStack {

@@ -22,6 +22,7 @@ struct ClockView: View {
     @Binding var timerCount: CGFloat
     @Binding var sessionCount: Int
     
+    @State var isLoading: Bool = true
     @State var currentTimePeriod: TimeAMPM = .am
     @State var currentMood: Mood = .coding
     @State private var currentDate: String = ""
@@ -47,18 +48,19 @@ struct ClockView: View {
     var body: some View {
         clockViewBody(timerCount: timerCount, sessionCount: sessionCount)
             .onReceive(timer, perform: { _ in
-                let calendar = Calendar.current
-                currentHour = calendar.component(.hour, from: Date())
-                currentTimePeriod = currentHour >= 12 ? .pm : .am
-                currentDate = getCurrentDate()
+                DispatchQueue.main.async {
+                    let calendar = Calendar.current
+                    currentHour = calendar.component(.hour, from: Date())
+                    currentTimePeriod = currentHour >= 12 ? .pm : .am
+                    currentDate = getCurrentDate()
+                    isLoading = false
+                }
             })
     }
-    
 }
 
 #Preview {
     ClockView(timerCount: .constant(1200), sessionCount: .constant(0))
-    
 }
 
 
