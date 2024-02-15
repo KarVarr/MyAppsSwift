@@ -55,9 +55,5 @@ class MainViewController: UIViewController {
         configureQuotesViews()
         configureAnswerView()
     }
-    
-   
-    
-    
 }
 

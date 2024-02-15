@@ -18,7 +18,6 @@ extension MainViewController {
     }
     
     
-    
     //MARK: - Dynamic Font size
     func dynamicFontSize(_ FontSize: CGFloat) -> CGFloat {
         let screenWidth = UIScreen.main.bounds.size.width

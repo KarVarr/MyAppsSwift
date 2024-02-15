@@ -15,7 +15,6 @@ extension MainViewController {
         shakeButton.button.addTarget(self, action: #selector(shakeButtonPressed), for: .touchUpInside)
     }
     
-    
     @objc func shakeButtonPressed () {
         // Reset animation
         answerViewBox.viewBox.layer.removeAllAnimations()

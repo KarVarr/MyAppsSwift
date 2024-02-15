@@ -9,7 +9,6 @@ import UIKit
 
 
 extension MainViewController {
-
     func layoutView() {
         let circleTop = topCornerCircle.viewBox
         let circleBottom = bottomCornerCircle.viewBox
@@ -95,6 +94,5 @@ extension MainViewController {
             askButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
             askButton.heightAnchor.constraint(equalTo: askButton.widthAnchor, multiplier: 0.2),
         ])
-        
     }
 }
