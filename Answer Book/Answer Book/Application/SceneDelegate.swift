@@ -44,12 +44,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func sceneWillEnterForeground(_ scene: UIScene) {
         mainViewController?.fetchQuotes()
-        print("refresh fetchQoutes")
+        mainViewController?.timer = Timer(timeInterval: 1, target: self, selector: #selector(mainViewController?.updateDataForQuotes), userInfo: nil, repeats: true)
+        print("refresh fetchQoutes and timer is on")
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
         mainViewController?.answerLabel.label.text = "8"
         mainViewController?.answerLabel.label.font = UIFont.systemFont(ofSize: MainViewController().dynamicFontSize(72))
+        mainViewController?.timer?.invalidate()
+        print("timer is off")
     }
 }
 

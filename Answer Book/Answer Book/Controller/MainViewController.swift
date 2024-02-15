@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     var titleLabel = LabelView()
     var dateLabel = LabelView()
     let activityIndicator = ActivityIndicatorView()
+    var timer: Timer?
     
     // Views for answering questions
     let answerViewBox = ViewBoxView()
@@ -37,6 +38,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         settingView()
         fetchQuotes()
+        
+        timer = Timer(timeInterval: 1, target: self, selector: #selector(updateDataForQuotes), userInfo: nil, repeats: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

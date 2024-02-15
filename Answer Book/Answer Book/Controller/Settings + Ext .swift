@@ -32,5 +32,11 @@ extension MainViewController {
         return dateFormatter.string(from: Date())
     }
     
+    //MARK: - Update quote section
+    @objc func updateDataForQuotes() {
+        fetchQuotes()
+    }
+
+    
   
 }
