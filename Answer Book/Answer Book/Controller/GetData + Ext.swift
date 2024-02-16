@@ -16,8 +16,8 @@ extension MainViewController {
                     switch result {
                     case .success(let quotes):
                         quotes.forEach {
-                            self.quoteLabel.label.text = "\"\($0.quotes)\""
-                            self.authorLabel.label.text = $0.author
+                            self.quoteLabel.label.text = "\"\($0.q)\""
+                            self.authorLabel.label.text = $0.a
                             self.activityIndicator.indicator.stopAnimating()
                         }
                     case .failure(let error):
