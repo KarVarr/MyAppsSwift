@@ -54,6 +54,9 @@ enum Helper {
             let alert = UIAlertController(title: "Bad connection", message: "Check your internet connection and try again!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             viewController.present(alert, animated: true)
+            let generate = UINotificationFeedbackGenerator()
+            generate.prepare()
+            generate.notificationOccurred(.error)
         }
     }
 }

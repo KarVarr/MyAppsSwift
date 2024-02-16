@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 extension MainViewController {
     
@@ -34,7 +33,7 @@ extension MainViewController {
     func fetchAnswer(completion: @escaping () -> Void) {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
-            A
+            
             self.dataFetcher.decodeAPI(at: Helper.URL.answerUrl) { (result: Result<Answer, Error>) in
                 DispatchQueue.main.async {
                     switch result {
@@ -46,9 +45,6 @@ extension MainViewController {
                         } else {
                             Helper.Alert.showNoInternetAlert(from: self)
                         }
-                        let generate = UINotificationFeedbackGenerator()
-                        generate.prepare()
-                        generate.notificationOccurred(.error)
                     }
                 }
                 completion()
