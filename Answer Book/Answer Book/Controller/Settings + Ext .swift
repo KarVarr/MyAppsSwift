@@ -17,7 +17,6 @@ extension MainViewController {
         answerLabel.label.font = UIFont.systemFont(ofSize: dynamicFontSize(72))
     }
     
-    
     //MARK: - Dynamic Font size
     func dynamicFontSize(_ FontSize: CGFloat) -> CGFloat {
         let screenWidth = UIScreen.main.bounds.size.width
@@ -36,7 +35,4 @@ extension MainViewController {
     @objc func updateDataForQuotes() {
         fetchQuotes()
     }
-
-    
-  
 }

@@ -16,6 +16,11 @@ extension MainViewController {
     }
     
     @objc func shakeButtonPressed () {
+        //Haptic Touch
+        let generate = UINotificationFeedbackGenerator()
+        generate.prepare()
+        generate.notificationOccurred(.success)
+        
         // Reset animation
         answerViewBox.viewBox.layer.removeAllAnimations()
         

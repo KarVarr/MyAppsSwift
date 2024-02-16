@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension MainViewController {
     
@@ -16,8 +17,8 @@ extension MainViewController {
                     switch result {
                     case .success(let quotes):
                         quotes.forEach {
-                            self.quoteLabel.label.text = "\"\($0.q)\""
-                            self.authorLabel.label.text = $0.a
+                            self.quoteLabel.label.text = "\"\($0.quotes)\""
+                            self.authorLabel.label.text = $0.author
                             self.activityIndicator.indicator.stopAnimating()
                         }
                     case .failure(let error):
@@ -28,11 +29,12 @@ extension MainViewController {
                 }
             }
         }
-        
     }
     
     func fetchAnswer(completion: @escaping () -> Void) {
-        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
+            A
             self.dataFetcher.decodeAPI(at: Helper.URL.answerUrl) { (result: Result<Answer, Error>) in
                 DispatchQueue.main.async {
                     switch result {
@@ -44,6 +46,9 @@ extension MainViewController {
                         } else {
                             Helper.Alert.showNoInternetAlert(from: self)
                         }
+                        let generate = UINotificationFeedbackGenerator()
+                        generate.prepare()
+                        generate.notificationOccurred(.error)
                     }
                 }
                 completion()

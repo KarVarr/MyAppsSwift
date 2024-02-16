@@ -12,7 +12,6 @@ extension MainViewController {
     func configureAnswerView() {
         answerViewBox.viewBox.backgroundColor = .clear
         
-        
         answerLabel.label.textColor = .tertiarySystemGroupedBackground
     
         circleInsideBall.viewBox.layer.cornerRadius = circleInsideBall.viewBox.bounds.width / 2
@@ -20,6 +19,7 @@ extension MainViewController {
         DispatchQueue.main.async { [weak self] in
             self?.magicBallImage.imageContainer.image = UIImage(named: "ball")
         }
+        
         magicBallImage.imageContainer.layer.shadowOpacity = 10
         magicBallImage.imageContainer.layer.shadowColor = UIColor.black.withAlphaComponent(0.7).cgColor
         magicBallImage.imageContainer.layer.shadowRadius = 20
