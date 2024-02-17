@@ -8,7 +8,6 @@
 import UIKit
 
 extension MainViewController {
-    //MARK: - Answer
     func configureAnswerView() {
         answerViewBox.viewBox.backgroundColor = .clear
         

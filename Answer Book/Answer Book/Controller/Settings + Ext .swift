@@ -8,7 +8,6 @@
 import UIKit
 
 extension MainViewController {
-    
     func settingView() {
         overrideUserInterfaceStyle = .dark
         view.backgroundColor = Helper.Colors.darkViolet

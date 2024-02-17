@@ -8,7 +8,7 @@
 import Foundation
 
 extension MainViewController {
-    
+    //MARK: - Quotes fetcher
     func fetchQuotes() {
         DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
             self.dataFetcher.decodeAPI(at: Helper.URL.quotesUrl) { (result: Result<[Quotes], Error>) in
@@ -29,7 +29,7 @@ extension MainViewController {
             }
         }
     }
-    
+    //MARK: - Answer fetcher
     func fetchAnswer(completion: @escaping () -> Void) {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }

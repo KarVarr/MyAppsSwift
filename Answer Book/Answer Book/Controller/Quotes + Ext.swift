@@ -8,7 +8,6 @@
 import UIKit
 
 extension MainViewController {
-    //MARK: - Quotes
     func configureQuotesViews() {
         quoteViewBox.viewBox.clipsToBounds = true
         quoteViewBox.viewBox.layer.cornerRadius = 30

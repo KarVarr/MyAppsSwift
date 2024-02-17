@@ -9,7 +9,6 @@ import UIKit
 
 class MainViewController: UIViewController {
     let dataFetcher = DataFetcher()
-    
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     // Views for displaying quotes
@@ -33,7 +32,6 @@ class MainViewController: UIViewController {
     
     
     //MARK: - ViewDidLoad
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         settingView()

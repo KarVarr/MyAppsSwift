@@ -9,7 +9,6 @@ import UIKit
 
 
 extension MainViewController {
-    //MARK: - Circles
     func createCircle(for circle: ViewBoxView, withColor color: UIColor) {
         circle.viewBox.backgroundColor = .clear
         
