@@ -38,11 +38,11 @@ extension MainViewController {
         let animationDuration = 0.1
         view.layoutIfNeeded()
         UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveEaseInOut], animations: {
-            self.answerViewBox.viewBox.transform = CGAffineTransform(translationX: 15, y: 3)
+            self.answerViewBox.viewBox.transform = CGAffineTransform(translationX: 15, y: -3)
             self.view.layoutIfNeeded()
         }) { _ in
             UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveEaseInOut, .repeat]) {
-                self.answerViewBox.viewBox.transform = CGAffineTransform(translationX: -15, y: -3)
+                self.answerViewBox.viewBox.transform = CGAffineTransform(translationX: -15, y: 3)
                 self.view.layoutIfNeeded()
             }
         }
