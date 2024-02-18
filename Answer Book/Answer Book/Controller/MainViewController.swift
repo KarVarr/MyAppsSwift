@@ -30,6 +30,7 @@ class MainViewController: UIViewController {
     let circleInsideBall = ViewBoxView()
     let magicBallImage = ImageViewView()
     
+    //motionBegan for shacking phone
     override func becomeFirstResponder() -> Bool {
         return true
     }
