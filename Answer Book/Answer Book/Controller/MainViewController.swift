@@ -37,18 +37,19 @@ class MainViewController: UIViewController {
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         settingView()
         fetchQuotes()
         
         timer = Timer(timeInterval: 1, target: self, selector: #selector(updateDataForQuotes), userInfo: nil, repeats: true)
     }
-    
+    //MARK: - ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         blurEffect()
         addSubviews()
     }
-    
+    //MARK: - ViewDidLayoutSubviews
     override func viewDidLayoutSubviews() {
         layoutView()
         createCircle(for: topCornerCircle, withColor: UIColor.magenta)

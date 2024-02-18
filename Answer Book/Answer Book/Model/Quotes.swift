@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct Quotes: Decodable {
     var q, a, h: String
 }
