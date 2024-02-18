@@ -14,6 +14,10 @@ extension MainViewController {
         shakeButton.button.addTarget(self, action: #selector(shakeButtonPressed), for: .touchUpInside)
     }
     
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        shakeButtonPressed()
+    }
+    
     @objc func shakeButtonPressed () {
         //Haptic Touch
         let generate = UINotificationFeedbackGenerator()

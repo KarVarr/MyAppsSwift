@@ -30,6 +30,9 @@ class MainViewController: UIViewController {
     let circleInsideBall = ViewBoxView()
     let magicBallImage = ImageViewView()
     
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
