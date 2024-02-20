@@ -21,9 +21,9 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
     func scheduleNotification(authorName: String?) {
         let content = UNMutableNotificationContent()
         
-        content.title = "New quote of the Day"
-        if let name = authorName {
-            content.body = "By \(name)"
+        content.title = "Daily Dose of Wisdom ✨"
+        if let authorName = authorName {
+            content.body = "By: \(authorName)"
         }
         content.sound = UNNotificationSound.default
         
