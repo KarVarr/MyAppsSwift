@@ -9,6 +9,7 @@ import UIKit
 import UserNotifications
 
 class Notifications: NSObject, UNUserNotificationCenterDelegate {
+    let mainViewController = MainViewController()
     let notificationCenter = UNUserNotificationCenter.current()
     
     func requestAuthorization() {
@@ -21,6 +22,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         let content = UNMutableNotificationContent()
         
         content.title = "New quote of the Day"
+        content.body = mainViewController.authorName ?? "Unknown author"
         content.sound = UNNotificationSound.default
         
         let identifier = "quote"
@@ -30,6 +32,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         triggerDaily.minute = 0
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+        
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         notificationCenter.add(request)

@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     var titleLabel = LabelView()
     var dateLabel = LabelView()
     let activityIndicator = ActivityIndicatorView()
+    var authorName: String?
     var timer: Timer?
     
     // Views for answering questions

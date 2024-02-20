@@ -40,7 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         mainViewController?.fetchQuotes()
         mainViewController?.timer = Timer(timeInterval: 1, target: self, selector: #selector(mainViewController?.updateDataForQuotes), userInfo: nil, repeats: true)
-        print("refresh fetchQoutes and timer is on")
+        print("refresh fetch Quotes and timer is on")
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
