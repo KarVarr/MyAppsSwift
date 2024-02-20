@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
-        notifications.scheduleNotification()
+        
     }
     
     func sceneWillResignActive(_ scene: UIScene) {

@@ -18,11 +18,13 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         }
     }
     
-    func scheduleNotification() {
+    func scheduleNotification(authorName: String?) {
         let content = UNMutableNotificationContent()
         
         content.title = "New quote of the Day"
-        content.body = mainViewController.authorName ?? "Unknown author"
+        if let name = authorName {
+            content.body = "By \(name)"
+        }
         content.sound = UNNotificationSound.default
         
         let identifier = "quote"
@@ -31,8 +33,8 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         triggerDaily.hour = 8
         triggerDaily.minute = 0
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
-        
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         notificationCenter.add(request)

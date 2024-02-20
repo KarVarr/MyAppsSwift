@@ -18,8 +18,9 @@ extension MainViewController {
                         quotes.forEach {
                             self.quoteLabel.label.text = "\"\($0.q)\""
                             self.authorLabel.label.text = $0.a
-                            self.authorName = $0.a
                             self.activityIndicator.indicator.stopAnimating()
+                            let notifications = Notifications()
+                            notifications.scheduleNotification(authorName: $0.a)
                         }
                     case .failure(let error):
                         print("Error with Quotes: \(error)")
