@@ -10,21 +10,21 @@ import Foundation
 extension MainViewController {
     //MARK: - Quotes fetcher
     func fetchQuotes() {
-        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
-            self.dataFetcher.decodeAPI(at: Helper.URL.quotesUrl) { (result: Result<[Quotes], Error>) in
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            self?.dataFetcher.decodeAPI(at: Helper.URL.quotesUrl) { (result: Result<[Quotes], Error>) in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let quotes):
                         quotes.forEach {
-                            self.quoteLabel.label.text = "\"\($0.q)\""
-                            self.authorLabel.label.text = $0.a
-                            self.activityIndicator.indicator.stopAnimating()
-                            let notifications = Notifications()
-                            notifications.scheduleNotification(authorName: $0.a)
+                            self?.quoteLabel.label.text = "\"\($0.q)\""
+                            self?.authorLabel.label.text = $0.a
+                            self?.activityIndicator.indicator.stopAnimating()
+                            
+                            self?.scheduleNotificationIfNeeded(quotes: quotes)
                         }
                     case .failure(let error):
                         print("Error with Quotes: \(error)")
-                        Helper.Alert.showNoInternetAlert(from: self)
+                        Helper.Alert.showNoInternetAlert(from: self!)
                     }
                     
                 }

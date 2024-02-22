@@ -33,8 +33,8 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         triggerDaily.hour = 8
         triggerDaily.minute = 0
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         notificationCenter.add(request)

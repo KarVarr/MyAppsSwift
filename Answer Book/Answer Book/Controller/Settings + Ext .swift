@@ -24,7 +24,7 @@ extension MainViewController {
     }
     
     //MARK: - Functions
-     func getCurrentDate() -> String {
+    func getCurrentDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy"
         return dateFormatter.string(from: Date())
@@ -33,5 +33,11 @@ extension MainViewController {
     //MARK: - Update quote section
     @objc func updateDataForQuotes() {
         fetchQuotes()
+    }
+    
+    func scheduleNotificationIfNeeded(quotes: [Quotes]) {
+        guard let firstQuote = quotes.first else { return }
+        let notifications = Notifications()
+        notifications.scheduleNotification(authorName: firstQuote.a)
     }
 }
