@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
-
+        
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -48,6 +48,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         mainViewController?.answerLabel.label.font = UIFont.systemFont(ofSize: MainViewController().dynamicFontSize(72))
         mainViewController?.timer?.invalidate()
         print("timer is off")
+    }
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // Выполняем обновление данных
+        mainViewController?.fetchQuotes()
     }
 }
 
