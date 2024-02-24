@@ -50,9 +50,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         print("timer is off")
     }
     
-    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        // Выполняем обновление данных
-        mainViewController?.fetchQuotes()
-    }
 }
 
