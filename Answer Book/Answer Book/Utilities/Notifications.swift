@@ -13,18 +13,19 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
     let notificationCenter = UNUserNotificationCenter.current()
     
     func requestAuthorization() {
+        let notifications = Notifications()
+        notifications.scheduleNotification()
         notificationCenter.requestAuthorization(options: [.alert,.sound]) { granted, error in
             print("Permission granted \(granted)")
         }
     }
     
-    func scheduleNotification(authorName: String?) {
+    func scheduleNotification() {
         let content = UNMutableNotificationContent()
         
+        
         content.title = "Daily Dose of Wisdom ✨"
-        if let authorName = authorName {
-            content.body = "By: \(authorName)"
-        }
+        content.body = "New quote"
         content.sound = UNNotificationSound.default
         
         let identifier = "quote"

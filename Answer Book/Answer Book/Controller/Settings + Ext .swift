@@ -34,10 +34,4 @@ extension MainViewController {
     @objc func updateDataForQuotes() {
         fetchQuotes()
     }
-    
-    func scheduleNotificationIfNeeded(quotes: [Quotes]) {
-        guard let firstQuote = quotes.first else { return }
-        let notifications = Notifications()
-        notifications.scheduleNotification(authorName: firstQuote.a)
-    }
 }
