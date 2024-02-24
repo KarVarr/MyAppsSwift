@@ -14,6 +14,7 @@ class MassageViewModel: ObservableObject {
     
     @Published var valueOfIntensity = 0.7
     private var engine: CHHapticEngine?
+    let generator = UIImpactFeedbackGenerator(style: .heavy)
     private var isVibrating = false
     
     private init() {
@@ -27,11 +28,7 @@ class MassageViewModel: ObservableObject {
     
     
     func toggleVibration() {
-        if isVibrating {
-            stopVibration()
-        } else {
-            startVibration()
-        }
+        isVibrating ? stopVibration() : startVibration()
     }
     
     func setupHapticEngine() {
@@ -45,30 +42,29 @@ class MassageViewModel: ObservableObject {
         }
     }
     
-//    func startVibration() {
-//        guard let engine = engine else { return }
-//        
-//        do {
-//            try engine.start()
-//            
-//            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(valueOfIntensity))
-//            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.2)
-//            let event = CHHapticEvent(eventType: .hapticContinuous, parameters: [intensity, sharpness], relativeTime: 0, duration: .infinity)
-//            
-//            let pattern = try CHHapticPattern(events: [event], parameters: [])
-//            
-//            let player = try engine.makePlayer(with: pattern)
-//            try player.start(atTime: 0)
-//            
-//            DispatchQueue.main.async {
-//                self.isVibrating = true
-//            }
-//            
-//            
-//        } catch {
-//            print("Error playing haptic pattern: \(error.localizedDescription)")
-//        }
-//    }
+    func startVibration() {
+        guard let engine = engine else { return }
+        
+        do {
+            try engine.start()
+            
+            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(valueOfIntensity))
+            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.2)
+            let event = CHHapticEvent(eventType: .hapticContinuous, parameters: [intensity, sharpness], relativeTime: 0, duration: .infinity)
+            
+            let pattern = try CHHapticPattern(events: [event], parameters: [])
+            
+            let player = try engine.makePlayer(with: pattern)
+            try player.start(atTime: 0)
+            
+            DispatchQueue.main.async {
+                self.isVibrating = true
+            }
+            
+        } catch {
+            print("Error playing haptic pattern: \(error.localizedDescription)")
+        }
+    }
     
     
     private func stopVibration() {
@@ -84,17 +80,27 @@ class MassageViewModel: ObservableObject {
             }
         })
     }
+//    func stopVibration() {
+//        generator.prepare() // Stops ongoing vibrations
+//        DispatchQueue.main.async {
+//            self.isVibrating = false
+//        }
+//    }
     
-    func startVibration() {
-        let generator = UIImpactFeedbackGenerator(style: .heavy)
-        generator.impactOccurred() // Trigger initial impact
-        
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-            let intensity = Double(timer.timeInterval * 10).remainder(dividingBy: 2.0)
-            generator.prepare() // Prepare for next impact
-            generator.impactOccurred(intensity: CGFloat(Float(intensity))) // Trigger impact with intensity
-        }
-    }
+//    func startVibration() {
+////        let generator = UIImpactFeedbackGenerator(style: .heavy)
+//        generator.impactOccurred()
+//        
+//        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+//            let intensity = Double(timer.timeInterval * 10).remainder(dividingBy: 2.0)
+//            self.generator.prepare()
+//            self.generator.impactOccurred(intensity: CGFloat(Float(intensity)))
+//        }
+//        DispatchQueue.main.async {
+//            self.isVibrating = true
+//        }
+//        
+//    }
         
    
 }

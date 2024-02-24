@@ -43,7 +43,6 @@ struct StartScreenView: View {
                 }
                 .onAppear {
                     prepare()
-                    
                 }
                 .onTapGesture {
                     if !buttonIsPressed {

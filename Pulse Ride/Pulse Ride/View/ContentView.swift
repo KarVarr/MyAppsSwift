@@ -34,7 +34,6 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            
             GeometryReader { geo in
                 ZStack {
                     
@@ -134,9 +133,8 @@ struct ContentView: View {
                     }
                 }
             }
-            
-            
         }
+        
         
     }
     
