@@ -29,7 +29,7 @@ struct ContentView: View {
     @State private var rectangleHeight =  [40, 30, 50, 60, 80, 50, 40, 70, 50, 30, 60 ,80 ,40]
     let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
     
-
+    
     @State private var hapticIsPlaying = false
     
     var body: some View {

@@ -64,6 +64,7 @@
 		173F01C12A229EE000782653 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				173F01F12A279D0C00782653 /* Launch Screen.storyboard */,
 				173F01BE2A229ECC00782653 /* StartScreenView.swift */,
 				173F02022A30F90F00782653 /* StackTextVertical.swift */,
 				173F02042A30FB8B00782653 /* CustomNavBar.swift */,
@@ -118,7 +119,6 @@
 				173F01C02A229ED500782653 /* Model */,
 				17CB83AE2A1FD518008F7CEC /* Assets.xcassets */,
 				17CB83B02A1FD518008F7CEC /* Preview Content */,
-				173F01F12A279D0C00782653 /* Launch Screen.storyboard */,
 			);
 			path = "Pulse Ride";
 			sourceTree = "<group>";
