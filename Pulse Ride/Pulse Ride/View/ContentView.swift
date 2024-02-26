@@ -10,7 +10,11 @@ import CoreHaptics
 
 
 
-struct ContentView: View {
+struct aContentView: View {
+//    @State private var isVibrating = false
+//    @StateObject private var vibrationEngine: VibrationEngine
+    
+    
     @StateObject private var massageVM = MassageViewModel.shared
     var imagesNameForButtons = ImagesNameForButtons()
     
@@ -32,22 +36,19 @@ struct ContentView: View {
     
     @State private var hapticIsPlaying = false
     
+  
+    
     var body: some View {
         VStack {
-            
             GeometryReader { geo in
                 ZStack {
-                    
                     LinearGradient(gradient: Gradient(colors: [Color(red: 0.98, green: 0.33, blue: 0.78), Color(red: 0.73, green: 0.11, blue: 0.45)]), startPoint: .top, endPoint: .bottom)
                         .edgesIgnoringSafeArea(.all)
-                    
                     VStack {
                         Spacer()
-                        
                         //MARK: - NAVBAR
                         CustomNavBar()
                         Spacer(minLength: 50)
-                        
                         //MARK: - TEXT AND ANIMATION
                         VStack {
                             if isPlaying {
@@ -86,7 +87,7 @@ struct ContentView: View {
                                 }
                                 .onTapGesture {
                                     startButton()
-                                    massageVM.toggleVibration()
+//                                    vibrationEngine?.toggleVibration()
                                 }
                                 
                             }
@@ -120,6 +121,7 @@ struct ContentView: View {
                     }
                 }
                 .onAppear {
+                    
                     massageVM.setupHapticEngine()
                 }
             }
@@ -159,6 +161,7 @@ struct ContentView: View {
     }
     
 }
+
 
 
 struct ContentView_Previews: PreviewProvider {
