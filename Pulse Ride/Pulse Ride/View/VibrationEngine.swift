@@ -1,58 +1,49 @@
 //
-//  MassageViewModel.swift
+//  VibrationEngine.swift
 //  Pulse Ride
 //
-//  Created by Karen Vardanian on 15.06.2023.
+//  Created by Karen Vardanian on 26.02.2024.
 //
 
 import SwiftUI
 import CoreHaptics
 
-
-class MassageViewModel: ObservableObject {
-    static let shared = MassageViewModel()
-    
-    @Published var valueOfIntensity = 0.7
-    let generator = UIImpactFeedbackGenerator(style: .heavy)
-    
-    
+struct ContentView: View {
     @State private var engine: CHHapticEngine?
     @State private var player: CHHapticAdvancedPatternPlayer?
     @State private var isVibrating = false
     
-    private init() {
-        setupHapticEngine()
-    }
-    
-    func impactFeedback(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {
-        let impactGenerator = UIImpactFeedbackGenerator(style: style)
-        impactGenerator.impactOccurred()
-    }
-    
-    
-    func toggleVibration() {
-        self.isVibrating ? startVibration() : stopVibration()
-    }
-    
-    func setupHapticEngine() {
-        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
-        
-        do {
-            engine = try CHHapticEngine()
-        } catch {
-            print("Error creating haptic engine: \(error.localizedDescription)")
-            engine = nil
+    var body: some View {
+        Button(action: {
+            // Переключаем состояние вибрации
+            self.isVibrating.toggle()
+            
+            // Вызываем функцию для управления вибрацией
+            self.toggleVibration()
+        }) {
+            Text(isVibrating ? "Stop Vibration" : "Start Vibration")
         }
     }
     
-    func startVibration() {
+    // Функция для управления вибрацией
+    private func toggleVibration() {
+        if self.isVibrating {
+            startVibration()
+        } else {
+            stopVibration()
+        }
+    }
+    
+    // Функция для запуска вибрации
+    private func startVibration() {
         do {
-            // Создаем кривую для управления интенсивностью
+            // Создаем экземпляр CHHapticEngine, если еще не создан
             if engine == nil {
                 engine = try CHHapticEngine()
                 try engine?.start()
             }
             
+            // Создаем кривую для управления интенсивностью
             let intensityCurve = CHHapticParameterCurve(
                 parameterID: .hapticIntensityControl,
                 controlPoints: [
@@ -65,17 +56,17 @@ class MassageViewModel: ObservableObject {
                 ],
                 relativeTime: 0
             )
-            
+
             // Создаем события для пульсирующей вибрации
             let event1 = CHHapticEvent(eventType: .hapticContinuous, parameters: [], relativeTime: 0, duration: 0.5)
             let event2 = CHHapticEvent(eventType: .hapticContinuous, parameters: [], relativeTime: 0.5, duration: 0.5)
-            
+
             // Создаем шаблон из событий и кривой интенсивности
             let pattern = try CHHapticPattern(events: [event1, event2], parameterCurves: [intensityCurve])
-            
+
             // Создаем проигрыватель из шаблона
             self.player = try engine?.makeAdvancedPlayer(with: pattern)
-            
+
             // Запускаем проигрыватель
             if let player = self.player {
                 try player.start(atTime: CHHapticTimeImmediate)
@@ -89,7 +80,7 @@ class MassageViewModel: ObservableObject {
     }
     
     // Функция для остановки вибрации
-    func stopVibration() {
+    private func stopVibration() {
         do {
             // Если есть проигрыватель, останавливаем его
             if let player = self.player {
@@ -99,8 +90,9 @@ class MassageViewModel: ObservableObject {
             print("Error stopping haptics: \(error.localizedDescription)")
         }
     }
-    
+}
 
-    
-    
+
+#Preview {
+    ContentView()
 }
