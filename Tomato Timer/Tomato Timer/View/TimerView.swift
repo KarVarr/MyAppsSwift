@@ -52,11 +52,9 @@ struct TimerView: View {
     
     
     var body: some View {
-        
         Color(uiColor: Helper.Colors.background)
             .ignoresSafeArea()
             .overlay {
-                
                 GeometryReader { geometry in
                     ZStack(alignment: .center) {
                         Circle()
@@ -74,7 +72,6 @@ struct TimerView: View {
                             Button {
                                 generateHapticFeedback(style: .rigid)
                                 adjustTime(adding: false)
-                                
                             } label: {
                                 Image(systemName: "minus")
                                     .foregroundStyle(isMinusButtonOnOff ? Color(uiColor: Helper.Colors.comments) : Color(uiColor: Helper.Colors.number))
@@ -82,11 +79,9 @@ struct TimerView: View {
                             }
                             .disabled(isMinusButtonOnOff)
                             
-                            
                             Text(String(format: "%02d:%02d", countdownMinutes, countdownSeconds))
                                 .foregroundStyle(Helper.Colors.linearGradientDarkPinkPurple)
                                 .font(.system(size: 36, weight: .regular, design: .monospaced))
-                            
                             Button {
                                 adjustTime(adding: true)
                                 generateHapticFeedback(style: .rigid)
@@ -96,7 +91,6 @@ struct TimerView: View {
                                     .font(.largeTitle)
                             }
                             .disabled(isPlusButtonOnOff)
-                            
                         }
                         
                         //MARK: - Play/stop and Restart time
@@ -116,38 +110,30 @@ struct TimerView: View {
                                     .scaledToFit()
                                     .frame(width: 50)
                             }
-                            
                             .foregroundStyle(Color(uiColor: Helper.Colors.comments)).font(.largeTitle)
                             .rotation3DEffect(
                                 .degrees(rotationAngleRepeatButton),
                                 axis: (x: 0.0, y: 0.0, z: -1.0)
                             )
-                            
                             Spacer()
-                            
                             Button {
                                 withAnimation(.easeInOut) {
                                     timerRunning.toggle()
                                 }
                                 generateHapticFeedback(style: .soft)
-                                
                             } label: {
                                 Image(buttonIcon)
                                     .resizable()
                                     .renderingMode(.template)
                                     .scaledToFit()
                                     .frame(width: 50)
-                                
                             }
                             .foregroundStyle(Color(uiColor: Helper.Colors.variable)).font(.largeTitle)
-                            
                         }
-                        
                         .padding(.vertical, 40)
                         .onReceive(timer) { _ in
                             handleTimerUpdate()
                         }
-                        
                     }
                     .frame(width: geometry.size.width , height: geometry.size.width - 50)
                     .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
@@ -155,7 +141,6 @@ struct TimerView: View {
                 }
             }
     }
-    
 }
 
 #Preview {

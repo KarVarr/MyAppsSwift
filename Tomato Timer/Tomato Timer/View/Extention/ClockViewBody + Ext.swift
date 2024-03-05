@@ -122,16 +122,13 @@ extension ClockView {
                         + textAndColor(name: ")", color: Helper.Colors.white)
                         + textAndColor(name: " minutes", color: Helper.Colors.string)
                         + textAndColor(name: "\"", color: Helper.Colors.string)
-                        
                     }
                     
                     HStack {
                         textAndColor(name: "    }", color: Helper.Colors.brackets)
-                        
                     }
                     //MARK: - End of class
                     textAndColor(name: "}", color: Helper.Colors.brackets)
-                    
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
