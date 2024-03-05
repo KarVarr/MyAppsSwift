@@ -16,7 +16,7 @@ enum Mood: String {
 }
 
 struct ClockView: View {
-    @ObservedObject private var soundViewModel = SoundViewModel()
+    @ObservedObject var soundViewModel = SoundViewModel()
     @ObservedObject var clockViewModel = ClockViewModel()
     
     @Binding var timerCount: CGFloat
@@ -25,9 +25,9 @@ struct ClockView: View {
     @State var isLoading: Bool = true
     @State var currentTimePeriod: TimeAMPM = .am
     @State var currentMood: Mood = .coding
-    @State private var currentDate: String = ""
-    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State private var currentHour: Int = 0
+    @State var currentDate: String = ""
+    @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var currentHour: Int = 0
     
     let screenHeight = UIScreen.main.bounds.height
     
@@ -44,19 +44,7 @@ struct ClockView: View {
         }
     }
     
-    //MARK: - Body
-    var body: some View {
-        clockViewBody(timerCount: timerCount, sessionCount: sessionCount)
-            .onReceive(timer, perform: { _ in
-                DispatchQueue.main.async {
-                    let calendar = Calendar.current
-                    currentHour = calendar.component(.hour, from: Date())
-                    currentTimePeriod = currentHour >= 12 ? .pm : .am
-                    currentDate = getCurrentDate()
-                    isLoading = false
-                }
-            })
-    }
+    //body in extension ClockViewBody + Ext
 }
 
 #Preview {

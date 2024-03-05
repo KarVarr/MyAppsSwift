@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension ClockView {
-    func clockViewBody(timerCount: CGFloat, sessionCount: Int) -> some View {
+    var body: some View {
         Color(uiColor: Helper.Colors.background)
             .ignoresSafeArea()
             .overlay {
@@ -131,5 +131,14 @@ extension ClockView {
                 .frame(maxWidth: .infinity)
                 .padding()
             }
+            .onReceive(timer, perform: { _ in
+                DispatchQueue.main.async {
+                    let calendar = Calendar.current
+                    currentHour = calendar.component(.hour, from: Date())
+                    currentTimePeriod = currentHour >= 12 ? .pm : .am
+                    currentDate = getCurrentDate()
+                    isLoading = false
+                }
+            })
     }
 }
