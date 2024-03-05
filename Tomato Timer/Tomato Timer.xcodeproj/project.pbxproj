@@ -61,7 +61,6 @@
 		170F7F672B61620E002F3912 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				172A3EC92B62D9FF001690AE /* Sounds */,
 				1765368D2B5BC86200517AEA /* Helper.swift */,
 			);
 			path = Helpers;
@@ -90,13 +89,22 @@
 		178168A42B5D00A80081A3E2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				17FB029E2B6FC04400672EA7 /* Launch Screen.storyboard */,
 				17E927512B5AE0C0000BA1F2 /* ContentView.swift */,
 				17E9275D2B5AE104000BA1F2 /* TimerView.swift */,
 				1765368B2B5BC4C300517AEA /* ClockView.swift */,
 				17BD371C2B68E23200CEB7BA /* Extention */,
-				17FB029E2B6FC04400672EA7 /* Launch Screen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		17B85CB72B9797D6006D9DEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				172A3EC92B62D9FF001690AE /* Sounds */,
+				17E927532B5AE0C2000BA1F2 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		17BD371C2B68E23200CEB7BA /* Extention */ = {
@@ -132,7 +140,7 @@
 				170F7F672B61620E002F3912 /* Helpers */,
 				178168A42B5D00A80081A3E2 /* View */,
 				178168A32B5D00950081A3E2 /* Model */,
-				17E927532B5AE0C2000BA1F2 /* Assets.xcassets */,
+				17B85CB72B9797D6006D9DEA /* Resources */,
 				17E927552B5AE0C2000BA1F2 /* Preview Content */,
 			);
 			path = "Tomato Timer";
@@ -367,6 +375,7 @@
 				DEVELOPMENT_TEAM = LA9F8MT28T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Tomato-Timer-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -402,6 +411,7 @@
 				DEVELOPMENT_TEAM = LA9F8MT28T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Tomato-Timer-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
