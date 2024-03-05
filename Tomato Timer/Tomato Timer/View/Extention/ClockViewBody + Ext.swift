@@ -40,7 +40,6 @@ extension ClockView {
                         textAndColor(name: "class", color: Helper.Colors.variable).bold()
                         textAndColor(name: "TomatoTimer", color: Helper.Colors.typeName)
                         textAndColor(name: "{", color: Helper.Colors.brackets)
-                        
                     }
                     //MARK: - Date
                     HStack {
@@ -83,7 +82,6 @@ extension ClockView {
                     }
                     //MARK: - Init()
                     HStack {
-                        
                         Text("\(textAndColor(name: "    init", color: Helper.Colors.variable).bold())\(textAndColor(name: "()", color: Helper.Colors.brackets))")
                         textAndColor(name: "{", color: Helper.Colors.brackets)
                     }

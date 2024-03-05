@@ -59,7 +59,6 @@ struct TimerView: View {
                     ZStack(alignment: .center) {
                         Circle()
                             .stroke(Color.gray.opacity(0.2), style: strokeStyle)
-                        
                         Circle()
                             .trim(from: 0, to: 1 - ((defaultTime - countdownTime) / defaultTime))
                             .stroke(countdownColor, style: strokeStyle)
