@@ -111,9 +111,8 @@ extension ClockView {
                         textAndColor(name: "=", color: Helper.Colors.brackets)
                         
                         textAndColor(name: "\"", color: Helper.Colors.string)
-                        + textAndColor(name: "\\", color: Helper.Colors.white)
                         + textAndColor(name: "(", color: Helper.Colors.white)
-                        + textAndColor(name: String(format: "%.0f",timerCount / 60), color: Helper.Colors.number).bold().font(.title3).monospacedDigit()
+                        + textAndColor(name: timerCount == 300 ? "05" : String(format: "%.0f",timerCount / 60), color:Helper.Colors.number).bold().font(.title3).monospacedDigit()
                         + textAndColor(name: ")", color: Helper.Colors.white)
                         + textAndColor(name: " minutes", color: Helper.Colors.string)
                         + textAndColor(name: "\"", color: Helper.Colors.string)
@@ -136,7 +135,6 @@ extension ClockView {
                     currentDate = getCurrentDate()
                     isLoading = false
                     
-                    timerCount = currentMood == .code ? 1200 : 300
                 }
             })
     }
