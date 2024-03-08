@@ -17,7 +17,7 @@ extension TimerView {
                         Circle()
                             .stroke(Color.gray.opacity(0.2), style: strokeStyle)
                         Circle()
-                            .trim(from: 0, to: calculateTrim())
+                            .trim(from: 0, to: 1 - (defaultTime - countdownTime) / defaultTime)
                             .stroke(countdownColor, style: strokeStyle)
                             .rotationEffect(.degrees(-90))
                             .animation(.easeIn, value: countdownTime)
@@ -98,13 +98,13 @@ extension TimerView {
             }
     }
     
-    private func calculateTrim() -> CGFloat {
-           let progress: CGFloat
-           if countdownTime <= 300 {
-               progress = 1 - (300 - countdownTime) / 300
-           } else {
-               progress = 1 - (defaultTime - countdownTime) / defaultTime
-           }
-           return progress
-       }
+//    private func calculateTrim() -> CGFloat {
+//           let progress: CGFloat
+//           if countdownTime <= 300 {
+//               progress = 1 - (300 - countdownTime) / 300
+//           } else {
+//               progress = 1 - (defaultTime - countdownTime) / defaultTime
+//           }
+//           return progress
+//       }
 }

@@ -23,7 +23,7 @@ extension ClockView {
                     HStack {
                         textAndColor(name: "    case", color: Helper.Colors.variable).bold()
                         textAndColor(name: "code,", color: Helper.Colors.variableName)
-                        textAndColor(name: "break,", color: Helper.Colors.variableName)
+                        textAndColor(name: "break", color: Helper.Colors.variableName)
                     }
                     
                     //MARK: - End of enum
@@ -95,25 +95,20 @@ extension ClockView {
                         textAndColor(name: ".\(currentMood.rawValue)", color: Helper.Colors.ifElseCondition)
                     }
                     .onTapGesture {
+                        timerRunning = false
                         switch currentMood {
                         case .code:
                             currentMood = .break
-                            timerRunning = false
                             defaultTime = 300
-                            isMinusButtonOnOff = true
-                            isPlusButtonOnOff = false
-                            countdownTime = defaultTime
-                            timerCount = countdownTime
                         case .break:
                             currentMood = .code
-                            timerRunning = false
-                            isMinusButtonOnOff = true
-                            isPlusButtonOnOff = false
                             defaultTime = 1200
-                            countdownTime = defaultTime
-                            timerCount = countdownTime
-                            
                         }
+                        isMinusButtonOnOff = true
+                        isPlusButtonOnOff = false
+                        countdownTime = defaultTime
+                        timerCount = countdownTime
+                        
                         generateHapticFeedback(style: .light)
                     }
                     
