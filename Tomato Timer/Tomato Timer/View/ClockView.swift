@@ -22,6 +22,8 @@ struct ClockView: View {
     @Binding var timerCount: CGFloat
     @Binding var sessionCount: Int
     @Binding var currentMood: Mood
+    @Binding var countdownTime: CGFloat
+    @Binding var defaultTime: CGFloat
     
     @State var isLoading: Bool = true
     @State var currentTimePeriod: TimeAMPM = .am
@@ -48,7 +50,7 @@ struct ClockView: View {
 }
 
 #Preview {
-    ClockView(timerCount: .constant(1200), sessionCount: .constant(0), currentMood: .constant(.code))
+    ClockView(timerCount: .constant(1200), sessionCount: .constant(0), currentMood: .constant(.code), countdownTime: .constant(1200), defaultTime: .constant(1200))
 }
 
 

@@ -18,6 +18,7 @@ extension TimerView {
     func handleTimerUpdate() {
         DispatchQueue.main.async {
             guard timerRunning else { return }
+            
             if countdownTime > 0 {
                 countdownTime -= 1
             } else {
@@ -38,10 +39,9 @@ extension TimerView {
     }
      
     func adjustTime(adding: Bool) {
-        timerRunning = false
-        countdownTime = defaultTime
-
         if currentMood == .code {
+            timerRunning = false
+            countdownTime = defaultTime
             if adding {
                 if defaultTime >= 3600 {
                     isPlusButtonOnOff = true
@@ -72,6 +72,8 @@ extension TimerView {
                 }
             }
         } else {
+            timerRunning = false
+            countdownTime = defaultTime
             if adding {
                 if defaultTime >= 900 {
                     isPlusButtonOnOff = true

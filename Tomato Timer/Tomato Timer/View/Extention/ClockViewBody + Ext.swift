@@ -98,8 +98,12 @@ extension ClockView {
                         switch currentMood {
                         case .code:
                             currentMood = .break
+                            timerCount = 300
+                            countdownTime = 300
                         case .break:
                             currentMood = .code
+                            timerCount = 1200
+                            countdownTime = 1200
                         }
                         generateHapticFeedback(style: .light)
                     }
@@ -134,7 +138,6 @@ extension ClockView {
                     currentTimePeriod = currentHour >= 12 ? .pm : .am
                     currentDate = getCurrentDate()
                     isLoading = false
-                    
                 }
             })
     }

@@ -14,10 +14,10 @@ struct TimerView: View {
     @Binding var timerCount: CGFloat
     @Binding var sessionCount: Int
     @Binding var currentMood: Mood
+    @Binding var countdownTime: CGFloat
+    @Binding var defaultTime: CGFloat
     
-    @State var defaultTime: CGFloat = 1200
     @State var timerRunning = false
-    @State var countdownTime: CGFloat = 1200
     @State var rotationAngleRepeatButton: Double = 0.0
     @State var isMinusButtonOnOff: Bool = true
     @State var isPlusButtonOnOff: Bool = false
@@ -55,5 +55,5 @@ struct TimerView: View {
 }
 
 #Preview {
-    TimerView(timerCount: .constant(1200), sessionCount: .constant(0), currentMood: .constant(.code))
+    TimerView(timerCount: .constant(1200), sessionCount: .constant(0), currentMood: .constant(.code), countdownTime: .constant(1200), defaultTime: .constant(1200))
 }
