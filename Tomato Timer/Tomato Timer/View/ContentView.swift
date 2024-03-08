@@ -13,6 +13,9 @@ struct ContentView: View {
     @State private var currentMode: Mood = .code
     @State private var countdownTime: CGFloat = 1200
     @State private var defaultTime: CGFloat = 1200
+    @State private var timerRunning: Bool = false
+    @State private var isMinusButtonOnOff: Bool = true
+    @State private var isPlusButtonOnOff: Bool = false
     
     var body: some View {
         Color(uiColor: Helper.Colors.background)
@@ -23,10 +26,10 @@ struct ContentView: View {
         
             .overlay {
                 VStack(alignment: .center) {
-                    ClockView(timerCount: $timerCount, sessionCount: $sessionCount, currentMood: $currentMode, countdownTime: $countdownTime, defaultTime: $defaultTime)
+                    ClockView(timerCount: $timerCount, sessionCount: $sessionCount, currentMood: $currentMode, countdownTime: $countdownTime, defaultTime: $defaultTime, timerRunning: $timerRunning, isMinusButtonOnOff: $isMinusButtonOnOff, isPlusButtonOnOff: $isPlusButtonOnOff)
                         .padding(.bottom, 50)
                     Spacer()
-                    TimerView(timerCount: $timerCount, sessionCount: $sessionCount, currentMood: $currentMode, countdownTime: $countdownTime, defaultTime: $defaultTime)
+                    TimerView(timerCount: $timerCount, sessionCount: $sessionCount, currentMood: $currentMode, countdownTime: $countdownTime, defaultTime: $defaultTime, timerRunning: $timerRunning, isMinusButtonOnOff: $isMinusButtonOnOff, isPlusButtonOnOff: $isPlusButtonOnOff)
                         .padding(.bottom, 50)
                 }
             }

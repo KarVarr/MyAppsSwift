@@ -16,11 +16,11 @@ struct TimerView: View {
     @Binding var currentMood: Mood
     @Binding var countdownTime: CGFloat
     @Binding var defaultTime: CGFloat
+    @Binding var timerRunning: Bool
+    @Binding var isMinusButtonOnOff: Bool
+    @Binding var isPlusButtonOnOff: Bool
     
-    @State var timerRunning = false
     @State var rotationAngleRepeatButton: Double = 0.0
-    @State var isMinusButtonOnOff: Bool = true
-    @State var isPlusButtonOnOff: Bool = false
     
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -55,5 +55,5 @@ struct TimerView: View {
 }
 
 #Preview {
-    TimerView(timerCount: .constant(1200), sessionCount: .constant(0), currentMood: .constant(.code), countdownTime: .constant(1200), defaultTime: .constant(1200))
+    TimerView(timerCount: .constant(1200), sessionCount: .constant(0), currentMood: .constant(.code), countdownTime: .constant(1200), defaultTime: .constant(1200), timerRunning: .constant(false), isMinusButtonOnOff: .constant(true), isPlusButtonOnOff: .constant(false))
 }

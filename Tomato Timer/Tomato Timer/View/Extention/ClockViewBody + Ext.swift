@@ -98,12 +98,21 @@ extension ClockView {
                         switch currentMood {
                         case .code:
                             currentMood = .break
-                            timerCount = 300
-                            countdownTime = 300
+                            timerRunning = false
+                            defaultTime = 300
+                            isMinusButtonOnOff = true
+                            isPlusButtonOnOff = false
+                            countdownTime = defaultTime
+                            timerCount = countdownTime
                         case .break:
                             currentMood = .code
-                            timerCount = 1200
-                            countdownTime = 1200
+                            timerRunning = false
+                            isMinusButtonOnOff = true
+                            isPlusButtonOnOff = false
+                            defaultTime = 1200
+                            countdownTime = defaultTime
+                            timerCount = countdownTime
+                            
                         }
                         generateHapticFeedback(style: .light)
                     }
