@@ -13,6 +13,7 @@ struct TimerView: View {
     
     @Binding var timerCount: CGFloat
     @Binding var sessionCount: Int
+    @Binding var currentMood: Mood
     
     @State var defaultTime: CGFloat = 1200
     @State var timerRunning = false
@@ -54,5 +55,5 @@ struct TimerView: View {
 }
 
 #Preview {
-    TimerView(timerCount: .constant(1200), sessionCount: .constant(0))
+    TimerView(timerCount: .constant(1200), sessionCount: .constant(0), currentMood: .constant(.code))
 }

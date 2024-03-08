@@ -21,10 +21,11 @@ struct ClockView: View {
     
     @Binding var timerCount: CGFloat
     @Binding var sessionCount: Int
+    @Binding var currentMood: Mood
     
     @State var isLoading: Bool = true
     @State var currentTimePeriod: TimeAMPM = .am
-    @State var currentMood: Mood = .code
+//    @State var currentMood: Mood = .code
     @State var currentDate: String = ""
     @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var currentHour: Int = 0
@@ -48,7 +49,7 @@ struct ClockView: View {
 }
 
 #Preview {
-    ClockView(timerCount: .constant(1200), sessionCount: .constant(0))
+    ClockView(timerCount: .constant(1200), sessionCount: .constant(0), currentMood: .constant(.code))
 }
 
 

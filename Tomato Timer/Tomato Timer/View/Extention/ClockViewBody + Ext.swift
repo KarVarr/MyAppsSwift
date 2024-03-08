@@ -135,6 +135,8 @@ extension ClockView {
                     currentTimePeriod = currentHour >= 12 ? .pm : .am
                     currentDate = getCurrentDate()
                     isLoading = false
+                    
+                    timerCount = currentMood == .code ? 1200 : 300
                 }
             })
     }

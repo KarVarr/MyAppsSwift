@@ -70,5 +70,11 @@ extension TimerView {
                 timerCount = countdownTime
             }
         }
+        
+        if currentMood == .code {
+            timerCount = 1200
+        } else {
+            timerCount = CGFloat(300 + (15 - countdownMinutes) * 60)
+        }
     }
 }
