@@ -112,9 +112,9 @@
 		17BD371C2B68E23200CEB7BA /* Extention */ = {
 			isa = PBXGroup;
 			children = (
-				17BD371A2B68E0C200CEB7BA /* TimerView + Ext.swift */,
 				17BD37182B68DE6E00CEB7BA /* ClockView + Ext.swift */,
 				172617D12B78BE0F006D1E2D /* ClockViewBody + Ext.swift */,
+				17BD371A2B68E0C200CEB7BA /* TimerView + Ext.swift */,
 				17B85CB82B979B92006D9DEA /* TimerViewBody + Ext.swift */,
 			);
 			path = Extention;

@@ -22,9 +22,8 @@ extension ClockView {
                     
                     HStack {
                         textAndColor(name: "    case", color: Helper.Colors.variable).bold()
-                        textAndColor(name: "coding,", color: Helper.Colors.variableName)
-                        textAndColor(name: "reading,", color: Helper.Colors.variableName)
-                        textAndColor(name: "cooking", color: Helper.Colors.variableName)
+                        textAndColor(name: "code,", color: Helper.Colors.variableName)
+                        textAndColor(name: "break,", color: Helper.Colors.variableName)
                     }
                     
                     //MARK: - End of enum
@@ -97,12 +96,10 @@ extension ClockView {
                     }
                     .onTapGesture {
                         switch currentMood {
-                        case .coding:
-                            currentMood = .reading
-                        case .reading:
-                            currentMood = .cooking
-                        case .cooking:
-                            currentMood = .coding
+                        case .code:
+                            currentMood = .break
+                        case .break:
+                            currentMood = .code
                         }
                         generateHapticFeedback(style: .light)
                     }

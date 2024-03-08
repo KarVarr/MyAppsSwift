@@ -39,6 +39,8 @@ extension TimerView {
         timerRunning = false
         countdownTime = defaultTime
 
+        
+        
         if adding {
             if defaultTime >= 3600 {
                 isPlusButtonOnOff = true

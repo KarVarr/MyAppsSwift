@@ -12,7 +12,7 @@ enum TimeAMPM {
 }
 
 enum Mood: String {
-    case coding, reading, cooking
+    case code, `break`
 }
 
 struct ClockView: View {
@@ -24,7 +24,7 @@ struct ClockView: View {
     
     @State var isLoading: Bool = true
     @State var currentTimePeriod: TimeAMPM = .am
-    @State var currentMood: Mood = .coding
+    @State var currentMood: Mood = .code
     @State var currentDate: String = ""
     @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var currentHour: Int = 0
