@@ -16,6 +16,8 @@
 		1765368E2B5BC86200517AEA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765368D2B5BC86200517AEA /* Helper.swift */; };
 		176536922B5BFF7900517AEA /* SoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176536912B5BFF7900517AEA /* SoundViewModel.swift */; };
 		176536942B5C047800517AEA /* ClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176536932B5C047800517AEA /* ClockViewModel.swift */; };
+		17716FA52B9C9F75008BC9E1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17716FA42B9C9F75008BC9E1 /* MainView.swift */; };
+		17716FA72B9C9FF1008BC9E1 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17716FA62B9C9FF1008BC9E1 /* OnboardingView.swift */; };
 		17B85CB92B979B92006D9DEA /* TimerViewBody + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B85CB82B979B92006D9DEA /* TimerViewBody + Ext.swift */; };
 		17BD37192B68DE6E00CEB7BA /* ClockView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD37182B68DE6E00CEB7BA /* ClockView + Ext.swift */; };
 		17BD371B2B68E0C200CEB7BA /* TimerView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD371A2B68E0C200CEB7BA /* TimerView + Ext.swift */; };
@@ -37,6 +39,8 @@
 		1765368D2B5BC86200517AEA /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		176536912B5BFF7900517AEA /* SoundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewModel.swift; sourceTree = "<group>"; };
 		176536932B5C047800517AEA /* ClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewModel.swift; sourceTree = "<group>"; };
+		17716FA42B9C9F75008BC9E1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		17716FA62B9C9FF1008BC9E1 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		17B85CB82B979B92006D9DEA /* TimerViewBody + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerViewBody + Ext.swift"; sourceTree = "<group>"; };
 		17BD37182B68DE6E00CEB7BA /* ClockView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClockView + Ext.swift"; sourceTree = "<group>"; };
 		17BD371A2B68E0C200CEB7BA /* TimerView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerView + Ext.swift"; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 			children = (
 				17FB029E2B6FC04400672EA7 /* Launch Screen.storyboard */,
 				17E927512B5AE0C0000BA1F2 /* ContentView.swift */,
+				17716FA62B9C9FF1008BC9E1 /* OnboardingView.swift */,
+				17716FA42B9C9F75008BC9E1 /* MainView.swift */,
 				17E9275D2B5AE104000BA1F2 /* TimerView.swift */,
 				1765368B2B5BC4C300517AEA /* ClockView.swift */,
 				17BD371C2B68E23200CEB7BA /* Extention */,
@@ -232,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17E9275E2B5AE104000BA1F2 /* TimerView.swift in Sources */,
+				17716FA52B9C9F75008BC9E1 /* MainView.swift in Sources */,
 				17E927522B5AE0C0000BA1F2 /* ContentView.swift in Sources */,
 				17B85CB92B979B92006D9DEA /* TimerViewBody + Ext.swift in Sources */,
 				172A3EC22B62D439001690AE /* AudioViewModel.swift in Sources */,
@@ -243,6 +250,7 @@
 				17BD37192B68DE6E00CEB7BA /* ClockView + Ext.swift in Sources */,
 				176536942B5C047800517AEA /* ClockViewModel.swift in Sources */,
 				172617D22B78BE0F006D1E2D /* ClockViewBody + Ext.swift in Sources */,
+				17716FA72B9C9FF1008BC9E1 /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
