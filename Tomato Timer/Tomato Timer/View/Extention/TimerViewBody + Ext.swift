@@ -38,6 +38,7 @@ extension TimerView {
                             Text(String(format: "%02d:%02d", countdownMinutes, countdownSeconds))
                                 .foregroundStyle(Helper.Colors.linearGradientDarkPinkPurple)
                                 .font(.system(size: 36, weight: .regular, design: .monospaced))
+                            
                             Button {
                                 adjustTime(adding: true)
                                 generateHapticFeedback(style: .rigid)

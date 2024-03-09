@@ -37,72 +37,46 @@ extension TimerView {
     func rotationAnimation() {
         rotationAngleRepeatButton -= 180
     }
-     
-    func adjustTime(adding: Bool) {
-        if currentMood == .code {
-            timerRunning = false
-            countdownTime = defaultTime
-            if adding {
-                if defaultTime >= 3600 {
-                    isPlusButtonOnOff = true
-                    isMinusButtonOnOff = false
-                    defaultTime = 3600
-                    countdownTime = 3600
-                    timerCount = countdownTime
-                } else {
-                    isMinusButtonOnOff = false
-                    isPlusButtonOnOff = defaultTime + 300 >= 3600
-                    defaultTime += 300
-                    countdownTime += 300
-                    timerCount = countdownTime
-                }
+    
+    func timerPlusMinus(state: Bool, max: CGFloat, min: CGFloat) {
+        if state {
+            if defaultTime >= max {
+                isPlusButtonOnOff = true
+                isMinusButtonOnOff = false
+                defaultTime = max
+                countdownTime = max
+                timerCount = countdownTime
             } else {
-                if defaultTime <= 1200 {
-                    isMinusButtonOnOff = true
-                    isPlusButtonOnOff = false
-                    defaultTime = 1200
-                    countdownTime = 1200
-                    timerCount = countdownTime
-                } else {
-                    isPlusButtonOnOff = false
-                    isMinusButtonOnOff = defaultTime - 300 <= 1200
-                    defaultTime -= 300
-                    countdownTime -= 300
-                    timerCount = countdownTime
-                }
+                isMinusButtonOnOff = false
+                isPlusButtonOnOff = defaultTime + 300 >= max
+                defaultTime += 300
+                countdownTime += 300
+                timerCount = countdownTime
             }
         } else {
-            timerRunning = false
-            countdownTime = defaultTime
-            if adding {
-                if defaultTime >= 900 {
-                    isPlusButtonOnOff = true
-                    isMinusButtonOnOff = false
-                    defaultTime = 900
-                    countdownTime = 900
-                    timerCount = countdownTime
-                } else {
-                    isMinusButtonOnOff = false
-                    isPlusButtonOnOff = defaultTime + 300 >= 900
-                    defaultTime += 300
-                    countdownTime += 300
-                    timerCount = countdownTime
-                }
+            if defaultTime <= min {
+                isMinusButtonOnOff = true
+                isPlusButtonOnOff = false
+                defaultTime = min
+                countdownTime = min
+                timerCount = countdownTime
             } else {
-                if defaultTime <= 300 {
-                    isMinusButtonOnOff = true
-                    isPlusButtonOnOff = false
-                    defaultTime = 300
-                    countdownTime = 300
-                    timerCount = countdownTime
-                } else {
-                    isPlusButtonOnOff = false
-                    isMinusButtonOnOff = defaultTime - 300 <= 300
-                    defaultTime -= 300
-                    countdownTime -= 300
-                    timerCount = countdownTime
-                }
+                isPlusButtonOnOff = false
+                isMinusButtonOnOff = defaultTime - 300 <= min
+                defaultTime -= 300
+                countdownTime -= 300
+                timerCount = countdownTime
             }
+        }
+    }
+    
+    func adjustTime(adding: Bool) {
+        timerRunning = false
+        countdownTime = defaultTime
+        if currentMood == .code {
+            timerPlusMinus(state: adding, max: 3600, min: 1200)
+        } else {
+            timerPlusMinus(state: adding, max: 900, min: 300)
         }
     }
 }
