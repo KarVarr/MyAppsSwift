@@ -12,6 +12,7 @@ import SwiftUI
 enum Helper {
     enum Colors {
         static let background = UIColor(red: 0.12, green: 0.13, blue: 0.15, alpha: 1.00)
+        static let onboardingBackground = UIColor(red: 0.09, green: 0.09, blue: 0.10, alpha: 1.00)
         static let variable = UIColor(red: 0.96, green: 0.26, blue: 0.61, alpha: 1.00)
         static let variableName = UIColor(red: 0.24, green: 0.74, blue: 0.88, alpha: 1.00)
         static let type = UIColor(red: 0.85, green: 0.73, blue: 1.00, alpha: 1.00)
