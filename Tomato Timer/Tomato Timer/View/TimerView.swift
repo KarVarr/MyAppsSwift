@@ -35,7 +35,7 @@ struct TimerView: View {
     var countdownColor: LinearGradient {
         switch countdownTime {
         case 300...:
-            return Helper.Colors.linearGradientPinkBlue
+            return Helper.Colors.linearGradientBlue
         case 60...:
             return Helper.Colors.linearGradientRedOrange
         default:

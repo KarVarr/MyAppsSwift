@@ -33,10 +33,9 @@ enum Helper {
         static let test = UIColor(red: 0.32, green: 0.36, blue: 0.92, alpha: 1.00)
         static let white = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1)
         
-        static let linearGradientPinkBlue: LinearGradient = LinearGradient(gradient: Gradient(colors: [Color(uiColor: Helper.Colors.lightBlue), Color(uiColor: Helper.Colors.darkBlue)]), startPoint: .bottomLeading, endPoint: .trailing)
+        static let linearGradientBlue: LinearGradient = LinearGradient(gradient: Gradient(colors: [Color(uiColor: Helper.Colors.lightBlue), Color(uiColor: Helper.Colors.darkBlue)]), startPoint: .bottomLeading, endPoint: .trailing)
         static let linearGradientRedOrange: LinearGradient = LinearGradient(gradient: Gradient(colors: [Color(uiColor: Helper.Colors.red), Color(uiColor: Helper.Colors.orange)]), startPoint: .bottomLeading, endPoint: .trailing)
         static let linearGradientDarkGrayBrightRed: LinearGradient = LinearGradient(gradient: Gradient(colors: [Color(uiColor: Helper.Colors.darkGray), Color(uiColor: Helper.Colors.brightRed)]), startPoint: .bottomLeading, endPoint: .trailing)
         static let linearGradientDarkPinkPurple: LinearGradient = LinearGradient(gradient: Gradient(colors: [Color(uiColor:Helper.Colors.darkPink), Color(uiColor: Helper.Colors.purple)]), startPoint: .bottomLeading, endPoint: .topTrailing)
-        
     }
 }
