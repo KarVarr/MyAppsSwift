@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
-                                <rect key="frame" x="0.0" y="832" width="393" height="0.0"/>
+                                <rect key="frame" x="0.0" y="832" width="0.0" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="XDK-uB-KcO"/>
                                 </constraints>
@@ -25,20 +25,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🍅 Timer   " textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
-                                <rect key="frame" x="110.66666666666669" y="407.66666666666669" width="182" height="36.666666666666686"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="36"/>
-                                <color key="textColor" red="0.38823529411764707" green="0.77647058823529413" blue="0.89411764705882346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoForLaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="9Ds-gi-YLX">
+                                <rect key="frame" x="26" y="255.33333333333334" width="341.33333333333331" height="341.33333333333326"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="0.16078431372549018" green="0.16470588235294117" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="centerX" secondItem="GJd-Yh-RWb" secondAttribute="centerX" constant="-5.1666666666666856" id="0v4-HO-ahD"/>
                             <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="3Uo-uk-SNg"/>
-                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Hnz-Yh-oZo"/>
-                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="5.1666666666666856" id="J7s-wZ-h03"/>
+                            <constraint firstItem="9Ds-gi-YLX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ER7-8I-yBu"/>
+                            <constraint firstItem="9Ds-gi-YLX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Pmh-yj-7j1"/>
                             <constraint firstAttribute="bottomMargin" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="-14" id="Tvk-W3-hiD"/>
                         </constraints>
                     </view>
@@ -48,4 +44,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logoForLaunchScreen" width="341.33334350585938" height="341.33334350585938"/>
+    </resources>
 </document>

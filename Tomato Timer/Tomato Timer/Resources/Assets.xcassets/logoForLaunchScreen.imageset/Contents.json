@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Ri_Fn66JSteqBX2T5DvMvg.jpg",
+      "filename" : "logoForLaunchScreen.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Ri_Fn66JSteqBX2T5DvMvg 1.jpg",
+      "filename" : "logoForLaunchScreen 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Ri_Fn66JSteqBX2T5DvMvg 2.jpg",
+      "filename" : "logoForLaunchScreen 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
