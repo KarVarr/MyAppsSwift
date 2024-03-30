@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		178DC74D2BB83E4500FEDE69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC74C2BB83E4500FEDE69 /* AppDelegate.swift */; };
 		178DC74F2BB83E4500FEDE69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC74E2BB83E4500FEDE69 /* SceneDelegate.swift */; };
-		178DC7512BB83E4500FEDE69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7502BB83E4500FEDE69 /* ViewController.swift */; };
+		178DC7512BB83E4500FEDE69 /* ParsingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7502BB83E4500FEDE69 /* ParsingVC.swift */; };
 		178DC7562BB83E4700FEDE69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 178DC7552BB83E4700FEDE69 /* Assets.xcassets */; };
 		178DC7592BB83E4700FEDE69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178DC7572BB83E4700FEDE69 /* LaunchScreen.storyboard */; };
+		178DC7662BB8860900FEDE69 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7652BB8860900FEDE69 /* LabelView.swift */; };
+		178DC76A2BB8882700FEDE69 /* LayoutViewPVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7692BB8882700FEDE69 /* LayoutViewPVC + Ext.swift */; };
+		178DC76C2BB8890F00FEDE69 /* ConfigureLabelPVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC76B2BB8890F00FEDE69 /* ConfigureLabelPVC + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		178DC7492BB83E4500FEDE69 /* LLL Scan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LLL Scan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		178DC74C2BB83E4500FEDE69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		178DC74E2BB83E4500FEDE69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		178DC7502BB83E4500FEDE69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		178DC7502BB83E4500FEDE69 /* ParsingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingVC.swift; sourceTree = "<group>"; };
 		178DC7552BB83E4700FEDE69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		178DC7582BB83E4700FEDE69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		178DC75A2BB83E4700FEDE69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		178DC7652BB8860900FEDE69 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
+		178DC7692BB8882700FEDE69 /* LayoutViewPVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutViewPVC + Ext.swift"; sourceTree = "<group>"; };
+		178DC76B2BB8890F00FEDE69 /* ConfigureLabelPVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureLabelPVC + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				178DC7622BB840B400FEDE69 /* AppDelegates */,
+				178DC7632BB885CC00FEDE69 /* Model */,
 				178DC7602BB8407600FEDE69 /* View */,
+				178DC7642BB885D200FEDE69 /* Controller */,
 				178DC7612BB8407E00FEDE69 /* Resources */,
 			);
 			path = "LLL Scan";
@@ -64,7 +72,7 @@
 		178DC7602BB8407600FEDE69 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				178DC7502BB83E4500FEDE69 /* ViewController.swift */,
+				178DC7652BB8860900FEDE69 /* LabelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -86,6 +94,39 @@
 				178DC74E2BB83E4500FEDE69 /* SceneDelegate.swift */,
 			);
 			path = AppDelegates;
+			sourceTree = "<group>";
+		};
+		178DC7632BB885CC00FEDE69 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		178DC7642BB885D200FEDE69 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				178DC7682BB8880600FEDE69 /* BaseController */,
+				178DC7672BB887F200FEDE69 /* ParsingController */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		178DC7672BB887F200FEDE69 /* ParsingController */ = {
+			isa = PBXGroup;
+			children = (
+				178DC7502BB83E4500FEDE69 /* ParsingVC.swift */,
+				178DC7692BB8882700FEDE69 /* LayoutViewPVC + Ext.swift */,
+				178DC76B2BB8890F00FEDE69 /* ConfigureLabelPVC + Ext.swift */,
+			);
+			path = ParsingController;
+			sourceTree = "<group>";
+		};
+		178DC7682BB8880600FEDE69 /* BaseController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BaseController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,7 +199,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				178DC7512BB83E4500FEDE69 /* ViewController.swift in Sources */,
+				178DC7512BB83E4500FEDE69 /* ParsingVC.swift in Sources */,
+				178DC76C2BB8890F00FEDE69 /* ConfigureLabelPVC + Ext.swift in Sources */,
+				178DC76A2BB8882700FEDE69 /* LayoutViewPVC + Ext.swift in Sources */,
+				178DC7662BB8860900FEDE69 /* LabelView.swift in Sources */,
 				178DC74D2BB83E4500FEDE69 /* AppDelegate.swift in Sources */,
 				178DC74F2BB83E4500FEDE69 /* SceneDelegate.swift in Sources */,
 			);
