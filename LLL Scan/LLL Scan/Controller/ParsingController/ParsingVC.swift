@@ -7,14 +7,14 @@
 
 import UIKit
 
-class ParsingVC: UIViewController {
+class ParsingVC: BaseViewController {
     let labelForHtml = LabelView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
         
-        configureLabel()
+        
     }
     
     

@@ -8,7 +8,7 @@
 import Foundation
 
 extension ParsingVC {
-    func configureLabel() {
-        
+    override func configureView() {
+        labelForHtml.label.text = "Hello"
     }
 }
