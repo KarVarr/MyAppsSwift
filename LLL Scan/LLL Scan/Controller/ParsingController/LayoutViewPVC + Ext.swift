@@ -14,7 +14,8 @@ extension ParsingVC {
         //MARK: - Label for HTML
         NSLayoutConstraint.activate([
             labelForHtml.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            labelForHtml.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            labelForHtml.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            labelForHtml.widthAnchor.constraint(equalToConstant: 300)
         ])
     }
 }

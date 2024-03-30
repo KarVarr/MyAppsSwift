@@ -17,6 +17,8 @@
 		178DC76C2BB8890F00FEDE69 /* ConfigureLabelPVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC76B2BB8890F00FEDE69 /* ConfigureLabelPVC + Ext.swift */; };
 		178DC76E2BB889D800FEDE69 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC76D2BB889D800FEDE69 /* BaseViewController.swift */; };
 		178DC7702BB88CC100FEDE69 /* AddViewPVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC76F2BB88CC100FEDE69 /* AddViewPVC + Ext.swift */; };
+		178DC7722BB88DE900FEDE69 /* ConfigureViewPVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7712BB88DE900FEDE69 /* ConfigureViewPVC + Ext.swift */; };
+		178DC7752BB8904D00FEDE69 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 178DC7742BB8904D00FEDE69 /* SwiftSoup */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,7 @@
 		178DC76B2BB8890F00FEDE69 /* ConfigureLabelPVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureLabelPVC + Ext.swift"; sourceTree = "<group>"; };
 		178DC76D2BB889D800FEDE69 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		178DC76F2BB88CC100FEDE69 /* AddViewPVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewPVC + Ext.swift"; sourceTree = "<group>"; };
+		178DC7712BB88DE900FEDE69 /* ConfigureViewPVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewPVC + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				178DC7752BB8904D00FEDE69 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,9 +124,10 @@
 			isa = PBXGroup;
 			children = (
 				178DC7502BB83E4500FEDE69 /* ParsingVC.swift */,
-				178DC7692BB8882700FEDE69 /* LayoutViewPVC + Ext.swift */,
-				178DC76B2BB8890F00FEDE69 /* ConfigureLabelPVC + Ext.swift */,
 				178DC76F2BB88CC100FEDE69 /* AddViewPVC + Ext.swift */,
+				178DC7692BB8882700FEDE69 /* LayoutViewPVC + Ext.swift */,
+				178DC7712BB88DE900FEDE69 /* ConfigureViewPVC + Ext.swift */,
+				178DC76B2BB8890F00FEDE69 /* ConfigureLabelPVC + Ext.swift */,
 			);
 			path = ParsingController;
 			sourceTree = "<group>";
@@ -151,6 +156,9 @@
 			dependencies = (
 			);
 			name = "LLL Scan";
+			packageProductDependencies = (
+				178DC7742BB8904D00FEDE69 /* SwiftSoup */,
+			);
 			productName = "LLL Scan";
 			productReference = 178DC7492BB83E4500FEDE69 /* LLL Scan.app */;
 			productType = "com.apple.product-type.application";
@@ -179,6 +187,9 @@
 				Base,
 			);
 			mainGroup = 178DC7402BB83E4500FEDE69;
+			packageReferences = (
+				178DC7732BB8904D00FEDE69 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+			);
 			productRefGroup = 178DC74A2BB83E4500FEDE69 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -211,6 +222,7 @@
 				178DC76A2BB8882700FEDE69 /* LayoutViewPVC + Ext.swift in Sources */,
 				178DC7662BB8860900FEDE69 /* LabelView.swift in Sources */,
 				178DC74D2BB83E4500FEDE69 /* AppDelegate.swift in Sources */,
+				178DC7722BB88DE900FEDE69 /* ConfigureViewPVC + Ext.swift in Sources */,
 				178DC76E2BB889D800FEDE69 /* BaseViewController.swift in Sources */,
 				178DC74F2BB83E4500FEDE69 /* SceneDelegate.swift in Sources */,
 			);
@@ -429,6 +441,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		178DC7732BB8904D00FEDE69 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		178DC7742BB8904D00FEDE69 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 178DC7732BB8904D00FEDE69 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 178DC7412BB83E4500FEDE69 /* Project object */;
 }

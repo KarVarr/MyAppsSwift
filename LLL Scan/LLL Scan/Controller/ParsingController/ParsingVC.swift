@@ -14,7 +14,7 @@ class ParsingVC: BaseViewController {
         super.viewDidLoad()
         view.backgroundColor = .red
         
-        
+        configureLabels()
     }
     
     
