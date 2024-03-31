@@ -75,7 +75,6 @@ class ParsingVC: BaseViewController {
                 let colorElement = try body.select("a[class='filter-option miniature active']").first()
                 let colorID = try colorElement?.select("img").first()
                 let colorName = try colorID?.attr("alt")
-                //                let colorID = try colorElement?.attr("data-color")
                 print("ColorID: \(colorName ?? "N/A")")
 
                 let descriptionElement = try body.select("#section-descriptionAccordion").first()
