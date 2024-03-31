@@ -62,16 +62,39 @@ class ParsingVC: BaseViewController {
     func parseHTMLContent(_ htmlContent: String) {
             do {
                 let doc = try SwiftSoup.parse(htmlContent)
+                guard let body = doc.body() else { return }
                 
-                // Ваш код для парсинга и извлечения цены и описания
-                // Например:
-                let priceElement = try doc.select(".product-price").first()
+                let linkElement = try body.select(".filter-option").first()
+                let link = try linkElement?.attr("href")
+                print("link: \(link ?? "N/A")")
+                
+                let articleElement = try body.select(".filter-option").first()
+                let article = try articleElement?.attr("data-articlecode")
+                print("Article: \(article ?? "N/A")")
+                
+                let titleElement = try body.select("h1").first()
+                let title = try titleElement?.text()
+                print("Title: \(title ?? "N/A")")
+                
+                let priceElement = try body.select(".price").first()
                 let price = try priceElement?.text()
                 print("Price: \(price ?? "N/A")")
                 
-                let descriptionElement = try doc.select(".product-description").first()
+                let colorElement = try body.select(".filter-option").first()
+                let colorID = try colorElement?.attr("data-color")
+                print("ColorID: \(colorID ?? "N/A")")
+
+                let descriptionElement = try body.select("#section-descriptionAccordion").first()
                 let description = try descriptionElement?.text()
                 print("Description: \(description ?? "N/A")")
+                
+                let materialElement = try body.select("#section-materialsAndSuppliersAccordion").first()
+                let material = try materialElement?.text()
+                print("Material: \(material ?? "N/A")")
+                
+                let fullBlockElement = try body.select(".product-description").first()
+                let fullBlock = try fullBlockElement?.text()
+                print("Full Block: \(fullBlock ?? "N/A")")
                 
                 // Удаление временного файла
                 if let temporaryPageURL = self.getTemporaryPageURL() {
