@@ -10,6 +10,7 @@ import UIKit
 extension ParsingVC {
     override func addViews() {
         view.addSubview(labelForHtml.label)
+        view.addSubview(imageForHtml.imageView)
     }
 }
 
