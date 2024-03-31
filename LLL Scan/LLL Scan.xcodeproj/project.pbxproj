@@ -79,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				178DC7622BB840B400FEDE69 /* AppDelegates */,
+				178DC7832BB9B17900FEDE69 /* Networking */,
 				178DC7632BB885CC00FEDE69 /* Model */,
 				178DC7602BB8407600FEDE69 /* View */,
 				178DC7642BB885D200FEDE69 /* Controller */,
@@ -118,7 +119,6 @@
 		178DC7632BB885CC00FEDE69 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				178DC77D2BB9AB0D00FEDE69 /* NetworkManager.swift */,
 				178DC77F2BB9AB1700FEDE69 /* HTMLParser.swift */,
 				178DC7812BB9AFAF00FEDE69 /* Product.swift */,
 			);
@@ -153,6 +153,14 @@
 				178DC76D2BB889D800FEDE69 /* BaseViewController.swift */,
 			);
 			path = BaseController;
+			sourceTree = "<group>";
+		};
+		178DC7832BB9B17900FEDE69 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				178DC77D2BB9AB0D00FEDE69 /* NetworkManager.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

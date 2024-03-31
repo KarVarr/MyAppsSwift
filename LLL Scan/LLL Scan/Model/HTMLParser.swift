@@ -13,7 +13,7 @@ enum ParserError: Error {
 }
 
 class HTMLParser {
-    static func parseHTMLContent(_ htmlContent: String) -> Result<Product, Error> {
+    func parseHTMLContent(_ htmlContent: String) -> Result<Product, Error> {
         do {
             let doc = try SwiftSoup.parse(htmlContent)
             guard let body = doc.body() else {

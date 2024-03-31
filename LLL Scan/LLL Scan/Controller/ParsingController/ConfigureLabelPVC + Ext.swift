@@ -11,6 +11,5 @@ extension ParsingVC {
     func configureLabels() {
         labelForHtml.label.text = "Hello"
         labelForHtml.label.numberOfLines = 0
-        
     }
 }

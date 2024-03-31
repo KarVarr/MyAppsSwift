@@ -9,6 +9,7 @@ import UIKit
 
 extension ParsingVC {
     func configureImageView() {
-        imageForHtml.imageView.image = UIImage(systemName: "plus")
+        imageForHtml.imageView.image = UIImage(systemName: "plus")        
+    
     }
 }

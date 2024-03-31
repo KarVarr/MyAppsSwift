@@ -13,7 +13,7 @@ enum NetworkError: Error {
 }
 
 class NetworkManager {
-    static func loadPageFromNetwork(urlString: String, completion: @escaping (Result<String, Error>) -> Void) {
+    func loadPageFromNetwork(urlString: String, completion: @escaping (Result<String, Error>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(NetworkError.invalidURL))
             return
