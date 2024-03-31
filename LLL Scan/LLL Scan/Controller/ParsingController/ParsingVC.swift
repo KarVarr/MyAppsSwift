@@ -7,29 +7,21 @@
 
 import UIKit
 import SwiftSoup
-import AlamofireImage
-import Alamofire
 
 class ParsingVC: BaseViewController {
     let labelForHtml = LabelView()
     let imageForHtml = ImageView()
     
-    let temporaryFileName = "tempPage.html"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
         
-//        configureLabels()
+        configureLabels()
         configureImageView()
         
         loadPageFromNetwork()
     }
     
-    func getTemporaryPageURL() -> URL? {
-        let temporaryDirectory = FileManager.default.temporaryDirectory
-        return temporaryDirectory.appendingPathComponent(temporaryFileName)
-    }
     
     func loadPageFromNetwork() {
            let urlString = "https://www2.hm.com/de_de/productpage.1213391004.html"
@@ -47,16 +39,7 @@ class ParsingVC: BaseViewController {
                    print("No data received")
                    return
                }
-               
-               // Сохраняем страницу во временное хранилище
-               if let temporaryPageURL = self.getTemporaryPageURL() {
-                   do {
-                       try htmlContent.write(to: temporaryPageURL, atomically: true, encoding: .utf8)
-                   } catch {
-                       print("Error saving temporary page: \(error)")
-                   }
-               }
-               
+            
                self.parseHTMLContent(htmlContent)
            }
            
@@ -107,14 +90,6 @@ class ParsingVC: BaseViewController {
                 let fullBlock = try fullBlockElement?.text()
                 print("Full Block: \(fullBlock ?? "N/A")")
                 
-                // Удаление временного файла
-                if let temporaryPageURL = self.getTemporaryPageURL() {
-                    do {
-                        try FileManager.default.removeItem(at: temporaryPageURL)
-                    } catch {
-                        print("Error removing temporary file: \(error)")
-                    }
-                }
                 
             } catch {
                 print("Error parsing HTML: \(error)")

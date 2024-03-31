@@ -21,7 +21,8 @@
 		178DC7752BB8904D00FEDE69 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 178DC7742BB8904D00FEDE69 /* SwiftSoup */; };
 		178DC7772BB9833F00FEDE69 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7762BB9833F00FEDE69 /* ImageView.swift */; };
 		178DC7792BB9844300FEDE69 /* ConfigureImagePVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7782BB9844300FEDE69 /* ConfigureImagePVC + Ext.swift */; };
-		178DC77C2BB991DC00FEDE69 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 178DC77B2BB991DC00FEDE69 /* AlamofireImage */; };
+		178DC77E2BB9AB0D00FEDE69 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC77D2BB9AB0D00FEDE69 /* NetworkManager.swift */; };
+		178DC7802BB9AB1700FEDE69 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC77F2BB9AB1700FEDE69 /* HTMLParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		178DC7712BB88DE900FEDE69 /* ConfigureViewPVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewPVC + Ext.swift"; sourceTree = "<group>"; };
 		178DC7762BB9833F00FEDE69 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		178DC7782BB9844300FEDE69 /* ConfigureImagePVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureImagePVC + Ext.swift"; sourceTree = "<group>"; };
+		178DC77D2BB9AB0D00FEDE69 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		178DC77F2BB9AB1700FEDE69 /* HTMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +51,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				178DC7752BB8904D00FEDE69 /* SwiftSoup in Frameworks */,
-				178DC77C2BB991DC00FEDE69 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +116,8 @@
 		178DC7632BB885CC00FEDE69 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				178DC77D2BB9AB0D00FEDE69 /* NetworkManager.swift */,
+				178DC77F2BB9AB1700FEDE69 /* HTMLParser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,7 +170,6 @@
 			name = "LLL Scan";
 			packageProductDependencies = (
 				178DC7742BB8904D00FEDE69 /* SwiftSoup */,
-				178DC77B2BB991DC00FEDE69 /* AlamofireImage */,
 			);
 			productName = "LLL Scan";
 			productReference = 178DC7492BB83E4500FEDE69 /* LLL Scan.app */;
@@ -198,7 +201,6 @@
 			mainGroup = 178DC7402BB83E4500FEDE69;
 			packageReferences = (
 				178DC7732BB8904D00FEDE69 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
-				178DC77A2BB991DC00FEDE69 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = 178DC74A2BB83E4500FEDE69 /* Products */;
 			projectDirPath = "";
@@ -226,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				178DC77E2BB9AB0D00FEDE69 /* NetworkManager.swift in Sources */,
 				178DC7772BB9833F00FEDE69 /* ImageView.swift in Sources */,
 				178DC7512BB83E4500FEDE69 /* ParsingVC.swift in Sources */,
 				178DC76C2BB8890F00FEDE69 /* ConfigureLabelPVC + Ext.swift in Sources */,
@@ -235,6 +238,7 @@
 				178DC7662BB8860900FEDE69 /* LabelView.swift in Sources */,
 				178DC74D2BB83E4500FEDE69 /* AppDelegate.swift in Sources */,
 				178DC7722BB88DE900FEDE69 /* ConfigureViewPVC + Ext.swift in Sources */,
+				178DC7802BB9AB1700FEDE69 /* HTMLParser.swift in Sources */,
 				178DC76E2BB889D800FEDE69 /* BaseViewController.swift in Sources */,
 				178DC74F2BB83E4500FEDE69 /* SceneDelegate.swift in Sources */,
 			);
@@ -463,14 +467,6 @@
 				minimumVersion = 2.7.2;
 			};
 		};
-		178DC77A2BB991DC00FEDE69 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.3.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -478,11 +474,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 178DC7732BB8904D00FEDE69 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
 			productName = SwiftSoup;
-		};
-		178DC77B2BB991DC00FEDE69 /* AlamofireImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 178DC77A2BB991DC00FEDE69 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
-			productName = AlamofireImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
