@@ -12,16 +12,17 @@ class ScanVC: BaseViewController {
     let networkManager = NetworkManager()
     let htmlParser = HTMLParser()
     
+    let customTableView = CustomTableView()
     let labelForHtml = LabelView()
     let imageForHtml = ImageView()
     
     let urlString = "https://www2.hm.com/de_de/productpage.1213391004.html"
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .cyan
         title = "Scan"
         
-        
+        configureCustomTableView()
         configureLabels()
         configureImageView()
         

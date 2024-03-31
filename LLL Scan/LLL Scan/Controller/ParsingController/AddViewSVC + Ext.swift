@@ -11,6 +11,7 @@ extension ScanVC {
     override func addViews() {
         view.addSubview(labelForHtml.label)
         view.addSubview(imageForHtml.imageView)
+        view.addSubview(customTableView.table)
     }
 }
 

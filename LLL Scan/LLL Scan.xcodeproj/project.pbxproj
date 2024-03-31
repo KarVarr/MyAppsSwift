@@ -28,6 +28,9 @@
 		178DC7882BB9E38D00FEDE69 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7872BB9E38D00FEDE69 /* NavBarController.swift */; };
 		178DC78B2BB9E45100FEDE69 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC78A2BB9E45100FEDE69 /* Helper.swift */; };
 		178DC7902BB9E5D000FEDE69 /* FilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC78F2BB9E5D000FEDE69 /* FilesVC.swift */; };
+		178DC7932BB9F16000FEDE69 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7922BB9F16000FEDE69 /* CustomTableView.swift */; };
+		178DC7952BB9F2A000FEDE69 /* ScanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7942BB9F2A000FEDE69 /* ScanTableViewCell.swift */; };
+		178DC7972BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7962BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,9 @@
 		178DC7872BB9E38D00FEDE69 /* NavBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
 		178DC78A2BB9E45100FEDE69 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		178DC78F2BB9E5D000FEDE69 /* FilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesVC.swift; sourceTree = "<group>"; };
+		178DC7922BB9F16000FEDE69 /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
+		178DC7942BB9F2A000FEDE69 /* ScanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTableViewCell.swift; sourceTree = "<group>"; };
+		178DC7962BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureCustomTableViewSVC + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 		178DC7602BB8407600FEDE69 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				178DC7912BB9F12B00FEDE69 /* CustomTableView */,
 				178DC7652BB8860900FEDE69 /* LabelView.swift */,
 				178DC7762BB9833F00FEDE69 /* ImageView.swift */,
 			);
@@ -154,6 +161,7 @@
 				178DC7712BB88DE900FEDE69 /* ConfigureViewSVC + Ext.swift */,
 				178DC76B2BB8890F00FEDE69 /* ConfigureLabelSVC + Ext.swift */,
 				178DC7782BB9844300FEDE69 /* ConfigureImageSVC + Ext.swift */,
+				178DC7962BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift */,
 			);
 			path = ParsingController;
 			sourceTree = "<group>";
@@ -197,6 +205,15 @@
 				178DC78F2BB9E5D000FEDE69 /* FilesVC.swift */,
 			);
 			path = FilesViewController;
+			sourceTree = "<group>";
+		};
+		178DC7912BB9F12B00FEDE69 /* CustomTableView */ = {
+			isa = PBXGroup;
+			children = (
+				178DC7922BB9F16000FEDE69 /* CustomTableView.swift */,
+				178DC7942BB9F2A000FEDE69 /* ScanTableViewCell.swift */,
+			);
+			path = CustomTableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +293,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				178DC77E2BB9AB0D00FEDE69 /* NetworkManager.swift in Sources */,
+				178DC7932BB9F16000FEDE69 /* CustomTableView.swift in Sources */,
+				178DC7952BB9F2A000FEDE69 /* ScanTableViewCell.swift in Sources */,
 				178DC7772BB9833F00FEDE69 /* ImageView.swift in Sources */,
 				178DC7512BB83E4500FEDE69 /* ScanVC.swift in Sources */,
 				178DC7862BB9E23400FEDE69 /* TabBarController.swift in Sources */,
@@ -287,6 +306,7 @@
 				178DC78B2BB9E45100FEDE69 /* Helper.swift in Sources */,
 				178DC7662BB8860900FEDE69 /* LabelView.swift in Sources */,
 				178DC74D2BB83E4500FEDE69 /* AppDelegate.swift in Sources */,
+				178DC7972BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift in Sources */,
 				178DC7722BB88DE900FEDE69 /* ConfigureViewSVC + Ext.swift in Sources */,
 				178DC7802BB9AB1700FEDE69 /* HTMLParser.swift in Sources */,
 				178DC76E2BB889D800FEDE69 /* BaseViewController.swift in Sources */,
@@ -439,6 +459,7 @@
 				DEVELOPMENT_TEAM = LA9F8MT28T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "LLL Scan/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "LL Scan";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -468,6 +489,7 @@
 				DEVELOPMENT_TEAM = LA9F8MT28T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "LLL Scan/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "LL Scan";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;

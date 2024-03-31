@@ -31,4 +31,8 @@ enum Helper {
             }
         }
     }
+    //MARK: - KEYS
+    enum Keys {
+        static let scanVCCellKey = "scanVCCellKey"
+    }
 }
