@@ -32,7 +32,7 @@ final class TabBarController: UITabBarController {
             let controller = NavBarController(rootViewController: getController(for: tab))
             
             controller.tabBarItem = UITabBarItem(
-                title: nil,
+                title: Helper.Strings.TabBar.title(for: tab),
                 image: Helper.Images.TabBar.icon(for: tab),
                 tag: tab.rawValue
             )
@@ -44,7 +44,7 @@ final class TabBarController: UITabBarController {
     
     private func getController(for tab: Tabs) -> BaseViewController {
            switch tab {
-           case .scan: return ParsingVC()
+           case .scan: return ScanVC()
            case .files: return FilesVC()
            }
        }

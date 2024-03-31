@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension ParsingVC {
+extension ScanVC {
     func configureLabels() {
         labelForHtml.label.text = "Hello"
         labelForHtml.label.numberOfLines = 0

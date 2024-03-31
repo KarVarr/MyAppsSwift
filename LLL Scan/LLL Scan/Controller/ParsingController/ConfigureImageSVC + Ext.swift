@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ParsingVC {
+extension ScanVC {
     func configureImageView() {
         imageForHtml.imageView.image = UIImage(systemName: "plus")        
     

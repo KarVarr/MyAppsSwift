@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ParsingVC {
+extension ScanVC {
     override func configureView() {
         
     }

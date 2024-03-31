@@ -1,14 +1,14 @@
 //
-//  ParsingVC.swift
+//  ScanVC.swift
 //  LLL Scan
 //
 //  Created by Karen Vardanian on 30.03.2024.
 //
 
 import UIKit
-import SwiftSoup
 
-class ParsingVC: BaseViewController {
+
+class ScanVC: BaseViewController {
     let networkManager = NetworkManager()
     let htmlParser = HTMLParser()
     
@@ -19,6 +19,8 @@ class ParsingVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
+        title = "Scan"
+        
         
         configureLabels()
         configureImageView()

@@ -11,7 +11,9 @@ class FilesVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .orange
+        
+        title = "Files"
         
     }
     

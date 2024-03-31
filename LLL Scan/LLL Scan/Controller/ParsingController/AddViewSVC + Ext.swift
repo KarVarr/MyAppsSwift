@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ParsingVC {
+extension ScanVC {
     override func addViews() {
         view.addSubview(labelForHtml.label)
         view.addSubview(imageForHtml.imageView)
