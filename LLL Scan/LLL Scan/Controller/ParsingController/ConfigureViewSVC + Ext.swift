@@ -9,6 +9,10 @@ import UIKit
 
 extension ScanVC {
     override func configureView() {
+        view.backgroundColor = .white
+        
+        title = "Scan"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
     }
 }

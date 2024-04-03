@@ -12,7 +12,7 @@ extension ScanVC {
         let views: [UIView] = [
                     labelForHtml.label,
                     imageForHtml.imageView,
-                    customTableView.table,
+                    customTableViewScanVC.table,
                     buttonForAddNewTableView.button
         ]
         

@@ -9,13 +9,13 @@ import UIKit
 
 extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     func configureCustomTableView() {
-        customTableView.table.dataSource = self
-        customTableView.table.delegate = self
-        customTableView.table.register(ScanTableViewCell.self, forCellReuseIdentifier: Helper.Keys.scanVCCellKey)
-        customTableView.table.frame = view.bounds
-        customTableView.table.backgroundColor = .cyan
-        customTableView.table.separatorStyle = .singleLine
-        customTableView.table.separatorColor = .orange
+        customTableViewScanVC.table.dataSource = self
+        customTableViewScanVC.table.delegate = self
+        customTableViewScanVC.table.register(ScanTableViewCell.self, forCellReuseIdentifier: Helper.Keys.scanVCCellKey)
+        customTableViewScanVC.table.frame = view.bounds
+        customTableViewScanVC.table.backgroundColor = .white
+        customTableViewScanVC.table.separatorStyle = .singleLine
+        customTableViewScanVC.table.separatorColor = .orange
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

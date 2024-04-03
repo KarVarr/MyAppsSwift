@@ -12,7 +12,7 @@ class ScanVC: BaseViewController {
     let networkManager = NetworkManager()
     let htmlParser = HTMLParser()
     
-    let customTableView = CustomTableView()
+    let customTableViewScanVC = CustomTableView()
     let labelForHtml = LabelView()
     let imageForHtml = ImageView()
     let buttonForAddNewTableView = ButtonView()
@@ -20,13 +20,12 @@ class ScanVC: BaseViewController {
     let urlString = "https://www2.hm.com/de_de/productpage.1213391004.html"
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .cyan
-        title = "Scan"
+        
         
         configureCustomTableView()
         configureLabels()
         configureImageView()
-        ConfigureButtonSVC()
+        ConfigureButtonView()
         
         networkManager.loadPageFromNetwork(urlString: urlString) { result in
             switch result {

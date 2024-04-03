@@ -8,12 +8,11 @@
 import UIKit
 
 class FilesVC: BaseViewController {
+    let customTableViewFilesVC = CustomTableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .orange
         
-        title = "Files"
         
     }
     
