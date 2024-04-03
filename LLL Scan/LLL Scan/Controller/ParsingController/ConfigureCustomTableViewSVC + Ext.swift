@@ -8,7 +8,7 @@
 import UIKit
 
 extension ScanVC: UITableViewDelegate, UITableViewDataSource {
-    func configureCustomTableView() {
+    func configureCustomTableViewSVC() {
         customTableViewScanVC.table.dataSource = self
         customTableViewScanVC.table.delegate = self
         customTableViewScanVC.table.register(ScanTableViewCell.self, forCellReuseIdentifier: Helper.Keys.scanVCCellKey)

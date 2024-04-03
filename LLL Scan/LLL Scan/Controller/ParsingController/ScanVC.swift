@@ -22,7 +22,7 @@ class ScanVC: BaseViewController {
         super.viewDidLoad()
         
         
-        configureCustomTableView()
+        configureCustomTableViewSVC()
         configureLabels()
         configureImageView()
         ConfigureButtonView()

@@ -13,6 +13,7 @@ class FilesVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureCustomTableViewFVC()
         
     }
     
