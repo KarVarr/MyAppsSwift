@@ -9,9 +9,16 @@ import UIKit
 
 extension ScanVC {
     override func addViews() {
-        view.addSubview(labelForHtml.label)
-        view.addSubview(imageForHtml.imageView)
-        view.addSubview(customTableView.table)
+        let views: [UIView] = [
+                    labelForHtml.label,
+                    imageForHtml.imageView,
+                    customTableView.table,
+        ]
+        
+        for addView in views {
+            view.addSubview(addView)
+        }
+         
     }
 }
 

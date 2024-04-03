@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIView {
-    func setupTamic() {
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
+//    func setupTamic() {
+//        self.translatesAutoresizingMaskIntoConstraints = false
+//    }
 }
