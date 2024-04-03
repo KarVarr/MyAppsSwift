@@ -9,16 +9,16 @@ import UIKit
 
 extension ScanVC {
     override func layoutView() {
-        let labelForHtml = labelForHtml.label
-        let imageForHtml = imageForHtml.imageView
+        let buttonForAddNewTableView = buttonForAddNewTableView.button
         
-//        //MARK: - Label for HTML
-//        NSLayoutConstraint.activate([
-//            labelForHtml.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            labelForHtml.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//            labelForHtml.widthAnchor.constraint(equalToConstant: 300)
-//        ])
-//        
+        //MARK: - Button for add new table view for scaning
+        NSLayoutConstraint.activate([
+            buttonForAddNewTableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonForAddNewTableView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            buttonForAddNewTableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
+            buttonForAddNewTableView.heightAnchor.constraint(equalToConstant: 44),
+        ])
+        
 //        //MARK: - Label for HTML
 //        NSLayoutConstraint.activate([
 //            imageForHtml.centerXAnchor.constraint(equalTo: view.centerXAnchor),

@@ -33,6 +33,7 @@
 		178DC7972BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7962BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift */; };
 		178DC7992BBDC5A000FEDE69 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7982BBDC5A000FEDE69 /* ButtonView.swift */; };
 		178DC79C2BBDC6D900FEDE69 /* UIView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC79B2BBDC6D900FEDE69 /* UIView + Ext.swift */; };
+		178DC79E2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC79D2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		178DC7962BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureCustomTableViewSVC + Ext.swift"; sourceTree = "<group>"; };
 		178DC7982BBDC5A000FEDE69 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		178DC79B2BBDC6D900FEDE69 /* UIView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Ext.swift"; sourceTree = "<group>"; };
+		178DC79D2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureButtonSVC + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				178DC7502BB83E4500FEDE69 /* ScanVC.swift */,
 				178DC76F2BB88CC100FEDE69 /* AddViewSVC + Ext.swift */,
 				178DC7692BB8882700FEDE69 /* LayoutViewSVC + Ext.swift */,
+				178DC79D2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift */,
 				178DC7712BB88DE900FEDE69 /* ConfigureViewSVC + Ext.swift */,
 				178DC76B2BB8890F00FEDE69 /* ConfigureLabelSVC + Ext.swift */,
 				178DC7782BB9844300FEDE69 /* ConfigureImageSVC + Ext.swift */,
@@ -313,6 +316,7 @@
 				178DC7512BB83E4500FEDE69 /* ScanVC.swift in Sources */,
 				178DC7862BB9E23400FEDE69 /* TabBarController.swift in Sources */,
 				178DC7992BBDC5A000FEDE69 /* ButtonView.swift in Sources */,
+				178DC79E2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift in Sources */,
 				178DC76C2BB8890F00FEDE69 /* ConfigureLabelSVC + Ext.swift in Sources */,
 				178DC7792BB9844300FEDE69 /* ConfigureImageSVC + Ext.swift in Sources */,
 				178DC7902BB9E5D000FEDE69 /* FilesVC.swift in Sources */,
