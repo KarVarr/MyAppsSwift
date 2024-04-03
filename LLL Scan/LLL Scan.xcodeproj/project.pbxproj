@@ -35,6 +35,10 @@
 		178DC79C2BBDC6D900FEDE69 /* UIView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC79B2BBDC6D900FEDE69 /* UIView + Ext.swift */; };
 		178DC79E2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC79D2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift */; };
 		178DC7A02BBDD11000FEDE69 /* ConfigureViewFVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC79F2BBDD11000FEDE69 /* ConfigureViewFVC + Ext.swift */; };
+		178DC7A22BBDD1B400FEDE69 /* AddViewFVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7A12BBDD1B400FEDE69 /* AddViewFVC + Ext.swift */; };
+		178DC7A42BBDD28200FEDE69 /* LayoutViewFVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7A32BBDD28200FEDE69 /* LayoutViewFVC + Ext.swift */; };
+		178DC7A62BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7A52BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift */; };
+		178DC7AA2BBDD3AA00FEDE69 /* FilesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7A92BBDD3AA00FEDE69 /* FilesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +71,10 @@
 		178DC79B2BBDC6D900FEDE69 /* UIView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Ext.swift"; sourceTree = "<group>"; };
 		178DC79D2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureButtonSVC + Ext.swift"; sourceTree = "<group>"; };
 		178DC79F2BBDD11000FEDE69 /* ConfigureViewFVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewFVC + Ext.swift"; sourceTree = "<group>"; };
+		178DC7A12BBDD1B400FEDE69 /* AddViewFVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewFVC + Ext.swift"; sourceTree = "<group>"; };
+		178DC7A32BBDD28200FEDE69 /* LayoutViewFVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutViewFVC + Ext.swift"; sourceTree = "<group>"; };
+		178DC7A52BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureCustomTableViewFVC + Ext.swift"; sourceTree = "<group>"; };
+		178DC7A92BBDD3AA00FEDE69 /* FilesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,7 +222,10 @@
 			isa = PBXGroup;
 			children = (
 				178DC78F2BB9E5D000FEDE69 /* FilesVC.swift */,
+				178DC7A52BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift */,
+				178DC7A32BBDD28200FEDE69 /* LayoutViewFVC + Ext.swift */,
 				178DC79F2BBDD11000FEDE69 /* ConfigureViewFVC + Ext.swift */,
+				178DC7A12BBDD1B400FEDE69 /* AddViewFVC + Ext.swift */,
 			);
 			path = FilesViewController;
 			sourceTree = "<group>";
@@ -224,6 +235,7 @@
 			children = (
 				178DC7922BB9F16000FEDE69 /* CustomTableView.swift */,
 				178DC7942BB9F2A000FEDE69 /* ScanTableViewCell.swift */,
+				178DC7A92BBDD3AA00FEDE69 /* FilesTableViewCell.swift */,
 			);
 			path = CustomTableView;
 			sourceTree = "<group>";
@@ -315,6 +327,8 @@
 				178DC77E2BB9AB0D00FEDE69 /* NetworkManager.swift in Sources */,
 				178DC7932BB9F16000FEDE69 /* CustomTableView.swift in Sources */,
 				178DC7952BB9F2A000FEDE69 /* ScanTableViewCell.swift in Sources */,
+				178DC7A42BBDD28200FEDE69 /* LayoutViewFVC + Ext.swift in Sources */,
+				178DC7AA2BBDD3AA00FEDE69 /* FilesTableViewCell.swift in Sources */,
 				178DC7772BB9833F00FEDE69 /* ImageView.swift in Sources */,
 				178DC7512BB83E4500FEDE69 /* ScanVC.swift in Sources */,
 				178DC7862BB9E23400FEDE69 /* TabBarController.swift in Sources */,
@@ -324,6 +338,7 @@
 				178DC7792BB9844300FEDE69 /* ConfigureImageSVC + Ext.swift in Sources */,
 				178DC7902BB9E5D000FEDE69 /* FilesVC.swift in Sources */,
 				178DC7702BB88CC100FEDE69 /* AddViewSVC + Ext.swift in Sources */,
+				178DC7A22BBDD1B400FEDE69 /* AddViewFVC + Ext.swift in Sources */,
 				178DC76A2BB8882700FEDE69 /* LayoutViewSVC + Ext.swift in Sources */,
 				178DC78B2BB9E45100FEDE69 /* Helper.swift in Sources */,
 				178DC7662BB8860900FEDE69 /* LabelView.swift in Sources */,
@@ -331,6 +346,7 @@
 				178DC7972BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift in Sources */,
 				178DC7A02BBDD11000FEDE69 /* ConfigureViewFVC + Ext.swift in Sources */,
 				178DC7722BB88DE900FEDE69 /* ConfigureViewSVC + Ext.swift in Sources */,
+				178DC7A62BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift in Sources */,
 				178DC7802BB9AB1700FEDE69 /* HTMLParser.swift in Sources */,
 				178DC79C2BBDC6D900FEDE69 /* UIView + Ext.swift in Sources */,
 				178DC76E2BB889D800FEDE69 /* BaseViewController.swift in Sources */,
