@@ -54,7 +54,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
         if parts.count == 4 {
             let result = "\(parts[1])\(parts[2])"
             print("Result article : \(result)")
-            resultLabel.label.text = "✅ Артикул: \(result)\n🌐 https://www2.hm.com/pl_pl/productpage.\(result).html"
+            resultLabel.label.text = "✅ Артикул: \(result)"
             
             // Обновление urlString после получения артикула
             self.urlString = "https://www2.hm.com/pl_pl/productpage.\(result).html"
@@ -69,8 +69,10 @@ extension ScanVC: DataScannerViewControllerDelegate {
                         
                         switch productResult {
                         case .success(let product):
+                            
                             if let imageURLString = product.imageURL,
-                                  let imageURL = URL(string: "https:"+imageURLString) {
+                               let decodedImageURLString = imageURLString.removingPercentEncoding,
+                               let imageURL = URL(string: "https:"+decodedImageURLString) {
                                 URLSession.shared.dataTask(with: imageURL) {data, response, error in
                                     print(imageURL)
                                     if let error = error {
@@ -88,8 +90,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
                             } else {
                                 print("Invalid image URL")
                             }
-                                    
-                                
+                            
+                            
                             
                         case .failure(let error):
                             print("Error parsing HTML content: \(error)")
@@ -102,6 +104,9 @@ extension ScanVC: DataScannerViewControllerDelegate {
         } else {
             print("Error: Not such code")
             resultLabel.label.text = "❌ Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
+            DispatchQueue.main.async {
+                self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
+            }
         }
     }
     

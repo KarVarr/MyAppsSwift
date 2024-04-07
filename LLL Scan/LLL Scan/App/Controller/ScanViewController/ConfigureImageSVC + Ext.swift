@@ -9,7 +9,6 @@ import UIKit
 
 extension ScanVC {
     func configureImageView() {
-        miniatureImageHM.imageView.image = UIImage(systemName: "plus")        
-    
+        
     }
 }

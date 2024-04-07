@@ -42,8 +42,8 @@ extension ScanVC {
         NSLayoutConstraint.activate([
             miniatureImageHM.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
             miniatureImageHM.centerYAnchor.constraint(equalTo: overlayViewForScanner.centerYAnchor),
-            miniatureImageHM.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.7),
-            miniatureImageHM.heightAnchor.constraint(equalTo: overlayViewForScanner.heightAnchor, multiplier: 0.5),
+            miniatureImageHM.widthAnchor.constraint(equalToConstant: 100),
+            miniatureImageHM.heightAnchor.constraint(equalToConstant: 150),
         ])
         
     }
