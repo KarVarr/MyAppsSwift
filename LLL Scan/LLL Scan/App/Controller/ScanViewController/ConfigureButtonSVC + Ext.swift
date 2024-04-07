@@ -9,7 +9,7 @@ import UIKit
 import VisionKit
 
 extension ScanVC {
-    func ConfigureButtonView() {
+    func configureButtonView() {
         buttonForAddNewTableView.button.setTitle("NEW SCAN", for: .normal)
         buttonForAddNewTableView.button.setTitleColor(.white, for: .normal)
         buttonForAddNewTableView.button.backgroundColor = .systemPink
@@ -22,16 +22,19 @@ extension ScanVC {
     
     @objc func newScan() {
         guard scannerAvailable == true else {
-            print("🚫 Error: Scanner is not available for usage. Please check settings")
+            print(" Error: Scanner is not available for usage. Please check settings")
             return
         }
         
-        let dataScanner = DataScannerViewController(recognizedDataTypes: [.text()], isHighFrameRateTrackingEnabled: true, isPinchToZoomEnabled: true, isHighlightingEnabled: true)
-        dataScanner.delegate = self
+        lazy var dataScanner: DataScannerViewController = {
+            let dataScanner = DataScannerViewController(recognizedDataTypes: [.text()], isHighFrameRateTrackingEnabled: true, isPinchToZoomEnabled: true, isHighlightingEnabled: true)
+            dataScanner.delegate = self
+            return dataScanner
+        }()
+        
         present(dataScanner, animated: true)
         try? dataScanner.startScanning()
     }
-    
     
 }
 

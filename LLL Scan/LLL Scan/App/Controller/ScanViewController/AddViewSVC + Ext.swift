@@ -13,7 +13,8 @@ extension ScanVC {
                     labelForHtml.label,
                     imageForHtml.imageView,
                     customTableViewScanVC.table,
-                    buttonForAddNewTableView.button
+                    buttonForAddNewTableView.button,
+                    resultLabel.label,
         ]
         
         for addView in views {

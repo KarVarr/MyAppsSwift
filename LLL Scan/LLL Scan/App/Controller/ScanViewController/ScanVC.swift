@@ -7,6 +7,7 @@
 
 import UIKit
 import VisionKit
+import AVFoundation
 
 class ScanVC: BaseViewController {
     let networkManager = NetworkManager()
@@ -15,12 +16,17 @@ class ScanVC: BaseViewController {
         DataScannerViewController.isSupported && DataScannerViewController.isAvailable
     }
     
+    let captureSession = AVCaptureSession()
+    let videoPreviewLayer = AVCaptureVideoPreviewLayer()
+    
     let customTableViewScanVC = CustomTableView()
+    let resultLabel = LabelView()
     let labelForHtml = LabelView()
     let imageForHtml = ImageView()
     let buttonForAddNewTableView = ButtonView()
     
     let urlString = "https://www2.hm.com/de_de/productpage.1213391004.html"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,8 +34,10 @@ class ScanVC: BaseViewController {
         configureCustomTableViewSVC()
         configureLabels()
         configureImageView()
-        ConfigureButtonView()
+        configureButtonView()
         
+        
+        //MARK: - MARK
         networkManager.loadPageFromNetwork(urlString: urlString) { result in
             switch result {
             case .success(let htmlContent):

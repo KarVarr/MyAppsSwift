@@ -40,6 +40,7 @@
 		178DC7A62BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7A52BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift */; };
 		178DC7AA2BBDD3AA00FEDE69 /* FilesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7A92BBDD3AA00FEDE69 /* FilesTableViewCell.swift */; };
 		178DC7AD2BC2AE4200FEDE69 /* VisionSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7AC2BC2AE4200FEDE69 /* VisionSVC + Ext.swift */; };
+		178DC7B22BC2F43D00FEDE69 /* ScanResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7B12BC2F43D00FEDE69 /* ScanResultVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		178DC7A52BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureCustomTableViewFVC + Ext.swift"; sourceTree = "<group>"; };
 		178DC7A92BBDD3AA00FEDE69 /* FilesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesTableViewCell.swift; sourceTree = "<group>"; };
 		178DC7AC2BC2AE4200FEDE69 /* VisionSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VisionSVC + Ext.swift"; sourceTree = "<group>"; };
+		178DC7B12BC2F43D00FEDE69 /* ScanResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 		178DC7642BB885D200FEDE69 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				178DC7B02BC2F3F600FEDE69 /* ScanResultViewController */,
 				178DC7842BB9E21000FEDE69 /* NavigationController */,
 				178DC7682BB8880600FEDE69 /* BaseController */,
 				178DC7672BB887F200FEDE69 /* ScanViewController */,
@@ -257,6 +260,14 @@
 				178DC7642BB885D200FEDE69 /* Controller */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		178DC7B02BC2F3F600FEDE69 /* ScanResultViewController */ = {
+			isa = PBXGroup;
+			children = (
+				178DC7B12BC2F43D00FEDE69 /* ScanResultVC.swift */,
+			);
+			path = ScanResultViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +373,7 @@
 				178DC7802BB9AB1700FEDE69 /* HTMLParser.swift in Sources */,
 				178DC79C2BBDC6D900FEDE69 /* UIView + Ext.swift in Sources */,
 				178DC76E2BB889D800FEDE69 /* BaseViewController.swift in Sources */,
+				178DC7B22BC2F43D00FEDE69 /* ScanResultVC.swift in Sources */,
 				178DC74F2BB83E4500FEDE69 /* SceneDelegate.swift in Sources */,
 				178DC7822BB9AFAF00FEDE69 /* Product.swift in Sources */,
 				178DC7882BB9E38D00FEDE69 /* NavBarController.swift in Sources */,
