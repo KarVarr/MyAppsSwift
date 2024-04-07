@@ -10,7 +10,7 @@ import VisionKit
 
 extension ScanVC {
     func configureButtonView() {
-        buttonForAddNewTableView.button.setTitle("NEW SCAN", for: .normal)
+        buttonForAddNewTableView.button.setTitle("SCAN", for: .normal)
         buttonForAddNewTableView.button.setTitleColor(.white, for: .normal)
         buttonForAddNewTableView.button.backgroundColor = .systemPink
         buttonForAddNewTableView.button.layer.cornerRadius = 22
@@ -19,12 +19,12 @@ extension ScanVC {
         
         buttonForAddNewTableView.button.addTarget(self, action: #selector(newScan), for: .touchUpInside)
         
-        saveButtonForScanner.button.setTitle("Save", for: .normal)
+        saveButtonForScanner.button.setTitle("SAVE", for: .normal)
         saveButtonForScanner.button.setTitleColor(.black, for: .normal)
         saveButtonForScanner.button.backgroundColor = .yellow
-        buttonForAddNewTableView.button.layer.cornerRadius = 22
-        buttonForAddNewTableView.button.layer.shadowOffset = CGSize(width: 2, height: 1)
-        buttonForAddNewTableView.button.layer.shadowOpacity = 0.6
+        saveButtonForScanner.button.layer.cornerRadius = 22
+        saveButtonForScanner.button.layer.shadowOffset = CGSize(width: 2, height: 1)
+        saveButtonForScanner.button.layer.shadowOpacity = 0.6
         saveButtonForScanner.button.addTarget(self, action: #selector(saveResult), for: .touchUpInside)
     }
     

@@ -54,10 +54,36 @@ extension ScanVC: DataScannerViewControllerDelegate {
             if parts.count == 4 {
                 let result = "\(parts[1])\(parts[2])"
                 print("Result article : \(result)")
-                resultLabel.label.text = result
+                resultLabel.label.text = "✅ Артикул: \(result)\n🌐 https://www2.hm.com/pl_pl/productpage.\(result).html"
+                
+                // Обновление urlString после получения артикула
+                self.urlString = "https://www2.hm.com/pl_pl/productpage.\(result).html"
+                
+                // Выполнение запроса с обновленным urlString
+                if let urlString = self.urlString {
+                    networkManager.loadPageFromNetwork(urlString: urlString) { result in
+                        switch result {
+                        case .success(let htmlContent):
+                            let htmlParser = HTMLParser()
+                            let productResult = htmlParser.parseHTMLContent(htmlContent)
+                            
+                            switch productResult {
+                            case .success(let product):
+                                if let imageURL = product.imageURL {
+                                    
+                                }
+                            case .failure(let error):
+                                print("Error parsing HTML content: \(error)")
+                                
+                            }
+                        case .failure(let error):
+                            print("Error loading page: \(error)")
+                        }
+                    }
+                }
             } else {
                 print("Error: Not such code")
-                resultLabel.label.text = "Не верный формат артикула!"
+                resultLabel.label.text = "❌ Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
             }
         }
 

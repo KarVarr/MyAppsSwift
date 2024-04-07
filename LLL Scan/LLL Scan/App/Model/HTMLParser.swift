@@ -54,11 +54,11 @@ class HTMLParser {
             let material = try materialElement?.select("ul").first()?.text()
             print("Material: \(material ?? "N/A")")
             
-            let fullBlockElement = try body.select(".product-description").first()
-            let fullBlock = try fullBlockElement?.text()
-            print("Full Block: \(fullBlock ?? "N/A")")
+//            let fullBlockElement = try body.select(".product-description").first()
+//            let fullBlock = try fullBlockElement?.text()
+//            print("Full Block: \(fullBlock ?? "N/A")")
             
-            let product = Product(imageURL: imgSrc, link: link, article: article, title: title, price: price, colorID: colorName, description: description, material: material, fullBlock: fullBlock)
+            let product = Product(imageURL: imgSrc, link: link, article: article, title: title, price: price, colorID: colorName, description: description, material: material, fullBlock: nil)
             return .success(product)
         } catch  {
             return .failure(error)

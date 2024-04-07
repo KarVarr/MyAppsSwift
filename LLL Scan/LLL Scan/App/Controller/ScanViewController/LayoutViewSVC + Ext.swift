@@ -37,5 +37,10 @@ extension ScanVC {
             resultLabel.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -20),
         ])
         
+        //MARK: - Image from parsing/ miniature H&M product image
+        NSLayoutConstraint.activate([
+            
+        ])
+        
     }
 }

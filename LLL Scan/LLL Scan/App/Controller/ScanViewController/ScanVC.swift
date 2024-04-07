@@ -23,7 +23,7 @@ class ScanVC: BaseViewController {
     let saveButtonForScanner = ButtonViewCustom()
     let buttonForAddNewTableView = ButtonViewCustom()
     
-    let urlString = "https://www2.hm.com/de_de/productpage.1213391004.html"
+    var urlString: String? = "https://www2.hm.com/pl_pl/productpage.1213391004.html"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,15 +34,15 @@ class ScanVC: BaseViewController {
         configureViewCustom()
         
         //MARK: - MARK
-        networkManager.loadPageFromNetwork(urlString: urlString) { result in
-            switch result {
-            case .success(let htmlContent):
-                let htmlParser = HTMLParser()
-                htmlParser.parseHTMLContent(htmlContent)
-            case .failure(let error):
-                print("Error loading page: \(error)")
-            }
-        }
+//        networkManager.loadPageFromNetwork(urlString: urlString ?? "1213391004") { result in
+//            switch result {
+//            case .success(let htmlContent):
+//                let htmlParser = HTMLParser()
+//                htmlParser.parseHTMLContent(htmlContent)
+//            case .failure(let error):
+//                print("Error loading page: \(error)")
+//            }
+//        }
     }
     
     
