@@ -15,6 +15,12 @@ extension ScanVC {
         buttonForAddNewTableView.button.layer.cornerRadius = 22
         buttonForAddNewTableView.button.layer.shadowOffset = CGSize(width: 2, height: 1)
         buttonForAddNewTableView.button.layer.shadowOpacity = 0.6
+        
+        buttonForAddNewTableView.button.addTarget(self, action: #selector(newScan), for: .touchUpInside)
+    }
+    
+    @objc func newScan() {
+        
     }
     
     

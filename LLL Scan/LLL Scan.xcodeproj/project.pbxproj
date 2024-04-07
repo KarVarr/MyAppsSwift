@@ -108,12 +108,10 @@
 		178DC74B2BB83E4500FEDE69 /* LLL Scan */ = {
 			isa = PBXGroup;
 			children = (
-				178DC7892BB9E44500FEDE69 /* Helpers */,
 				178DC7622BB840B400FEDE69 /* AppDelegates */,
+				178DC7892BB9E44500FEDE69 /* Helpers */,
 				178DC7832BB9B17900FEDE69 /* Networking */,
-				178DC7632BB885CC00FEDE69 /* Model */,
-				178DC7602BB8407600FEDE69 /* View */,
-				178DC7642BB885D200FEDE69 /* Controller */,
+				178DC7AB2BC2ACE700FEDE69 /* App */,
 				178DC7612BB8407E00FEDE69 /* Resources */,
 			);
 			path = "LLL Scan";
@@ -246,6 +244,16 @@
 				178DC79B2BBDC6D900FEDE69 /* UIView + Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		178DC7AB2BC2ACE700FEDE69 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				178DC7632BB885CC00FEDE69 /* Model */,
+				178DC7602BB8407600FEDE69 /* View */,
+				178DC7642BB885D200FEDE69 /* Controller */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
