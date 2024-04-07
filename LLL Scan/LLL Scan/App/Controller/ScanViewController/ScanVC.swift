@@ -19,7 +19,7 @@ class ScanVC: BaseViewController {
     let overlayViewForScanner = ViewCustom()
     let resultLabel = LabelViewCustom()
     let labelForHtml = LabelViewCustom()
-    let imageForHtml = ImageViewCustom()
+    let miniatureImageHM = ImageViewCustom()
     let saveButtonForScanner = ButtonViewCustom()
     let buttonForAddNewTableView = ButtonViewCustom()
     
@@ -33,16 +33,6 @@ class ScanVC: BaseViewController {
         configureImageView()
         configureViewCustom()
         
-        //MARK: - MARK
-//        networkManager.loadPageFromNetwork(urlString: urlString ?? "1213391004") { result in
-//            switch result {
-//            case .success(let htmlContent):
-//                let htmlParser = HTMLParser()
-//                htmlParser.parseHTMLContent(htmlContent)
-//            case .failure(let error):
-//                print("Error loading page: \(error)")
-//            }
-//        }
     }
     
     

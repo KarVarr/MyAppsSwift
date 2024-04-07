@@ -11,7 +11,6 @@ extension ScanVC {
     override func addViews() {
         let views: [UIView] = [
                     labelForHtml.label,
-                    imageForHtml.imageView,
                     customTableViewScanVC.table,
                     buttonForAddNewTableView.button,
                     overlayViewForScanner.vc,
@@ -23,6 +22,7 @@ extension ScanVC {
         
         overlayViewForScanner.vc.addSubview(saveButtonForScanner.button)
         overlayViewForScanner.vc.addSubview(resultLabel.label)
+        overlayViewForScanner.vc.addSubview(miniatureImageHM.imageView)
          
     }
 }

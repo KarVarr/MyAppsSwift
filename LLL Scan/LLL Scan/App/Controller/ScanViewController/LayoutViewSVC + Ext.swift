@@ -13,6 +13,7 @@ extension ScanVC {
         let saveButtonForScanner = saveButtonForScanner.button
         let overlayViewForScanner = overlayViewForScanner.vc
         let resultLabel = resultLabel.label
+        let miniatureImageHM = miniatureImageHM.imageView
         
         //MARK: - Button for add new table view for scanning
         NSLayoutConstraint.activate([
@@ -39,7 +40,10 @@ extension ScanVC {
         
         //MARK: - Image from parsing/ miniature H&M product image
         NSLayoutConstraint.activate([
-            
+            miniatureImageHM.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
+            miniatureImageHM.centerYAnchor.constraint(equalTo: overlayViewForScanner.centerYAnchor),
+            miniatureImageHM.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.7),
+            miniatureImageHM.heightAnchor.constraint(equalTo: overlayViewForScanner.heightAnchor, multiplier: 0.5),
         ])
         
     }
