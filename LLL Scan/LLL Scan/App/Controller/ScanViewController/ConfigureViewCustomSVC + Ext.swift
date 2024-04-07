@@ -10,6 +10,6 @@ import UIKit
 
 extension ScanVC {
     func configureViewCustom() {
-        overlayViewForScanner.vc.backgroundColor = .black.withAlphaComponent(0.5)
+        overlayViewForScanner.vc.backgroundColor = .black.withAlphaComponent(0.8)
     }
 }

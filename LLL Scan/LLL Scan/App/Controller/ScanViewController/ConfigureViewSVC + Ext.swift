@@ -14,7 +14,37 @@ extension ScanVC: DataScannerViewControllerDelegate {
         
         title = "Scan"
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    @objc func newScan() {
+        guard scannerAvailable == true else {
+            print(" Error: Scanner is not available for usage. Please check settings")
+            return
+        }
         
+        let dataScanner = DataScannerViewController(recognizedDataTypes: [.text()],
+                                                    isHighFrameRateTrackingEnabled: true,
+                                                    isPinchToZoomEnabled: true,
+                                                    isHighlightingEnabled: true
+        )
+        dataScanner.delegate = self
+        
+        dataScanner.view.addSubview(overlayViewForScanner.vc)
+        
+        NSLayoutConstraint.activate([
+            overlayViewForScanner.vc.leadingAnchor.constraint(equalTo: dataScanner.view.leadingAnchor),
+            overlayViewForScanner.vc.trailingAnchor.constraint(equalTo: dataScanner.view.trailingAnchor),
+            overlayViewForScanner.vc.topAnchor.constraint(equalTo: dataScanner.view.topAnchor),
+            overlayViewForScanner.vc.heightAnchor.constraint(equalTo: dataScanner.view.heightAnchor, multiplier: 0.4)
+        ])
+        
+        
+        present(dataScanner, animated: true)
+        try? dataScanner.startScanning()
+    }
+    
+    @objc func saveResult() {
+        print("saveResult")
     }
     
     func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
@@ -27,7 +57,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                 resultLabel.label.text = result
             } else {
                 print("Error: Not such code")
-                resultLabel.label.text = "Error: Invalid code format"
+                resultLabel.label.text = "Не верный формат артикула!"
             }
         }
 

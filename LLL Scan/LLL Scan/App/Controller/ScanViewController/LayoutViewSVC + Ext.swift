@@ -24,15 +24,17 @@ extension ScanVC {
         
         NSLayoutConstraint.activate([
             saveButtonForScanner.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
-            saveButtonForScanner.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -10),
+            saveButtonForScanner.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -20),
+            saveButtonForScanner.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.2),
+            saveButtonForScanner.heightAnchor.constraint(equalToConstant: 44),
         ])
         
         //MARK: - Custom view for scan view
         NSLayoutConstraint.activate([
             resultLabel.centerXAnchor.constraint(equalTo: overlayViewForScanner.safeAreaLayoutGuide.centerXAnchor),
-            resultLabel.topAnchor.constraint(equalTo: overlayViewForScanner.topAnchor, constant: 10),
-            resultLabel.leadingAnchor.constraint(equalTo: overlayViewForScanner.leadingAnchor, constant: 10),
-            resultLabel.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -10),
+            resultLabel.topAnchor.constraint(equalTo: overlayViewForScanner.topAnchor, constant: 20),
+            resultLabel.leadingAnchor.constraint(equalTo: overlayViewForScanner.leadingAnchor, constant: 20),
+            resultLabel.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -20),
         ])
         
     }

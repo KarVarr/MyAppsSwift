@@ -31,7 +31,6 @@ class ScanVC: BaseViewController {
         configureCustomTableViewSVC()
         configureLabels()
         configureImageView()
-        configureButtonView()
         configureViewCustom()
         
         //MARK: - MARK
@@ -46,5 +45,10 @@ class ScanVC: BaseViewController {
         }
     }
     
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        configureButtonView()
+    }
 }
 
