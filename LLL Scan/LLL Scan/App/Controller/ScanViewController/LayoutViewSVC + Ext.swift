@@ -10,8 +10,11 @@ import UIKit
 extension ScanVC {
     override func layoutView() {
         let buttonForAddNewTableView = buttonForAddNewTableView.button
+        let saveButtonForScanner = saveButtonForScanner.button
+        let overlayViewForScanner = overlayViewForScanner.vc
+        let resultLabel = resultLabel.label
         
-        //MARK: - Button for add new table view for scaning
+        //MARK: - Button for add new table view for scanning
         NSLayoutConstraint.activate([
             buttonForAddNewTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             buttonForAddNewTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -19,13 +22,18 @@ extension ScanVC {
             buttonForAddNewTableView.heightAnchor.constraint(equalToConstant: 44),
         ])
         
-//        //MARK: - Label for HTML
-//        NSLayoutConstraint.activate([
-//            imageForHtml.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            imageForHtml.widthAnchor.constraint(equalToConstant: 200),
-//            imageForHtml.heightAnchor.constraint(equalToConstant: 300),
-//            imageForHtml.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-//            
-//        ])
+        NSLayoutConstraint.activate([
+            saveButtonForScanner.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
+            saveButtonForScanner.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -10),
+        ])
+        
+        //MARK: - Custom view for scan view
+        NSLayoutConstraint.activate([
+            resultLabel.centerXAnchor.constraint(equalTo: overlayViewForScanner.safeAreaLayoutGuide.centerXAnchor),
+            resultLabel.topAnchor.constraint(equalTo: overlayViewForScanner.topAnchor, constant: 10),
+            resultLabel.leadingAnchor.constraint(equalTo: overlayViewForScanner.leadingAnchor, constant: 10),
+            resultLabel.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -10),
+        ])
+        
     }
 }

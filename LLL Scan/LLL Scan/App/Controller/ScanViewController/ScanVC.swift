@@ -16,9 +16,11 @@ class ScanVC: BaseViewController {
     }
 
     let customTableViewScanVC = CustomTableView()
+    let overlayViewForScanner = ViewCustom()
     let resultLabel = LabelViewCustom()
     let labelForHtml = LabelViewCustom()
     let imageForHtml = ImageViewCustom()
+    let saveButtonForScanner = ButtonViewCustom()
     let buttonForAddNewTableView = ButtonViewCustom()
     
     let urlString = "https://www2.hm.com/de_de/productpage.1213391004.html"
@@ -30,7 +32,7 @@ class ScanVC: BaseViewController {
         configureLabels()
         configureImageView()
         configureButtonView()
-        
+        configureViewCustom()
         
         //MARK: - MARK
         networkManager.loadPageFromNetwork(urlString: urlString) { result in

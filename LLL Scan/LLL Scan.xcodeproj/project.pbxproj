@@ -40,6 +40,7 @@
 		178DC7A62BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7A52BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift */; };
 		178DC7AA2BBDD3AA00FEDE69 /* FilesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7A92BBDD3AA00FEDE69 /* FilesTableViewCell.swift */; };
 		178DC7B62BC304F600FEDE69 /* ViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7B52BC304F600FEDE69 /* ViewCustom.swift */; };
+		178DC7B82BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7B72BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		178DC7A52BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureCustomTableViewFVC + Ext.swift"; sourceTree = "<group>"; };
 		178DC7A92BBDD3AA00FEDE69 /* FilesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesTableViewCell.swift; sourceTree = "<group>"; };
 		178DC7B52BC304F600FEDE69 /* ViewCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCustom.swift; sourceTree = "<group>"; };
+		178DC7B72BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewCustomSVC + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				178DC76B2BB8890F00FEDE69 /* ConfigureLabelSVC + Ext.swift */,
 				178DC7782BB9844300FEDE69 /* ConfigureImageSVC + Ext.swift */,
 				178DC7962BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift */,
+				178DC7B72BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift */,
 			);
 			path = ScanViewController;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				178DC7662BB8860900FEDE69 /* LabelViewCustom.swift in Sources */,
 				178DC74D2BB83E4500FEDE69 /* AppDelegate.swift in Sources */,
 				178DC7972BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift in Sources */,
+				178DC7B82BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift in Sources */,
 				178DC7A02BBDD11000FEDE69 /* ConfigureViewFVC + Ext.swift in Sources */,
 				178DC7722BB88DE900FEDE69 /* ConfigureViewSVC + Ext.swift in Sources */,
 				178DC7A62BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift in Sources */,

@@ -8,7 +8,7 @@
 import UIKit
 import VisionKit
 
-extension ScanVC: DataScannerViewControllerDelegate {
+extension ScanVC {
     func configureButtonView() {
         buttonForAddNewTableView.button.setTitle("NEW SCAN", for: .normal)
         buttonForAddNewTableView.button.setTitleColor(.white, for: .normal)
@@ -31,29 +31,35 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                                     isPinchToZoomEnabled: true,
                                                     isHighlightingEnabled: true
         )
+        dataScanner.delegate = self
         
         
         
+//        dataScanner.addChild(overlayViewForScanner.vc)
+        dataScanner.view.addSubview(overlayViewForScanner.vc)
         
+        NSLayoutConstraint.activate([
+            overlayViewForScanner.vc.leadingAnchor.constraint(equalTo: dataScanner.view.leadingAnchor),
+            overlayViewForScanner.vc.trailingAnchor.constraint(equalTo: dataScanner.view.trailingAnchor),
+            overlayViewForScanner.vc.bottomAnchor.constraint(equalTo: dataScanner.view.bottomAnchor),
+            overlayViewForScanner.vc.heightAnchor.constraint(equalTo: dataScanner.view.heightAnchor, multiplier: 0.5)
+        ])
+        
+        saveButtonForScanner.button.setTitle("Save", for: .normal)
+        saveButtonForScanner.button.addTarget(self, action: #selector(saveResult), for: .touchUpInside)
+        
+        
+        
+
         
         present(dataScanner, animated: true)
         try? dataScanner.startScanning()
     }
     
-    func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
-            guard case .text(let text) = item else { return }
-            
-            let parts = text.transcript.components(separatedBy: " ")
-            if parts.count == 4 {
-                let result = "\(parts[1])\(parts[2])"
-                print("Result article : \(result)")
-                resultLabel.label.text = result
-            } else {
-                print("Error: Not such code")
-                resultLabel.label.text = "Error: Invalid code format"
-            }
-        }
-
+    
+    @objc func saveResult() {
+        
+    }
     
     
 }

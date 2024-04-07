@@ -13,12 +13,16 @@ extension ScanVC {
                     labelForHtml.label,
                     imageForHtml.imageView,
                     customTableViewScanVC.table,
-                    buttonForAddNewTableView.button
+                    buttonForAddNewTableView.button,
+                    overlayViewForScanner.vc,
         ]
         
         for addView in views {
             view.addSubview(addView)
         }
+        
+        overlayViewForScanner.vc.addSubview(saveButtonForScanner.button)
+        overlayViewForScanner.vc.addSubview(resultLabel.label)
          
     }
 }
