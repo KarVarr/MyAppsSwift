@@ -163,13 +163,13 @@
 			children = (
 				178DC7842BB9E21000FEDE69 /* NavigationController */,
 				178DC7682BB8880600FEDE69 /* BaseController */,
-				178DC7672BB887F200FEDE69 /* ParsingController */,
+				178DC7672BB887F200FEDE69 /* ScanViewController */,
 				178DC78E2BB9E57D00FEDE69 /* FilesViewController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		178DC7672BB887F200FEDE69 /* ParsingController */ = {
+		178DC7672BB887F200FEDE69 /* ScanViewController */ = {
 			isa = PBXGroup;
 			children = (
 				178DC7502BB83E4500FEDE69 /* ScanVC.swift */,
@@ -181,7 +181,7 @@
 				178DC7782BB9844300FEDE69 /* ConfigureImageSVC + Ext.swift */,
 				178DC7962BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift */,
 			);
-			path = ParsingController;
+			path = ScanViewController;
 			sourceTree = "<group>";
 		};
 		178DC7682BB8880600FEDE69 /* BaseController */ = {

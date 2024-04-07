@@ -16,4 +16,6 @@ extension ScanVC {
         buttonForAddNewTableView.button.layer.shadowOffset = CGSize(width: 2, height: 1)
         buttonForAddNewTableView.button.layer.shadowOpacity = 0.6
     }
+    
+    
 }
