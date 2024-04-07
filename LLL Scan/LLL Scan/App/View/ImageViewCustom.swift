@@ -1,5 +1,5 @@
 //
-//  ImageView.swift
+//  ImageViewCustom.swift
 //  LLL Scan
 //
 //  Created by Karen Vardanian on 31.03.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageView {
+class ImageViewCustom {
     let imageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false

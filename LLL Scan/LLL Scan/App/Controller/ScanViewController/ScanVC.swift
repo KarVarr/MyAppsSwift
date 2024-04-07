@@ -7,7 +7,6 @@
 
 import UIKit
 import VisionKit
-import AVFoundation
 
 class ScanVC: BaseViewController {
     let networkManager = NetworkManager()
@@ -15,22 +14,18 @@ class ScanVC: BaseViewController {
     var scannerAvailable: Bool {
         DataScannerViewController.isSupported && DataScannerViewController.isAvailable
     }
-    
-    let captureSession = AVCaptureSession()
-    let videoPreviewLayer = AVCaptureVideoPreviewLayer()
-    
+
     let customTableViewScanVC = CustomTableView()
-    let resultLabel = LabelView()
-    let labelForHtml = LabelView()
-    let imageForHtml = ImageView()
-    let buttonForAddNewTableView = ButtonView()
+    let resultLabel = LabelViewCustom()
+    let labelForHtml = LabelViewCustom()
+    let imageForHtml = ImageViewCustom()
+    let buttonForAddNewTableView = ButtonViewCustom()
     
     let urlString = "https://www2.hm.com/de_de/productpage.1213391004.html"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureVisionKitSVC()
         configureCustomTableViewSVC()
         configureLabels()
         configureImageView()

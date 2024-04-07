@@ -8,7 +8,7 @@
 import UIKit
 import VisionKit
 
-extension ScanVC {
+extension ScanVC: DataScannerViewControllerDelegate {
     func configureButtonView() {
         buttonForAddNewTableView.button.setTitle("NEW SCAN", for: .normal)
         buttonForAddNewTableView.button.setTitleColor(.white, for: .normal)
@@ -26,15 +26,35 @@ extension ScanVC {
             return
         }
         
-        lazy var dataScanner: DataScannerViewController = {
-            let dataScanner = DataScannerViewController(recognizedDataTypes: [.text()], isHighFrameRateTrackingEnabled: true, isPinchToZoomEnabled: true, isHighlightingEnabled: true)
-            dataScanner.delegate = self
-            return dataScanner
-        }()
+        let dataScanner = DataScannerViewController(recognizedDataTypes: [.text()],
+                                                    isHighFrameRateTrackingEnabled: true,
+                                                    isPinchToZoomEnabled: true,
+                                                    isHighlightingEnabled: true
+        )
+        
+        
+        
+        
         
         present(dataScanner, animated: true)
         try? dataScanner.startScanning()
     }
+    
+    func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
+            guard case .text(let text) = item else { return }
+            
+            let parts = text.transcript.components(separatedBy: " ")
+            if parts.count == 4 {
+                let result = "\(parts[1])\(parts[2])"
+                print("Result article : \(result)")
+                resultLabel.label.text = result
+            } else {
+                print("Error: Not such code")
+                resultLabel.label.text = "Error: Invalid code format"
+            }
+        }
+
+    
     
 }
 

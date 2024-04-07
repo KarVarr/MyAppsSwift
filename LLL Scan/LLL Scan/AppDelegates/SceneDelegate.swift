@@ -11,6 +11,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     let tabBarController = TabBarController()
+    
+    
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -19,6 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()
         self.window = window
+        
+        if #available(iOS 13.0, *) {
+            window.overrideUserInterfaceStyle = .light
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
