@@ -10,14 +10,17 @@ import VisionKit
 
 extension ScanVC: DataScannerViewControllerDelegate {
     func configureVisionKitSVC() {
-       
+        
     }
     func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
-        switch item {
-        case .text(let text):
-            print("text : \(text)")
-        default:
-            print("🚫 Unexpected item.")
+        guard case .text(let text) = item else { return }
+        
+        let parts = text.transcript.components(separatedBy: " ")
+        if parts.count == 4 {
+            let result = "\(parts[1])\(parts[2])"
+            print("Result article : \(result)")
+        } else {
+            print("Error: Not such code")
         }
     }
 }
