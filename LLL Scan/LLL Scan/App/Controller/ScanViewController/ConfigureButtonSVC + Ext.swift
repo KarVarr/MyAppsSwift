@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import VisionKit
 
 extension ScanVC {
     func ConfigureButtonView() {
@@ -20,8 +21,18 @@ extension ScanVC {
     }
     
     @objc func newScan() {
+        guard scannerAvailable == true else {
+            print("🚫 Error: Scanner is not available for usage. Please check settings")
+            return
+        }
         
+        let dataScanner = DataScannerViewController(recognizedDataTypes: [.text()], isHighFrameRateTrackingEnabled: true, isPinchToZoomEnabled: true, isHighlightingEnabled: true)
+        dataScanner.delegate = self
+        present(dataScanner, animated: true)
+        try? dataScanner.startScanning()
     }
     
     
 }
+
+

@@ -6,11 +6,14 @@
 //
 
 import UIKit
-
+import VisionKit
 
 class ScanVC: BaseViewController {
     let networkManager = NetworkManager()
     let htmlParser = HTMLParser()
+    var scannerAvailable: Bool {
+        DataScannerViewController.isSupported && DataScannerViewController.isAvailable
+    }
     
     let customTableViewScanVC = CustomTableView()
     let labelForHtml = LabelView()
@@ -21,7 +24,7 @@ class ScanVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        configureVisionKitSVC()
         configureCustomTableViewSVC()
         configureLabels()
         configureImageView()
