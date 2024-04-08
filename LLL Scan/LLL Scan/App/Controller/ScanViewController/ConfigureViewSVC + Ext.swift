@@ -55,7 +55,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
         if !text.transcript.matches(of: regex).isEmpty {
             let parts = text.transcript.components(separatedBy: " ")
             
-            if parts.count >= 4 {
+            if parts.count <= 4 && parts.count >= 3 {
                 let result = "\(parts[1])\(parts[2])"
                 print("Result article : \(result)")
                 resultLabel.label.text = "✅ Артикул: \(result)"
@@ -98,7 +98,56 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     print("Invalid image URL")
                                 }
                                 
+                            case .failure(let error):
+                                print("Error parsing HTML content: \(error)")
+                            }
+                        case .failure(let error):
+                            print("Error loading page: \(error)")
+                        }
+                    }
+                }
+            } else if parts.count <= 2 {
+                let result = "\(parts[0])\(parts[1])"
+                print("Result article : \(result)")
+                resultLabel.label.text = "✅ Артикул: \(result)"
+                
+                // Обновление urlString после получения артикула
+                self.urlString = "https://www2.hm.com/pl_pl/productpage.\(result).html"
+                
+                // Выполнение запроса с обновленным urlString
+                if let urlString = self.urlString {
+                    networkManager.loadPageFromNetwork(urlString: urlString) { [weak self] result in
+                        switch result {
+                        case .success(let htmlContent):
+                            let htmlParser = HTMLParser()
+                            let productResult = htmlParser.parseHTMLContent(htmlContent)
+                            
+                            switch productResult {
+                            case .success(let product):
                                 
+                                
+                                if let imageURLString = product.imageURL,
+                                   let decodedImageURLString = imageURLString.removingPercentEncoding,
+                                   let imageURL = URL(string: "https:"+decodedImageURLString) {
+                                    URLSession.shared.dataTask(with: imageURL) {data, response, error in
+                                        print(imageURL)
+                                        if let error = error {
+                                            print("Error loading image: \(error)")
+                                            return
+                                        }
+                                        guard let imageData = data else {
+                                            print("No image data received")
+                                            return
+                                        }
+                                        DispatchQueue.main.async {
+                                            self?.titleFromParsingLabel.label.text = product.title
+                                            self?.colorFromParsingLabel.label.text = product.colorID
+                                            self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
+                                        }
+                                    }.resume()
+                                } else {
+                                    print("Invalid image URL")
+                                }
                                 
                             case .failure(let error):
                                 print("Error parsing HTML content: \(error)")
@@ -110,14 +159,21 @@ extension ScanVC: DataScannerViewControllerDelegate {
                 }
             } else {
                 print("Error: Not such code")
-                resultLabel.label.text = "❌ Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
+                
                 DispatchQueue.main.async {
+                    self.resultLabel.label.text = "❌ \(parts) Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
                     self.titleFromParsingLabel.label.text = "Не найдено"
                     self.colorFromParsingLabel.label.text = "Не найдено"
                     self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
                 }
             }
         } else {
+            DispatchQueue.main.async {
+                self.resultLabel.label.text = "❌ \(text.transcript) Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
+                self.titleFromParsingLabel.label.text = "Не верный формат артикула"
+                self.colorFromParsingLabel.label.text = "Отсканируйте ариткул как на фото →"
+                self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
+            }
             print("non valid regex art")
         }
     }
