@@ -24,6 +24,7 @@ class ScanVC: BaseViewController {
     let titleFromParsingLabel = LabelViewCustom()
     let colorFromParsingLabel = LabelViewCustom()
     let buttonForAddNewTableView = ButtonViewCustom()
+    let vStackForParsingTitleAndColor = ViewStackCustom()
     
     var urlString: String? = "https://www2.hm.com/pl_pl/productpage.1213391004.html"
     
@@ -34,7 +35,7 @@ class ScanVC: BaseViewController {
         configureLabels()
         configureImageView()
         configureViewCustom()
-        
+        configureStackViewSVC()
     }
     
     

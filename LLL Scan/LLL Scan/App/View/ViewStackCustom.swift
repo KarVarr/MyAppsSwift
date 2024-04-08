@@ -8,5 +8,10 @@
 import UIKit
 
 class ViewStackCustom {
+    let stack: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
     
 }

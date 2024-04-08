@@ -42,6 +42,7 @@
 		178DC7B62BC304F600FEDE69 /* ViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7B52BC304F600FEDE69 /* ViewCustom.swift */; };
 		178DC7B82BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7B72BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift */; };
 		178DC7BA2BC4501100FEDE69 /* ViewStackCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7B92BC4501100FEDE69 /* ViewStackCustom.swift */; };
+		178DC7BC2BC4518C00FEDE69 /* ConfigureStackViewSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7BB2BC4518C00FEDE69 /* ConfigureStackViewSVC + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		178DC7B52BC304F600FEDE69 /* ViewCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCustom.swift; sourceTree = "<group>"; };
 		178DC7B72BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewCustomSVC + Ext.swift"; sourceTree = "<group>"; };
 		178DC7B92BC4501100FEDE69 /* ViewStackCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStackCustom.swift; sourceTree = "<group>"; };
+		178DC7BB2BC4518C00FEDE69 /* ConfigureStackViewSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureStackViewSVC + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				178DC7782BB9844300FEDE69 /* ConfigureImageSVC + Ext.swift */,
 				178DC7962BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift */,
 				178DC7B72BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift */,
+				178DC7BB2BC4518C00FEDE69 /* ConfigureStackViewSVC + Ext.swift */,
 			);
 			path = ScanViewController;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				178DC7792BB9844300FEDE69 /* ConfigureImageSVC + Ext.swift in Sources */,
 				178DC7902BB9E5D000FEDE69 /* FilesVC.swift in Sources */,
 				178DC7702BB88CC100FEDE69 /* AddViewSVC + Ext.swift in Sources */,
+				178DC7BC2BC4518C00FEDE69 /* ConfigureStackViewSVC + Ext.swift in Sources */,
 				178DC7A22BBDD1B400FEDE69 /* AddViewFVC + Ext.swift in Sources */,
 				178DC7B62BC304F600FEDE69 /* ViewCustom.swift in Sources */,
 				178DC76A2BB8882700FEDE69 /* LayoutViewSVC + Ext.swift in Sources */,

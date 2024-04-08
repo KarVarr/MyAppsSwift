@@ -51,7 +51,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
         guard case .text(let text) = item else { return }
         
         let parts = text.transcript.components(separatedBy: " ")
-        if parts.count == 4 {
+        if parts.count >= 4 {
             let result = "\(parts[1])\(parts[2])"
             print("Result article : \(result)")
             resultLabel.label.text = "✅ Артикул: \(result)"
@@ -69,8 +69,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                         
                         switch productResult {
                         case .success(let product):
-                            self?.titleFromParsingLabel.label.text = product.title
-                            self?.colorFromParsingLabel.label.text = product.colorID
+                            
                             
                             if let imageURLString = product.imageURL,
                                let decodedImageURLString = imageURLString.removingPercentEncoding,
@@ -86,6 +85,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                         return
                                     }
                                     DispatchQueue.main.async {
+                                        self?.titleFromParsingLabel.label.text = product.title
+                                        self?.colorFromParsingLabel.label.text = product.colorID
                                         self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
                                     }
                                 }.resume()
@@ -107,6 +108,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
             print("Error: Not such code")
             resultLabel.label.text = "❌ Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
             DispatchQueue.main.async {
+                self.titleFromParsingLabel.label.text = "Не найдено"
+                self.colorFromParsingLabel.label.text = "Не найдено"
                 self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
             }
         }

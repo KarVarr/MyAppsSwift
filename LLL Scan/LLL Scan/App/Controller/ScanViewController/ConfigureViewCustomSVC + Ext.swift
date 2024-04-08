@@ -12,5 +12,6 @@ extension ScanVC {
     func configureViewCustom() {
         overlayViewForScanner.vc.backgroundColor = .white
         overlayViewForScanner.vc.layer.cornerRadius = 30
+        overlayViewForScanner.vc.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
 }
