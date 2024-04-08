@@ -21,6 +21,8 @@ class ScanVC: BaseViewController {
     let labelForHtml = LabelViewCustom()
     let miniatureImageHM = ImageViewCustom()
     let saveButtonForScanner = ButtonViewCustom()
+    let titleFromParsingLabel = LabelViewCustom()
+    let colorFromParsingLabel = LabelViewCustom()
     let buttonForAddNewTableView = ButtonViewCustom()
     
     var urlString: String? = "https://www2.hm.com/pl_pl/productpage.1213391004.html"

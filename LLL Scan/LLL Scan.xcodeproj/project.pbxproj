@@ -41,6 +41,7 @@
 		178DC7AA2BBDD3AA00FEDE69 /* FilesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7A92BBDD3AA00FEDE69 /* FilesTableViewCell.swift */; };
 		178DC7B62BC304F600FEDE69 /* ViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7B52BC304F600FEDE69 /* ViewCustom.swift */; };
 		178DC7B82BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7B72BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift */; };
+		178DC7BA2BC4501100FEDE69 /* ViewStackCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7B92BC4501100FEDE69 /* ViewStackCustom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		178DC7A92BBDD3AA00FEDE69 /* FilesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesTableViewCell.swift; sourceTree = "<group>"; };
 		178DC7B52BC304F600FEDE69 /* ViewCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCustom.swift; sourceTree = "<group>"; };
 		178DC7B72BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewCustomSVC + Ext.swift"; sourceTree = "<group>"; };
+		178DC7B92BC4501100FEDE69 /* ViewStackCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStackCustom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				178DC7B52BC304F600FEDE69 /* ViewCustom.swift */,
 				178DC7762BB9833F00FEDE69 /* ImageViewCustom.swift */,
 				178DC7982BBDC5A000FEDE69 /* ButtonViewCustom.swift */,
+				178DC7B92BC4501100FEDE69 /* ViewStackCustom.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				178DC7802BB9AB1700FEDE69 /* HTMLParser.swift in Sources */,
 				178DC79C2BBDC6D900FEDE69 /* UIView + Ext.swift in Sources */,
 				178DC76E2BB889D800FEDE69 /* BaseViewController.swift in Sources */,
+				178DC7BA2BC4501100FEDE69 /* ViewStackCustom.swift in Sources */,
 				178DC74F2BB83E4500FEDE69 /* SceneDelegate.swift in Sources */,
 				178DC7822BB9AFAF00FEDE69 /* Product.swift in Sources */,
 				178DC7882BB9E38D00FEDE69 /* NavBarController.swift in Sources */,

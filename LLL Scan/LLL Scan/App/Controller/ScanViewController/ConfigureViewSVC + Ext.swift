@@ -61,7 +61,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
             
             // Выполнение запроса с обновленным urlString
             if let urlString = self.urlString {
-                networkManager.loadPageFromNetwork(urlString: urlString) { result in
+                networkManager.loadPageFromNetwork(urlString: urlString) { [weak self] result in
                     switch result {
                     case .success(let htmlContent):
                         let htmlParser = HTMLParser()
@@ -69,6 +69,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
                         
                         switch productResult {
                         case .success(let product):
+                            self?.titleFromParsingLabel.label.text = product.title
+                            self?.colorFromParsingLabel.label.text = product.colorID
                             
                             if let imageURLString = product.imageURL,
                                let decodedImageURLString = imageURLString.removingPercentEncoding,
@@ -84,7 +86,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                         return
                                     }
                                     DispatchQueue.main.async {
-                                        self.miniatureImageHM.imageView.image = UIImage(data: imageData)
+                                        self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
                                     }
                                 }.resume()
                             } else {

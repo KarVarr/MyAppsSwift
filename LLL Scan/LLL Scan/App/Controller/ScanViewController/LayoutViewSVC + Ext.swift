@@ -14,6 +14,8 @@ extension ScanVC {
         let overlayViewForScanner = overlayViewForScanner.vc
         let resultLabel = resultLabel.label
         let miniatureImageHM = miniatureImageHM.imageView
+        let titleFromParsingLabel = titleFromParsingLabel.label
+        let colorFromParsingLabel = colorFromParsingLabel.label
         
         //MARK: - Button for add new table view for scanning
         NSLayoutConstraint.activate([
@@ -38,13 +40,18 @@ extension ScanVC {
             resultLabel.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -20),
         ])
         
-        //MARK: - Image from parsing/ miniature H&M product image
+        //MARK: - INSIDE CUSTOM SCAN VIEW - Image from parsing/ miniature H&M product image
         NSLayoutConstraint.activate([
-            miniatureImageHM.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
+            miniatureImageHM.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -20),
             miniatureImageHM.centerYAnchor.constraint(equalTo: overlayViewForScanner.centerYAnchor),
             miniatureImageHM.widthAnchor.constraint(equalToConstant: 100),
             miniatureImageHM.heightAnchor.constraint(equalToConstant: 150),
         ])
         
+        //MARK: - INSIDE CUSTOM SCAN VIEW - labels from parsing
+        NSLayoutConstraint.activate([
+            titleFromParsingLabel.leadingAnchor.constraint(equalTo: overlayViewForScanner.leadingAnchor, constant: 20),
+            titleFromParsingLabel.
+        ])
     }
 }

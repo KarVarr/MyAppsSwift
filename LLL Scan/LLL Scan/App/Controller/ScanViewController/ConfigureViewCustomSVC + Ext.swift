@@ -11,5 +11,6 @@ import UIKit
 extension ScanVC {
     func configureViewCustom() {
         overlayViewForScanner.vc.backgroundColor = .white
+        overlayViewForScanner.vc.layer.cornerRadius = 30
     }
 }

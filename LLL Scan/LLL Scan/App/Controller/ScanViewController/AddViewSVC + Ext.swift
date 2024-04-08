@@ -23,6 +23,8 @@ extension ScanVC {
         overlayViewForScanner.vc.addSubview(saveButtonForScanner.button)
         overlayViewForScanner.vc.addSubview(resultLabel.label)
         overlayViewForScanner.vc.addSubview(miniatureImageHM.imageView)
+        overlayViewForScanner.vc.addSubview(titleFromParsingLabel.label)
+        overlayViewForScanner.vc.addSubview(colorFromParsingLabel.label)
          
     }
 }
