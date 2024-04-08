@@ -53,8 +53,6 @@ extension ScanVC {
         //MARK: - INSIDE CUSTOM SCAN VIEW - labels from parsing
         NSLayoutConstraint.activate([
             vStackForParsingTitleAndColor.centerYAnchor.constraint(equalTo: overlayViewForScanner.centerYAnchor),
-            vStackForParsingTitleAndColor.topAnchor.constraint(equalTo: overlayViewForScanner.topAnchor, constant: 20),
-            vStackForParsingTitleAndColor.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -20),
             vStackForParsingTitleAndColor.leadingAnchor.constraint(equalTo: overlayViewForScanner.leadingAnchor, constant: 20),
             vStackForParsingTitleAndColor.trailingAnchor.constraint(equalTo: miniatureImageHM.leadingAnchor, constant: 20),
             vStackForParsingTitleAndColor.heightAnchor.constraint(equalToConstant: 150),

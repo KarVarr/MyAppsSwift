@@ -523,6 +523,7 @@
 				DEVELOPMENT_TEAM = LA9F8MT28T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "LLL Scan/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "LL Scan";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to use your camera to scan text.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -554,6 +555,7 @@
 				DEVELOPMENT_TEAM = LA9F8MT28T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "LLL Scan/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "LL Scan";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to use your camera to scan text.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

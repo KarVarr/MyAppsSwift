@@ -11,6 +11,6 @@ extension ScanVC {
     func configureStackViewSVC() {
         vStackForParsingTitleAndColor.stack.axis = .vertical
         vStackForParsingTitleAndColor.stack.alignment = .leading
-        vStackForParsingTitleAndColor.stack.distribution = .fill
+        vStackForParsingTitleAndColor.stack.distribution = .equalCentering
     }
 }
