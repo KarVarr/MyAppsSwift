@@ -178,6 +178,59 @@ extension ScanVC: DataScannerViewControllerDelegate {
         }
     }
     
+    
+    private func scanCodeWithDifferentCount(partsStr: [String], part1: Int, part2: Int) {
+        let result = "\(partsStr[part1])\(partsStr[part2])"
+        print("Result article : \(result)")
+        resultLabel.label.text = "✅ Артикул: \(result)"
+        
+        // Обновление urlString после получения артикула
+        self.urlString = "https://www2.hm.com/pl_pl/productpage.\(result).html"
+        
+        // Выполнение запроса с обновленным urlString
+        if let urlString = self.urlString {
+            networkManager.loadPageFromNetwork(urlString: urlString) { [weak self] result in
+                switch result {
+                case .success(let htmlContent):
+                    let htmlParser = HTMLParser()
+                    let productResult = htmlParser.parseHTMLContent(htmlContent)
+                    
+                    switch productResult {
+                    case .success(let product):
+                        
+                        
+                        if let imageURLString = product.imageURL,
+                           let decodedImageURLString = imageURLString.removingPercentEncoding,
+                           let imageURL = URL(string: "https:"+decodedImageURLString) {
+                            URLSession.shared.dataTask(with: imageURL) {data, response, error in
+                                print(imageURL)
+                                if let error = error {
+                                    print("Error loading image: \(error)")
+                                    return
+                                }
+                                guard let imageData = data else {
+                                    print("No image data received")
+                                    return
+                                }
+                                DispatchQueue.main.async {
+                                    self?.titleFromParsingLabel.label.text = product.title
+                                    self?.colorFromParsingLabel.label.text = product.colorID
+                                    self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
+                                }
+                            }.resume()
+                        } else {
+                            print("Invalid image URL")
+                        }
+                        
+                    case .failure(let error):
+                        print("Error parsing HTML content: \(error)")
+                    }
+                case .failure(let error):
+                    print("Error loading page: \(error)")
+                }
+            }
+        }
+    }
 }
 
 
