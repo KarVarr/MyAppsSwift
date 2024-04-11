@@ -15,6 +15,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
         
         title = "Scan"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
     
     @objc func newScan() {
@@ -22,6 +23,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
             print(" Error: Scanner is not available for usage. Please check settings")
             return
         }
+        
+        resultLabel.label.text = "Отсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'.\n· Номер начинается с букв, за которыми следует пробел.\n· После пробела идет 7 цифр.\n· Затем следует еще один пробел и 3 цифры.\n· После третьих цифр идут буквы и еще несколько цифр."
         
         let dataScanner = DataScannerViewController(recognizedDataTypes: [.text()],
                                                     isHighFrameRateTrackingEnabled: true,
@@ -31,13 +34,16 @@ extension ScanVC: DataScannerViewControllerDelegate {
         
         dataScanner.delegate = self
         present(dataScanner, animated: true) {
+            
             dataScanner.view.addSubview(self.overlayViewForScanner.vc)
+            self.overlayViewForScanner.vc.isHidden = false
             NSLayoutConstraint.activate([
                 self.overlayViewForScanner.vc.leadingAnchor.constraint(equalTo: dataScanner.view.leadingAnchor),
                 self.overlayViewForScanner.vc.trailingAnchor.constraint(equalTo: dataScanner.view.trailingAnchor),
                 self.overlayViewForScanner.vc.topAnchor.constraint(equalTo: dataScanner.view.topAnchor),
                 self.overlayViewForScanner.vc.heightAnchor.constraint(equalTo: dataScanner.view.heightAnchor, multiplier: 0.7)
             ])
+            
         }
         try? dataScanner.startScanning()
         
@@ -50,6 +56,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
     func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
         guard case .text(let text) = item else { return }
         let regex = try! Regex(#"\s*\b\d{7}\s\b\d{3}\s*"#)
+        
         
         if !text.transcript.matches(of: regex).isEmpty {
             let parts = text.transcript.components(separatedBy: " ")

@@ -13,5 +13,6 @@ extension ScanVC {
         overlayViewForScanner.vc.backgroundColor = .white
         overlayViewForScanner.vc.layer.cornerRadius = 30
         overlayViewForScanner.vc.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        overlayViewForScanner.vc.isHidden = true
     }
 }
