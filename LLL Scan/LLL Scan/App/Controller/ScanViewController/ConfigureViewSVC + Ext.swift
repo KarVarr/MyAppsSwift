@@ -28,20 +28,19 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                                     isPinchToZoomEnabled: true,
                                                     isHighlightingEnabled: true
         )
+        
         dataScanner.delegate = self
-        
-        dataScanner.view.addSubview(overlayViewForScanner.vc)
-        
-        NSLayoutConstraint.activate([
-            overlayViewForScanner.vc.leadingAnchor.constraint(equalTo: dataScanner.view.leadingAnchor),
-            overlayViewForScanner.vc.trailingAnchor.constraint(equalTo: dataScanner.view.trailingAnchor),
-            overlayViewForScanner.vc.topAnchor.constraint(equalTo: dataScanner.view.topAnchor),
-            overlayViewForScanner.vc.heightAnchor.constraint(equalTo: dataScanner.view.heightAnchor, multiplier: 0.4)
-        ])
-        
-        
-        present(dataScanner, animated: true)
+        present(dataScanner, animated: true) {
+            dataScanner.view.addSubview(self.overlayViewForScanner.vc)
+            NSLayoutConstraint.activate([
+                self.overlayViewForScanner.vc.leadingAnchor.constraint(equalTo: dataScanner.view.leadingAnchor),
+                self.overlayViewForScanner.vc.trailingAnchor.constraint(equalTo: dataScanner.view.trailingAnchor),
+                self.overlayViewForScanner.vc.topAnchor.constraint(equalTo: dataScanner.view.topAnchor),
+                self.overlayViewForScanner.vc.heightAnchor.constraint(equalTo: dataScanner.view.heightAnchor, multiplier: 0.7)
+            ])
+        }
         try? dataScanner.startScanning()
+        
     }
     
     @objc func saveResult() {
