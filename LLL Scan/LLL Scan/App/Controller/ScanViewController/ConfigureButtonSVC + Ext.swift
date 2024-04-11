@@ -14,8 +14,8 @@ extension ScanVC {
         buttonForAddNewTableView.button.setTitleColor(.white, for: .normal)
         buttonForAddNewTableView.button.backgroundColor = .systemPink
         buttonForAddNewTableView.button.layer.cornerRadius = 22
-        buttonForAddNewTableView.button.layer.shadowOffset = CGSize(width: 2, height: 1)
-        buttonForAddNewTableView.button.layer.shadowOpacity = 0.6
+        buttonForAddNewTableView.button.layer.shadowOffset = CGSize(width: 1, height: 1)
+        buttonForAddNewTableView.button.layer.shadowOpacity = 0.3
         
         buttonForAddNewTableView.button.addTarget(self, action: #selector(newScan), for: .touchUpInside)
         
@@ -23,8 +23,8 @@ extension ScanVC {
         saveButtonForScanner.button.setTitleColor(.black, for: .normal)
         saveButtonForScanner.button.backgroundColor = .yellow
         saveButtonForScanner.button.layer.cornerRadius = 22
-        saveButtonForScanner.button.layer.shadowOffset = CGSize(width: 2, height: 1)
-        saveButtonForScanner.button.layer.shadowOpacity = 0.6
+        saveButtonForScanner.button.layer.shadowOffset = CGSize(width: 1, height: 1)
+        saveButtonForScanner.button.layer.shadowOpacity = 0.3
         saveButtonForScanner.button.addTarget(self, action: #selector(saveResult), for: .touchUpInside)
     }
     
