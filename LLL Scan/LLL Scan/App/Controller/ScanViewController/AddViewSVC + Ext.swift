@@ -24,9 +24,9 @@ extension ScanVC {
         overlayViewForScanner.vc.addSubview(resultLabel.label)
         overlayViewForScanner.vc.addSubview(miniatureImageHM.imageView)
         overlayViewForScanner.vc.addSubview(vStackForParsingTitleAndColor.stack)
-        vStackForParsingTitleAndColor.stack.addArrangedSubview(titleFromParsingLabel.label)
-        vStackForParsingTitleAndColor.stack.addArrangedSubview(colorFromParsingLabel.label)
-         
+        
+        let vStackForParing = UIStackView(arrangedSubviews: [titleFromParsingLabel.label, colorFromParsingLabel.label])
+        vStackForParsingTitleAndColor.stack.addArrangedSubview(vStackForParing)         
     }
 }
 
