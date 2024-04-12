@@ -14,5 +14,7 @@ extension ScanVC {
         overlayViewForScanner.vc.layer.cornerRadius = 30
         overlayViewForScanner.vc.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         overlayViewForScanner.vc.isHidden = true
+        
+        topRectangleViewForCloseIndication
     }
 }

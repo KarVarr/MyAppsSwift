@@ -9,33 +9,30 @@ import UIKit
 
 extension ScanVC {
     override func addViews() {
-        let views: [UIView] = [
-                    labelForHtml.label,
-                    customTableViewScanVC.table,
-                    buttonForAddNewTableView.button,
-                    overlayViewForScanner.vc,  
-        ]
-        
-        for addView in views {
-            view.addSubview(addView)
-        }
+        //MARK: - View
+        addView(views: [labelForHtml.label,
+                        customTableViewScanVC.table,
+                        buttonForAddNewTableView.button,
+                        overlayViewForScanner.vc], 
+                uiView: view)
         
         //MARK: - Overlay View
-        let overlayViews: [UIView] = [
-            topRectangleViewForCloseIndication.vc,
-            vStackForParsingTitleAndColor.stack,
-            miniatureImageHM.imageView,
-            resultLabel.label,
-            saveButtonForScanner.button
-        ]
-        
-        for addView in overlayViews {
-            overlayViewForScanner.vc.addSubview(addView)
-        }
+        addView(views: [topRectangleViewForCloseIndication.vc,
+                        vStackForParsingTitleAndColor.stack,
+                        miniatureImageHM.imageView,
+                        resultLabel.label,
+                        saveButtonForScanner.button], 
+                uiView: overlayViewForScanner.vc)
 
         //MARK: - View Stack
         let vStackForParing = UIStackView(arrangedSubviews: [titleFromParsingLabel.label, colorFromParsingLabel.label])
         vStackForParsingTitleAndColor.stack.addArrangedSubview(vStackForParing)         
+    }
+    
+    private func addView(views: [UIView], uiView: UIView) {
+        for addView in views {
+            uiView.addSubview(addView)
+        }
     }
 }
 
