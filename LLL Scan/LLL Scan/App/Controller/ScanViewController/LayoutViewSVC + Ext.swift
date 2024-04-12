@@ -17,7 +17,13 @@ extension ScanVC {
         let vStackForParsingTitleAndColor = vStackForParsingTitleAndColor.stack
         let titleFromParsingLabel = titleFromParsingLabel.label
         let colorFromParsingLabel = colorFromParsingLabel.label
-        
+        let topRectangleViewForCloseIndication = topRectangleViewForCloseIndication.vc
+        NSLayoutConstraint.activate([
+            topRectangleViewForCloseIndication.topAnchor.constraint(equalTo: overlayViewForScanner.topAnchor, constant: 10),
+            topRectangleViewForCloseIndication.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
+            topRectangleViewForCloseIndication.widthAnchor.constraint(equalToConstant: 30),
+            topRectangleViewForCloseIndication.heightAnchor.constraint(equalToConstant: 7),
+        ])
         
         //MARK: - Button for add new table view for scanning
         NSLayoutConstraint.activate([
