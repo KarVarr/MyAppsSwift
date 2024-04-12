@@ -55,16 +55,17 @@ extension ScanVC {
         NSLayoutConstraint.activate([
             miniatureImageHM.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
             miniatureImageHM.centerYAnchor.constraint(equalTo: overlayViewForScanner.centerYAnchor),
-            miniatureImageHM.widthAnchor.constraint(equalToConstant: 180),
-            miniatureImageHM.heightAnchor.constraint(equalToConstant: 230),
+            miniatureImageHM.widthAnchor.constraint(equalToConstant: 150),
+            miniatureImageHM.heightAnchor.constraint(equalToConstant: 200),
         ])
         
         //MARK: - INSIDE CUSTOM SCAN VIEW - labels from parsing
         NSLayoutConstraint.activate([
-            vStackForParsingData.leadingAnchor.constraint(equalTo: overlayViewForScanner.leadingAnchor, constant: 20),
-            vStackForParsingData.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -20),
-            vStackForParsingData.bottomAnchor.constraint(equalTo: saveButtonForScanner.topAnchor, constant: 10),
-            vStackForParsingData.topAnchor.constraint(equalTo: miniatureImageHM.bottomAnchor, constant: 20),        
+            vStackForParsingData.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.9),
+            vStackForParsingData.bottomAnchor.constraint(equalTo: saveButtonForScanner.topAnchor, constant: -10),
+            vStackForParsingData.topAnchor.constraint(equalTo: miniatureImageHM.bottomAnchor, constant: 10),
+            vStackForParsingData.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -10),
+            vStackForParsingData.leadingAnchor.constraint(equalTo: overlayViewForScanner.leadingAnchor, constant: 10),
         ])
     }
 }
