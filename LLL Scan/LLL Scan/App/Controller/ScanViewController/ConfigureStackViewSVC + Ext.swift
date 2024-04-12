@@ -13,7 +13,5 @@ extension ScanVC {
         vStackForParsingData.stack.alignment = .leading
         vStackForParsingData.stack.distribution = .fillEqually
         vStackForParsingData.stack.spacing = 10
-        vStackForParsingData.stack.layer.borderWidth = 3
-        vStackForParsingData.stack.layer.borderColor = UIColor.red.cgColor
     }
 }

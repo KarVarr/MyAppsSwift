@@ -9,10 +9,8 @@ import UIKit
 
 extension ScanVC {
     func configureImageView() {
-        miniatureImageHM.imageView.layer.cornerRadius = 10
-        miniatureImageHM.imageView.layer.borderWidth = 1
         miniatureImageHM.imageView.layer.masksToBounds = true
-        miniatureImageHM.imageView.layer.shadowOffset = CGSize(width: 2, height: 1)
-        miniatureImageHM.imageView.layer.shadowOpacity = 0.6
+        miniatureImageHM.imageView.layer.shadowOffset = CGSize(width: 3, height: 2)
+        miniatureImageHM.imageView.layer.shadowOpacity = 0.3
     }
 }
