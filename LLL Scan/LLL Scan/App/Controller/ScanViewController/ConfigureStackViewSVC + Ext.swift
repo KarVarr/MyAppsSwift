@@ -5,12 +5,15 @@
 //  Created by Karen Vardanian on 08.04.2024.
 //
 
-import Foundation
+import UIKit
 
 extension ScanVC {
     func configureStackViewSVC() {
-        vStackForParsingTitleAndColor.stack.axis = .vertical
-        vStackForParsingTitleAndColor.stack.alignment = .leading
-        vStackForParsingTitleAndColor.stack.distribution = .equalCentering
+        vStackForParsingData.stack.axis = .vertical
+        vStackForParsingData.stack.alignment = .leading
+        vStackForParsingData.stack.distribution = .fillEqually
+        vStackForParsingData.stack.spacing = 10
+        vStackForParsingData.stack.layer.borderWidth = 3
+        vStackForParsingData.stack.layer.borderColor = UIColor.red.cgColor
     }
 }

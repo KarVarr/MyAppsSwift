@@ -14,10 +14,13 @@ extension ScanVC {
         let overlayViewForScanner = overlayViewForScanner.vc
         let resultLabel = resultLabel.label
         let miniatureImageHM = miniatureImageHM.imageView
-        let vStackForParsingTitleAndColor = vStackForParsingTitleAndColor.stack
+        let vStackForParsingData = vStackForParsingData.stack
         let titleFromParsingLabel = titleFromParsingLabel.label
         let colorFromParsingLabel = colorFromParsingLabel.label
         let topRectangleViewForCloseIndication = topRectangleViewForCloseIndication.vc
+        
+        
+        //MARK: - Custom Views
         NSLayoutConstraint.activate([
             topRectangleViewForCloseIndication.topAnchor.constraint(equalTo: overlayViewForScanner.topAnchor, constant: 10),
             topRectangleViewForCloseIndication.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
@@ -50,18 +53,18 @@ extension ScanVC {
         
         //MARK: - INSIDE CUSTOM SCAN VIEW - Image from parsing/ miniature H&M product image
         NSLayoutConstraint.activate([
-            miniatureImageHM.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -20),
+            miniatureImageHM.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
             miniatureImageHM.centerYAnchor.constraint(equalTo: overlayViewForScanner.centerYAnchor),
-            miniatureImageHM.widthAnchor.constraint(equalToConstant: 100),
-            miniatureImageHM.heightAnchor.constraint(equalToConstant: 150),
+            miniatureImageHM.widthAnchor.constraint(equalToConstant: 180),
+            miniatureImageHM.heightAnchor.constraint(equalToConstant: 230),
         ])
         
         //MARK: - INSIDE CUSTOM SCAN VIEW - labels from parsing
         NSLayoutConstraint.activate([
-            vStackForParsingTitleAndColor.centerYAnchor.constraint(equalTo: overlayViewForScanner.centerYAnchor),
-            vStackForParsingTitleAndColor.leadingAnchor.constraint(equalTo: overlayViewForScanner.leadingAnchor, constant: 20),
-            vStackForParsingTitleAndColor.trailingAnchor.constraint(equalTo: miniatureImageHM.leadingAnchor, constant: 20),
-            vStackForParsingTitleAndColor.heightAnchor.constraint(equalToConstant: 150),
+            vStackForParsingData.leadingAnchor.constraint(equalTo: overlayViewForScanner.leadingAnchor, constant: 20),
+            vStackForParsingData.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -20),
+            vStackForParsingData.bottomAnchor.constraint(equalTo: saveButtonForScanner.topAnchor, constant: 10),
+            vStackForParsingData.topAnchor.constraint(equalTo: miniatureImageHM.bottomAnchor, constant: 20),        
         ])
     }
 }

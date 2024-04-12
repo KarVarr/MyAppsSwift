@@ -18,15 +18,17 @@ extension ScanVC {
         
         //MARK: - Overlay View
         addView(views: [topRectangleViewForCloseIndication.vc,
-                        vStackForParsingTitleAndColor.stack,
+                        vStackForParsingData.stack,
                         miniatureImageHM.imageView,
                         resultLabel.label,
                         saveButtonForScanner.button], 
                 uiView: overlayViewForScanner.vc)
 
         //MARK: - View Stack
-        let vStackForParing = UIStackView(arrangedSubviews: [titleFromParsingLabel.label, colorFromParsingLabel.label])
-        vStackForParsingTitleAndColor.stack.addArrangedSubview(vStackForParing)         
+        let vStackForParing = UIStackView(arrangedSubviews: [titleFromParsingLabel.label,
+                                                             colorFromParsingLabel.label,
+                                                             materialFromParsingLabel.label])
+        vStackForParsingData.stack.addArrangedSubview(vStackForParing)
     }
     
     private func addView(views: [UIView], uiView: UIView) {

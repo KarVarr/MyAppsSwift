@@ -41,7 +41,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                 self.overlayViewForScanner.vc.leadingAnchor.constraint(equalTo: dataScanner.view.leadingAnchor),
                 self.overlayViewForScanner.vc.trailingAnchor.constraint(equalTo: dataScanner.view.trailingAnchor),
                 self.overlayViewForScanner.vc.topAnchor.constraint(equalTo: dataScanner.view.topAnchor),
-                self.overlayViewForScanner.vc.heightAnchor.constraint(equalTo: dataScanner.view.heightAnchor, multiplier: 0.7)
+                self.overlayViewForScanner.vc.heightAnchor.constraint(equalTo: dataScanner.view.heightAnchor, multiplier: 0.65)
             ])
             
         }
@@ -72,6 +72,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                     self.resultLabel.label.text = "❌ \(parts) Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
                     self.titleFromParsingLabel.label.text = "Не найдено"
                     self.colorFromParsingLabel.label.text = "Не найдено"
+                    self.materialFromParsingLabel.label.text = "Не найдено"
                     self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
                 }
             }
@@ -79,7 +80,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
             DispatchQueue.main.async {
                 self.resultLabel.label.text = "❌ \(text.transcript) Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
                 self.titleFromParsingLabel.label.text = "Не верный формат артикула"
-                self.colorFromParsingLabel.label.text = "Отсканируйте ариткул как на фото →"
+                self.colorFromParsingLabel.label.text = "Отсканируйте ариткул как на фото"
+                self.materialFromParsingLabel.label.text = "Повторите попытку!"
                 self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
             }
             print("non valid regex art")
@@ -123,6 +125,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                 DispatchQueue.main.async {
                                     self?.titleFromParsingLabel.label.text = product.title
                                     self?.colorFromParsingLabel.label.text = product.colorID
+                                    self?.materialFromParsingLabel.label.text = product.material
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
                                 }
                             }.resume()

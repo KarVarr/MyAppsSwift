@@ -23,8 +23,9 @@ class ScanVC: BaseViewController {
     let saveButtonForScanner = ButtonViewCustom()
     let titleFromParsingLabel = LabelViewCustom()
     let colorFromParsingLabel = LabelViewCustom()
+    let materialFromParsingLabel = LabelViewCustom()
     let buttonForAddNewTableView = ButtonViewCustom()
-    let vStackForParsingTitleAndColor = ViewStackCustom()
+    let vStackForParsingData = ViewStackCustom()
     let topRectangleViewForCloseIndication = ViewCustom()
     
     var urlString: String? = "https://www2.hm.com/pl_pl/productpage.1213391004.html"
