@@ -70,7 +70,6 @@ extension ScanVC: DataScannerViewControllerDelegate {
                 scanCodeWithDifferentCount(partsStr: parts, part1: 0, part2: 1)
             } else {
                 print("Error: Not such code")
-                
                 DispatchQueue.main.async {
                     self.resultLabel.label.text = "❌ \(parts) Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
                     self.titleFromParsingLabel.label.text = "Не найдено"
@@ -110,13 +109,10 @@ extension ScanVC: DataScannerViewControllerDelegate {
                     
                     switch productResult {
                     case .success(let product):
-                        
-                        
                         if let imageURLString = product.imageURL,
                            let decodedImageURLString = imageURLString.removingPercentEncoding,
                            let imageURL = URL(string: "https:"+decodedImageURLString) {
                             URLSession.shared.dataTask(with: imageURL) {data, response, error in
-                                print(imageURL)
                                 if let error = error {
                                     print("Error loading image: \(error)")
                                     return
@@ -134,6 +130,10 @@ extension ScanVC: DataScannerViewControllerDelegate {
                             }.resume()
                         } else {
                             print("Invalid image URL")
+                            DispatchQueue.main.async {
+                                self?.titleFromParsingLabel.label.text = "Артикул определен, но данный товар отсутствует на сайте H&M!"
+                                miniatureImageHM.imageView.image = UIImage(named: <#T##String#>)
+                            }
                         }
                         
                     case .failure(let error):
