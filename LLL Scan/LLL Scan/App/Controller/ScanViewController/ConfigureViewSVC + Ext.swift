@@ -34,7 +34,6 @@ extension ScanVC: DataScannerViewControllerDelegate {
         
         dataScanner.delegate = self
         present(dataScanner, animated: true) {
-            
             dataScanner.view.addSubview(self.overlayViewForScanner.vc)
             self.overlayViewForScanner.vc.isHidden = false
             NSLayoutConstraint.activate([
@@ -44,6 +43,10 @@ extension ScanVC: DataScannerViewControllerDelegate {
                 self.overlayViewForScanner.vc.heightAnchor.constraint(equalTo: dataScanner.view.heightAnchor, multiplier: 0.65)
             ])
             
+            self.overlayViewForScanner.vc.alpha = 0.0
+            UIView.animate(withDuration: 0.5) {
+                self.overlayViewForScanner.vc.alpha = 1.0
+            }
         }
         try? dataScanner.startScanning()
         
@@ -80,8 +83,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
             DispatchQueue.main.async {
                 self.resultLabel.label.text = "❌ \(text.transcript) Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
                 self.titleFromParsingLabel.label.text = "Не верный формат артикула"
-                self.colorFromParsingLabel.label.text = "Отсканируйте ариткул как на фото"
-                self.materialFromParsingLabel.label.text = "Повторите попытку!"
+                self.colorFromParsingLabel.label.text = "Отсканируйте выделенный артикул как на фото"
+                self.materialFromParsingLabel.label.text = "И повторите попытку!"
                 self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
             }
             print("non valid regex art")
