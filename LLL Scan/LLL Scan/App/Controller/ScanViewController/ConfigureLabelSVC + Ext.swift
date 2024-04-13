@@ -15,5 +15,11 @@ extension ScanVC {
         resultLabel.label.textColor = .black
         resultLabel.label.font = UIFont(name: "AppleSDGothicNeo_Bold", size: 36)
         resultLabel.label.numberOfLines = 0
+        
+        titleFromParsingLabel.label.numberOfLines = 0
+        titleFromParsingLabel.label.lineBreakMode = .byWordWrapping
+        
+        materialFromParsingLabel.label.numberOfLines = 0
+        materialFromParsingLabel.label.lineBreakMode = .byWordWrapping
     }
 }

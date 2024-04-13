@@ -132,7 +132,9 @@ extension ScanVC: DataScannerViewControllerDelegate {
                             print("Invalid image URL")
                             DispatchQueue.main.async {
                                 self?.titleFromParsingLabel.label.text = "Артикул определен, но данный товар отсутствует на сайте H&M!"
-                                miniatureImageHM.imageView.image = UIImage(named: <#T##String#>)
+                                self?.colorFromParsingLabel.label.text = ""
+                                self?.materialFromParsingLabel.label.text = ""
+                                self?.miniatureImageHM.imageView.image = UIImage(systemName: "link.icloud")
                             }
                         }
                         
