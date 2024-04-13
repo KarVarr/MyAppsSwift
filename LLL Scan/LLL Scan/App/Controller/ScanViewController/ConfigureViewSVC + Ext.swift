@@ -122,6 +122,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     return
                                 }
                                 DispatchQueue.main.async {
+                                    self?.colorFromParsingLabel.label.isHidden = false
+                                    self?.materialFromParsingLabel.label.isHidden = false
                                     self?.titleFromParsingLabel.label.text = product.title
                                     self?.colorFromParsingLabel.label.text = product.colorID
                                     self?.materialFromParsingLabel.label.text = product.material
@@ -132,9 +134,9 @@ extension ScanVC: DataScannerViewControllerDelegate {
                             print("Invalid image URL")
                             DispatchQueue.main.async {
                                 self?.titleFromParsingLabel.label.text = "Артикул определен, но данный товар отсутствует на сайте H&M!"
-                                self?.colorFromParsingLabel.label.text = ""
-                                self?.materialFromParsingLabel.label.text = ""
-                                self?.miniatureImageHM.imageView.image = UIImage(systemName: "link.icloud")
+                                self?.colorFromParsingLabel.label.isHidden = true
+                                self?.materialFromParsingLabel.label.isHidden = true
+                                self?.miniatureImageHM.imageView.image = UIImage(systemName: "exclamationmark.icloud.fill")
                             }
                         }
                         
