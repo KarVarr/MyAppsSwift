@@ -8,6 +8,7 @@
 import UIKit
 
 class ScanTableViewCell: UITableViewCell {
+    let titleLabel = LabelViewCustom()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +26,7 @@ class ScanTableViewCell: UITableViewCell {
     
     
     private func addViews() {
-        
+        contentView.addSubview(titleLabel.label)
     }
     
     private func configureCell() {
@@ -37,7 +38,10 @@ class ScanTableViewCell: UITableViewCell {
     }
     
     private func layoutCell() {
-        
+        NSLayoutConstraint.activate([
+            titleLabel.label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            titleLabel.label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+        ])
     }
     
 }

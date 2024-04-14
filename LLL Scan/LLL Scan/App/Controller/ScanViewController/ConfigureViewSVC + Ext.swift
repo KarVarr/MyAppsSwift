@@ -54,6 +54,11 @@ extension ScanVC: DataScannerViewControllerDelegate {
     
     @objc func saveResult() {
         print("saveResult")
+        
+        let productData = try? JSONEncoder().encode(scannedProducts)
+        UserDefaults.standard.setValue(productData, forKey: "scannedProducts")
+        
+        customTableViewScanVC.table.reloadData()
     }
     
     func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
@@ -129,6 +134,19 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.materialFromParsingLabel.label.text = product.material
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
 //                                    self?.miniatureImageHM.imageView.addSymbolEffect(SymbolEffectOptions.rep)
+                                    
+                                    let productObj = Product(imageURL: product.imageURL,
+                                                          link: product.link,
+                                                          article: product.article,
+                                                          title: product.title,
+                                                          price: product.price,
+                                                          colorID: product.colorID,
+                                                          description: product.description,
+                                                          material: product.material,
+                                                          fullBlock: nil
+                                    )
+                                    self?.scannedProducts.append(productObj)
+
                                 }
                             }.resume()
                         } else {

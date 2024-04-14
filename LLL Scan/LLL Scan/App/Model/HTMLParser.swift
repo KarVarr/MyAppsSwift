@@ -16,6 +16,7 @@ class HTMLParser {
     func parseHTMLContent(_ htmlContent: String) -> Result<Product, Error> {
         do {
             let doc = try SwiftSoup.parse(htmlContent)
+            
             guard let body = doc.body() else {
                 return .failure(ParserError.invalidHTML)
             }
