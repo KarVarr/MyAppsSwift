@@ -232,10 +232,10 @@
 			isa = PBXGroup;
 			children = (
 				178DC78F2BB9E5D000FEDE69 /* FilesVC.swift */,
-				178DC7A52BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift */,
 				178DC7A32BBDD28200FEDE69 /* LayoutViewFVC + Ext.swift */,
 				178DC79F2BBDD11000FEDE69 /* ConfigureViewFVC + Ext.swift */,
 				178DC7A12BBDD1B400FEDE69 /* AddViewFVC + Ext.swift */,
+				178DC7A52BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift */,
 			);
 			path = FilesViewController;
 			sourceTree = "<group>";

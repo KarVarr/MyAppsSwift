@@ -13,7 +13,7 @@ enum Helper {
         enum TabBar {
             static func icon(for tab: Tabs) -> UIImage? {
                 switch tab {
-                case .scan: return UIImage(systemName: "barcode.viewfinder")
+                case .scan: return UIImage(systemName: "list.bullet.clipboard")
                 case .files: return UIImage(systemName: "doc")
                 }
             }
@@ -25,8 +25,8 @@ enum Helper {
         enum TabBar {
             static func title(for tab: Tabs) -> String? {
                 switch tab {
-                case .scan: return "Scan"
-                case .files: return "Files"
+                case .scan: return "Сканы"
+                case .files: return "Файлы"
                 }
             }
         }

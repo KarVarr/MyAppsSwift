@@ -13,7 +13,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
     override func configureView() {
         view.backgroundColor = .white
         
-        title = "Scan"
+        title = "Сканы"
         navigationController?.navigationBar.prefersLargeTitles = true
         
     }

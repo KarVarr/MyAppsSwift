@@ -11,7 +11,7 @@ extension FilesVC {
     override func configureView() {
         view.backgroundColor = .orange
         
-        title = "Files"
+        title = "Файлы"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
