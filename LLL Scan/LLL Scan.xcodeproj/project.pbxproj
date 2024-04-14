@@ -33,7 +33,6 @@
 		178DC7952BB9F2A000FEDE69 /* ScanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7942BB9F2A000FEDE69 /* ScanTableViewCell.swift */; };
 		178DC7972BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7962BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift */; };
 		178DC7992BBDC5A000FEDE69 /* ButtonViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7982BBDC5A000FEDE69 /* ButtonViewCustom.swift */; };
-		178DC79C2BBDC6D900FEDE69 /* UIView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC79B2BBDC6D900FEDE69 /* UIView + Ext.swift */; };
 		178DC79E2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC79D2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift */; };
 		178DC7A02BBDD11000FEDE69 /* ConfigureViewFVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC79F2BBDD11000FEDE69 /* ConfigureViewFVC + Ext.swift */; };
 		178DC7A22BBDD1B400FEDE69 /* AddViewFVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7A12BBDD1B400FEDE69 /* AddViewFVC + Ext.swift */; };
@@ -74,7 +73,6 @@
 		178DC7942BB9F2A000FEDE69 /* ScanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTableViewCell.swift; sourceTree = "<group>"; };
 		178DC7962BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureCustomTableViewSVC + Ext.swift"; sourceTree = "<group>"; };
 		178DC7982BBDC5A000FEDE69 /* ButtonViewCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewCustom.swift; sourceTree = "<group>"; };
-		178DC79B2BBDC6D900FEDE69 /* UIView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Ext.swift"; sourceTree = "<group>"; };
 		178DC79D2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureButtonSVC + Ext.swift"; sourceTree = "<group>"; };
 		178DC79F2BBDD11000FEDE69 /* ConfigureViewFVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewFVC + Ext.swift"; sourceTree = "<group>"; };
 		178DC7A12BBDD1B400FEDE69 /* AddViewFVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewFVC + Ext.swift"; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 		178DC79A2BBDC6C000FEDE69 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				178DC79B2BBDC6D900FEDE69 /* UIView + Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -383,7 +380,6 @@
 				178DC7722BB88DE900FEDE69 /* ConfigureViewSVC + Ext.swift in Sources */,
 				178DC7A62BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift in Sources */,
 				178DC7802BB9AB1700FEDE69 /* HTMLParser.swift in Sources */,
-				178DC79C2BBDC6D900FEDE69 /* UIView + Ext.swift in Sources */,
 				178DC76E2BB889D800FEDE69 /* BaseViewController.swift in Sources */,
 				178DC7BA2BC4501100FEDE69 /* ViewStackCustom.swift in Sources */,
 				178DC74F2BB83E4500FEDE69 /* SceneDelegate.swift in Sources */,
