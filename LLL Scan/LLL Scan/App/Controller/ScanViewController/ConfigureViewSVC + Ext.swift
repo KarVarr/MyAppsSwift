@@ -128,6 +128,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.colorFromParsingLabel.label.text = product.colorID
                                     self?.materialFromParsingLabel.label.text = product.material
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
+//                                    self?.miniatureImageHM.imageView.addSymbolEffect(SymbolEffectOptions.rep)
                                 }
                             }.resume()
                         } else {
@@ -137,6 +138,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                 self?.colorFromParsingLabel.label.isHidden = true
                                 self?.materialFromParsingLabel.label.isHidden = true
                                 self?.miniatureImageHM.imageView.image = UIImage(systemName: "exclamationmark.icloud.fill")
+                                
                             }
                         }
                         

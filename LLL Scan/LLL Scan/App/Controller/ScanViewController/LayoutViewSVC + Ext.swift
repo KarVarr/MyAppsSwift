@@ -30,16 +30,16 @@ extension ScanVC {
         
         //MARK: - Button for add new table view for scanning
         NSLayoutConstraint.activate([
-            buttonForAddNewTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            buttonForAddNewTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            buttonForAddNewTableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
-            buttonForAddNewTableView.heightAnchor.constraint(equalToConstant: 44),
+            buttonForAddNewTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+            buttonForAddNewTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            buttonForAddNewTableView.widthAnchor.constraint(equalToConstant: 60),
+            buttonForAddNewTableView.heightAnchor.constraint(equalToConstant: 60),
         ])
         
         NSLayoutConstraint.activate([
             saveButtonForScanner.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
             saveButtonForScanner.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -20),
-            saveButtonForScanner.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.2),
+            saveButtonForScanner.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.3),
             saveButtonForScanner.heightAnchor.constraint(equalToConstant: 44),
         ])
         
