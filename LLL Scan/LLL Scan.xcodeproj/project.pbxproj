@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1713481C2BCC3CBB00FC3CF7 /* myApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1713481B2BCC3CBB00FC3CF7 /* myApi.swift */; };
 		178DC74D2BB83E4500FEDE69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC74C2BB83E4500FEDE69 /* AppDelegate.swift */; };
 		178DC74F2BB83E4500FEDE69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC74E2BB83E4500FEDE69 /* SceneDelegate.swift */; };
 		178DC7512BB83E4500FEDE69 /* ScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7502BB83E4500FEDE69 /* ScanVC.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1713481B2BCC3CBB00FC3CF7 /* myApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myApi.swift; sourceTree = "<group>"; };
 		178DC7492BB83E4500FEDE69 /* LLL Scan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LLL Scan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		178DC74C2BB83E4500FEDE69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		178DC74E2BB83E4500FEDE69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1713481A2BCC3CB000FC3CF7 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1713481B2BCC3CBB00FC3CF7 /* myApi.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		178DC7402BB83E4500FEDE69 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +126,7 @@
 		178DC74B2BB83E4500FEDE69 /* LLL Scan */ = {
 			isa = PBXGroup;
 			children = (
+				1713481A2BCC3CB000FC3CF7 /* API */,
 				178DC7622BB840B400FEDE69 /* AppDelegates */,
 				178DC7892BB9E44500FEDE69 /* Helpers */,
 				178DC7832BB9B17900FEDE69 /* Networking */,
@@ -354,6 +365,7 @@
 				178DC7862BB9E23400FEDE69 /* TabBarController.swift in Sources */,
 				178DC7992BBDC5A000FEDE69 /* ButtonViewCustom.swift in Sources */,
 				178DC79E2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift in Sources */,
+				1713481C2BCC3CBB00FC3CF7 /* myApi.swift in Sources */,
 				178DC76C2BB8890F00FEDE69 /* ConfigureLabelSVC + Ext.swift in Sources */,
 				178DC7792BB9844300FEDE69 /* ConfigureImageSVC + Ext.swift in Sources */,
 				178DC7902BB9E5D000FEDE69 /* FilesVC.swift in Sources */,
