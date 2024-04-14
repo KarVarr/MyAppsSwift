@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product: Encodable {
+struct Product: Codable {
     let imageURL: String?
     let link: String?
     let article: String?

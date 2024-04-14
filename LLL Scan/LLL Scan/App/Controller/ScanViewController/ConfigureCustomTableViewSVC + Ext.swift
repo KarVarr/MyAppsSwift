@@ -19,7 +19,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return scannedProducts.count
+        return allScannedProducts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -27,8 +27,8 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let scannedProduct = scannedProducts[indexPath.row]
-        cell.titleLabel.label.text = "\(scannedProducts.count)"
+//        let scannedProduct = currentScanProducts[indexPath.row]
+        cell.titleLabel.label.text = "\(allScannedProducts.count)"
         
         return cell
     }

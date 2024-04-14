@@ -55,8 +55,15 @@ extension ScanVC: DataScannerViewControllerDelegate {
     @objc func saveResult() {
         print("saveResult")
         
-        let productData = try? JSONEncoder().encode(scannedProducts)
-        UserDefaults.standard.setValue(productData, forKey: "scannedProducts")
+        if let productData = try? JSONEncoder().encode(currentScanProducts) {
+            UserDefaults.standard.setValue(productData, forKey: "scannedProducts")
+            
+            if let decodedProducts = try? JSONDecoder().decode([Product].self, from: productData) {
+                allScannedProducts.append(decodedProducts)
+            }
+        }
+        
+        currentScanProducts = []
         
         customTableViewScanVC.table.reloadData()
     }
@@ -133,20 +140,19 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.colorFromParsingLabel.label.text = product.colorID
                                     self?.materialFromParsingLabel.label.text = product.material
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
-//                                    self?.miniatureImageHM.imageView.addSymbolEffect(SymbolEffectOptions.rep)
+                                    //                                    self?.miniatureImageHM.imageView.addSymbolEffect(SymbolEffectOptions.rep)
                                     
                                     let productObj = Product(imageURL: product.imageURL,
-                                                          link: product.link,
-                                                          article: product.article,
-                                                          title: product.title,
-                                                          price: product.price,
-                                                          colorID: product.colorID,
-                                                          description: product.description,
-                                                          material: product.material,
-                                                          fullBlock: nil
+                                                             link: product.link,
+                                                             article: product.article,
+                                                             title: product.title,
+                                                             price: product.price,
+                                                             colorID: product.colorID,
+                                                             description: product.description,
+                                                             material: product.material,
+                                                             fullBlock: nil
                                     )
-                                    self?.scannedProducts.append(productObj)
-
+                                    self?.currentScanProducts.append(productObj)
                                 }
                             }.resume()
                         } else {
