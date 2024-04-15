@@ -12,14 +12,14 @@ struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: ConfigurationAppIntent())
     }
-
+    
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: configuration)
     }
     
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
         var entries: [SimpleEntry] = []
-
+        
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
@@ -27,7 +27,7 @@ struct Provider: AppIntentTimelineProvider {
             let entry = SimpleEntry(date: entryDate, configuration: configuration)
             entries.append(entry)
         }
-
+        
         return Timeline(entries: entries, policy: .atEnd)
     }
 }
@@ -39,21 +39,49 @@ struct SimpleEntry: TimelineEntry {
 
 struct PidgetWidgetsEntryView : View {
     var entry: Provider.Entry
-
+    
     var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Favorite Emoji:")
-            Text(entry.configuration.favoriteEmoji)
+        ZStack {
+            Color.black
+                .ignoresSafeArea(.all)
+                .overlay {
+                    
+                    VStack {
+                        HStack {
+                            Spacer()
+                            Text("STAT")
+                            Spacer()
+                            Text("INV")
+                            Spacer()
+                            Text("DATA")
+                            Spacer()
+                            Text("MAP")
+                            Spacer()
+                        }
+                        
+                        Spacer()
+                        Image("pipBoy1")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 70, height: 70)
+                        Spacer()
+                        Text("HP 90/90 ")
+                        + Text("Level 35 ")
+                        + Text("AP 70/70")
+                    }
+                    .padding(.top)
+                    .foregroundStyle(.green)
+                    
+                }
         }
+        .frame(maxWidth: .infinity)
+        
     }
 }
 
 struct PidgetWidgets: Widget {
     let kind: String = "PidgetWidgets"
-
+    
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             PidgetWidgetsEntryView(entry: entry)
@@ -76,7 +104,7 @@ extension ConfigurationAppIntent {
     }
 }
 
-#Preview(as: .systemSmall) {
+#Preview(as: .systemLarge) {
     PidgetWidgets()
 } timeline: {
     SimpleEntry(date: .now, configuration: .smiley)
