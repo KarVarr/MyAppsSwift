@@ -9,13 +9,49 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            
+            Color.black
+                .ignoresSafeArea(.all)
+                .overlay {
+                    
+                    VStack {
+                        HStack {
+                            Spacer()
+                            Text("STAT")
+                            Spacer()
+                            Text("INV")
+                            Spacer()
+                            Text("DATA")
+                            Spacer()
+                            Text("MAP")
+                            Spacer()
+                        }
+                        
+                        Spacer()
+                        Image("pipBoy1")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 70, height: 70)
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Text("HP 90/90")
+                            Spacer()
+                            Text("Level 35")
+                            Spacer()
+                            Text("AP 70/70")
+                            Spacer()
+                        }
+                    }
+                    .padding(.top)
+                    .foregroundStyle(.green)
+                    
+                }
         }
-        .padding()
+        .frame(maxWidth: .infinity)
+        
+        
     }
 }
 

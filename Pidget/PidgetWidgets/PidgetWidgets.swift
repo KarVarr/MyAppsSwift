@@ -65,9 +65,15 @@ struct PidgetWidgetsEntryView : View {
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 70, height: 70)
                         Spacer()
-                        Text("HP 90/90 ")
-                        + Text("Level 35 ")
-                        + Text("AP 70/70")
+                        HStack {
+                            Spacer()
+                            Text("HP 90/90")
+                            Spacer()
+                            Text("Level 35")
+                            Spacer()
+                            Text("AP 70/70")
+                            Spacer()
+                        }
                     }
                     .padding(.top)
                     .foregroundStyle(.green)
