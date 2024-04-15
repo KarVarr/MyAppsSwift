@@ -42,45 +42,57 @@ struct PidgetWidgetsEntryView : View {
     
     var body: some View {
         ZStack {
-            Color.black
-                .ignoresSafeArea(.all)
-                .overlay {
+            ContainerRelativeShape()
+            
+                .fill(.black)
+            VStack {
+                HStack {
                     
-                    VStack {
-                        HStack {
-                            Spacer()
-                            Text("STAT")
-                            Spacer()
-                            Text("INV")
-                            Spacer()
-                            Text("DATA")
-                            Spacer()
-                            Text("MAP")
-                            Spacer()
-                        }
-                        
-                        Spacer()
-                        Image("pipBoy1")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 70, height: 70)
-                        Spacer()
-                        HStack {
-                            Spacer()
-                            Text("HP 90/90")
-                            Spacer()
-                            Text("Level 35")
-                            Spacer()
-                            Text("AP 70/70")
-                            Spacer()
-                        }
-                    }
-                    .padding(.top)
-                    .foregroundStyle(.green)
+                    Text("STAT")
+                    Spacer()
+                    Text("INV")
+                    Spacer()
+                    Text("DATA")
+                    Spacer()
+                    Text("MAP")
                     
                 }
+                
+                Spacer()
+                Image("pipBoy1")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 70, height: 70)
+                Spacer()
+                HStack {
+                    
+                    Text("HP 90/90")
+                        .padding(2)
+                        .background(.green.opacity(0.2))
+                    
+                    HStack {
+                        Text("Level 35")
+                            .padding(2)
+                        Rectangle()
+                            .stroke(lineWidth: 2)
+                            .padding(.leading,-5)
+                            .frame(maxHeight: 10)
+                        
+                    }
+                    .background(.green.opacity(0.2))
+                    Spacer()
+                    Text("AP 70/70")
+                        .padding(2)
+                        .background(.green.opacity(0.2))
+                    
+                }
+            }
+            .foregroundStyle(.green)
+            .font(.system(size: 13))
         }
-        .frame(maxWidth: .infinity)
+        .containerBackground(for: .widget) {
+            Color.black
+        }
         
     }
 }
@@ -91,7 +103,7 @@ struct PidgetWidgets: Widget {
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             PidgetWidgetsEntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+//                .containerBackground(.fill.secondary, for: .widget)
         }
     }
 }
@@ -103,16 +115,16 @@ extension ConfigurationAppIntent {
         return intent
     }
     
-    fileprivate static var starEyes: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "🤩"
-        return intent
-    }
+//    fileprivate static var starEyes: ConfigurationAppIntent {
+//        let intent = ConfigurationAppIntent()
+//        intent.favoriteEmoji = "🤩"
+//        return intent
+//    }
 }
 
 #Preview(as: .systemLarge) {
     PidgetWidgets()
 } timeline: {
     SimpleEntry(date: .now, configuration: .smiley)
-    SimpleEntry(date: .now, configuration: .starEyes)
+//    SimpleEntry(date: .now, configuration: .starEyes)
 }
