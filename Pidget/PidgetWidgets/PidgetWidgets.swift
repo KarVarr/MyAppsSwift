@@ -41,7 +41,7 @@ struct SimpleEntry: TimelineEntry {
 struct PidgetWidgetsEntryView : View {
     
     var mainGreenColor: Color {
-        return Color(UIColor(red: 0.42, green: 0.94, blue: 0.52, alpha: 1.00))
+        return Color(UIColor(red: 0.14, green: 1.00, blue: 0.06, alpha: 1.00))
     }
     var mainBackgroundDarkColor: Color {
         return Color(UIColor(red: 0.11, green: 0.07, blue: 0.07, alpha: 1.00))
@@ -67,14 +67,25 @@ struct PidgetWidgetsEntryView : View {
                     
                 }
                 .bold()
-                Rectangle()
-                    .stroke(lineWidth: 2)
+                
                 
                 Spacer()
-                Image("pipBoy1")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
+                
+                VStack {
+                    Rectangle()
+                        .frame(width: 40, height: 10)
+                    Spacer()
+                    Image("pipBoy1")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
                     .frame(width: 70, height: 70)
+                    Spacer()
+                    Rectangle()
+                        .frame(width: 40, height: 10)             
+                }
+                .padding(.vertical, 20)
+                
+                
                 Spacer()
                 HStack {
                     
@@ -89,10 +100,9 @@ struct PidgetWidgetsEntryView : View {
                             .stroke(lineWidth: 2)
                             .padding(.leading,-5)
                             .frame(maxHeight: 10)
-                        
                     }
                     .background(.green.opacity(0.2))
-                    Spacer()
+                    
                     Text("AP 70/70")
                         .padding(2)
                         .background(.green.opacity(0.2))
