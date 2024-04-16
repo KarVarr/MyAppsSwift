@@ -67,23 +67,51 @@ struct PidgetWidgetsEntryView : View {
                     
                 }
                 .bold()
+                .font(.title3)
                 
                 
                 Spacer()
                 
-                VStack {
-                    Rectangle()
-                        .frame(width: 40, height: 10)
+                HStack {
                     Spacer()
-                    Image("pipBoy1")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                    .frame(width: 70, height: 70)
+                    VStack {
+                        Spacer()
+                        Rectangle()
+                            .frame(width: 40, height: 10)
+                        Spacer()
+                        Rectangle()
+                            .frame(width: 40, height: 10)
+                        Spacer()
+                    }
                     Spacer()
-                    Rectangle()
-                        .frame(width: 40, height: 10)             
+                    VStack {
+                        Rectangle()
+                            .frame(width: 40, height: 10)
+                        Spacer()
+                        Image("pipBoy1")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .saturation(2.5)
+                            .brightness(0.15)
+                            .frame(width: 70, height: 70)
+                        Spacer()
+                        Rectangle()
+                            .frame(width: 40, height: 10)
+                    }
+                    .padding(.vertical, 20)
+                    Spacer()
+                    VStack {
+                        Spacer()
+                        Rectangle()
+                            .frame(width: 40, height: 10)
+                        Spacer()
+                        Rectangle()
+                            .frame(width: 40, height: 10)
+//                            .padding(.bottom, 60)
+                        Spacer()
+                    }
+                    Spacer()
                 }
-                .padding(.vertical, 20)
                 
                 
                 Spacer()
