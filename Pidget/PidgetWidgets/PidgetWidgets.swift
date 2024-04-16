@@ -40,6 +40,7 @@ struct SimpleEntry: TimelineEntry {
 
 struct PidgetWidgetsEntryView : View {
     
+    //MARK: - Colors
     var mainGreenColor: Color {
         return Color(UIColor(red: 0.14, green: 1.00, blue: 0.06, alpha: 1.00))
     }
@@ -53,8 +54,8 @@ struct PidgetWidgetsEntryView : View {
     var body: some View {
         ZStack {
             ContainerRelativeShape()
-            
                 .fill(mainBackgroundDarkColor)
+            //MARK: - TOP BAR
             VStack {
                 HStack {
                     Text("STAT")
@@ -69,9 +70,9 @@ struct PidgetWidgetsEntryView : View {
                 .bold()
                 .font(.title3)
                 
-                
                 Spacer()
                 
+                //MARK: - PIP BOY IMG
                 HStack {
                     Spacer()
                     VStack {
@@ -107,14 +108,12 @@ struct PidgetWidgetsEntryView : View {
                         Spacer()
                         Rectangle()
                             .frame(width: 40, height: 10)
-//                            .padding(.bottom, 60)
                         Spacer()
                     }
                     Spacer()
                 }
-                
-                
                 Spacer()
+                //MARK: - BOTTOM BAR
                 HStack {
                     
                     Text("HP 90/90")
