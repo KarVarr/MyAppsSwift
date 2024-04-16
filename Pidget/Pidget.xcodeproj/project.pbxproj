@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1707960F2BCEF860009C87AC /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1707960E2BCEF860009C87AC /* Helper.swift */; };
 		1713482A2BCD943C00FC3CF7 /* PidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171348292BCD943C00FC3CF7 /* PidgetApp.swift */; };
 		1713482C2BCD943C00FC3CF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1713482B2BCD943C00FC3CF7 /* ContentView.swift */; };
 		1713482E2BCD943E00FC3CF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1713482D2BCD943E00FC3CF7 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1707960E2BCEF860009C87AC /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		171348262BCD943C00FC3CF7 /* Pidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		171348292BCD943C00FC3CF7 /* PidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PidgetApp.swift; sourceTree = "<group>"; };
 		1713482B2BCD943C00FC3CF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,9 +84,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1707960D2BCEF848009C87AC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1707960E2BCEF860009C87AC /* Helper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		1713481D2BCD943C00FC3CF7 = {
 			isa = PBXGroup;
 			children = (
+				1707960D2BCEF848009C87AC /* Helper */,
 				171348282BCD943C00FC3CF7 /* Pidget */,
 				171348412BCD948000FC3CF7 /* PidgetWidgets */,
 				1713483C2BCD947F00FC3CF7 /* Frameworks */,
@@ -245,6 +256,7 @@
 			files = (
 				1713482C2BCD943C00FC3CF7 /* ContentView.swift in Sources */,
 				1713482A2BCD943C00FC3CF7 /* PidgetApp.swift in Sources */,
+				1707960F2BCEF860009C87AC /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

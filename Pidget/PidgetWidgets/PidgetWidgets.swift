@@ -8,6 +8,7 @@
 import WidgetKit
 import SwiftUI
 
+
 struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: ConfigurationAppIntent())
@@ -38,16 +39,24 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct PidgetWidgetsEntryView : View {
+    
+    var mainGreenColor: Color {
+        return Color(UIColor(red: 0.42, green: 0.94, blue: 0.52, alpha: 1.00))
+    }
+    var mainBackgroundDarkColor: Color {
+        return Color(UIColor(red: 0.11, green: 0.07, blue: 0.07, alpha: 1.00))
+    }
+    
+    
     var entry: Provider.Entry
     
     var body: some View {
         ZStack {
             ContainerRelativeShape()
             
-                .fill(.black)
+                .fill(mainBackgroundDarkColor)
             VStack {
                 HStack {
-                    
                     Text("STAT")
                     Spacer()
                     Text("INV")
@@ -57,6 +66,9 @@ struct PidgetWidgetsEntryView : View {
                     Text("MAP")
                     
                 }
+                .bold()
+                Rectangle()
+                    .stroke(lineWidth: 2)
                 
                 Spacer()
                 Image("pipBoy1")
@@ -87,11 +99,12 @@ struct PidgetWidgetsEntryView : View {
                     
                 }
             }
-            .foregroundStyle(.green)
+            .foregroundStyle(mainGreenColor)
             .font(.system(size: 13))
+            .fontWidth(.condensed)
         }
         .containerBackground(for: .widget) {
-            Color.black
+            mainBackgroundDarkColor
         }
         
     }
@@ -103,7 +116,7 @@ struct PidgetWidgets: Widget {
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             PidgetWidgetsEntryView(entry: entry)
-//                .containerBackground(.fill.secondary, for: .widget)
+            //                .containerBackground(.fill.secondary, for: .widget)
         }
     }
 }
@@ -115,16 +128,16 @@ extension ConfigurationAppIntent {
         return intent
     }
     
-//    fileprivate static var starEyes: ConfigurationAppIntent {
-//        let intent = ConfigurationAppIntent()
-//        intent.favoriteEmoji = "🤩"
-//        return intent
-//    }
+    fileprivate static var starEyes: ConfigurationAppIntent {
+        let intent = ConfigurationAppIntent()
+        intent.favoriteEmoji = "🤩"
+        return intent
+    }
 }
 
 #Preview(as: .systemLarge) {
     PidgetWidgets()
 } timeline: {
     SimpleEntry(date: .now, configuration: .smiley)
-//    SimpleEntry(date: .now, configuration: .starEyes)
+    SimpleEntry(date: .now, configuration: .starEyes)
 }
