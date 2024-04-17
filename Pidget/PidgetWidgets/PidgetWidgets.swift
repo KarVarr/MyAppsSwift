@@ -115,29 +115,30 @@ struct PidgetWidgetsEntryView : View {
                 Spacer()
                 //MARK: - BOTTOM BAR
                 HStack {
-                    
                     Text("HP 90/90")
-                        .padding(2)
+                        .padding(4)
                         .background(.green.opacity(0.2))
                     
                     HStack {
                         Text("Level 35")
-                            .padding(2)
+                            .padding(4)
                         Rectangle()
                             .stroke(lineWidth: 2)
                             .padding(.leading,-5)
                             .frame(maxHeight: 10)
+                            .padding(.trailing)
+//                            .background(.green.opacity(0.2))
                     }
                     .background(.green.opacity(0.2))
                     
                     Text("AP 70/70")
-                        .padding(2)
+                        .padding(4)
                         .background(.green.opacity(0.2))
                     
                 }
             }
             .foregroundStyle(mainGreenColor)
-            .font(.system(size: 13))
+            .font(.system(size: 12))
             .fontWidth(.condensed)
         }
         .containerBackground(for: .widget) {
