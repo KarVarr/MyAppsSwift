@@ -128,40 +128,46 @@ struct PidgetWidgetsEntryView : View {
                                 .resizable()
                                 .frame(width: 30,height: 30)
                                 .padding(2)
+                                .padding(.horizontal, 4)
                                 .background(.green.opacity(0.2))
-                            
+                            Spacer().frame(width: 2)
                             VStack {
                                 Image("target")
                                     .resizable()
-                                    .frame(width: 10,height: 10)
-                                
-                                Text("9")
+                                    .frame(width: 11,height: 11)
+                                Text("22")
                             }
                             .padding(2)
+                            .padding(.horizontal, 4)
                             .background(.green.opacity(0.2))
                         }
+                        
                         
                         Image("helmet")
                             .resizable()
                             .frame(width: 30,height: 30)
                             .padding(2)
+                            .padding(.horizontal, 4)
                             .background(.green.opacity(0.2))
-                        
+                        Spacer().frame(width: 2)
                         VStack {
                             Image("lightning")
                                 .resizable()
-                                .frame(width: 10,height: 10)
+                                .frame(width: 11,height: 11)
                             Text("10")
                         }
                         .padding(2)
+                        .padding(.horizontal, 4)
                         .background(.green.opacity(0.2))
+                        Spacer().frame(width: 2)
                         VStack {
                             Image("biohazard")
                                 .resizable()
-                                .frame(width: 10,height: 10)
+                                .frame(width: 11,height: 11)
                             Text("15")
                         }
                         .padding(2)
+                        .padding(.horizontal, 4)
                         .background(.green.opacity(0.2))
                     }
                     Text("User")
