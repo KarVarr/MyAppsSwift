@@ -68,8 +68,11 @@ struct PidgetWidgetsEntryView : View {
                     
                 }
                 .bold()
-                .font(.title3)
-                
+                .font(.custom("ArialRoundedMTBold", size: 16))
+                .padding(.bottom, -5)
+                    Divider()
+                    .frame(height: 2)
+                    .background(mainGreenColor)
                 Spacer()
                 
                 //MARK: - PIP BOY IMG
@@ -122,12 +125,20 @@ struct PidgetWidgetsEntryView : View {
                     HStack {
                         Text("Level 35")
                             .padding(4)
-                        Rectangle()
-                            .stroke(lineWidth: 2)
+                        ZStack {
+                            Rectangle()
+                                .stroke(lineWidth: 2)
+                                .padding(.leading,-5)
+                                .frame(maxHeight: 10)
+                                .padding(.trailing)
+                            GeometryReader { geometry in
+                                Rectangle()
+                                    .frame(width: 35 * geometry.size.width / 100)
+                            }
                             .padding(.leading,-5)
                             .frame(maxHeight: 10)
                             .padding(.trailing)
-//                            .background(.green.opacity(0.2))
+                        }
                     }
                     .background(.green.opacity(0.2))
                     
