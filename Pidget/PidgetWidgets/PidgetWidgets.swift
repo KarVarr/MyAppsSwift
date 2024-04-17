@@ -97,7 +97,7 @@ struct PidgetWidgetsEntryView : View {
                             .aspectRatio(contentMode: .fill)
                             .saturation(2.5)
                             .brightness(0.15)
-                            .frame(width: 70, height: 70)
+                            .frame(width: 60, height: 60)
                         Spacer()
                         Rectangle()
                             .frame(width: 40, height: 10)
@@ -116,6 +116,14 @@ struct PidgetWidgetsEntryView : View {
                     Spacer()
                 }
                 Spacer()
+                HStack {
+                    Text("pistol")
+                        .frame(height: 30)
+                    Text("mishin")
+                    Text("helpmet")
+                    Text("tunder")
+                    Text("hazard")
+                }
                 //MARK: - BOTTOM BAR
                 HStack {
                     Text("HP 90/90")
