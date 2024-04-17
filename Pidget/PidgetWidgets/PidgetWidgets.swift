@@ -48,6 +48,9 @@ struct PidgetWidgetsEntryView : View {
         return Color(UIColor(red: 0.11, green: 0.07, blue: 0.07, alpha: 1.00))
     }
     
+    //MARK: - Width Height stats
+    var widthStats: CGFloat = 35
+    var heightStats: CGFloat = 7
     
     var entry: Provider.Entry
     
@@ -70,7 +73,7 @@ struct PidgetWidgetsEntryView : View {
                 .bold()
                 .font(.custom("ArialRoundedMTBold", size: 16))
                 .padding(.bottom, -5)
-                    Divider()
+                Divider()
                     .frame(height: 2)
                     .background(mainGreenColor)
                 Spacer()
@@ -80,17 +83,18 @@ struct PidgetWidgetsEntryView : View {
                     Spacer()
                     VStack {
                         Spacer()
+//                        Spacer()
                         Rectangle()
-                            .frame(width: 40, height: 10)
+                            .frame(width: widthStats, height: heightStats)
                         Spacer()
                         Rectangle()
-                            .frame(width: 40, height: 10)
+                            .frame(width: widthStats, height: heightStats)
                         Spacer()
                     }
                     Spacer()
                     VStack {
                         Rectangle()
-                            .frame(width: 40, height: 10)
+                            .frame(width: widthStats, height: heightStats)
                         Spacer()
                         Image("pipBoy1")
                             .resizable()
@@ -100,29 +104,67 @@ struct PidgetWidgetsEntryView : View {
                             .frame(width: 60, height: 60)
                         Spacer()
                         Rectangle()
-                            .frame(width: 40, height: 10)
+                            .frame(width: widthStats, height: heightStats)
                     }
                     .padding(.vertical, 20)
                     Spacer()
                     VStack {
                         Spacer()
+//                        Spacer()
                         Rectangle()
-                            .frame(width: 40, height: 10)
+                            .frame(width: widthStats, height: heightStats)
                         Spacer()
-                        Rectangle()
-                            .frame(width: 40, height: 10)
+                                                    Rectangle()
+                            .frame(width: widthStats, height: heightStats)
                         Spacer()
                     }
                     Spacer()
                 }
-                Spacer()
-                HStack {
-                    Text("pistol")
-                        .frame(height: 30)
-                    Text("mishin")
-                    Text("helpmet")
-                    Text("tunder")
-                    Text("hazard")
+                //MARK: - GUN HELMET etc
+                VStack {
+                    HStack {
+                        HStack {
+                            Image("gun")
+                                .resizable()
+                                .frame(width: 30,height: 30)
+                                .padding(2)
+                                .background(.green.opacity(0.2))
+                            
+                            VStack {
+                                Image("target")
+                                    .resizable()
+                                    .frame(width: 10,height: 10)
+                                
+                                Text("9")
+                            }
+                            .padding(2)
+                            .background(.green.opacity(0.2))
+                        }
+                        
+                        Image("helmet")
+                            .resizable()
+                            .frame(width: 30,height: 30)
+                            .padding(2)
+                            .background(.green.opacity(0.2))
+                        
+                        VStack {
+                            Image("lightning")
+                                .resizable()
+                                .frame(width: 10,height: 10)
+                            Text("10")
+                        }
+                        .padding(2)
+                        .background(.green.opacity(0.2))
+                        VStack {
+                            Image("biohazard")
+                                .resizable()
+                                .frame(width: 10,height: 10)
+                            Text("15")
+                        }
+                        .padding(2)
+                        .background(.green.opacity(0.2))
+                    }
+                    Text("User")
                 }
                 //MARK: - BOTTOM BAR
                 HStack {
