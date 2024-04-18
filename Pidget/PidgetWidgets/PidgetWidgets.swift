@@ -71,7 +71,7 @@ struct PidgetWidgetsEntryView : View {
                     
                 }
                 .bold()
-                .font(.custom("ArialRoundedMTBold", size: 16))
+                .font(.custom("ArialRoundedMTBold", size: 16)).monospaced()
                 .padding(.bottom, -5)
                 Divider()
                     .frame(height: 2)
