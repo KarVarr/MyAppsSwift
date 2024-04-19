@@ -82,8 +82,7 @@ struct PidgetWidgetsEntryView : View {
                 HStack {
                     Spacer()
                     VStack {
-                        Spacer()
-//                        Spacer()
+                        Spacer().frame(height: 80)
                         Rectangle()
                             .frame(width: widthStats, height: heightStats)
                         Spacer()
@@ -109,12 +108,11 @@ struct PidgetWidgetsEntryView : View {
                     .padding(.vertical, 20)
                     Spacer()
                     VStack {
-                        Spacer()
-//                        Spacer()
+                        Spacer().frame(height: 80)
                         Rectangle()
                             .frame(width: widthStats, height: heightStats)
                         Spacer()
-                                                    Rectangle()
+                        Rectangle()
                             .frame(width: widthStats, height: heightStats)
                         Spacer()
                     }
