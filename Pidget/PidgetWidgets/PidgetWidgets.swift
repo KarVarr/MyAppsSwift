@@ -39,7 +39,7 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct PidgetWidgetsEntryView : View {
-    
+    @State private var currentImageIndex = 1
     //MARK: - Colors
     var mainGreenColor: Color {
         return Color(UIColor(red: 0.14, green: 1.00, blue: 0.06, alpha: 1.00))
@@ -51,6 +51,7 @@ struct PidgetWidgetsEntryView : View {
     //MARK: - Width Height stats
     var widthStats: CGFloat = 35
     var heightStats: CGFloat = 7
+    
     
     var entry: Provider.Entry
     
