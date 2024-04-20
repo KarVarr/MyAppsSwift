@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Background0.png",
+      "filename" : "lightning-svgrepo-com.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Background0 1.png",
+      "filename" : "lightning-svgrepo-com 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Background0 2.png",
+      "filename" : "lightning-svgrepo-com 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

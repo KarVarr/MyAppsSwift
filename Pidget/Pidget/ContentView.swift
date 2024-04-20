@@ -20,12 +20,16 @@ struct ContentView: View {
     }
     
     //MARK: - Width Height stats
-    var widthStats: CGFloat = 35
-    var heightStats: CGFloat = 7
+    var widthStats: CGFloat = 0.13
+    var heightStats: CGFloat = 0.02
+    var widthGunAndArmour = 0.15
+    var widthTargetEct = 0.05
+    
+    
     var body: some View {
         ZStack {
-            ContainerRelativeShape()
-                .fill(mainBackgroundDarkColor)
+            Color(mainBackgroundDarkColor)
+                .ignoresSafeArea()
             //MARK: - TOP BAR
             VStack {
                 HStack {
@@ -44,35 +48,34 @@ struct ContentView: View {
                 Divider()
                     .frame(height: 2)
                     .background(mainGreenColor)
-                Spacer()
                 
                 //MARK: - PIP BOY IMG
-                HStack {
-                    Spacer()
-                    VStack {
-                        Spacer().frame(height: 80)
-                        Rectangle()
-                            .frame(width: widthStats, height: heightStats)
+                GeometryReader { geo in
+                    HStack {
                         Spacer()
-                        Rectangle()
-                            .frame(width: widthStats, height: heightStats)
-                        Spacer()
-                    }
-                    Spacer()
-                    GeometryReader { geo in
                         VStack {
-                            Rectangle()
-                                .frame(width: geo.size.width * 0.2, height: geo.size.height * 0.02)
                             Spacer()
+                            Rectangle()
+                                .frame(width: geo.size.width * widthStats, height: geo.size.height * heightStats)
+                            Spacer()
+                            Rectangle()
+                                .frame(width: geo.size.width * widthStats, height: geo.size.height * heightStats)
+                            Spacer()
+                        }
+                        Spacer()
+                        VStack {
+                            Spacer()
+                            Rectangle()
+                                .frame(width: geo.size.width * widthStats, height: geo.size.height * heightStats)
                             Image("pipBoy\(currentImageIndex)")
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .saturation(2.5)
                                 .brightness(0.15)
-                                .frame(maxWidth: geo.size.width * 0.6, maxHeight: geo.size.height * 0.6)
-                            Spacer()
+                                .frame(maxWidth: geo.size.width * 0.4, maxHeight: geo.size.height * 0.6)
                             Rectangle()
-                                .frame(width: geo.size.width * 0.2, height: geo.size.height * 0.02)
+                                .frame(width: geo.size.width * widthStats, height: geo.size.height * heightStats)
+                            Spacer()
                         }
                         .padding(.vertical, 20)
                         .onReceive(timer, perform: { _ in
@@ -80,68 +83,81 @@ struct ContentView: View {
                         })
                         Spacer()
                         VStack {
-                            Spacer().frame(height: 80)
-                            Rectangle()
-                                .frame(width: widthStats, height: heightStats)
                             Spacer()
                             Rectangle()
-                                .frame(width: widthStats, height: heightStats)
+                                .frame(width: geo.size.width * widthStats, height: geo.size.height * heightStats)
+                            Spacer()
+                            Rectangle()
+                                .frame(width: geo.size.width * widthStats, height: geo.size.height * heightStats)
                             Spacer()
                         }
                         Spacer()
                     }
                 }
                 //MARK: - GUN HELMET etc
-                VStack {
-                    HStack {
+                GeometryReader { geo in
+                    VStack {
                         HStack {
-                            Image("gun")
-                                .resizable()
-                                .frame(width: 30,height: 30)
+                            Spacer()
+                            HStack {
+                                Image("gun")
+                                    .resizable()
+                                    .frame(width: geo.size.width * widthGunAndArmour,height: geo.size.width * widthGunAndArmour)
+                                    .padding(2)
+                                    .padding(.horizontal, 4)
+                                    .padding(.vertical, 3)
+                                    .background(.green.opacity(0.2))
+                                Spacer().frame(width: 2)
+                                VStack {
+                                    Image("target")
+                                        .resizable()
+                                        .frame(width: geo.size.width * widthTargetEct,height: geo.size.height * widthTargetEct)
+                                    Text("22")
+                                        .font(.title)
+                                }
                                 .padding(2)
                                 .padding(.horizontal, 4)
+                                .padding(.vertical, 3)
+                                .background(.green.opacity(0.2))
+                            }
+                            
+                            
+                            Image("helmet")
+                                .resizable()
+                                .frame(width: geo.size.width * widthGunAndArmour,height: geo.size.width * widthGunAndArmour)
+                                .padding(2)
+                                .padding(.horizontal, 4)
+                                .padding(.vertical, 3)
                                 .background(.green.opacity(0.2))
                             Spacer().frame(width: 2)
                             VStack {
-                                Image("target")
+                                Image("lightning")
                                     .resizable()
-                                    .frame(width: 11,height: 11)
-                                Text("22")
+                                    .frame(width: geo.size.width * widthTargetEct,height: geo.size.height * widthTargetEct)
+                                Text("10")
+                                    .font(.title)
                             }
                             .padding(2)
                             .padding(.horizontal, 4)
+                            .padding(.vertical, 3)
                             .background(.green.opacity(0.2))
-                        }
-                        
-                        
-                        Image("helmet")
-                            .resizable()
-                            .frame(width: 30,height: 30)
+                            Spacer().frame(width: 2)
+                            VStack {
+                                Image("biohazard")
+                                    .resizable()
+                                    .frame(width: geo.size.width * widthTargetEct,height: geo.size.height * widthTargetEct)
+                                Text("15")
+                                    .font(.title)
+                            }
                             .padding(2)
                             .padding(.horizontal, 4)
+                            .padding(.vertical, 3)
                             .background(.green.opacity(0.2))
-                        Spacer().frame(width: 2)
-                        VStack {
-                            Image("lightning")
-                                .resizable()
-                                .frame(width: 11,height: 11)
-                            Text("10")
+                            Spacer()
                         }
-                        .padding(2)
-                        .padding(.horizontal, 4)
-                        .background(.green.opacity(0.2))
-                        Spacer().frame(width: 2)
-                        VStack {
-                            Image("biohazard")
-                                .resizable()
-                                .frame(width: 11,height: 11)
-                            Text("15")
-                        }
-                        .padding(2)
-                        .padding(.horizontal, 4)
-                        .background(.green.opacity(0.2))
+                        Text("User")
                     }
-                    Text("User")
+                    
                 }
                 //MARK: - BOTTOM BAR
                 HStack {
