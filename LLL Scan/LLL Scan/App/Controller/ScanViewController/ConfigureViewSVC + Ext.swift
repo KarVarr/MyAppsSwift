@@ -60,12 +60,10 @@ extension ScanVC: DataScannerViewControllerDelegate {
             
             if let decodedProducts = try? JSONDecoder().decode([Product].self, from: productData) {
                 allScannedProducts.append(decodedProducts)
+                customTableViewScanVC.table.reloadData()
             }
         }
-        
         currentScanProducts = []
-        
-        customTableViewScanVC.table.reloadData()
     }
     
     func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {

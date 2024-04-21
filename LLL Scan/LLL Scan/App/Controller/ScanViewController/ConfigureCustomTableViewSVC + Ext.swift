@@ -27,11 +27,13 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-//        let scannedProduct = currentScanProducts[indexPath.row]
-        cell.titleLabel.label.text = "\(allScannedProducts.count)"
+        let scannedProductCount = allScannedProducts[indexPath.row].count
+        cell.titleLabel.label.text = "Scanned product: \(scannedProductCount)"
         
         return cell
     }
+    
+    
     
     
 }
