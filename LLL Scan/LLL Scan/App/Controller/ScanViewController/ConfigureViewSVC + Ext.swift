@@ -35,7 +35,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
         scannedProducts = []
     }
     
-    private func startScanning() {
+    private func startScanning(title: String) {
         guard scannerAvailable == true else {
             print(" Error: Scanner is not available for usage. Please check settings")
             return
@@ -195,8 +195,16 @@ extension ScanVC: DataScannerViewControllerDelegate {
                 let formattedDate = formatter.string(from: Date())
                 let uniqueTitle = "\(title)_\(formattedDate)"
                 
-                self?.currentCellTitle = uniqueTitle
-                self?.startScanning()
+//                self?.currentCellTitle = uniqueTitle
+//                self?.startScanning()
+                // Store the unique title in the dictionary, associated with the current cell index
+                if let index = self?.scannedProductsDictionary.count {
+                    self?.cellTitles[index] = uniqueTitle
+                }
+                
+                // Start scanning with the entered title
+                self?.startScanning(title: title)
+
             }
         }
         alert.addAction(addAction)
