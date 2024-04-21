@@ -23,15 +23,16 @@ extension ScanVC: DataScannerViewControllerDelegate {
     @objc func saveResult() {
         print("saveResult")
         
-        if let productData = try? JSONEncoder().encode(currentScanProducts) {
+        if let productData = try? JSONEncoder().encode(scannedProducts) {
             UserDefaults.standard.setValue(productData, forKey: "scannedProducts")
             
             if let decodedProducts = try? JSONDecoder().decode([Product].self, from: productData) {
-                allScannedProducts.append(decodedProducts)
+                
+                scannedProductsDictionary[currentCellTitle] = decodedProducts
                 customTableViewScanVC.table.reloadData()
             }
         }
-        currentScanProducts = []
+        scannedProducts = []
     }
     
     private func startScanning() {
@@ -153,7 +154,12 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                                              material: product.material,
                                                              fullBlock: nil
                                     )
-                                    self?.currentScanProducts.append(productObj)
+                                    //                                    self?.currentScanProducts.append(productObj)
+                                    
+                                    
+                                    self?.scannedProducts = [productObj]
+                                    
+                                    
                                 }
                             }.resume()
                         } else {
@@ -184,7 +190,12 @@ extension ScanVC: DataScannerViewControllerDelegate {
         }
         let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] _ in
             if let title = alert.textFields?.first?.text {
-                self?.currentCellTitle = title
+                let formatter = DateFormatter()
+                formatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
+                let formattedDate = formatter.string(from: Date())
+                let uniqueTitle = "\(title)_\(formattedDate)"
+                
+                self?.currentCellTitle = uniqueTitle
                 self?.startScanning()
             }
         }
