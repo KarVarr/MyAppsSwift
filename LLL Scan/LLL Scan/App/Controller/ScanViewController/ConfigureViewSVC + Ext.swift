@@ -12,13 +12,29 @@ import VisionKit
 extension ScanVC: DataScannerViewControllerDelegate {
     override func configureView() {
         view.backgroundColor = .white
-        
         title = "Сканы"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
     }
     
     @objc func newScan() {
+        presentTitleInputAlert()
+    }
+    
+    @objc func saveResult() {
+        print("saveResult")
+        
+        if let productData = try? JSONEncoder().encode(currentScanProducts) {
+            UserDefaults.standard.setValue(productData, forKey: "scannedProducts")
+            
+            if let decodedProducts = try? JSONDecoder().decode([Product].self, from: productData) {
+                allScannedProducts.append(decodedProducts)
+                customTableViewScanVC.table.reloadData()
+            }
+        }
+        currentScanProducts = []
+    }
+    
+    private func startScanning() {
         guard scannerAvailable == true else {
             print(" Error: Scanner is not available for usage. Please check settings")
             return
@@ -49,22 +65,9 @@ extension ScanVC: DataScannerViewControllerDelegate {
             }
         }
         try? dataScanner.startScanning()
-        
     }
     
-    @objc func saveResult() {
-        print("saveResult")
-        
-        if let productData = try? JSONEncoder().encode(currentScanProducts) {
-            UserDefaults.standard.setValue(productData, forKey: "scannedProducts")
-            
-            if let decodedProducts = try? JSONDecoder().decode([Product].self, from: productData) {
-                allScannedProducts.append(decodedProducts)
-                customTableViewScanVC.table.reloadData()
-            }
-        }
-        currentScanProducts = []
-    }
+    
     
     func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
         guard case .text(let text) = item else { return }
@@ -173,6 +176,22 @@ extension ScanVC: DataScannerViewControllerDelegate {
             }
         }
     }
+    
+    private func presentTitleInputAlert() {
+        let alert = UIAlertController(title: "Enter Cell Title", message: nil, preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Enter title"
+        }
+        let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] _ in
+            if let title = alert.textFields?.first?.text {
+                self?.currentCellTitle = title
+                self?.startScanning()
+            }
+        }
+        alert.addAction(addAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 

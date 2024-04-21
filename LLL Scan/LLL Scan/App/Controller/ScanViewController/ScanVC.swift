@@ -17,7 +17,8 @@ class ScanVC: BaseViewController {
 
     var allScannedProducts: [[Product]] = []
     var currentScanProducts: [Product] = []
-
+    var currentCellTitle: String = ""
+    
     let customTableViewScanVC = CustomTableView()
     let overlayViewForScanner = ViewCustom()
     let resultLabel = LabelViewCustom()
