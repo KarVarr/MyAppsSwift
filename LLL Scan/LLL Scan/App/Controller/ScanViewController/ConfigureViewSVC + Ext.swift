@@ -144,7 +144,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
                                     //                                    self?.miniatureImageHM.imageView.addSymbolEffect(SymbolEffectOptions.rep)
                                     
-                                    let productObj = Product(imageURL: product.imageURL,
+                                    let productObj = Product(idName: nil,
+                                                             imageURL: product.imageURL,
                                                              link: product.link,
                                                              article: product.article,
                                                              title: product.title,
@@ -194,10 +195,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                 formatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
                 let formattedDate = formatter.string(from: Date())
                 let uniqueTitle = "\(title)_\(formattedDate)"
-                
-//                self?.currentCellTitle = uniqueTitle
-//                self?.startScanning()
-                // Store the unique title in the dictionary, associated with the current cell index
+
                 if let index = self?.scannedProductsDictionary.count {
                     self?.cellTitles[index] = uniqueTitle
                 }
