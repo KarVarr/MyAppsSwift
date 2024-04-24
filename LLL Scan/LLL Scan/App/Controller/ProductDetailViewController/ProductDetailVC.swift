@@ -8,12 +8,12 @@
 import UIKit
 
 class ProductDetailVC: BaseViewController {
-    let customTableViewFilesVC = CustomTableView()
+    let customTableViewProductDetailVC = CustomTableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        configureCustomTableViewPDVC()
         
     }
     

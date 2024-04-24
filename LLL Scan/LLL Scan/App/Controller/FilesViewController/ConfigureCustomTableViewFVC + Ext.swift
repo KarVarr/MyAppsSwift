@@ -11,12 +11,13 @@ extension FilesVC: UITableViewDelegate, UITableViewDataSource {
     func configureCustomTableViewFVC() {
         customTableViewFilesVC.table.dataSource = self
         customTableViewFilesVC.table.delegate = self
-        customTableViewFilesVC.table.register(FilesTableViewCell.self, forCellReuseIdentifier: Helper.Keys.filesVCCellKey)
+        customTableViewFilesVC.table.register(ProductDetailTableViewCell.self, forCellReuseIdentifier: Helper.Keys.filesVCCellKey)
         customTableViewFilesVC.table.frame = view.bounds
         customTableViewFilesVC.table.backgroundColor = .white
         customTableViewFilesVC.table.separatorStyle = .singleLine
         customTableViewFilesVC.table.separatorColor = .purple
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
