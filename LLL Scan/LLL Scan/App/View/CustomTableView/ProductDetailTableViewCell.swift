@@ -24,6 +24,7 @@ class ProductDetailTableViewCell: UITableViewCell {
         addViews()
         configureCell()
         configureLabels()
+        configureVStackForDetails()
         layoutCell()
     }
     
@@ -60,8 +61,8 @@ class ProductDetailTableViewCell: UITableViewCell {
     private func configureVStackForDetails() {
         vStackForProductDetails.stack.axis = .vertical
         vStackForProductDetails.stack.alignment = .leading
-        vStackForProductDetails.stack.distribution = .fillEqually
-        vStackForProductDetails.stack.spacing = 10
+        vStackForProductDetails.stack.distribution = .equalSpacing
+        vStackForProductDetails.stack.spacing = 5
     }
     
     private func layoutCell() {
@@ -78,9 +79,11 @@ class ProductDetailTableViewCell: UITableViewCell {
             imagePDVC.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3),
             imagePDVC.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.4),
             
-            vStackForProductDetails.leadingAnchor.constraint(equalTo: imagePDVC.trailingAnchor, constant: 20),
+            vStackForProductDetails.leadingAnchor.constraint(equalTo: imagePDVC.trailingAnchor, constant: 10),
+            vStackForProductDetails.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             vStackForProductDetails.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             vStackForProductDetails.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 5),
+            
         ])
     }
     
