@@ -13,6 +13,7 @@ class ProductDetailTableViewCell: UITableViewCell {
     let colorLabelPDVC = LabelViewCustom()
     let materialLabelPDVC = LabelViewCustom()
     let imagePDVC = ImageViewCustom()
+    let vStackForProductDetails = ViewStackCustom()
     
     override func awakeFromNib() {
         super.awakeFromNib()    }
@@ -33,11 +34,19 @@ class ProductDetailTableViewCell: UITableViewCell {
             colorLabelPDVC.label,
             materialLabelPDVC.label,
             imagePDVC.imageView,
+            vStackForProductDetails.stack,
         ]
         
         for addView in views {
             contentView.addSubview(addView)
         }
+        
+        //MARK: - VStack
+        vStackForProductDetails.stack.addArrangedSubview(articleLabelPDVC.label)
+        vStackForProductDetails.stack.addArrangedSubview(titleLabelPDVC.label)
+        vStackForProductDetails.stack.addArrangedSubview(colorLabelPDVC.label)
+        vStackForProductDetails.stack.addArrangedSubview(materialLabelPDVC.label)
+        
     }
     
     private func configureCell() {
@@ -48,11 +57,33 @@ class ProductDetailTableViewCell: UITableViewCell {
         
     }
     
+    private func configureVStackForDetails() {
+        vStackForProductDetails.stack.axis = .vertical
+        vStackForProductDetails.stack.alignment = .leading
+        vStackForProductDetails.stack.distribution = .fillEqually
+        vStackForProductDetails.stack.spacing = 10
+    }
+    
     private func layoutCell() {
+        let articleLabel = articleLabelPDVC.label
+        let titleLabel = titleLabelPDVC.label
+        let colorLabel = colorLabelPDVC.label
+        let materialLabel = materialLabelPDVC.label
+        let imagePDVC = imagePDVC.imageView
+        let vStackForProductDetails = vStackForProductDetails.stack
+        
         NSLayoutConstraint.activate([
-            titleLabelPDVC.label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            titleLabelPDVC.label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            imagePDVC.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            imagePDVC.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            imagePDVC.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3),
+            imagePDVC.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.4),
+            
+            vStackForProductDetails.leadingAnchor.constraint(equalTo: imagePDVC.trailingAnchor, constant: 20),
+            vStackForProductDetails.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            vStackForProductDetails.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 5),
         ])
     }
+    
+    
     
 }

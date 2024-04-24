@@ -22,12 +22,21 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
         return product.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 88
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.productDetailVCCellKey, for: indexPath) as? ProductDetailTableViewCell else {
             return UITableViewCell()
         }
         
-        cell.titleLabelPDVC.label.text = product[indexPath.row].article
+        let productIndex = product[indexPath.row]
+        cell.articleLabelPDVC.label.text = productIndex.article
+        cell.titleLabelPDVC.label.text = productIndex.title
+        cell.colorLabelPDVC.label.text = productIndex.colorID
+        cell.materialLabelPDVC.label.text = productIndex.material
+        cell.imagePDVC.imageView = productIndex.imageURL
         
         return cell
     }
