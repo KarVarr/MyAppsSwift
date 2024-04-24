@@ -1,5 +1,5 @@
 //
-//  ProductDetailViewController.swift
+//  ProductDetailVC.swift
 //  LLL Scan
 //
 //  Created by Karen Vardanian on 24.04.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductDetailViewController: BaseViewController {
+class ProductDetailVC: BaseViewController {
     let customTableViewFilesVC = CustomTableView()
 
     override func viewDidLoad() {
