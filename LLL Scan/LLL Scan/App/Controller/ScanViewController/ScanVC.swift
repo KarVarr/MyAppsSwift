@@ -15,6 +15,7 @@ class ScanVC: BaseViewController {
         DataScannerViewController.isSupported && DataScannerViewController.isAvailable
     }
     var productObj: Product?
+    var products: [Product] = []
     var scannedProducts: [[Product]] = [[]]
     
     let customTableViewScanVC = CustomTableView()

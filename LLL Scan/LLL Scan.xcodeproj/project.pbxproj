@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		171149B82BD9058000F5DECF /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149B72BD9058000F5DECF /* ProductList.swift */; };
+		171149BB2BD954CC00F5DECF /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149BA2BD954CC00F5DECF /* ProductDetailViewController.swift */; };
 		1713481C2BCC3CBB00FC3CF7 /* myApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1713481B2BCC3CBB00FC3CF7 /* myApi.swift */; };
 		178DC74D2BB83E4500FEDE69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC74C2BB83E4500FEDE69 /* AppDelegate.swift */; };
 		178DC74F2BB83E4500FEDE69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC74E2BB83E4500FEDE69 /* SceneDelegate.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		171149B72BD9058000F5DECF /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
+		171149BA2BD954CC00F5DECF /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		1713481B2BCC3CBB00FC3CF7 /* myApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myApi.swift; sourceTree = "<group>"; };
 		178DC7492BB83E4500FEDE69 /* LLL Scan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LLL Scan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		178DC74C2BB83E4500FEDE69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		171149B92BD954A800F5DECF /* ProductDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				171149BA2BD954CC00F5DECF /* ProductDetailViewController.swift */,
+			);
+			path = ProductDetailViewController;
+			sourceTree = "<group>";
+		};
 		1713481A2BCC3CB000FC3CF7 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +195,7 @@
 				178DC7682BB8880600FEDE69 /* BaseController */,
 				178DC7672BB887F200FEDE69 /* ScanViewController */,
 				178DC78E2BB9E57D00FEDE69 /* FilesViewController */,
+				171149B92BD954A800F5DECF /* ProductDetailViewController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -244,9 +255,9 @@
 			isa = PBXGroup;
 			children = (
 				178DC78F2BB9E5D000FEDE69 /* FilesVC.swift */,
-				178DC7A32BBDD28200FEDE69 /* LayoutViewFVC + Ext.swift */,
 				178DC79F2BBDD11000FEDE69 /* ConfigureViewFVC + Ext.swift */,
 				178DC7A12BBDD1B400FEDE69 /* AddViewFVC + Ext.swift */,
+				178DC7A32BBDD28200FEDE69 /* LayoutViewFVC + Ext.swift */,
 				178DC7A52BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift */,
 			);
 			path = FilesViewController;
@@ -357,6 +368,7 @@
 			files = (
 				178DC77E2BB9AB0D00FEDE69 /* NetworkManager.swift in Sources */,
 				178DC7932BB9F16000FEDE69 /* CustomTableView.swift in Sources */,
+				171149BB2BD954CC00F5DECF /* ProductDetailViewController.swift in Sources */,
 				178DC7952BB9F2A000FEDE69 /* ScanTableViewCell.swift in Sources */,
 				178DC7A42BBDD28200FEDE69 /* LayoutViewFVC + Ext.swift in Sources */,
 				178DC7AA2BBDD3AA00FEDE69 /* FilesTableViewCell.swift in Sources */,

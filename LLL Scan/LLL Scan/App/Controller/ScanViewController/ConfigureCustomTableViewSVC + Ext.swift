@@ -26,12 +26,16 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.scanVCCellKey, for: indexPath) as? ScanTableViewCell else {
             return UITableViewCell()
         }
+        cell.accessoryType = .disclosureIndicator
         
         cell.titleLabel.label.text = "New table: \(scannedProducts.count)"
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     
     

@@ -24,18 +24,28 @@ extension ScanVC: DataScannerViewControllerDelegate {
     @objc func saveResult() {
         print("saveResult")
         
-        if let productData = try? JSONEncoder().encode(productObj) {
-            UserDefaults.standard.setValue(productData, forKey: "scannedProducts")
-            
-            if let decodedProducts = try? JSONDecoder().decode([Product].self, from: productData) {
-               
-                scannedProducts.append(decodedProducts)
-                self.productObj = nil
-                customTableViewScanVC.table.reloadData()
-            }
+        // Проверяем, что productObj не nil
+        guard let productObj = self.productObj else {
+            print("Error: productObj is nil")
+            return
         }
-        scannedProducts = []
         
+        // Добавляем productObj в массив scannedProducts
+        products.append(productObj)
+        scannedProducts.append(products)
+        
+        // Очищаем productObj, чтобы быть готовым для следующего сканирования
+        self.productObj = nil
+        
+        // Сохраняем массив scannedProducts в UserDefaults
+        if let productData = try? JSONEncoder().encode(scannedProducts) {
+            UserDefaults.standard.setValue(productData, forKey: "scannedProducts")
+        } else {
+            print("Error encoding scannedProducts")
+        }
+        
+        // Обновляем таблицу, чтобы отобразить новый продукт
+        customTableViewScanVC.table.reloadData()
     }
     
     private func startScanning() {
@@ -148,14 +158,14 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     //                                    self?.miniatureImageHM.imageView.addSymbolEffect(SymbolEffectOptions.rep)
                                     
                                     self?.productObj = Product(imageURL: product.imageURL,
-                                                             link: product.link,
-                                                             article: product.article,
-                                                             title: product.title,
-                                                             price: product.price,
-                                                             colorID: product.colorID,
-                                                             description: product.description,
-                                                             material: product.material,
-                                                             fullBlock: nil
+                                                               link: product.link,
+                                                               article: product.article,
+                                                               title: product.title,
+                                                               price: product.price,
+                                                               colorID: product.colorID,
+                                                               description: product.description,
+                                                               material: product.material,
+                                                               fullBlock: nil
                                     )
                                     
                                     
