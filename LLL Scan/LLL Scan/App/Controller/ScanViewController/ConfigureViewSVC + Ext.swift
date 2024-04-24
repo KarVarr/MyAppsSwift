@@ -24,22 +24,18 @@ extension ScanVC: DataScannerViewControllerDelegate {
     @objc func saveResult() {
         print("saveResult")
         
-        //        if let productData = try? JSONEncoder().encode(scannedProducts) {
-        //            UserDefaults.standard.setValue(productData, forKey: "scannedProducts")
-        //
-        //            if let decodedProducts = try? JSONDecoder().decode([Product].self, from: productData) {
-        //
-        //                scannedProductsDictionary[currentCellTitle] = decodedProducts
-        //                customTableViewScanVC.table.reloadData()
-        //            }
-        //        }
-        //        scannedProducts = []
-        
-        if !scannedProducts.isEmpty {
-            // Добавляем новый массив отсканированных документов в общий массив
-            scannedProducts.append(contentsOf: scannedProducts)
-            customTableViewScanVC.table.reloadData() // Обновляем таблицу
+        if let productData = try? JSONEncoder().encode(productObj) {
+            UserDefaults.standard.setValue(productData, forKey: "scannedProducts")
+            
+            if let decodedProducts = try? JSONDecoder().decode([Product].self, from: productData) {
+               
+                scannedProducts.append(decodedProducts)
+                self.productObj = nil
+                customTableViewScanVC.table.reloadData()
+            }
         }
+        scannedProducts = []
+        
     }
     
     private func startScanning() {
@@ -151,7 +147,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
                                     //                                    self?.miniatureImageHM.imageView.addSymbolEffect(SymbolEffectOptions.rep)
                                     
-                                    let productObj = Product(imageURL: product.imageURL,
+                                    self?.productObj = Product(imageURL: product.imageURL,
                                                              link: product.link,
                                                              article: product.article,
                                                              title: product.title,
@@ -161,7 +157,6 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                                              material: product.material,
                                                              fullBlock: nil
                                     )
-                                    self?.scannedProducts = [[productObj]]
                                     
                                     
                                 }

@@ -19,7 +19,6 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        return scannedProductsDictionary.count
         return scannedProducts.count
     }
     
@@ -27,12 +26,8 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.scanVCCellKey, for: indexPath) as? ScanTableViewCell else {
             return UITableViewCell()
         }
-        //
-        //        let scannedProductCount = scannedProductsDictionary[indexPath.row].count
-        //        cell.titleLabel.label.text = "Scanned product: \(scannedProductCount)"
-        let scannedProductsForCell = scannedProducts[indexPath.row]
-        let scannedProductCount = scannedProductsForCell.count
-        cell.titleLabel.label.text = "Scanned product count: \(scannedProductCount)"
+        
+        cell.titleLabel.label.text = "New table: \(scannedProducts.count)"
         
         return cell
     }
