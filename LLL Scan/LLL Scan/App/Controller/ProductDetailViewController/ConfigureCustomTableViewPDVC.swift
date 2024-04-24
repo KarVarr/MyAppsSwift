@@ -11,7 +11,7 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
     func configureCustomTableViewPDVC() {
         customTableViewProductDetailVC.table.dataSource = self
         customTableViewProductDetailVC.table.delegate = self
-        customTableViewProductDetailVC.table.register(FilesTableViewCell.self, forCellReuseIdentifier: Helper.Keys.productDetailVCCellKey)
+        customTableViewProductDetailVC.table.register(ProductDetailTableViewCell.self, forCellReuseIdentifier: Helper.Keys.productDetailVCCellKey)
         customTableViewProductDetailVC.table.frame = view.bounds
         customTableViewProductDetailVC.table.backgroundColor = .white
         customTableViewProductDetailVC.table.separatorStyle = .singleLine
@@ -23,10 +23,11 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.productDetailVCCellKey, for: indexPath) as? FilesTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.productDetailVCCellKey, for: indexPath) as? ProductDetailTableViewCell else {
             return UITableViewCell()
         }
         
+        cell.titleLabelPDVC.label.text = product[indexPath.row].article
         
         return cell
     }

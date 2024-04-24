@@ -8,13 +8,14 @@
 import UIKit
 
 class ProductDetailTableViewCell: UITableViewCell {
-
+    let titleLabelPDVC = LabelViewCustom()
+    
     override func awakeFromNib() {
         super.awakeFromNib()    }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         addViews()
         configureCell()
         configureLabels()
@@ -22,7 +23,7 @@ class ProductDetailTableViewCell: UITableViewCell {
     }
     
     private func addViews() {
-        
+        contentView.addSubview(titleLabelPDVC.label)
     }
     
     private func configureCell() {
@@ -34,7 +35,10 @@ class ProductDetailTableViewCell: UITableViewCell {
     }
     
     private func layoutCell() {
-        
+        NSLayoutConstraint.activate([
+            titleLabelPDVC.label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            titleLabelPDVC.label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+        ])
     }
-
+    
 }
