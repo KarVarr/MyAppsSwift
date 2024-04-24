@@ -19,21 +19,21 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return scannedProductsDictionary.count
+        //        return scannedProductsDictionary.count
+        return scannedProducts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.scanVCCellKey, for: indexPath) as? ScanTableViewCell else {
             return UITableViewCell()
         }
-        
-        //        let scannedProductCount = allScannedProducts[indexPath.row].count
+        //
+        //        let scannedProductCount = scannedProductsDictionary[indexPath.row].count
         //        cell.titleLabel.label.text = "Scanned product: \(scannedProductCount)"
+        let scannedProductsForCell = scannedProducts[indexPath.row]
+        let scannedProductCount = scannedProductsForCell.count
+        cell.titleLabel.label.text = "Scanned product count: \(scannedProductCount)"
         
-        //        cell.titleLabel.label.text = currentCellTitle
-        if let title = cellTitles[indexPath.row] {
-            cell.titleLabel.label.text = title
-        }
         return cell
     }
     

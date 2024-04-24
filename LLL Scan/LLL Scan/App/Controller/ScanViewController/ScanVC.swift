@@ -15,11 +15,12 @@ class ScanVC: BaseViewController {
         DataScannerViewController.isSupported && DataScannerViewController.isAvailable
     }
     
-    var scannedProducts: [Product] = []
-    var scannedProductsDictionary: [String: [Product]] = [:]
-    var currentCellTitle: String = ""
-    var cellTitles: [Int: String] = [:]
-
+//    var scannedProducts: [Product] = []
+//    var scannedProductsDictionary: [String: [Product]] = [:]
+//    var currentCellTitle: String = ""
+//    var cellTitles: [Int: String] = [:]
+    var scannedProducts: [[Product]] = []
+    
     
     let customTableViewScanVC = CustomTableView()
     let overlayViewForScanner = ViewCustom()

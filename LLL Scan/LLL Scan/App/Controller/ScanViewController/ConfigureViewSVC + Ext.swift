@@ -17,25 +17,32 @@ extension ScanVC: DataScannerViewControllerDelegate {
     }
     
     @objc func newScan() {
-        presentTitleInputAlert()
+        //        presentTitleInputAlert()
+        startScanning()
     }
     
     @objc func saveResult() {
         print("saveResult")
         
-        if let productData = try? JSONEncoder().encode(scannedProducts) {
-            UserDefaults.standard.setValue(productData, forKey: "scannedProducts")
-            
-            if let decodedProducts = try? JSONDecoder().decode([Product].self, from: productData) {
-                
-                scannedProductsDictionary[currentCellTitle] = decodedProducts
-                customTableViewScanVC.table.reloadData()
-            }
+        //        if let productData = try? JSONEncoder().encode(scannedProducts) {
+        //            UserDefaults.standard.setValue(productData, forKey: "scannedProducts")
+        //
+        //            if let decodedProducts = try? JSONDecoder().decode([Product].self, from: productData) {
+        //
+        //                scannedProductsDictionary[currentCellTitle] = decodedProducts
+        //                customTableViewScanVC.table.reloadData()
+        //            }
+        //        }
+        //        scannedProducts = []
+        
+        if !scannedProducts.isEmpty {
+            // Добавляем новый массив отсканированных документов в общий массив
+            scannedProducts.append(contentsOf: scannedProducts)
+            customTableViewScanVC.table.reloadData() // Обновляем таблицу
         }
-        scannedProducts = []
     }
     
-    private func startScanning(title: String) {
+    private func startScanning() {
         guard scannerAvailable == true else {
             print(" Error: Scanner is not available for usage. Please check settings")
             return
@@ -144,8 +151,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
                                     //                                    self?.miniatureImageHM.imageView.addSymbolEffect(SymbolEffectOptions.rep)
                                     
-                                    let productObj = Product(idName: nil,
-                                                             imageURL: product.imageURL,
+                                    let productObj = Product(imageURL: product.imageURL,
                                                              link: product.link,
                                                              article: product.article,
                                                              title: product.title,
@@ -155,10 +161,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                                              material: product.material,
                                                              fullBlock: nil
                                     )
-                                    //                                    self?.currentScanProducts.append(productObj)
-                                    
-                                    
-                                    self?.scannedProducts = [productObj]
+                                    self?.scannedProducts = [[productObj]]
                                     
                                     
                                 }
@@ -184,30 +187,26 @@ extension ScanVC: DataScannerViewControllerDelegate {
         }
     }
     
-    private func presentTitleInputAlert() {
-        let alert = UIAlertController(title: "Enter Cell Title", message: nil, preferredStyle: .alert)
-        alert.addTextField { textField in
-            textField.placeholder = "Enter title"
-        }
-        let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] _ in
-            if let title = alert.textFields?.first?.text {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
-                let formattedDate = formatter.string(from: Date())
-                let uniqueTitle = "\(title)_\(formattedDate)"
-
-                if let index = self?.scannedProductsDictionary.count {
-                    self?.cellTitles[index] = uniqueTitle
-                }
-                
-                // Start scanning with the entered title
-                self?.startScanning(title: title)
-
-            }
-        }
-        alert.addAction(addAction)
-        present(alert, animated: true, completion: nil)
-    }
+    //    private func presentTitleInputAlert() {
+    //        let alert = UIAlertController(title: "Enter Cell Title", message: nil, preferredStyle: .alert)
+    //        alert.addTextField { textField in
+    //            textField.placeholder = "Enter title"
+    //        }
+    //        let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] _ in
+    //            if let title = alert.textFields?.first?.text {
+    //                let formatter = DateFormatter()
+    //                formatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
+    //                let formattedDate = formatter.string(from: Date())
+    //                let uniqueTitle = "\(title)_\(formattedDate)"
+    //
+    //                self?.currentCellTitle = uniqueTitle
+    //                self?.startScanning()
+    //            }
+    //        }
+    //        alert.addAction(addAction)
+    //        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+    //        present(alert, animated: true, completion: nil)
+    //    }
     
 }
 
