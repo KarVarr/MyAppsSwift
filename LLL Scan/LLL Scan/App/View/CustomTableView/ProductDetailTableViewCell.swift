@@ -8,7 +8,11 @@
 import UIKit
 
 class ProductDetailTableViewCell: UITableViewCell {
+    let articleLabelPDVC = LabelViewCustom()
     let titleLabelPDVC = LabelViewCustom()
+    let colorLabelPDVC = LabelViewCustom()
+    let materialLabelPDVC = LabelViewCustom()
+    let imagePDVC = ImageViewCustom()
     
     override func awakeFromNib() {
         super.awakeFromNib()    }
@@ -23,7 +27,17 @@ class ProductDetailTableViewCell: UITableViewCell {
     }
     
     private func addViews() {
-        contentView.addSubview(titleLabelPDVC.label)
+        let views: [UIView] = [
+            articleLabelPDVC.label,
+            titleLabelPDVC.label,
+            colorLabelPDVC.label,
+            materialLabelPDVC.label,
+            imagePDVC.imageView,
+        ]
+        
+        for addView in views {
+            contentView.addSubview(addView)
+        }
     }
     
     private func configureCell() {
