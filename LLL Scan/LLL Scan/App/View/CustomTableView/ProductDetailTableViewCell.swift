@@ -82,7 +82,7 @@ class ProductDetailTableViewCell: UITableViewCell {
             vStackForProductDetails.leadingAnchor.constraint(equalTo: imagePDVC.trailingAnchor, constant: 10),
             vStackForProductDetails.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             vStackForProductDetails.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            vStackForProductDetails.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 5),
+            vStackForProductDetails.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
             
         ])
     }

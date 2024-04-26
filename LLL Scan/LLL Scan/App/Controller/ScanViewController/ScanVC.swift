@@ -48,5 +48,8 @@ class ScanVC: BaseViewController {
         super.viewWillLayoutSubviews()
         configureButtonView()
     }
+    
+   
+
 }
 

@@ -63,6 +63,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
         )
         
         dataScanner.delegate = self
+        dataScanner.modalPresentationStyle = .fullScreen
         present(dataScanner, animated: true) {
             dataScanner.view.addSubview(self.overlayViewForScanner.vc)
             self.overlayViewForScanner.vc.isHidden = false
