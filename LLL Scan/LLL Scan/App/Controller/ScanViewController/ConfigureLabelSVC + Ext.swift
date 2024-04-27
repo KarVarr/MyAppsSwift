@@ -21,5 +21,11 @@ extension ScanVC {
         
         materialFromParsingLabel.label.numberOfLines = 0
         materialFromParsingLabel.label.lineBreakMode = .byWordWrapping
+        
+        showCountOfProductsInArray.label.text = "0"
+        showCountOfProductsInArray.label.backgroundColor = .tintColor
+        showCountOfProductsInArray.label.textColor = .white
+        showCountOfProductsInArray.label.layer.cornerRadius = 10
+        showCountOfProductsInArray.label.textAlignment = .center
     }
 }

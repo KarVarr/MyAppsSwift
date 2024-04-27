@@ -14,7 +14,7 @@ extension ScanVC {
                         customTableViewScanVC.table,
                         buttonForAddNewTableView.button,
                         overlayViewForScanner.vc
-                       ], 
+                       ],
                 uiView: view)
         
         //MARK: - Overlay View
@@ -23,7 +23,8 @@ extension ScanVC {
                         miniatureImageHM.imageView,
                         resultLabel.label,
                         saveOneProductButtonForScanner.button,
-                        saveAllButtonForScanner.button
+                        saveAllButtonForScanner.button,
+                        showCountOfProductsInArray.label,
                        ],
                 uiView: overlayViewForScanner.vc)
 

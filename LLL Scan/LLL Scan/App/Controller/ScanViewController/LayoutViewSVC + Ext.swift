@@ -17,7 +17,7 @@ extension ScanVC {
         let miniatureImageHM = miniatureImageHM.imageView
         let vStackForParsingData = vStackForParsingData.stack
         let topRectangleViewForCloseIndication = topRectangleViewForCloseIndication.vc
-        
+        let showCountOfProductsInArray = showCountOfProductsInArray.label
         
         //MARK: - Custom Views
         NSLayoutConstraint.activate([
@@ -34,9 +34,8 @@ extension ScanVC {
             buttonForAddNewTableView.widthAnchor.constraint(equalToConstant: 60),
             buttonForAddNewTableView.heightAnchor.constraint(equalToConstant: 60),
         ])
-        //MARK: - Save button
+        //MARK: - Save buttons and Count label
         NSLayoutConstraint.activate([
-//            saveOneProductButtonForScanner.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
             saveOneProductButtonForScanner.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -5),
             saveOneProductButtonForScanner.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -10),
             saveOneProductButtonForScanner.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.4),
@@ -46,6 +45,12 @@ extension ScanVC {
             saveAllButtonForScanner.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -10),
             saveAllButtonForScanner.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.4),
             saveAllButtonForScanner.heightAnchor.constraint(equalToConstant: 44),
+            
+            showCountOfProductsInArray.trailingAnchor.constraint(equalTo: saveOneProductButtonForScanner.leadingAnchor, constant: -5),
+            showCountOfProductsInArray.leadingAnchor.constraint(equalTo: saveAllButtonForScanner.trailingAnchor, constant: 5),
+            showCountOfProductsInArray.topAnchor.constraint(equalTo: saveAllButtonForScanner.topAnchor),
+            showCountOfProductsInArray.bottomAnchor.constraint(equalTo: saveAllButtonForScanner.bottomAnchor),
+            
         ])
         
         //MARK: - Custom view for scan view

@@ -43,7 +43,6 @@ class ScanVC: BaseViewController {
         configureImageView()
         configureViewCustom()
         configureStackViewSVC()
-        
     }
 
     override func viewWillLayoutSubviews() {
