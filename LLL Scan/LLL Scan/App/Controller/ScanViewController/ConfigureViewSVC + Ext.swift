@@ -46,6 +46,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
         
         // Обновляем таблицу, чтобы отобразить новый продукт
         customTableViewScanVC.table.reloadData()
+        closeScanner()
     }
     
     private func startScanning() {
@@ -64,6 +65,9 @@ extension ScanVC: DataScannerViewControllerDelegate {
         
         dataScanner.delegate = self
         dataScanner.modalPresentationStyle = .fullScreen
+        let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeScanner))
+        dataScanner.navigationItem.leftBarButtonItem = closeButton
+                
         present(dataScanner, animated: true) {
             dataScanner.view.addSubview(self.overlayViewForScanner.vc)
             self.overlayViewForScanner.vc.isHidden = false
@@ -82,6 +86,10 @@ extension ScanVC: DataScannerViewControllerDelegate {
         try? dataScanner.startScanning()
     }
     
+    @objc func closeScanner() {
+        print("save and close")
+        self.dismiss(animated: true)
+    }
     
     
     func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
