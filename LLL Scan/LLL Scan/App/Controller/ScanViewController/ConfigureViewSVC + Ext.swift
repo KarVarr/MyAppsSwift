@@ -30,7 +30,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
         startScanning()
     }
     
-    @objc func saveResult() {
+    @objc func saveOneProductResult() {
         print("saveResult")
         
         guard let productObj = self.productObj else {
@@ -50,6 +50,11 @@ extension ScanVC: DataScannerViewControllerDelegate {
         // Обновляем таблицу
         customTableViewScanVC.table.reloadData()
     }
+    
+    @objc func saveAllResult() {
+        print("all save and append in array MOTHER FUCKER")
+    }
+    
     
     private func startScanning() {
         guard scannerAvailable == true else {

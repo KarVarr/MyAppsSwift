@@ -13,7 +13,8 @@ extension ScanVC {
         addView(views: [labelForHtml.label,
                         customTableViewScanVC.table,
                         buttonForAddNewTableView.button,
-                        overlayViewForScanner.vc], 
+                        overlayViewForScanner.vc
+                       ], 
                 uiView: view)
         
         //MARK: - Overlay View
@@ -21,7 +22,9 @@ extension ScanVC {
                         vStackForParsingData.stack,
                         miniatureImageHM.imageView,
                         resultLabel.label,
-                        saveOneProductButtonForScanner.button], 
+                        saveOneProductButtonForScanner.button,
+                        saveAllButtonForScanner.button
+                       ],
                 uiView: overlayViewForScanner.vc)
 
         //MARK: - View Stack

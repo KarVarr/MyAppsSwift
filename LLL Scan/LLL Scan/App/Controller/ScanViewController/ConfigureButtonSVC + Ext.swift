@@ -31,7 +31,19 @@ extension ScanVC {
         saveOneProductButtonForScanner.button.configuration?.image = UIImage(systemName: "checkmark.shield.fill")
         saveOneProductButtonForScanner.button.configuration?.imagePlacement = .leading
         saveOneProductButtonForScanner.button.configuration?.imagePadding = 5
-        saveOneProductButtonForScanner.button.addTarget(self, action: #selector(saveResult), for: .touchUpInside)
+        saveOneProductButtonForScanner.button.addTarget(self, action: #selector(saveOneProductResult), for: .touchUpInside)
+        
+        saveAllButtonForScanner.button.layer.shadowOffset = CGSize(width: 1, height: 1)
+        saveAllButtonForScanner.button.layer.shadowOpacity = 0.3
+        saveAllButtonForScanner.button.configuration = .filled()
+        saveAllButtonForScanner.button.configuration?.title = "All"
+        saveAllButtonForScanner.button.configuration?.baseBackgroundColor = .systemTeal
+        saveAllButtonForScanner.button.configuration?.baseForegroundColor = .systemPink
+        saveAllButtonForScanner.button.configuration?.cornerStyle = .capsule
+        saveAllButtonForScanner.button.configuration?.image = UIImage(systemName: "checkmark.circle.fill")
+        saveAllButtonForScanner.button.configuration?.imagePlacement = .trailing
+        saveAllButtonForScanner.button.configuration?.imagePadding = 5
+        saveAllButtonForScanner.button.addTarget(self, action: #selector(saveAllResult), for: .touchUpInside)
     }
     
 }
