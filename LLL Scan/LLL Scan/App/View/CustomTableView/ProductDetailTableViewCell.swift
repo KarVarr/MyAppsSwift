@@ -66,10 +66,10 @@ class ProductDetailTableViewCell: UITableViewCell {
     }
     
     private func layoutCell() {
-        let articleLabel = articleLabelPDVC.label
-        let titleLabel = titleLabelPDVC.label
-        let colorLabel = colorLabelPDVC.label
-        let materialLabel = materialLabelPDVC.label
+//        let articleLabel = articleLabelPDVC.label
+//        let titleLabel = titleLabelPDVC.label
+//        let colorLabel = colorLabelPDVC.label
+//        let materialLabel = materialLabelPDVC.label
         let imagePDVC = imagePDVC.imageView
         let vStackForProductDetails = vStackForProductDetails.stack
         

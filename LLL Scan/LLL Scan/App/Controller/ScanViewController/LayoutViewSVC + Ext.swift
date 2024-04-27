@@ -15,8 +15,8 @@ extension ScanVC {
         let resultLabel = resultLabel.label
         let miniatureImageHM = miniatureImageHM.imageView
         let vStackForParsingData = vStackForParsingData.stack
-        let titleFromParsingLabel = titleFromParsingLabel.label
-        let colorFromParsingLabel = colorFromParsingLabel.label
+//        let titleFromParsingLabel = titleFromParsingLabel.label
+//        let colorFromParsingLabel = colorFromParsingLabel.label
         let topRectangleViewForCloseIndication = topRectangleViewForCloseIndication.vc
         
         
