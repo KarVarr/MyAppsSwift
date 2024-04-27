@@ -10,13 +10,11 @@ import UIKit
 extension ScanVC {
     override func layoutView() {
         let buttonForAddNewTableView = buttonForAddNewTableView.button
-        let saveButtonForScanner = saveButtonForScanner.button
+        let saveOneProductButtonForScanner = saveOneProductButtonForScanner.button
         let overlayViewForScanner = overlayViewForScanner.vc
         let resultLabel = resultLabel.label
         let miniatureImageHM = miniatureImageHM.imageView
         let vStackForParsingData = vStackForParsingData.stack
-//        let titleFromParsingLabel = titleFromParsingLabel.label
-//        let colorFromParsingLabel = colorFromParsingLabel.label
         let topRectangleViewForCloseIndication = topRectangleViewForCloseIndication.vc
         
         
@@ -37,10 +35,10 @@ extension ScanVC {
         ])
         //MARK: - Save button
         NSLayoutConstraint.activate([
-            saveButtonForScanner.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
-            saveButtonForScanner.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -20),
-            saveButtonForScanner.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.3),
-            saveButtonForScanner.heightAnchor.constraint(equalToConstant: 44),
+            saveOneProductButtonForScanner.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
+            saveOneProductButtonForScanner.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -20),
+            saveOneProductButtonForScanner.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.3),
+            saveOneProductButtonForScanner.heightAnchor.constraint(equalToConstant: 44),
         ])
         
         //MARK: - Custom view for scan view
@@ -61,7 +59,7 @@ extension ScanVC {
         
         //MARK: - INSIDE CUSTOM SCAN VIEW - labels from parsing
         NSLayoutConstraint.activate([
-            vStackForParsingData.bottomAnchor.constraint(equalTo: saveButtonForScanner.topAnchor, constant: -10),
+            vStackForParsingData.bottomAnchor.constraint(equalTo: saveOneProductButtonForScanner.topAnchor, constant: -10),
             vStackForParsingData.topAnchor.constraint(equalTo: miniatureImageHM.bottomAnchor, constant: 10),
             vStackForParsingData.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -10),
             vStackForParsingData.leadingAnchor.constraint(equalTo: overlayViewForScanner.leadingAnchor, constant: 10),

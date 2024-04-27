@@ -23,7 +23,8 @@ class ScanVC: BaseViewController {
     let resultLabel = LabelViewCustom()
     let labelForHtml = LabelViewCustom()
     let miniatureImageHM = ImageViewCustom()
-    let saveButtonForScanner = ButtonViewCustom()
+    let saveOneProductButtonForScanner = ButtonViewCustom()
+    let saveAllButtonForScanner = ButtonViewCustom()
     let titleFromParsingLabel = LabelViewCustom()
     let colorFromParsingLabel = LabelViewCustom()
     let materialFromParsingLabel = LabelViewCustom()
@@ -41,15 +42,15 @@ class ScanVC: BaseViewController {
         configureImageView()
         configureViewCustom()
         configureStackViewSVC()
+        
     }
-    
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         configureButtonView()
     }
     
-   
+    
 
 }
 

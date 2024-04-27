@@ -21,17 +21,17 @@ extension ScanVC {
         buttonForAddNewTableView.button.addTarget(self, action: #selector(newScan), for: .touchUpInside)
         
         
-        saveButtonForScanner.button.layer.shadowOffset = CGSize(width: 1, height: 1)
-        saveButtonForScanner.button.layer.shadowOpacity = 0.3
-        saveButtonForScanner.button.configuration = .filled()
-        saveButtonForScanner.button.configuration?.title = "Save"
-        saveButtonForScanner.button.configuration?.baseBackgroundColor = .systemTeal
-        saveButtonForScanner.button.configuration?.baseForegroundColor = .yellow
-        saveButtonForScanner.button.configuration?.cornerStyle = .capsule
-        saveButtonForScanner.button.configuration?.image = UIImage(systemName: "checkmark.shield.fill")
-        saveButtonForScanner.button.configuration?.imagePlacement = .leading
-        saveButtonForScanner.button.configuration?.imagePadding = 5
-        saveButtonForScanner.button.addTarget(self, action: #selector(saveResult), for: .touchUpInside)
+        saveOneProductButtonForScanner.button.layer.shadowOffset = CGSize(width: 1, height: 1)
+        saveOneProductButtonForScanner.button.layer.shadowOpacity = 0.3
+        saveOneProductButtonForScanner.button.configuration = .filled()
+        saveOneProductButtonForScanner.button.configuration?.title = "Save"
+        saveOneProductButtonForScanner.button.configuration?.baseBackgroundColor = .systemTeal
+        saveOneProductButtonForScanner.button.configuration?.baseForegroundColor = .yellow
+        saveOneProductButtonForScanner.button.configuration?.cornerStyle = .capsule
+        saveOneProductButtonForScanner.button.configuration?.image = UIImage(systemName: "checkmark.shield.fill")
+        saveOneProductButtonForScanner.button.configuration?.imagePlacement = .leading
+        saveOneProductButtonForScanner.button.configuration?.imagePadding = 5
+        saveOneProductButtonForScanner.button.addTarget(self, action: #selector(saveResult), for: .touchUpInside)
     }
     
 }

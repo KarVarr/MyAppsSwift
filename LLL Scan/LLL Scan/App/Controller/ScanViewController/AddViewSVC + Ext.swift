@@ -21,7 +21,7 @@ extension ScanVC {
                         vStackForParsingData.stack,
                         miniatureImageHM.imageView,
                         resultLabel.label,
-                        saveButtonForScanner.button], 
+                        saveOneProductButtonForScanner.button], 
                 uiView: overlayViewForScanner.vc)
 
         //MARK: - View Stack

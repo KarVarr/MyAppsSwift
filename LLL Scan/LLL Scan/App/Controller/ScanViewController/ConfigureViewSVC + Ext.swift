@@ -14,6 +14,15 @@ extension ScanVC: DataScannerViewControllerDelegate {
         view.backgroundColor = .white
         title = "Сканы"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        overlayViewForScanner.vc.isHidden = true
+        
+        
+        if overlayViewForScanner.vc.isHidden {
+            print("SCAN IS CLOSED MOTHER FUCKER")
+        } else {
+            print("PIDRRRRRRR OPEN")
+        }
     }
     
     @objc func newScan() {
@@ -24,29 +33,22 @@ extension ScanVC: DataScannerViewControllerDelegate {
     @objc func saveResult() {
         print("saveResult")
         
-        // Проверяем, что productObj не nil
         guard let productObj = self.productObj else {
             print("Error: productObj is nil")
             return
         }
         
-        // Добавляем productObj в массив scannedProducts
         products.append(productObj)
-        scannedProducts.append(products)
-        
-        // Очищаем productObj, чтобы быть готовым для следующего сканирования
         self.productObj = nil
         
-        // Сохраняем массив scannedProducts в UserDefaults
         if let productData = try? JSONEncoder().encode(scannedProducts) {
             UserDefaults.standard.setValue(productData, forKey: "scannedProducts")
         } else {
             print("Error encoding scannedProducts")
         }
         
-        // Обновляем таблицу, чтобы отобразить новый продукт
+        // Обновляем таблицу
         customTableViewScanVC.table.reloadData()
-        closeScanner()
     }
     
     private func startScanning() {
@@ -64,10 +66,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
         )
         
         dataScanner.delegate = self
-        dataScanner.modalPresentationStyle = .fullScreen
-        let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeScanner))
-        dataScanner.navigationItem.leftBarButtonItem = closeButton
-                
+        dataScanner.modalPresentationStyle = .formSheet
+        
         present(dataScanner, animated: true) {
             dataScanner.view.addSubview(self.overlayViewForScanner.vc)
             self.overlayViewForScanner.vc.isHidden = false
@@ -84,13 +84,9 @@ extension ScanVC: DataScannerViewControllerDelegate {
             }
         }
         try? dataScanner.startScanning()
+        
+        
     }
-    
-    @objc func closeScanner() {
-        print("save and close")
-        self.dismiss(animated: true)
-    }
-    
     
     func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
         guard case .text(let text) = item else { return }
@@ -130,12 +126,10 @@ extension ScanVC: DataScannerViewControllerDelegate {
     private func scanCodeWithDifferentCount(partsStr: [String], part1: Int, part2: Int) {
         let result = "\(partsStr[part1])\(partsStr[part2])"
         print("Result article : \(result)")
-        resultLabel.label.text = "✅ Артикул: \(result)"
+        resultLabel.label.text = "✅ Артикул: \(result)".trimmingCharacters(in: .whitespacesAndNewlines)
         
-        // Обновление urlString после получения артикула
         self.urlString = "https://www2.hm.com/pl_pl/productpage.\(result).html"
         
-        // Выполнение запроса с обновленным urlString
         if let urlString = self.urlString {
             networkManager.loadPageFromNetwork(urlString: urlString) { [weak self] result in
                 switch result {
