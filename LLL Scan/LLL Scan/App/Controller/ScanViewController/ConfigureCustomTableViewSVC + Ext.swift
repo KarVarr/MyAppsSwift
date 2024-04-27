@@ -28,7 +28,8 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
         }
         cell.accessoryType = .disclosureIndicator
         
-        cell.titleLabel.label.text = "New table: \(scannedProducts.count)"
+        let scanIndex = indexPath.row + 1
+        cell.titleLabel.label.text = "☑️ Список № \(scanIndex)"
         
         return cell
     }

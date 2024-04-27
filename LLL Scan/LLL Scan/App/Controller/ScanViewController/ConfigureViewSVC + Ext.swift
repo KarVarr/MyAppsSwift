@@ -17,12 +17,6 @@ extension ScanVC: DataScannerViewControllerDelegate {
         
         overlayViewForScanner.vc.isHidden = true
         
-        
-        if overlayViewForScanner.vc.isHidden {
-            print("SCAN IS CLOSED MOTHER FUCKER")
-        } else {
-            print("PIDRRRRRRR OPEN")
-        }
     }
     
     @objc func newScan() {
@@ -52,6 +46,16 @@ extension ScanVC: DataScannerViewControllerDelegate {
     }
     
     @objc func saveAllResult() {
+        scannedProducts.append(products)
+        DispatchQueue.main.async {
+            self.miniatureImageHM.imageView.image = UIImage(systemName: "cube.box")
+            self.titleFromParsingLabel.label.text = "Все отсканированные артикулы сохранены!"
+            self.colorFromParsingLabel.label.text = "Закройте экран сканирования потянув вниз ↓"
+            self.materialFromParsingLabel.label.text = "Вы отсканировали \(self.products.count) артикулов"
+        }
+        products = []
+        customTableViewScanVC.table.reloadData()
+
         print("all save and append in array MOTHER FUCKER")
     }
     
@@ -80,7 +84,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                 self.overlayViewForScanner.vc.leadingAnchor.constraint(equalTo: dataScanner.view.leadingAnchor),
                 self.overlayViewForScanner.vc.trailingAnchor.constraint(equalTo: dataScanner.view.trailingAnchor),
                 self.overlayViewForScanner.vc.topAnchor.constraint(equalTo: dataScanner.view.topAnchor),
-                self.overlayViewForScanner.vc.heightAnchor.constraint(equalTo: dataScanner.view.heightAnchor, multiplier: 0.65)
+                self.overlayViewForScanner.vc.heightAnchor.constraint(equalTo: dataScanner.view.heightAnchor, multiplier: 0.7)
             ])
             
             self.overlayViewForScanner.vc.alpha = 0.0

@@ -21,7 +21,7 @@ extension ScanVC {
         
         //MARK: - Custom Views
         NSLayoutConstraint.activate([
-            topRectangleViewForCloseIndication.topAnchor.constraint(equalTo: overlayViewForScanner.safeAreaLayoutGuide.topAnchor),
+            topRectangleViewForCloseIndication.topAnchor.constraint(equalTo: overlayViewForScanner.topAnchor, constant: 5),
             topRectangleViewForCloseIndication.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
             topRectangleViewForCloseIndication.widthAnchor.constraint(equalToConstant: 30),
             topRectangleViewForCloseIndication.heightAnchor.constraint(equalToConstant: 7),
@@ -37,14 +37,14 @@ extension ScanVC {
         //MARK: - Save button
         NSLayoutConstraint.activate([
 //            saveOneProductButtonForScanner.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
-            saveOneProductButtonForScanner.leadingAnchor.constraint(equalTo: overlayViewForScanner.leadingAnchor, constant: 20),
-            saveOneProductButtonForScanner.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -20),
-            saveOneProductButtonForScanner.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.3),
+            saveOneProductButtonForScanner.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -5),
+            saveOneProductButtonForScanner.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -10),
+            saveOneProductButtonForScanner.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.4),
             saveOneProductButtonForScanner.heightAnchor.constraint(equalToConstant: 44),
             
-            saveAllButtonForScanner.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -20),
-            saveAllButtonForScanner.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -20),
-            saveAllButtonForScanner.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.2),
+            saveAllButtonForScanner.leadingAnchor.constraint(equalTo: overlayViewForScanner.leadingAnchor, constant: 5),
+            saveAllButtonForScanner.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -10),
+            saveAllButtonForScanner.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.4),
             saveAllButtonForScanner.heightAnchor.constraint(equalToConstant: 44),
         ])
         
