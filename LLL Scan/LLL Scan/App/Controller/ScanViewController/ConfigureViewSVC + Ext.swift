@@ -34,28 +34,27 @@ extension ScanVC: DataScannerViewControllerDelegate {
         
         products.append(productObj)
         self.productObj = nil
-        
-        if let productData = try? JSONEncoder().encode(scannedProducts) {
-            UserDefaults.standard.setValue(productData, forKey: "scannedProducts")
-        } else {
-            print("Error encoding scannedProducts")
-        }
-        
+
         // Обновляем таблицу
         customTableViewScanVC.table.reloadData()
     }
     
     @objc func saveAllResult() {
-        scannedProducts.append(products)
         DispatchQueue.main.async {
-            self.miniatureImageHM.imageView.image = UIImage(systemName: "cube.box")
+            self.miniatureImageHM.imageView.image = UIImage(systemName: "checkmark.circle")
+            self.miniatureImageHM.imageView.addSymbolEffect(.bounce, animated: true)
+            self.miniatureImageHM.imageView.tintColor = .green
+            self.miniatureImageHM.imageView.clipsToBounds = false
+            
             self.titleFromParsingLabel.label.text = "Все отсканированные артикулы сохранены!"
             self.colorFromParsingLabel.label.text = "Закройте экран сканирования потянув вниз ↓"
             self.materialFromParsingLabel.label.text = "Вы отсканировали \(self.products.count) артикулов"
         }
-        products = []
+        print(products.count, "-------------> Count")
+        scannedProducts.append(products)
         customTableViewScanVC.table.reloadData()
-
+        products = []
+        
         print("all save and append in array MOTHER FUCKER")
     }
     
@@ -67,6 +66,14 @@ extension ScanVC: DataScannerViewControllerDelegate {
         }
         
         resultLabel.label.text = "Отсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'.\n· Номер начинается с букв, за которыми следует пробел.\n· После пробела идет 7 цифр.\n· Затем следует еще один пробел и 3 цифры.\n· После третьих цифр идут буквы и еще несколько цифр."
+        
+        DispatchQueue.main.async {
+            self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
+            self.titleFromParsingLabel.label.text = nil
+            self.colorFromParsingLabel.label.text = nil
+            self.materialFromParsingLabel.label.text = nil
+        }
+        
         
         let dataScanner = DataScannerViewController(recognizedDataTypes: [.text()],
                                                     isHighFrameRateTrackingEnabled: true,

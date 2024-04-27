@@ -20,7 +20,6 @@ extension ScanVC {
         buttonForAddNewTableView.button.configuration?.imagePlacement = .all
         buttonForAddNewTableView.button.addTarget(self, action: #selector(newScan), for: .touchUpInside)
         
-        
         saveOneProductButtonForScanner.button.layer.shadowOffset = CGSize(width: 1, height: 1)
         saveOneProductButtonForScanner.button.layer.shadowOpacity = 0.3
         saveOneProductButtonForScanner.button.configuration = .filled()

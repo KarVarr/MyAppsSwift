@@ -19,16 +19,17 @@ class ScanVC: BaseViewController {
     var scannedProducts = [[Product]]()
     
     let customTableViewScanVC = CustomTableView()
-    let overlayViewForScanner = ViewCustom()
     let resultLabel = LabelViewCustom()
     let labelForHtml = LabelViewCustom()
-    let miniatureImageHM = ImageViewCustom()
-    let saveOneProductButtonForScanner = ButtonViewCustom()
-    let saveAllButtonForScanner = ButtonViewCustom()
     let titleFromParsingLabel = LabelViewCustom()
     let colorFromParsingLabel = LabelViewCustom()
     let materialFromParsingLabel = LabelViewCustom()
+    let showCountOfProductsInArray = LabelViewCustom()
+    let saveOneProductButtonForScanner = ButtonViewCustom()
+    let saveAllButtonForScanner = ButtonViewCustom()
     let buttonForAddNewTableView = ButtonViewCustom()
+    let miniatureImageHM = ImageViewCustom()
+    let overlayViewForScanner = ViewCustom()
     let vStackForParsingData = ViewStackCustom()
     let topRectangleViewForCloseIndication = ViewCustom()
     
@@ -49,8 +50,5 @@ class ScanVC: BaseViewController {
         super.viewWillLayoutSubviews()
         configureButtonView()
     }
-    
-    
-
 }
 
