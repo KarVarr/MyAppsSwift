@@ -22,7 +22,7 @@ extension ScanVC {
         
         //MARK: - Custom Views
         NSLayoutConstraint.activate([
-            topRectangleViewForCloseIndication.topAnchor.constraint(equalTo: overlayViewForScanner.topAnchor, constant: 10),
+            topRectangleViewForCloseIndication.topAnchor.constraint(equalTo: overlayViewForScanner.safeAreaLayoutGuide.topAnchor),
             topRectangleViewForCloseIndication.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
             topRectangleViewForCloseIndication.widthAnchor.constraint(equalToConstant: 30),
             topRectangleViewForCloseIndication.heightAnchor.constraint(equalToConstant: 7),
@@ -35,7 +35,7 @@ extension ScanVC {
             buttonForAddNewTableView.widthAnchor.constraint(equalToConstant: 60),
             buttonForAddNewTableView.heightAnchor.constraint(equalToConstant: 60),
         ])
-        
+        //MARK: - Save button
         NSLayoutConstraint.activate([
             saveButtonForScanner.centerXAnchor.constraint(equalTo: overlayViewForScanner.centerXAnchor),
             saveButtonForScanner.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -20),
@@ -46,7 +46,7 @@ extension ScanVC {
         //MARK: - Custom view for scan view
         NSLayoutConstraint.activate([
             resultLabel.centerXAnchor.constraint(equalTo: overlayViewForScanner.safeAreaLayoutGuide.centerXAnchor),
-            resultLabel.topAnchor.constraint(equalTo: overlayViewForScanner.topAnchor, constant: 20),
+            resultLabel.topAnchor.constraint(equalTo: overlayViewForScanner.safeAreaLayoutGuide.topAnchor, constant: 15),
             resultLabel.leadingAnchor.constraint(equalTo: overlayViewForScanner.leadingAnchor, constant: 20),
             resultLabel.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -20),
         ])
