@@ -53,6 +53,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
             self.colorFromParsingLabel.label.text = "Закройте экран сканирования потянув вниз ↓"
             self.materialFromParsingLabel.label.text = "Вы отсканировали \(countProductsArray) артикулов"
         }
+        
         print(products.count, "-------------> Count")
         scannedProducts.append(products)
         customTableViewScanVC.table.reloadData()
