@@ -9,14 +9,15 @@ import UIKit
 import VisionKit
 
 class ScanVC: BaseViewController {
+    let dataManager = DataManager.shared
     let networkManager = NetworkManager()
     let htmlParser = HTMLParser()
     var scannerAvailable: Bool {
         DataScannerViewController.isSupported && DataScannerViewController.isAvailable
     }
     var productObj: Product?
-    var products = [Product]()
-    var scannedProducts = [[Product]]()
+//    var products = [Product]()
+//    var scannedProducts = [[Product]]()
     
     let customTableViewScanVC = CustomTableView()
     let resultLabel = LabelViewCustom()

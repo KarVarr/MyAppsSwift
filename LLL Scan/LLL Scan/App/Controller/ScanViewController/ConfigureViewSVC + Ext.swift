@@ -32,8 +32,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
             return
         }
         
-        products.append(productObj)
-        self.showCountOfProductsInArray.label.text = String(products.count)
+        dataManager.productList.products.append(productObj)
+        self.showCountOfProductsInArray.label.text = String(dataManager.productList.products.count)
         self.productObj = nil
 
         // Обновляем таблицу
@@ -41,7 +41,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
     }
     
     @objc func saveAllResult() {
-        let countProductsArray = products.count
+        let countProductsArray = dataManager.productList.products.count
         
         DispatchQueue.main.async {
             self.miniatureImageHM.imageView.image = UIImage(systemName: "checkmark.circle")
@@ -54,11 +54,12 @@ extension ScanVC: DataScannerViewControllerDelegate {
             self.materialFromParsingLabel.label.text = "Вы отсканировали \(countProductsArray) артикулов"
         }
         
-        print(products.count, "-------------> Count")
-        scannedProducts.append(products)
+        print(dataManager.productList.products.count, "-------------> Count")
+
+        dataManager.scannedProducts.scannedProducts.append(dataManager.productList.products)
         customTableViewScanVC.table.reloadData()
-        products = []
-        self.showCountOfProductsInArray.label.text = String(products.count)
+        dataManager.productList.products = []
+        self.showCountOfProductsInArray.label.text = String(dataManager.productList.products.count)
         
         print("all save and append in array MOTHER FUCKER")
     }
