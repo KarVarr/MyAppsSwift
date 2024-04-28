@@ -10,8 +10,8 @@ import Foundation
 extension ProductDetailVC {
     override func configureView() {
         view.backgroundColor = .lightGray
-        title = "Details"
+        title = "Карточки товара"
         
-        
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }

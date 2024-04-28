@@ -72,8 +72,7 @@ class ProductDetailTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             imagePDVC.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             imagePDVC.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            imagePDVC.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3),
-            imagePDVC.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.4),
+            imagePDVC.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
             
             vStackForProductDetails.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             vStackForProductDetails.leadingAnchor.constraint(equalTo: imagePDVC.trailingAnchor, constant: 10),
