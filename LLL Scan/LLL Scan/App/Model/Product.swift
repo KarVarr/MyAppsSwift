@@ -17,4 +17,5 @@ struct Product: Codable {
     let description: String?
     let material: String?
     let fullBlock: String?
+    let addedAt: Date?
 }

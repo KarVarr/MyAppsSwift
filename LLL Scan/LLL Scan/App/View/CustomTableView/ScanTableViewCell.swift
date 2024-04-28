@@ -10,7 +10,6 @@ import UIKit
 class ScanTableViewCell: UITableViewCell {
     let titleLabel = LabelViewCustom()
     let countLabel = LabelViewCustom()
-    let buttonConvertToCSV = ButtonViewCustom()
     let vStackSTVCForLabelsTitleAndCount = ViewStackCustom()
     let hStackSTVCForVStackAndButton = ViewStackCustom()
     
@@ -38,7 +37,6 @@ class ScanTableViewCell: UITableViewCell {
         vStackSTVCForLabelsTitleAndCount.stack.addArrangedSubview(titleLabel.label)
         vStackSTVCForLabelsTitleAndCount.stack.addArrangedSubview(countLabel.label)
         hStackSTVCForVStackAndButton.stack.addArrangedSubview(vStackSTVCForLabelsTitleAndCount.stack)
-        hStackSTVCForVStackAndButton.stack.addArrangedSubview(buttonConvertToCSV.button)
     }
     private func configureCell() {
         
@@ -47,7 +45,7 @@ class ScanTableViewCell: UITableViewCell {
     private func configureLabels() {
         
     }
-    
+  
     private func configureStacks() {
         vStackSTVCForLabelsTitleAndCount.stack.axis = .vertical
         vStackSTVCForLabelsTitleAndCount.stack.distribution = .fillEqually
@@ -67,6 +65,8 @@ class ScanTableViewCell: UITableViewCell {
             hStackSTVCForVStackAndButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             hStackSTVCForVStackAndButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             hStackSTVCForVStackAndButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            hStackSTVCForVStackAndButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            hStackSTVCForVStackAndButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
             
             vStackSTVCForLabelsTitleAndCount.leadingAnchor.constraint(equalTo: hStackSTVCForVStackAndButton.leadingAnchor, constant: 20),
             vStackSTVCForLabelsTitleAndCount.centerYAnchor.constraint(equalTo: hStackSTVCForVStackAndButton.centerYAnchor),

@@ -189,7 +189,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                                                colorID: product.colorID,
                                                                description: product.description,
                                                                material: product.material,
-                                                               fullBlock: nil
+                                                               fullBlock: nil,
+                                                               addedAt: Date()
                                     )
                                     
                                     
