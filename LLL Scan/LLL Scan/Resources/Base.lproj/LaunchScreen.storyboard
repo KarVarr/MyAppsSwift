@@ -15,15 +15,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3Cq-ec-0Kd">
-                                <rect key="frame" x="-4" y="160.66666666666663" width="401" height="531"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1dh-2H-QEL">
+                                <rect key="frame" x="31" y="217.66666666666666" width="331" height="416.66666666666674"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmileLaunchScreen" id="rv4-KC-vYR">
-                                        <rect key="frame" x="0.0" y="0.0" width="401" height="443.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="329"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LL Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnb-pB-HQD">
-                                        <rect key="frame" x="110" y="451.33333333333337" width="181" height="79.666666666666629"/>
+                                        <rect key="frame" x="75" y="337" width="181" height="79.666666666666686"/>
                                         <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="67"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -34,8 +34,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.97647058959999999" green="0.85490196939999996" blue="0.2901961207" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="3Cq-ec-0Kd" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="P0f-iM-A5L"/>
-                            <constraint firstItem="3Cq-ec-0Kd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="nnx-vi-FkR"/>
+                            <constraint firstItem="1dh-2H-QEL" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="8nf-58-ghO"/>
+                            <constraint firstItem="1dh-2H-QEL" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="mH6-Sy-aOU"/>
                         </constraints>
                     </view>
                 </viewController>

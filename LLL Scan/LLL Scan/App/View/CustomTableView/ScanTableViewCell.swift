@@ -29,7 +29,6 @@ class ScanTableViewCell: UITableViewCell {
         
     }
     
-    
     private func addViews() {
         contentView.addSubview(vStackSTVCForLabelsTitleAndCount.stack)
         contentView.addSubview(hStackSTVCForVStackAndButton.stack)
@@ -43,7 +42,8 @@ class ScanTableViewCell: UITableViewCell {
     }
     
     private func configureLabels() {
-        
+        countLabel.label.textColor = .lightGray
+        countLabel.label.font = UIFont(name: "Copperplate", size: 12)
     }
   
     private func configureStacks() {

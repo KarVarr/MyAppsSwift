@@ -61,15 +61,11 @@ class ProductDetailTableViewCell: UITableViewCell {
     private func configureVStackForDetails() {
         vStackForProductDetails.stack.axis = .vertical
         vStackForProductDetails.stack.alignment = .leading
-        vStackForProductDetails.stack.distribution = .equalSpacing
+        vStackForProductDetails.stack.distribution = .fillEqually
         vStackForProductDetails.stack.spacing = 5
     }
     
     private func layoutCell() {
-//        let articleLabel = articleLabelPDVC.label
-//        let titleLabel = titleLabelPDVC.label
-//        let colorLabel = colorLabelPDVC.label
-//        let materialLabel = materialLabelPDVC.label
         let imagePDVC = imagePDVC.imageView
         let vStackForProductDetails = vStackForProductDetails.stack
         
@@ -79,6 +75,7 @@ class ProductDetailTableViewCell: UITableViewCell {
             imagePDVC.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3),
             imagePDVC.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.4),
             
+            vStackForProductDetails.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             vStackForProductDetails.leadingAnchor.constraint(equalTo: imagePDVC.trailingAnchor, constant: 10),
             vStackForProductDetails.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             vStackForProductDetails.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
@@ -87,6 +84,16 @@ class ProductDetailTableViewCell: UITableViewCell {
         ])
     }
     
-    
+    //MARK: - load image url
+    func loadImage(from url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let imageData = try? Data(contentsOf: url),
+               let image = UIImage(data: imageData) {
+                DispatchQueue.main.async {
+                    self?.imagePDVC.imageView.image = image
+                }
+            }
+        }
+    }
     
 }
