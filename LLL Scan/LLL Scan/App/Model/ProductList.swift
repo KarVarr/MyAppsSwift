@@ -11,6 +11,4 @@ struct ProductList: Codable {
     var products = [Product]()
 }
 
-struct ScannedProducts: Codable {
-    var scannedProducts = [[Product]]()
-}
+

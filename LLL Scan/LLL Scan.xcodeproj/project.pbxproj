@@ -51,6 +51,7 @@
 		178DC7BA2BC4501100FEDE69 /* ViewStackCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7B92BC4501100FEDE69 /* ViewStackCustom.swift */; };
 		178DC7BC2BC4518C00FEDE69 /* ConfigureStackViewSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7BB2BC4518C00FEDE69 /* ConfigureStackViewSVC + Ext.swift */; };
 		179B54392BDE8E2B0087D8F2 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179B54382BDE8E2B0087D8F2 /* DataManager.swift */; };
+		179B543B2BE001B70087D8F2 /* ScannedProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179B543A2BE001B70087D8F2 /* ScannedProducts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,7 @@
 		178DC7B92BC4501100FEDE69 /* ViewStackCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStackCustom.swift; sourceTree = "<group>"; };
 		178DC7BB2BC4518C00FEDE69 /* ConfigureStackViewSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureStackViewSVC + Ext.swift"; sourceTree = "<group>"; };
 		179B54382BDE8E2B0087D8F2 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		179B543A2BE001B70087D8F2 /* ScannedProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedProducts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 				178DC77F2BB9AB1700FEDE69 /* HTMLParser.swift */,
 				178DC7812BB9AFAF00FEDE69 /* Product.swift */,
 				171149B72BD9058000F5DECF /* ProductList.swift */,
+				179B543A2BE001B70087D8F2 /* ScannedProducts.swift */,
 				179B54382BDE8E2B0087D8F2 /* DataManager.swift */,
 			);
 			path = Model;
@@ -402,6 +405,7 @@
 				178DC76C2BB8890F00FEDE69 /* ConfigureLabelSVC + Ext.swift in Sources */,
 				178DC7792BB9844300FEDE69 /* ConfigureImageSVC + Ext.swift in Sources */,
 				178DC7902BB9E5D000FEDE69 /* FilesVC.swift in Sources */,
+				179B543B2BE001B70087D8F2 /* ScannedProducts.swift in Sources */,
 				178DC7702BB88CC100FEDE69 /* AddViewSVC + Ext.swift in Sources */,
 				178DC7BC2BC4518C00FEDE69 /* ConfigureStackViewSVC + Ext.swift in Sources */,
 				178DC7A22BBDD1B400FEDE69 /* AddViewFVC + Ext.swift in Sources */,
