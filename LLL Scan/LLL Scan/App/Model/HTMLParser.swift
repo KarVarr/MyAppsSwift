@@ -59,6 +59,7 @@ class HTMLParser {
 //            let fullBlock = try fullBlockElement?.text()
 //            print("Full Block: \(fullBlock ?? "N/A")")
             
+            
             let product = Product(imageURL: imgSrc, link: link, article: article, title: title, price: price, colorID: colorName, description: description, material: material, fullBlock: nil, addedAt: nil)
             return .success(product)
         } catch  {
