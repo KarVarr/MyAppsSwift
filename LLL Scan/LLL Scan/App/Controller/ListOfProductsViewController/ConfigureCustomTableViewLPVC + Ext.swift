@@ -1,5 +1,5 @@
 //
-//  ConfigureCustomTableViewPDVC.swift
+//  ConfigureCustomTableViewLPVC.swift
 //  LLL Scan
 //
 //  Created by Karen Vardanian on 24.04.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
+extension ListOfProductsVC: UITableViewDelegate, UITableViewDataSource {
     func configureCustomTableViewPDVC() {
         customTableViewProductDetailVC.table.dataSource = self
         customTableViewProductDetailVC.table.delegate = self
@@ -49,8 +49,7 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        
     }
-    
-    
-    
 }

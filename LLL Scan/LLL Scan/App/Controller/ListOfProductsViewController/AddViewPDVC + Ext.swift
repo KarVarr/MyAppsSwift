@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ProductDetailVC {
+extension ListOfProductsVC {
     override func addViews() {
         let views: [UIView] = [
             customTableViewProductDetailVC.table,

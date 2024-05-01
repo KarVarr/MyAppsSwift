@@ -1,5 +1,5 @@
 //
-//  ProductDetailVC.swift
+//  ListOfProductsVC.swift
 //  LLL Scan
 //
 //  Created by Karen Vardanian on 24.04.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductDetailVC: BaseViewController {
+class ListOfProductsVC: BaseViewController {
     let dataManager = DataManager.shared
     let customTableViewProductDetailVC = CustomTableView()
     var product: [Product] = []
@@ -16,9 +16,5 @@ class ProductDetailVC: BaseViewController {
         super.viewDidLoad()
         
         configureCustomTableViewPDVC()
-        
     }
-    
-
-
 }

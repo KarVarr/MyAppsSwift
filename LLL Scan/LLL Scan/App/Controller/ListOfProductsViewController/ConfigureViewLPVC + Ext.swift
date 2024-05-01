@@ -1,5 +1,5 @@
 //
-//  ConfigureViewPDVC + Ext.swift
+//  ConfigureViewLPVC + Ext.swift
 //  LLL Scan
 //
 //  Created by Karen Vardanian on 24.04.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ProductDetailVC {
+extension ListOfProductsVC {
     override func configureView() {
         view.backgroundColor = .lightGray
         title = "Карточки товара"
@@ -29,7 +29,7 @@ extension ProductDetailVC {
 
         for scannedProduct in dataManager.scannedProducts.scannedProducts {
             for product in scannedProduct {
-                csvHead.append("\(product.article),\(product.title),\(product.price),\(product.colorID),\(product.description),\(product.material),\(product.link),\(product.imageURL)\n")
+                csvHead.append("\(String(describing: product.article)),\(String(describing: product.title)),\(String(describing: product.price)),\(String(describing: product.colorID)),\(String(describing: product.description)),\(String(describing: product.material)),\(String(describing: product.link)),\(String(describing: product.imageURL))\n")
             }
         }
         

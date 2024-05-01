@@ -54,7 +54,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
         
         let selectedProduct = dataManager.scannedProducts.scannedProducts[indexPath.row]
         
-        let productDetailVC = ProductDetailVC()
+        let productDetailVC = ListOfProductsVC()
         productDetailVC.product = selectedProduct
         
         navigationController?.pushViewController(productDetailVC, animated: true)
