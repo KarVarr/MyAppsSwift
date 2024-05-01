@@ -8,6 +8,8 @@
 import UIKit
 
 class ProductDetailsVC: BaseViewController {
+    let scrollViewCustom = ScrollViewCustom()
+    let contentViewCustom = ViewCustom()
     let productImage = ImageViewCustom()
     let articleLabel = LabelViewCustom()
     let titleLabel = LabelViewCustom()
@@ -24,6 +26,4 @@ class ProductDetailsVC: BaseViewController {
         configureImages()
         configureLabels()
     }
-    
-    
 }

@@ -54,6 +54,7 @@ extension ListOfProductsVC: UITableViewDelegate, UITableViewDataSource {
         
         let productDetailsVS = ProductDetailsVC()
         productDetailsVS.product = selectedProduct
+        productDetailsVS.title = selectedProduct.article
         navigationController?.pushViewController(productDetailsVS, animated: true)
     }
 }

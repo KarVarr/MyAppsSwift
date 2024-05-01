@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170074BD2BE29FC2005A5DF7 /* ScrollViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170074BC2BE29FC2005A5DF7 /* ScrollViewCustom.swift */; };
 		171149B82BD9058000F5DECF /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149B72BD9058000F5DECF /* ProductList.swift */; };
 		171149BB2BD954CC00F5DECF /* ListOfProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149BA2BD954CC00F5DECF /* ListOfProductsVC.swift */; };
 		171149BD2BD9571600F5DECF /* ConfigureViewLPVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149BC2BD9571600F5DECF /* ConfigureViewLPVC + Ext.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		170074BC2BE29FC2005A5DF7 /* ScrollViewCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewCustom.swift; sourceTree = "<group>"; };
 		171149B72BD9058000F5DECF /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
 		171149BA2BD954CC00F5DECF /* ListOfProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfProductsVC.swift; sourceTree = "<group>"; };
 		171149BC2BD9571600F5DECF /* ConfigureViewLPVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewLPVC + Ext.swift"; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				178DC7762BB9833F00FEDE69 /* ImageViewCustom.swift */,
 				178DC7982BBDC5A000FEDE69 /* ButtonViewCustom.swift */,
 				178DC7B92BC4501100FEDE69 /* ViewStackCustom.swift */,
+				170074BC2BE29FC2005A5DF7 /* ScrollViewCustom.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				178DC7972BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift in Sources */,
 				178DC7B82BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift in Sources */,
 				171149BF2BD9573100F5DECF /* AddViewLPVC + Ext.swift in Sources */,
+				170074BD2BE29FC2005A5DF7 /* ScrollViewCustom.swift in Sources */,
 				1787BD652BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift in Sources */,
 				171149C52BD95DB100F5DECF /* ProductDetailTableViewCell.swift in Sources */,
 				178DC7A02BBDD11000FEDE69 /* ConfigureViewFVC + Ext.swift in Sources */,
