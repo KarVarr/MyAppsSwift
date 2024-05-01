@@ -35,6 +35,7 @@ enum Helper {
     enum Keys {
         static let scanVCCellKey = "scanVCCellKey"
         static let filesVCCellKey = "filesVCCellKey"
-        static let productDetailVCCellKey = "filesVCCellKey"
+        static let listOfProducts = "filesVCCellKey"
+        static let productDetails = "productDetailsCellKey"
     }
 }

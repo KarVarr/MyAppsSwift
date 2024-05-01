@@ -11,7 +11,7 @@ extension ListOfProductsVC: UITableViewDelegate, UITableViewDataSource {
     func configureCustomTableViewLPVC() {
         customTableViewProductDetailVC.table.dataSource = self
         customTableViewProductDetailVC.table.delegate = self
-        customTableViewProductDetailVC.table.register(ProductDetailTableViewCell.self, forCellReuseIdentifier: Helper.Keys.productDetailVCCellKey)
+        customTableViewProductDetailVC.table.register(ListOfProductsCell.self, forCellReuseIdentifier: Helper.Keys.listOfProducts)
         customTableViewProductDetailVC.table.frame = view.bounds
         customTableViewProductDetailVC.table.backgroundColor = .white
         customTableViewProductDetailVC.table.separatorStyle = .singleLine
@@ -27,7 +27,7 @@ extension ListOfProductsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.productDetailVCCellKey, for: indexPath) as? ProductDetailTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Helper.Keys.listOfProducts, for: indexPath) as? ListOfProductsCell else {
             return UITableViewCell()
         }
         

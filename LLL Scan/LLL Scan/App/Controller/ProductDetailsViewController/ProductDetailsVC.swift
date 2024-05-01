@@ -8,6 +8,7 @@
 import UIKit
 
 class ProductDetailsVC: BaseViewController {
+    let customTableViewProductDetailsVC = CustomTableView(frame: .infinite, style: .insetGrouped)
     let scrollViewCustom = ScrollViewCustom()
     let contentViewCustom = ViewCustom()
     let productImage = ImageViewCustom()
@@ -25,5 +26,6 @@ class ProductDetailsVC: BaseViewController {
         
         configureImages()
         configureLabels()
+        configureCustomTableViewPDVC()
     }
 }

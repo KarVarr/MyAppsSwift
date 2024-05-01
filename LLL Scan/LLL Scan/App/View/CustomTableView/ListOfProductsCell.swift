@@ -1,5 +1,5 @@
 //
-//  ProductDetailTableViewCell.swift
+//  ListOfProductsTableViewCell.swift
 //  LLL Scan
 //
 //  Created by Karen Vardanian on 24.04.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductDetailTableViewCell: UITableViewCell {
+class ListOfProductsCell: UITableViewCell {
     let articleLabelPDVC = LabelViewCustom()
     let titleLabelPDVC = LabelViewCustom()
     let colorLabelPDVC = LabelViewCustom()
