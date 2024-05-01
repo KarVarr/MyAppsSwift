@@ -8,7 +8,7 @@
 import UIKit
 
 extension ListOfProductsVC: UITableViewDelegate, UITableViewDataSource {
-    func configureCustomTableViewPDVC() {
+    func configureCustomTableViewLPVC() {
         customTableViewProductDetailVC.table.dataSource = self
         customTableViewProductDetailVC.table.delegate = self
         customTableViewProductDetailVC.table.register(ProductDetailTableViewCell.self, forCellReuseIdentifier: Helper.Keys.productDetailVCCellKey)

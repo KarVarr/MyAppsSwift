@@ -15,6 +15,10 @@
 		171149C32BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149C22BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift */; };
 		171149C52BD95DB100F5DECF /* ProductDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149C42BD95DB100F5DECF /* ProductDetailTableViewCell.swift */; };
 		1713481C2BCC3CBB00FC3CF7 /* myApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1713481B2BCC3CBB00FC3CF7 /* myApi.swift */; };
+		1787BD632BE2777E00F8BC7F /* ProductDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD622BE2777E00F8BC7F /* ProductDetailsVC.swift */; };
+		1787BD652BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD642BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift */; };
+		1787BD672BE277D900F8BC7F /* AddViewPDVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD662BE277D900F8BC7F /* AddViewPDVC + Ext.swift */; };
+		1787BD692BE277E900F8BC7F /* LayoutViewPDVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD682BE277E900F8BC7F /* LayoutViewPDVC + Ext.swift */; };
 		178DC74D2BB83E4500FEDE69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC74C2BB83E4500FEDE69 /* AppDelegate.swift */; };
 		178DC74F2BB83E4500FEDE69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC74E2BB83E4500FEDE69 /* SceneDelegate.swift */; };
 		178DC7512BB83E4500FEDE69 /* ScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7502BB83E4500FEDE69 /* ScanVC.swift */; };
@@ -63,6 +67,10 @@
 		171149C22BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureCustomTableViewLPVC + Ext.swift"; sourceTree = "<group>"; };
 		171149C42BD95DB100F5DECF /* ProductDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailTableViewCell.swift; sourceTree = "<group>"; };
 		1713481B2BCC3CBB00FC3CF7 /* myApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myApi.swift; sourceTree = "<group>"; };
+		1787BD622BE2777E00F8BC7F /* ProductDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
+		1787BD642BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewPDVC + Ext.swift"; sourceTree = "<group>"; };
+		1787BD662BE277D900F8BC7F /* AddViewPDVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewPDVC + Ext.swift"; sourceTree = "<group>"; };
+		1787BD682BE277E900F8BC7F /* LayoutViewPDVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutViewPDVC + Ext.swift"; sourceTree = "<group>"; };
 		178DC7492BB83E4500FEDE69 /* LLL Scan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LLL Scan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		178DC74C2BB83E4500FEDE69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		178DC74E2BB83E4500FEDE69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,12 +219,12 @@
 		178DC7642BB885D200FEDE69 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				179B543C2BE273F10087D8F2 /* New Group */,
 				178DC7842BB9E21000FEDE69 /* NavigationController */,
 				178DC7682BB8880600FEDE69 /* BaseController */,
 				178DC7672BB887F200FEDE69 /* ScanViewController */,
 				178DC78E2BB9E57D00FEDE69 /* FilesViewController */,
 				171149B92BD954A800F5DECF /* ListOfProductsViewController */,
+				179B543C2BE273F10087D8F2 /* ProductDetailsViewController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -312,11 +320,15 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		179B543C2BE273F10087D8F2 /* New Group */ = {
+		179B543C2BE273F10087D8F2 /* ProductDetailsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1787BD622BE2777E00F8BC7F /* ProductDetailsVC.swift */,
+				1787BD642BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift */,
+				1787BD662BE277D900F8BC7F /* AddViewPDVC + Ext.swift */,
+				1787BD682BE277E900F8BC7F /* LayoutViewPDVC + Ext.swift */,
 			);
-			path = "New Group";
+			path = ProductDetailsViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,6 +410,7 @@
 				178DC77E2BB9AB0D00FEDE69 /* NetworkManager.swift in Sources */,
 				178DC7932BB9F16000FEDE69 /* CustomTableView.swift in Sources */,
 				171149BB2BD954CC00F5DECF /* ListOfProductsVC.swift in Sources */,
+				1787BD692BE277E900F8BC7F /* LayoutViewPDVC + Ext.swift in Sources */,
 				178DC7952BB9F2A000FEDE69 /* ScanTableViewCell.swift in Sources */,
 				178DC7A42BBDD28200FEDE69 /* LayoutViewFVC + Ext.swift in Sources */,
 				171149C12BD9574200F5DECF /* LayoutViewLPVC + Ext.swift in Sources */,
@@ -405,6 +418,7 @@
 				178DC7AA2BBDD3AA00FEDE69 /* FilesTableViewCell.swift in Sources */,
 				178DC7772BB9833F00FEDE69 /* ImageViewCustom.swift in Sources */,
 				178DC7512BB83E4500FEDE69 /* ScanVC.swift in Sources */,
+				1787BD672BE277D900F8BC7F /* AddViewPDVC + Ext.swift in Sources */,
 				178DC7862BB9E23400FEDE69 /* TabBarController.swift in Sources */,
 				178DC7992BBDC5A000FEDE69 /* ButtonViewCustom.swift in Sources */,
 				171149BD2BD9571600F5DECF /* ConfigureViewLPVC + Ext.swift in Sources */,
@@ -425,8 +439,10 @@
 				178DC7972BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift in Sources */,
 				178DC7B82BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift in Sources */,
 				171149BF2BD9573100F5DECF /* AddViewLPVC + Ext.swift in Sources */,
+				1787BD652BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift in Sources */,
 				171149C52BD95DB100F5DECF /* ProductDetailTableViewCell.swift in Sources */,
 				178DC7A02BBDD11000FEDE69 /* ConfigureViewFVC + Ext.swift in Sources */,
+				1787BD632BE2777E00F8BC7F /* ProductDetailsVC.swift in Sources */,
 				178DC7722BB88DE900FEDE69 /* ConfigureViewSVC + Ext.swift in Sources */,
 				171149C32BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift in Sources */,
 				178DC7A62BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift in Sources */,

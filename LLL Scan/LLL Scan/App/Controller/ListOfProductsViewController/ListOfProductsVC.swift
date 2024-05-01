@@ -15,6 +15,6 @@ class ListOfProductsVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureCustomTableViewPDVC()
+        configureCustomTableViewLPVC()
     }
 }
