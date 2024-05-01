@@ -54,10 +54,10 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
         
         let selectedProduct = dataManager.scannedProducts.scannedProducts[indexPath.row]
         
-        let productDetailVC = ListOfProductsVC()
-        productDetailVC.product = selectedProduct
+        let listOFProductsVC = ListOfProductsVC()
+        listOFProductsVC.product = selectedProduct
         
-        navigationController?.pushViewController(productDetailVC, animated: true)
+        navigationController?.pushViewController(listOFProductsVC, animated: true)
     }
     
     

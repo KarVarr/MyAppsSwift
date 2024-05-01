@@ -16,12 +16,14 @@ class ProductDetailsVC: BaseViewController {
     let descriptionLabel = LabelViewCustom()
     let priceLabel = LabelViewCustom()
     
+    var product: Product?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        title = "Details"
-        view.backgroundColor = .magenta
+        
+        configureImages()
+        configureLabels()
     }
     
-
+    
 }

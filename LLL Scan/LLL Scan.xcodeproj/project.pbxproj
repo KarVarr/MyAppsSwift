@@ -324,9 +324,9 @@
 			isa = PBXGroup;
 			children = (
 				1787BD622BE2777E00F8BC7F /* ProductDetailsVC.swift */,
-				1787BD642BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift */,
 				1787BD662BE277D900F8BC7F /* AddViewPDVC + Ext.swift */,
 				1787BD682BE277E900F8BC7F /* LayoutViewPDVC + Ext.swift */,
+				1787BD642BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift */,
 			);
 			path = ProductDetailsViewController;
 			sourceTree = "<group>";
