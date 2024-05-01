@@ -43,7 +43,7 @@ class ScanTableViewCell: UITableViewCell {
     
     private func configureLabels() {
         countLabel.label.textColor = .lightGray
-        countLabel.label.font = UIFont(name: "Copperplate", size: 12)
+        countLabel.label.font = UIFont(name: "Copperplate", size: 14)
     }
   
     private func configureStacks() {
