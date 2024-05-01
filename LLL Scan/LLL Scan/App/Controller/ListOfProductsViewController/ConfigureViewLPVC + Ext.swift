@@ -25,7 +25,7 @@ extension ListOfProductsVC {
         var csvHead = "Article,Title,Price,Color,Description,Material,link,ImageLink\n"
        
         //TODO: - find array
-        var number = 0
+//        var number = 0
 
         for scannedProduct in dataManager.scannedProducts.scannedProducts {
             for product in scannedProduct {
