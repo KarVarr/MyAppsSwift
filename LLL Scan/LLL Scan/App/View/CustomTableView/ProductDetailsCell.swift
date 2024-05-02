@@ -44,5 +44,8 @@ class ProductDetailsCell: UITableViewCell {
         
     }
 
+    func configure(with attribute: String) {
+        titleLabel.label.text = attribute
+       }
 
 }

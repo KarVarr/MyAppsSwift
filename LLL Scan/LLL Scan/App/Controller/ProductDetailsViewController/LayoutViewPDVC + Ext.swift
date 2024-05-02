@@ -40,7 +40,7 @@ extension ProductDetailsVC {
             customTableViewProductDetailsVC.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 20),
             customTableViewProductDetailsVC.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             customTableViewProductDetailsVC.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            customTableViewProductDetailsVC.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            customTableViewProductDetailsVC.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 //            articleLabel.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 20),
 //            articleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
 //            

@@ -14,12 +14,12 @@ extension ProductDetailsVC {
         
         let views: [UIView] = [
             productImage.imageView,
-            articleLabel.label,
-            titleLabel.label,
-            colorLabel.label,
-            materialLabel.label,
-            descriptionLabel.label,
-            priceLabel.label,
+//            articleLabel.label,
+//            titleLabel.label,
+//            colorLabel.label,
+//            materialLabel.label,
+//            descriptionLabel.label,
+//            priceLabel.label,
             customTableViewProductDetailsVC.table
         ]
         

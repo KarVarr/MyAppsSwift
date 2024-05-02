@@ -8,16 +8,16 @@
 import UIKit
 
 class ProductDetailsVC: BaseViewController {
-    let customTableViewProductDetailsVC = CustomTableView()
+    let customTableViewProductDetailsVC = CustomTableView(frame: .zero, style: .insetGrouped)
     let scrollViewCustom = ScrollViewCustom()
     let contentViewCustom = ViewCustom()
     let productImage = ImageViewCustom()
-    let articleLabel = LabelViewCustom()
-    let titleLabel = LabelViewCustom()
-    let colorLabel = LabelViewCustom()
-    let materialLabel = LabelViewCustom()
-    let descriptionLabel = LabelViewCustom()
-    let priceLabel = LabelViewCustom()
+//    let articleLabel = LabelViewCustom()
+//    let titleLabel = LabelViewCustom()
+//    let colorLabel = LabelViewCustom()
+//    let materialLabel = LabelViewCustom()
+//    let descriptionLabel = LabelViewCustom()
+//    let priceLabel = LabelViewCustom()
     
     var product: Product?
     
@@ -25,7 +25,7 @@ class ProductDetailsVC: BaseViewController {
         super.viewDidLoad()
         
         configureImages()
-        configureLabels()
+//        configureLabels()
         configureCustomTableViewPDVC()
     }
 }

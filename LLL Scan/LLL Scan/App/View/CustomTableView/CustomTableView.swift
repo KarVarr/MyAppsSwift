@@ -9,7 +9,7 @@ import UIKit
 
 class CustomTableView: UITableView {
     let table: UITableView = {
-        let table = UITableView(frame: .zero, style: .insetGrouped)
+        let table = UITableView(frame: .zero, style: .plain)
         table.translatesAutoresizingMaskIntoConstraints = false
         
         return table
