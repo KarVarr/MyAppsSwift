@@ -8,16 +8,41 @@
 import UIKit
 
 class ProductDetailsCell: UITableViewCell {
+    let articleLabel = LabelViewCustom()
+    let titleLabel = LabelViewCustom()
+    let colorLabel = LabelViewCustom()
+    let materialLabel = LabelViewCustom()
+    let descriptionLabel = LabelViewCustom()
+    let priceLabel = LabelViewCustom()
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        addViews()
+        configureCell()
+        configureLabels()
+        layoutCell()
     }
+    
+    private func addViews() {
+        
+    }
+    
+    private func configureCell() {
+        
+    }
+    
+    private func configureLabels() {
+        
+    }
+    
+    private func layoutCell() {
+        
+    }
+
 
 }

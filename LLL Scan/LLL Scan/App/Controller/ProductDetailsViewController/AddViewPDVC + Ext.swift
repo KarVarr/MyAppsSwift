@@ -19,7 +19,8 @@ extension ProductDetailsVC {
             colorLabel.label,
             materialLabel.label,
             descriptionLabel.label,
-            priceLabel.label
+            priceLabel.label,
+            customTableViewProductDetailsVC.table
         ]
         
         for addView in views {

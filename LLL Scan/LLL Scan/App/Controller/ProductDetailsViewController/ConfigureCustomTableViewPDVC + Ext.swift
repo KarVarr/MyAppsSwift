@@ -12,8 +12,8 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
     func configureCustomTableViewPDVC() {
         customTableViewProductDetailsVC.table.dataSource = self
         customTableViewProductDetailsVC.table.delegate = self
-        customTableViewProductDetailsVC.table.register(ListOfProductsCell.self, forCellReuseIdentifier: Helper.Keys.productDetails)
-        customTableViewProductDetailsVC.table.frame = view.bounds
+        customTableViewProductDetailsVC.table.register(ProductDetailsCell.self, forCellReuseIdentifier: Helper.Keys.productDetails)
+//        customTableViewProductDetailsVC.table.frame = view.bounds
         customTableViewProductDetailsVC.table.backgroundColor = .white
         customTableViewProductDetailsVC.table.separatorStyle = .singleLine
         customTableViewProductDetailsVC.table.separatorColor = .purple

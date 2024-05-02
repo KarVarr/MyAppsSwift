@@ -16,29 +16,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" image="barcode.viewfinder" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CpE-dy-krx">
+                                <rect key="frame" x="44" y="291.33333333333331" width="305" height="269.99999999999994"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LL Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJ3-jf-iAi">
-                                <rect key="frame" x="106" y="236.99999999999997" width="181" height="79.666666666666657"/>
+                                <rect key="frame" x="106" y="219.99999999999997" width="181" height="79.666666666666657"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="67"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" image="barcode.viewfinder" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CpE-dy-krx">
-                                <rect key="frame" x="62" y="357.33333333333331" width="269" height="230.99999999999994"/>
-                                <color key="tintColor" systemColor="labelColor"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.97254902119999997" green="0.85882353779999998" blue="0.2901961207" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="BJ3-jf-iAi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9eI-OH-Gu5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BJ3-jf-iAi" secondAttribute="trailing" constant="106" id="A5R-tj-XxN"/>
-                            <constraint firstItem="BJ3-jf-iAi" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="MKN-Vv-1wn"/>
-                            <constraint firstItem="CpE-dy-krx" firstAttribute="top" secondItem="BJ3-jf-iAi" secondAttribute="bottom" constant="39.329999999999998" id="c7h-l3-zcA"/>
-                            <constraint firstItem="BJ3-jf-iAi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="106" id="hTN-JR-nCF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CpE-dy-krx" secondAttribute="bottom" constant="229" id="jyc-ZS-d13"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CpE-dy-krx" secondAttribute="trailing" constant="62" id="odf-XM-Gfk"/>
-                            <constraint firstItem="BJ3-jf-iAi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="178" id="pAJ-BE-4Go"/>
-                            <constraint firstItem="CpE-dy-krx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="tUg-Ap-Ci1"/>
+                            <constraint firstItem="CpE-dy-krx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="EcA-0O-Evn"/>
+                            <constraint firstItem="CpE-dy-krx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="44" id="PoQ-OO-vLC"/>
+                            <constraint firstItem="CpE-dy-krx" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="QE4-An-lkk"/>
+                            <constraint firstItem="BJ3-jf-iAi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="161" id="hk0-2I-bkf"/>
+                            <constraint firstItem="CpE-dy-krx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="230.99999999999994" id="pAY-dq-CqV"/>
+                            <constraint firstItem="CpE-dy-krx" firstAttribute="centerX" secondItem="BJ3-jf-iAi" secondAttribute="centerX" id="qUm-Xe-L3A"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -8,7 +8,7 @@
 import UIKit
 
 class ProductDetailsVC: BaseViewController {
-    let customTableViewProductDetailsVC = CustomTableView(frame: .infinite, style: .insetGrouped)
+    let customTableViewProductDetailsVC = CustomTableView()
     let scrollViewCustom = ScrollViewCustom()
     let contentViewCustom = ViewCustom()
     let productImage = ImageViewCustom()

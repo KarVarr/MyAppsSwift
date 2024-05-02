@@ -12,12 +12,13 @@ extension ProductDetailsVC {
         let scrollView = scrollViewCustom.scrollViewCustom
         let contentView = contentViewCustom.vc
         let productImage = productImage.imageView
-        let articleLabel = articleLabel.label
-        let titleLabel = titleLabel.label
-        let colorLabel = colorLabel.label
-        let materialLabel = materialLabel.label
-        let descriptionLabel = descriptionLabel.label
-        let priceLabel = priceLabel.label
+//        let articleLabel = articleLabel.label
+//        let titleLabel = titleLabel.label
+//        let colorLabel = colorLabel.label
+//        let materialLabel = materialLabel.label
+//        let descriptionLabel = descriptionLabel.label
+//        let priceLabel = priceLabel.label
+        let customTableViewProductDetailsVC = customTableViewProductDetailsVC.table
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -36,25 +37,29 @@ extension ProductDetailsVC {
             productImage.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.4),
             productImage.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.4),
             
-            articleLabel.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 20),
-            articleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            
-            titleLabel.topAnchor.constraint(equalTo: articleLabel.bottomAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            
-            colorLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            colorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            
-            materialLabel.topAnchor.constraint(equalTo: colorLabel.bottomAnchor, constant: 10),
-            materialLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            
-            descriptionLabel.topAnchor.constraint(equalTo: materialLabel.bottomAnchor, constant: 10),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            
-            priceLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
-            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            priceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
+            customTableViewProductDetailsVC.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 20),
+            customTableViewProductDetailsVC.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            customTableViewProductDetailsVC.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            customTableViewProductDetailsVC.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+//            articleLabel.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 20),
+//            articleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+//            
+//            titleLabel.topAnchor.constraint(equalTo: articleLabel.bottomAnchor, constant: 10),
+//            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+//            
+//            colorLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+//            colorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+//            
+//            materialLabel.topAnchor.constraint(equalTo: colorLabel.bottomAnchor, constant: 10),
+//            materialLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+//            
+//            descriptionLabel.topAnchor.constraint(equalTo: materialLabel.bottomAnchor, constant: 10),
+//            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+//            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+//            
+//            priceLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+//            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+//            priceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
 }
