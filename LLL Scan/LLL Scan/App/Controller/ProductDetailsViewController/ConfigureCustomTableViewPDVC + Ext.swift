@@ -17,10 +17,15 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
         customTableViewProductDetailsVC.table.register(ProductDetailsCell.self, forCellReuseIdentifier: Helper.Keys.productDetails)
         customTableViewProductDetailsVC.table.register(ProductDetailsCellHeader.self, forHeaderFooterViewReuseIdentifier: Helper.Keys.productDetailsCellHeader)
         customTableViewProductDetailsVC.table.frame = view.bounds
-//        customTableViewProductDetailsVC.table.backgroundColor = .white
-//        customTableViewProductDetailsVC.table
-//        customTableViewProductDetailsVC.table.rowHeight = UITableView.automaticDimension
-//        customTableViewProductDetailsVC.table.estimatedRowHeight = 44 
+        customTableViewProductDetailsVC.table.backgroundColor = .white
+        customTableViewProductDetailsVC.table.rowHeight = UITableView.automaticDimension
+        customTableViewProductDetailsVC.table.estimatedRowHeight = 100 
+        
+
+        //        customTableViewProductDetailsVC.table.backgroundColor = .white
+        //        customTableViewProductDetailsVC.table
+        //        customTableViewProductDetailsVC.table.rowHeight = UITableView.automaticDimension
+        //        customTableViewProductDetailsVC.table.estimatedRowHeight = 44
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,17 +55,17 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
         
         switch sectionIndex {
         case 0:
-            cell.configure(with: "\(product?.title ?? "хуй")")
+            cell.configure(with: "\(product?.article ?? "Нет артикула")")
         case 1:
-            cell.configure(with: "\(product?.article ?? "тебе")")
+            cell.configure(with: "\(product?.title ?? "Нет названия")")
         case 2:
-            cell.configure(with: "\(product?.colorID ?? "а не ")")
+            cell.configure(with: "\(product?.colorID ?? "Нет цвета")")
         case 3:
-            cell.configure(with: "\(product?.material ?? "рабочий")")
+            cell.configure(with: "\(product?.material ?? "Нет состава")")
         case 4:
-            cell.configure(with: "\(product?.description ?? "билд ")")
+            cell.configure(with: "\(product?.description ?? "Нет описания")")
         case 5:
-            cell.configure(with: "\(product?.price ?? "сука")")
+            cell.configure(with: "\(product?.price ?? "Нет цены")")
         default:
             break
         }

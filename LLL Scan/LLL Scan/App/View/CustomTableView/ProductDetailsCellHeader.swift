@@ -20,14 +20,16 @@ class ProductDetailsCellHeader: UITableViewHeaderFooterView {
     
     
     public func configure(with title: String) {
-        headerTitleLabel.label.textColor = .lightGray
+        headerTitleLabel.label.textColor = .black
+        headerTitleLabel.label.font = UIFont(name: "Copperplate", size: 18)
         headerTitleLabel.label.text = title
         setupUI()
     }
     
     private func setupUI() {
-        let headerView = ViewCustom()
-        headerView.vc.backgroundColor = .lightGray
+        let headerView = UIView()
+        headerView.backgroundColor = .lightGray
+        self.backgroundView = headerView
         
         self.addSubview(headerTitleLabel.label)
         

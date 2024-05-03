@@ -34,6 +34,8 @@ class ProductDetailsCell: UITableViewCell {
     
     private func configureLabels() {
         labelView.label.numberOfLines = 0
+        labelView.label.lineBreakMode = .byTruncatingTail
+        labelView.label.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
     }
     
     private func layoutCell() {

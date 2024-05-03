@@ -19,7 +19,7 @@ class ProductDetailsVC: BaseViewController {
     let productImage = ImageViewCustom()
     
     var sectionHeader = [
-        SectionHeaders(title: "Артикл"),
+        SectionHeaders(title: "Артикул"),
         SectionHeaders(title: "Название"),
         SectionHeaders(title: "Цвет"),
         SectionHeaders(title: "Состав"),
