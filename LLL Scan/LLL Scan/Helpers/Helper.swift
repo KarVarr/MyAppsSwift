@@ -37,5 +37,6 @@ enum Helper {
         static let filesVCCellKey = "filesVCCellKey"
         static let listOfProducts = "filesVCCellKey"
         static let productDetails = "productDetailsCellKey"
+        static let productDetailsCellHeader = "productDetailsCellHeaderKey"
     }
 }

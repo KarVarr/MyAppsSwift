@@ -7,11 +7,25 @@
 
 import UIKit
 
+struct SectionHeaders {
+    let title: String
+}
+
+
 class ProductDetailsVC: BaseViewController {
     let customTableViewProductDetailsVC = CustomTableView(frame: .zero, style: .insetGrouped)
     let scrollViewCustom = ScrollViewCustom()
     let contentViewCustom = ViewCustom()
     let productImage = ImageViewCustom()
+    
+    var sectionHeader = [
+        SectionHeaders(title: "Артикл"),
+        SectionHeaders(title: "Название"),
+        SectionHeaders(title: "Цвет"),
+        SectionHeaders(title: "Состав"),
+        SectionHeaders(title: "Описание"),
+        SectionHeaders(title: "Цена"),
+    ]
 //    let articleLabel = LabelViewCustom()
 //    let titleLabel = LabelViewCustom()
 //    let colorLabel = LabelViewCustom()

@@ -9,10 +9,13 @@ import UIKit
 
 
 extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
+    
+    
     func configureCustomTableViewPDVC() {
         customTableViewProductDetailsVC.table.dataSource = self
         customTableViewProductDetailsVC.table.delegate = self
         customTableViewProductDetailsVC.table.register(ProductDetailsCell.self, forCellReuseIdentifier: Helper.Keys.productDetails)
+        customTableViewProductDetailsVC.table.register(ProductDetailsCellHeader.self, forHeaderFooterViewReuseIdentifier: Helper.Keys.productDetailsCellHeader)
         customTableViewProductDetailsVC.table.frame = view.bounds
 //        customTableViewProductDetailsVC.table.backgroundColor = .white
 //        customTableViewProductDetailsVC.table
@@ -21,7 +24,7 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 7
+        return sectionHeader.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,7 +32,13 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        <#code#>
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Helper.Keys.productDetailsCellHeader) as? ProductDetailsCellHeader else {
+            fatalError("header fail")
+        }
+        
+        let headerTitle = sectionHeader[section].title
+        header.configure(with: headerTitle)
+        return header
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

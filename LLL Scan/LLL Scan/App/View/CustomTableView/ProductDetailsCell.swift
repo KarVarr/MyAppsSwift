@@ -14,14 +14,14 @@ class ProductDetailsCell: UITableViewCell {
     let materialLabel = LabelViewCustom()
     let descriptionLabel = LabelViewCustom()
     let priceLabel = LabelViewCustom()
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         addViews()
         configureCell()
         configureLabels()
@@ -43,9 +43,9 @@ class ProductDetailsCell: UITableViewCell {
     private func layoutCell() {
         
     }
-
+    
     func configure(with attribute: String) {
-        titleLabel.label.text = attribute
-       }
-
+        
+    }
+    
 }
