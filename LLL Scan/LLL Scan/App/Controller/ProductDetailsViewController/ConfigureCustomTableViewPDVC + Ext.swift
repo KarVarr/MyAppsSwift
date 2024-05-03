@@ -13,8 +13,9 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
         customTableViewProductDetailsVC.table.dataSource = self
         customTableViewProductDetailsVC.table.delegate = self
         customTableViewProductDetailsVC.table.register(ProductDetailsCell.self, forCellReuseIdentifier: Helper.Keys.productDetails)
-//        customTableViewProductDetailsVC.table.backgroundColor = .white
-        customTableViewProductDetailsVC.table.rowHeight = UITableView.automaticDimension
+        customTableViewProductDetailsVC.table.frame = view.bounds
+        customTableViewProductDetailsVC.table.backgroundColor = .white
+//        customTableViewProductDetailsVC.table.rowHeight = UITableView.automaticDimension
 //        customTableViewProductDetailsVC.table.estimatedRowHeight = 44 
     }
     
@@ -27,22 +28,22 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        switch indexPath.row {
-        case 0:
-            cell.configure(with: "Название: \(product?.title ?? "хуй")")
-        case 1:
-            cell.configure(with: "Артикул: \(product?.article ?? "тебе")")
-        case 2:
-            cell.configure(with: "Цвет: \(product?.colorID ?? "а не ")")
-        case 3:
-            cell.configure(with: "Материалы: \(product?.material ?? "рабочий")")
-        case 4:
-            cell.configure(with: "Описание: \(product?.description ?? "билд ")")
-        case 5:
-            cell.configure(with: "Цена: \(product?.price ?? "сука")")
-        default:
-            break
-        }
+//        switch indexPath.row {
+//        case 0:
+//            cell.configure(with: "Название: \(product?.title ?? "хуй")")
+//        case 1:
+//            cell.configure(with: "Артикул: \(product?.article ?? "тебе")")
+//        case 2:
+//            cell.configure(with: "Цвет: \(product?.colorID ?? "а не ")")
+//        case 3:
+//            cell.configure(with: "Материалы: \(product?.material ?? "рабочий")")
+//        case 4:
+//            cell.configure(with: "Описание: \(product?.description ?? "билд ")")
+//        case 5:
+//            cell.configure(with: "Цена: \(product?.price ?? "сука")")
+//        default:
+//            break
+//        }
         
         return cell
     }

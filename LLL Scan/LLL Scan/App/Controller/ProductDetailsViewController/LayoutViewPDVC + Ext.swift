@@ -9,38 +9,38 @@ import UIKit
 
 extension ProductDetailsVC {
     override func layoutView() {
-        let scrollView = scrollViewCustom.scrollViewCustom
-        let contentView = contentViewCustom.vc
-        let productImage = productImage.imageView
+//        let scrollView = scrollViewCustom.scrollViewCustom
+//        let contentView = contentViewCustom.vc
+//        let productImage = productImage.imageView
 //        let articleLabel = articleLabel.label
 //        let titleLabel = titleLabel.label
 //        let colorLabel = colorLabel.label
 //        let materialLabel = materialLabel.label
 //        let descriptionLabel = descriptionLabel.label
 //        let priceLabel = priceLabel.label
-        let customTableViewProductDetailsVC = customTableViewProductDetailsVC.table
+//        let customTableViewProductDetailsVC = customTableViewProductDetailsVC.table
         
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            
-            productImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            productImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            productImage.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.4),
-            productImage.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.4),
-            
-            customTableViewProductDetailsVC.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 20),
-            customTableViewProductDetailsVC.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            customTableViewProductDetailsVC.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            customTableViewProductDetailsVC.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+//            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+//            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+//            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+//            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+//            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+//            
+//            productImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+//            productImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+//            productImage.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.4),
+//            productImage.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.4),
+//            
+//            customTableViewProductDetailsVC.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 20),
+//            customTableViewProductDetailsVC.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+//            customTableViewProductDetailsVC.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+//            customTableViewProductDetailsVC.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 //            articleLabel.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 20),
 //            articleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
 //            
