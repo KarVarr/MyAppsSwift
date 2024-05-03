@@ -20,6 +20,7 @@ class ProductDetailsCellHeader: UITableViewHeaderFooterView {
     
     
     public func configure(with title: String) {
+        headerTitleLabel.label.textColor = .lightGray
         headerTitleLabel.label.text = title
         setupUI()
     }

@@ -8,12 +8,8 @@
 import UIKit
 
 class ProductDetailsCell: UITableViewCell {
-    let articleLabel = LabelViewCustom()
-    let titleLabel = LabelViewCustom()
-    let colorLabel = LabelViewCustom()
-    let materialLabel = LabelViewCustom()
-    let descriptionLabel = LabelViewCustom()
-    let priceLabel = LabelViewCustom()
+    let labelView = LabelViewCustom()
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +25,7 @@ class ProductDetailsCell: UITableViewCell {
     }
     
     private func addViews() {
-        
+        contentView.addSubview(labelView.label)
     }
     
     private func configureCell() {
@@ -37,15 +33,20 @@ class ProductDetailsCell: UITableViewCell {
     }
     
     private func configureLabels() {
-        
+        labelView.label.numberOfLines = 0
     }
     
     private func layoutCell() {
-        
+        NSLayoutConstraint.activate([
+            labelView.label.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            labelView.label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            labelView.label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            labelView.label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+        ])
     }
     
     func configure(with attribute: String) {
-        
+        labelView.label.text = attribute
     }
     
 }

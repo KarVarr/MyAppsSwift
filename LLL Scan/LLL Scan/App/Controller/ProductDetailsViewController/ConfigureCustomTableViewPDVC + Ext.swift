@@ -46,22 +46,24 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-//        switch indexPath.row {
-//        case 0:
-//            cell.configure(with: "Название: \(product?.title ?? "хуй")")
-//        case 1:
-//            cell.configure(with: "Артикул: \(product?.article ?? "тебе")")
-//        case 2:
-//            cell.configure(with: "Цвет: \(product?.colorID ?? "а не ")")
-//        case 3:
-//            cell.configure(with: "Материалы: \(product?.material ?? "рабочий")")
-//        case 4:
-//            cell.configure(with: "Описание: \(product?.description ?? "билд ")")
-//        case 5:
-//            cell.configure(with: "Цена: \(product?.price ?? "сука")")
-//        default:
-//            break
-//        }
+        let sectionIndex = indexPath.section
+        
+        switch sectionIndex {
+        case 0:
+            cell.configure(with: "\(product?.title ?? "хуй")")
+        case 1:
+            cell.configure(with: "\(product?.article ?? "тебе")")
+        case 2:
+            cell.configure(with: "\(product?.colorID ?? "а не ")")
+        case 3:
+            cell.configure(with: "\(product?.material ?? "рабочий")")
+        case 4:
+            cell.configure(with: "\(product?.description ?? "билд ")")
+        case 5:
+            cell.configure(with: "\(product?.price ?? "сука")")
+        default:
+            break
+        }
         
         return cell
     }
