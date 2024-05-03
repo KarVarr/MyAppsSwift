@@ -24,7 +24,7 @@ extension ProductDetailsVC {
         ]
         
         for addView in views {
-            contentViewCustom.vc.addSubview(addView)
+            view.addSubview(addView)
         }
         
     }

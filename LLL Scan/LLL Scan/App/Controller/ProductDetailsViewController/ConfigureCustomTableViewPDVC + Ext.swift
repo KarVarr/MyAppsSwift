@@ -14,13 +14,22 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
         customTableViewProductDetailsVC.table.delegate = self
         customTableViewProductDetailsVC.table.register(ProductDetailsCell.self, forCellReuseIdentifier: Helper.Keys.productDetails)
         customTableViewProductDetailsVC.table.frame = view.bounds
-        customTableViewProductDetailsVC.table.backgroundColor = .white
+//        customTableViewProductDetailsVC.table.backgroundColor = .white
+//        customTableViewProductDetailsVC.table
 //        customTableViewProductDetailsVC.table.rowHeight = UITableView.automaticDimension
 //        customTableViewProductDetailsVC.table.estimatedRowHeight = 44 
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 7
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        <#code#>
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,5 +55,9 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
 //        }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

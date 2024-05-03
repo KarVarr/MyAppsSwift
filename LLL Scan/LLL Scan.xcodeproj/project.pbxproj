@@ -57,6 +57,7 @@
 		178DC7B82BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7B72BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift */; };
 		178DC7BA2BC4501100FEDE69 /* ViewStackCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7B92BC4501100FEDE69 /* ViewStackCustom.swift */; };
 		178DC7BC2BC4518C00FEDE69 /* ConfigureStackViewSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7BB2BC4518C00FEDE69 /* ConfigureStackViewSVC + Ext.swift */; };
+		179985482BE5478200C34D33 /* ProductDetailsCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179985472BE5478200C34D33 /* ProductDetailsCellHeader.swift */; };
 		179B54392BDE8E2B0087D8F2 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179B54382BDE8E2B0087D8F2 /* DataManager.swift */; };
 		179B543B2BE001B70087D8F2 /* ScannedProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179B543A2BE001B70087D8F2 /* ScannedProducts.swift */; };
 /* End PBXBuildFile section */
@@ -113,6 +114,7 @@
 		178DC7B72BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewCustomSVC + Ext.swift"; sourceTree = "<group>"; };
 		178DC7B92BC4501100FEDE69 /* ViewStackCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStackCustom.swift; sourceTree = "<group>"; };
 		178DC7BB2BC4518C00FEDE69 /* ConfigureStackViewSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureStackViewSVC + Ext.swift"; sourceTree = "<group>"; };
+		179985472BE5478200C34D33 /* ProductDetailsCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsCellHeader.swift; sourceTree = "<group>"; };
 		179B54382BDE8E2B0087D8F2 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		179B543A2BE001B70087D8F2 /* ScannedProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedProducts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -307,6 +309,7 @@
 				178DC7A92BBDD3AA00FEDE69 /* FilesTableViewCell.swift */,
 				171149C42BD95DB100F5DECF /* ListOfProductsCell.swift */,
 				170074C02BE2B8C0005A5DF7 /* ProductDetailsCell.swift */,
+				179985472BE5478200C34D33 /* ProductDetailsCellHeader.swift */,
 			);
 			path = CustomTableView;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				171149BB2BD954CC00F5DECF /* ListOfProductsVC.swift in Sources */,
 				1787BD692BE277E900F8BC7F /* LayoutViewPDVC + Ext.swift in Sources */,
 				178DC7952BB9F2A000FEDE69 /* ScanTableViewCell.swift in Sources */,
+				179985482BE5478200C34D33 /* ProductDetailsCellHeader.swift in Sources */,
 				178DC7A42BBDD28200FEDE69 /* LayoutViewFVC + Ext.swift in Sources */,
 				171149C12BD9574200F5DECF /* LayoutViewLPVC + Ext.swift in Sources */,
 				179B54392BDE8E2B0087D8F2 /* DataManager.swift in Sources */,
