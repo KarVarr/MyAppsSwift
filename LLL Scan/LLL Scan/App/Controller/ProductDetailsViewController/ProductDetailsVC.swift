@@ -11,7 +11,6 @@ struct SectionHeaders {
     let title: String
 }
 
-
 class ProductDetailsVC: BaseViewController {
     let customTableViewProductDetailsVC = CustomTableView(frame: .zero, style: .insetGrouped)
     let scrollViewCustom = ScrollViewCustom()

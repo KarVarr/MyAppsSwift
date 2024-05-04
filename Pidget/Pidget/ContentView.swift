@@ -77,7 +77,7 @@ struct ContentView: View {
                                     .saturation(2.5)
                                     .brightness(0.15)
                                     .frame(maxWidth: geo.size.width * 0.4, maxHeight: geo.size.height * 0.6)
-                                Spacer()
+                                Spacer() 
                                 Rectangle()
                                     .frame(width: geo.size.width * widthStats, height: geo.size.height * heightStats)
                                 Spacer()

@@ -8,8 +8,8 @@
 import UIKit
 
 class ProductDetailsCellHeader: UITableViewHeaderFooterView {
-
     let headerTitleLabel = LabelViewCustom()
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
     }
@@ -17,7 +17,6 @@ class ProductDetailsCellHeader: UITableViewHeaderFooterView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     public func configure(with title: String) {
         headerTitleLabel.label.textColor = .black

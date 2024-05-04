@@ -43,6 +43,7 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
         
         let headerTitle = sectionHeader[section].title
         header.configure(with: headerTitle)
+        
         return header
     }
     
