@@ -173,7 +173,7 @@ struct ContentView: View {
                             .background(mainGreenColor.opacity(0.2))
                         Spacer(minLength: 4)
                         HStack {
-                            Text("Level 15")
+                            Text("Level 10")
                                 .padding(4)
                             ZStack {
                                 Rectangle()

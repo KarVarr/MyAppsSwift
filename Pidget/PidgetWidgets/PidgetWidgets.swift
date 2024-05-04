@@ -8,7 +8,6 @@
 import WidgetKit
 import SwiftUI
 
-
 struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: ConfigurationAppIntent())
@@ -42,8 +41,9 @@ struct PidgetWidgetsEntryView : View {
     let imagesCount = 8
     let animationDuration = 1.0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
+    @State private var count = 22
     @State private var currentImageIndex = 1
+    
     
     //MARK: - Colors
     var mainGreenColor: Color {
@@ -56,7 +56,6 @@ struct PidgetWidgetsEntryView : View {
     //MARK: - Width Height stats
     var widthStats: CGFloat = 35
     var heightStats: CGFloat = 7
-    
     
     var entry: Provider.Entry
     
@@ -107,19 +106,13 @@ struct PidgetWidgetsEntryView : View {
                             .saturation(2.5)
                             .brightness(0.15)
                             .frame(width: 100, height: 100)
-                            .transition(.opacity.animation(.linear(duration: animationDuration)))
+                            .animation(.easeInOut(duration: 0.5))
                         Spacer()
                         Rectangle()
                             .frame(width: widthStats, height: heightStats)
                     }
                     .padding(.vertical, 20)
-                    .onReceive(timer) { _ in
-                        
-                        let newIndex = (currentImageIndex + 1) % imagesCount
-                        withAnimation {
-                            currentImageIndex = newIndex
-                        }
-                    }
+                    
                     
                     Spacer()
                     VStack {
@@ -148,7 +141,11 @@ struct PidgetWidgetsEntryView : View {
                                 Image("target")
                                     .resizable()
                                     .frame(width: 11,height: 11)
-                                Text("22")
+                                Text("\(count)")
+                                    .onReceive(timer) { _ in
+                                        self.count += 1
+                                    }
+                                    .animation(.easeInOut(duration: animationDuration))
                             }
                             .padding(2)
                             .padding(.horizontal, 4)
@@ -182,7 +179,7 @@ struct PidgetWidgetsEntryView : View {
                         .padding(.horizontal, 4)
                         .background(.green.opacity(0.2))
                     }
-                    Text("User")
+                    Text("Howard")
                 }
                 //MARK: - BOTTOM BAR
                 HStack {
@@ -191,7 +188,7 @@ struct PidgetWidgetsEntryView : View {
                         .background(.green.opacity(0.2))
                     
                     HStack {
-                        Text("Level 35")
+                        Text("Level 10")
                             .padding(4)
                         ZStack {
                             Rectangle()
@@ -223,6 +220,7 @@ struct PidgetWidgetsEntryView : View {
             mainBackgroundDarkColor
         }
         
+        
     }
 }
 
@@ -235,7 +233,7 @@ struct PidgetWidgets: Widget {
         }
         .configurationDisplayName("Pidget Widget")
         .description("This is an example widget.")
-        .supportedFamilies([.systemLarge])
+        //        .supportedFamilies([.systemLarge])
     }
 }
 
