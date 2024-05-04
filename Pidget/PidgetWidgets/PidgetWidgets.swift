@@ -103,7 +103,7 @@ struct PidgetWidgetsEntryView : View {
                             .aspectRatio(contentMode: .fill)
                             .saturation(2.5)
                             .brightness(0.15)
-                            .frame(width: 60, height: 60)
+                            .frame(width: 100, height: 100)
                         Spacer()
                         Rectangle()
                             .frame(width: widthStats, height: heightStats)
@@ -145,7 +145,6 @@ struct PidgetWidgetsEntryView : View {
                             .padding(.horizontal, 4)
                             .background(.green.opacity(0.2))
                         }
-                        
                         
                         Image("helmet")
                             .resizable()
@@ -205,7 +204,6 @@ struct PidgetWidgetsEntryView : View {
                     Text("AP 70/70")
                         .padding(4)
                         .background(.green.opacity(0.2))
-                    
                 }
             }
             .foregroundStyle(mainGreenColor)
@@ -225,8 +223,10 @@ struct PidgetWidgets: Widget {
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             PidgetWidgetsEntryView(entry: entry)
-            //                .containerBackground(.fill.secondary, for: .widget)
         }
+        .configurationDisplayName("Pidget Widget")
+        .description("This is an example widget.")
+        .supportedFamilies([.systemLarge])
     }
 }
 
@@ -247,6 +247,5 @@ extension ConfigurationAppIntent {
 #Preview(as: .systemLarge) {
     PidgetWidgets()
 } timeline: {
-    SimpleEntry(date: .now, configuration: .smiley)
-    SimpleEntry(date: .now, configuration: .starEyes)
+    SimpleEntry(date: .now, configuration: ConfigurationAppIntent())
 }

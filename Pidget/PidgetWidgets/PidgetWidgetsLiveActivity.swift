@@ -14,12 +14,14 @@ struct PidgetWidgetsAttributes: ActivityAttributes {
         // Dynamic stateful properties about your activity go here!
         var emoji: String
     }
-
+    
     // Fixed non-changing properties about your activity go here!
     var name: String
 }
 
 struct PidgetWidgetsLiveActivity: Widget {
+    let kind: String = "PidgetWidgetsLiveActivity"
+    
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: PidgetWidgetsAttributes.self) { context in
             // Lock screen/banner UI goes here
@@ -28,7 +30,7 @@ struct PidgetWidgetsLiveActivity: Widget {
             }
             .activityBackgroundTint(Color.cyan)
             .activitySystemActionForegroundColor(Color.black)
-
+            
         } dynamicIsland: { context in
             DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
@@ -65,15 +67,17 @@ extension PidgetWidgetsAttributes {
 extension PidgetWidgetsAttributes.ContentState {
     fileprivate static var smiley: PidgetWidgetsAttributes.ContentState {
         PidgetWidgetsAttributes.ContentState(emoji: "😀")
-     }
-     
-     fileprivate static var starEyes: PidgetWidgetsAttributes.ContentState {
-         PidgetWidgetsAttributes.ContentState(emoji: "🤩")
-     }
+    }
+    
+    fileprivate static var starEyes: PidgetWidgetsAttributes.ContentState {
+        PidgetWidgetsAttributes.ContentState(emoji: "🤩")
+    }
 }
 
+
+
 #Preview("Notification", as: .content, using: PidgetWidgetsAttributes.preview) {
-   PidgetWidgetsLiveActivity()
+    PidgetWidgetsLiveActivity()
 } contentStates: {
     PidgetWidgetsAttributes.ContentState.smiley
     PidgetWidgetsAttributes.ContentState.starEyes
