@@ -39,8 +39,11 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct PidgetWidgetsEntryView : View {
-    @State private var currentImageIndex = 1
+    let imagesCount = 8
+    let animationDuration = 1.0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    @State private var currentImageIndex = 1
     
     //MARK: - Colors
     var mainGreenColor: Color {
@@ -104,14 +107,20 @@ struct PidgetWidgetsEntryView : View {
                             .saturation(2.5)
                             .brightness(0.15)
                             .frame(width: 100, height: 100)
+                            .transition(.opacity.animation(.linear(duration: animationDuration)))
                         Spacer()
                         Rectangle()
                             .frame(width: widthStats, height: heightStats)
                     }
                     .padding(.vertical, 20)
-                    .onReceive(timer, perform: { _ in
-                        currentImageIndex = (currentImageIndex % 8) + 1
-                    })
+                    .onReceive(timer) { _ in
+                        
+                        let newIndex = (currentImageIndex + 1) % imagesCount
+                        withAnimation {
+                            currentImageIndex = newIndex
+                        }
+                    }
+                    
                     Spacer()
                     VStack {
                         Spacer().frame(height: 80)

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var userName = ""
     @State private var currentImageIndex = 1
     let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
     
@@ -160,7 +161,7 @@ struct ContentView: View {
                                 .background(.green.opacity(0.2))
                                 Spacer()
                             }
-                            Text("User")
+                            Text("Howard")
                         }
                         
                     }
@@ -172,7 +173,7 @@ struct ContentView: View {
                             .background(mainGreenColor.opacity(0.2))
                         Spacer(minLength: 4)
                         HStack {
-                            Text("Level 35")
+                            Text("Level 15")
                                 .padding(4)
                             ZStack {
                                 Rectangle()
