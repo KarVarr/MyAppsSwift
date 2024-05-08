@@ -18,21 +18,7 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
         customTableViewProductDetailsVC.table.register(ProductDetailsCellHeader.self, forHeaderFooterViewReuseIdentifier: Helper.Keys.productDetailsCellHeader)
         customTableViewProductDetailsVC.table.frame = view.bounds
         customTableViewProductDetailsVC.table.rowHeight = UITableView.automaticDimension
-//
-//        customTableViewProductDetailsVC.dataSource = self
-//        customTableViewProductDetailsVC.delegate = self
-//        customTableViewProductDetailsVC.register(ProductDetailsCell.self, forCellReuseIdentifier: Helper.Keys.productDetails)
-//        customTableViewProductDetailsVC.register(ProductDetailsCellHeader.self, forHeaderFooterViewReuseIdentifier: Helper.Keys.productDetailsCellHeader)
-//        customTableViewProductDetailsVC.frame = view.bounds
-//        customTableViewProductDetailsVC.table.backgroundColor = .white
-//        customTableViewProductDetailsVC.rowHeight = UITableView.automaticDimension
-//        customTableViewProductDetailsVC.estimatedRowHeight = 100
-        
-
-        //        customTableViewProductDetailsVC.table.backgroundColor = .white
-        //        customTableViewProductDetailsVC.table
-        //        customTableViewProductDetailsVC.table.rowHeight = UITableView.automaticDimension
-        //        customTableViewProductDetailsVC.table.estimatedRowHeight = 44
+        customTableViewProductDetailsVC.table.estimatedRowHeight = 100
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -97,4 +83,5 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+
 }

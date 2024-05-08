@@ -9,24 +9,12 @@ import UIKit
 
 extension ProductDetailsVC {
     override func addViews() {
-//        view.addSubview(scrollViewCustom.scrollViewCustom)
-//        scrollViewCustom.scrollViewCustom.addSubview(contentViewCustom.vc)
-//        
         let views: [UIView] = [
-//            productImage.imageView,
-//            articleLabel.label,
-//            titleLabel.label,
-//            colorLabel.label,
-//            materialLabel.label,
-//            descriptionLabel.label,
-//            priceLabel.label,
             customTableViewProductDetailsVC.table
-//            customTableViewProductDetailsVC
         ]
         
         for addView in views {
             view.addSubview(addView)
         }
-        
     }
 }
