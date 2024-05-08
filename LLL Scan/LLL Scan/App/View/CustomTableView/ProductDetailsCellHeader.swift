@@ -21,7 +21,7 @@ class ProductDetailsCellHeader: UITableViewHeaderFooterView {
     public func configure(with title: String) {
         headerTitleLabel.label.textColor = .systemBlue
         headerTitleLabel.label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        headerTitleLabel.label.text = title
+        headerTitleLabel.label.text = title.uppercased()
         setupUI()
     }
     
@@ -35,7 +35,7 @@ class ProductDetailsCellHeader: UITableViewHeaderFooterView {
             headerTitleLabel.label.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor),
             headerTitleLabel.label.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             headerTitleLabel.label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-//            headerTitleLabel.label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 10)
+            headerTitleLabel.label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -7)
         ])
     }
 }
