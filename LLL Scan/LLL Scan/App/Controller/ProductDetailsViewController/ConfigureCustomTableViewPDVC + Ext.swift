@@ -17,9 +17,9 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
         customTableViewProductDetailsVC.table.register(ProductDetailsCell.self, forCellReuseIdentifier: Helper.Keys.productDetails)
         customTableViewProductDetailsVC.table.register(ProductDetailsCellHeader.self, forHeaderFooterViewReuseIdentifier: Helper.Keys.productDetailsCellHeader)
         customTableViewProductDetailsVC.table.frame = view.bounds
-        customTableViewProductDetailsVC.table.backgroundColor = .white
-        customTableViewProductDetailsVC.table.rowHeight = UITableView.automaticDimension
-        customTableViewProductDetailsVC.table.estimatedRowHeight = 100 
+//        customTableViewProductDetailsVC.table.backgroundColor = .white
+//        customTableViewProductDetailsVC.table.rowHeight = UITableView.automaticDimension
+//        customTableViewProductDetailsVC.table.estimatedRowHeight = 100 
         
 
         //        customTableViewProductDetailsVC.table.backgroundColor = .white
