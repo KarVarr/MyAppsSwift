@@ -17,15 +17,35 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
         customTableViewProductDetailsVC.table.register(ProductDetailsCell.self, forCellReuseIdentifier: Helper.Keys.productDetails)
         customTableViewProductDetailsVC.table.register(ProductDetailsCellHeader.self, forHeaderFooterViewReuseIdentifier: Helper.Keys.productDetailsCellHeader)
         customTableViewProductDetailsVC.table.frame = view.bounds
+        customTableViewProductDetailsVC.table.rowHeight = UITableView.automaticDimension
+//
+//        customTableViewProductDetailsVC.dataSource = self
+//        customTableViewProductDetailsVC.delegate = self
+//        customTableViewProductDetailsVC.register(ProductDetailsCell.self, forCellReuseIdentifier: Helper.Keys.productDetails)
+//        customTableViewProductDetailsVC.register(ProductDetailsCellHeader.self, forHeaderFooterViewReuseIdentifier: Helper.Keys.productDetailsCellHeader)
+//        customTableViewProductDetailsVC.frame = view.bounds
 //        customTableViewProductDetailsVC.table.backgroundColor = .white
-//        customTableViewProductDetailsVC.table.rowHeight = UITableView.automaticDimension
-//        customTableViewProductDetailsVC.table.estimatedRowHeight = 100 
+//        customTableViewProductDetailsVC.rowHeight = UITableView.automaticDimension
+//        customTableViewProductDetailsVC.estimatedRowHeight = 100
         
 
         //        customTableViewProductDetailsVC.table.backgroundColor = .white
         //        customTableViewProductDetailsVC.table
         //        customTableViewProductDetailsVC.table.rowHeight = UITableView.automaticDimension
         //        customTableViewProductDetailsVC.table.estimatedRowHeight = 44
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let sectionIndex = indexPath.section
+        
+        switch sectionIndex {
+
+        case 4:
+            return 100
+
+        default:
+            return 44
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

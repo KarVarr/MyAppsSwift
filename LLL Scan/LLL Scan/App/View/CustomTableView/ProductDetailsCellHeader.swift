@@ -27,7 +27,6 @@ class ProductDetailsCellHeader: UITableViewHeaderFooterView {
     
     private func setupUI() {
         let headerView = UIView()
-        headerView.backgroundColor = .lightGray
         self.backgroundView = headerView
         
         self.addSubview(headerTitleLabel.label)

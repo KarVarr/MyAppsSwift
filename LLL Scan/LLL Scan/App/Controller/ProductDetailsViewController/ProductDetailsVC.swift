@@ -13,6 +13,7 @@ struct SectionHeaders {
 
 class ProductDetailsVC: BaseViewController {
     let customTableViewProductDetailsVC = CustomTableView(frame: .zero, style: .insetGrouped)
+//    let customTableViewProductDetailsVC = UITableView(frame: .zero, style: .insetGrouped)
     let scrollViewCustom = ScrollViewCustom()
     let contentViewCustom = ViewCustom()
     let productImage = ImageViewCustom()
