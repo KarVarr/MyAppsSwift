@@ -59,11 +59,14 @@ class HTMLParser {
 //            let fullBlock = try fullBlockElement?.text()
 //            print("Full Block: \(fullBlock ?? "N/A")")
             
-            
-            let genderElement = try body.select("hm-breadcrumbs li:nth-of-type(2)").first()
+            let genderElement = try body.select("hm-breadcrumbs nav ol").first()
             let gender = try genderElement?.select("a").first()?.text()
-            print("Gender \(gender ?? "N/A")")
+            print("Gender: \(gender ?? "N/A")")
             
+//            let babyGenderElement = try body.select("hm-breadcrumbs li:nth-of-type(4)").first()
+//            let babyGender = try babyGenderElement?.select("a").first()?.text()
+//            print("Baby gender: \(babyGender ?? "N/A")")
+                  
             let product = Product(imageURL: imgSrc, link: link, article: article, title: title, price: price, colorID: colorName, description: description, material: material, fullBlock: nil, addedAt: nil)
             return .success(product)
         } catch  {
