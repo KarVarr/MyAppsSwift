@@ -13,50 +13,54 @@ enum ParserError: Error {
 }
 
 class HTMLParser {
-//    
-//    func extractCategoryAndSize(from input: String) -> String? {
-//        // Паттерн для поиска категории и размера
-////        let pattern = #"Dziecko (Chłopcy|Dziewczynki) ([0-9–]+[ -][0-9–]+ L)"#
-//        let pattern = #"Dziecko (Chłopcy|Dziewczynki) ([0-9]|1[0-4])[-–]([0-9]|1[0-4]) L"#
-//
-//
-//        
-//        // Создание регулярного выражения
-//        guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {
-//            return nil
-//        }
-//        
-//        // Поиск совпадений
-//        guard let match = regex.firstMatch(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count)) else {
-//            return nil
-//        }
-//        
-//        // Получение результатов
-//        let categoryRange = Range(match.range(at: 1), in: input)!
-//        let sizeRange = Range(match.range(at: 2), in: input)!
-//        
-//        let category = String(input[categoryRange])
-//        let size = String(input[sizeRange])
-//        
-//        return "\(category) \(size)"
-//    }
-
+    //
+    //    func extractCategoryAndSize(from input: String) -> String? {
+    //        // Паттерн для поиска категории и размера
+    ////        let pattern = #"Dziecko (Chłopcy|Dziewczynki) ([0-9–]+[ -][0-9–]+ L)"#
+    //        let pattern = #"Dziecko (Chłopcy|Dziewczynki) ([0-9]|1[0-4])[-–]([0-9]|1[0-4]) L"#
+    //
+    //
+    //
+    //        // Создание регулярного выражения
+    //        guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {
+    //            return nil
+    //        }
+    //
+    //        // Поиск совпадений
+    //        guard let match = regex.firstMatch(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count)) else {
+    //            return nil
+    //        }
+    //
+    //        // Получение результатов
+    //        let categoryRange = Range(match.range(at: 1), in: input)!
+    //        let sizeRange = Range(match.range(at: 2), in: input)!
+    //
+    //        let category = String(input[categoryRange])
+    //        let size = String(input[sizeRange])
+    //
+    //        return "\(category) \(size)"
+    //    }
+    
     
     func extractCategoryAndSize(from input: String) -> String? {
         switch input {
         case _ where input.contains("Chłopcy") && input.contains("9–14 L"):
-            return "Chłopcy 9–14 L"
+            return "«Мальчики 9–14 лет»"
         case _ where input.contains("Chłopcy") && input.contains("2-8 L"):
-            return "Chłopcy 2-8 L"
+            return "«Мальчики 2-8 лет"
         case _ where input.contains("Dziewczynki") && input.contains("9–14 L"):
-            return "Dziewczynki 9–14 L"
+            return "Девочки 9–14 лет"
         case _ where input.contains("Dziewczynki") && input.contains("2-8 L"):
-            return "Dziewczynki 2-8 L"
+            return "Девочки 2-8 лет"
+        case _ where input.contains("Chłopcy") && input.contains("Niemowlę"):
+            return "Мальчик"
+        case _ where input.contains("Dziewczynki") && input.contains("Niemowlę"):
+            return "Девочка"
         default:
-            return nil
+            return "Нет данных на сайте"
         }
     }
-
+    
     
     func parseHTMLContent(_ htmlContent: String) -> Result<Product, Error> {
         do {
