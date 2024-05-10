@@ -13,6 +13,51 @@ enum ParserError: Error {
 }
 
 class HTMLParser {
+//    
+//    func extractCategoryAndSize(from input: String) -> String? {
+//        // Паттерн для поиска категории и размера
+////        let pattern = #"Dziecko (Chłopcy|Dziewczynki) ([0-9–]+[ -][0-9–]+ L)"#
+//        let pattern = #"Dziecko (Chłopcy|Dziewczynki) ([0-9]|1[0-4])[-–]([0-9]|1[0-4]) L"#
+//
+//
+//        
+//        // Создание регулярного выражения
+//        guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {
+//            return nil
+//        }
+//        
+//        // Поиск совпадений
+//        guard let match = regex.firstMatch(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count)) else {
+//            return nil
+//        }
+//        
+//        // Получение результатов
+//        let categoryRange = Range(match.range(at: 1), in: input)!
+//        let sizeRange = Range(match.range(at: 2), in: input)!
+//        
+//        let category = String(input[categoryRange])
+//        let size = String(input[sizeRange])
+//        
+//        return "\(category) \(size)"
+//    }
+
+    
+    func extractCategoryAndSize(from input: String) -> String? {
+        switch input {
+        case _ where input.contains("Chłopcy") && input.contains("9–14 L"):
+            return "Chłopcy 9–14 L"
+        case _ where input.contains("Chłopcy") && input.contains("2-8 L"):
+            return "Chłopcy 2-8 L"
+        case _ where input.contains("Dziewczynki") && input.contains("9–14 L"):
+            return "Dziewczynki 9–14 L"
+        case _ where input.contains("Dziewczynki") && input.contains("2-8 L"):
+            return "Dziewczynki 2-8 L"
+        default:
+            return nil
+        }
+    }
+
+    
     func parseHTMLContent(_ htmlContent: String) -> Result<Product, Error> {
         do {
             let doc = try SwiftSoup.parse(htmlContent)
@@ -46,27 +91,32 @@ class HTMLParser {
             let colorID = try colorElement?.select("img").first()
             let colorName = try colorID?.attr("alt")
             print("ColorID: \(colorName ?? "N/A")")
-
+            
             let descriptionElement = try body.select("#section-descriptionAccordion").first()
             let description = try descriptionElement?.select("p").first()?.text()
             print("Description: \(description ?? "N/A")")
-
+            
             let materialElement = try body.select("#section-materialsAndSuppliersAccordion").first()
             let material = try materialElement?.select("ul").first()?.text()
             print("Material: \(material ?? "N/A")")
             
-//            let fullBlockElement = try body.select(".product-description").first()
-//            let fullBlock = try fullBlockElement?.text()
-//            print("Full Block: \(fullBlock ?? "N/A")")
+            //            let fullBlockElement = try body.select(".product-description").first()
+            //            let fullBlock = try fullBlockElement?.text()
+            //            print("Full Block: \(fullBlock ?? "N/A")")
             
-            let genderElement = try body.select("hm-breadcrumbs nav ol").first()
+            let genderElement = try body.select("hm-breadcrumbs li:nth-of-type(2)").first()
             let gender = try genderElement?.select("a").first()?.text()
             print("Gender: \(gender ?? "N/A")")
             
-//            let babyGenderElement = try body.select("hm-breadcrumbs li:nth-of-type(4)").first()
-//            let babyGender = try babyGenderElement?.select("a").first()?.text()
-//            print("Baby gender: \(babyGender ?? "N/A")")
-                  
+            
+            let babyGenderElement = try body.select("hm-breadcrumbs nav ol").first()
+            let babyGender = try babyGenderElement?.text() ?? ""
+            print("BABY: \(babyGender)")
+            if let category = extractCategoryAndSize(from: babyGender) {
+                print("Baby gender: \(category)")
+            }
+            
+            
             let product = Product(imageURL: imgSrc, link: link, article: article, title: title, price: price, colorID: colorName, description: description, material: material, fullBlock: nil, addedAt: nil)
             return .success(product)
         } catch  {
