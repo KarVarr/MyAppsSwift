@@ -16,9 +16,9 @@ class HTMLParser {
     private func extractCategoryAndSize(from input: String) -> String? {
         switch input {
         case _ where input.contains("Chłopcy") && input.contains("9–14 L"):
-            return "«Мальчики 9–14 лет»"
+            return "Мальчики 9–14 лет"
         case _ where input.contains("Chłopcy") && input.contains("2-8 L"):
-            return "«Мальчики 2-8 лет"
+            return "Мальчики 2-8 лет"
         case _ where input.contains("Dziewczynki") && input.contains("9–14 L"):
             return "Девочки 9–14 лет"
         case _ where input.contains("Dziewczynki") && input.contains("2-8 L"):
@@ -84,10 +84,11 @@ class HTMLParser {
             print("Gender: \(gender ?? "N/A")")
             
             let babyGenderElement = try body.select("hm-breadcrumbs nav ol").first()
-            let babyGender = try babyGenderElement?.text() ?? ""
+            var babyGender = try babyGenderElement?.text() ?? ""
             print("BABY: \(babyGender)")
-            if let category = extractCategoryAndSize(from: babyGender) {
-                print("Baby gender: \(category)")
+            if let babyGenderCategory = extractCategoryAndSize(from: babyGender) {
+                print("Baby gender: \(babyGenderCategory)")
+                babyGender = babyGenderCategory
             }
             
             let product = Product(imageURL: imgSrc, link: link, article: article, title: title, price: price, colorID: colorName, description: description, material: material, gender: gender, babaGender: babyGender, fullBlock: nil, addedAt: nil)

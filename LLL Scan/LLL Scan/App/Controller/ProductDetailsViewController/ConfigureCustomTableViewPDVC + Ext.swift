@@ -10,7 +10,6 @@ import UIKit
 
 extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
     
-    
     func configureCustomTableViewPDVC() {
         customTableViewProductDetailsVC.table.dataSource = self
         customTableViewProductDetailsVC.table.delegate = self
@@ -25,10 +24,11 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
         let sectionIndex = indexPath.section
         
         switch sectionIndex {
-
+            
+        case 3:
+            return 88
         case 4:
             return 100
-
         default:
             return 44
         }
@@ -73,6 +73,10 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
             cell.configure(with: "\(product?.description ?? "Нет описания")")
         case 5:
             cell.configure(with: "\(product?.price ?? "Нет цены")")
+        case 6:
+            cell.configure(with: "\(product?.gender ?? "Нет пола")")
+        case 7:
+            cell.configure(with: "\(product?.babaGender ?? "Нет данных")")
         default:
             break
         }
@@ -83,5 +87,5 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
+    
 }
