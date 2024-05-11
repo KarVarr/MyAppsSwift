@@ -18,6 +18,7 @@
 		171149C32BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149C22BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift */; };
 		171149C52BD95DB100F5DECF /* ListOfProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149C42BD95DB100F5DECF /* ListOfProductsCell.swift */; };
 		1713481C2BCC3CBB00FC3CF7 /* myApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1713481B2BCC3CBB00FC3CF7 /* myApi.swift */; };
+		176063182BEFBE2000693F3F /* Products.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 176063162BEFBE2000693F3F /* Products.xcdatamodeld */; };
 		1787BD632BE2777E00F8BC7F /* ProductDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD622BE2777E00F8BC7F /* ProductDetailsVC.swift */; };
 		1787BD652BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD642BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift */; };
 		1787BD672BE277D900F8BC7F /* AddViewPDVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD662BE277D900F8BC7F /* AddViewPDVC + Ext.swift */; };
@@ -74,6 +75,7 @@
 		171149C22BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureCustomTableViewLPVC + Ext.swift"; sourceTree = "<group>"; };
 		171149C42BD95DB100F5DECF /* ListOfProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfProductsCell.swift; sourceTree = "<group>"; };
 		1713481B2BCC3CBB00FC3CF7 /* myApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myApi.swift; sourceTree = "<group>"; };
+		176063172BEFBE2000693F3F /* Products.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Products.xcdatamodel; sourceTree = "<group>"; };
 		1787BD622BE2777E00F8BC7F /* ProductDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
 		1787BD642BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewPDVC + Ext.swift"; sourceTree = "<group>"; };
 		1787BD662BE277D900F8BC7F /* AddViewPDVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewPDVC + Ext.swift"; sourceTree = "<group>"; };
@@ -151,6 +153,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		176063152BEFBDD700693F3F /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				176063162BEFBE2000693F3F /* Products.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		178DC7402BB83E4500FEDE69 = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +226,7 @@
 		178DC7632BB885CC00FEDE69 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				176063152BEFBDD700693F3F /* CoreData */,
 				178DC77F2BB9AB1700FEDE69 /* HTMLParser.swift */,
 				178DC7812BB9AFAF00FEDE69 /* Product.swift */,
 				171149B72BD9058000F5DECF /* ProductList.swift */,
@@ -436,6 +447,7 @@
 				178DC7992BBDC5A000FEDE69 /* ButtonViewCustom.swift in Sources */,
 				171149BD2BD9571600F5DECF /* ConfigureViewLPVC + Ext.swift in Sources */,
 				178DC79E2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift in Sources */,
+				176063182BEFBE2000693F3F /* Products.xcdatamodeld in Sources */,
 				1713481C2BCC3CBB00FC3CF7 /* myApi.swift in Sources */,
 				178DC76C2BB8890F00FEDE69 /* ConfigureLabelSVC + Ext.swift in Sources */,
 				178DC7792BB9844300FEDE69 /* ConfigureImageSVC + Ext.swift in Sources */,
@@ -710,6 +722,20 @@
 			productName = SwiftSoup;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		176063162BEFBE2000693F3F /* Products.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				176063172BEFBE2000693F3F /* Products.xcdatamodel */,
+			);
+			currentVersion = 176063172BEFBE2000693F3F /* Products.xcdatamodel */;
+			name = Products.xcdatamodeld;
+			path = "/Users/karenvardanian/Desktop/iOS/MyAppsSwift/LLL Scan/LLL Scan/App/Model/CoreData/Products.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 178DC7412BB83E4500FEDE69 /* Project object */;
 }
