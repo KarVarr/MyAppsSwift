@@ -20,8 +20,6 @@ extension ProductDetailsVC {
         }
     }
     
- 
-    
 //    func configureLabels() {
 //        let labels: [LabelViewCustom] = [
 //            articleLabel,

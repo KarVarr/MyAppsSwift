@@ -12,6 +12,7 @@ class ListOfProductsCell: UITableViewCell {
     let titleLabelPDVC = LabelViewCustom()
     let colorLabelPDVC = LabelViewCustom()
     let materialLabelPDVC = LabelViewCustom()
+    let genderPDVC = LabelViewCustom()
     let imagePDVC = ImageViewCustom()
     let vStackForProductDetails = ViewStackCustom()
     
@@ -35,6 +36,7 @@ class ListOfProductsCell: UITableViewCell {
             titleLabelPDVC.label,
             colorLabelPDVC.label,
             materialLabelPDVC.label,
+            genderPDVC.label,
             imagePDVC.imageView,
             vStackForProductDetails.stack,
         ]
@@ -48,7 +50,7 @@ class ListOfProductsCell: UITableViewCell {
         vStackForProductDetails.stack.addArrangedSubview(titleLabelPDVC.label)
         vStackForProductDetails.stack.addArrangedSubview(colorLabelPDVC.label)
         vStackForProductDetails.stack.addArrangedSubview(materialLabelPDVC.label)
-        
+        vStackForProductDetails.stack.addArrangedSubview(genderPDVC.label)
     }
     
     private func configureCell() {

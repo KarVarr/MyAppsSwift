@@ -10,7 +10,6 @@ import UIKit
 class ProductDetailsCell: UITableViewCell {
     let labelView = LabelViewCustom()
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

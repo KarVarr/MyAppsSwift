@@ -64,7 +64,6 @@ extension ScanVC: DataScannerViewControllerDelegate {
         print("all save and append in array MOTHER FUCKER")
     }
     
-    
     private func startScanning() {
         guard scannerAvailable == true else {
             print(" Error: Scanner is not available for usage. Please check settings")
@@ -106,14 +105,11 @@ extension ScanVC: DataScannerViewControllerDelegate {
             }
         }
         try? dataScanner.startScanning()
-        
-        
     }
     
     func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
         guard case .text(let text) = item else { return }
         let regex = try! Regex(#"\s*\b\d{7}\s\b\d{3}\s*"#)
-        
         
         if !text.transcript.matches(of: regex).isEmpty {
             let parts = text.transcript.components(separatedBy: " ")
@@ -143,7 +139,6 @@ extension ScanVC: DataScannerViewControllerDelegate {
             print("non valid regex art")
         }
     }
-    
     
     private func scanCodeWithDifferentCount(partsStr: [String], part1: Int, part2: Int) {
         let result = "\(partsStr[part1])\(partsStr[part2])"
@@ -190,11 +185,11 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                                                colorID: product.colorID,
                                                                description: product.description,
                                                                material: product.material,
+                                                               gender: product.gender,
+                                                               babaGender: product.babaGender,
                                                                fullBlock: nil,
                                                                addedAt: Date()
                                     )
-                                    
-                                    
                                 }
                             }.resume()
                         } else {

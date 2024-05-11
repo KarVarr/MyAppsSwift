@@ -16,19 +16,21 @@ class ScanVC: BaseViewController {
         DataScannerViewController.isSupported && DataScannerViewController.isAvailable
     }
     var productObj: Product?
-//    var products = [Product]()
-//    var scannedProducts = [[Product]]()
-    
+
+    //table
     let customTableViewScanVC = CustomTableView()
+    //labels
     let resultLabel = LabelViewCustom()
     let labelForHtml = LabelViewCustom()
     let titleFromParsingLabel = LabelViewCustom()
     let colorFromParsingLabel = LabelViewCustom()
     let materialFromParsingLabel = LabelViewCustom()
     let showCountOfProductsInArray = LabelViewCustom()
+    //buttons
     let saveOneProductButtonForScanner = ButtonViewCustom()
     let saveAllButtonForScanner = ButtonViewCustom()
     let buttonForAddNewTableView = ButtonViewCustom()
+    
     let miniatureImageHM = ImageViewCustom()
     let overlayViewForScanner = ViewCustom()
     let vStackForParsingData = ViewStackCustom()
