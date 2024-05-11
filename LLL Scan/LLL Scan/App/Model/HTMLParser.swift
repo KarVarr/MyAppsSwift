@@ -13,36 +13,7 @@ enum ParserError: Error {
 }
 
 class HTMLParser {
-    //
-    //    func extractCategoryAndSize(from input: String) -> String? {
-    //        // Паттерн для поиска категории и размера
-    ////        let pattern = #"Dziecko (Chłopcy|Dziewczynki) ([0-9–]+[ -][0-9–]+ L)"#
-    //        let pattern = #"Dziecko (Chłopcy|Dziewczynki) ([0-9]|1[0-4])[-–]([0-9]|1[0-4]) L"#
-    //
-    //
-    //
-    //        // Создание регулярного выражения
-    //        guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {
-    //            return nil
-    //        }
-    //
-    //        // Поиск совпадений
-    //        guard let match = regex.firstMatch(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count)) else {
-    //            return nil
-    //        }
-    //
-    //        // Получение результатов
-    //        let categoryRange = Range(match.range(at: 1), in: input)!
-    //        let sizeRange = Range(match.range(at: 2), in: input)!
-    //
-    //        let category = String(input[categoryRange])
-    //        let size = String(input[sizeRange])
-    //
-    //        return "\(category) \(size)"
-    //    }
-    
-    
-    func extractCategoryAndSize(from input: String) -> String? {
+    private func extractCategoryAndSize(from input: String) -> String? {
         switch input {
         case _ where input.contains("Chłopcy") && input.contains("9–14 L"):
             return "«Мальчики 9–14 лет»"
@@ -112,7 +83,6 @@ class HTMLParser {
             let gender = try genderElement?.select("a").first()?.text()
             print("Gender: \(gender ?? "N/A")")
             
-            
             let babyGenderElement = try body.select("hm-breadcrumbs nav ol").first()
             let babyGender = try babyGenderElement?.text() ?? ""
             print("BABY: \(babyGender)")
@@ -120,8 +90,8 @@ class HTMLParser {
                 print("Baby gender: \(category)")
             }
             
+            let product = Product(imageURL: imgSrc, link: link, article: article, title: title, price: price, colorID: colorName, description: description, material: material, gender: gender, babaGender: babyGender, fullBlock: nil, addedAt: nil)
             
-            let product = Product(imageURL: imgSrc, link: link, article: article, title: title, price: price, colorID: colorName, description: description, material: material, fullBlock: nil, addedAt: nil)
             return .success(product)
         } catch  {
             return .failure(error)
