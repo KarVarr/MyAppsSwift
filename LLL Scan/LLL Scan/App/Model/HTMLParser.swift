@@ -32,7 +32,6 @@ class HTMLParser {
         }
     }
     
-    
     func parseHTMLContent(_ htmlContent: String) -> Result<Product, Error> {
         do {
             let doc = try SwiftSoup.parse(htmlContent)
