@@ -1,5 +1,5 @@
 //
-//  ProductHM+CoreDataProperties.swift
+//  Product+CoreDataProperties.swift
 //  LLL Scan
 //
 //  Created by Karen Vardanian on 13.05.2024.
@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 
-extension ProductHM {
+extension Product {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<ProductHM> {
-        return NSFetchRequest<ProductHM>(entityName: "ProductHM")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Product> {
+        return NSFetchRequest<Product>(entityName: "Product")
     }
 
     @NSManaged public var id: UUID?
@@ -32,6 +32,6 @@ extension ProductHM {
 
 }
 
-extension ProductHM : Identifiable {
+extension Product : Identifiable {
 
 }

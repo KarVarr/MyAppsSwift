@@ -8,5 +8,5 @@
 import Foundation
 
 struct ScannedProducts: Codable {
-    var scannedProducts = [[Product]]()
+    var scannedProducts = [[Products]]()
 }

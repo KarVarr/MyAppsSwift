@@ -1,5 +1,5 @@
 //
-//  ProductHM+CoreDataClass.swift
+//  Product+CoreDataClass.swift
 //  LLL Scan
 //
 //  Created by Karen Vardanian on 13.05.2024.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(ProductHM)
-public class ProductHM: NSManagedObject {
+@objc(Product)
+public class Product: NSManagedObject {
 
 }

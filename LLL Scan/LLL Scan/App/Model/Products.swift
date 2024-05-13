@@ -1,5 +1,5 @@
 //
-//  Product.swift
+//  Products.swift
 //  LLL Scan
 //
 //  Created by Karen Vardanian on 31.03.2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product: Codable {
+struct Products: Codable {
     let imageURL: String?
     let link: String?
     let article: String?

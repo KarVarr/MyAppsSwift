@@ -177,7 +177,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
                                     //                                    self?.miniatureImageHM.imageView.addSymbolEffect(SymbolEffectOptions.rep)
                                     
-                                    self?.productObj = Product(imageURL: product.imageURL,
+                                    self?.productObj = Products(imageURL: product.imageURL,
                                                                link: product.link,
                                                                article: product.article,
                                                                title: product.title,

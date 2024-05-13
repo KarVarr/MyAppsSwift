@@ -28,7 +28,7 @@ class ProductDetailsVC: BaseViewController {
         SectionHeaders(title: "Детский пол")
     ]
 
-    var product: Product?
+    var product: Products?
     
     override func viewDidLoad() {
         super.viewDidLoad()

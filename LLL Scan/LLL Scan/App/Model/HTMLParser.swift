@@ -32,7 +32,7 @@ class HTMLParser {
         }
     }
     
-    func parseHTMLContent(_ htmlContent: String) -> Result<Product, Error> {
+    func parseHTMLContent(_ htmlContent: String) -> Result<Products, Error> {
         do {
             let doc = try SwiftSoup.parse(htmlContent)
             
@@ -90,7 +90,7 @@ class HTMLParser {
                 babyGender = babyGenderCategory
             }
             
-            let product = Product(imageURL: imgSrc, link: link, article: article, title: title, price: price, colorID: colorName, description: description, material: material, gender: gender, babaGender: babyGender, fullBlock: nil, addedAt: nil)
+            let product = Products(imageURL: imgSrc, link: link, article: article, title: title, price: price, colorID: colorName, description: description, material: material, gender: gender, babaGender: babyGender, fullBlock: nil, addedAt: nil)
             
             return .success(product)
         } catch  {

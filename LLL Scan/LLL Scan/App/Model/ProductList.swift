@@ -8,7 +8,7 @@
 import Foundation
 
 struct ProductList: Codable {
-    var products = [Product]()
+    var products = [Products]()
 }
 
 
