@@ -157,14 +157,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		176063152BEFBDD700693F3F /* CoreData */ = {
+		176063152BEFBDD700693F3F /* CoreDataModelProduct */ = {
 			isa = PBXGroup;
 			children = (
 				176063212BF27A2C00693F3F /* Product+CoreDataClass.swift */,
 				176063222BF27A2C00693F3F /* Product+CoreDataProperties.swift */,
 				176063162BEFBE2000693F3F /* ProductsCoreData.xcdatamodeld */,
 			);
-			path = CoreData;
+			path = CoreDataModelProduct;
 			sourceTree = "<group>";
 		};
 		178DC7402BB83E4500FEDE69 = {
@@ -232,7 +232,7 @@
 		178DC7632BB885CC00FEDE69 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				176063152BEFBDD700693F3F /* CoreData */,
+				176063152BEFBDD700693F3F /* CoreDataModelProduct */,
 				178DC77F2BB9AB1700FEDE69 /* HTMLParser.swift */,
 				178DC7812BB9AFAF00FEDE69 /* Products.swift */,
 				171149B72BD9058000F5DECF /* ProductList.swift */,
