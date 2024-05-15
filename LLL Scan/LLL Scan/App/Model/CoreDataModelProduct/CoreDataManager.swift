@@ -21,8 +21,24 @@ public final class CoreDataManager: NSObject {
     }
     
     public func createProduct(id: UUID?, imageURL: String?, link: String?, article: String?, title: String?, price: String?, color: String?, description: String?, material: String?, gender: String?, babyGender: String?, addedAt: Date?) {
+        guard let productEntityDescription = NSEntityDescription.entity(forEntityName: "Product", in: context) else {
+            return
+        }
+        let product = Product(entity: productEntityDescription, insertInto: context)
+        product.id = id
+        product.imageURL = imageURL
+        product.link = link
+        product.article = article
+        product.title = title
+        product.price = price
+        product.color = color
+        product.descriptions = description
+        product.material = material
+        product.gender = gender
+        product.babyGender = babyGender
+        product.addedAt = addedAt
         
-        
+        appDelegate.saveContext()
     }
 }
 
