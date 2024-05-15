@@ -20,7 +20,10 @@ public final class CoreDataManager: NSObject {
         appDelegate.persistentContainer.viewContext
     }
     
-    public func createProduct
+    public func createProduct(id: UUID?, imageURL: String?, link: String?, article: String?, title: String?, price: String?, color: String?, description: String?, material: String?, gender: String?, babyGender: String?, addedAt: Date?) {
+        
+        
+    }
 }
 
 
