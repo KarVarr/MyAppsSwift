@@ -21,6 +21,7 @@
 		176063182BEFBE2000693F3F /* ProductsCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 176063162BEFBE2000693F3F /* ProductsCoreData.xcdatamodeld */; };
 		176063232BF27A2C00693F3F /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176063212BF27A2C00693F3F /* Product+CoreDataClass.swift */; };
 		176063242BF27A2C00693F3F /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176063222BF27A2C00693F3F /* Product+CoreDataProperties.swift */; };
+		176063262BF521F800693F3F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176063252BF521F800693F3F /* CoreDataManager.swift */; };
 		1787BD632BE2777E00F8BC7F /* ProductDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD622BE2777E00F8BC7F /* ProductDetailsVC.swift */; };
 		1787BD652BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD642BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift */; };
 		1787BD672BE277D900F8BC7F /* AddViewPDVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD662BE277D900F8BC7F /* AddViewPDVC + Ext.swift */; };
@@ -80,6 +81,7 @@
 		176063172BEFBE2000693F3F /* Products.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Products.xcdatamodel; sourceTree = "<group>"; };
 		176063212BF27A2C00693F3F /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
 		176063222BF27A2C00693F3F /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		176063252BF521F800693F3F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		1787BD622BE2777E00F8BC7F /* ProductDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
 		1787BD642BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewPDVC + Ext.swift"; sourceTree = "<group>"; };
 		1787BD662BE277D900F8BC7F /* AddViewPDVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewPDVC + Ext.swift"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				176063212BF27A2C00693F3F /* Product+CoreDataClass.swift */,
 				176063222BF27A2C00693F3F /* Product+CoreDataProperties.swift */,
 				176063162BEFBE2000693F3F /* ProductsCoreData.xcdatamodeld */,
+				176063252BF521F800693F3F /* CoreDataManager.swift */,
 			);
 			path = CoreDataModelProduct;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				178DC7932BB9F16000FEDE69 /* CustomTableView.swift in Sources */,
 				171149BB2BD954CC00F5DECF /* ListOfProductsVC.swift in Sources */,
 				1787BD692BE277E900F8BC7F /* LayoutViewPDVC + Ext.swift in Sources */,
+				176063262BF521F800693F3F /* CoreDataManager.swift in Sources */,
 				178DC7952BB9F2A000FEDE69 /* ScanTableViewCell.swift in Sources */,
 				179985482BE5478200C34D33 /* ProductDetailsCellHeader.swift in Sources */,
 				178DC7A42BBDD28200FEDE69 /* LayoutViewFVC + Ext.swift in Sources */,
