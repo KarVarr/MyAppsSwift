@@ -40,6 +40,21 @@ public final class CoreDataManager: NSObject {
         
         appDelegate.saveContext()
     }
+    
+    public func fetchProducts() -> [Product] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
+        do {
+            return (try? context.fetch(fetchRequest) as? [Product]) ?? []
+        }
+    }
+    
+    public func fetchProduct(_ id: UUID) -> Product? {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
+        do {
+            let products = try? context.fetch(fetchRequest) as? [Product]
+            return products?.first(where: {$0.id == id})
+        }
+    }
 }
 
 
