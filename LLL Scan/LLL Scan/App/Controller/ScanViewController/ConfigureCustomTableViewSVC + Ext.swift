@@ -31,7 +31,6 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
         }
         cell.accessoryType = .disclosureIndicator
         
-//        let scanIndex = indexPath.row + 1
         let scannedProductIndex = dataManager.scannedProducts[indexPath.row]
         
         //Date
@@ -60,6 +59,13 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(listOFProductsVC, animated: true)
     }
     
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            dataManager.scannedProducts.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
     
     
 }

@@ -13,6 +13,7 @@ enum ParserError: Error {
 }
 
 class HTMLParser {
+    
     private func extractCategoryAndSize(from input: String) -> String? {
         switch input {
         case _ where input.contains("Chłopcy") && input.contains("9–14 L"):
@@ -32,7 +33,7 @@ class HTMLParser {
         }
     }
     
-    func parseHTMLContent(_ htmlContent: String) -> Result<Products, Error> {
+    func parseHTMLContent(_ htmlContent: String) -> Result<Product, Error> {
         do {
             let doc = try SwiftSoup.parse(htmlContent)
             
@@ -74,10 +75,6 @@ class HTMLParser {
             let material = try materialElement?.select("ul").first()?.text()
             print("Material: \(material ?? "N/A")")
             
-            //            let fullBlockElement = try body.select(".product-description").first()
-            //            let fullBlock = try fullBlockElement?.text()
-            //            print("Full Block: \(fullBlock ?? "N/A")")
-            
             let genderElement = try body.select("hm-breadcrumbs li:nth-of-type(2)").first()
             let gender = try genderElement?.select("a").first()?.text()
             print("Gender: \(gender ?? "N/A")")
@@ -85,12 +82,17 @@ class HTMLParser {
             let babyGenderElement = try body.select("hm-breadcrumbs nav ol").first()
             var babyGender = try babyGenderElement?.text() ?? ""
             print("BABY: \(babyGender)")
+            
             if let babyGenderCategory = extractCategoryAndSize(from: babyGender) {
                 print("Baby gender: \(babyGenderCategory)")
                 babyGender = babyGenderCategory
             }
             
-            let product = Products(imageURL: imgSrc, link: link, article: article, title: title, price: price, colorID: colorName, description: description, material: material, gender: gender, babaGender: babyGender, fullBlock: nil, addedAt: nil)
+            let product = CoreDataManager.shared.createProduct(id: UUID(), imageURL: imgSrc, link: link, article: article, title: title, price: price, color: colorName, description: description, material: material, gender: gender, babyGender: babyGender, addedAt: nil)
+            
+            guard let product = product else {
+                return .failure(ParserError.invalidHTML)
+            }
             
             return .success(product)
         } catch  {

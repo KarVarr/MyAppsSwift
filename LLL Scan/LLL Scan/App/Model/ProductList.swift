@@ -6,9 +6,9 @@
 //
 
 import Foundation
-
-struct ProductList: Codable {
-    var products = [Products]()
-}
+//
+//struct ProductList: Codable {
+//    var products = [Product]()
+//}
 
 

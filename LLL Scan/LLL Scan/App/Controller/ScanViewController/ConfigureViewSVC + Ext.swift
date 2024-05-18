@@ -16,11 +16,10 @@ extension ScanVC: DataScannerViewControllerDelegate {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         overlayViewForScanner.vc.isHidden = true
-        
     }
     
     @objc func newScan() {
-        //        presentTitleInputAlert()
+        // presentTitleInputAlert()
         startScanning()
     }
     
@@ -35,8 +34,6 @@ extension ScanVC: DataScannerViewControllerDelegate {
         dataManager.addProduct(productObj)
         self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
         self.productObj = nil
-        
-        // Обновляем таблицу
         customTableViewScanVC.table.reloadData()
     }
     
@@ -78,7 +75,6 @@ extension ScanVC: DataScannerViewControllerDelegate {
             self.colorFromParsingLabel.label.text = nil
             self.materialFromParsingLabel.label.text = nil
         }
-        
         
         let dataScanner = DataScannerViewController(recognizedDataTypes: [.text()],
                                                     isHighFrameRateTrackingEnabled: true,
@@ -175,7 +171,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.colorFromParsingLabel.label.isHidden = false
                                     self?.materialFromParsingLabel.label.isHidden = false
                                     self?.titleFromParsingLabel.label.text = product.title
-                                    self?.colorFromParsingLabel.label.text = product.colorID
+                                    self?.colorFromParsingLabel.label.text = product.color
                                     self?.materialFromParsingLabel.label.text = product.material
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
                                     
@@ -186,11 +182,11 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                         article: product.article,
                                         title: product.title,
                                         price: product.price,
-                                        color: product.colorID,
+                                        color: product.color,
                                         description: product.description,
                                         material: product.material,
                                         gender: product.gender,
-                                        babyGender: product.babaGender,
+                                        babyGender: product.babyGender,
                                         addedAt: Date()
                                     )
                                 }

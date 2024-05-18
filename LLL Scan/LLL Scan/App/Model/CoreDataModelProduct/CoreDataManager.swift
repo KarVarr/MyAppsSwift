@@ -31,6 +31,8 @@ public final class CoreDataManager: NSObject {
         }
     }
     
+    
+    
     // Save a single product to Core Data
     public func saveProduct(_ product: Product) {
         context.insert(product)

@@ -72,7 +72,6 @@ extension ProductDetailsVC {
 //        }
 //    }
 
-        
         private func settingLabelsColor(label: LabelViewCustom, font: UIFont, color: UIColor) {
             label.label.font = font
             label.label.textColor = color

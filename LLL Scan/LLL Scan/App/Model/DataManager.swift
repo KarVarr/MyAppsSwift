@@ -16,7 +16,7 @@ class DataManager {
     
     var scannedProducts: [[Product]] {
         let allProducts = CoreDataManager.shared.fetchProducts()
-        return splitProductsIntoGroups(allProducts)
+        return [allProducts]
     }
     
     func addProduct(_ product: Product) {
@@ -32,21 +32,6 @@ class DataManager {
     func clearProductList() {
         CoreDataManager.shared.clearProducts()
     }
-    
-    
-    private func splitProductsIntoGroups(_ products: [Product]) -> [[Product]] {
-        var groupedProducts = [[Product]]()
-        let groupedByDate = Dictionary(grouping: products) { $0.addedAt?.startOfDay ?? Date() }
-        for (_, products) in groupedByDate {
-            groupedProducts.append(products)
-        }
-        return groupedProducts
-    }
 }
 
-// Расширение для получения начала дня для Date
-extension Date {
-    var startOfDay: Date {
-        return Calendar.current.startOfDay(for: self)
-    }
-}
+
