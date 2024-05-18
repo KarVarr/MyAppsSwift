@@ -23,9 +23,9 @@ extension ListOfProductsVC {
         let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(file_name)
         var csvHead = "Article,Title,Price,Color,Description,Material,link,ImageLink\n"
        
-        for scannedProduct in dataManager.scannedProducts.scannedProducts {
+        for scannedProduct in dataManager.scannedProducts {
             for product in scannedProduct {
-                csvHead.append("\(String(describing: product.article)),\(String(describing: product.title)),\(String(describing: product.price)),\(String(describing: product.colorID)),\(String(describing: product.description)),\(String(describing: product.material)),\(String(describing: product.link)),\(String(describing: product.imageURL))\n")
+                csvHead.append("\(String(describing: product.article)),\(String(describing: product.title)),\(String(describing: product.price)),\(String(describing: product.color)),\(String(describing: product.description)),\(String(describing: product.material)),\(String(describing: product.link)),\(String(describing: product.imageURL))\n")
             }
         }
         

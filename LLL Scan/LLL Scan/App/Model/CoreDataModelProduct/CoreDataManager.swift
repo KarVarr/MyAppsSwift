@@ -54,12 +54,6 @@ public final class CoreDataManager: NSObject {
         return fetchRequest("Product", predicate: predicate).first
     }
     
-    public func deleteAllProduct() {
-        let products: [Product] = fetchRequest("Product")
-        products.forEach{ context.delete($0)}
-        appDelegate.saveContext()
-    }
-    
     public func deleteProduct(with id: UUID) {
         let predicate = NSPredicate(format: "id == %@", id as CVarArg)
         if let product = fetchRequest("Product", predicate: predicate).first {
@@ -68,9 +62,9 @@ public final class CoreDataManager: NSObject {
         }
     }
     
-    public func createProduct(id: UUID?, imageURL: String?, link: String?, article: String?, title: String?, price: String?, color: String?, description: String?, material: String?, gender: String?, babyGender: String?, addedAt: Date?) {
+    public func createProduct(id: UUID?, imageURL: String?, link: String?, article: String?, title: String?, price: String?, color: String?, description: String?, material: String?, gender: String?, babyGender: String?, addedAt: Date?) -> Product? {
         guard let productEntityDescription = NSEntityDescription.entity(forEntityName: "Product", in: context) else {
-            return
+            return nil
         }
         let product = Product(entity: productEntityDescription, insertInto: context)
         product.id = id
@@ -87,11 +81,8 @@ public final class CoreDataManager: NSObject {
         product.addedAt = addedAt
         
         appDelegate.saveContext()
+        return product
     }
-    
-    
-    
-    
 }
 
 

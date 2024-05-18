@@ -19,6 +19,21 @@ class DataManager {
         return splitProductsIntoGroups(allProducts)
     }
     
+    func addProduct(_ product: Product) {
+        CoreDataManager.shared.saveProduct(product)
+    }
+    
+    func addScannedProducts(_ products: [Product]) {
+        for product in products {
+            addProduct(product)
+        }
+    }
+    
+    func clearProductList() {
+        CoreDataManager.shared.clearProducts()
+    }
+    
+    
     private func splitProductsIntoGroups(_ products: [Product]) -> [[Product]] {
         var groupedProducts = [[Product]]()
         let groupedByDate = Dictionary(grouping: products) { $0.addedAt?.startOfDay ?? Date() }

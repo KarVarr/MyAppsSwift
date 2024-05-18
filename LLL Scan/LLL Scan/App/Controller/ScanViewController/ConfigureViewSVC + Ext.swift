@@ -32,11 +32,10 @@ extension ScanVC: DataScannerViewControllerDelegate {
             return
         }
         
-
-        dataManager.productList.append(productObj)
+        dataManager.addProduct(productObj)
         self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
         self.productObj = nil
-
+        
         // Обновляем таблицу
         customTableViewScanVC.table.reloadData()
     }
@@ -56,10 +55,10 @@ extension ScanVC: DataScannerViewControllerDelegate {
         }
         
         print(dataManager.productList.count, "-------------> Count")
-
-        dataManager.scannedProducts.append(dataManager.productList)
+        
+        dataManager.addScannedProducts(dataManager.productList)
         customTableViewScanVC.table.reloadData()
-        dataManager.productList = []
+        dataManager.clearProductList()
         self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
         
         print("all save and append in array MOTHER FUCKER")
@@ -160,7 +159,10 @@ extension ScanVC: DataScannerViewControllerDelegate {
                         if let imageURLString = product.imageURL,
                            let decodedImageURLString = imageURLString.removingPercentEncoding,
                            let imageURL = URL(string: "https:"+decodedImageURLString) {
-                            URLSession.shared.dataTask(with: imageURL) {data, response, error in
+                            URLSession.shared.dataTask(with: imageURL) {
+                                data,
+                                response,
+                                error in
                                 if let error = error {
                                     print("Error loading image: \(error)")
                                     return
@@ -176,23 +178,21 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.colorFromParsingLabel.label.text = product.colorID
                                     self?.materialFromParsingLabel.label.text = product.material
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
-                                    //                                    self?.miniatureImageHM.imageView.addSymbolEffect(SymbolEffectOptions.rep)
                                     
-//                                    self?.productObj = Product(imageURL: product.imageURL,
-//                                                               link: product.link,
-//                                                               article: product.article,
-//                                                               title: product.title,
-//                                                               price: product.price,
-//                                                               colorID: product.colorID,
-//                                                               description: product.description,
-//                                                               material: product.material,
-//                                                               gender: product.gender,
-//                                                               babaGender: product.babaGender,
-//                                                               fullBlock: nil,
-//                                                               addedAt: Date()
-//                                    )
-                                    
-                                    self?.productObj = CoreDataManager.createProduct(id: UUID(), imageURL: pro, link: <#T##String?#>, article: <#T##String?#>, title: <#T##String?#>, price: <#T##String?#>, color: <#T##String?#>, description: <#T##String?#>, material: <#T##String?#>, gender: <#T##String?#>, babyGender: <#T##String?#>, addedAt: <#T##Date?#>)
+                                    self?.productObj = CoreDataManager.shared.createProduct(
+                                        id: UUID(),
+                                        imageURL: product.imageURL,
+                                        link: product.link,
+                                        article: product.article,
+                                        title: product.title,
+                                        price: product.price,
+                                        color: product.colorID,
+                                        description: product.description,
+                                        material: product.material,
+                                        gender: product.gender,
+                                        babyGender: product.babaGender,
+                                        addedAt: Date()
+                                    )
                                 }
                             }.resume()
                         } else {
