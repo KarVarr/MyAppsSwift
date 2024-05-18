@@ -29,7 +29,7 @@ class DataManager {
     }
 }
 
-// Расширение для удобного получения начала дня для Date
+// Расширение для получения начала дня для Date
 extension Date {
     var startOfDay: Date {
         return Calendar.current.startOfDay(for: self)

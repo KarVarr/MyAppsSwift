@@ -31,6 +31,43 @@ public final class CoreDataManager: NSObject {
         }
     }
     
+    // Save a single product to Core Data
+    public func saveProduct(_ product: Product) {
+        context.insert(product)
+        appDelegate.saveContext()
+    }
+    
+    // Fetch products from Core Data
+    public func fetchProducts() -> [Product] {
+        fetchRequest("Product")
+    }
+    
+    // Clear all products from Core Data
+    public func clearProducts() {
+        let products: [Product] = fetchRequest("Product")
+        products.forEach{ context.delete($0)}
+        appDelegate.saveContext()
+    }
+    
+    public func fetchProduct(_ id: UUID) -> Product? {
+        let predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        return fetchRequest("Product", predicate: predicate).first
+    }
+    
+    public func deleteAllProduct() {
+        let products: [Product] = fetchRequest("Product")
+        products.forEach{ context.delete($0)}
+        appDelegate.saveContext()
+    }
+    
+    public func deleteProduct(with id: UUID) {
+        let predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        if let product = fetchRequest("Product", predicate: predicate).first {
+            context.delete(product)
+            appDelegate.saveContext()
+        }
+    }
+    
     public func createProduct(id: UUID?, imageURL: String?, link: String?, article: String?, title: String?, price: String?, color: String?, description: String?, material: String?, gender: String?, babyGender: String?, addedAt: Date?) {
         guard let productEntityDescription = NSEntityDescription.entity(forEntityName: "Product", in: context) else {
             return
@@ -52,38 +89,8 @@ public final class CoreDataManager: NSObject {
         appDelegate.saveContext()
     }
     
-    public func fetchProducts() -> [Product] {
-        fetchRequest("Product")
-    }
     
-    public func fetchProduct(_ id: UUID) -> Product? {
-        //        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
-        //        do {
-        //            let products = try? context.fetch(fetchRequest) as? [Product]
-        //            return products?.first(where: {$0.id == id})
-        //        }
-        let predicate = NSPredicate(format: "id == %@", id as CVarArg)
-        return fetchRequest("Product", predicate: predicate).first
-    }
     
-    public func deleteAllProduct() {
-        //        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
-        //        do {
-        //            let products = try? context.fetch(fetchRequest) as? [Product]
-        //            products?.forEach{context.delete($0)}
-        //        }
-        let products: [Product] = fetchRequest("Product")
-        products.forEach{ context.delete($0)}
-        appDelegate.saveContext()
-    }
-    
-    public func deleteProduct(with id: UUID) {
-        let predicate = NSPredicate(format: "id == %@", id as CVarArg)
-        if let product = fetchRequest("Product", predicate: predicate).first {
-            context.delete(product)
-            appDelegate.saveContext()
-        }
-    }
     
 }
 

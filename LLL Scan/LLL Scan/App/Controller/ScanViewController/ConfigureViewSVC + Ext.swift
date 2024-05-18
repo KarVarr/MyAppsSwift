@@ -32,8 +32,9 @@ extension ScanVC: DataScannerViewControllerDelegate {
             return
         }
         
-        dataManager.productList.products.append(productObj)
-        self.showCountOfProductsInArray.label.text = String(dataManager.productList.products.count)
+
+        dataManager.productList.append(productObj)
+        self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
         self.productObj = nil
 
         // Обновляем таблицу
@@ -41,7 +42,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
     }
     
     @objc func saveAllResult() {
-        let countProductsArray = dataManager.productList.products.count
+        let countProductsArray = dataManager.productList.count
         
         DispatchQueue.main.async {
             self.miniatureImageHM.imageView.image = UIImage(systemName: "checkmark.circle")
@@ -54,12 +55,12 @@ extension ScanVC: DataScannerViewControllerDelegate {
             self.materialFromParsingLabel.label.text = "Вы отсканировали \(countProductsArray) артикулов"
         }
         
-        print(dataManager.productList.products.count, "-------------> Count")
+        print(dataManager.productList.count, "-------------> Count")
 
-        dataManager.scannedProducts.scannedProducts.append(dataManager.productList.products)
+        dataManager.scannedProducts.append(dataManager.productList)
         customTableViewScanVC.table.reloadData()
-        dataManager.productList.products = []
-        self.showCountOfProductsInArray.label.text = String(dataManager.productList.products.count)
+        dataManager.productList = []
+        self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
         
         print("all save and append in array MOTHER FUCKER")
     }
@@ -177,19 +178,21 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
                                     //                                    self?.miniatureImageHM.imageView.addSymbolEffect(SymbolEffectOptions.rep)
                                     
-                                    self?.productObj = Products(imageURL: product.imageURL,
-                                                               link: product.link,
-                                                               article: product.article,
-                                                               title: product.title,
-                                                               price: product.price,
-                                                               colorID: product.colorID,
-                                                               description: product.description,
-                                                               material: product.material,
-                                                               gender: product.gender,
-                                                               babaGender: product.babaGender,
-                                                               fullBlock: nil,
-                                                               addedAt: Date()
-                                    )
+//                                    self?.productObj = Product(imageURL: product.imageURL,
+//                                                               link: product.link,
+//                                                               article: product.article,
+//                                                               title: product.title,
+//                                                               price: product.price,
+//                                                               colorID: product.colorID,
+//                                                               description: product.description,
+//                                                               material: product.material,
+//                                                               gender: product.gender,
+//                                                               babaGender: product.babaGender,
+//                                                               fullBlock: nil,
+//                                                               addedAt: Date()
+//                                    )
+                                    
+                                    self?.productObj = CoreDataManager.createProduct(id: UUID(), imageURL: pro, link: <#T##String?#>, article: <#T##String?#>, title: <#T##String?#>, price: <#T##String?#>, color: <#T##String?#>, description: <#T##String?#>, material: <#T##String?#>, gender: <#T##String?#>, babyGender: <#T##String?#>, addedAt: <#T##Date?#>)
                                 }
                             }.resume()
                         } else {
