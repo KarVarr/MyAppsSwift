@@ -10,7 +10,7 @@ import UIKit
 class ListOfProductsVC: BaseViewController {
     let dataManager = DataManager.shared
     let customTableViewProductDetailVC = CustomTableView()
-    var product: [Products] = []
+    var product: [Product] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

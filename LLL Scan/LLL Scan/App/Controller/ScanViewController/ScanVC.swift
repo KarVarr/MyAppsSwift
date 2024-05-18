@@ -15,7 +15,7 @@ class ScanVC: BaseViewController {
     var scannerAvailable: Bool {
         DataScannerViewController.isSupported && DataScannerViewController.isAvailable
     }
-    var productObj: Products?
+    var productObj: Product?
 
     //table
     let customTableViewScanVC = CustomTableView()

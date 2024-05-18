@@ -22,7 +22,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataManager.scannedProducts.scannedProducts.count
+        return dataManager.scannedProducts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -32,7 +32,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
         cell.accessoryType = .disclosureIndicator
         
 //        let scanIndex = indexPath.row + 1
-        let scannedProductIndex = dataManager.scannedProducts.scannedProducts[indexPath.row]
+        let scannedProductIndex = dataManager.scannedProducts[indexPath.row]
         
         //Date
         if let firstProduct = scannedProductIndex.first, let addedAt = firstProduct.addedAt {
@@ -52,7 +52,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let selectedProduct = dataManager.scannedProducts.scannedProducts[indexPath.row]
+        let selectedProduct = dataManager.scannedProducts[indexPath.row]
         
         let listOFProductsVC = ListOfProductsVC()
         listOFProductsVC.product = selectedProduct

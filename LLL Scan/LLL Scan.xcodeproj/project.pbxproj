@@ -162,10 +162,10 @@
 		176063152BEFBDD700693F3F /* CoreDataModelProduct */ = {
 			isa = PBXGroup;
 			children = (
-				176063212BF27A2C00693F3F /* Product+CoreDataClass.swift */,
-				176063222BF27A2C00693F3F /* Product+CoreDataProperties.swift */,
 				176063162BEFBE2000693F3F /* ProductsCoreData.xcdatamodeld */,
 				176063252BF521F800693F3F /* CoreDataManager.swift */,
+				176063212BF27A2C00693F3F /* Product+CoreDataClass.swift */,
+				176063222BF27A2C00693F3F /* Product+CoreDataProperties.swift */,
 			);
 			path = CoreDataModelProduct;
 			sourceTree = "<group>";
