@@ -11,6 +11,7 @@ import CoreData
 public final class CoreDataManager: NSObject {
     public static let shared = CoreDataManager()
     private override init() {}
+    
     //APP DELEGATE
     private var appDelegate: AppDelegate {
         UIApplication.shared.delegate as! AppDelegate
@@ -30,7 +31,6 @@ public final class CoreDataManager: NSObject {
             return []
         }
     }
-    
     
     
     // Save a single product to Core Data

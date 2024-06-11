@@ -14,9 +14,12 @@ class DataManager {
         CoreDataManager.shared.fetchProducts()
     }
     
+    // Группы отсканированных продуктов
+    var scannedProductsGroups: [[Product]] = []
+    
+    
     var scannedProducts: [[Product]] {
-        let allProducts = CoreDataManager.shared.fetchProducts()
-        return [allProducts]
+        return scannedProductsGroups
     }
     
     func addProduct(_ product: Product) {
@@ -29,8 +32,23 @@ class DataManager {
         }
     }
     
+    func addScannedProductsGroup(_ products: [Product]) {
+        scannedProductsGroups.append(products)
+    }
+    
     func clearProductList() {
         CoreDataManager.shared.clearProducts()
+    }
+    
+    private func saveScannedProducts() {
+        // Сохранение scannedProducts в Core Data
+        CoreDataManager.shared.clearProducts()  // Очистим текущие данные для перезаписи
+        
+        for productsArray in scannedProducts {
+            for product in productsArray {
+                addProduct(product)
+            }
+        }
     }
 }
 

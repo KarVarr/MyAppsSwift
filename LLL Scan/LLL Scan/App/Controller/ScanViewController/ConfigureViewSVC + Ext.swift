@@ -38,6 +38,11 @@ extension ScanVC: DataScannerViewControllerDelegate {
     }
     
     @objc func saveAllResult() {
+        guard !dataManager.productList.isEmpty else {
+            print("No products to save")
+            return
+        }
+        
         let countProductsArray = dataManager.productList.count
         
         DispatchQueue.main.async {
@@ -53,9 +58,9 @@ extension ScanVC: DataScannerViewControllerDelegate {
         
         print(dataManager.productList.count, "-------------> Count")
         
-        dataManager.addScannedProducts(dataManager.productList)
-        customTableViewScanVC.table.reloadData()
+        dataManager.addScannedProductsGroup(dataManager.productList)
         dataManager.clearProductList()
+        customTableViewScanVC.table.reloadData()
         self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
         
         print("all save and append in array MOTHER FUCKER")
@@ -141,7 +146,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
         print("Result article : \(result)")
         resultLabel.label.text = "✅ Артикул: \(result)".trimmingCharacters(in: .whitespacesAndNewlines)
         
-        self.urlString = "https://www2.hm.com/pl_pl/productpage.\(result).html"
+        self.urlString = "https://www2.hm.com/en_gb/productpage.\(result).html"
         
         if let urlString = self.urlString {
             networkManager.loadPageFromNetwork(urlString: urlString) { [weak self] result in
