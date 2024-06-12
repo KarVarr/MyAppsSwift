@@ -8,7 +8,8 @@
 import UIKit
 
 class ListOfProductsVC: BaseViewController {
-    let dataManager = DataManager.shared
+//    let dataManager = DataManager.shared
+    let manager = CoreManager.shared
     let customTableViewProductDetailVC = CustomTableView()
     var product: [Product] = []
 

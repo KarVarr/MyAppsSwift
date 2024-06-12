@@ -12,7 +12,7 @@ import CoreData
 class CoreManager {
     static let shared = CoreManager()
     var products = [Product]()
-    var allProducts = [[Product]]()
+    var allProducts = GroupAllProducts()
     private init() {
         
     }
@@ -53,10 +53,11 @@ class CoreManager {
     
     
     func addScannedProductsGroup(_ products: [Product]) {
-        allProducts.append(products)
+        allProducts.arrayProduct?.append(products)
+        allProducts.
     }
     
-    func createProduct(id: UUID?, imageURL: String?, link: String?, article: String?, title: String?, price: String?, color: String?, description: String?, material: String?, gender: String?, babyGender: String?, addedAt: Date?) -> Product {
+    func createProduct(id: UUID?, imageURL: String?, link: String?, article: String?, title: String?, price: String?, color: String?, description: String?, material: String?, gender: String?, babyGender: String?, addedAt: Date?) -> Product? {
         
         let product = Product(context: persistentContainer.viewContext)
         product.id = id

@@ -2,7 +2,7 @@
 //  Product+CoreDataClass.swift
 //  LLL Scan
 //
-//  Created by Karen Vardanian on 13.05.2024.
+//  Created by Karen Vardanian on 12.06.2024.
 //
 //
 

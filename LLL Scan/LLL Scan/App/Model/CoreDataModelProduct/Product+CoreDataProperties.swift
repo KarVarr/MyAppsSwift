@@ -2,7 +2,7 @@
 //  Product+CoreDataProperties.swift
 //  LLL Scan
 //
-//  Created by Karen Vardanian on 13.05.2024.
+//  Created by Karen Vardanian on 12.06.2024.
 //
 //
 
@@ -16,25 +16,22 @@ extension Product {
         return NSFetchRequest<Product>(entityName: "Product")
     }
 
+    @NSManaged public var addedAt: Date?
+    @NSManaged public var article: String?
+    @NSManaged public var babyGender: String?
+    @NSManaged public var color: String?
+    @NSManaged public var descriptions: String?
+    @NSManaged public var fullBlock: String?
+    @NSManaged public var gender: String?
     @NSManaged public var id: UUID?
     @NSManaged public var imageURL: String?
     @NSManaged public var link: String?
-    @NSManaged public var article: String?
-    @NSManaged public var title: String?
-    @NSManaged public var price: String?
-    @NSManaged public var color: String?
-    @NSManaged public var descriptions: String?
     @NSManaged public var material: String?
-    @NSManaged public var gender: String?
-    @NSManaged public var babyGender: String?
-    @NSManaged public var addedAt: Date?
-    @NSManaged public var fullBlock: String?
+    @NSManaged public var price: String?
+    @NSManaged public var title: String?
 
 }
 
 extension Product : Identifiable {
-    func deleteProduct() {
-        managedObjectContext?.delete(self)
-        try? managedObjectContext?.save()
-    }
+
 }

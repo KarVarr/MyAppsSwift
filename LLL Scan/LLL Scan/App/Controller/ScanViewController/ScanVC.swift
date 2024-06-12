@@ -9,7 +9,7 @@ import UIKit
 import VisionKit
 
 class ScanVC: BaseViewController {
-    let dataManager = DataManager.shared
+//    let dataManager = DataManager.shared
     let networkManager = NetworkManager()
     let htmlParser = HTMLParser()
     var scannerAvailable: Bool {
