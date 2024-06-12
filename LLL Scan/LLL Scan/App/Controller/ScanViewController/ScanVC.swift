@@ -17,6 +17,8 @@ class ScanVC: BaseViewController {
     }
     var productObj: Product?
 
+    let manager = CoreManager.shared
+    
     //table
     let customTableViewScanVC = CustomTableView()
     //labels

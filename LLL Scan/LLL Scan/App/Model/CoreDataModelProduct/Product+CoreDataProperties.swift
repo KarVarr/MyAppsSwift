@@ -33,5 +33,8 @@ extension Product {
 }
 
 extension Product : Identifiable {
-
+    func deleteProduct() {
+        managedObjectContext?.delete(self)
+        try? managedObjectContext?.save()
+    }
 }

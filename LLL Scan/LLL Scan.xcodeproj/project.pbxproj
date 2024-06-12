@@ -10,6 +10,7 @@
 		170074BD2BE29FC2005A5DF7 /* ScrollViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170074BC2BE29FC2005A5DF7 /* ScrollViewCustom.swift */; };
 		170074BF2BE2B745005A5DF7 /* ConfigureCustomTableViewPDVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170074BE2BE2B745005A5DF7 /* ConfigureCustomTableViewPDVC + Ext.swift */; };
 		170074C12BE2B8C0005A5DF7 /* ProductDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170074C02BE2B8C0005A5DF7 /* ProductDetailsCell.swift */; };
+		170B8C682C1A02D3008E1861 /* CoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B8C672C1A02D3008E1861 /* CoreManager.swift */; };
 		171149B82BD9058000F5DECF /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149B72BD9058000F5DECF /* ProductList.swift */; };
 		171149BB2BD954CC00F5DECF /* ListOfProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149BA2BD954CC00F5DECF /* ListOfProductsVC.swift */; };
 		171149BD2BD9571600F5DECF /* ConfigureViewLPVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149BC2BD9571600F5DECF /* ConfigureViewLPVC + Ext.swift */; };
@@ -70,6 +71,7 @@
 		170074BC2BE29FC2005A5DF7 /* ScrollViewCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewCustom.swift; sourceTree = "<group>"; };
 		170074BE2BE2B745005A5DF7 /* ConfigureCustomTableViewPDVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureCustomTableViewPDVC + Ext.swift"; sourceTree = "<group>"; };
 		170074C02BE2B8C0005A5DF7 /* ProductDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsCell.swift; sourceTree = "<group>"; };
+		170B8C672C1A02D3008E1861 /* CoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreManager.swift; sourceTree = "<group>"; };
 		171149B72BD9058000F5DECF /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
 		171149BA2BD954CC00F5DECF /* ListOfProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfProductsVC.swift; sourceTree = "<group>"; };
 		171149BC2BD9571600F5DECF /* ConfigureViewLPVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewLPVC + Ext.swift"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				176063162BEFBE2000693F3F /* ProductsCoreData.xcdatamodeld */,
 				176063252BF521F800693F3F /* CoreDataManager.swift */,
+				170B8C672C1A02D3008E1861 /* CoreManager.swift */,
 				176063212BF27A2C00693F3F /* Product+CoreDataClass.swift */,
 				176063222BF27A2C00693F3F /* Product+CoreDataProperties.swift */,
 			);
@@ -478,6 +481,7 @@
 				178DC7B82BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift in Sources */,
 				171149BF2BD9573100F5DECF /* AddViewLPVC + Ext.swift in Sources */,
 				170074BD2BE29FC2005A5DF7 /* ScrollViewCustom.swift in Sources */,
+				170B8C682C1A02D3008E1861 /* CoreManager.swift in Sources */,
 				1787BD652BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift in Sources */,
 				171149C52BD95DB100F5DECF /* ListOfProductsCell.swift in Sources */,
 				178DC7A02BBDD11000FEDE69 /* ConfigureViewFVC + Ext.swift in Sources */,

@@ -31,19 +31,29 @@ extension ScanVC: DataScannerViewControllerDelegate {
             return
         }
         
-        dataManager.addProduct(productObj)
-        self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
+//        dataManager.addProduct(productObj)
+//        self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
+//        self.productObj = nil
+//        customTableViewScanVC.table.reloadData()
+        
+        manager.addNewProduct(product: productObj)
+        self.showCountOfProductsInArray.label.text = String(manager.products.count)
         self.productObj = nil
         customTableViewScanVC.table.reloadData()
     }
     
     @objc func saveAllResult() {
-        guard !dataManager.productList.isEmpty else {
+//        guard !dataManager.productList.isEmpty else {
+//            print("No products to save")
+//            return
+//        }
+        guard !manager.products.isEmpty else {
             print("No products to save")
             return
         }
         
-        let countProductsArray = dataManager.productList.count
+//        let countProductsArray = dataManager.productList.count
+        let countProductsArray = manager.products.count
         
         DispatchQueue.main.async {
             self.miniatureImageHM.imageView.image = UIImage(systemName: "checkmark.circle")
@@ -56,12 +66,16 @@ extension ScanVC: DataScannerViewControllerDelegate {
             self.materialFromParsingLabel.label.text = "Вы отсканировали \(countProductsArray) артикулов"
         }
         
-        print(dataManager.productList.count, "-------------> Count")
+//        print(dataManager.productList.count, "-------------> Count")
+        print(manager.products.count, "-------------> Count")
         
-        dataManager.addScannedProductsGroup(dataManager.productList)
-        dataManager.clearProductList()
+//        dataManager.addScannedProductsGroup(dataManager.productList)
+        //        dataManager.clearProductList()
+        manager.addScannedProductsGroup(manager.products)
+        manager.products.removeAll()
         customTableViewScanVC.table.reloadData()
-        self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
+//        self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
+        self.showCountOfProductsInArray.label.text = String(manager.products.count)
         
         print("all save and append in array MOTHER FUCKER")
     }
@@ -180,7 +194,21 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.materialFromParsingLabel.label.text = product.material
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
                                     
-                                    self?.productObj = CoreDataManager.shared.createProduct(
+//                                    self?.productObj = CoreDataManager.shared.createProduct(
+//                                        id: UUID(),
+//                                        imageURL: product.imageURL,
+//                                        link: product.link,
+//                                        article: product.article,
+//                                        title: product.title,
+//                                        price: product.price,
+//                                        color: product.color,
+//                                        description: product.description,
+//                                        material: product.material,
+//                                        gender: product.gender,
+//                                        babyGender: product.babyGender,
+//                                        addedAt: Date()
+                                    
+                                    self?.productObj = self?.manager.createProduct (
                                         id: UUID(),
                                         imageURL: product.imageURL,
                                         link: product.link,
