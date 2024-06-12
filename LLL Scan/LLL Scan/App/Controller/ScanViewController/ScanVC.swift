@@ -46,6 +46,7 @@ class ScanVC: BaseViewController {
         configureImageView()
         configureViewCustom()
         configureStackViewSVC()
+        customTableViewScanVC.table.reloadData()
     }
 
     override func viewWillLayoutSubviews() {

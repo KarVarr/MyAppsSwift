@@ -17,7 +17,7 @@ public final class CoreDataManager: NSObject {
         UIApplication.shared.delegate as! AppDelegate
     }
     // CONTEXT
-    private var context: NSManagedObjectContext {
+     var context: NSManagedObjectContext {
         appDelegate.persistentContainer.viewContext
     }
     // Общий метод для выполнения fetch-запросов

@@ -51,7 +51,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let selectedProduct = dataManager.scannedProducts[indexPath.row]
+        let selectedProduct = dataManager.scannedProductsGroups[indexPath.row]
         
         let listOFProductsVC = ListOfProductsVC()
         listOFProductsVC.product = selectedProduct
@@ -63,6 +63,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             dataManager.scannedProductsGroups.remove(at: indexPath.row)
+            dataManager.saveScannedProducts()
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
