@@ -9,15 +9,13 @@ import UIKit
 import VisionKit
 
 class ScanVC: BaseViewController {
-//    let dataManager = DataManager.shared
+    let dataManager = DataManager()
     let networkManager = NetworkManager()
     let htmlParser = HTMLParser()
     var scannerAvailable: Bool {
         DataScannerViewController.isSupported && DataScannerViewController.isAvailable
     }
     var productObj: Product?
-
-    let manager = CoreManager.shared
     
     //table
     let customTableViewScanVC = CustomTableView()

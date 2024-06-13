@@ -6,18 +6,18 @@
 //
 
 import Foundation
-//
-//struct Products: Codable {
-//    let imageURL: String?
-//    let link: String?
-//    let article: String?
-//    let title: String?
-//    let price: String?
-//    let colorID: String?
-//    let description: String?
-//    let material: String?
-//    let gender: String?
-//    let babaGender: String?
-//    let fullBlock: String?
-//    let addedAt: Date?
-//}
+
+struct Product: Codable {
+    let imageURL: String?
+    let link: String?
+    let article: String?
+    let title: String?
+    let price: String?
+    let colorID: String?
+    let description: String?
+    let material: String?
+    let gender: String?
+    let babaGender: String?
+    let fullBlock: String?
+    let addedAt: Date?
+}
