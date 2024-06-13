@@ -66,7 +66,7 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
         case 1:
             cell.configure(with: "\(product?.title ?? "Нет названия")")
         case 2:
-            cell.configure(with: "\(product?.color ?? "Нет цвета")")
+            cell.configure(with: "\(product?.colorID ?? "Нет цвета")")
         case 3:
             cell.configure(with: "\(product?.material ?? "Нет состава")")
         case 4:

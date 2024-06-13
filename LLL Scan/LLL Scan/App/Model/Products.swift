@@ -17,7 +17,7 @@ struct Product: Codable {
     let description: String?
     let material: String?
     let gender: String?
-    let babaGender: String?
+    let babyGender: String?
     let fullBlock: String?
     let addedAt: Date?
 }

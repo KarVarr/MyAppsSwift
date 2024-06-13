@@ -32,8 +32,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
         }
         
 
-        manager.addNewProduct(product: productObj)
-        self.showCountOfProductsInArray.label.text = String(manager.products.count)
+//        manager.addNewProduct(product: productObj)
+        self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
         self.productObj = nil
         customTableViewScanVC.table.reloadData()
     }
@@ -61,8 +61,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
 
         print(dataManager.productList.count, "-------------> Count")
  
-        manager.addScannedProductsGroup(manager.products)
-        manager.products.removeAll()
+//        manager.addScannedProductsGroup(manager.products)
+        dataManager.productList.removeAll()
         customTableViewScanVC.table.reloadData()
         self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
         
@@ -179,7 +179,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.colorFromParsingLabel.label.isHidden = false
                                     self?.materialFromParsingLabel.label.isHidden = false
                                     self?.titleFromParsingLabel.label.text = product.title
-                                    self?.colorFromParsingLabel.label.text = product.color
+                                    self?.colorFromParsingLabel.label.text = product.colorID
                                     self?.materialFromParsingLabel.label.text = product.material
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
                                     
@@ -204,7 +204,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                         article: product.article,
                                         title: product.title,
                                         price: product.price,
-                                        color: product.color,
+                                        color: product.colorID,
                                         description: product.description,
                                         material: product.material,
                                         gender: product.gender,
