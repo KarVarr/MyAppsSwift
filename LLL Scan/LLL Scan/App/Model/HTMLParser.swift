@@ -88,12 +88,12 @@ class HTMLParser {
                 babyGender = babyGenderCategory
             }
             
-            let product = CoreManager.shared.createProduct(id: UUID(), imageURL: imgSrc, link: link, article: article, title: title, price: price, color: colorName, description: description, material: material, gender: gender, babyGender: babyGender, addedAt: nil)
+            let product = Product(id: UUID(), imageURL: imgSrc, link: link, article: article, title: title, price: price, colorID: colorName, description: description, material: material, gender: gender, babyGender: babyGender, addedAt: nil)
             
             
-            guard let product = product else {
-                return .failure(ParserError.invalidHTML)
-            }
+//            guard let product = product else {
+//                return .failure(ParserError.invalidHTML)
+//            }
             
             return .success(product)
         } catch  {

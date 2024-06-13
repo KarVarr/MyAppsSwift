@@ -41,7 +41,7 @@ extension ListOfProductsVC: UITableViewDelegate, UITableViewDataSource {
         
         cell.articleLabelPDVC.label.text = productIndex.article
         cell.titleLabelPDVC.label.text = productIndex.title
-        cell.colorLabelPDVC.label.text = productIndex.color
+        cell.colorLabelPDVC.label.text = productIndex.colorID
         cell.materialLabelPDVC.label.text = productIndex.material
             
         return cell

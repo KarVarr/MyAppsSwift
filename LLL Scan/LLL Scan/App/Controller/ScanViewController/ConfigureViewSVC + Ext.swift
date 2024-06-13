@@ -197,20 +197,20 @@ extension ScanVC: DataScannerViewControllerDelegate {
 //                                        babyGender: product.babyGender,
 //                                        addedAt: Date()
                                     
-                                    self?.productObj = self?.manager.createProduct (
-                                        id: UUID(),
-                                        imageURL: product.imageURL,
-                                        link: product.link,
-                                        article: product.article,
-                                        title: product.title,
-                                        price: product.price,
-                                        color: product.colorID,
-                                        description: product.description,
-                                        material: product.material,
-                                        gender: product.gender,
-                                        babyGender: product.babyGender,
-                                        addedAt: Date()
-                                    )
+//                                    self?.productObj = self?.manager.createProduct (
+//                                        id: UUID(),
+//                                        imageURL: product.imageURL,
+//                                        link: product.link,
+//                                        article: product.article,
+//                                        title: product.title,
+//                                        price: product.price,
+//                                        color: product.colorID,
+//                                        description: product.description,
+//                                        material: product.material,
+//                                        gender: product.gender,
+//                                        babyGender: product.babyGender,
+//                                        addedAt: Date()
+//                                    )
                                 }
                             }.resume()
                         } else {

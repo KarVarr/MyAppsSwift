@@ -22,8 +22,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return dataManager.scannedProducts.count
-        return manager.allProducts.count
+        return dataManager.scannedProductsGroups.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -31,10 +30,8 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.accessoryType = .disclosureIndicator
-        
-//        let scannedProductIndex = dataManager.scannedProducts[indexPath.row]
-        let scannedProductIndex = manager.allProducts[indexPath.row]
-        
+
+        let scannedProductIndex = dataManager.scannedProductsGroups[indexPath.row]
         
         //Date
         if let firstProduct = scannedProductIndex.first, let addedAt = firstProduct.addedAt {
@@ -54,8 +51,8 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-//        let selectedProduct = dataManager.scannedProductsGroups[indexPath.row]
-        let selectedProduct = manager.allProducts[indexPath.row]
+
+        let selectedProduct = dataManager.scannedProductsGroups[indexPath.row]
         
         let listOFProductsVC = ListOfProductsVC()
         listOFProductsVC.product = selectedProduct
@@ -66,9 +63,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            dataManager.scannedProductsGroups.remove(at: indexPath.row)
-//            dataManager.saveScannedProducts()
-            productObj?.deleteProduct()
+
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }

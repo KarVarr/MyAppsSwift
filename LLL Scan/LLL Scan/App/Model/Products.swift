@@ -8,6 +8,7 @@
 import Foundation
 
 struct Product: Codable {
+    let id: UUID?
     let imageURL: String?
     let link: String?
     let article: String?
@@ -18,6 +19,5 @@ struct Product: Codable {
     let material: String?
     let gender: String?
     let babyGender: String?
-    let fullBlock: String?
     let addedAt: Date?
 }
