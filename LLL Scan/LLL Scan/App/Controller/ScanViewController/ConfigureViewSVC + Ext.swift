@@ -31,8 +31,9 @@ extension ScanVC: DataScannerViewControllerDelegate {
             return
         }
         
-
-//        manager.addNewProduct(product: productObj)
+        dataManager.saveProduct(product: productObj)
+        dataManager.productList.append(productObj)
+        
         self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
         self.productObj = nil
         customTableViewScanVC.table.reloadData()
@@ -44,7 +45,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
             return
         }
         
-
+        
         let countProductsArray = dataManager.productList.count
         
         DispatchQueue.main.async {
@@ -58,10 +59,12 @@ extension ScanVC: DataScannerViewControllerDelegate {
             self.materialFromParsingLabel.label.text = "Вы отсканировали \(countProductsArray) артикулов"
         }
         
-
+        
         print(dataManager.productList.count, "-------------> Count")
- 
-//        manager.addScannedProductsGroup(manager.products)
+        
+        dataManager.allProducts.append(dataManager.productList)
+        dataManager.saveAllProducts(dataManager.allProducts)
+        
         dataManager.productList.removeAll()
         customTableViewScanVC.table.reloadData()
         self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
@@ -163,18 +166,17 @@ extension ScanVC: DataScannerViewControllerDelegate {
                         if let imageURLString = product.imageURL,
                            let decodedImageURLString = imageURLString.removingPercentEncoding,
                            let imageURL = URL(string: "https:"+decodedImageURLString) {
-                            URLSession.shared.dataTask(with: imageURL) {
-                                data,
-                                response,
-                                error in
+                            URLSession.shared.dataTask(with: imageURL) { data, response, error in
                                 if let error = error {
                                     print("Error loading image: \(error)")
                                     return
                                 }
+                                
                                 guard let imageData = data else {
                                     print("No image data received")
                                     return
                                 }
+                                
                                 DispatchQueue.main.async {
                                     self?.colorFromParsingLabel.label.isHidden = false
                                     self?.materialFromParsingLabel.label.isHidden = false
@@ -183,34 +185,19 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.materialFromParsingLabel.label.text = product.material
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
                                     
-//                                    self?.productObj = CoreDataManager.shared.createProduct(
-//                                        id: UUID(),
-//                                        imageURL: product.imageURL,
-//                                        link: product.link,
-//                                        article: product.article,
-//                                        title: product.title,
-//                                        price: product.price,
-//                                        color: product.color,
-//                                        descriptions: product.descriptions,
-//                                        material: product.material,
-//                                        gender: product.gender,
-//                                        babyGender: product.babyGender,
-//                                        addedAt: Date()
-                                    
-//                                    self?.productObj = self?.manager.createProduct (
-//                                        id: UUID(),
-//                                        imageURL: product.imageURL,
-//                                        link: product.link,
-//                                        article: product.article,
-//                                        title: product.title,
-//                                        price: product.price,
-//                                        color: product.colorName,
-//                                        descriptions: product.descriptions,
-//                                        material: product.material,
-//                                        gender: product.gender,
-//                                        babyGender: product.babyGender,
-//                                        addedAt: Date()
-//                                    )
+                                    self?.productObj = Product()
+                                    self?.productObj?.id = UUID()
+                                    self?.productObj?.imageURL = product.imageURL
+                                    self?.productObj?.link = product.link
+                                    self?.productObj?.article = product.article
+                                    self?.productObj?.title = product.title
+                                    self?.productObj?.price = product.price
+                                    self?.productObj?.colorName = product.colorName
+                                    self?.productObj?.descriptions = product.descriptions
+                                    self?.productObj?.material = product.material
+                                    self?.productObj?.gender = product.gender
+                                    self?.productObj?.babyGender = product.babyGender
+                                    self?.productObj?.addedAt = Date()
                                 }
                             }.resume()
                         } else {

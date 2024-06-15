@@ -9,7 +9,7 @@ import UIKit
 import VisionKit
 
 class ScanVC: BaseViewController {
-    let dataManager = DataManager()
+    let dataManager = DataManager.shared
     let networkManager = NetworkManager()
     let htmlParser = HTMLParser()
     var scannerAvailable: Bool {
@@ -46,6 +46,7 @@ class ScanVC: BaseViewController {
         configureImageView()
         configureViewCustom()
         configureStackViewSVC()
+        dataManager.allProducts = dataManager.loadAllProducts()
         customTableViewScanVC.table.reloadData()
     }
 

@@ -22,7 +22,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataManager.scannedProductsGroups.count
+        return dataManager.allProducts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,15 +30,15 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.accessoryType = .disclosureIndicator
-
-        let scannedProductIndex = dataManager.scannedProductsGroups[indexPath.row]
+        
+        let scannedProductIndex = dataManager.allProducts[indexPath.row]
         
         //Date
         if let firstProduct = scannedProductIndex.first, let addedAt = firstProduct.addedAt {
-          let formatter = DateFormatter()
-          formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
-          let dateString = formatter.string(from: addedAt)
-          cell.titleLabel.label.text = "Создан: \(dateString)"
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+            let dateString = formatter.string(from: addedAt)
+            cell.titleLabel.label.text = "Создан: \(dateString)"
         } else {
             cell.titleLabel.label.text = "Создан: (нет информации)"
         }
@@ -51,8 +51,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-
-        let selectedProduct = dataManager.scannedProductsGroups[indexPath.row]
+        let selectedProduct = dataManager.allProducts[indexPath.row]
         
         let listOFProductsVC = ListOfProductsVC()
         listOFProductsVC.product = selectedProduct
@@ -63,8 +62,16 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            let productToDelete = dataManager.allProducts[indexPath.section][indexPath.row]
+            do {
+                try dataManager.realm.write {
+                    dataManager.realm.delete(productToDelete)
+                }
+                dataManager.allProducts[indexPath.section].remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            } catch {
+                print("Error deleting product \(error)")
+            }
         }
     }
     

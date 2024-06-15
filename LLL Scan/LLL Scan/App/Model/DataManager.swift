@@ -10,35 +10,30 @@ import RealmSwift
 
 class DataManager {
     static let shared = DataManager()
+    let realm = try! Realm()
     
     var productList = [Product]()
-    var scannedProductsGroups = [[Product]]()
+    var allProducts = [[Product]]()
     
-    func saveProduct(products: [Product]) {
+    //MARK: - SAVE Product
+    func saveProduct(product: Product) {
         do {
-            let realm = try Realm()
             try realm.write {
-                realm.add(products)
+                realm.add(product, update: .modified)
             }
         } catch {
             print("error saving products: \(error)")
         }
     }
-    
+    //MARK: - LOAD Product
     func loadProducts() -> [Product] {
-        do {
-            let realm = try Realm()
-            let products = realm.objects(Product.self)
-            return Array(products)
-        } catch {
-            print("error loading products \(error)")
-            return []
-        }
+        let products = realm.objects(Product.self)
+        return Array(products)
     }
     
-    func saveAllProducts(allProducts: [[Product]]) {
+    //MARK: - SAVE ALL Products
+    func saveAllProducts(_ allProducts: [[Product]]) {
         do {
-            let realm = try Realm()
             try realm.write {
                 for productArray in allProducts {
                     let productList = ProductList()
@@ -51,21 +46,16 @@ class DataManager {
         }
     }
     
+    //MARK: - LOAD ALL Products
     func loadAllProducts() -> [[Product]] {
-        do {
-            let realm = try Realm()
-            let productLists = realm.objects(ProductList.self)
-            var allProducts = [[Product]]()
-            
-            for productList in productLists {
-                allProducts.append(Array(productList.products))
-            }
-            
-            return allProducts
-        } catch {
-            print("error loading allProducts: \(error)")
-            return []
+        let productLists = realm.objects(ProductList.self)
+        var allProducts = [[Product]]()
+        
+        for productList in productLists {
+            allProducts.append(Array(productList.products))
         }
+        
+        return allProducts
     }
     
 }

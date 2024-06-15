@@ -8,21 +8,6 @@
 import Foundation
 import RealmSwift
 
-//struct Product: Codable {
-//    let id: UUID?
-//    let imageURL: String?
-//    let link: String?
-//    let article: String?
-//    let title: String?
-//    let price: String?
-//    let colorName: String?
-//    let description: String?
-//    let material: String?
-//    let gender: String?
-//    let babyGender: String?
-//    let addedAt: Date?
-//}
-
 class Product: Object {
     @objc dynamic var id: UUID?
     @objc dynamic var imageURL: String?
