@@ -19,7 +19,7 @@ class DataManager {
     func saveProduct(product: Product) {
         do {
             try realm.write {
-                realm.add(product, update: .modified)
+                realm.add(product)
             }
         } catch {
             print("error saving products: \(error)")

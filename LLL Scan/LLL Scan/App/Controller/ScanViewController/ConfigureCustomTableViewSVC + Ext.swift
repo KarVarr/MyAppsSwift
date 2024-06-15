@@ -30,15 +30,15 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.accessoryType = .disclosureIndicator
-        
+
         let scannedProductIndex = dataManager.allProducts[indexPath.row]
         
         //Date
         if let firstProduct = scannedProductIndex.first, let addedAt = firstProduct.addedAt {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
-            let dateString = formatter.string(from: addedAt)
-            cell.titleLabel.label.text = "Создан: \(dateString)"
+          let formatter = DateFormatter()
+          formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+          let dateString = formatter.string(from: addedAt)
+          cell.titleLabel.label.text = "Создан: \(dateString)"
         } else {
             cell.titleLabel.label.text = "Создан: (нет информации)"
         }
@@ -62,12 +62,12 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let productToDelete = dataManager.allProducts[indexPath.section][indexPath.row]
+            let productToDelete = dataManager.allProducts[indexPath.row]
             do {
                 try dataManager.realm.write {
                     dataManager.realm.delete(productToDelete)
                 }
-                dataManager.allProducts[indexPath.section].remove(at: indexPath.row)
+                dataManager.allProducts.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             } catch {
                 print("Error deleting product \(error)")

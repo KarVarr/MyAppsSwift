@@ -220,28 +220,6 @@ extension ScanVC: DataScannerViewControllerDelegate {
             }
         }
     }
-    
-    //    private func presentTitleInputAlert() {
-    //        let alert = UIAlertController(title: "Enter Cell Title", message: nil, preferredStyle: .alert)
-    //        alert.addTextField { textField in
-    //            textField.placeholder = "Enter title"
-    //        }
-    //        let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] _ in
-    //            if let title = alert.textFields?.first?.text {
-    //                let formatter = DateFormatter()
-    //                formatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
-    //                let formattedDate = formatter.string(from: Date())
-    //                let uniqueTitle = "\(title)_\(formattedDate)"
-    //
-    //                self?.currentCellTitle = uniqueTitle
-    //                self?.startScanning()
-    //            }
-    //        }
-    //        alert.addAction(addAction)
-    //        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-    //        present(alert, animated: true, completion: nil)
-    //    }
-    
 }
 
 
