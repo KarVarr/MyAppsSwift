@@ -179,7 +179,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.colorFromParsingLabel.label.isHidden = false
                                     self?.materialFromParsingLabel.label.isHidden = false
                                     self?.titleFromParsingLabel.label.text = product.title
-                                    self?.colorFromParsingLabel.label.text = product.colorID
+                                    self?.colorFromParsingLabel.label.text = product.colorName
                                     self?.materialFromParsingLabel.label.text = product.material
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
                                     
@@ -191,7 +191,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
 //                                        title: product.title,
 //                                        price: product.price,
 //                                        color: product.color,
-//                                        description: product.description,
+//                                        descriptions: product.descriptions,
 //                                        material: product.material,
 //                                        gender: product.gender,
 //                                        babyGender: product.babyGender,
@@ -204,8 +204,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
 //                                        article: product.article,
 //                                        title: product.title,
 //                                        price: product.price,
-//                                        color: product.colorID,
-//                                        description: product.description,
+//                                        color: product.colorName,
+//                                        descriptions: product.descriptions,
 //                                        material: product.material,
 //                                        gender: product.gender,
 //                                        babyGender: product.babyGender,

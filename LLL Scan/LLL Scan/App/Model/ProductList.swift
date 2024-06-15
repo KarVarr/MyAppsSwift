@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct ProductList {
-    var products = [Product]()
+class ProductList: Object {
+    var products = List<Product>()
 }
 
 

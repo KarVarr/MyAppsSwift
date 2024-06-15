@@ -47,8 +47,8 @@ extension ProductDetailsVC {
 //            titleLabel.label.text = "• Название: Нет информации"
 //        }
 //        
-//        if let colorID = product?.colorID {
-//            colorLabel.label.text = "• Цвет: \(colorID)"
+//        if let colorName = product?.colorName {
+//            colorLabel.label.text = "• Цвет: \(colorName)"
 //        } else {
 //            colorLabel.label.text = "• Цвет: Нет информации"
 //        }
@@ -59,8 +59,8 @@ extension ProductDetailsVC {
 //            materialLabel.label.text = "• Состав: Нет информации"
 //        }
 //        
-//        if let description = product?.description {
-//            descriptionLabel.label.text = "• Описание: \(description)"
+//        if let descriptions = product?.descriptions {
+//            descriptionLabel.label.text = "• Описание: \(descriptions)"
 //        } else {
 //            descriptionLabel.label.text = "• Описание: Нет информации"
 //        }

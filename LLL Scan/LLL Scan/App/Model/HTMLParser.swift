@@ -68,8 +68,8 @@ class HTMLParser {
             print("ColorID: \(colorName ?? "N/A")")
             
             let descriptionElement = try body.select("#section-descriptionAccordion").first()
-            let description = try descriptionElement?.select("p").first()?.text()
-            print("Description: \(description ?? "N/A")")
+            let descriptions = try descriptionElement?.select("p").first()?.text()
+            print("Description: \(descriptions ?? "N/A")")
             
             let materialElement = try body.select("#section-materialsAndSuppliersAccordion").first()
             let material = try materialElement?.select("ul").first()?.text()
@@ -88,12 +88,20 @@ class HTMLParser {
                 babyGender = babyGenderCategory
             }
             
-            let product = Product(id: UUID(), imageURL: imgSrc, link: link, article: article, title: title, price: price, colorID: colorName, description: description, material: material, gender: gender, babyGender: babyGender, addedAt: nil)
+            let product = Product()
+            product.id = UUID()
+            product.imageURL = imgSrc
+            product.link = link
+            product.article = article
+            product.title = title
+            product.price = price
+            product.colorName = colorName
+            product.descriptions = descriptions
+            product.material = material
+            product.gender = gender
+            product.babyGender = babyGender
+            product.addedAt = nil
             
-            
-//            guard let product = product else {
-//                return .failure(ParserError.invalidHTML)
-//            }
             
             return .success(product)
         } catch  {
