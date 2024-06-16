@@ -8,9 +8,34 @@
 import Foundation
 import RealmSwift
 
+// Обновить номер версии схемы
+let currentSchemaVersion: UInt64 = 1
+
 class DataManager {
     static let shared = DataManager()
-    let realm = try! Realm()
+    let realm: Realm
+    
+    private init() {
+        // Настройка миграции
+        let config = Realm.Configuration(
+            schemaVersion: currentSchemaVersion,
+            migrationBlock: { migration, oldSchemaVersion in
+                if oldSchemaVersion < currentSchemaVersion {
+                    // Автоматическое добавление нового свойства 'mainImageURL' (если необходимо)
+                    migration.enumerateObjects(ofType: Product.className()) { oldObject, newObject in
+                        newObject!["mainImageURL"] = ""
+                    }
+                }
+            })
+        
+        Realm.Configuration.defaultConfiguration = config
+        
+        do {
+            realm = try Realm()
+        } catch {
+            fatalError("Ошибка инициализации Realm: \(error)")
+        }
+    }
     
     var productList = [Product]()
     var allProducts = [[Product]]()
@@ -35,6 +60,9 @@ class DataManager {
     func saveAllProducts(_ allProducts: [[Product]]) {
         do {
             try realm.write {
+                let existingProductLists = realm.objects(ProductList.self)
+                realm.delete(existingProductLists)
+                
                 for productArray in allProducts {
                     let productList = ProductList()
                     productList.products.append(objectsIn: productArray)
@@ -56,6 +84,19 @@ class DataManager {
         }
         
         return allProducts
+    }
+    
+    // MARK: - DELETE Product List
+    func deleteProductList(at index: Int) {
+        do {
+            try realm.write {
+                let productListToDelete = realm.objects(ProductList.self)[index]
+                realm.delete(productListToDelete)
+                allProducts.remove(at: index)
+            }
+        } catch {
+            print("Error deleting product list: \(error)")
+        }
     }
     
 }

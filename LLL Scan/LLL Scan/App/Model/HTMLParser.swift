@@ -49,7 +49,7 @@ class HTMLParser {
             
             let mainImageElement = try body.select("div[class='product-detail-main-image-container']").first()
             let mainImgElement = try mainImageElement?.select("img").first()
-            let mainImgScr = try mainImgElement?.attr("scr")
+            let mainImgScr = try mainImgElement?.attr("src")
             print("Main Image src: \(mainImgScr ?? "N/A")")
             
             let linkElement = try body.select("a[class='filter-option miniature active']").first()
