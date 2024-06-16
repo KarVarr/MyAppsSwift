@@ -61,19 +61,6 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        //        if editingStyle == .delete {
-        //            let productToDelete = dataManager.allProducts[indexPath.row]
-        //            do {
-        //                try dataManager.realm.write {
-        //                    dataManager.realm.delete(productToDelete)
-        //                }
-        //                dataManager.allProducts.remove(at: indexPath.row)
-        //                tableView.deleteRows(at: [indexPath], with: .automatic)
-        //            } catch {
-        //                print("Error deleting product \(error)")
-        //            }
-        //        }
-        
         if editingStyle == .delete {
             dataManager.deleteProductList(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)

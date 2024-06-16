@@ -188,7 +188,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.productObj = Product()
                                     self?.productObj?.id = UUID()
                                     self?.productObj?.imageURL = product.imageURL
-                                    self?.productObj?.mainImageURL = String(describing: product.mainImageURL)
+                                    self?.productObj?.mainImageURL = self?.urlDecoder(url: product.mainImageURL)
                                     self?.productObj?.link = product.link
                                     self?.productObj?.article = product.article
                                     self?.productObj?.title = product.title
@@ -219,6 +219,17 @@ extension ScanVC: DataScannerViewControllerDelegate {
                     print("Error loading page: \(error)")
                 }
             }
+        }
+    }
+    
+    //MARK: - URL Decoder
+    func urlDecoder(url: String?) -> String? {
+        if let mainImageURLString = url,
+           let decodedMainImageURLString = mainImageURLString.removingPercentEncoding,
+           let mainImageURL = URL(string: "https:"+decodedMainImageURLString) {
+            return mainImageURL.absoluteString
+        } else {
+            return nil
         }
     }
 }

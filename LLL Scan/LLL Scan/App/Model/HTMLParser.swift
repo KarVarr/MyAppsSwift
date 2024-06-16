@@ -17,13 +17,13 @@ class HTMLParser {
     
     private func extractCategoryAndSize(from input: String) -> String? {
         switch input {
-        case _ where (input.contains("Chłopcy") && input.contains("9–14 L")) || (input.contains("Boys") && input.contains("9-14 Y")):
+        case _ where (input.contains("Chłopcy") && input.contains("9–14 L")) || (input.contains("Boys") && input.contains("9-14Y")):
             return "Мальчики 9–14 лет"
-        case _ where (input.contains("Chłopcy") && input.contains("2-8 L")) || (input.contains("Boys") && input.contains("2-8 Y")):
+        case _ where (input.contains("Chłopcy") && input.contains("2-8 L")) || (input.contains("Boys") && input.contains("2-8Y")):
             return "Мальчики 2-8 лет"
-        case _ where (input.contains("Dziewczynki") && input.contains("9–14 L")) || (input.contains("Girls") && input.contains("9-14 Y")):
+        case _ where (input.contains("Dziewczynki") && input.contains("9–14 L")) || (input.contains("Girls") && input.contains("9-14Y")):
             return "Девочки 9–14 лет"
-        case _ where (input.contains("Dziewczynki") && input.contains("2-8 L")) || (input.contains("Girls") && input.contains("2-8 Y")):
+        case _ where (input.contains("Dziewczynki") && input.contains("2-8 L")) || (input.contains("Girls") && input.contains("2-8Y")):
             return "Девочки 2-8 лет"
         case _ where (input.contains("Chłopcy") && input.contains("Niemowlę")) || (input.contains("Boys") && input.contains("Baby")):
             return "Мальчик"
