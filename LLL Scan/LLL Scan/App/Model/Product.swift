@@ -11,6 +11,7 @@ import RealmSwift
 class Product: Object {
     @objc dynamic var id: UUID?
     @objc dynamic var imageURL: String?
+    @objc dynamic var mainImageURL: String?
     @objc dynamic var link: String?
     @objc dynamic var article: String?
     @objc dynamic var title: String?

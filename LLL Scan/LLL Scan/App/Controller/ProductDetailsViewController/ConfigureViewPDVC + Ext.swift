@@ -20,73 +20,22 @@ extension ProductDetailsVC {
         }
     }
     
-//    func configureLabels() {
-//        let labels: [LabelViewCustom] = [
-//            articleLabel,
-//            titleLabel,
-//            colorLabel,
-//            materialLabel,
-//            descriptionLabel,
-//            priceLabel
-//        ]
-//        
-//        for label in labels {
-//            settingLabelsColor(label: label, font: UIFont(name: "AppleSDGothicNeo-Bold", size: 18) ?? UIFont(), color: .black)
-//        }
-//
-//        
-//        if let article = product?.article {
-//            articleLabel.label.text = "• Артикул: \(article)"
-//        } else {
-//            articleLabel.label.text = "• Артикул: Нет информации"
-//        }
-//        
-//        if let title = product?.title {
-//            titleLabel.label.text = "• Название: \(title)"
-//        } else {
-//            titleLabel.label.text = "• Название: Нет информации"
-//        }
-//        
-//        if let colorName = product?.colorName {
-//            colorLabel.label.text = "• Цвет: \(colorName)"
-//        } else {
-//            colorLabel.label.text = "• Цвет: Нет информации"
-//        }
-//        
-//        if let material = product?.material {
-//            materialLabel.label.text = "• Состав: \(material)"
-//        } else {
-//            materialLabel.label.text = "• Состав: Нет информации"
-//        }
-//        
-//        if let descriptions = product?.descriptions {
-//            descriptionLabel.label.text = "• Описание: \(descriptions)"
-//        } else {
-//            descriptionLabel.label.text = "• Описание: Нет информации"
-//        }
-//        
-//        if let price = product?.price {
-//            priceLabel.label.text = "• Цена: \(price)"
-//        } else {
-//            priceLabel.label.text = "• Цена: Нет информации"
-//        }
-//    }
-
-        private func settingLabelsColor(label: LabelViewCustom, font: UIFont, color: UIColor) {
-            label.label.font = font
-            label.label.textColor = color
-        }
-        
-        //MARK: - LOAD IMAGE func
-        private func loadImage(from url: URL) {
-            DispatchQueue.global().async { [weak self] in
-                if let imageData = try? Data(contentsOf: url),
-                   let image = UIImage(data: imageData) {
-                    DispatchQueue.main.async {
-                        self?.productImage.imageView.image = image
-                    }
+    
+    private func settingLabelsColor(label: LabelViewCustom, font: UIFont, color: UIColor) {
+        label.label.font = font
+        label.label.textColor = color
+    }
+    
+    //MARK: - LOAD IMAGE func
+    private func loadImage(from url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let imageData = try? Data(contentsOf: url),
+               let image = UIImage(data: imageData) {
+                DispatchQueue.main.async {
+                    self?.productImage.imageView.image = image
                 }
             }
         }
     }
-    
+}
+

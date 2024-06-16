@@ -70,7 +70,7 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
         case 3:
             cell.configure(with: "\(product?.material ?? "Нет состава")")
         case 4:
-            cell.configure(with: "\(product?.description ?? "Нет описания")")
+            cell.configure(with: "\(product?.descriptions ?? "Нет описания")")
         case 5:
             cell.configure(with: "\(product?.price ?? "Нет цены")")
         case 6:

@@ -188,6 +188,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.productObj = Product()
                                     self?.productObj?.id = UUID()
                                     self?.productObj?.imageURL = product.imageURL
+                                    self?.productObj?.mainImageURL = String(describing: product.mainImageURL)
                                     self?.productObj?.link = product.link
                                     self?.productObj?.article = product.article
                                     self?.productObj?.title = product.title

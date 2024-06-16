@@ -47,6 +47,11 @@ class HTMLParser {
             let imgSrc = try imgElement?.attr("src")
             print("Image src: \(imgSrc ?? "N/A")")
             
+            let mainImageElement = try body.select("div[class='product-detail-main-image-container']").first()
+            let mainImgElement = try mainImageElement?.select("img").first()
+            let mainImgScr = try mainImgElement?.attr("scr")
+            print("Main Image src: \(mainImgScr ?? "N/A")")
+            
             let linkElement = try body.select("a[class='filter-option miniature active']").first()
             let link = try linkElement?.attr("href")
             print("link: \(link ?? "N/A")")
@@ -92,6 +97,7 @@ class HTMLParser {
             let product = Product()
             product.id = UUID()
             product.imageURL = imgSrc
+            product.mainImageURL = mainImgScr
             product.link = link
             product.article = article
             product.title = title
