@@ -18,6 +18,10 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
         customTableViewProductDetailsVC.table.frame = view.bounds
         customTableViewProductDetailsVC.table.rowHeight = UITableView.automaticDimension
         customTableViewProductDetailsVC.table.estimatedRowHeight = 100
+        
+        
+        let tableViewHeader = TableViewHeader(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 400), imgURL: product?.mainImageURL ?? "photo")
+        self.customTableViewProductDetailsVC.table.tableHeaderView = tableViewHeader
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -26,9 +30,9 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
         switch sectionIndex {
             
         case 3:
-            return 88
+            return CGFloat((product?.material?.count ?? 44) + 22)
         case 4:
-            return 100
+            return CGFloat((product?.descriptions?.count ?? 44))
         default:
             return 44
         }

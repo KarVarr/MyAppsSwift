@@ -19,6 +19,7 @@
 		171149C52BD95DB100F5DECF /* ListOfProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149C42BD95DB100F5DECF /* ListOfProductsCell.swift */; };
 		1713481C2BCC3CBB00FC3CF7 /* myApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1713481B2BCC3CBB00FC3CF7 /* myApi.swift */; };
 		1776B4AD2C1E136D0086D5A2 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 1781EB532C1E128400DDDB9A /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1776B4AF2C1F4C1B0086D5A2 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776B4AE2C1F4C1B0086D5A2 /* TableViewHeader.swift */; };
 		1781EB542C1E128400DDDB9A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1781EB532C1E128400DDDB9A /* RealmSwift */; };
 		1787BD632BE2777E00F8BC7F /* ProductDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD622BE2777E00F8BC7F /* ProductDetailsVC.swift */; };
 		1787BD652BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD642BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift */; };
@@ -89,6 +90,7 @@
 		171149C22BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureCustomTableViewLPVC + Ext.swift"; sourceTree = "<group>"; };
 		171149C42BD95DB100F5DECF /* ListOfProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfProductsCell.swift; sourceTree = "<group>"; };
 		1713481B2BCC3CBB00FC3CF7 /* myApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myApi.swift; sourceTree = "<group>"; };
+		1776B4AE2C1F4C1B0086D5A2 /* TableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
 		1787BD622BE2777E00F8BC7F /* ProductDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
 		1787BD642BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewPDVC + Ext.swift"; sourceTree = "<group>"; };
 		1787BD662BE277D900F8BC7F /* AddViewPDVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewPDVC + Ext.swift"; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				1787BD682BE277E900F8BC7F /* LayoutViewPDVC + Ext.swift */,
 				1787BD642BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift */,
 				170074BE2BE2B745005A5DF7 /* ConfigureCustomTableViewPDVC + Ext.swift */,
+				1776B4AE2C1F4C1B0086D5A2 /* TableViewHeader.swift */,
 			);
 			path = ProductDetailsViewController;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				171149C32BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift in Sources */,
 				178DC7A62BBDD2EF00FEDE69 /* ConfigureCustomTableViewFVC + Ext.swift in Sources */,
 				178DC7802BB9AB1700FEDE69 /* HTMLParser.swift in Sources */,
+				1776B4AF2C1F4C1B0086D5A2 /* TableViewHeader.swift in Sources */,
 				178DC76E2BB889D800FEDE69 /* BaseViewController.swift in Sources */,
 				178DC7BA2BC4501100FEDE69 /* ViewStackCustom.swift in Sources */,
 				178DC74F2BB83E4500FEDE69 /* SceneDelegate.swift in Sources */,
