@@ -12,21 +12,22 @@ enum ParserError: Error {
     case invalidHTML
 }
 
+
 class HTMLParser {
     
     private func extractCategoryAndSize(from input: String) -> String? {
         switch input {
-        case _ where input.contains("Chłopcy") && input.contains("9–14 L"):
+        case _ where (input.contains("Chłopcy") && input.contains("9–14 L")) || (input.contains("Boys") && input.contains("9-14 Y")):
             return "Мальчики 9–14 лет"
-        case _ where input.contains("Chłopcy") && input.contains("2-8 L"):
+        case _ where (input.contains("Chłopcy") && input.contains("2-8 L")) || (input.contains("Boys") && input.contains("2-8 Y")):
             return "Мальчики 2-8 лет"
-        case _ where input.contains("Dziewczynki") && input.contains("9–14 L"):
+        case _ where (input.contains("Dziewczynki") && input.contains("9–14 L")) || (input.contains("Girls") && input.contains("9-14 Y")):
             return "Девочки 9–14 лет"
-        case _ where input.contains("Dziewczynki") && input.contains("2-8 L"):
+        case _ where (input.contains("Dziewczynki") && input.contains("2-8 L")) || (input.contains("Girls") && input.contains("2-8 Y")):
             return "Девочки 2-8 лет"
-        case _ where input.contains("Chłopcy") && input.contains("Niemowlę"):
+        case _ where (input.contains("Chłopcy") && input.contains("Niemowlę")) || (input.contains("Boys") && input.contains("Baby")):
             return "Мальчик"
-        case _ where input.contains("Dziewczynki") && input.contains("Niemowlę"):
+        case _ where (input.contains("Dziewczynki") && input.contains("Niemowlę")) || (input.contains("Girls") && input.contains("Baby")):
             return "Девочка"
         default:
             return "Нет данных на сайте"
