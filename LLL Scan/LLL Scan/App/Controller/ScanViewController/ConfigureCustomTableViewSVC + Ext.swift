@@ -64,6 +64,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             dataManager.deleteProductList(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            customTableViewScanVC.table.reloadData()
         }
     }
     

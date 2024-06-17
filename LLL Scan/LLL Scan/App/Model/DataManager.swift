@@ -99,4 +99,21 @@ class DataManager {
         }
     }
     
+    // MARK: - DELETE Product
+    func deleteProduct(at index: Int) {
+        do {
+            try realm.write {
+                if index < productList.count {
+                    let productToDelete = productList[index]
+                    realm.delete(productToDelete)
+                    productList.remove(at: index)
+                } else {
+                    print("Index out of range")
+                }
+            }
+        } catch {
+            print("Error deleting product: \(error)")
+        }
+    }
+    
 }

@@ -17,6 +17,8 @@ class ScanVC: BaseViewController {
     }
     var productObj: Product?
     
+    //HapticTouch
+    let notificationGenerator = UINotificationFeedbackGenerator()
     //table
     let customTableViewScanVC = CustomTableView()
     //labels

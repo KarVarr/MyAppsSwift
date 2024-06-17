@@ -105,6 +105,10 @@ class ListOfProductsCell: UITableViewCell {
                 DispatchQueue.main.async {
                     self?.imagePDVC.imageView.image = image
                 }
+            } else {
+                DispatchQueue.main.async {
+                    self?.imagePDVC.imageView.image = UIImage(systemName: "xmark.square")
+                }
             }
         }
     }

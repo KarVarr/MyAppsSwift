@@ -21,8 +21,11 @@ extension ScanVC: DataScannerViewControllerDelegate {
     @objc func newScan() {
         // presentTitleInputAlert()
         startScanning()
+        
+        notificationGenerator.notificationOccurred(.success)
     }
     
+    //MARK: - Save ONE
     @objc func saveOneProductResult() {
         print("saveResult")
         
@@ -37,14 +40,16 @@ extension ScanVC: DataScannerViewControllerDelegate {
         self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
         self.productObj = nil
         customTableViewScanVC.table.reloadData()
+        
+        notificationGenerator.notificationOccurred(.success)
     }
     
+    //MARK: - Save ALL
     @objc func saveAllResult() {
         guard !dataManager.productList.isEmpty else {
             print("No products to save")
             return
         }
-        
         
         let countProductsArray = dataManager.productList.count
         
@@ -70,6 +75,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
         self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
         
         print("all save and append in array MOTHER FUCKER")
+        
+        notificationGenerator.notificationOccurred(.success)
     }
     
     private func startScanning() {

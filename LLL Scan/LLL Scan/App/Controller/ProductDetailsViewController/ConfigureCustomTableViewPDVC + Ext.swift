@@ -20,7 +20,7 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
         customTableViewProductDetailsVC.table.estimatedRowHeight = 100
         
         
-        let tableViewHeader = TableViewHeader(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 400), imgURL: product?.mainImageURL ?? "photo")
+        let tableViewHeader = TableViewHeader(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 400), imgURL: product?.mainImageURL ?? "xmark.square")
         self.customTableViewProductDetailsVC.table.tableHeaderView = tableViewHeader
     }
     

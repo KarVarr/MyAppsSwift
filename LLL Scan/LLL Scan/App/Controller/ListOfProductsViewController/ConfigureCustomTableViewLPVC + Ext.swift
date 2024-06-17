@@ -57,4 +57,12 @@ extension ListOfProductsVC: UITableViewDelegate, UITableViewDataSource {
         productDetailsVS.title = selectedProduct.article
         navigationController?.pushViewController(productDetailsVS, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            dataManager.deleteProduct(at: indexPath.row)
+            product.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
 }

@@ -11,10 +11,14 @@ class ListOfProductsVC: BaseViewController {
     let dataManager = DataManager.shared
     let customTableViewProductDetailVC = CustomTableView()
     var product: [Product] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureCustomTableViewLPVC()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        customTableViewProductDetailVC.table.reloadData()
     }
 }
