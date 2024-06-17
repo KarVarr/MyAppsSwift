@@ -13,7 +13,7 @@ extension ScanVC {
         labelForHtml.label.numberOfLines = 0
         
         resultLabel.label.textColor = .black
-        resultLabel.label.font = UIFont(name: "AppleSDGothicNeo_Bold", size: 36)
+        resultLabel.label.font = UIFont(name: "AppleSDGothicNeo_Bold", size: Helper.Fonts.dynamicFontSize(36))
         resultLabel.label.numberOfLines = 0
         
         titleFromParsingLabel.label.numberOfLines = 0

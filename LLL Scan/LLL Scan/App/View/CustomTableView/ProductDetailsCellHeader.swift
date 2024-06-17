@@ -20,7 +20,7 @@ class ProductDetailsCellHeader: UITableViewHeaderFooterView {
     
     public func configure(with title: String) {
         headerTitleLabel.label.textColor = .systemBlue
-        headerTitleLabel.label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        headerTitleLabel.label.font = UIFont.systemFont(ofSize: Helper.Fonts.dynamicFontSize(16), weight: .bold)
         headerTitleLabel.label.text = title.uppercased()
         setupUI()
     }

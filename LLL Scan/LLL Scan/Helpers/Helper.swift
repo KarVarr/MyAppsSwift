@@ -39,4 +39,14 @@ enum Helper {
         static let productDetails = "productDetailsCellKey"
         static let productDetailsCellHeader = "productDetailsCellHeaderKey"
     }
+    
+    
+    //MARK: - Fonts
+    enum Fonts {
+        static func dynamicFontSize(_ fontSize: CGFloat) -> CGFloat {
+            let screenWidth = UIScreen.main.bounds.size.width
+            let calculatedFontSize = screenWidth / 375 * fontSize
+            return calculatedFontSize
+        }
+    }
 }
