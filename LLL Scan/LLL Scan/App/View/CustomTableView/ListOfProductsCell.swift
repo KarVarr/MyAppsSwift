@@ -58,14 +58,24 @@ class ListOfProductsCell: UITableViewCell {
     }
     
     private func configureLabels() {
+        let labels: [LabelViewCustom] = [
+            articleLabelPDVC,
+            titleLabelPDVC,
+            colorLabelPDVC,
+            materialLabelPDVC,
+            genderPDVC
+        ]
         
+        for oneLebel in labels {
+            labelsSize(oneLebel)
+        }
     }
     
     private func configureVStackForDetails() {
         vStackForProductDetails.stack.axis = .vertical
         vStackForProductDetails.stack.alignment = .leading
         vStackForProductDetails.stack.distribution = .fillEqually
-        vStackForProductDetails.stack.spacing = 5
+        vStackForProductDetails.stack.spacing = 10
     }
     
     private func layoutCell() {
@@ -75,13 +85,14 @@ class ListOfProductsCell: UITableViewCell {
         NSLayoutConstraint.activate([
             imagePDVC.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             imagePDVC.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            imagePDVC.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
+            imagePDVC.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3),
+            imagePDVC.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.9),
             
             vStackForProductDetails.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             vStackForProductDetails.leadingAnchor.constraint(equalTo: imagePDVC.trailingAnchor, constant: 10),
             vStackForProductDetails.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            vStackForProductDetails.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            vStackForProductDetails.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            vStackForProductDetails.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            vStackForProductDetails.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             
         ])
     }
@@ -96,6 +107,11 @@ class ListOfProductsCell: UITableViewCell {
                 }
             }
         }
+    }
+    
+    //MARK: - Labels size
+    private func labelsSize(_ labels: LabelViewCustom) {
+        labels.label.font = UIFont.systemFont(ofSize: Helper.Fonts.dynamicFontSize(14))
     }
     
 }

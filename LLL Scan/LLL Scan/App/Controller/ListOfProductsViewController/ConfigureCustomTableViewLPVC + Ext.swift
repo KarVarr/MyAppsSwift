@@ -23,7 +23,7 @@ extension ListOfProductsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 140
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,7 +43,7 @@ extension ListOfProductsVC: UITableViewDelegate, UITableViewDataSource {
         cell.titleLabelPDVC.label.text = productIndex.title
         cell.colorLabelPDVC.label.text = productIndex.colorName
         cell.materialLabelPDVC.label.text = productIndex.material
-            
+        cell.genderPDVC.label.text = productIndex.gender
         return cell
     }
     
