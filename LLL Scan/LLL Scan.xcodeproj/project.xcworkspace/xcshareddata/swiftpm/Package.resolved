@@ -1,5 +1,5 @@
 {
-  "originHash" : "818e274656d7e2504b554fa4267ba134d7d912f04ee727250d56bfbb9cdef54c",
+  "originHash" : "32d840f24e6a3c76391c7db4956ce5c6c275d5716ba0c3c0820511afd8279af7",
   "pins" : [
     {
       "identity" : "realm-core",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "4c4413abd0cd2221f59318f800960fe5bddc1494",
         "version" : "10.51.0"
+      }
+    },
+    {
+      "identity" : "skeletonview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Juanpe/SkeletonView.git",
+      "state" : {
+        "revision" : "2f5274827d310e32c09325dd3e0007120940988e",
+        "version" : "1.31.0"
       }
     },
     {
