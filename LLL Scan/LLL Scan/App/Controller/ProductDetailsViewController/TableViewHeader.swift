@@ -12,6 +12,7 @@ class TableViewHeader: UIView {
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.isSkeletonable = true
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -32,19 +33,22 @@ class TableViewHeader: UIView {
     }
     
     private func setupView() {
-        self.isSkeletonable = true // Make the entire view skeletonable
+        self.isSkeletonable = true
+        self.showAnimatedSkeleton()
+        addSubview(imageView)
     }
     
     private func configureImageView(with urlString: String) {
         if let url = URL(string: urlString) {
             loadImage(from: url)
         } else {
+            stopSkeleton()
             imageView.image = UIImage(named: "photo")
         }
     }
     // MARK: - Start Skeleton
     private func startSkeleton() {
-        self.showAnimatedGradientSkeleton()
+        self.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: UIColor.sunFlower), transition: .crossDissolve(0.25))
     }
     
     // MARK: - Stop Skeleton
@@ -60,12 +64,17 @@ class TableViewHeader: UIView {
                     self?.stopSkeleton()
                     self?.imageView.image = image
                 }
+            } else {
+                DispatchQueue.main.async {
+                    self?.stopSkeleton()
+                    self?.imageView.image = UIImage(named: "photo")
+                }
             }
         }
     }
     
     private func setupConstraints() {
-        addSubview(imageView)
+//        addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
