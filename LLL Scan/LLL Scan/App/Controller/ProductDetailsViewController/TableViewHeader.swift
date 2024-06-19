@@ -8,6 +8,7 @@
 import UIKit
 
 class TableViewHeader: UIView {
+    let activityIndicator = ActivityIndicatorCustom()
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -37,9 +38,16 @@ class TableViewHeader: UIView {
     }
     
     private func loadImage(from url: URL) {
+        imageView.isHidden = true
+        activityIndicator.indicatorView.isHidden = false
+        activityIndicator.indicatorView.startAnimating()
+        
         DispatchQueue.global().async { [weak self] in
             if let imageData = try? Data(contentsOf: url), let image = UIImage(data: imageData) {
                 DispatchQueue.main.async {
+                    self?.activityIndicator.indicatorView.isHidden = true
+                    self?.activityIndicator.indicatorView.stopAnimating()
+                    self?.imageView.isHidden = false
                     self?.imageView.image = image
                 }
             }
@@ -47,13 +55,18 @@ class TableViewHeader: UIView {
     }
     
     private func setupConstraints() {
-           addSubview(imageView)
-           
-           NSLayoutConstraint.activate([
-               imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-               imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-               imageView.heightAnchor.constraint(equalToConstant: 400)
-           ])
-       }
+        addSubview(imageView)
+        addSubview(activityIndicator.indicatorView)
+        
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 400),
+            
+            activityIndicator.indicatorView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            activityIndicator.indicatorView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
+            
+        ])
+    }
 }
 
