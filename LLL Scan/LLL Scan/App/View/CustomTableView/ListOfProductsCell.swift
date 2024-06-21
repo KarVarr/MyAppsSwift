@@ -6,9 +6,9 @@
 //
 
 import UIKit
+import SkeletonView
 
 class ListOfProductsCell: UITableViewCell {
-    let activityIndicator = ActivityIndicatorCustom()
     let articleLabelPDVC = LabelViewCustom()
     let titleLabelPDVC = LabelViewCustom()
     let colorLabelPDVC = LabelViewCustom()
@@ -19,6 +19,7 @@ class ListOfProductsCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupSkeleton()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,7 +33,6 @@ class ListOfProductsCell: UITableViewCell {
         
     }
     
-    
     private func addViews() {
         let views: [UIView] = [
             articleLabelPDVC.label,
@@ -41,7 +41,6 @@ class ListOfProductsCell: UITableViewCell {
             materialLabelPDVC.label,
             genderPDVC.label,
             imagePDVC.imageView,
-            activityIndicator.indicatorView,
             vStackForProductDetails.stack,
         ]
         
@@ -75,6 +74,11 @@ class ListOfProductsCell: UITableViewCell {
         }
     }
     
+    private func setupSkeleton() {
+        isSkeletonable = true
+        imagePDVC.imageView.isSkeletonable = true
+    }
+    
     private func configureVStackForDetails() {
         vStackForProductDetails.stack.axis = .vertical
         vStackForProductDetails.stack.alignment = .leading
@@ -83,7 +87,6 @@ class ListOfProductsCell: UITableViewCell {
     }
     
     private func layoutCell() {
-        let activityIndicator = activityIndicator.indicatorView
         let imagePDVC = imagePDVC.imageView
         let vStackForProductDetails = vStackForProductDetails.stack
         
@@ -93,9 +96,6 @@ class ListOfProductsCell: UITableViewCell {
             imagePDVC.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             imagePDVC.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3),
             imagePDVC.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.9),
-            
-            activityIndicator.centerXAnchor.constraint(equalTo: imagePDVC.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: imagePDVC.centerYAnchor),
             
             vStackForProductDetails.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             vStackForProductDetails.leadingAnchor.constraint(equalTo: imagePDVC.trailingAnchor, constant: 10),
@@ -108,24 +108,18 @@ class ListOfProductsCell: UITableViewCell {
     
     //MARK: - load image url
     func loadImage(from url: URL) {
-        imagePDVC.imageView.isHidden = true
-        activityIndicator.indicatorView.isHidden = false
-        activityIndicator.indicatorView.startAnimating()
+        imagePDVC.imageView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .carrot))
         
         DispatchQueue.global().async { [weak self] in
             if let imageData = try? Data(contentsOf: url),
                let image = UIImage(data: imageData) {
                 DispatchQueue.main.async {
-                    self?.imagePDVC.imageView.isHidden = false
-                    self?.activityIndicator.indicatorView.isHidden = true
-                    self?.activityIndicator.indicatorView.stopAnimating()
+                    self?.imagePDVC.imageView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
                     self?.imagePDVC.imageView.image = image
                 }
             } else {
                 DispatchQueue.main.async {
-                    self?.imagePDVC.imageView.isHidden = false
-                    self?.activityIndicator.indicatorView.isHidden = true
-                    self?.activityIndicator.indicatorView.stopAnimating()
+                    self?.imagePDVC.imageView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
                     self?.imagePDVC.imageView.image = UIImage(systemName: "xmark.square")
                 }
             }

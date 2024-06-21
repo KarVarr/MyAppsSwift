@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SkeletonView
 
-extension ListOfProductsVC: UITableViewDelegate, UITableViewDataSource {
+extension ListOfProductsVC: UITableViewDelegate, SkeletonTableViewDataSource {
     func configureCustomTableViewLPVC() {
         customTableViewProductDetailVC.table.dataSource = self
         customTableViewProductDetailVC.table.delegate = self
@@ -24,6 +25,10 @@ extension ListOfProductsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        Helper.Keys.listOfProducts
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

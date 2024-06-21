@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class ListOfProductsVC: BaseViewController {
     let dataManager = DataManager.shared
@@ -19,6 +20,8 @@ class ListOfProductsVC: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        customTableViewProductDetailVC.isSkeletonable = true
+        customTableViewProductDetailVC.showGradientSkeleton(usingGradient: .init(baseColor: .carrot),transition: .crossDissolve(0.25))
         customTableViewProductDetailVC.table.reloadData()
     }
 }
