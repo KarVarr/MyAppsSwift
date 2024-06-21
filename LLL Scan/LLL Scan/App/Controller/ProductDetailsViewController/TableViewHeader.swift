@@ -12,7 +12,6 @@ class TableViewHeader: UIView {
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.isSkeletonable = true
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -21,11 +20,11 @@ class TableViewHeader: UIView {
     
     init(frame: CGRect, imgURL: String) {
         super.init(frame: frame)
+        setupImage()
         setupView()
         configureImageView(with: imgURL)
         setupConstraints()
     }
-    
     
     
     required init?(coder: NSCoder) {
@@ -34,7 +33,10 @@ class TableViewHeader: UIView {
     
     private func setupView() {
         self.isSkeletonable = true
-        self.showAnimatedSkeleton()
+    }
+    
+    private func setupImage() {
+        imageView.isSkeletonable = true
         addSubview(imageView)
     }
     
@@ -42,18 +44,20 @@ class TableViewHeader: UIView {
         if let url = URL(string: urlString) {
             loadImage(from: url)
         } else {
-            stopSkeleton()
             imageView.image = UIImage(named: "photo")
+            stopSkeleton()
         }
     }
     // MARK: - Start Skeleton
     private func startSkeleton() {
-        self.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: UIColor.sunFlower), transition: .crossDissolve(0.25))
+        self.showAnimatedGradientSkeleton()
+        self.imageView.showAnimatedGradientSkeleton()
     }
     
     // MARK: - Stop Skeleton
     private func stopSkeleton() {
         self.hideSkeleton()
+        self.imageView.hideSkeleton()
     }
     
     private func loadImage(from url: URL) {
@@ -61,25 +65,24 @@ class TableViewHeader: UIView {
         DispatchQueue.global().async { [weak self] in
             if let imageData = try? Data(contentsOf: url), let image = UIImage(data: imageData) {
                 DispatchQueue.main.async {
-                    self?.stopSkeleton()
                     self?.imageView.image = image
+                    self?.stopSkeleton()
                 }
             } else {
                 DispatchQueue.main.async {
-                    self?.stopSkeleton()
                     self?.imageView.image = UIImage(named: "photo")
+                    self?.stopSkeleton()
                 }
             }
         }
     }
     
     private func setupConstraints() {
-//        addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 400),
-            
+            imageView.widthAnchor.constraint(equalToConstant: 270),
         ])
     }
 }

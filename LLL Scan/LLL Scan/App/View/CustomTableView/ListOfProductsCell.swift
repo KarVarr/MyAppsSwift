@@ -24,13 +24,11 @@ class ListOfProductsCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
         addViews()
         configureCell()
         configureLabels()
         configureVStackForDetails()
         layoutCell()
-        
     }
     
     private func addViews() {
@@ -77,6 +75,13 @@ class ListOfProductsCell: UITableViewCell {
     private func setupSkeleton() {
         isSkeletonable = true
         imagePDVC.imageView.isSkeletonable = true
+        articleLabelPDVC.label.isSkeletonable = true
+        titleLabelPDVC.label.isSkeletonable = true
+        colorLabelPDVC.label.isSkeletonable = true
+        materialLabelPDVC.label.isSkeletonable = true
+        genderPDVC.label.isSkeletonable = true
+        
+        
     }
     
     private func configureVStackForDetails() {
@@ -91,7 +96,6 @@ class ListOfProductsCell: UITableViewCell {
         let vStackForProductDetails = vStackForProductDetails.stack
         
         NSLayoutConstraint.activate([
-            
             imagePDVC.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             imagePDVC.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             imagePDVC.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3),
@@ -108,8 +112,7 @@ class ListOfProductsCell: UITableViewCell {
     
     //MARK: - load image url
     func loadImage(from url: URL) {
-        imagePDVC.imageView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .carrot))
-        
+        imagePDVC.imageView.showAnimatedGradientSkeleton()
         DispatchQueue.global().async { [weak self] in
             if let imageData = try? Data(contentsOf: url),
                let image = UIImage(data: imageData) {

@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import SkeletonView
 
 
-extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
+extension ProductDetailsVC: UITableViewDelegate, SkeletonTableViewDataSource {
     
     func configureCustomTableViewPDVC() {
         customTableViewProductDetailsVC.table.dataSource = self
@@ -28,7 +29,6 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
         let sectionIndex = indexPath.section
         
         switch sectionIndex {
-            
         case 3:
             return CGFloat((product?.material?.count ?? 44) + 22)
         case 4:
@@ -44,6 +44,10 @@ extension ProductDetailsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        Helper.Keys.productDetails
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

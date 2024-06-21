@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 struct SectionHeaders {
     let title: String
@@ -35,5 +36,11 @@ class ProductDetailsVC: BaseViewController {
         
         configureImages()
         configureCustomTableViewPDVC()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        customTableViewProductDetailsVC.isSkeletonable = true
+        customTableViewProductDetailsVC.showGradientSkeleton()
     }
 }
