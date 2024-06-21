@@ -34,14 +34,15 @@ extension ScanVC {
             buttonForAddNewTableView.widthAnchor.constraint(equalToConstant: 60),
             buttonForAddNewTableView.heightAnchor.constraint(equalToConstant: 60),
         ])
+        
         //MARK: - Save buttons and Count label
         NSLayoutConstraint.activate([
-            saveOneProductButtonForScanner.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -5),
+            saveOneProductButtonForScanner.trailingAnchor.constraint(equalTo: overlayViewForScanner.trailingAnchor, constant: -10),
             saveOneProductButtonForScanner.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -10),
             saveOneProductButtonForScanner.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.4),
             saveOneProductButtonForScanner.heightAnchor.constraint(equalToConstant: 44),
             
-            saveAllButtonForScanner.leadingAnchor.constraint(equalTo: overlayViewForScanner.leadingAnchor, constant: 5),
+            saveAllButtonForScanner.leadingAnchor.constraint(equalTo: overlayViewForScanner.leadingAnchor, constant: 10),
             saveAllButtonForScanner.bottomAnchor.constraint(equalTo: overlayViewForScanner.bottomAnchor, constant: -10),
             saveAllButtonForScanner.widthAnchor.constraint(equalTo: overlayViewForScanner.widthAnchor, multiplier: 0.4),
             saveAllButtonForScanner.heightAnchor.constraint(equalToConstant: 44),

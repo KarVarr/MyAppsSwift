@@ -31,6 +31,7 @@ class ScanTableViewCell: UITableViewCell {
         contentView.addSubview(vStackSTVCForLabelsTitleAndCount.stack)
         contentView.addSubview(hStackSTVCForVStackAndButton.stack)
         
+        //TODO: была идея добавить кнопку в конце ячейки, для этого тут есть hStack.
         vStackSTVCForLabelsTitleAndCount.stack.addArrangedSubview(titleLabel.label)
         vStackSTVCForLabelsTitleAndCount.stack.addArrangedSubview(countLabel.label)
         hStackSTVCForVStackAndButton.stack.addArrangedSubview(vStackSTVCForLabelsTitleAndCount.stack)

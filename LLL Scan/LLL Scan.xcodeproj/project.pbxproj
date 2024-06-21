@@ -269,9 +269,9 @@
 				178DC79D2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift */,
 				178DC76B2BB8890F00FEDE69 /* ConfigureLabelSVC + Ext.swift */,
 				178DC7782BB9844300FEDE69 /* ConfigureImageSVC + Ext.swift */,
-				178DC7962BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift */,
-				178DC7B72BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift */,
 				178DC7BB2BC4518C00FEDE69 /* ConfigureStackViewSVC + Ext.swift */,
+				178DC7B72BC309A000FEDE69 /* ConfigureViewCustomSVC + Ext.swift */,
+				178DC7962BB9F51A00FEDE69 /* ConfigureCustomTableViewSVC + Ext.swift */,
 			);
 			path = ScanViewController;
 			sourceTree = "<group>";
