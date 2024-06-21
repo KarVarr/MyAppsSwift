@@ -19,16 +19,15 @@ class ListOfProductsCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupSkeleton()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         addViews()
-        configureCell()
         configureLabels()
         configureVStackForDetails()
         layoutCell()
+        setupSkeleton()
     }
     
     private func addViews() {
@@ -54,10 +53,6 @@ class ListOfProductsCell: UITableViewCell {
         vStackForProductDetails.stack.addArrangedSubview(genderPDVC.label)
     }
     
-    private func configureCell() {
-        
-    }
-    
     private func configureLabels() {
         let labels: [LabelViewCustom] = [
             articleLabelPDVC,
@@ -73,14 +68,8 @@ class ListOfProductsCell: UITableViewCell {
     }
     
     private func setupSkeleton() {
-        isSkeletonable = true
-        imagePDVC.imageView.isSkeletonable = true
-        articleLabelPDVC.label.isSkeletonable = true
-        titleLabelPDVC.label.isSkeletonable = true
-        colorLabelPDVC.label.isSkeletonable = true
-        materialLabelPDVC.label.isSkeletonable = true
-        genderPDVC.label.isSkeletonable = true
-        
+        self.isSkeletonable = true
+        self.imagePDVC.imageView.isSkeletonable = true
         
     }
     
@@ -106,24 +95,45 @@ class ListOfProductsCell: UITableViewCell {
             vStackForProductDetails.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             vStackForProductDetails.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             vStackForProductDetails.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            
         ])
+    }
+    
+    // MARK: - Start Skeleton
+    private func startSkeleton() {
+        self.showAnimatedGradientSkeleton()
+        self.imagePDVC.imageView.showAnimatedGradientSkeleton()
+    }
+    
+    // MARK: - Stop Skeleton
+    private func stopSkeleton() {
+        self.hideSkeleton()
+        self.imagePDVC.imageView.hideSkeleton()
+    }
+    
+    func configureCell(with product: Product) {
+        DispatchQueue.main.async {
+            self.articleLabelPDVC.label.text = product.article
+            self.titleLabelPDVC.label.text = product.title
+            self.colorLabelPDVC.label.text = product.colorName
+            self.materialLabelPDVC.label.text = product.material
+            self.genderPDVC.label.text = product.gender
+        }
     }
     
     //MARK: - load image url
     func loadImage(from url: URL) {
-        imagePDVC.imageView.showAnimatedGradientSkeleton()
+        startSkeleton()
         DispatchQueue.global().async { [weak self] in
             if let imageData = try? Data(contentsOf: url),
                let image = UIImage(data: imageData) {
                 DispatchQueue.main.async {
-                    self?.imagePDVC.imageView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
                     self?.imagePDVC.imageView.image = image
+                    self?.stopSkeleton()
                 }
             } else {
                 DispatchQueue.main.async {
-                    self?.imagePDVC.imageView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
                     self?.imagePDVC.imageView.image = UIImage(systemName: "xmark.square")
+                    self?.stopSkeleton()
                 }
             }
         }

@@ -20,13 +20,11 @@ class ScanTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
         addViews()
         configureCell()
         configureLabels()
         configureStacks()
         layoutCell()
-        
     }
     
     private func addViews() {

@@ -17,7 +17,6 @@ extension ListOfProductsVC: UITableViewDelegate, SkeletonTableViewDataSource {
         customTableViewProductDetailVC.table.backgroundColor = .white
         customTableViewProductDetailVC.table.separatorStyle = .singleLine
         customTableViewProductDetailVC.table.separatorColor = .purple
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,25 +38,14 @@ extension ListOfProductsVC: UITableViewDelegate, SkeletonTableViewDataSource {
         
         let productIndex = product[indexPath.row]
         
+        cell.configureCell(with: productIndex)
+        
         if let imageURLString = productIndex.imageURL,
            let decodedImageURLString = imageURLString.removingPercentEncoding,
            let imageURL = URL(string: "https:"+decodedImageURLString) {
             cell.loadImage(from: imageURL)
         }
         
-        DispatchQueue.main.async {
-            cell.articleLabelPDVC.label.showGradientSkeleton()
-            cell.titleLabelPDVC.label.showGradientSkeleton()
-            cell.colorLabelPDVC.label.showGradientSkeleton()
-            cell.materialLabelPDVC.label.showGradientSkeleton()
-            cell.genderPDVC.label.showGradientSkeleton()
-        }
-        
-        cell.articleLabelPDVC.label.text = productIndex.article
-        cell.titleLabelPDVC.label.text = productIndex.title
-        cell.colorLabelPDVC.label.text = productIndex.colorName
-        cell.materialLabelPDVC.label.text = productIndex.material
-        cell.genderPDVC.label.text = productIndex.gender
         return cell
     }
     
