@@ -34,8 +34,29 @@ extension ScanVC: DataScannerViewControllerDelegate {
             return
         }
         
-        dataManager.saveProduct(product: productObj)
-        dataManager.productList.append(productObj)
+        // Проверяем, существует ли продукт в массиве
+        let productExists = dataManager.productList.contains { $0.article == productObj.article }
+        
+        // Обновляем свойства кнопки в зависимости от того, существует ли продукт
+        if productExists {
+            saveOneProductButtonForScanner.button.configuration?.baseBackgroundColor = .green
+            saveOneProductButtonForScanner.button.configuration?.title = "Добавлено"
+            saveOneProductButtonForScanner.button.configuration?.image = UIImage(systemName: "checkmark.circle.fill")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.saveOneProductButtonForScanner.button.configuration?.baseBackgroundColor = .blue
+                self.saveOneProductButtonForScanner.button.configuration?.title = "Добавить"
+                self.saveOneProductButtonForScanner.button.configuration?.image = UIImage(systemName: "plus.circle.fill")
+            }
+        } else {
+            saveOneProductButtonForScanner.button.configuration?.baseBackgroundColor = .blue
+            saveOneProductButtonForScanner.button.configuration?.title = "Добавить"
+            saveOneProductButtonForScanner.button.configuration?.image = UIImage(systemName: "plus.circle.fill")
+            
+            // Если продукт не существует, добавляем его в массив
+            dataManager.saveProduct(product: productObj)
+            dataManager.productList.append(productObj)
+        }
+        
         
         self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
         self.productObj = nil
@@ -159,7 +180,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
         print("Result article : \(result)")
         resultLabel.label.text = "✅ Артикул: \(result)".trimmingCharacters(in: .whitespacesAndNewlines)
         
-        self.urlString = "https://www2.hm.com/en_gb/productpage.\(result).html"
+        self.urlString = "https://www2.hm.com/de_de/productpage.\(result).html"
         
         if let urlString = self.urlString {
             networkManager.loadPageFromNetwork(urlString: urlString) { [weak self] result in
