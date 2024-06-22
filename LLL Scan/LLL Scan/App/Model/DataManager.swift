@@ -89,31 +89,62 @@ class DataManager {
     // MARK: - DELETE Product List
     func deleteProductList(at index: Int) {
         do {
-            try realm.write {
+            if realm.isInWriteTransaction {
                 let productListToDelete = realm.objects(ProductList.self)[index]
                 realm.delete(productListToDelete)
                 allProducts.remove(at: index)
+            } else {
+                try realm.write {
+                    let productListToDelete = realm.objects(ProductList.self)[index]
+                    realm.delete(productListToDelete)
+                    allProducts.remove(at: index)
+                }
             }
         } catch {
             print("Error deleting product list: \(error)")
         }
     }
+
     
     // MARK: - DELETE Product
-    func deleteProduct(at index: Int) {
+    func deleteProduct(at index: Int, inProductListAt productListIndex: Int) {
         do {
-            try realm.write {
-                if index < productList.count {
-                    let productToDelete = productList[index]
+            // Проверяем, есть ли активная транзакция записи
+            if realm.isInWriteTransaction {
+                // Удаляем продукт и обновляем массив
+                if productListIndex < allProducts.count && index < allProducts[productListIndex].count {
+                    let productToDelete = allProducts[productListIndex][index]
                     realm.delete(productToDelete)
-                    productList.remove(at: index)
+                    allProducts[productListIndex].remove(at: index)
+                    
+                    // Если массив продуктов пуст, удаляем также ProductList
+                    if allProducts[productListIndex].isEmpty {
+                        deleteProductList(at: productListIndex)
+                    }
                 } else {
                     print("Index out of range")
+                }
+            } else {
+                try realm.write {
+                    // Удаляем продукт и обновляем массив
+                    if productListIndex < allProducts.count && index < allProducts[productListIndex].count {
+                        let productToDelete = allProducts[productListIndex][index]
+                        realm.delete(productToDelete)
+                        allProducts[productListIndex].remove(at: index)
+                        
+                        // Если массив продуктов пуст, удаляем также ProductList
+                        if allProducts[productListIndex].isEmpty {
+                            deleteProductList(at: productListIndex)
+                        }
+                    } else {
+                        print("Index out of range")
+                    }
                 }
             }
         } catch {
             print("Error deleting product: \(error)")
         }
     }
+    
     
 }

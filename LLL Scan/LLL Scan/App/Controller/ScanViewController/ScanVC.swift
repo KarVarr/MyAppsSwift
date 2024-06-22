@@ -51,6 +51,10 @@ class ScanVC: BaseViewController {
         dataManager.allProducts = dataManager.loadAllProducts()
         customTableViewScanVC.table.reloadData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        customTableViewScanVC.table.reloadData()
+    }
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()

@@ -12,6 +12,7 @@ class ListOfProductsVC: BaseViewController {
     let dataManager = DataManager.shared
     let customTableViewProductDetailVC = CustomTableView()
     var product: [Product] = []
+    var productListIndex: Int? 
     
     override func viewDidLoad() {
         super.viewDidLoad()

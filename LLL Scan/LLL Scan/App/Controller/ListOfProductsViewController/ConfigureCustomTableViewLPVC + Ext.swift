@@ -62,7 +62,8 @@ extension ListOfProductsVC: UITableViewDelegate, SkeletonTableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            dataManager.deleteProduct(at: indexPath.row)
+            guard let productListIndex = self.productListIndex else { return }
+            dataManager.deleteProduct(at: indexPath.row, inProductListAt: productListIndex)
             product.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }

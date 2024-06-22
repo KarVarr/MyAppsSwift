@@ -55,7 +55,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
         
         let listOFProductsVC = ListOfProductsVC()
         listOFProductsVC.product = selectedProduct
-        
+        listOFProductsVC.productListIndex = indexPath.row
         navigationController?.pushViewController(listOFProductsVC, animated: true)
     }
     
@@ -63,7 +63,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             dataManager.deleteProductList(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.deleteRows(at: [indexPath], with: .left)
             customTableViewScanVC.table.reloadData()
         }
     }
