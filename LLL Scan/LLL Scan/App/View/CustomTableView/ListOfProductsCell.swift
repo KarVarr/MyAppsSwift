@@ -70,7 +70,6 @@ class ListOfProductsCell: UITableViewCell {
     private func setupSkeleton() {
         self.isSkeletonable = true
         self.imagePDVC.imageView.isSkeletonable = true
-        
     }
     
     private func configureVStackForDetails() {

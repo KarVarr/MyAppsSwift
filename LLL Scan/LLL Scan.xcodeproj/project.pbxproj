@@ -156,9 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				171149BA2BD954CC00F5DECF /* ListOfProductsVC.swift */,
-				171149BC2BD9571600F5DECF /* ConfigureViewLPVC + Ext.swift */,
 				171149BE2BD9573100F5DECF /* AddViewLPVC + Ext.swift */,
 				171149C02BD9574200F5DECF /* LayoutViewLPVC + Ext.swift */,
+				171149BC2BD9571600F5DECF /* ConfigureViewLPVC + Ext.swift */,
 				171149C22BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift */,
 			);
 			path = ListOfProductsViewController;

@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import SkeletonView
 
 extension ScanVC {
     func configureImageView() {
         miniatureImageHM.imageView.layer.masksToBounds = true
         miniatureImageHM.imageView.layer.shadowOffset = CGSize(width: 3, height: 2)
         miniatureImageHM.imageView.layer.shadowOpacity = 0.3
+        miniatureImageHM.imageView.isSkeletonable = true
     }
 }

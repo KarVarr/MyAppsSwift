@@ -7,15 +7,17 @@
 
 import UIKit
 import VisionKit
+import SkeletonView
 
 class ScanVC: BaseViewController {
     let dataManager = DataManager.shared
     let networkManager = NetworkManager()
     let htmlParser = HTMLParser()
+    var productObj: Product?
+    
     var scannerAvailable: Bool {
         DataScannerViewController.isSupported && DataScannerViewController.isAvailable
     }
-    var productObj: Product?
     
     //HapticTouch
     let notificationGenerator = UINotificationFeedbackGenerator()
@@ -38,7 +40,7 @@ class ScanVC: BaseViewController {
     let vStackForParsingData = ViewStackCustom()
     let topRectangleViewForCloseIndication = ViewCustom()
     
-    var urlString: String? = "https://www2.hm.com/en_gb/productpage.1213391004.html"
+    var urlString: String? = "https://www2.hm.com/pl_pl/productpage.1213391004.html"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +49,7 @@ class ScanVC: BaseViewController {
         configureImageView()
         configureViewCustom()
         configureStackViewSVC()
+        setupSkeleton()
         dataManager.allProducts = dataManager.loadAllProducts()
         customTableViewScanVC.table.reloadData()
     }
@@ -55,6 +58,10 @@ class ScanVC: BaseViewController {
         super.viewWillLayoutSubviews()
         configureLabels()
         configureButtonView()
+    }
+    
+    private func setupSkeleton() {
+        view.isSkeletonable = true
     }
 }
 

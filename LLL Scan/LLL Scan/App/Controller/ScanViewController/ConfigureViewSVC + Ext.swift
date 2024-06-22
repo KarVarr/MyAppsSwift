@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import VisionKit
+import SkeletonView
 
 extension ScanVC: DataScannerViewControllerDelegate {
     override func configureView() {
@@ -19,10 +20,20 @@ extension ScanVC: DataScannerViewControllerDelegate {
     }
     
     @objc func newScan() {
-        // presentTitleInputAlert()
-        startScanning()
-        
         notificationGenerator.notificationOccurred(.success)
+        startScanning()
+    }
+    
+    // MARK: - Start Skeleton
+    private func startSkeleton() {
+        view.showAnimatedGradientSkeleton()
+        self.miniatureImageHM.imageView.showAnimatedGradientSkeleton()
+    }
+    
+    // MARK: - Stop Skeleton
+    private func stopSkeleton() {
+        view.hideSkeleton()
+        self.miniatureImageHM.imageView.hideSkeleton()
     }
     
     //MARK: - Save ONE
@@ -33,6 +44,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
             print("Error: productObj is nil")
             return
         }
+        notificationGenerator.notificationOccurred(.success)
         
         // Проверяем, существует ли продукт в массиве
         let productExists = dataManager.productList.contains { $0.article == productObj.article }
@@ -57,12 +69,9 @@ extension ScanVC: DataScannerViewControllerDelegate {
             dataManager.productList.append(productObj)
         }
         
-        
         self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
         self.productObj = nil
         customTableViewScanVC.table.reloadData()
-        
-        notificationGenerator.notificationOccurred(.success)
     }
     
     //MARK: - Save ALL
@@ -71,6 +80,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
             print("No products to save")
             return
         }
+        notificationGenerator.notificationOccurred(.success)
         
         let countProductsArray = dataManager.productList.count
         
@@ -97,7 +107,6 @@ extension ScanVC: DataScannerViewControllerDelegate {
         
         print("all save and append in array MOTHER FUCKER")
         
-        notificationGenerator.notificationOccurred(.success)
     }
     
     private func startScanning() {
@@ -160,6 +169,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                     self.titleFromParsingLabel.label.text = "Не найдено"
                     self.colorFromParsingLabel.label.text = "Не найдено"
                     self.materialFromParsingLabel.label.text = "Не найдено"
+                    self.stopSkeleton()
                     self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
                 }
             }
@@ -169,6 +179,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                 self.titleFromParsingLabel.label.text = "Не верный формат артикула"
                 self.colorFromParsingLabel.label.text = "Отсканируйте выделенный артикул как на фото"
                 self.materialFromParsingLabel.label.text = "И повторите попытку!"
+                self.stopSkeleton()
                 self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
             }
             print("non valid regex art")
@@ -183,6 +194,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
         self.urlString = "https://www2.hm.com/de_de/productpage.\(result).html"
         
         if let urlString = self.urlString {
+            startScanning()
             networkManager.loadPageFromNetwork(urlString: urlString) { [weak self] result in
                 switch result {
                 case .success(let htmlContent):
@@ -211,6 +223,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                     self?.titleFromParsingLabel.label.text = product.title
                                     self?.colorFromParsingLabel.label.text = product.colorName
                                     self?.materialFromParsingLabel.label.text = product.material
+                                    self?.stopSkeleton()
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
                                     
                                     self?.productObj = Product()
@@ -235,8 +248,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                 self?.titleFromParsingLabel.label.text = "Артикул определен, но данный товар отсутствует на сайте H&M!"
                                 self?.colorFromParsingLabel.label.isHidden = true
                                 self?.materialFromParsingLabel.label.isHidden = true
+                                self?.stopSkeleton()
                                 self?.miniatureImageHM.imageView.image = UIImage(systemName: "exclamationmark.icloud.fill")
-                                
                             }
                         }
                         
