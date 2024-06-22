@@ -22,6 +22,8 @@
 		1776B4AF2C1F4C1B0086D5A2 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776B4AE2C1F4C1B0086D5A2 /* TableViewHeader.swift */; };
 		1776B4B12C233EC00086D5A2 /* ActivityIndicatorCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776B4B02C233EC00086D5A2 /* ActivityIndicatorCustom.swift */; };
 		1776B4B42C234B280086D5A2 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 1776B4B32C234B280086D5A2 /* SkeletonView */; };
+		1776B4B72C26DFB40086D5A2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1776B4B62C26DFB40086D5A2 /* SDWebImage */; };
+		1776B4B92C26DFB40086D5A2 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1776B4B82C26DFB40086D5A2 /* SDWebImageMapKit */; };
 		1781EB542C1E128400DDDB9A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1781EB532C1E128400DDDB9A /* RealmSwift */; };
 		1787BD632BE2777E00F8BC7F /* ProductDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD622BE2777E00F8BC7F /* ProductDetailsVC.swift */; };
 		1787BD652BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD642BE277CC00F8BC7F /* ConfigureViewPDVC + Ext.swift */; };
@@ -144,7 +146,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1781EB542C1E128400DDDB9A /* RealmSwift in Frameworks */,
+				1776B4B92C26DFB40086D5A2 /* SDWebImageMapKit in Frameworks */,
 				1776B4B42C234B280086D5A2 /* SkeletonView in Frameworks */,
+				1776B4B72C26DFB40086D5A2 /* SDWebImage in Frameworks */,
 				178DC7752BB8904D00FEDE69 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +390,8 @@
 				178DC7742BB8904D00FEDE69 /* SwiftSoup */,
 				1781EB532C1E128400DDDB9A /* RealmSwift */,
 				1776B4B32C234B280086D5A2 /* SkeletonView */,
+				1776B4B62C26DFB40086D5A2 /* SDWebImage */,
+				1776B4B82C26DFB40086D5A2 /* SDWebImageMapKit */,
 			);
 			productName = "LLL Scan";
 			productReference = 178DC7492BB83E4500FEDE69 /* LLL Scan.app */;
@@ -419,6 +425,7 @@
 				178DC7732BB8904D00FEDE69 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 				1781EB502C1E128400DDDB9A /* XCRemoteSwiftPackageReference "realm-swift" */,
 				1776B4B22C234B270086D5A2 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				1776B4B52C26DFB40086D5A2 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 178DC74A2BB83E4500FEDE69 /* Products */;
 			projectDirPath = "";
@@ -732,6 +739,14 @@
 				minimumVersion = 1.31.0;
 			};
 		};
+		1776B4B52C26DFB40086D5A2 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.19.3;
+			};
+		};
 		1781EB502C1E128400DDDB9A /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -755,6 +770,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1776B4B22C234B270086D5A2 /* XCRemoteSwiftPackageReference "SkeletonView" */;
 			productName = SkeletonView;
+		};
+		1776B4B62C26DFB40086D5A2 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1776B4B52C26DFB40086D5A2 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		1776B4B82C26DFB40086D5A2 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1776B4B52C26DFB40086D5A2 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 		1781EB532C1E128400DDDB9A /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;

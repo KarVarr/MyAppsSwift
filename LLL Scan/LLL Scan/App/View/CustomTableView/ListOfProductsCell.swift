@@ -7,6 +7,7 @@
 
 import UIKit
 import SkeletonView
+import SDWebImage
 
 class ListOfProductsCell: UITableViewCell {
     let articleLabelPDVC = LabelViewCustom()
@@ -122,18 +123,15 @@ class ListOfProductsCell: UITableViewCell {
     //MARK: - load image url
     func loadImage(from url: URL) {
         startSkeleton()
-        DispatchQueue.global().async { [weak self] in
-            if let imageData = try? Data(contentsOf: url),
-               let image = UIImage(data: imageData) {
-                DispatchQueue.main.async {
-                    self?.imagePDVC.imageView.image = image
-                    self?.stopSkeleton()
-                }
-            } else {
-                DispatchQueue.main.async {
+        imagePDVC.imageView.sd_setImage(with: url, placeholderImage: nil, options: [.retryFailed, .refreshCached]) { [weak self] (image, error, cacheType, imageUrl) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Failed to load image with error: \(error.localizedDescription)")
                     self?.imagePDVC.imageView.image = UIImage(systemName: "xmark.square")
-                    self?.stopSkeleton()
+                } else {
+                    self?.imagePDVC.imageView.image = image
                 }
+                self?.stopSkeleton()
             }
         }
     }
