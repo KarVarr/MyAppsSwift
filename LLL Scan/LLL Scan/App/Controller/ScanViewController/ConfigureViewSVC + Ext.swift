@@ -26,13 +26,13 @@ extension ScanVC: DataScannerViewControllerDelegate {
     
     // MARK: - Start Skeleton
     private func startSkeleton() {
-        view.showAnimatedGradientSkeleton()
+        self.titleFromParsingLabel.label.text = "Поиск на сайте..."
+        self.miniatureImageHM.imageView.isSkeletonable = true
         self.miniatureImageHM.imageView.showAnimatedGradientSkeleton()
     }
     
     // MARK: - Stop Skeleton
     private func stopSkeleton() {
-        view.hideSkeleton()
         self.miniatureImageHM.imageView.hideSkeleton()
     }
     
@@ -63,7 +63,20 @@ extension ScanVC: DataScannerViewControllerDelegate {
             saveOneProductButtonForScanner.button.configuration?.baseBackgroundColor = .blue
             saveOneProductButtonForScanner.button.configuration?.title = "Добавить"
             saveOneProductButtonForScanner.button.configuration?.image = UIImage(systemName: "plus.circle.fill")
-            
+            miniatureImageHM.imageView.image = UIImage(systemName: "square.and.arrow.down")
+            self.miniatureImageHM.imageView.addSymbolEffect(.bounce, animated: true)
+            self.miniatureImageHM.imageView.tintColor = .green
+            self.miniatureImageHM.imageView.clipsToBounds = false
+            self.titleFromParsingLabel.label.text = "Добавленно!"
+            self.colorFromParsingLabel.label.isHidden = true
+            self.materialFromParsingLabel.label.isHidden = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.miniatureImageHM.imageView.image = UIImage(systemName: "barcode.viewfinder")
+                self.miniatureImageHM.imageView.addSymbolEffect(.pulse, animated: true)
+                self.miniatureImageHM.imageView.tintColor = .systemTeal
+                self.miniatureImageHM.imageView.clipsToBounds = false
+                self.titleFromParsingLabel.label.text = "Новый скан!"
+            }
             // Если продукт не существует, добавляем его в массив
             dataManager.saveProduct(product: productObj)
             dataManager.productList.append(productObj)
@@ -90,9 +103,29 @@ extension ScanVC: DataScannerViewControllerDelegate {
             self.miniatureImageHM.imageView.tintColor = .green
             self.miniatureImageHM.imageView.clipsToBounds = false
             
+            self.colorFromParsingLabel.label.isHidden = false
+            self.materialFromParsingLabel.label.isHidden = false
+            
+            let ending: String
+            let lastDigit = countProductsArray % 10
+            let lastTwoDigits = countProductsArray % 100
+            
+            if lastTwoDigits >= 11 && lastTwoDigits <= 14 {
+                ending = "артикулов"
+            } else {
+                switch lastDigit {
+                case 1:
+                    ending = "артикул"
+                case 2, 3, 4:
+                    ending = "артикула"
+                default:
+                    ending = "артикулов"
+                }
+            }
+            
             self.titleFromParsingLabel.label.text = "Все отсканированные артикулы сохранены!"
             self.colorFromParsingLabel.label.text = "Закройте экран сканирования потянув вниз ↓"
-            self.materialFromParsingLabel.label.text = "Вы отсканировали \(countProductsArray) артикулов"
+            self.materialFromParsingLabel.label.text = "Вы отсканировали \(countProductsArray) \(ending)"
         }
         
         
@@ -153,33 +186,40 @@ extension ScanVC: DataScannerViewControllerDelegate {
     
     func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
         guard case .text(let text) = item else { return }
+        
         let regex = try! Regex(#"\s*\b\d{7}\s\b\d{3}\s*"#)
         
         if !text.transcript.matches(of: regex).isEmpty {
             let parts = text.transcript.components(separatedBy: " ")
             
             if parts.count <= 4 && parts.count >= 3 {
+                startSkeleton()
                 scanCodeWithDifferentCount(partsStr: parts, part1: 1, part2: 2)
             } else if parts.count <= 2 {
+                startSkeleton()
                 scanCodeWithDifferentCount(partsStr: parts, part1: 0, part2: 1)
             } else {
                 print("Error: Not such code")
                 DispatchQueue.main.async {
+                    self.stopSkeleton()
+                    self.colorFromParsingLabel.label.isHidden = false
+                    self.materialFromParsingLabel.label.isHidden = false
                     self.resultLabel.label.text = "❌ \(parts) Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
                     self.titleFromParsingLabel.label.text = "Не найдено"
                     self.colorFromParsingLabel.label.text = "Не найдено"
                     self.materialFromParsingLabel.label.text = "Не найдено"
-                    self.stopSkeleton()
                     self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
                 }
             }
         } else {
             DispatchQueue.main.async {
+                self.stopSkeleton()
+                self.colorFromParsingLabel.label.isHidden = false
+                self.materialFromParsingLabel.label.isHidden = false
                 self.resultLabel.label.text = "❌ \(text.transcript) Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
                 self.titleFromParsingLabel.label.text = "Не верный формат артикула"
                 self.colorFromParsingLabel.label.text = "Отсканируйте выделенный артикул как на фото"
                 self.materialFromParsingLabel.label.text = "И повторите попытку!"
-                self.stopSkeleton()
                 self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
             }
             print("non valid regex art")
@@ -188,13 +228,12 @@ extension ScanVC: DataScannerViewControllerDelegate {
     
     private func scanCodeWithDifferentCount(partsStr: [String], part1: Int, part2: Int) {
         let result = "\(partsStr[part1])\(partsStr[part2])"
-        print("Result article : \(result)")
+        
         resultLabel.label.text = "✅ Артикул: \(result)".trimmingCharacters(in: .whitespacesAndNewlines)
         
         self.urlString = "https://www2.hm.com/de_de/productpage.\(result).html"
         
         if let urlString = self.urlString {
-            startScanning()
             networkManager.loadPageFromNetwork(urlString: urlString) { [weak self] result in
                 switch result {
                 case .success(let htmlContent):
@@ -218,12 +257,12 @@ extension ScanVC: DataScannerViewControllerDelegate {
                                 }
                                 
                                 DispatchQueue.main.async {
+                                    self?.stopSkeleton()
                                     self?.colorFromParsingLabel.label.isHidden = false
                                     self?.materialFromParsingLabel.label.isHidden = false
                                     self?.titleFromParsingLabel.label.text = product.title
                                     self?.colorFromParsingLabel.label.text = product.colorName
                                     self?.materialFromParsingLabel.label.text = product.material
-                                    self?.stopSkeleton()
                                     self?.miniatureImageHM.imageView.image = UIImage(data: imageData)
                                     
                                     self?.productObj = Product()

@@ -7,7 +7,6 @@
 
 import UIKit
 import VisionKit
-import SkeletonView
 
 class ScanVC: BaseViewController {
     let dataManager = DataManager.shared
@@ -49,7 +48,6 @@ class ScanVC: BaseViewController {
         configureImageView()
         configureViewCustom()
         configureStackViewSVC()
-        setupSkeleton()
         dataManager.allProducts = dataManager.loadAllProducts()
         customTableViewScanVC.table.reloadData()
     }
@@ -60,8 +58,6 @@ class ScanVC: BaseViewController {
         configureButtonView()
     }
     
-    private func setupSkeleton() {
-        view.isSkeletonable = true
-    }
+
 }
 

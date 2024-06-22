@@ -17,6 +17,5 @@ extension ScanVC {
         
         topRectangleViewForCloseIndication.vc.backgroundColor = .lightGray
         topRectangleViewForCloseIndication.vc.layer.cornerRadius = 3.5
-        
     }
 }
