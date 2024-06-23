@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreXLSX
 
 extension ListOfProductsVC {
     override func configureView() {
@@ -16,18 +17,23 @@ extension ListOfProductsVC {
         let convertFileToCSVButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up.fill"), style: .plain, target: self, action: #selector(shareButtonToConvertFile))
         navigationItem.rightBarButtonItem = convertFileToCSVButton
     }
-    
+        
     @objc func shareButtonToConvertFile() {
         print("convert file done")
+        
+        guard let productListIndex = productListIndex else {
+            print("productListIndex is nil")
+            return
+        }
         
         let file_name = "H&M articuls.csv"
         let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(file_name)
         var csvHead = "Article,Title,Price,Color,Description,Material,link,ImageLink\n"
-       
-        for scannedProduct in dataManager.allProducts{
-            for product in scannedProduct {
-                csvHead.append("\(String(describing: product.article)),\(String(describing: product.title)),\(String(describing: product.price)),\(String(describing: product.colorName)),\(String(describing: product.description)),\(String(describing: product.material)),\(String(describing: product.link)),\(String(describing: product.imageURL))\n")
-            }
+        
+        let productsContainer = dataManager.allProducts[productListIndex]
+        
+        for product in productsContainer {
+            csvHead.append("\(String(describing: product.article ?? "")),\(String(describing: product.title ?? "")),\(String(describing: product.price ?? "")),\(String(describing: product.colorName ?? "")),\(String(describing: product.descriptions ?? "")),\(String(describing: product.material ?? "")),\(String(describing: product.link ?? "")),\(String(describing: product.imageURL ?? ""))\n")
         }
         
         do {
@@ -38,4 +44,5 @@ extension ListOfProductsVC {
             print("Error CSV ------>>>>>>>")
         }
     }
+    
 }

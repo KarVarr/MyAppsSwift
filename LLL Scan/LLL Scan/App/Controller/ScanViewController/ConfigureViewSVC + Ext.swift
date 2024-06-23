@@ -75,7 +75,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                 self.miniatureImageHM.imageView.addSymbolEffect(.pulse, animated: true)
                 self.miniatureImageHM.imageView.tintColor = .systemTeal
                 self.miniatureImageHM.imageView.clipsToBounds = false
-                self.titleFromParsingLabel.label.text = "Поиск нового артикула"
+                self.titleFromParsingLabel.label.text = "Поиск нового артикула..."
             }
             // Если продукт не существует, добавляем его в массив
             dataManager.saveProduct(product: productObj)
@@ -115,11 +115,11 @@ extension ScanVC: DataScannerViewControllerDelegate {
             } else {
                 switch lastDigit {
                 case 1:
-                    ending = "артикул"
+                    ending = "артикул."
                 case 2, 3, 4:
-                    ending = "артикула"
+                    ending = "артикула."
                 default:
-                    ending = "артикулов"
+                    ending = "артикулов."
                 }
             }
             
