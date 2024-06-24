@@ -18,8 +18,7 @@
 		171149C32BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149C22BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift */; };
 		171149C52BD95DB100F5DECF /* ListOfProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149C42BD95DB100F5DECF /* ListOfProductsCell.swift */; };
 		1713481C2BCC3CBB00FC3CF7 /* myApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1713481B2BCC3CBB00FC3CF7 /* myApi.swift */; };
-		171817632C2738CC0037EBCB /* xlsxwriter in Frameworks */ = {isa = PBXBuildFile; productRef = 171817622C2738CC0037EBCB /* xlsxwriter */; };
-		171817692C2841730037EBCB /* CoreXLSX in Frameworks */ = {isa = PBXBuildFile; productRef = 171817682C2841730037EBCB /* CoreXLSX */; };
+		171817742C28C6800037EBCB /* xlsxwriter in Frameworks */ = {isa = PBXBuildFile; productRef = 171817732C28C6800037EBCB /* xlsxwriter */; };
 		17251C3C2C27327D003E1B1A /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 17251C3B2C27327D003E1B1A /* SwiftSoup */; };
 		17251C3F2C273285003E1B1A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 17251C3E2C273285003E1B1A /* SDWebImage */; };
 		17251C412C273285003E1B1A /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 17251C402C273285003E1B1A /* SDWebImageMapKit */; };
@@ -147,8 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				171817692C2841730037EBCB /* CoreXLSX in Frameworks */,
-				171817632C2738CC0037EBCB /* xlsxwriter in Frameworks */,
+				171817742C28C6800037EBCB /* xlsxwriter in Frameworks */,
 				17251C3F2C273285003E1B1A /* SDWebImage in Frameworks */,
 				17251C412C273285003E1B1A /* SDWebImageMapKit in Frameworks */,
 				17251C3C2C27327D003E1B1A /* SwiftSoup in Frameworks */,
@@ -396,8 +394,7 @@
 				17251C402C273285003E1B1A /* SDWebImageMapKit */,
 				17251C432C273292003E1B1A /* SkeletonView */,
 				17251C482C273359003E1B1A /* RealmSwift */,
-				171817622C2738CC0037EBCB /* xlsxwriter */,
-				171817682C2841730037EBCB /* CoreXLSX */,
+				171817732C28C6800037EBCB /* xlsxwriter */,
 			);
 			productName = "LLL Scan";
 			productReference = 178DC7492BB83E4500FEDE69 /* LLL Scan.app */;
@@ -432,8 +429,7 @@
 				17251C3D2C273285003E1B1A /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				17251C422C273292003E1B1A /* XCRemoteSwiftPackageReference "SkeletonView" */,
 				17251C472C273359003E1B1A /* XCRemoteSwiftPackageReference "realm-swift" */,
-				171817612C2738CC0037EBCB /* XCRemoteSwiftPackageReference "xlsxwriter" */,
-				171817672C2841730037EBCB /* XCRemoteSwiftPackageReference "CoreXLSX" */,
+				171817722C28C6800037EBCB /* XCRemoteSwiftPackageReference "xlsxwriter" */,
 			);
 			productRefGroup = 178DC74A2BB83E4500FEDE69 /* Products */;
 			projectDirPath = "";
@@ -660,7 +656,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "LLL Scan/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "LL Scan";
-				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to use your camera to scan text.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Для сканирования штрих кода, требуется доступ к камере вашего устройства!";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Для сохранения файлов в формате xlsx!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -698,13 +695,15 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "LLL Scan/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "LL Scan";
-				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to use your camera to scan text.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Для сканирования штрих кода, требуется доступ к камере вашего устройства!";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Для сохранения файлов в формате xlsx!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -747,20 +746,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		171817612C2738CC0037EBCB /* XCRemoteSwiftPackageReference "xlsxwriter" */ = {
+		171817722C28C6800037EBCB /* XCRemoteSwiftPackageReference "xlsxwriter" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/damuellen/xlsxwriter.swift";
 			requirement = {
-				branch = SPM;
+				branch = main;
 				kind = branch;
-			};
-		};
-		171817672C2841730037EBCB /* XCRemoteSwiftPackageReference "CoreXLSX" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/CoreOffice/CoreXLSX.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.14.2;
 			};
 		};
 		17251C3A2C27327D003E1B1A /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
@@ -798,15 +789,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		171817622C2738CC0037EBCB /* xlsxwriter */ = {
+		171817732C28C6800037EBCB /* xlsxwriter */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 171817612C2738CC0037EBCB /* XCRemoteSwiftPackageReference "xlsxwriter" */;
+			package = 171817722C28C6800037EBCB /* XCRemoteSwiftPackageReference "xlsxwriter" */;
 			productName = xlsxwriter;
-		};
-		171817682C2841730037EBCB /* CoreXLSX */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 171817672C2841730037EBCB /* XCRemoteSwiftPackageReference "CoreXLSX" */;
-			productName = CoreXLSX;
 		};
 		17251C3B2C27327D003E1B1A /* SwiftSoup */ = {
 			isa = XCSwiftPackageProductDependency;
