@@ -58,7 +58,7 @@ extension ListOfProductsVC {
             sheet.write(.string(product.descriptions ?? ""), [row, 4])
             sheet.write(.string(product.material ?? ""), [row, 5])
             sheet.write(.string("https://www2.hm.com\(product.link ?? "")"), [row, 6])
-            sheet.write(.string("https:\(product.mainImageURL  ?? "")"), [row, 7])
+            sheet.write(.string(product.mainImageURL ?? ""), [row, 7])
             
             row += 1
         }
@@ -76,7 +76,4 @@ extension ListOfProductsVC {
         }
     }
 }
-
-
-
 
