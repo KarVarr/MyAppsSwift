@@ -7,6 +7,7 @@
 
 import UIKit
 import xlsxwriter
+import GoogleTranslateSwift
 
 extension ListOfProductsVC {
     override func configureView() {
@@ -35,7 +36,6 @@ extension ListOfProductsVC {
         let fileName = "Products.xlsx"
         let tempPath = NSURL(fileURLWithPath: tempDirectory).appendingPathComponent(fileName)
         
-        
         let document = Workbook(name: tempPath!.path)
         let sheet = document.addWorksheet(name: "Products")
         
@@ -50,30 +50,44 @@ extension ListOfProductsVC {
         sheet.write("ImageLink", [0, 7])
         
         // Добавление данных
+        let translateService = GoogleTranslateApiService(apiKey: Keys.googleTranslateAPIKey)
+        let googleTranslateService = GoogleTranslateService()
+        let group = DispatchGroup()
+        
         var row = 1
         for product in productsContainer {
-            sheet.write(.string(product.article ?? ""), [row, 0])
-            sheet.write(.string(product.title ?? ""), [row, 1])
-            sheet.write(.string(product.price ?? ""), [row, 2])
-            sheet.write(.string(product.colorName ?? ""), [row, 3])
-            sheet.write(.string(product.descriptions ?? ""), [row, 4])
-            sheet.write(.string(product.material ?? ""), [row, 5])
-            sheet.write(.string("https://www2.hm.com\(product.link ?? "")"), [row, 6])
-            sheet.write(.string(product.mainImageURL ?? ""), [row, 7])
+            group.enter()
             
-            row += 1
+            googleTranslateService.translateProduct(product, with: translateService) { translatedProduct in
+                DispatchQueue.main.async {
+                    
+                    sheet.write(.string(product.article ?? ""), [row, 0])
+                    sheet.write(.string(translatedProduct.title ?? ""), [row, 1])
+                    sheet.write(.string(product.price ?? ""), [row, 2])
+                    sheet.write(.string(translatedProduct.colorName ?? ""), [row, 3])
+                    sheet.write(.string(product.descriptions ?? ""), [row, 4])
+                    sheet.write(.string(translatedProduct.material ?? ""), [row, 5])
+                    sheet.write(.string("https://www2.hm.com\(product.link ?? "")"), [row, 6])
+                    sheet.write(.string(product.mainImageURL ?? ""), [row, 7])
+                    
+                    row += 1
+                    group.leave()
+                }
+            }
         }
         
         // Закрытие и сохранение документа
-        document.close()
-        
-        // Проверка существования файла и его передача через UIActivityViewController
-        if FileManager.default.fileExists(atPath: tempPath!.path) {
-            let fileURL = URL(fileURLWithPath: tempPath!.path)
-            let exportSheet = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
-            self.present(exportSheet, animated: true)
-        } else {
-            print("Error: File could not be saved")
+        group.notify(queue: .main) {
+            document.close()
+            
+            // Проверка существования файла и его передача через UIActivityViewController
+            if FileManager.default.fileExists(atPath: tempPath!.path) {
+                let fileURL = URL(fileURLWithPath: tempPath!.path)
+                let exportSheet = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
+                self.present(exportSheet, animated: true)
+            } else {
+                print("Error: File could not be saved")
+            }
         }
     }
 }
