@@ -1,6 +1,15 @@
 {
-  "originHash" : "3a615526fcdc68174c15f8727d343caeb3813868987bf0cab3df234fa3d83db3",
+  "originHash" : "263852be42c1341d2480ba98ab4fba25c4364eaf18f0cb84e876904c19b90d55",
   "pins" : [
+    {
+      "identity" : "googletranslateswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danielsaidi/GoogleTranslateSwift.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "f30cbbe269df0a61aa86596176f8f90125d9a708"
+      }
+    },
     {
       "identity" : "libxlsxwriter",
       "kind" : "remoteSourceControl",
@@ -44,6 +53,15 @@
       "state" : {
         "revision" : "2f5274827d310e32c09325dd3e0007120940988e",
         "version" : "1.31.0"
+      }
+    },
+    {
+      "identity" : "swiftkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danielsaidi/SwiftKit.git",
+      "state" : {
+        "revision" : "3cd5182ee809194d0cc17b649daa2e6dca94871b",
+        "version" : "0.7.0"
       }
     },
     {

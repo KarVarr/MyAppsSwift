@@ -25,6 +25,7 @@
 		17251C442C273292003E1B1A /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 17251C432C273292003E1B1A /* SkeletonView */; };
 		17251C492C273359003E1B1A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 17251C482C273359003E1B1A /* RealmSwift */; };
 		17251C4A2C2734F0003E1B1A /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 17251C482C273359003E1B1A /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		173A4B492C2DD95800C16CB4 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A4B482C2DD95800C16CB4 /* Keys.swift */; };
 		1776B4AF2C1F4C1B0086D5A2 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776B4AE2C1F4C1B0086D5A2 /* TableViewHeader.swift */; };
 		1776B4B12C233EC00086D5A2 /* ActivityIndicatorCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776B4B02C233EC00086D5A2 /* ActivityIndicatorCustom.swift */; };
 		1787BD632BE2777E00F8BC7F /* ProductDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD622BE2777E00F8BC7F /* ProductDetailsVC.swift */; };
@@ -67,6 +68,7 @@
 		178DC7BC2BC4518C00FEDE69 /* ConfigureStackViewSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DC7BB2BC4518C00FEDE69 /* ConfigureStackViewSVC + Ext.swift */; };
 		179985482BE5478200C34D33 /* ProductDetailsCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179985472BE5478200C34D33 /* ProductDetailsCellHeader.swift */; };
 		179B54392BDE8E2B0087D8F2 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179B54382BDE8E2B0087D8F2 /* DataManager.swift */; };
+		17EF1FBC2C2DD7D100D718A7 /* GoogleTranslateSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 17EF1FBB2C2DD7D100D718A7 /* GoogleTranslateSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,6 +97,7 @@
 		171149C22BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureCustomTableViewLPVC + Ext.swift"; sourceTree = "<group>"; };
 		171149C42BD95DB100F5DECF /* ListOfProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfProductsCell.swift; sourceTree = "<group>"; };
 		1713481B2BCC3CBB00FC3CF7 /* myApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myApi.swift; sourceTree = "<group>"; };
+		173A4B482C2DD95800C16CB4 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		1776B4AE2C1F4C1B0086D5A2 /* TableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
 		1776B4B02C233EC00086D5A2 /* ActivityIndicatorCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorCustom.swift; sourceTree = "<group>"; };
 		1787BD622BE2777E00F8BC7F /* ProductDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
@@ -150,6 +153,7 @@
 				17251C3F2C273285003E1B1A /* SDWebImage in Frameworks */,
 				17251C412C273285003E1B1A /* SDWebImageMapKit in Frameworks */,
 				17251C3C2C27327D003E1B1A /* SwiftSoup in Frameworks */,
+				17EF1FBC2C2DD7D100D718A7 /* GoogleTranslateSwift in Frameworks */,
 				17251C492C273359003E1B1A /* RealmSwift in Frameworks */,
 				17251C442C273292003E1B1A /* SkeletonView in Frameworks */,
 			);
@@ -310,7 +314,7 @@
 		178DC7892BB9E44500FEDE69 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				178DC79A2BBDC6C000FEDE69 /* Extensions */,
+				178DC79A2BBDC6C000FEDE69 /* Keys */,
 				178DC78A2BB9E45100FEDE69 /* Helper.swift */,
 			);
 			path = Helpers;
@@ -341,11 +345,12 @@
 			path = CustomTableView;
 			sourceTree = "<group>";
 		};
-		178DC79A2BBDC6C000FEDE69 /* Extensions */ = {
+		178DC79A2BBDC6C000FEDE69 /* Keys */ = {
 			isa = PBXGroup;
 			children = (
+				173A4B482C2DD95800C16CB4 /* Keys.swift */,
 			);
-			path = Extensions;
+			path = Keys;
 			sourceTree = "<group>";
 		};
 		178DC7AB2BC2ACE700FEDE69 /* App */ = {
@@ -395,6 +400,7 @@
 				17251C432C273292003E1B1A /* SkeletonView */,
 				17251C482C273359003E1B1A /* RealmSwift */,
 				171817732C28C6800037EBCB /* xlsxwriter */,
+				17EF1FBB2C2DD7D100D718A7 /* GoogleTranslateSwift */,
 			);
 			productName = "LLL Scan";
 			productReference = 178DC7492BB83E4500FEDE69 /* LLL Scan.app */;
@@ -430,6 +436,7 @@
 				17251C422C273292003E1B1A /* XCRemoteSwiftPackageReference "SkeletonView" */,
 				17251C472C273359003E1B1A /* XCRemoteSwiftPackageReference "realm-swift" */,
 				171817722C28C6800037EBCB /* XCRemoteSwiftPackageReference "xlsxwriter" */,
+				17EF1FBA2C2DD7D100D718A7 /* XCRemoteSwiftPackageReference "GoogleTranslateSwift" */,
 			);
 			productRefGroup = 178DC74A2BB83E4500FEDE69 /* Products */;
 			projectDirPath = "";
@@ -474,6 +481,7 @@
 				178DC7992BBDC5A000FEDE69 /* ButtonViewCustom.swift in Sources */,
 				171149BD2BD9571600F5DECF /* ConfigureViewLPVC + Ext.swift in Sources */,
 				178DC79E2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift in Sources */,
+				173A4B492C2DD95800C16CB4 /* Keys.swift in Sources */,
 				1713481C2BCC3CBB00FC3CF7 /* myApi.swift in Sources */,
 				178DC76C2BB8890F00FEDE69 /* ConfigureLabelSVC + Ext.swift in Sources */,
 				178DC7792BB9844300FEDE69 /* ConfigureImageSVC + Ext.swift in Sources */,
@@ -786,6 +794,14 @@
 				minimumVersion = 10.52.0;
 			};
 		};
+		17EF1FBA2C2DD7D100D718A7 /* XCRemoteSwiftPackageReference "GoogleTranslateSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielsaidi/GoogleTranslateSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -818,6 +834,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 17251C472C273359003E1B1A /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		17EF1FBB2C2DD7D100D718A7 /* GoogleTranslateSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17EF1FBA2C2DD7D100D718A7 /* XCRemoteSwiftPackageReference "GoogleTranslateSwift" */;
+			productName = GoogleTranslateSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

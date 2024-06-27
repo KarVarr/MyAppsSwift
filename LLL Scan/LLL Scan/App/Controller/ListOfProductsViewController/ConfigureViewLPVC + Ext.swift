@@ -13,6 +13,7 @@ extension ListOfProductsVC {
         view.backgroundColor = .lightGray
         title = "Карточки товара"
         
+        
         navigationController?.navigationBar.prefersLargeTitles = true
         let convertFileToCSVButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up.fill"), style: .plain, target: self, action: #selector(shareButtonToConvertFile))
         navigationItem.rightBarButtonItem = convertFileToCSVButton
