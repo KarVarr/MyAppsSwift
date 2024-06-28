@@ -8,29 +8,6 @@
 import UIKit
 
 enum Helper {
-    //MARK: - IMAGES
-    enum Images {
-        enum TabBar {
-            static func icon(for tab: Tabs) -> UIImage? {
-                switch tab {
-                case .scan: return UIImage(systemName: "list.bullet.clipboard")
-                case .files: return UIImage(systemName: "doc")
-                }
-            }
-        }
-    }
-    
-    //MARK: - STRINGS
-    enum Strings {
-        enum TabBar {
-            static func title(for tab: Tabs) -> String? {
-                switch tab {
-                case .scan: return "Сканы"
-                case .files: return "Файлы"
-                }
-            }
-        }
-    }
     //MARK: - KEYS
     enum Keys {
         static let scanVCCellKey = "scanVCCellKey"
@@ -39,7 +16,6 @@ enum Helper {
         static let productDetails = "productDetailsCellKey"
         static let productDetailsCellHeader = "productDetailsCellHeaderKey"
     }
-    
     
     //MARK: - Fonts
     enum Fonts {

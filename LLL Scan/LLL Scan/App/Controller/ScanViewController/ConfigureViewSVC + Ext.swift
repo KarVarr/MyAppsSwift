@@ -16,7 +16,15 @@ extension ScanVC: DataScannerViewControllerDelegate {
         title = "Сканы"
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        let deleteAll = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteAllButton))
+        navigationItem.leftBarButtonItem = deleteAll
+        
         overlayViewForScanner.vc.isHidden = true
+    }
+    
+    @objc func deleteAllButton() {
+        //TODO: - добавить алерт перед удалением!
+        dataManager.allProducts.removeAll()
     }
     
     @objc func newScan() {
