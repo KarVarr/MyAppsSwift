@@ -146,5 +146,20 @@ class DataManager {
         }
     }
     
+    //MARK: - FILEs save and load
+    func saveFile(_ file: File) {
+            do {
+                try realm.write {
+                    realm.add(file)
+                }
+            } catch {
+                print("Error saving file: \(error)")
+            }
+        }
+        
+        func loadFiles() -> [File] {
+            let files = realm.objects(File.self)
+            return Array(files)
+        }
     
 }

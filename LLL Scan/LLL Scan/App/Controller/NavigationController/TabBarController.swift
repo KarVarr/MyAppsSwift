@@ -6,10 +6,12 @@
 //
 
 import UIKit
+
 enum Tabs: Int, CaseIterable {
     case scan
     case files
 }
+
 final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()

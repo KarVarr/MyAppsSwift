@@ -10,7 +10,7 @@ import GoogleTranslateSwift
 
 struct GoogleTranslateService {
     func translateProduct(_ product: Product, with service: GoogleTranslateApiService, completion: @escaping (Product) -> Void) {
-        var translatedProduct = product
+        let translatedProduct = product
         
         let group = DispatchGroup()
         let rus = Locale(identifier: "ru")

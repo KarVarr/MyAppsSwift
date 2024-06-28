@@ -109,7 +109,6 @@ class HTMLParser {
             product.babyGender = babyGender
             product.addedAt = nil
             
-            
             return .success(product)
         } catch  {
             return .failure(error)

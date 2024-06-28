@@ -83,6 +83,7 @@ extension ListOfProductsVC {
             // Проверка существования файла и его передача через UIActivityViewController
             if FileManager.default.fileExists(atPath: tempPath!.path) {
                 let fileURL = URL(fileURLWithPath: tempPath!.path)
+                
                 let exportSheet = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
                 self.present(exportSheet, animated: true)
             } else {

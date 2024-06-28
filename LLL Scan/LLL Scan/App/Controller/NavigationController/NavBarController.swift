@@ -16,10 +16,6 @@ final class NavBarController: UINavigationController {
     
     private func configureAppearance() {
         view.backgroundColor = .white
-//        navigationBar.standardAppearance.titleTextAttributes = [
-//            .foregroundColor: UIColor.orange,
-//            .font: UIFont(name: "Monospase", size: 24)
-//        
-//        ]
+
     }
 }
