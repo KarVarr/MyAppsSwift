@@ -39,8 +39,7 @@ final class ScanVC: BaseViewController {
     let vStackForParsingData = ViewStackCustom()
     let topRectangleViewForCloseIndication = ViewCustom()
     
-    var titleForCell: String? = "N/A"
-    var urlString: String? = "https://www2.hm.com/pl_pl/productpage.1213391004.html"
+    var urlString: String? = "https://www2.hm.com/de_de/productpage.1213391004.html"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +48,13 @@ final class ScanVC: BaseViewController {
         configureImageView()
         configureViewCustom()
         configureStackViewSVC()
+        configureNavBar()
         dataManager.allProducts = dataManager.loadAllProducts()
         customTableViewScanVC.table.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        configureNavBar()
         customTableViewScanVC.table.reloadData()
     }
 

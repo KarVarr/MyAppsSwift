@@ -31,20 +31,12 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
         }
         cell.accessoryType = .disclosureIndicator
         
-        let scannedProductIndex = dataManager.allProducts[indexPath.row]
+        let productList = dataManager.loadAllProductLists()[indexPath.row]
         
-        //Date
-        if let firstProduct = scannedProductIndex.first, let addedAt = firstProduct.addedAt {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
-            let dateString = formatter.string(from: addedAt)
-//            cell.titleLabel.label.text = "Создан: \(dateString)"
-            cell.titleLabel.label.text = titleForCell
-        } else {
-            cell.titleLabel.label.text = "Создан: (нет информации)"
-        }
+        cell.titleLabel.label.text = productList.titleForCell.isEmpty ? "Создан: \(formatDate(productList.products.first?.addedAt))" : productList.titleForCell
+        print("Setting cell title: \(cell.titleLabel.label.text ?? "")")
         
-        cell.countLabel.label.text = "Количество артикулов: \(scannedProductIndex.count)"
+        cell.countLabel.label.text = "Количество артикулов: \(productList.products.count)"
         
         return cell
     }
@@ -52,10 +44,10 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let selectedProduct = dataManager.allProducts[indexPath.row]
+        let selectedProduct = dataManager.loadAllProductLists()[indexPath.row]
         
         let listOFProductsVC = ListOfProductsVC()
-        listOFProductsVC.product = selectedProduct
+        listOFProductsVC.product = Array(selectedProduct.products)
         listOFProductsVC.productListIndex = indexPath.row
         navigationController?.pushViewController(listOFProductsVC, animated: true)
     }
@@ -66,5 +58,13 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .left)
             customTableViewScanVC.table.reloadData()
         }
+    }
+    
+    //MARK: - Formatter
+    func formatDate(_ date: Date?) -> String {
+        guard let date = date else { return "(нет информации)" }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+        return formatter.string(from: date)
     }
 }

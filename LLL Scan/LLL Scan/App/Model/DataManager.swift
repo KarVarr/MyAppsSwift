@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 // Обновить номер версии схемы
-let currentSchemaVersion: UInt64 = 1
+let currentSchemaVersion: UInt64 = 3
 
 class DataManager {
     static let shared = DataManager()
@@ -21,9 +21,8 @@ class DataManager {
             schemaVersion: currentSchemaVersion,
             migrationBlock: { migration, oldSchemaVersion in
                 if oldSchemaVersion < currentSchemaVersion {
-                    // Автоматическое добавление нового свойства 'mainImageURL' (если необходимо)
-                    migration.enumerateObjects(ofType: Product.className()) { oldObject, newObject in
-                        newObject!["mainImageURL"] = ""
+                    migration.enumerateObjects(ofType: ProductList.className()) { oldObject, newObject in
+                        newObject!["id"] = ""
                     }
                 }
             })
@@ -40,6 +39,21 @@ class DataManager {
     var productList = [Product]()
     var allProducts = [[Product]]()
     
+    //MARK: - SAVE ProductList TitleForCell
+    func saveProductList(_ products: [Product], withTitle title: String) {
+        do {
+            try realm.write {
+                let productList = ProductList()
+                productList.products.append(objectsIn: products)
+                productList.titleForCell = title
+                realm.add(productList)
+                print("Saved ProductList with title: \(title)")
+            }
+        } catch {
+            print("Error saving products: \(error)")
+        }
+    }
+    
     //MARK: - SAVE Product
     func saveProduct(product: Product) {
         do {
@@ -51,28 +65,52 @@ class DataManager {
         }
     }
     
+    //MARK: - SAVE ALL Products
+    //    func saveAllProducts(_ allProducts: [[Product]]) {
+    //        do {
+    //            try realm.write {
+    //                let existingProductLists = realm.objects(ProductList.self)
+    //                realm.delete(existingProductLists)
+    //
+    //                for productArray in allProducts {
+    //                    let productList = ProductList()
+    //                    productList.products.append(objectsIn: productArray)
+    //                    realm.add(productList)
+    //                }
+    //            }
+    //        } catch {
+    //            print("Error saving allProducts: \(error)")
+    //        }
+    //    }
+    
+    func saveAllProducts(_ allProducts: [[Product]], withTitles titles: [String]) {
+            do {
+                try realm.write {
+                    let existingProductLists = realm.objects(ProductList.self)
+                    realm.delete(existingProductLists)
+                    
+                    for (index, productArray) in allProducts.enumerated() {
+                        let productList = ProductList()
+                        productList.products.append(objectsIn: productArray)
+                        if index < titles.count {
+                            productList.titleForCell = titles[index]
+                        } else {
+                            productList.titleForCell = "Партия: \(index + 1)"
+                        }
+                        realm.add(productList)
+                    }
+                }
+            } catch {
+                print("Error saving allProducts: \(error)")
+            }
+        }
+    
+    
+    
     //MARK: - LOAD Product
     func loadProducts() -> [Product] {
         let products = realm.objects(Product.self)
         return Array(products)
-    }
-    
-    //MARK: - SAVE ALL Products
-    func saveAllProducts(_ allProducts: [[Product]]) {
-        do {
-            try realm.write {
-                let existingProductLists = realm.objects(ProductList.self)
-                realm.delete(existingProductLists)
-                
-                for productArray in allProducts {
-                    let productList = ProductList()
-                    productList.products.append(objectsIn: productArray)
-                    realm.add(productList)
-                }
-            }
-        } catch {
-            print("Error saving allProducts: \(error)")
-        }
     }
     
     //MARK: - LOAD ALL Products
@@ -85,6 +123,13 @@ class DataManager {
         }
         
         return allProducts
+    }
+    
+    //MARK: - LOAD All Product Lists
+    func loadAllProductLists() -> [ProductList] {
+        let productLists = Array(realm.objects(ProductList.self))
+        productLists.forEach { print("Loaded ProductList with title: \($0.titleForCell)") }
+        return productLists
     }
     
     // MARK: - DELETE Product List
@@ -142,15 +187,15 @@ class DataManager {
     }
     
     // MARK: - DELETE All Products
-        func deleteAllProducts() {
-            do {
-                try realm.write {
-                    let allProductLists = realm.objects(ProductList.self)
-                    realm.delete(allProductLists)
-                    self.allProducts.removeAll()
-                }
-            } catch {
-                print("Error deleting all products: \(error)")
+    func deleteAllProducts() {
+        do {
+            try realm.write {
+                let allProductLists = realm.objects(ProductList.self)
+                realm.delete(allProductLists)
+                self.allProducts.removeAll()
             }
+        } catch {
+            print("Error deleting all products: \(error)")
         }
+    }
 }

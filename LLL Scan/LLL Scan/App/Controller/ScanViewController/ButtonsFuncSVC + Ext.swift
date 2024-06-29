@@ -25,15 +25,21 @@ extension ScanVC {
     func addTitleForNewScanCell() {
         let ac = UIAlertController(title: "Введите название", message: "Напишите название партии товара для удобства поиска", preferredStyle: .alert)
         ac.addTextField { text in
-            text.placeholder = "Ереван 01.01.2024"
+            text.placeholder = "PL-Ереван 01.01.2024"
         }
         
         let submitAction = UIAlertAction(title: "Готово", style: .default) { _ in
-            if let newText = ac.textFields?.first?.text {
-                self.titleForCell = newText
+            if let title = ac.textFields?.first?.text?.trimmingCharacters(in: .whitespacesAndNewlines).capitalized, !title.isEmpty {
+                print("Title to save: \(title)")
+                self.dataManager.saveProductList(self.dataManager.productList, withTitle: title)
+                self.dataManager.productList.removeAll()
+                self.customTableViewScanVC.table.reloadData()
                 self.startScanning()
+            } else {
+                print("Error: Title is empty")
             }
         }
+        
         
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
         
@@ -44,14 +50,13 @@ extension ScanVC {
     
     //MARK: - Delete all
     @objc func deleteAllButton() {
-       alertForDeleteAll()
+        alertForDeleteAll()
     }
     
     //MARK: - New SCAN
     @objc func newScan() {
         notificationGenerator.notificationOccurred(.success)
         addTitleForNewScanCell()
-//        startScanning()
     }
     
     //MARK: - Save ONE
@@ -148,8 +153,8 @@ extension ScanVC {
         }
         
         dataManager.allProducts.append(dataManager.productList)
-        dataManager.saveAllProducts(dataManager.allProducts)
-        
+        let titles = dataManager.loadAllProductLists().map { $0.titleForCell }
+        dataManager.saveAllProducts(dataManager.allProducts, withTitles: titles)
         dataManager.productList.removeAll()
         customTableViewScanVC.table.reloadData()
         self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)

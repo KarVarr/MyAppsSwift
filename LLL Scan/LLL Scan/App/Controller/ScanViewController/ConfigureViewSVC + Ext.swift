@@ -11,9 +11,6 @@ import UIKit
 extension ScanVC {
     override func configureView() {
         view.backgroundColor = .white
-        title = "LL Scan ☺︎  ☻  ⚇"
-        let deleteAll = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteAllButton))
-        navigationItem.rightBarButtonItem = deleteAll
         
         overlayViewForScanner.vc.isHidden = true
     }

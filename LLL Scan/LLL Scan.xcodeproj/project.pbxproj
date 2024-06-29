@@ -29,6 +29,7 @@
 		173A4B4F2C30280700C16CB4 /* ConfigureScanSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A4B4E2C30280700C16CB4 /* ConfigureScanSVC + Ext.swift */; };
 		173A4B512C30490C00C16CB4 /* ConfigureSkeletonSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A4B502C30490C00C16CB4 /* ConfigureSkeletonSVC + Ext.swift */; };
 		173A4B532C30495700C16CB4 /* ButtonsFuncSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A4B522C30495700C16CB4 /* ButtonsFuncSVC + Ext.swift */; };
+		173A4B552C30861900C16CB4 /* ConfigureNavBarSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A4B542C30861900C16CB4 /* ConfigureNavBarSVC + Ext.swift */; };
 		1776B4AF2C1F4C1B0086D5A2 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776B4AE2C1F4C1B0086D5A2 /* TableViewHeader.swift */; };
 		1776B4B12C233EC00086D5A2 /* ActivityIndicatorCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776B4B02C233EC00086D5A2 /* ActivityIndicatorCustom.swift */; };
 		1787BD632BE2777E00F8BC7F /* ProductDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787BD622BE2777E00F8BC7F /* ProductDetailsVC.swift */; };
@@ -96,6 +97,7 @@
 		173A4B4E2C30280700C16CB4 /* ConfigureScanSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureScanSVC + Ext.swift"; sourceTree = "<group>"; };
 		173A4B502C30490C00C16CB4 /* ConfigureSkeletonSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureSkeletonSVC + Ext.swift"; sourceTree = "<group>"; };
 		173A4B522C30495700C16CB4 /* ButtonsFuncSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ButtonsFuncSVC + Ext.swift"; sourceTree = "<group>"; };
+		173A4B542C30861900C16CB4 /* ConfigureNavBarSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureNavBarSVC + Ext.swift"; sourceTree = "<group>"; };
 		1776B4AE2C1F4C1B0086D5A2 /* TableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
 		1776B4B02C233EC00086D5A2 /* ActivityIndicatorCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorCustom.swift; sourceTree = "<group>"; };
 		1787BD622BE2777E00F8BC7F /* ProductDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				178DC7692BB8882700FEDE69 /* LayoutViewSVC + Ext.swift */,
 				173A4B522C30495700C16CB4 /* ButtonsFuncSVC + Ext.swift */,
 				178DC7712BB88DE900FEDE69 /* ConfigureViewSVC + Ext.swift */,
+				173A4B542C30861900C16CB4 /* ConfigureNavBarSVC + Ext.swift */,
 				173A4B502C30490C00C16CB4 /* ConfigureSkeletonSVC + Ext.swift */,
 				178DC79D2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift */,
 				178DC76B2BB8890F00FEDE69 /* ConfigureLabelSVC + Ext.swift */,
@@ -454,6 +457,7 @@
 				178DC7992BBDC5A000FEDE69 /* ButtonViewCustom.swift in Sources */,
 				171149BD2BD9571600F5DECF /* ConfigureViewLPVC + Ext.swift in Sources */,
 				178DC79E2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift in Sources */,
+				173A4B552C30861900C16CB4 /* ConfigureNavBarSVC + Ext.swift in Sources */,
 				173A4B492C2DD95800C16CB4 /* Keys.swift in Sources */,
 				1713481C2BCC3CBB00FC3CF7 /* myApi.swift in Sources */,
 				178DC76C2BB8890F00FEDE69 /* ConfigureLabelSVC + Ext.swift in Sources */,
