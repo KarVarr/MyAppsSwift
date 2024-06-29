@@ -12,8 +12,7 @@ import GoogleTranslateSwift
 extension ListOfProductsVC {
     override func configureView() {
         view.backgroundColor = .lightGray
-        title = "Карточки товара"
-        
+        title = "Карточки"
         
         navigationController?.navigationBar.prefersLargeTitles = true
         let convertFileToCSVButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up.fill"), style: .plain, target: self, action: #selector(shareButtonToConvertFile))
@@ -22,8 +21,6 @@ extension ListOfProductsVC {
     
     
     @objc func shareButtonToConvertFile() {
-        print("Convert file to XLSX")
-        
         guard let productListIndex = productListIndex else {
             print("productListIndex is nil")
             return

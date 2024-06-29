@@ -12,7 +12,6 @@ import UIKit
 extension ScanVC {
     override func configureView() {
         view.backgroundColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
         
         let deleteAll = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteAllButton))
         navigationItem.leftBarButtonItem = deleteAll
@@ -70,6 +69,7 @@ extension ScanVC {
             saveOneProductButtonForScanner.button.configuration?.title = "Добавить"
             saveOneProductButtonForScanner.button.configuration?.image = UIImage(systemName: "plus.circle.fill")
             miniatureImageHM.imageView.image = UIImage(systemName: "square.and.arrow.down")
+            
             self.miniatureImageHM.imageView.addSymbolEffect(.bounce, animated: true)
             self.miniatureImageHM.imageView.tintColor = .greenSea
             self.miniatureImageHM.imageView.clipsToBounds = false
@@ -134,18 +134,12 @@ extension ScanVC {
             self.materialFromParsingLabel.label.text = "Вы отсканировали \(countProductsArray) \(ending)"
         }
         
-        
-        print(dataManager.productList.count, "-------------> Count")
-        
         dataManager.allProducts.append(dataManager.productList)
         dataManager.saveAllProducts(dataManager.allProducts)
         
         dataManager.productList.removeAll()
         customTableViewScanVC.table.reloadData()
         self.showCountOfProductsInArray.label.text = String(dataManager.productList.count)
-        
-        print("all save and append in array MOTHER FUCKER")
-        
     }
     
     //MARK: - URL Decoder

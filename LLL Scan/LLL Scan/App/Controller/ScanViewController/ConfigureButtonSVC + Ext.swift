@@ -44,7 +44,6 @@ extension ScanVC {
         saveAllButtonForScanner.button.configuration?.imagePadding = 5
         saveAllButtonForScanner.button.addTarget(self, action: #selector(saveAllResult), for: .touchUpInside)
     }
-    
 }
 
 

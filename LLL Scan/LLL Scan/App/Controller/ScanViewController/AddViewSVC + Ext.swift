@@ -27,7 +27,7 @@ extension ScanVC {
                         showCountOfProductsInArray.label,
                        ],
                 uiView: overlayViewForScanner.vc)
-
+        
         //MARK: - View Stack
         vStackForParsingData.stack.addArrangedSubview(titleFromParsingLabel.label)
         vStackForParsingData.stack.addArrangedSubview(colorFromParsingLabel.label)
