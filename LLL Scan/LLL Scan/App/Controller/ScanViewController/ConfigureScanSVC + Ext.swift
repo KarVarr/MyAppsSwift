@@ -10,6 +10,7 @@ import VisionKit
 import SkeletonView
 
 extension ScanVC: DataScannerViewControllerDelegate {
+    //MARK: - START Scanning
     func startScanning() {
         guard scannerAvailable == true else {
             print(" Error: Scanner is not available for usage. Please check settings")
@@ -52,6 +53,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
         try? dataScanner.startScanning()
     }
     
+    //MARK: - DATA Scanner
     func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
         guard case .text(let text) = item else { return }
         

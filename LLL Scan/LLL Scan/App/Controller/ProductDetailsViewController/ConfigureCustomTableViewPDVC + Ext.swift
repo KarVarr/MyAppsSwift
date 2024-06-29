@@ -8,7 +8,6 @@
 import UIKit
 import SkeletonView
 
-
 extension ProductDetailsVC: UITableViewDelegate, SkeletonTableViewDataSource {
     
     func configureCustomTableViewPDVC() {
