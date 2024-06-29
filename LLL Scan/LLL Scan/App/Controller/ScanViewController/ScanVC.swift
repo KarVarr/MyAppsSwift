@@ -8,7 +8,7 @@
 import UIKit
 import VisionKit
 
-class ScanVC: BaseViewController {
+final class ScanVC: BaseViewController {
     let dataManager = DataManager.shared
     let networkManager = NetworkManager()
     let htmlParser = HTMLParser()

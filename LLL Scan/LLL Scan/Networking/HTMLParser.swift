@@ -12,9 +12,7 @@ enum ParserError: Error {
     case invalidHTML
 }
 
-
 class HTMLParser {
-    
     private func extractCategoryAndSize(from input: String) -> String? {
         switch input {
         case _ where (input.contains("Chłopcy") && input.contains("9–14 L")) || (input.contains("Boys") && input.contains("9-14Y")):

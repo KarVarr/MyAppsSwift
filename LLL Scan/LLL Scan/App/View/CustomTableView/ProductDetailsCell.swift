@@ -17,7 +17,6 @@ class ProductDetailsCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         addViews()
-        configureCell()
         configureLabels()
         layoutCell()
     }
@@ -25,11 +24,7 @@ class ProductDetailsCell: UITableViewCell {
     private func addViews() {
         contentView.addSubview(labelView.label)
     }
-    
-    private func configureCell() {
         
-    }
-    
     private func configureLabels() {
         labelView.label.numberOfLines = 0
         labelView.label.lineBreakMode = .byTruncatingTail
@@ -48,5 +43,4 @@ class ProductDetailsCell: UITableViewCell {
     func configure(with attribute: String) {
         labelView.label.text = attribute
     }
-    
 }

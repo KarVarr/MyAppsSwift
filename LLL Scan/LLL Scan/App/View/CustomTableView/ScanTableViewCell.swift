@@ -13,7 +13,6 @@ class ScanTableViewCell: UITableViewCell {
     let vStackSTVCForLabelsTitleAndCount = ViewStackCustom()
     let hStackSTVCForVStackAndButton = ViewStackCustom()
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -21,7 +20,6 @@ class ScanTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         addViews()
-        configureCell()
         configureLabels()
         configureStacks()
         layoutCell()
@@ -36,10 +34,7 @@ class ScanTableViewCell: UITableViewCell {
         vStackSTVCForLabelsTitleAndCount.stack.addArrangedSubview(countLabel.label)
         hStackSTVCForVStackAndButton.stack.addArrangedSubview(vStackSTVCForLabelsTitleAndCount.stack)
     }
-    private func configureCell() {
-        
-    }
-    
+
     private func configureLabels() {
         countLabel.label.textColor = .lightGray
         countLabel.label.font = UIFont(name: "Copperplate", size: 14)

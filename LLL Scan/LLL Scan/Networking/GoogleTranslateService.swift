@@ -14,7 +14,7 @@ struct GoogleTranslateService {
         
         let group = DispatchGroup()
         let rus = Locale(identifier: "ru")
-        let ger = Locale(identifier: "de")
+        let ger = Locale(identifier: "pl")
         
         group.enter()
         service.translate(product.title ?? "", from: ger, to: rus) { result in

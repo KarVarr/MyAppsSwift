@@ -8,15 +8,15 @@
 import Foundation
 import UIKit
 
-class BaseViewController: UIViewController {
-    override func viewDidLoad() {
+public class BaseViewController: UIViewController {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         addViews()
         configureView()
     }
     
-    override func viewWillLayoutSubviews() {
+    public override func viewWillLayoutSubviews() {
         layoutView()
     }
     

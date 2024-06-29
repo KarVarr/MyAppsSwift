@@ -50,6 +50,7 @@ class DataManager {
             print("error saving products: \(error)")
         }
     }
+    
     //MARK: - LOAD Product
     func loadProducts() -> [Product] {
         let products = realm.objects(Product.self)
@@ -104,20 +105,16 @@ class DataManager {
             print("Error deleting product list: \(error)")
         }
     }
-
     
     // MARK: - DELETE Product
     func deleteProduct(at index: Int, inProductListAt productListIndex: Int) {
         do {
-            // Проверяем, есть ли активная транзакция записи
             if realm.isInWriteTransaction {
-                // Удаляем продукт и обновляем массив
                 if productListIndex < allProducts.count && index < allProducts[productListIndex].count {
                     let productToDelete = allProducts[productListIndex][index]
                     realm.delete(productToDelete)
                     allProducts[productListIndex].remove(at: index)
                     
-                    // Если массив продуктов пуст, удаляем также ProductList
                     if allProducts[productListIndex].isEmpty {
                         deleteProductList(at: productListIndex)
                     }
@@ -126,13 +123,11 @@ class DataManager {
                 }
             } else {
                 try realm.write {
-                    // Удаляем продукт и обновляем массив
                     if productListIndex < allProducts.count && index < allProducts[productListIndex].count {
                         let productToDelete = allProducts[productListIndex][index]
                         realm.delete(productToDelete)
                         allProducts[productListIndex].remove(at: index)
                         
-                        // Если массив продуктов пуст, удаляем также ProductList
                         if allProducts[productListIndex].isEmpty {
                             deleteProductList(at: productListIndex)
                         }
