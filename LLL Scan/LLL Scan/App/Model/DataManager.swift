@@ -140,4 +140,17 @@ class DataManager {
             print("Error deleting product: \(error)")
         }
     }
+    
+    // MARK: - DELETE All Products
+        func deleteAllProducts() {
+            do {
+                try realm.write {
+                    let allProductLists = realm.objects(ProductList.self)
+                    realm.delete(allProductLists)
+                    self.allProducts.removeAll()
+                }
+            } catch {
+                print("Error deleting all products: \(error)")
+            }
+        }
 }

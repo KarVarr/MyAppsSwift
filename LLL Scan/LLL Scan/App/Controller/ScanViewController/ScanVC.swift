@@ -39,6 +39,7 @@ final class ScanVC: BaseViewController {
     let vStackForParsingData = ViewStackCustom()
     let topRectangleViewForCloseIndication = ViewCustom()
     
+    var titleForCell: String? = "N/A"
     var urlString: String? = "https://www2.hm.com/pl_pl/productpage.1213391004.html"
     
     override func viewDidLoad() {

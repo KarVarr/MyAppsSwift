@@ -38,7 +38,8 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
             let formatter = DateFormatter()
             formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
             let dateString = formatter.string(from: addedAt)
-            cell.titleLabel.label.text = "Создан: \(dateString)"
+//            cell.titleLabel.label.text = "Создан: \(dateString)"
+            cell.titleLabel.label.text = titleForCell
         } else {
             cell.titleLabel.label.text = "Создан: (нет информации)"
         }

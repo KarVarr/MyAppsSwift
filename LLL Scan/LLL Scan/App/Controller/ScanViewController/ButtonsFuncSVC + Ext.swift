@@ -9,15 +9,36 @@ import UIKit
 
 
 extension ScanVC {
-    
+    //MARK: - Alert for deleting
     func alertForDeleteAll() {
         let ac = UIAlertController(title: "Внимание", message: "Вы хотите удалить все сохраненные артикулы?", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ок", style: .default) { _ in
-            self.dataManager.allProducts.removeAll()
+            self.dataManager.deleteAllProducts()
+            self.customTableViewScanVC.table.reloadData()
         }
         let cancelAlert = UIAlertAction(title: "Отмена", style: .cancel)
         ac.addAction(okAction)
         ac.addAction(cancelAlert)
+        present(ac, animated: true)
+    }
+    
+    func addTitleForNewScanCell() {
+        let ac = UIAlertController(title: "Введите название", message: "Напишите название партии товара для удобства поиска", preferredStyle: .alert)
+        ac.addTextField { text in
+            text.placeholder = "Ереван 01.01.2024"
+        }
+        
+        let submitAction = UIAlertAction(title: "Готово", style: .default) { _ in
+            if let newText = ac.textFields?.first?.text {
+                self.titleForCell = newText
+                self.startScanning()
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
+        
+        ac.addAction(submitAction)
+        ac.addAction(cancelAction)
         present(ac, animated: true)
     }
     
@@ -29,7 +50,8 @@ extension ScanVC {
     //MARK: - New SCAN
     @objc func newScan() {
         notificationGenerator.notificationOccurred(.success)
-        startScanning()
+        addTitleForNewScanCell()
+//        startScanning()
     }
     
     //MARK: - Save ONE
