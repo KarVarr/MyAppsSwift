@@ -12,7 +12,7 @@ import GoogleTranslateSwift
 extension ListOfProductsVC {
     override func configureView() {
         view.backgroundColor = .lightGray
-        title = "Карточки"
+        title = titleForProduct
         
         navigationController?.navigationBar.prefersLargeTitles = true
         let convertFileToCSVButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up.fill"), style: .plain, target: self, action: #selector(shareButtonToConvertFile))

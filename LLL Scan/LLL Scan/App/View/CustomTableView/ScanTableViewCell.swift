@@ -26,13 +26,14 @@ class ScanTableViewCell: UITableViewCell {
     }
     
     private func addViews() {
-        contentView.addSubview(vStackSTVCForLabelsTitleAndCount.stack)
-        contentView.addSubview(hStackSTVCForVStackAndButton.stack)
+//        contentView.addSubview(vStackSTVCForLabelsTitleAndCount.stack)
         
         //TODO: была идея добавить кнопку в конце ячейки, для этого тут есть hStack.
         vStackSTVCForLabelsTitleAndCount.stack.addArrangedSubview(titleLabel.label)
         vStackSTVCForLabelsTitleAndCount.stack.addArrangedSubview(countLabel.label)
         hStackSTVCForVStackAndButton.stack.addArrangedSubview(vStackSTVCForLabelsTitleAndCount.stack)
+        
+        contentView.addSubview(hStackSTVCForVStackAndButton.stack)
     }
 
     private func configureLabels() {
@@ -62,8 +63,8 @@ class ScanTableViewCell: UITableViewCell {
             hStackSTVCForVStackAndButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             hStackSTVCForVStackAndButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
             
-            vStackSTVCForLabelsTitleAndCount.leadingAnchor.constraint(equalTo: hStackSTVCForVStackAndButton.leadingAnchor, constant: 20),
-            vStackSTVCForLabelsTitleAndCount.centerYAnchor.constraint(equalTo: hStackSTVCForVStackAndButton.centerYAnchor),
+//            vStackSTVCForLabelsTitleAndCount.leadingAnchor.constraint(equalTo: hStackSTVCForVStackAndButton.leadingAnchor, constant: 20),
+//            vStackSTVCForLabelsTitleAndCount.centerYAnchor.constraint(equalTo: hStackSTVCForVStackAndButton.centerYAnchor),
         ])
     }
     

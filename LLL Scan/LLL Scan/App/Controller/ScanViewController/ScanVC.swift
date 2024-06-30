@@ -63,7 +63,5 @@ final class ScanVC: BaseViewController {
         configureLabels()
         configureButtonView()
     }
-    
-
 }
 

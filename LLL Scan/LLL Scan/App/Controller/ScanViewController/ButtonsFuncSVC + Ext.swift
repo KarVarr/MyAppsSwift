@@ -37,6 +37,12 @@ extension ScanVC {
                 self.startScanning()
             } else {
                 print("Error: Title is empty")
+                let defaultTitle = "\(self.formatDate(Date()))"
+                print("Default title to save: \(defaultTitle)")
+                self.dataManager.saveProductList(self.dataManager.productList, withTitle: defaultTitle)
+                self.dataManager.productList.removeAll()
+                self.customTableViewScanVC.table.reloadData()
+                self.startScanning()
             }
         }
         

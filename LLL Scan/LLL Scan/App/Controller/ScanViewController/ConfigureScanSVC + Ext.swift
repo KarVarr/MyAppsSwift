@@ -36,8 +36,8 @@ extension ScanVC: DataScannerViewControllerDelegate {
         dataScanner.modalPresentationStyle = .formSheet
         
         present(dataScanner, animated: true) {
-            dataScanner.view.addSubview(self.overlayViewForScanner.vc)
             self.overlayViewForScanner.vc.isHidden = false
+            dataScanner.view.addSubview(self.overlayViewForScanner.vc)
             NSLayoutConstraint.activate([
                 self.overlayViewForScanner.vc.leadingAnchor.constraint(equalTo: dataScanner.view.leadingAnchor),
                 self.overlayViewForScanner.vc.trailingAnchor.constraint(equalTo: dataScanner.view.trailingAnchor),
@@ -69,32 +69,45 @@ extension ScanVC: DataScannerViewControllerDelegate {
                 startSkeleton()
                 scanCodeWithDifferentCount(partsStr: parts, part1: 0, part2: 1)
             } else {
-                print("Error: Not such code")
-                DispatchQueue.main.async {
-                    self.stopSkeleton()
-                    self.colorFromParsingLabel.label.isHidden = false
-                    self.materialFromParsingLabel.label.isHidden = false
-                    self.resultLabel.label.text = "❌ \(parts) Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
-                    self.titleFromParsingLabel.label.text = "Не найдено"
-                    self.colorFromParsingLabel.label.text = "Не найдено"
-                    self.materialFromParsingLabel.label.text = "Не найдено"
-                    self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
-                }
+                handleInvalidCode(parts: parts)
+                //                DispatchQueue.main.async {
+//                    self.stopSkeleton()
+//                    self.colorFromParsingLabel.label.isHidden = false
+//                    self.materialFromParsingLabel.label.isHidden = false
+//                    self.resultLabel.label.text = "❌ \(parts) Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
+//                    self.titleFromParsingLabel.label.text = "Не найдено"
+//                    self.colorFromParsingLabel.label.text = "Не найдено"
+//                    self.materialFromParsingLabel.label.text = "Не найдено"
+//                    self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
+//                }
             }
         } else {
+            handleInvalidCode(parts: text.transcript.components(separatedBy: " "))
+//            DispatchQueue.main.async {
+//                self.stopSkeleton()
+//                self.colorFromParsingLabel.label.isHidden = false
+//                self.materialFromParsingLabel.label.isHidden = false
+//                self.resultLabel.label.text = "❌ \(text.transcript) Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
+//                self.titleFromParsingLabel.label.text = "Не верный формат артикула"
+//                self.colorFromParsingLabel.label.text = "Отсканируйте выделенный артикул как на фото"
+//                self.materialFromParsingLabel.label.text = "И повторите попытку!"
+//                self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
+//            }
+        }
+    }
+    
+    private func handleInvalidCode(parts: [String]) {
             DispatchQueue.main.async {
                 self.stopSkeleton()
                 self.colorFromParsingLabel.label.isHidden = false
                 self.materialFromParsingLabel.label.isHidden = false
-                self.resultLabel.label.text = "❌ \(text.transcript) Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
+                self.resultLabel.label.text = "❌ \(parts.joined(separator: " ")) Не верный формат артикула!\nОтсканируйте номер, указанный под штрих-кодом, в формате 'PL 1043199 005 S22'."
                 self.titleFromParsingLabel.label.text = "Не верный формат артикула"
                 self.colorFromParsingLabel.label.text = "Отсканируйте выделенный артикул как на фото"
                 self.materialFromParsingLabel.label.text = "И повторите попытку!"
                 self.miniatureImageHM.imageView.image = UIImage(named: "HMImg")
             }
-            print("non valid regex art")
         }
-    }
     
     private func scanCodeWithDifferentCount(partsStr: [String], part1: Int, part2: Int) {
         let result = "\(partsStr[part1])\(partsStr[part2])"

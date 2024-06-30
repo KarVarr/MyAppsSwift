@@ -32,8 +32,8 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
         cell.accessoryType = .disclosureIndicator
         
         let productList = dataManager.loadAllProductLists()[indexPath.row]
-        
-        cell.titleLabel.label.text = productList.titleForCell.isEmpty ? "Создан: \(formatDate(productList.products.first?.addedAt))" : productList.titleForCell
+        let index = indexPath.row + 1
+        cell.titleLabel.label.text = productList.titleForCell.isEmpty ? "Создан: \(formatDate(productList.products.first?.addedAt))" : "\(index): \(productList.titleForCell)"
         print("Setting cell title: \(cell.titleLabel.label.text ?? "")")
         
         cell.countLabel.label.text = "Количество артикулов: \(productList.products.count)"
@@ -49,6 +49,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
         let listOFProductsVC = ListOfProductsVC()
         listOFProductsVC.product = Array(selectedProduct.products)
         listOFProductsVC.productListIndex = indexPath.row
+        listOFProductsVC.titleForProduct = selectedProduct.titleForCell
         navigationController?.pushViewController(listOFProductsVC, animated: true)
     }
     

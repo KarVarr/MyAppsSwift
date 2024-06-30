@@ -13,6 +13,7 @@ class ListOfProductsVC: BaseViewController {
     let customTableViewProductDetailVC = CustomTableView()
     var product: [Product] = []
     var productListIndex: Int? 
+    var titleForProduct: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
