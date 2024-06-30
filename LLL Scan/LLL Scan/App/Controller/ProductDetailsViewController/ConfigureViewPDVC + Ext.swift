@@ -14,8 +14,8 @@ extension ProductDetailsVC {
     
     func configureImages() {
         if let imageURLString = product?.imageURL,
-           let decodedImageURLString = imageURLString.removingPercentEncoding,
-           let imageURL = URL(string: "https:"+decodedImageURLString) {
+//           let decodedImageURLString = imageURLString.removingPercentEncoding,
+           let imageURL = URL(string: imageURLString) {
             loadImage(from: imageURL)
         }
     }

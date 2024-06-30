@@ -19,7 +19,7 @@ extension ScanVC {
     func urlDecoder(url: String?) -> String? {
         if let mainImageURLString = url,
            let decodedMainImageURLString = mainImageURLString.removingPercentEncoding,
-           let mainImageURL = URL(string: "https:"+decodedMainImageURLString) {
+           let mainImageURL = URL(string: decodedMainImageURLString) {
             return mainImageURL.absoluteString
         } else {
             return nil

@@ -20,7 +20,8 @@ extension ProductDetailsVC: UITableViewDelegate, SkeletonTableViewDataSource {
         customTableViewProductDetailsVC.table.estimatedRowHeight = 100
         
         
-        let tableViewHeader = TableViewHeader(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 400), imgURL: product?.mainImageURL ?? "xmark.square")
+        let tableViewHeader = TableViewHeader(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 400), imgURL: String(product?.mainImageURL?.dropFirst(6) ?? "xmark.square"))
+        print("HERE IS PHORORORORO \(product?.mainImageURL)")
         self.customTableViewProductDetailsVC.table.tableHeaderView = tableViewHeader
     }
     

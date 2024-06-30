@@ -41,8 +41,8 @@ extension ListOfProductsVC: UITableViewDelegate, SkeletonTableViewDataSource {
         cell.configureCell(with: productIndex)
         
         if let imageURLString = productIndex.imageURL,
-           let decodedImageURLString = imageURLString.removingPercentEncoding,
-           let imageURL = URL(string: "https:"+decodedImageURLString) {
+//           let decodedImageURLString = imageURLString.removingPercentEncoding,
+           let imageURL = URL(string: imageURLString) {
             cell.loadImage(from: imageURL)
         }
         

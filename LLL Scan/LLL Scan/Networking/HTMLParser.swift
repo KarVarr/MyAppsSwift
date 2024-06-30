@@ -40,36 +40,35 @@ class HTMLParser {
                 return .failure(ParserError.invalidHTML)
             }
             
-            let aElement = try body.select("a[class='filter-option miniature active']").first()
+            let aElement = try body.select("div[class='fcc68c a33b36 f6e252']").first()
             let imgElement = try aElement?.select("img").first()
-            let imgSrc = try imgElement?.attr("src")
+            let imgSrc = try imgElement?.attr("src").replacingOccurrences(of: "2160", with: "116")
             print("Image src: \(imgSrc ?? "N/A")")
             
-            let mainImageElement = try body.select("div[class='product-detail-main-image-container']").first()
+            let mainImageElement = try body.select("div[class='fcc68c a33b36 f6e252']").first()
             let mainImgElement = try mainImageElement?.select("img").first()
-            let mainImgScr = try mainImgElement?.attr("src")
-            print("Main Image src: \(mainImgScr ?? "N/A")")
-            
-            let linkElement = try body.select("a[class='filter-option miniature active']").first()
-            let link = try linkElement?.attr("href")
-            print("link: \(link ?? "N/A")")
-            
-            let articleElement = try body.select("a[class='filter-option miniature active']").first()
-            let article = try articleElement?.attr("data-articlecode")
+            let mainImgSrc = try mainImgElement?.attr("src")
+            print("Main Image src: \(mainImgSrc ?? "N/A")")
+                        
+            let articleElement = try body.select("span[class='d1cd7b b7f566 a0f363']").first()
+            let article = try articleElement?.text()
             print("Article: \(article ?? "N/A")")
+            
+            let link = "https://www2.hm.com/en_gb/productpage.\(article ?? "00000000").html"
+            print("link: \(link)")
             
             let titleElement = try body.select("h1").first()
             let title = try titleElement?.text()
             print("Title: \(title ?? "N/A")")
             
-            let priceElement = try body.select(".price").first()
+            let priceElement = try body.select("span[class='edbe20 ac3d9e d9ca8b e29fbf'").first()
             let price = try priceElement?.text()
             print("Price: \(price ?? "N/A")")
             
-            let colorElement = try body.select("a[class='filter-option miniature active']").first()
-            let colorID = try colorElement?.select("img").first()
-            let colorName = try colorID?.attr("alt")
-            print("ColorID: \(colorName ?? "N/A")")
+            let colorElement = try body.select("div[data-testid='color-selector']").first()
+            let colorPElement = try colorElement?.select("p[class='d1cd7b a09145 b97b34']").first()
+            let colorName = try colorPElement?.text().replacingOccurrences(of: "-", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
+            print("Color: \(colorName ?? "N/A")")
             
             let descriptionElement = try body.select("#section-descriptionAccordion").first()
             let descriptions = try descriptionElement?.select("p").first()?.text()
@@ -79,7 +78,7 @@ class HTMLParser {
             let material = try materialElement?.select("ul").first()?.text()
             print("Material: \(material ?? "N/A")")
             
-            let genderElement = try body.select("hm-breadcrumbs li:nth-of-type(2)").first()
+            let genderElement = try body.select("nav li:nth-of-type(2)").first()
             let gender = try genderElement?.select("a").first()?.text()
             print("Gender: \(gender ?? "N/A")")
             
@@ -95,7 +94,7 @@ class HTMLParser {
             let product = Product()
             product.id = UUID()
             product.imageURL = imgSrc
-            product.mainImageURL = mainImgScr
+            product.mainImageURL = mainImgSrc
             product.link = link
             product.article = article
             product.title = title

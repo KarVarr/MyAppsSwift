@@ -23,29 +23,25 @@ extension ScanVC {
     }
     
     func addTitleForNewScanCell() {
-        let ac = UIAlertController(title: "Введите название", message: "Напишите название партии товара для удобства поиска", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Введите название", message: "Укажите название партии товара", preferredStyle: .alert)
         ac.addTextField { text in
             text.placeholder = "PL-Ереван 01.01.2024"
         }
         
         let submitAction = UIAlertAction(title: "Готово", style: .default) { _ in
             if let title = ac.textFields?.first?.text?.trimmingCharacters(in: .whitespacesAndNewlines).capitalized, !title.isEmpty {
-                print("Title to save: \(title)")
                 self.dataManager.saveProductList(self.dataManager.productList, withTitle: title)
                 self.dataManager.productList.removeAll()
                 self.customTableViewScanVC.table.reloadData()
                 self.startScanning()
             } else {
-                print("Error: Title is empty")
                 let defaultTitle = "\(self.formatDate(Date()))"
-                print("Default title to save: \(defaultTitle)")
                 self.dataManager.saveProductList(self.dataManager.productList, withTitle: defaultTitle)
                 self.dataManager.productList.removeAll()
                 self.customTableViewScanVC.table.reloadData()
                 self.startScanning()
             }
         }
-        
         
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
         
@@ -67,8 +63,6 @@ extension ScanVC {
     
     //MARK: - Save ONE
     @objc func saveOneProductResult() {
-        print("saveResult")
-        
         guard let productObj = self.productObj else {
             print("Error: productObj is nil")
             return
@@ -100,7 +94,7 @@ extension ScanVC {
             self.titleFromParsingLabel.label.text = "Добавленно!"
             self.colorFromParsingLabel.label.isHidden = true
             self.materialFromParsingLabel.label.isHidden = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.miniatureImageHM.imageView.image = UIImage(systemName: "barcode.viewfinder")
                 self.miniatureImageHM.imageView.addSymbolEffect(.pulse, animated: true)
                 self.miniatureImageHM.imageView.tintColor = .systemTeal

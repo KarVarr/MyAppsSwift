@@ -66,44 +66,27 @@ class DataManager {
     }
     
     //MARK: - SAVE ALL Products
-    //    func saveAllProducts(_ allProducts: [[Product]]) {
-    //        do {
-    //            try realm.write {
-    //                let existingProductLists = realm.objects(ProductList.self)
-    //                realm.delete(existingProductLists)
-    //
-    //                for productArray in allProducts {
-    //                    let productList = ProductList()
-    //                    productList.products.append(objectsIn: productArray)
-    //                    realm.add(productList)
-    //                }
-    //            }
-    //        } catch {
-    //            print("Error saving allProducts: \(error)")
-    //        }
-    //    }
-    
     func saveAllProducts(_ allProducts: [[Product]], withTitles titles: [String]) {
-            do {
-                try realm.write {
-                    let existingProductLists = realm.objects(ProductList.self)
-                    realm.delete(existingProductLists)
-                    
-                    for (index, productArray) in allProducts.enumerated() {
-                        let productList = ProductList()
-                        productList.products.append(objectsIn: productArray)
-                        if index < titles.count {
-                            productList.titleForCell = titles[index]
-                        } else {
-                            productList.titleForCell = "Партия: \(index + 1)"
-                        }
-                        realm.add(productList)
+        do {
+            try realm.write {
+                let existingProductLists = realm.objects(ProductList.self)
+                realm.delete(existingProductLists)
+                
+                for (index, productArray) in allProducts.enumerated() {
+                    let productList = ProductList()
+                    productList.products.append(objectsIn: productArray)
+                    if index < titles.count {
+                        productList.titleForCell = titles[index]
+                    } else {
+                        productList.titleForCell = "Партия: \(index + 1)"
                     }
+                    realm.add(productList)
                 }
-            } catch {
-                print("Error saving allProducts: \(error)")
             }
+        } catch {
+            print("Error saving allProducts: \(error)")
         }
+    }
     
     
     
@@ -127,9 +110,7 @@ class DataManager {
     
     //MARK: - LOAD All Product Lists
     func loadAllProductLists() -> [ProductList] {
-        let productLists = Array(realm.objects(ProductList.self))
-        productLists.forEach { print("Loaded ProductList with title: \($0.titleForCell)") }
-        return productLists
+        Array(realm.objects(ProductList.self))
     }
     
     // MARK: - DELETE Product List

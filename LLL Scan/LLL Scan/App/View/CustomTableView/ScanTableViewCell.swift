@@ -26,8 +26,6 @@ class ScanTableViewCell: UITableViewCell {
     }
     
     private func addViews() {
-//        contentView.addSubview(vStackSTVCForLabelsTitleAndCount.stack)
-        
         //TODO: была идея добавить кнопку в конце ячейки, для этого тут есть hStack.
         vStackSTVCForLabelsTitleAndCount.stack.addArrangedSubview(titleLabel.label)
         vStackSTVCForLabelsTitleAndCount.stack.addArrangedSubview(countLabel.label)
@@ -35,12 +33,12 @@ class ScanTableViewCell: UITableViewCell {
         
         contentView.addSubview(hStackSTVCForVStackAndButton.stack)
     }
-
+    
     private func configureLabels() {
         countLabel.label.textColor = .lightGray
         countLabel.label.font = UIFont(name: "Copperplate", size: 14)
     }
-  
+    
     private func configureStacks() {
         vStackSTVCForLabelsTitleAndCount.stack.axis = .vertical
         vStackSTVCForLabelsTitleAndCount.stack.distribution = .fillEqually
@@ -53,7 +51,6 @@ class ScanTableViewCell: UITableViewCell {
     }
     
     private func layoutCell() {
-        let vStackSTVCForLabelsTitleAndCount = vStackSTVCForLabelsTitleAndCount.stack
         let hStackSTVCForVStackAndButton = hStackSTVCForVStackAndButton.stack
         
         NSLayoutConstraint.activate([
@@ -62,9 +59,6 @@ class ScanTableViewCell: UITableViewCell {
             hStackSTVCForVStackAndButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             hStackSTVCForVStackAndButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             hStackSTVCForVStackAndButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
-            
-//            vStackSTVCForLabelsTitleAndCount.leadingAnchor.constraint(equalTo: hStackSTVCForVStackAndButton.leadingAnchor, constant: 20),
-//            vStackSTVCForLabelsTitleAndCount.centerYAnchor.constraint(equalTo: hStackSTVCForVStackAndButton.centerYAnchor),
         ])
     }
     
