@@ -15,17 +15,17 @@ enum ParserError: Error {
 class HTMLParser {
     private func extractCategoryAndSize(from input: String) -> String? {
         switch input {
-        case _ where (input.contains("Chłopcy") && input.contains("9–14 L")) || (input.contains("Boys") && input.contains("9-14Y")):
+        case _ where input.contains("Boys") && input.contains("9-14Y"):
             return "Мальчики 9–14 лет"
-        case _ where (input.contains("Chłopcy") && input.contains("2-8 L")) || (input.contains("Boys") && input.contains("2-8Y")):
+        case _ where input.contains("Boys") && input.contains("2-8Y"):
             return "Мальчики 2-8 лет"
-        case _ where (input.contains("Dziewczynki") && input.contains("9–14 L")) || (input.contains("Girls") && input.contains("9-14Y")):
+        case _ where input.contains("Girls") && input.contains("9-14Y"):
             return "Девочки 9–14 лет"
-        case _ where (input.contains("Dziewczynki") && input.contains("2-8 L")) || (input.contains("Girls") && input.contains("2-8Y")):
+        case _ where input.contains("Girls") && input.contains("2-8Y"):
             return "Девочки 2-8 лет"
-        case _ where (input.contains("Chłopcy") && input.contains("Niemowlę")) || (input.contains("Boys") && input.contains("Baby")):
+        case _ where input.contains("Boys") && input.contains("Baby"):
             return "Мальчик"
-        case _ where (input.contains("Dziewczynki") && input.contains("Niemowlę")) || (input.contains("Girls") && input.contains("Baby")):
+        case _ where input.contains("Girls") && input.contains("Baby"):
             return "Девочка"
         default:
             return "Нет данных на сайте"
@@ -49,7 +49,7 @@ class HTMLParser {
             let mainImgElement = try mainImageElement?.select("img").first()
             let mainImgSrc = try mainImgElement?.attr("src")
             print("Main Image src: \(mainImgSrc ?? "N/A")")
-                        
+            
             let articleElement = try body.select("span[class='d1cd7b b7f566 a0f363']").first()
             let article = try articleElement?.text()
             print("Article: \(article ?? "N/A")")
@@ -61,8 +61,22 @@ class HTMLParser {
             let title = try titleElement?.text()
             print("Title: \(title ?? "N/A")")
             
-            let priceElement = try body.select("span[class='edbe20 ac3d9e d9ca8b e29fbf'").first()
-            let price = try priceElement?.text()
+            let priceElements = try body.select("div[class='e26896'] span")
+            var price: String?
+            for priceElement in priceElements {
+                let priceClass = try priceElement.className()
+                let priceText = try priceElement.text()
+                
+                if priceClass.contains("e98f30") || priceClass.contains("d9ca8b") {
+                    price = priceText
+                    break
+                }
+            }
+            
+            if price == nil {
+                price = try priceElements.first()?.text()
+            }
+            
             print("Price: \(price ?? "N/A")")
             
             let colorElement = try body.select("div[data-testid='color-selector']").first()
