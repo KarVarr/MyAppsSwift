@@ -22,7 +22,13 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataManager.allProducts.count
+        let count = dataManager.allProducts.count
+        if count == 0 {
+            emptyStateImageView.imageView.isHidden = false
+        } else {
+            emptyStateImageView.imageView.isHidden = true
+        }
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

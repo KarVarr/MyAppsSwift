@@ -33,19 +33,23 @@ final class ScanVC: BaseViewController {
     let saveOneProductButtonForScanner = ButtonViewCustom()
     let saveAllButtonForScanner = ButtonViewCustom()
     let buttonForAddNewTableView = ButtonViewCustom()
-    
+    //images
+    let emptyStateImageView = ImageViewCustom()
     let miniatureImageHM = ImageViewCustom()
+    //views
     let overlayViewForScanner = ViewCustom()
     let vStackForParsingData = ViewStackCustom()
     let topRectangleViewForCloseIndication = ViewCustom()
     
     var urlString: String? = "https://www2.hm.com/en_gb/productpage.1213391004.html"
     
+     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureCustomTableViewSVC()
-        configureImageView()
         configureViewCustom()
         configureStackViewSVC()
         configureNavBar()
@@ -60,6 +64,7 @@ final class ScanVC: BaseViewController {
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        configureImageView()
         configureLabels()
         configureButtonView()
     }

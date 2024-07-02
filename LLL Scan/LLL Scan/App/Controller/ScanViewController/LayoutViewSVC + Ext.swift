@@ -14,6 +14,7 @@ extension ScanVC {
         let saveAllButtonForScanner = saveAllButtonForScanner.button
         let overlayViewForScanner = overlayViewForScanner.vc
         let resultLabel = resultLabel.label
+        let emptyStateImageView = emptyStateImageView.imageView
         let miniatureImageHM = miniatureImageHM.imageView
         let vStackForParsingData = vStackForParsingData.stack
         let topRectangleViewForCloseIndication = topRectangleViewForCloseIndication.vc
@@ -68,6 +69,11 @@ extension ScanVC {
             miniatureImageHM.centerYAnchor.constraint(equalTo: overlayViewForScanner.centerYAnchor),
             miniatureImageHM.widthAnchor.constraint(equalToConstant: 150),
             miniatureImageHM.heightAnchor.constraint(equalToConstant: 200),
+            
+            emptyStateImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyStateImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            emptyStateImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
+            emptyStateImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4)
         ])
         
         //MARK: - INSIDE CUSTOM SCAN VIEW - labels from parsing

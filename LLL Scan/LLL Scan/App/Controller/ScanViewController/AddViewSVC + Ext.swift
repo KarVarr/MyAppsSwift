@@ -12,6 +12,7 @@ extension ScanVC {
         //MARK: - View
         addView(views: [labelForHtml.label,
                         customTableViewScanVC.table,
+                        emptyStateImageView.imageView,
                         buttonForAddNewTableView.button,
                         overlayViewForScanner.vc
                        ],
