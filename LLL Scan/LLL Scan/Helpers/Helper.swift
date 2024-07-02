@@ -25,4 +25,14 @@ enum Helper {
             return calculatedFontSize
         }
     }
+    
+    //MARK: - Dates
+    enum Dates {
+        static func formatDate(_ date: Date?) -> String {
+            guard let date = date else { return "(нет информации)" }
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+            return formatter.string(from: date)
+        }
+    }
 }

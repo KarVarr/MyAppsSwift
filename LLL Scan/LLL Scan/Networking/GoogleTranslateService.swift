@@ -76,6 +76,21 @@ struct GoogleTranslateService {
             group.leave()
         }
         
+        group.enter()
+        service.translate(product.category ?? "", from: ger, to: rus) { result in
+            switch result {
+            case .success(let translationResult):
+                try? product.realm?.write {
+                    translatedProduct.category = translationResult.translations.first?.translatedText
+                }
+                print("Translated category: \(translatedProduct.category ?? "")")
+            case .failure(let error):
+                print("Error translating category: \(error)")
+                translatedProduct.category = product.category
+            }
+            group.leave()
+        }
+        
         group.notify(queue: .main) {
             completion(translatedProduct)
         }

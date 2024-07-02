@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 // Обновить номер версии схемы
-let currentSchemaVersion: UInt64 = 3
+let currentSchemaVersion: UInt64 = 4
 
 class DataManager {
     static let shared = DataManager()
@@ -22,7 +22,7 @@ class DataManager {
             migrationBlock: { migration, oldSchemaVersion in
                 if oldSchemaVersion < currentSchemaVersion {
                     migration.enumerateObjects(ofType: ProductList.className()) { oldObject, newObject in
-                        newObject!["id"] = ""
+                        newObject!["category"] = ""
                     }
                 }
             })

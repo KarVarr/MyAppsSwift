@@ -31,7 +31,7 @@ extension ProductDetailsVC: UITableViewDelegate, SkeletonTableViewDataSource {
         switch sectionIndex {
         case 3:
             return CGFloat((product?.material?.count ?? 44) + 22)
-        case 4:
+        case 5:
             return CGFloat((product?.descriptions?.count ?? 44))
         default:
             return 44
@@ -78,12 +78,14 @@ extension ProductDetailsVC: UITableViewDelegate, SkeletonTableViewDataSource {
         case 3:
             cell.configure(with: "\(product?.material ?? "Нет состава")")
         case 4:
-            cell.configure(with: "\(product?.descriptions ?? "Нет описания")")
+            cell.configure(with: "\(product?.category ?? "Нет категории")")
         case 5:
-            cell.configure(with: "\(product?.price ?? "Нет цены")")
+            cell.configure(with: "\(product?.descriptions ?? "Нет описания")")
         case 6:
-            cell.configure(with: "\(product?.gender ?? "Нет пола")")
+            cell.configure(with: "\(product?.price ?? "Нет цены")")
         case 7:
+            cell.configure(with: "\(product?.gender ?? "Нет пола")")
+        case 8:
             cell.configure(with: "\(product?.babyGender ?? "Нет данных")")
         default:
             break

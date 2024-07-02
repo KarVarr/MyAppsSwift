@@ -37,7 +37,7 @@ extension ScanVC {
                 self.customTableViewScanVC.table.reloadData()
                 self.startScanning()
             } else {
-                let defaultTitle = "\(self.formatDate(Date()))"
+                let defaultTitle = "\(Helper.Dates.formatDate(Date()))"
                 self.dataManager.saveProductList(self.dataManager.productList, withTitle: defaultTitle)
                 self.dataManager.productList.removeAll()
                 self.customTableViewScanVC.table.reloadData()

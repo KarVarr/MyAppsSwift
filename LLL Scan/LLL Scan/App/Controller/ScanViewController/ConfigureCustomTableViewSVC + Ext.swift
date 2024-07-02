@@ -33,7 +33,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
         
         let productList = dataManager.loadAllProductLists()[indexPath.row]
         let index = indexPath.row + 1
-        cell.titleLabel.label.text = productList.titleForCell.isEmpty ? "Создан: \(formatDate(productList.products.first?.addedAt))" : "\(index): \(productList.titleForCell)"
+        cell.titleLabel.label.text = productList.titleForCell.isEmpty ? "Создан: \(Helper.Dates.formatDate(productList.products.first?.addedAt))" : "\(index): \(productList.titleForCell)"
         
         cell.countLabel.label.text = "Количество артикулов: \(productList.products.count)"
         
@@ -58,13 +58,5 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .left)
             customTableViewScanVC.table.reloadData()
         }
-    }
-    
-    //MARK: - Formatter
-    func formatDate(_ date: Date?) -> String {
-        guard let date = date else { return "(нет информации)" }
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
-        return formatter.string(from: date)
     }
 }

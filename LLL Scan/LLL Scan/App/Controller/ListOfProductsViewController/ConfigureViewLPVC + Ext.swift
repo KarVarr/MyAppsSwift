@@ -30,23 +30,23 @@ extension ListOfProductsVC {
         
         // Создание нового XLSX файла
         let tempDirectory = NSTemporaryDirectory()
-        let fileName = "Products.xlsx"
+        let fileName = "Products HM \(Helper.Dates.formatDate(Date())).xlsx".replacingOccurrences(of: ":", with: "-")
         let tempPath = NSURL(fileURLWithPath: tempDirectory).appendingPathComponent(fileName)
         
         let document = Workbook(name: tempPath!.path)
         let sheet = document.addWorksheet(name: "Products")
         
-        // Добавление заголовков
+        // заголовки
         sheet.write("Article", [0, 0])
         sheet.write("Title", [0, 1])
         sheet.write("Price", [0, 2])
         sheet.write("Color", [0, 3])
-        sheet.write("Description", [0, 4])
-        sheet.write("Material", [0, 5])
-        sheet.write("Link", [0, 6])
-        sheet.write("ImageLink", [0, 7])
+        sheet.write("Category", [0, 4])
+        sheet.write("Description", [0, 5])
+        sheet.write("Material", [0, 6])
+        sheet.write("Link", [0, 7])
+        sheet.write("ImageLink", [0, 8])
         
-        // Добавление данных
         let translateService = GoogleTranslateApiService(apiKey: Keys.googleTranslateAPIKey)
         let googleTranslateService = GoogleTranslateService()
         let group = DispatchGroup()
@@ -62,10 +62,11 @@ extension ListOfProductsVC {
                     sheet.write(.string(translatedProduct.title ?? ""), [row, 1])
                     sheet.write(.string(product.price ?? ""), [row, 2])
                     sheet.write(.string(translatedProduct.colorName ?? ""), [row, 3])
-                    sheet.write(.string(product.descriptions ?? ""), [row, 4])
-                    sheet.write(.string(translatedProduct.material ?? ""), [row, 5])
-                    sheet.write(.string(product.link ?? ""), [row, 6])
-                    sheet.write(.string(product.mainImageURL ?? ""), [row, 7])
+                    sheet.write(.string(translatedProduct.category ?? ""), [row, 4])
+                    sheet.write(.string(product.descriptions ?? ""), [row, 5])
+                    sheet.write(.string(translatedProduct.material ?? ""), [row, 6])
+                    sheet.write(.string(product.link ?? ""), [row, 7])
+                    sheet.write(.string(product.mainImageURL ?? ""), [row, 8])
                     
                     row += 1
                     group.leave()

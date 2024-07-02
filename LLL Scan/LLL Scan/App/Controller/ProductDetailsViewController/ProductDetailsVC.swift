@@ -22,6 +22,7 @@ class ProductDetailsVC: BaseViewController {
         SectionHeaders(title: "Название"),
         SectionHeaders(title: "Цвет"),
         SectionHeaders(title: "Состав"),
+        SectionHeaders(title: "Категория"),
         SectionHeaders(title: "Описание"),
         SectionHeaders(title: "Цена"),
         SectionHeaders(title: "Пол"),

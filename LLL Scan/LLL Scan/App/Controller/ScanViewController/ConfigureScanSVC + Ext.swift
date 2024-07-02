@@ -123,7 +123,6 @@ extension ScanVC: DataScannerViewControllerDelegate {
     
     private func updateUIWithProduct(_ product: Product) {
         if let imageURLString = product.imageURL,
-//           let decodedImageURLString = imageURLString.removingPercentEncoding,
            let imageURL = URL(string: imageURLString) {
             URLSession.shared.dataTask(with: imageURL) { data, response, error in
                 if let error = error {
@@ -155,6 +154,7 @@ extension ScanVC: DataScannerViewControllerDelegate {
                     self.productObj?.price = product.price
                     self.productObj?.colorName = product.colorName
                     self.productObj?.descriptions = product.descriptions
+                    self.productObj?.category = product.category
                     self.productObj?.material = product.material
                     self.productObj?.gender = product.gender
                     self.productObj?.babyGender = product.babyGender
