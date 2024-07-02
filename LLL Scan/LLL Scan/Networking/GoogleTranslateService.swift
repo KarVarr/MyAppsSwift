@@ -14,10 +14,10 @@ struct GoogleTranslateService {
         
         let group = DispatchGroup()
         let rus = Locale(identifier: "ru")
-        let ger = Locale(identifier: "en")
+        let eng = Locale(identifier: "en")
         
         group.enter()
-        service.translate(product.title ?? "", from: ger, to: rus) { result in
+        service.translate(product.title ?? "", from: eng, to: rus) { result in
             switch result {
             case .success(let translationResult):
                 try? product.realm?.write {
@@ -32,7 +32,7 @@ struct GoogleTranslateService {
         }
         
         group.enter()
-        service.translate(product.colorName ?? "", from: ger, to: rus) { result in
+        service.translate(product.colorName ?? "", from: eng, to: rus) { result in
             switch result {
             case .success(let translationResult):
                 try? product.realm?.write {
@@ -47,7 +47,7 @@ struct GoogleTranslateService {
         }
         
         group.enter()
-        service.translate(product.material ?? "", from: ger, to: rus) { result in
+        service.translate(product.material ?? "", from: eng, to: rus) { result in
             switch result {
             case .success(let translationResult):
                 try? product.realm?.write {
@@ -62,7 +62,7 @@ struct GoogleTranslateService {
         }
         
         group.enter()
-        service.translate(product.gender ?? "", from: ger, to: rus) { result in
+        service.translate(product.gender ?? "", from: eng, to: rus) { result in
             switch result {
             case .success(let translationResult):
                 try? product.realm?.write {
@@ -77,7 +77,7 @@ struct GoogleTranslateService {
         }
         
         group.enter()
-        service.translate(product.category ?? "", from: ger, to: rus) { result in
+        service.translate(product.category ?? "", from: eng, to: rus) { result in
             switch result {
             case .success(let translationResult):
                 try? product.realm?.write {
