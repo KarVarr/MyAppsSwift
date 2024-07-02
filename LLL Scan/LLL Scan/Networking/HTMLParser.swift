@@ -3,7 +3,6 @@ import SwiftSoup
 
 enum ParserError: Error {
     case invalidHTML
-    case jsonParsingFailed
 }
 
 class HTMLParser {
@@ -77,8 +76,10 @@ class HTMLParser {
             }
             print("Price: \(price ?? "N/A")")
             
-            //MARK: - COLOR
+            //MARK: - COLOR, IMAGE, CATEGORY
             var colorName: String?
+            var imageURL: String?
+            var category: String?
             
             // Извлечение JSON данных из скрипта
             if let scriptElement = try body.select("script#product-schema").first() {
@@ -93,10 +94,21 @@ class HTMLParser {
                             colorName = color
                             print("Color: \(color)")
                         }
+                        
+                        // Извлечение изображения
+                        if let image = json["image"] as? String {
+                            imageURL = image
+                            print("Image URL: \(image)")
+                        }
+                        
+                        // Извлечение категории
+                        if let categoryDict = json["category"] as? [String: Any], let categoryName = categoryDict["name"] as? String {
+                            category = categoryName
+                            print("Category: \(categoryName)")
+                        }
                     }
                 }
             }
-            
             //MARK: - DESCRIPTION
             let descriptionElement = try body.select("#section-descriptionAccordion").first()
             let descriptions = try descriptionElement?.select("p").first()?.text()
@@ -126,7 +138,7 @@ class HTMLParser {
             //MARK: - Model Product
             let product = Product()
             product.id = UUID()
-            product.imageURL = imgSrc
+            product.imageURL = imageURL
             product.mainImageURL = mainImgSrc
             product.link = link
             product.article = article

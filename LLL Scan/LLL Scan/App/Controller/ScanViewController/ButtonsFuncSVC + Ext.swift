@@ -25,6 +25,8 @@ extension ScanVC {
     func addTitleForNewScanCell() {
         let ac = UIAlertController(title: "Введите название", message: "Укажите название партии товара", preferredStyle: .alert)
         ac.addTextField { text in
+            text.autocapitalizationType = .sentences
+            text.returnKeyType = .go
             text.placeholder = "PL-Ереван 01.01.2024"
         }
         
