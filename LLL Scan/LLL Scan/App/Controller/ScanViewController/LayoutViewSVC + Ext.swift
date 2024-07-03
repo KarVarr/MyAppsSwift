@@ -73,7 +73,7 @@ extension ScanVC {
             emptyStateImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             emptyStateImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             emptyStateImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
-            emptyStateImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4)
+            emptyStateImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
         ])
         
         //MARK: - INSIDE CUSTOM SCAN VIEW - labels from parsing
