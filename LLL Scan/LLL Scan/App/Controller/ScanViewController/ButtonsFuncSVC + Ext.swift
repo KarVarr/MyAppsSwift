@@ -12,7 +12,7 @@ extension ScanVC {
     //MARK: - Alert for deleting
     func alertForDeleteAll() {
         let ac = UIAlertController(title: "Внимание", message: "Вы хотите удалить все сохраненные артикулы?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ок", style: .default) { _ in
+        let okAction = UIAlertAction(title: "Удалить", style: .destructive) { _ in
             self.dataManager.deleteAllProducts()
             self.customTableViewScanVC.table.reloadData()
         }
@@ -23,7 +23,7 @@ extension ScanVC {
     }
     
     func addTitleForNewScanCell() {
-        let ac = UIAlertController(title: "Введите название", message: "Укажите название партии товара", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Введите название", message: "Укажите наименование партии товара", preferredStyle: .alert)
         ac.addTextField { text in
             text.autocapitalizationType = .sentences
             text.returnKeyType = .go

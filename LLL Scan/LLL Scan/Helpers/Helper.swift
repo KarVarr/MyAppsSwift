@@ -35,4 +35,17 @@ enum Helper {
             return formatter.string(from: date)
         }
     }
+    
+    //MARK: - URL Decoder for scanning
+    enum URLs {
+        static func urlDecoder(url: String?) -> String? {
+            if let mainImageURLString = url,
+               let decodedMainImageURLString = mainImageURLString.removingPercentEncoding,
+               let mainImageURL = URL(string: decodedMainImageURLString) {
+                return mainImageURL.absoluteString
+            } else {
+                return nil
+            }
+        }
+    }
 }
