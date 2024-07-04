@@ -88,8 +88,6 @@ class DataManager {
         }
     }
     
-    
-    
     //MARK: - LOAD Product
     func loadProducts() -> [Product] {
         let products = realm.objects(Product.self)
