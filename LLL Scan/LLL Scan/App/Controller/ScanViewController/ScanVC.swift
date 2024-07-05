@@ -7,8 +7,12 @@
 
 import UIKit
 import VisionKit
+import AVFoundation
+import Vision
 
 final class ScanVC: BaseViewController {
+    var captureSession: AVCaptureSession!
+        var previewLayer: AVCaptureVideoPreviewLayer!
     let dataManager = DataManager.shared
     let networkManager = NetworkManager()
     let htmlParser = HTMLParser()

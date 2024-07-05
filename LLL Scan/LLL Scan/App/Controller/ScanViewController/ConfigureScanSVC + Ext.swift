@@ -10,6 +10,7 @@ import VisionKit
 import SkeletonView
 
 extension ScanVC: DataScannerViewControllerDelegate {
+    
     //MARK: - START Scanning
     func startScanning() {
         guard scannerAvailable == true else {

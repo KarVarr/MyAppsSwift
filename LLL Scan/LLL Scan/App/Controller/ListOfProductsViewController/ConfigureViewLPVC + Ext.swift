@@ -25,11 +25,23 @@ extension ListOfProductsVC {
             return
         }
         
+        // Получение названия из ProductList
+        let productList = dataManager.loadAllProductLists()[productListIndex]
+        var titleForCell = productList.titleForCell
+        
+        // Список недопустимых символов
+        let invalidCharacters = ["#", "%", "&", "{", "}", "\\", "<", ">", "*", "?", "/", "$", "!", "'", "\"", ":", "@", "+", "`", "|", "=", " "]
+        
+        // Замена недопустимых символов
+        for char in invalidCharacters {
+            titleForCell = titleForCell.replacingOccurrences(of: char, with: "-")
+        }
+        
         let productsContainer = dataManager.allProducts[productListIndex]
         
         // Создание нового XLSX файла
         let tempDirectory = NSTemporaryDirectory()
-        let fileName = "Products HM \(Helper.Dates.formatDate(Date())).xlsx".replacingOccurrences(of: ":", with: "-")
+        let fileName = "Products HM \(titleForCell).xlsx"
         let tempPath = NSURL(fileURLWithPath: tempDirectory).appendingPathComponent(fileName)
         
         let document = Workbook(name: tempPath!.path)

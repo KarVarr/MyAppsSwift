@@ -31,7 +31,7 @@ extension ScanVC {
         }
         
         let submitAction = UIAlertAction(title: "Готово", style: .default) { _ in
-            if let title = ac.textFields?.first?.text?.trimmingCharacters(in: .whitespacesAndNewlines).capitalized, !title.isEmpty {
+            if let title = ac.textFields?.first?.text?.trimmingCharacters(in: .whitespacesAndNewlines), !title.isEmpty {
                 self.dataManager.saveProductList(self.dataManager.productList, withTitle: title)
                 self.dataManager.productList.removeAll()
                 self.customTableViewScanVC.table.reloadData()

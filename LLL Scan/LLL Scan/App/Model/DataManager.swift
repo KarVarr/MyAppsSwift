@@ -78,7 +78,7 @@ class DataManager {
                     if index < titles.count {
                         productList.titleForCell = titles[index]
                     } else {
-                        productList.titleForCell = "Партия: \(index + 1)"
+                        productList.titleForCell = "Без названия: \(productArray.first?.id ?? UUID())"
                     }
                     realm.add(productList)
                 }

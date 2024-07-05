@@ -22,6 +22,7 @@ class ListOfProductsVC: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
         customTableViewProductDetailVC.isSkeletonable = true
         customTableViewProductDetailVC.showGradientSkeleton(
             usingGradient: .init(baseColor: .carrot),

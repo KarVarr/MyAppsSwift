@@ -47,7 +47,7 @@ extension ScanVC: UITableViewDelegate, UITableViewDataSource {
         
         let productList = dataManager.loadAllProductLists()[indexPath.row]
         let index = indexPath.row + 1
-        cell.titleLabel.label.text = productList.titleForCell.isEmpty ? "Создан: \(Helper.Dates.formatDate(productList.products.first?.addedAt))" : "\(index): \(productList.titleForCell)"
+        cell.titleLabel.label.text = productList.titleForCell.isEmpty ? "Создан: \(Helper.Dates.formatDate(productList.products.first?.addedAt))" : "\(index) - \(productList.titleForCell)"
         
         cell.countLabel.label.text = "Количество артикулов: \(productList.products.count)"
         

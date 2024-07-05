@@ -620,6 +620,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "LLL Scan/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "LL Scan";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Для сканирования штрих кода, требуется доступ к камере вашего устройства!";
 				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Для сохранения файлов в формате xlsx!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -659,6 +660,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "LLL Scan/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "LL Scan";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Для сканирования штрих кода, требуется доступ к камере вашего устройства!";
 				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Для сохранения файлов в формате xlsx!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
