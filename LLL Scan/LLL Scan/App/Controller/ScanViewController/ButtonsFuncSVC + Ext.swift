@@ -90,7 +90,10 @@ extension ScanVC {
             saveOneProductButtonForScanner.button.configuration?.image = UIImage(systemName: "plus.circle.fill")
             miniatureImageHM.imageView.image = UIImage(systemName: "square.and.arrow.down")
             
-            self.miniatureImageHM.imageView.addSymbolEffect(.bounce, animated: true)
+            
+            if #available(iOS 17.0, *) {
+                self.miniatureImageHM.imageView.addSymbolEffect(.bounce, animated: true)
+            }
             self.miniatureImageHM.imageView.tintColor = .greenSea
             self.miniatureImageHM.imageView.clipsToBounds = false
             self.titleFromParsingLabel.label.text = "Добавленно!"
@@ -98,11 +101,15 @@ extension ScanVC {
             self.materialFromParsingLabel.label.isHidden = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.miniatureImageHM.imageView.image = UIImage(systemName: "barcode.viewfinder")
-                self.miniatureImageHM.imageView.addSymbolEffect(.pulse, animated: true)
+                
+                if #available(iOS 17, *) {
+                    self.miniatureImageHM.imageView.addSymbolEffect(.pulse, animated: true)
+                }
                 self.miniatureImageHM.imageView.tintColor = .systemTeal
                 self.miniatureImageHM.imageView.clipsToBounds = false
                 self.titleFromParsingLabel.label.text = "Поиск нового артикула..."
             }
+            
             // Если продукт не существует, добавляем его в массив
             dataManager.saveProduct(product: productObj)
             dataManager.productList.append(productObj)
@@ -125,7 +132,9 @@ extension ScanVC {
         
         DispatchQueue.main.async {
             self.miniatureImageHM.imageView.image = UIImage(systemName: "checkmark.circle")
-            self.miniatureImageHM.imageView.addSymbolEffect(.bounce, animated: true)
+            if #available(iOS 17.0, *) {
+                self.miniatureImageHM.imageView.addSymbolEffect(.bounce, animated: true)
+            }
             self.miniatureImageHM.imageView.tintColor = .green
             self.miniatureImageHM.imageView.clipsToBounds = false
             

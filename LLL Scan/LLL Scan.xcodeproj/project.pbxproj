@@ -15,7 +15,6 @@
 		171149BF2BD9573100F5DECF /* AddViewLPVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149BE2BD9573100F5DECF /* AddViewLPVC + Ext.swift */; };
 		171149C32BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149C22BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift */; };
 		171149C52BD95DB100F5DECF /* ListOfProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171149C42BD95DB100F5DECF /* ListOfProductsCell.swift */; };
-		1713481C2BCC3CBB00FC3CF7 /* myApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1713481B2BCC3CBB00FC3CF7 /* myApi.swift */; };
 		171817742C28C6800037EBCB /* xlsxwriter in Frameworks */ = {isa = PBXBuildFile; productRef = 171817732C28C6800037EBCB /* xlsxwriter */; };
 		17251C3C2C27327D003E1B1A /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 17251C3B2C27327D003E1B1A /* SwiftSoup */; };
 		17251C3F2C273285003E1B1A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 17251C3E2C273285003E1B1A /* SDWebImage */; };
@@ -88,7 +87,6 @@
 		171149BE2BD9573100F5DECF /* AddViewLPVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewLPVC + Ext.swift"; sourceTree = "<group>"; };
 		171149C22BD9576700F5DECF /* ConfigureCustomTableViewLPVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureCustomTableViewLPVC + Ext.swift"; sourceTree = "<group>"; };
 		171149C42BD95DB100F5DECF /* ListOfProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfProductsCell.swift; sourceTree = "<group>"; };
-		1713481B2BCC3CBB00FC3CF7 /* myApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myApi.swift; sourceTree = "<group>"; };
 		173A4B482C2DD95800C16CB4 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		173A4B4A2C2DDF3900C16CB4 /* GoogleTranslateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateService.swift; sourceTree = "<group>"; };
 		173A4B4E2C30280700C16CB4 /* ConfigureScanSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureScanSVC + Ext.swift"; sourceTree = "<group>"; };
@@ -161,14 +159,6 @@
 			path = ListOfProductsViewController;
 			sourceTree = "<group>";
 		};
-		1713481A2BCC3CB000FC3CF7 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				1713481B2BCC3CBB00FC3CF7 /* myApi.swift */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
 		178DC7402BB83E4500FEDE69 = {
 			isa = PBXGroup;
 			children = (
@@ -188,7 +178,6 @@
 		178DC74B2BB83E4500FEDE69 /* LLL Scan */ = {
 			isa = PBXGroup;
 			children = (
-				1713481A2BCC3CB000FC3CF7 /* API */,
 				178DC7622BB840B400FEDE69 /* AppDelegates */,
 				178DC7892BB9E44500FEDE69 /* Helpers */,
 				178DC7832BB9B17900FEDE69 /* Networking */,
@@ -453,7 +442,6 @@
 				178DC79E2BBDCC1000FEDE69 /* ConfigureButtonSVC + Ext.swift in Sources */,
 				173A4B552C30861900C16CB4 /* ConfigureNavBarSVC + Ext.swift in Sources */,
 				173A4B492C2DD95800C16CB4 /* Keys.swift in Sources */,
-				1713481C2BCC3CBB00FC3CF7 /* myApi.swift in Sources */,
 				178DC76C2BB8890F00FEDE69 /* ConfigureLabelSVC + Ext.swift in Sources */,
 				178DC7792BB9844300FEDE69 /* ConfigureImageSVC + Ext.swift in Sources */,
 				178DC7702BB88CC100FEDE69 /* AddViewSVC + Ext.swift in Sources */,
@@ -553,7 +541,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -610,7 +598,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -641,7 +629,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -680,7 +668,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
