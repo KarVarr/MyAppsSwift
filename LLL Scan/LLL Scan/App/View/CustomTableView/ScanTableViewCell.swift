@@ -26,7 +26,7 @@ class ScanTableViewCell: UITableViewCell {
     }
     
     private func addViews() {
-        //TODO: была идея добавить кнопку в конце ячейки, для этого тут есть hStack.
+        //TODO: была идея добавить кнопку в конце ячейки, для этого тут hStack.
         vStackSTVCForLabelsTitleAndCount.stack.addArrangedSubview(titleLabel.label)
         vStackSTVCForLabelsTitleAndCount.stack.addArrangedSubview(countLabel.label)
         hStackSTVCForVStackAndButton.stack.addArrangedSubview(vStackSTVCForLabelsTitleAndCount.stack)

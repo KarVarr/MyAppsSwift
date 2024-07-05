@@ -140,5 +140,4 @@ class ListOfProductsCell: UITableViewCell {
     private func labelsSize(_ labels: LabelViewCustom) {
         labels.label.font = UIFont.systemFont(ofSize: Helper.Fonts.dynamicFontSize(14))
     }
-    
 }

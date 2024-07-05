@@ -19,7 +19,6 @@ extension ListOfProductsVC {
         navigationItem.rightBarButtonItem = convertFileToCSVButton
     }
     
-    
     @objc func shareButtonToConvertFile() {
         guard let productListIndex = productListIndex else {
             print("productListIndex is nil")
@@ -57,7 +56,6 @@ extension ListOfProductsVC {
             
             googleTranslateService.translateProduct(product, with: translateService) { translatedProduct in
                 DispatchQueue.main.async {
-                    
                     sheet.write(.string(product.article ?? ""), [row, 0])
                     sheet.write(.string(translatedProduct.title ?? ""), [row, 1])
                     sheet.write(.string(product.price ?? ""), [row, 2])

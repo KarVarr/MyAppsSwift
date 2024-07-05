@@ -17,5 +17,4 @@ extension ListOfProductsVC {
             view.addSubview(addView)
         }
     }
-
 }

@@ -32,11 +32,6 @@ class HTMLParser {
             guard let body = doc.body() else {
                 return .failure(ParserError.invalidHTML)
             }
-            //MARK: - MINI IMG
-//            let aElement = try body.select("div[class='fcc68c a33b36 f6e252']").first()
-//            let imgElement = try aElement?.select("img").first()
-//            let imgSrc = try imgElement?.attr("src").replacingOccurrences(of: "2160", with: "116")
-//            print("Image src: \(imgSrc ?? "N/A")")
             
             //MARK: - FULLHD MAIN IMG
             let mainImageElement = try body.select("div[class='fcc68c a33b36 f6e252']").first()
