@@ -55,8 +55,9 @@ extension ListOfProductsVC {
         sheet.write("Category", [0, 4])
         sheet.write("Description", [0, 5])
         sheet.write("Material", [0, 6])
-        sheet.write("Link", [0, 7])
-        sheet.write("ImageLink", [0, 8])
+        sheet.write("Gender", [0, 7])
+        sheet.write("Link", [0, 8])
+        sheet.write("ImageLink", [0, 9])
         
         let translateService = GoogleTranslateApiService(apiKey: Keys.googleTranslateAPIKey)
         let googleTranslateService = GoogleTranslateService()
@@ -75,8 +76,9 @@ extension ListOfProductsVC {
                     sheet.write(.string(translatedProduct.category ?? ""), [row, 4])
                     sheet.write(.string(product.descriptions ?? ""), [row, 5])
                     sheet.write(.string(translatedProduct.material ?? ""), [row, 6])
-                    sheet.write(.string(product.link ?? ""), [row, 7])
-                    sheet.write(.string(product.mainImageURL ?? ""), [row, 8])
+                    sheet.write(.string(translatedProduct.gender ?? ""), [row, 7])
+                    sheet.write(.string(product.link ?? ""), [row, 8])
+                    sheet.write(.string(product.mainImageURL ?? ""), [row, 9])
                     
                     row += 1
                     group.leave()
