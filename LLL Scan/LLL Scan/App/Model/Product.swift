@@ -23,4 +23,5 @@ class Product: Object {
     @objc dynamic var gender: String?
     @objc dynamic var babyGender: String?
     @objc dynamic var addedAt: Date?
+    @objc dynamic var index: Int = 0
 }
