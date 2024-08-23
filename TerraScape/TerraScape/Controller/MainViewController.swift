@@ -77,9 +77,9 @@ class MainViewController: UIViewController {
         
         uiCollectionView.customCollectionView.showsVerticalScrollIndicator = false
         
-        toolbar.parentViewController = self
+//        toolbar.parentViewController = self
         toolbar.audioPlayer = audioPlayer
-        
+        toolbar.setParentViewController(self)
     }
     //MARK: - LAYOUT
     

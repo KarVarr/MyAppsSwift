@@ -102,14 +102,21 @@ class ToolbarView: UIView {
         }
     }
     
+    func setParentViewController(_ viewController: UIViewController) {
+        self.parentViewController = viewController
+    }
     
     @objc func settingButtonPressed() {
-        let settingVC = SettingsViewController()
+        guard let parentViewController = parentViewController else {
+            print("Error: Parent view controller is not set")
+            return
+        }
         
+        let settingVC = SettingsViewController()
         settingVC.modalPresentationStyle = .popover
-        parentViewController?.present(settingVC, animated: true, completion: nil)
+        parentViewController.present(settingVC, animated: true, completion: nil)
     }
-
+    
 }
 
 
