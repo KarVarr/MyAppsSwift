@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		171A30E42C79000F00D81107 /* LayoutViewMVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A30E32C79000F00D81107 /* LayoutViewMVC + Ext.swift */; };
+		171A30E62C79008200D81107 /* AddViewsMVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A30E52C79008200D81107 /* AddViewsMVC + Ext.swift */; };
+		171A30E82C7900D400D81107 /* ConfigureViewMVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A30E72C7900D400D81107 /* ConfigureViewMVC + Ext.swift */; };
+		171A30EE2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A30ED2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift */; };
 		173F01C62A236B1600782653 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01C52A236B1600782653 /* SettingsViewController.swift */; };
 		173F01C82A237D9900782653 /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01C72A237D9900782653 /* CustomStackView.swift */; };
 		173F01CB2A2511FE00782653 /* SettingViewController + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01CA2A2511FE00782653 /* SettingViewController + ext.swift */; };
@@ -49,6 +53,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		171A30E32C79000F00D81107 /* LayoutViewMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutViewMVC + Ext.swift"; sourceTree = "<group>"; };
+		171A30E52C79008200D81107 /* AddViewsMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewsMVC + Ext.swift"; sourceTree = "<group>"; };
+		171A30E72C7900D400D81107 /* ConfigureViewMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewMVC + Ext.swift"; sourceTree = "<group>"; };
+		171A30ED2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureToolbarMVC + Ext.swift"; sourceTree = "<group>"; };
 		173F01C52A236B1600782653 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		173F01C72A237D9900782653 /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		173F01CA2A2511FE00782653 /* SettingViewController + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingViewController + ext.swift"; sourceTree = "<group>"; };
@@ -103,6 +111,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		171A30E92C7900F500D81107 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				178C7F122A0E8CC2001FC539 /* MainViewController.swift */,
+				171A30E52C79008200D81107 /* AddViewsMVC + Ext.swift */,
+				171A30E32C79000F00D81107 /* LayoutViewMVC + Ext.swift */,
+				171A30E72C7900D400D81107 /* ConfigureViewMVC + Ext.swift */,
+				171A30ED2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		171A30EA2C7900FE00D81107 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				173F01C52A236B1600782653 /* SettingsViewController.swift */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
 		173F01C92A2511C300782653 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,8 +183,8 @@
 		178C7F232A0E8D5E001FC539 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				178C7F122A0E8CC2001FC539 /* MainViewController.swift */,
-				173F01C52A236B1600782653 /* SettingsViewController.swift */,
+				171A30E92C7900F500D81107 /* MainViewController */,
+				171A30EA2C7900FE00D81107 /* SettingsViewController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -300,7 +328,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					178C7F0A2A0E8CC2001FC539 = {
 						CreatedOnToolsVersion = 14.3;
@@ -368,19 +396,23 @@
 				17D1D9172A17D2E300A173E1 /* AllSounds.swift in Sources */,
 				178C7F3A2A10E516001FC539 /* MainViewController + Ext.swift in Sources */,
 				178C7F2F2A0EBD6B001FC539 /* CustomLabelView.swift in Sources */,
+				171A30EE2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift in Sources */,
 				178C7F342A0FF5C4001FC539 /* Images.swift in Sources */,
 				178C7F722A155225001FC539 /* CustomUISlider.swift in Sources */,
 				1794161D2AB22EED005882D0 /* Sound.swift in Sources */,
 				173F01EF2A252EA200782653 /* Slider.swift in Sources */,
 				173F01C62A236B1600782653 /* SettingsViewController.swift in Sources */,
+				171A30E42C79000F00D81107 /* LayoutViewMVC + Ext.swift in Sources */,
 				173F01CB2A2511FE00782653 /* SettingViewController + ext.swift in Sources */,
 				178C7F0F2A0E8CC2001FC539 /* AppDelegate.swift in Sources */,
+				171A30E82C7900D400D81107 /* ConfigureViewMVC + Ext.swift in Sources */,
 				178C7F282A0E8F43001FC539 /* UICollectionView.swift in Sources */,
 				17D1D9242A1BF1C800A173E1 /* CustomButtonView.swift in Sources */,
 				178C7F2D2A0E9F41001FC539 /* Helper.swift in Sources */,
 				178C7F462A124C43001FC539 /* AudioPlayerForSound.swift in Sources */,
 				17D147792A1E85BA0037D278 /* Animations.swift in Sources */,
 				178C7F112A0E8CC2001FC539 /* SceneDelegate.swift in Sources */,
+				171A30E62C79008200D81107 /* AddViewsMVC + Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +466,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -494,6 +527,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
