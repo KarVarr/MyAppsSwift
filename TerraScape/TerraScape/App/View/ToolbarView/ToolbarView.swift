@@ -19,7 +19,7 @@ class ToolbarView: UIView {
     let settingButton = CustomButtonView()
     let playButton = CustomButtonView()
     
-    var onOffButton = true
+    var onOffButton = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -89,22 +89,17 @@ class ToolbarView: UIView {
         
     }
     
+    
     @objc func playButtonForSound() {
-        for index in 0..<allSounds.sounds.count {
-            var sound = allSounds.sounds[index]
-            
-            if sound.onOff {
-                audioPlayer.playAllSounds()
-                playButton.customButton.setImage(UIImage(named: "pause")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-                sound.onOff = false
-                
-            } else {
-                audioPlayer.stopAllSounds()
-                self.layoutIfNeeded()
-                playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-                sound.onOff = true
-            }
-            allSounds.sounds[index] = sound
+        onOffButton.toggle()
+        if onOffButton {
+            audioPlayer.playAllSounds()
+            playButton.customButton.setImage(UIImage(named: "pause")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+            print("play")
+        } else {
+            audioPlayer.stopAllSounds()
+            playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+            print("Stop")
         }
     }
     

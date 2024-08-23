@@ -23,7 +23,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Helpers.Keys.collectionCell, for: indexPath) as! CustomCollectionViewCell
-
+        
         let sound = allSounds.sounds[indexPath.item]
         DispatchQueue.global().async {
             if let image = UIImage(named: sound.image) {
@@ -44,27 +44,16 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     
-    
-    
-    /**This function plays\stops all songs ! */
     @objc func volumeSliderChanged(_ sender: UISlider) {
-        
         let soundIndex = sender.tag
+        let sound = allSounds.sounds[soundIndex]
         allSounds.sounds[soundIndex].volume = sender.value
         
-        let player = audioPlayer.players[soundIndex]
-        player.volume = sender.value
+        audioPlayer.setVolume(for: sound.name, volume: sender.value)
         
-        if !toolbar.onOffButton {
-            player.volume = sender.value
+        if toolbar.onOffButton {
+            audioPlayer.play(sound: sound.name)
         }
-        
-        let indexPath = IndexPath(item: soundIndex, section: 0)
-        if !cellsToUpdate.contains(indexPath) {
-            cellsToUpdate.append(indexPath)
-        }
-        
-//           uiCollectionView.customCollectionView.reloadItems(at: cellsToUpdate)
-        cellsToUpdate.removeAll()
+        print("Changed volume for \(sound.name) to \(sender.value)")
     }
 }

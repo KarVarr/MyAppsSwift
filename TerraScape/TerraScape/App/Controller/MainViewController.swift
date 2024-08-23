@@ -25,10 +25,7 @@ class MainViewController: UIViewController {
     
     let toolbar = ToolbarView()
     
-    let animations = Animations()
-    
     var initialToolbarWidth: CGFloat = -300
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +50,6 @@ class MainViewController: UIViewController {
         settings()
         layout()
         collectionView()
-        animations.createCircles(in: self)
     }
     
     
@@ -76,8 +72,7 @@ class MainViewController: UIViewController {
         view.layer.insertSublayer(gradient, at: 0)
         
         uiCollectionView.customCollectionView.showsVerticalScrollIndicator = false
-        
-//        toolbar.parentViewController = self
+
         toolbar.audioPlayer = audioPlayer
         toolbar.setParentViewController(self)
     }
@@ -122,6 +117,4 @@ class MainViewController: UIViewController {
             
         ])
     }
-    
-    
 }

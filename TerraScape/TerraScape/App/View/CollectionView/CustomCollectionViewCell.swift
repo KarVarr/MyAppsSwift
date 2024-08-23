@@ -8,7 +8,6 @@
 import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
-    let audioPlayer = AudioPlayerForSound()
     
     let nameOfSound = CustomLabelView()
     let imageOfSound = CustomImageView()

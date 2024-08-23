@@ -21,35 +21,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-//        setupRemoteControl()
-//        setupNowPlayingInfo()
-//        configureAudioSession()
+        //        setupRemoteControl()
+        //        setupNowPlayingInfo()
+        //        configureAudioSession()
         
-        
+        setupAudioSession()
         return true
     }
+    
+    private func setupAudioSession() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers, .defaultToSpeaker])
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("Failed to set audio session category: \(error)")
+        }
+    }
+    
     
     func setupRemoteControl() {
         UIApplication.shared.beginReceivingRemoteControlEvents()
         
-//        let commandCenter = MPRemoteCommandCenter.shared()
-//
-//        commandCenter.playCommand.isEnabled = true
-//        commandCenter.playCommand.addTarget { [unowned self] event in
-//            print("should play sound")
-//            if !self.toolbar.audioPlayer.players.first!.isPlaying {
-//                self.audioPlayer.players.first?.play()
-//                return .success
-//            }
-//            return .commandFailed
-//        }
-//
-//        commandCenter.pauseCommand.isEnabled = true
-//        commandCenter.pauseCommand.addTarget { [unowned self] event in
-//            print("should pause sound")
-////            toolbar.audioPlayer.stopAllSound()
-//            return .success
-//        }
+        //        let commandCenter = MPRemoteCommandCenter.shared()
+        //
+        //        commandCenter.playCommand.isEnabled = true
+        //        commandCenter.playCommand.addTarget { [unowned self] event in
+        //            print("should play sound")
+        //            if !self.toolbar.audioPlayer.players.first!.isPlaying {
+        //                self.audioPlayer.players.first?.play()
+        //                return .success
+        //            }
+        //            return .commandFailed
+        //        }
+        //
+        //        commandCenter.pauseCommand.isEnabled = true
+        //        commandCenter.pauseCommand.addTarget { [unowned self] event in
+        //            print("should pause sound")
+        ////            toolbar.audioPlayer.stopAllSound()
+        //            return .success
+        //        }
     }
     
     func setupNowPlayingInfo() {
