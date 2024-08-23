@@ -1,5 +1,5 @@
 //
-//  Device.swift
+//  UIDevice + Ext.swift
 //  TerraScape
 //
 //  Created by Karen Vardanian on 14.05.2023.
@@ -10,7 +10,6 @@ import UIKit
 
 
 extension UIDevice {
-    
     var modelName: String {
         var systemInfo = utsname()
         uname(&systemInfo)

@@ -8,7 +8,6 @@
 import UIKit
 
 class Animations {
-    
     func animateBalls(for ball: UIView, in view: UIView, to distance: CGFloat, path clockwise: Bool, time duration: CFTimeInterval) {
         let centerX = view.bounds.width / 2
         let centerY = view.bounds.height / 2

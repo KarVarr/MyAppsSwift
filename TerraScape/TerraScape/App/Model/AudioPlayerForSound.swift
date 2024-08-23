@@ -9,7 +9,6 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 
-
 final class AudioPlayerForSound {
     let images = Images()
     var players: [AVAudioPlayer] = []
@@ -39,6 +38,4 @@ final class AudioPlayerForSound {
     func stopAllSounds() {
         players.forEach{$0.stop()}
     }
-    
-    
 }
