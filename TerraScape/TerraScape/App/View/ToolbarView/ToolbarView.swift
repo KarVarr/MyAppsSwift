@@ -15,7 +15,7 @@ class ToolbarView: UIView {
     
     var audioPlayer = AudioPlayerForSound()
     
-    let label = ToolbarLabel()
+    let label = CustomLabelView()
     let settingButton = CustomButtonView()
     let playButton = CustomButtonView()
     
@@ -25,9 +25,10 @@ class ToolbarView: UIView {
         super.init(frame: frame)
         
         addViews()
-        layout()
-        buttonsSetting()
         settings()
+        layout()
+        labelSettings()
+        buttonsSetting()
     }
     
     required init?(coder: NSCoder) {
@@ -35,7 +36,7 @@ class ToolbarView: UIView {
     }
     
     func addViews() {
-        addSubview(label.toolbarLabel.customLabel)
+        addSubview(label.customLabel)
         addSubview(settingButton.customButton)
         addSubview(playButton.customButton)
     }
@@ -51,6 +52,11 @@ class ToolbarView: UIView {
         layer.shadowRadius = 4
     }
     
+    func labelSettings() {
+        label.customLabel.text = Helpers.Strings.navigationTitle
+        label.customLabel.textColor = .white.withAlphaComponent(0.15)
+    }
+    
     func buttonsSetting() {
         playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
         playButton.customButton.addTarget(self, action: #selector(playButtonForSound), for: .touchUpInside)
@@ -61,7 +67,7 @@ class ToolbarView: UIView {
     }
     
     func layout() {
-        let label = label.toolbarLabel.customLabel
+        let label = label.customLabel
         let playButton = playButton.customButton
         let settingButton = settingButton.customButton
         

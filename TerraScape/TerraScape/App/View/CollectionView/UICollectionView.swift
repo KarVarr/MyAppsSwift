@@ -15,8 +15,6 @@ class CustomUICollectionView {
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 5
         
-        
-        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false

@@ -69,7 +69,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(blurEffectView)
         layer.insertSublayer(gradient, at: 0)
         
-        
         sliderView.customUIView.layer.cornerRadius = 15
         sliderView.customUIView.clipsToBounds = true
         sliderView.customUIView.backgroundColor = UIColor(white: 1, alpha: 0.5)
