@@ -31,6 +31,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         addViewsMVC()
+        collectionView()
+        layoutViewMVC()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +50,6 @@ class MainViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         configureViewMVC()
-        layoutViewMVC()
+        
     } 
 }

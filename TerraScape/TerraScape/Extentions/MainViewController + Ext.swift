@@ -11,7 +11,6 @@ import UIKit
 
 //MARK: - CUSTOM COLLECTION VIEW
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     func collectionView() {
         uiCollectionView.customCollectionView.delegate = self
         uiCollectionView.customCollectionView.dataSource = self
@@ -56,4 +55,17 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         print("Changed volume for \(sound.name) to \(sender.value)")
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+           let padding: CGFloat = 20
+           let collectionViewSize = collectionView.frame.size.width - padding
+
+          
+           let numberOfItemsPerRow: CGFloat = 3
+           
+           let width = collectionViewSize / numberOfItemsPerRow
+           let height = width * 1.5
+           
+           return CGSize(width: width, height: height)
+       }
 }
