@@ -11,7 +11,6 @@ class CustomUIView {
     let customUIView: UIView = {
        let uiView = UIView()
         uiView.translatesAutoresizingMaskIntoConstraints = false
-        
         return uiView
     }()
 }

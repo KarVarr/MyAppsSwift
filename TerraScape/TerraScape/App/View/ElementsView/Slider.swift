@@ -8,7 +8,6 @@
 import UIKit
 
 final class Slider: UISlider {
-
     private let baseLayer = CALayer() // Step 3
     private let trackLayer = CAGradientLayer() // Step 7
     override func draw(_ rect: CGRect) {
@@ -74,7 +73,7 @@ final class Slider: UISlider {
 
     // Step 5
     private func createThumbImageView() {
-        let thumbSize = frame.height
+        let thumbSize = frame.height 
         let thumbView = ThumbView(frame: .init(x: 0, y: 0, width: thumbSize, height: thumbSize))
         thumbView.layer.cornerRadius = thumbSize / 2
         let thumbSnapshot = thumbView.snapshot
@@ -104,10 +103,10 @@ final class ThumbView: UIView {
 
     private func setup() {
         backgroundColor = .white
-//        let middleView = UIView(frame: .init(x: frame.midX - 6, y: frame.midY - 6, width: 12, height: 12))
-//        middleView.backgroundColor = .white
-//        middleView.layer.cornerRadius = 6
-//        addSubview(middleView)
+        let middleView = UIView(frame: .init(x: frame.midX - 6, y: frame.midY - 6, width: 12, height: 12))
+        middleView.backgroundColor = .white
+        middleView.layer.cornerRadius = 6
+        addSubview(middleView)
     }
 }
 

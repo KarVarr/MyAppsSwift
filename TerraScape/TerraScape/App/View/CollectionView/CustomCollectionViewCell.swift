@@ -10,7 +10,9 @@ import UIKit
 class CustomCollectionViewCell: UICollectionViewCell {
     let nameOfSound = CustomLabelView()
     let imageOfSound = CustomImageView()
-    let volumeOfSound = CustomUISlider()
+//    let volumeOfSound = CustomUISlider()
+    let volumeOfSound = Slider()
+    
     let sliderView = CustomUIView()
     
     override init(frame: CGRect) {
@@ -41,16 +43,19 @@ class CustomCollectionViewCell: UICollectionViewCell {
     }
     
     func addViews() {
-        contentView.addSubview(volumeOfSound.customSlider)
+//        contentView.addSubview(volumeOfSound.customSlider)
+        contentView.addSubview(volumeOfSound)
         contentView.addSubview(nameOfSound.customLabel)
         contentView.addSubview(imageOfSound.customImageView)
         
         contentView.addSubview(sliderView.customUIView)
-        sliderView.customUIView.addSubview(volumeOfSound.customSlider)
+//        sliderView.customUIView.addSubview(volumeOfSound.customSlider)
+        sliderView.customUIView.addSubview(volumeOfSound)
         
-        let customTrackLayer = CALayer()
-        customTrackLayer.backgroundColor = UIColor.red.cgColor
-        volumeOfSound.customSlider.layer.addSublayer(customTrackLayer)
+//        let customTrackLayer = CALayer()
+//        customTrackLayer.backgroundColor = UIColor.red.cgColor
+//        volumeOfSound.customSlider.layer.addSublayer(customTrackLayer)
+//        volumeOfSound.layer.addSublayer(customTrackLayer)
     }
     
     func settings() {
@@ -69,7 +74,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
         
         sliderView.customUIView.layer.cornerRadius = 15
         sliderView.customUIView.clipsToBounds = true
-        sliderView.customUIView.backgroundColor = UIColor(white: 1, alpha: 0.5)
+//        sliderView.customUIView.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        
+        volumeOfSound.translatesAutoresizingMaskIntoConstraints = false
     }
     
     
@@ -77,7 +84,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
     func layout() {
         let image = imageOfSound.customImageView
         let name = nameOfSound.customLabel
-        let volume = volumeOfSound.customSlider
+//        let volume = volumeOfSound.customSlider
+        let volume = volumeOfSound
         let sliderView = sliderView.customUIView
         
         NSLayoutConstraint.activate([
@@ -89,11 +97,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
             image.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5, constant: 15),
             image.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5, constant: 15),
             
-            sliderView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             sliderView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             sliderView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -10),
             sliderView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            sliderView.heightAnchor.constraint(equalToConstant: 30),
+//            sliderView.heightAnchor.constraint(equalToConstant: 30),
             
             volume.topAnchor.constraint(equalTo: sliderView.topAnchor),
             volume.bottomAnchor.constraint(equalTo: sliderView.bottomAnchor),

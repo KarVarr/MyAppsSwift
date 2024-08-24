@@ -29,13 +29,16 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 DispatchQueue.main.async {
                     cell.imageOfSound.customImageView.image = image
                     cell.nameOfSound.customLabel.text = sound.name.capitalized
-                    cell.volumeOfSound.customSlider.value = sound.volume
+//                    cell.volumeOfSound.customSlider.value = sound.volume
+                    cell.volumeOfSound.value = sound.volume
                 }
             }
         }
         
-        cell.volumeOfSound.customSlider.addTarget(self, action: #selector(self.volumeSliderChanged), for: .valueChanged)
-        cell.volumeOfSound.customSlider.tag = indexPath.item
+//        cell.volumeOfSound.customSlider.addTarget(self, action: #selector(self.volumeSliderChanged), for: .valueChanged)
+        cell.volumeOfSound.addTarget(self, action: #selector(self.volumeSliderChanged), for: .valueChanged)
+//        cell.volumeOfSound.customSlider.tag = indexPath.item
+        cell.volumeOfSound.tag = indexPath.item
         
         if cellsToUpdate.contains(indexPath) {
             cellsToUpdate.remove(at: cellsToUpdate.firstIndex(of: indexPath)!)
