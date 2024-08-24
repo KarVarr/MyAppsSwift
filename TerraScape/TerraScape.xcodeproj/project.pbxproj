@@ -11,6 +11,7 @@
 		171A30E62C79008200D81107 /* AddViewsMVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A30E52C79008200D81107 /* AddViewsMVC + Ext.swift */; };
 		171A30E82C7900D400D81107 /* ConfigureViewMVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A30E72C7900D400D81107 /* ConfigureViewMVC + Ext.swift */; };
 		171A30EE2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A30ED2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift */; };
+		171A30F02C7A3A5500D81107 /* w noise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 171A30EF2C7A3A5500D81107 /* w noise.mp3 */; };
 		173F01C62A236B1600782653 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01C52A236B1600782653 /* SettingsViewController.swift */; };
 		173F01C82A237D9900782653 /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01C72A237D9900782653 /* CustomStackView.swift */; };
 		173F01CB2A2511FE00782653 /* SettingViewController + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01CA2A2511FE00782653 /* SettingViewController + ext.swift */; };
@@ -56,6 +57,7 @@
 		171A30E52C79008200D81107 /* AddViewsMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewsMVC + Ext.swift"; sourceTree = "<group>"; };
 		171A30E72C7900D400D81107 /* ConfigureViewMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewMVC + Ext.swift"; sourceTree = "<group>"; };
 		171A30ED2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureToolbarMVC + Ext.swift"; sourceTree = "<group>"; };
+		171A30EF2C7A3A5500D81107 /* w noise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "w noise.mp3"; sourceTree = "<group>"; };
 		173F01C52A236B1600782653 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		173F01C72A237D9900782653 /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		173F01CA2A2511FE00782653 /* SettingViewController + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingViewController + ext.swift"; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				178C7F4B2A12808D001FC539 /* train.mp3 */,
 				178C7F4E2A12808D001FC539 /* sea.mp3 */,
 				178C7F562A12808E001FC539 /* wind.mp3 */,
+				171A30EF2C7A3A5500D81107 /* w noise.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				171A30F02C7A3A5500D81107 /* w noise.mp3 in Resources */,
 				178C7F1B2A0E8CC4001FC539 /* LaunchScreen.storyboard in Resources */,
 				178C7F632A12808E001FC539 /* swamp.mp3 in Resources */,
 				178C7F662A12808E001FC539 /* bird.mp3 in Resources */,

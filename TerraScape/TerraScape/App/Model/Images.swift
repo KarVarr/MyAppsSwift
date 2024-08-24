@@ -13,15 +13,16 @@ struct Images {
                      "rain",
                      "bonfire",
                      "bird",
-                     "forest",
-                     "clock",
-                     "sea",
                      "rooster",
                      "sheep",
+                     "forest",
+                     "sea",
                      "train",
                      "owl",
                      "swamp",
                      "wind",
-                     "heart"
+                     "clock",
+                     "heart",
+                     "w noise"
     ]
 }
