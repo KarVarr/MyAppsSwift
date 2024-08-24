@@ -29,14 +29,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    //    private func setupAudioSession() {
+    //        do {
+    //            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers])
+    //            try AVAudioSession.sharedInstance().setActive(true)
+    //        } catch {
+    //            print("Failed to set audio session category: \(error)")
+    //        }
+    //    }
     private func setupAudioSession() {
+        let audioSession = AVAudioSession.sharedInstance()
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers, .defaultToSpeaker])
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-            print("Failed to set audio session category: \(error)")
+            try audioSession.setCategory(.playback, mode: .default, options: [.mixWithOthers])
+            try audioSession.setActive(true)
+            print("Audio session successfully activated.")
+        } catch let error as NSError {
+            print("Failed to set audio session category: \(error.localizedDescription) (code: \(error.code))")
+            if let underlyingError = error.userInfo[NSUnderlyingErrorKey] as? NSError {
+                print("Underlying error: \(underlyingError.localizedDescription) (code: \(underlyingError.code))")
+            }
         }
     }
+    
     
     
     func setupRemoteControl() {
@@ -79,15 +93,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     //MARK: - Playing sound background
-    func configureAudioSession() {
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay, .allowBluetooth])
-            try audioSession.setActive(true)
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
+    //    func configureAudioSession() {
+    //        let audioSession = AVAudioSession.sharedInstance()
+    //        do {
+    //            try audioSession.setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay, .allowBluetooth])
+    //            try audioSession.setActive(true)
+    //            
+    //        } catch {
+    //            print(error.localizedDescription)
+    //        }
+    //    }
     
     
     
