@@ -84,18 +84,16 @@ class CustomCollectionViewCell: UICollectionViewCell {
             name.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             name.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             
-//            image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-//            image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             image.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             image.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5, constant: 15),
             image.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5, constant: 15),
             
-            sliderView.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 10),
             sliderView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             sliderView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             sliderView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -10),
             sliderView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            sliderView.heightAnchor.constraint(equalToConstant: 30),
             
             volume.topAnchor.constraint(equalTo: sliderView.topAnchor),
             volume.bottomAnchor.constraint(equalTo: sliderView.bottomAnchor),
