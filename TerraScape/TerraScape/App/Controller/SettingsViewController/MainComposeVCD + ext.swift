@@ -1,5 +1,5 @@
 //
-//  SettingViewController + ext.swift
+//  MainComposeVCD + ext.swift
 //  TerraScape
 //
 //  Created by Karen Vardanian on 29.05.2023.

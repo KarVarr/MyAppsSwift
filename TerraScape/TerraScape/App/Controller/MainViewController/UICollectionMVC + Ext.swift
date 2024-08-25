@@ -1,5 +1,5 @@
 //
-//  MainViewController + Ext.swift
+//  UICollectionMVC + Ext.swift
 //  TerraScape
 //
 //  Created by Karen Vardanian on 14.05.2023.
@@ -8,8 +8,6 @@
 import UIKit
 
 
-
-//MARK: - CUSTOM COLLECTION VIEW
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView() {
         uiCollectionView.customCollectionView.delegate = self
