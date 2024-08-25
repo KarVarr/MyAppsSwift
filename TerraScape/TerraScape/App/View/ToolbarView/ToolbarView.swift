@@ -25,9 +25,9 @@ class ToolbarView: UIView {
         
         addViews()
         settings()
-        layout()
+        layoutToolbar()
         labelSettings()
-        buttonsSetting()
+        configureButtonsToolbar()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updatePlaybackState), name: .playbackStateChanged, object: nil)
     }
@@ -58,63 +58,8 @@ class ToolbarView: UIView {
         label.customLabel.textColor = .white.withAlphaComponent(0.15)
     }
     
-    func buttonsSetting() {
-        playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-        playButton.customButton.addTarget(self, action: #selector(playButtonForSound), for: .touchUpInside)
-        
-        
-        settingButton.customButton.setImage(UIImage(named: "gear")?.withTintColor(.secondaryLabel, renderingMode: .alwaysOriginal), for: .normal)
-        settingButton.customButton.addTarget(self, action: #selector(settingButtonPressed), for: .touchUpInside)
-    }
-    
-    func layout() {
-        let label = label.customLabel
-        let playButton = playButton.customButton
-        let settingButton = settingButton.customButton
-        
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
-            playButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
-            playButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            playButton.widthAnchor.constraint(equalToConstant: 60),
-            playButton.heightAnchor.constraint(equalToConstant: 60),
-            
-            settingButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            settingButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            settingButton.widthAnchor.constraint(equalToConstant: 60),
-            settingButton.heightAnchor.constraint(equalToConstant: 60),
-        ])
-    }
-    
-    
-    @objc func playButtonForSound() {
-        audioPlayer.togglePlayback()
-    }
-    
-    @objc func updatePlaybackState() {
-        updatePlayButtonImage(isPlaying: audioPlayer.isPlaying)
-    }
-    
-    private func updatePlayButtonImage(isPlaying: Bool) {
-        let imageName = isPlaying ? "pause" : "play"
-        playButton.customButton.setImage(UIImage(named: imageName)?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-    }
-    
     func setParentViewController(_ viewController: UIViewController) {
         self.parentViewController = viewController
-    }
-    
-    @objc func settingButtonPressed() {
-        guard let parentViewController = parentViewController else {
-            print("Error: Parent view controller is not set")
-            return
-        }
-        
-        let settingVC = SettingsViewController()
-        settingVC.modalPresentationStyle = .popover
-        parentViewController.present(settingVC, animated: true, completion: nil)
     }
     
     deinit {

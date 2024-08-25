@@ -13,6 +13,8 @@
 		171A30EE2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A30ED2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift */; };
 		171A30F02C7A3A5500D81107 /* w noise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 171A30EF2C7A3A5500D81107 /* w noise.mp3 */; };
 		171D97192C7B5A4A00B71C9F /* NotificationCenter + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D97182C7B5A4A00B71C9F /* NotificationCenter + Ext.swift */; };
+		171D971B2C7B637200B71C9F /* LayoutToolbar + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D971A2C7B637200B71C9F /* LayoutToolbar + Ext.swift */; };
+		171D971D2C7B641800B71C9F /* ConfigureButtonsToolbar + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D971C2C7B641800B71C9F /* ConfigureButtonsToolbar + Ext.swift */; };
 		173F01C62A236B1600782653 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01C52A236B1600782653 /* SettingsViewController.swift */; };
 		173F01C82A237D9900782653 /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01C72A237D9900782653 /* CustomStackView.swift */; };
 		173F01CB2A2511FE00782653 /* SettingViewController + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01CA2A2511FE00782653 /* SettingViewController + ext.swift */; };
@@ -60,6 +62,8 @@
 		171A30ED2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureToolbarMVC + Ext.swift"; sourceTree = "<group>"; };
 		171A30EF2C7A3A5500D81107 /* w noise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "w noise.mp3"; sourceTree = "<group>"; };
 		171D97182C7B5A4A00B71C9F /* NotificationCenter + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter + Ext.swift"; sourceTree = "<group>"; };
+		171D971A2C7B637200B71C9F /* LayoutToolbar + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutToolbar + Ext.swift"; sourceTree = "<group>"; };
+		171D971C2C7B641800B71C9F /* ConfigureButtonsToolbar + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureButtonsToolbar + Ext.swift"; sourceTree = "<group>"; };
 		173F01C52A236B1600782653 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		173F01C72A237D9900782653 /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		173F01CA2A2511FE00782653 /* SettingViewController + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingViewController + ext.swift"; sourceTree = "<group>"; };
@@ -291,6 +295,8 @@
 			isa = PBXGroup;
 			children = (
 				17D1D91E2A1BEC2900A173E1 /* ToolbarView.swift */,
+				171D971A2C7B637200B71C9F /* LayoutToolbar + Ext.swift */,
+				171D971C2C7B641800B71C9F /* ConfigureButtonsToolbar + Ext.swift */,
 			);
 			path = ToolbarView;
 			sourceTree = "<group>";
@@ -385,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				178C7F382A10DC85001FC539 /* UIDevice + Ext.swift in Sources */,
+				171D971D2C7B641800B71C9F /* ConfigureButtonsToolbar + Ext.swift in Sources */,
 				173F01C82A237D9900782653 /* CustomStackView.swift in Sources */,
 				178C7F312A0EBDBC001FC539 /* CustomImageView.swift in Sources */,
 				17D1D91F2A1BEC2900A173E1 /* ToolbarView.swift in Sources */,
@@ -393,6 +400,7 @@
 				178C7F2A2A0E9F04001FC539 /* CustomCollectionViewCell.swift in Sources */,
 				17D1D9172A17D2E300A173E1 /* AllSounds.swift in Sources */,
 				178C7F3A2A10E516001FC539 /* MainViewController + Ext.swift in Sources */,
+				171D971B2C7B637200B71C9F /* LayoutToolbar + Ext.swift in Sources */,
 				178C7F2F2A0EBD6B001FC539 /* CustomLabelView.swift in Sources */,
 				171A30EE2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift in Sources */,
 				178C7F342A0FF5C4001FC539 /* Images.swift in Sources */,
