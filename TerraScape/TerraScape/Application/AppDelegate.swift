@@ -6,37 +6,19 @@
 //
 
 import UIKit
-import CoreData
-import AVFAudio
-
 import AVFoundation
 import MediaPlayer
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    
     let audioPlayer = AudioPlayerForSound()
-    let toolbar = ToolbarView()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        //        setupRemoteControl()
-        //        setupNowPlayingInfo()
-        //        configureAudioSession()
-        
         setupAudioSession()
+        setupRemoteCommandCenter()
         return true
     }
     
-    //    private func setupAudioSession() {
-    //        do {
-    //            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers])
-    //            try AVAudioSession.sharedInstance().setActive(true)
-    //        } catch {
-    //            print("Failed to set audio session category: \(error)")
-    //        }
-    //    }
     private func setupAudioSession() {
         let audioSession = AVAudioSession.sharedInstance()
         do {
@@ -51,63 +33,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    
-    
-    func setupRemoteControl() {
-        UIApplication.shared.beginReceivingRemoteControlEvents()
+    private func setupRemoteCommandCenter() {
+        let commandCenter = MPRemoteCommandCenter.shared()
         
-        //        let commandCenter = MPRemoteCommandCenter.shared()
-        //
-        //        commandCenter.playCommand.isEnabled = true
-        //        commandCenter.playCommand.addTarget { [unowned self] event in
-        //            print("should play sound")
-        //            if !self.toolbar.audioPlayer.players.first!.isPlaying {
-        //                self.audioPlayer.players.first?.play()
-        //                return .success
-        //            }
-        //            return .commandFailed
-        //        }
-        //
-        //        commandCenter.pauseCommand.isEnabled = true
-        //        commandCenter.pauseCommand.addTarget { [unowned self] event in
-        //            print("should pause sound")
-        ////            toolbar.audioPlayer.stopAllSound()
-        //            return .success
-        //        }
-    }
-    
-    func setupNowPlayingInfo() {
-        var nowPlayingInfo = [String: Any]()
-        nowPlayingInfo[MPMediaItemPropertyTitle] = Helpers.Strings.navigationTitle
-        nowPlayingInfo[MPMediaItemPropertyArtist] = UIImage(named: "AppIcon")
-        
-        
-        if let image = UIImage(named: "AppIcon") {
-            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
-                return image
-            }
+        commandCenter.playCommand.addTarget { [weak self] _ in
+            self?.audioPlayer.playAllSounds()
+            self?.updatePlaybackState(isPlaying: true)
+            return .success
         }
         
+        commandCenter.pauseCommand.addTarget { [weak self] _ in
+            self?.audioPlayer.stopAllSounds()
+            self?.updatePlaybackState(isPlaying: false)
+            return .success
+        }
+    }
+    
+    func updatePlaybackState(isPlaying: Bool) {
+        // Update UI
+        NotificationCenter.default.post(name: Notification.Name("PlaybackStateChanged"), object: nil, userInfo: ["isPlaying": isPlaying])
+        
+        // Update lock screen
+        var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [String: Any]()
+        nowPlayingInfo[MPNowPlayingInfoPropertyIsLiveStream] = true
+        nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = isPlaying ? 1.0 : 0.0
+        nowPlayingInfo[MPMediaItemPropertyTitle] = "TerraScape"
+        nowPlayingInfo[MPMediaItemPropertyArtist] = "Ambient Sounds"
+        
+        if let image = UIImage(named: "AppIcon") {
+            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { _ in image }
+        }
         
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
     
-    //MARK: - Playing sound background
-    //    func configureAudioSession() {
-    //        let audioSession = AVAudioSession.sharedInstance()
-    //        do {
-    //            try audioSession.setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay, .allowBluetooth])
-    //            try audioSession.setActive(true)
-    //            
-    //        } catch {
-    //            print(error.localizedDescription)
-    //        }
-    //    }
-    
-    
-    
     // MARK: UISceneSession Lifecycle
-    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.

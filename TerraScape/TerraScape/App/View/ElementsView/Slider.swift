@@ -47,7 +47,7 @@ final class Slider: UISlider {
         trackLayer.colors = [firstColor, secondColor]
         trackLayer.startPoint = .init(x: 0, y: 0.5)
         trackLayer.endPoint = .init(x: 1, y: 0.5)
-        trackLayer.frame = .init(x: 1, y: frame.height / 4, width: 0, height: frame.height / 4)
+        trackLayer.frame = .init(x: 1, y: frame.height / 2, width: 0, height: frame.height / 2)
         trackLayer.cornerRadius = trackLayer.frame.height / 2
         trackLayer.masksToBounds = true
 
@@ -73,7 +73,7 @@ final class Slider: UISlider {
 
     // Step 5
     private func createThumbImageView() {
-        let thumbSize = frame.height 
+        let thumbSize = frame.height
         let thumbView = ThumbView(frame: .init(x: 0, y: 0, width: thumbSize, height: thumbSize))
         thumbView.layer.cornerRadius = thumbSize / 2
         let thumbSnapshot = thumbView.snapshot

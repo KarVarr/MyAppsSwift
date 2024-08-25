@@ -28,7 +28,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         imageOfSound.customImageView.image = nil
+        volumeOfSound.value = 0.0
+        nameOfSound.customLabel.text = nil
     }
     
     override func layoutSubviews() {
