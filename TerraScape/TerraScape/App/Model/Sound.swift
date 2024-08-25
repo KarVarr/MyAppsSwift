@@ -11,5 +11,5 @@ struct Sound {
     let name: String
     var volume: Float
     let image: String
-    var onOff: Bool
+    var isOnOff: Bool
 }

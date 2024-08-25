@@ -12,14 +12,13 @@ import AVFoundation
 class ToolbarView: UIView {
     weak var parentViewController: UIViewController?
     var allSounds = AllSounds()
-    
-    var audioPlayer = AudioPlayerForSound()
+    var audioPlayer = AudioPlayerForSound.shared
     
     let label = CustomLabelView()
     let settingButton = CustomButtonView()
     let playButton = CustomButtonView()
     
-    var onOffButton = false
+    var isButtonPlay = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,11 +29,7 @@ class ToolbarView: UIView {
         labelSettings()
         buttonsSetting()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updatePlaybackState(_:)), name: Notification.Name("PlaybackStateChanged"), object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePlaybackState), name: .playbackStateChanged, object: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -90,37 +85,22 @@ class ToolbarView: UIView {
             settingButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             settingButton.widthAnchor.constraint(equalToConstant: 60),
             settingButton.heightAnchor.constraint(equalToConstant: 60),
-            
         ])
-        
     }
     
     
     @objc func playButtonForSound() {
-        onOffButton.toggle()
-        if onOffButton {
-            audioPlayer.playAllSounds()
-            playButton.customButton.setImage(UIImage(named: "pause")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-            (UIApplication.shared.delegate as? AppDelegate)?.updatePlaybackState(isPlaying: true)
-            print("play")
-        } else {
-            audioPlayer.stopAllSounds()
-            playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-            (UIApplication.shared.delegate as? AppDelegate)?.updatePlaybackState(isPlaying: false)
-            print("Stop")
-        }
+        audioPlayer.togglePlayback()
     }
-    @objc func updatePlaybackState(_ notification: Notification) {
-            if let isPlaying = notification.userInfo?["isPlaying"] as? Bool {
-                onOffButton = isPlaying
-                updatePlayButtonImage()
-            }
-        }
     
-    private func updatePlayButtonImage() {
-            let imageName = onOffButton ? "pause" : "play"
-            playButton.customButton.setImage(UIImage(named: imageName)?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-        }
+    @objc func updatePlaybackState() {
+        updatePlayButtonImage(isPlaying: audioPlayer.isPlaying)
+    }
+    
+    private func updatePlayButtonImage(isPlaying: Bool) {
+        let imageName = isPlaying ? "pause" : "play"
+        playButton.customButton.setImage(UIImage(named: imageName)?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+    }
     
     func setParentViewController(_ viewController: UIViewController) {
         self.parentViewController = viewController
@@ -135,6 +115,10 @@ class ToolbarView: UIView {
         let settingVC = SettingsViewController()
         settingVC.modalPresentationStyle = .popover
         parentViewController.present(settingVC, animated: true, completion: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
 }

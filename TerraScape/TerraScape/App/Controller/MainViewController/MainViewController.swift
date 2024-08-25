@@ -12,11 +12,10 @@ import AVFoundation
 import MediaPlayer
 
 class MainViewController: UIViewController {
-    var cellsToUpdate: [IndexPath] = []
-    
     var allSounds = AllSounds()
-    let audioPlayer = AudioPlayerForSound()
+    let audioPlayer = AudioPlayerForSound.shared
     
+    var cellsToUpdate: [IndexPath] = []
     let uiCollectionView = CustomUICollectionView()
     let smallBall = CustomUIView()
     let mediumBall = CustomUIView()
@@ -50,6 +49,5 @@ class MainViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         configureViewMVC()
-        
     } 
 }

@@ -12,6 +12,7 @@
 		171A30E82C7900D400D81107 /* ConfigureViewMVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A30E72C7900D400D81107 /* ConfigureViewMVC + Ext.swift */; };
 		171A30EE2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A30ED2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift */; };
 		171A30F02C7A3A5500D81107 /* w noise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 171A30EF2C7A3A5500D81107 /* w noise.mp3 */; };
+		171D97192C7B5A4A00B71C9F /* NotificationCenter + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D97182C7B5A4A00B71C9F /* NotificationCenter + Ext.swift */; };
 		173F01C62A236B1600782653 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01C52A236B1600782653 /* SettingsViewController.swift */; };
 		173F01C82A237D9900782653 /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01C72A237D9900782653 /* CustomStackView.swift */; };
 		173F01CB2A2511FE00782653 /* SettingViewController + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01CA2A2511FE00782653 /* SettingViewController + ext.swift */; };
@@ -58,6 +59,7 @@
 		171A30E72C7900D400D81107 /* ConfigureViewMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewMVC + Ext.swift"; sourceTree = "<group>"; };
 		171A30ED2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureToolbarMVC + Ext.swift"; sourceTree = "<group>"; };
 		171A30EF2C7A3A5500D81107 /* w noise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "w noise.mp3"; sourceTree = "<group>"; };
+		171D97182C7B5A4A00B71C9F /* NotificationCenter + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter + Ext.swift"; sourceTree = "<group>"; };
 		173F01C52A236B1600782653 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		173F01C72A237D9900782653 /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		173F01CA2A2511FE00782653 /* SettingViewController + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingViewController + ext.swift"; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 		178C7F672A1284C6001FC539 /* sheep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sheep.mp3; sourceTree = "<group>"; };
 		178C7F712A155225001FC539 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
 		1794161C2AB22EED005882D0 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		17D117A22C7B3B4300B35D8D /* TerraScape.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TerraScape.entitlements; sourceTree = "<group>"; };
 		17D1D9162A17D2E300A173E1 /* AllSounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSounds.swift; sourceTree = "<group>"; };
 		17D1D91E2A1BEC2900A173E1 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		17D1D9232A1BF1C800A173E1 /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
@@ -137,6 +140,7 @@
 				178C7F372A10DC85001FC539 /* UIDevice + Ext.swift */,
 				178C7F392A10E516001FC539 /* MainViewController + Ext.swift */,
 				173F01CA2A2511FE00782653 /* SettingViewController + ext.swift */,
+				171D97182C7B5A4A00B71C9F /* NotificationCenter + Ext.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -160,6 +164,7 @@
 		178C7F0D2A0E8CC2001FC539 /* TerraScape */ = {
 			isa = PBXGroup;
 			children = (
+				17D117A22C7B3B4300B35D8D /* TerraScape.entitlements */,
 				178C7F222A0E8D56001FC539 /* Application */,
 				1793B8642C78E46100BB9B3D /* App */,
 				178C7F3C2A124AC6001FC539 /* Sounds */,
@@ -395,6 +400,7 @@
 				1794161D2AB22EED005882D0 /* Sound.swift in Sources */,
 				173F01EF2A252EA200782653 /* Slider.swift in Sources */,
 				173F01C62A236B1600782653 /* SettingsViewController.swift in Sources */,
+				171D97192C7B5A4A00B71C9F /* NotificationCenter + Ext.swift in Sources */,
 				171A30E42C79000F00D81107 /* LayoutViewMVC + Ext.swift in Sources */,
 				173F01CB2A2511FE00782653 /* SettingViewController + ext.swift in Sources */,
 				178C7F0F2A0E8CC2001FC539 /* AppDelegate.swift in Sources */,
@@ -543,6 +549,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TerraScape/TerraScape.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LA9F8MT28T;
@@ -557,7 +564,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.karen.TerraScape;
+				PRODUCT_BUNDLE_IDENTIFIER = com.karen.TerraScapeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -574,6 +581,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TerraScape/TerraScape.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LA9F8MT28T;
@@ -588,7 +596,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.karen.TerraScape;
+				PRODUCT_BUNDLE_IDENTIFIER = com.karen.TerraScapeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

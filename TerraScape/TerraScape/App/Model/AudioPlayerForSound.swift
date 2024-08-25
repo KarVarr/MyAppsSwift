@@ -10,8 +10,16 @@ import AVFoundation
 import MediaPlayer
 
 final class AudioPlayerForSound {
+    static let shared = AudioPlayerForSound()
+    
     private let images = Images()
     private var players: [String: AVAudioPlayer] = [:]
+    private(set) var isPlaying: Bool = false {
+        didSet {
+            NotificationCenter.default.post(name: .playbackStateChanged, object: nil)
+            (UIApplication.shared.delegate as? AppDelegate)?.updateNowPlayingInfo(isPlaying: isPlaying)
+        }
+    }
     
     init() {
         for sound in images.allImages {
@@ -29,7 +37,7 @@ final class AudioPlayerForSound {
             }
         }
     }
-
+    
     func play(sound: String) {
         players[sound]?.play()
     }
@@ -49,12 +57,21 @@ final class AudioPlayerForSound {
                 print("Playing \(sound) at volume \(player.volume)")
             }
         }
-        (UIApplication.shared.delegate as? AppDelegate)?.updatePlaybackState(isPlaying: true)
+        isPlaying = true
     }
     
     func stopAllSounds() {
         players.values.forEach { $0.stop() }
-        (UIApplication.shared.delegate as? AppDelegate)?.updatePlaybackState(isPlaying: false)
+        isPlaying = false
+    }
+    
+    func togglePlayback() {
+        if isPlaying {
+            stopAllSounds()
+        } else {
+            playAllSounds()
+        }
     }
 }
+
 

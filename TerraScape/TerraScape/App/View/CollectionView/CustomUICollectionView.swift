@@ -8,8 +8,6 @@
 import UIKit
 
 class CustomUICollectionView {
-
-    
     let customCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical

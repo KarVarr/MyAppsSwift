@@ -11,13 +11,13 @@ import MessageUI
 
 extension SettingsViewController: MFMailComposeViewControllerDelegate {
     
-    // TODO: Change appID !!!
+    //TODO: Change appID !!!
+    #warning("CHANGE APP ID")
     @objc func rateButtonTapped() {
         guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1287000522?mt=8&action=write-review") else { return }
         
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
-    
     
     @objc func sendEmailAboutABug() {
         if MFMailComposeViewController.canSendMail() {

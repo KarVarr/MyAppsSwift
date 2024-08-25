@@ -60,7 +60,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         audioPlayer.setVolume(for: sound.name, volume: sender.value)
         
-        if toolbar.onOffButton {
+        if toolbar.isButtonPlay {
             audioPlayer.play(sound: sound.name)
         }
         print("Changed volume for \(sound.name) to \(sender.value)")
@@ -80,7 +80,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
-
+//MARK: - Images prefetching
 extension MainViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {

@@ -9,7 +9,6 @@ import UIKit
 
 extension MainViewController {
     func configureToolbarMVC() {
-        toolbar.audioPlayer = audioPlayer
         toolbar.setParentViewController(self)
     }
 }

@@ -15,7 +15,7 @@ struct AllSounds {
     
     init() {
         for value in images.allImages {
-            sounds.append(Sound(name: value, volume: 0.0, image: value, onOff: true))
+            sounds.append(Sound(name: value, volume: 0.0, image: value, isOnOff: true))
         }
     }
 }
