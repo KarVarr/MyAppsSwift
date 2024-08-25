@@ -29,6 +29,12 @@ class ToolbarView: UIView {
         layout()
         labelSettings()
         buttonsSetting()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePlaybackState(_:)), name: Notification.Name("PlaybackStateChanged"), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     required init?(coder: NSCoder) {
@@ -95,13 +101,26 @@ class ToolbarView: UIView {
         if onOffButton {
             audioPlayer.playAllSounds()
             playButton.customButton.setImage(UIImage(named: "pause")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+            (UIApplication.shared.delegate as? AppDelegate)?.updatePlaybackState(isPlaying: true)
             print("play")
         } else {
             audioPlayer.stopAllSounds()
             playButton.customButton.setImage(UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+            (UIApplication.shared.delegate as? AppDelegate)?.updatePlaybackState(isPlaying: false)
             print("Stop")
         }
     }
+    @objc func updatePlaybackState(_ notification: Notification) {
+            if let isPlaying = notification.userInfo?["isPlaying"] as? Bool {
+                onOffButton = isPlaying
+                updatePlayButtonImage()
+            }
+        }
+    
+    private func updatePlayButtonImage() {
+            let imageName = onOffButton ? "pause" : "play"
+            playButton.customButton.setImage(UIImage(named: imageName)?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+        }
     
     func setParentViewController(_ viewController: UIViewController) {
         self.parentViewController = viewController

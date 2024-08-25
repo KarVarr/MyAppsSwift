@@ -49,10 +49,12 @@ final class AudioPlayerForSound {
                 print("Playing \(sound) at volume \(player.volume)")
             }
         }
+        (UIApplication.shared.delegate as? AppDelegate)?.updatePlaybackState(isPlaying: true)
     }
     
     func stopAllSounds() {
         players.values.forEach { $0.stop() }
+        (UIApplication.shared.delegate as? AppDelegate)?.updatePlaybackState(isPlaying: false)
     }
 }
 
