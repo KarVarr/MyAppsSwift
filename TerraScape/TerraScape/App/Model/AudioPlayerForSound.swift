@@ -29,7 +29,12 @@ final class AudioPlayerForSound {
                     let player = try AVAudioPlayer(contentsOf: url)
                     player.numberOfLoops = -1
                     player.prepareToPlay()
-                    player.volume = 0.0
+                    
+                    if let savedVolume = UserDefaults.standard.value(forKey: "\(sound)_volume") as? Float {
+                        player.volume = savedVolume
+                    } else {
+                        player.volume = 0.0
+                    }
                     players[sound] = player
                 } catch {
                     print("Failed to create audio player for \(sound): \(error)")
@@ -69,7 +74,14 @@ final class AudioPlayerForSound {
         if isPlaying {
             stopAllSounds()
         } else {
-            playAllSounds()
+            players.forEach { (sound, player) in
+                if let savedVolume = UserDefaults.standard.value(forKey: "\(sound)_volume") as? Float {
+                    player.volume = savedVolume
+                }
+                player.play()
+                print("Playing \(sound) at volume \(player.volume)")
+            }
+            isPlaying = true
         }
     }
 }

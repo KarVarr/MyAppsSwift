@@ -60,6 +60,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         userDefaults.setValue(volume, forKey: "\(sound.name)_volume")
         
+        
         audioPlayer.setVolume(for: sound.name, volume: volume)
         
         if toolbar.isButtonPlay {
