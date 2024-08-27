@@ -69,14 +69,17 @@ class CustomCollectionViewCell: UICollectionViewCell {
         
         let gradient = CAGradientLayer()
         gradient.frame = bounds
+        
         gradient.colors = Helpers.Colors.deselectWhiteGradient
         gradient.endPoint = CGPoint(x: 0, y: 0.25)
         
         contentView.addSubview(blurEffectView)
         layer.insertSublayer(gradient, at: 0)
         
-        sliderView.customUIView.layer.cornerRadius = 15
-        sliderView.customUIView.clipsToBounds = true
+//        sliderView.customUIView.layer.cornerRadius = 10
+        
+//        sliderView.customUIView.clipsToBounds = true
+//        sliderView.customUIView.layer.borderWidth = 1
 //        sliderView.customUIView.backgroundColor = UIColor(white: 1, alpha: 0.5)
         
         volumeOfSound.translatesAutoresizingMaskIntoConstraints = false

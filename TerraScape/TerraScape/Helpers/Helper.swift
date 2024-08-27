@@ -41,7 +41,7 @@ enum Helpers {
         static let navigationBarBackgroundColor = UIColor.clear
         
         static let deselectWhiteGradient = [UIColor(white: 1, alpha: 0.15).cgColor, UIColor(white: 1, alpha: 0.3).cgColor]
-        static let selectWhiteGradient = [UIColor(white: 1, alpha: 0.5).cgColor, UIColor(white: 1, alpha: 0.8).cgColor]
+        static let selectWhiteGradient = [UIColor(red: 0.00, green: 0.78, blue: 1.00, alpha: 0.4).cgColor, UIColor(red: 0.00, green: 0.45, blue: 1.00, alpha: 0.4).cgColor]
         
         static let settingsViewBackground = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.00)
         
