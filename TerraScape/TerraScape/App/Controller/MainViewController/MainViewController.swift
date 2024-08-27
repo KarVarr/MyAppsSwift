@@ -14,6 +14,7 @@ import MediaPlayer
 class MainViewController: UIViewController {
     var allSounds = AllSounds()
     let audioPlayer = AudioPlayerForSound.shared
+    let userDefaults = UserDefaults.standard
     
     var cellsToUpdate: [IndexPath] = []
     let uiCollectionView = CustomUICollectionView()
@@ -28,6 +29,12 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for (index, sound) in allSounds.sounds.enumerated() {
+            if let savedVolume = userDefaults.value(forKey: "\(sound.name)_volume") as? Float {
+                allSounds.sounds[index].volume = savedVolume
+            }
+        }
         
         addViewsMVC()
         collectionView()

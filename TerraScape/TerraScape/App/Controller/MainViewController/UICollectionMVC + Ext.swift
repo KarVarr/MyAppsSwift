@@ -54,14 +54,18 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     @objc func volumeSliderChanged(_ sender: UISlider) {
         let soundIndex = sender.tag
         let sound = allSounds.sounds[soundIndex]
-        allSounds.sounds[soundIndex].volume = sender.value
+        let volume = sender.value
         
-        audioPlayer.setVolume(for: sound.name, volume: sender.value)
+        allSounds.sounds[soundIndex].volume = volume
+        
+        userDefaults.setValue(volume, forKey: "\(sound.name)_volume")
+        
+        audioPlayer.setVolume(for: sound.name, volume: volume)
         
         if toolbar.isButtonPlay {
             audioPlayer.play(sound: sound.name)
         }
-        print("Changed volume for \(sound.name) to \(sender.value)")
+        print("Changed volume for \(sound.name) to \(volume)")
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
