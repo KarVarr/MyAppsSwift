@@ -26,10 +26,11 @@ extension SettingsViewController {
             horizontalStackViewForButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             horizontalStackViewForButtons.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            reportAProblemButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.4),
+            //            reportAProblemButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
             reportAProblemButton.heightAnchor.constraint(equalToConstant: 44),
             
-            rateAppButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.4),
+            
+            //            rateAppButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
             rateAppButton.heightAnchor.constraint(equalToConstant: 44),
             
             closeModuleButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
@@ -38,7 +39,11 @@ extension SettingsViewController {
             closeModuleButton.heightAnchor.constraint(equalToConstant: 44),
         ])
         
+        // Set content hugging priority for buttons
+        reportAProblemButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        rateAppButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        
     }
-
+    
 }
 

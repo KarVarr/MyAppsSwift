@@ -26,6 +26,7 @@ extension SettingsViewController {
          
          reportAProblemButton.customButton.setTitle("Report", for: .normal)
          reportAProblemButton.customButton.addTarget(self, action: #selector(sendEmailAboutABug), for: .touchUpInside)
+        
          
          DispatchQueue.main.async {
              self.closeModuleButton.customButton.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
