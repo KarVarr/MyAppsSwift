@@ -27,7 +27,6 @@ final class Slider: UISlider {
         createThumbImageView()
         configureTrackLayer()
         addUserInteractions()
-//        updateTrackLayer()
     }
     
     private func clear() {
@@ -40,7 +39,6 @@ final class Slider: UISlider {
     private func createBaseLayer() {
         baseLayer.backgroundColor = UIColor.secondarySystemFill.cgColor
         baseLayer.frame = .init(x: 0, y: 0, width: frame.width, height: frame.height )
-//        baseLayer.cornerRadius = baseLayer.frame.height / 2
         baseLayer.cornerRadius = frame.height / 2
         baseLayer.masksToBounds = true
         layer.insertSublayer(baseLayer, at: 0)
@@ -52,9 +50,6 @@ final class Slider: UISlider {
         trackLayer.colors = [firstColor, secondColor]
         trackLayer.startPoint = .init(x: 0, y: 0.5)
         trackLayer.endPoint = .init(x: 1, y: 0.5)
-//        trackLayer.frame = .init(x: 1, y: frame.height / 2, width: 0, height: frame.height / 2)
-//        trackLayer.cornerRadius = trackLayer.frame.height / 2
-//        trackLayer.frame = .init(x: 0, y: 0, width: 0, height: frame.height)
         trackLayer.cornerRadius = frame.height / 2
         trackLayer.masksToBounds = true
         
@@ -64,15 +59,7 @@ final class Slider: UISlider {
     private func addUserInteractions() {
         addTarget(self, action: #selector(valueChanged(_:)), for: .valueChanged)
     }
-    
-//    private func updateTrackLayer() {
-//        let thumbRectA = thumbRect(forBounds: bounds, trackRect: trackRect(forBounds: bounds), value: value)
-//        CATransaction.begin()
-//        CATransaction.setDisableActions(true)
-//        trackLayer.frame = .init(x: 0, y: 0, width: thumbRectA.midX, height: frame.height)
-//        CATransaction.commit()
-//    }
-    
+
     private func updateTrackLayer() {
         let thumbRectA = thumbRect(forBounds: bounds, trackRect: trackRect(forBounds: bounds), value: value)
         let adjustedWidth = thumbRectA.maxX + 1.0 // Adjust this value if needed
@@ -84,11 +71,6 @@ final class Slider: UISlider {
 
     
     @objc private func valueChanged(_ sender: Slider) {
-//        CATransaction.begin()
-//        CATransaction.setDisableActions(true)
-//        let thumbRectA = thumbRect(forBounds: bounds, trackRect: trackRect(forBounds: bounds), value: value)
-//        trackLayer.frame = .init(x: 0, y: 0, width: thumbRectA.midX, height: frame.height )
-//        CATransaction.commit()
         updateTrackLayer()
     }
     
