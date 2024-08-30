@@ -22,7 +22,7 @@
 		173F01CB2A2511FE00782653 /* MainComposeVCD + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01CA2A2511FE00782653 /* MainComposeVCD + ext.swift */; };
 		173F01EF2A252EA200782653 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01EE2A252EA200782653 /* Slider.swift */; };
 		1766506F2C7B670B0098F527 /* ConfigureLabelsToolbar + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1766506E2C7B670B0098F527 /* ConfigureLabelsToolbar + Ext.swift */; };
-		176650712C7B7FFD0098F527 /* LayoutView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176650702C7B7FFC0098F527 /* LayoutView + Ext.swift */; };
+		176650712C7B7FFD0098F527 /* LayoutViewSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176650702C7B7FFC0098F527 /* LayoutViewSVC + Ext.swift */; };
 		176650732C7B80890098F527 /* AddViewsSVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176650722C7B80890098F527 /* AddViewsSVC + Ext.swift */; };
 		176650752C7B80D70098F527 /* ConfigureView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176650742C7B80D70098F527 /* ConfigureView + Ext.swift */; };
 		176650772C7B81B10098F527 /* ConfigureLabels + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176650762C7B81B10098F527 /* ConfigureLabels + Ext.swift */; };
@@ -80,7 +80,7 @@
 		173F01CA2A2511FE00782653 /* MainComposeVCD + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainComposeVCD + ext.swift"; sourceTree = "<group>"; };
 		173F01EE2A252EA200782653 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		1766506E2C7B670B0098F527 /* ConfigureLabelsToolbar + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureLabelsToolbar + Ext.swift"; sourceTree = "<group>"; };
-		176650702C7B7FFC0098F527 /* LayoutView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutView + Ext.swift"; sourceTree = "<group>"; };
+		176650702C7B7FFC0098F527 /* LayoutViewSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutViewSVC + Ext.swift"; sourceTree = "<group>"; };
 		176650722C7B80890098F527 /* AddViewsSVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewsSVC + Ext.swift"; sourceTree = "<group>"; };
 		176650742C7B80D70098F527 /* ConfigureView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureView + Ext.swift"; sourceTree = "<group>"; };
 		176650762C7B81B10098F527 /* ConfigureLabels + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureLabels + Ext.swift"; sourceTree = "<group>"; };
@@ -153,11 +153,11 @@
 			isa = PBXGroup;
 			children = (
 				173F01C52A236B1600782653 /* SettingsViewController.swift */,
+				176650722C7B80890098F527 /* AddViewsSVC + Ext.swift */,
+				176650702C7B7FFC0098F527 /* LayoutViewSVC + Ext.swift */,
+				176650742C7B80D70098F527 /* ConfigureView + Ext.swift */,
 				1766507A2C7B82A80098F527 /* ConfigureButtonsSVC + Ext.swift */,
 				176650782C7B824A0098F527 /* ConfigureStackViewSVC +Ext.swift */,
-				176650742C7B80D70098F527 /* ConfigureView + Ext.swift */,
-				176650722C7B80890098F527 /* AddViewsSVC + Ext.swift */,
-				176650702C7B7FFC0098F527 /* LayoutView + Ext.swift */,
 				176650762C7B81B10098F527 /* ConfigureLabels + Ext.swift */,
 				173F01CA2A2511FE00782653 /* MainComposeVCD + ext.swift */,
 			);
@@ -440,7 +440,7 @@
 				173F01EF2A252EA200782653 /* Slider.swift in Sources */,
 				176650732C7B80890098F527 /* AddViewsSVC + Ext.swift in Sources */,
 				173F01C62A236B1600782653 /* SettingsViewController.swift in Sources */,
-				176650712C7B7FFD0098F527 /* LayoutView + Ext.swift in Sources */,
+				176650712C7B7FFD0098F527 /* LayoutViewSVC + Ext.swift in Sources */,
 				176650772C7B81B10098F527 /* ConfigureLabels + Ext.swift in Sources */,
 				171D97192C7B5A4A00B71C9F /* NotificationCenter + Ext.swift in Sources */,
 				171A30E42C79000F00D81107 /* LayoutViewMVC + Ext.swift in Sources */,

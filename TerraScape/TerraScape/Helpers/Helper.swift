@@ -43,7 +43,7 @@ enum Helpers {
         static let deselectWhiteGradient = [UIColor(white: 1, alpha: 0.15).cgColor, UIColor(white: 1, alpha: 0.3).cgColor]
         static let selectWhiteGradient = [UIColor(red: 0.00, green: 0.78, blue: 1.00, alpha: 0.4).cgColor, UIColor(red: 0.00, green: 0.45, blue: 1.00, alpha: 0.4).cgColor]
         
-        static let settingsViewBackground = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.00)
+        static let settingsViewBackground = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.00)
         
         static let mainViewGradient = [UIColor(red: 0.07, green: 0.76, blue: 0.91, alpha: 1.00).cgColor, UIColor(red: 0.77, green: 0.44, blue: 0.93, alpha: 1.00).cgColor, UIColor(red: 0.96, green: 0.31, blue: 0.35, alpha: 1.00).cgColor]
         
@@ -55,15 +55,14 @@ enum Helpers {
         
         static let largeBallGradient = [UIColor(red: 0.01, green: 0.00, blue: 0.12, alpha: 1.00).cgColor,UIColor(red: 0.45, green: 0.01, blue: 0.75, alpha: 1.00).cgColor, UIColor(red: 0.93, green: 0.22, blue: 0.74, alpha: 1.00).cgColor]
         
-        
         static let sliderTrackMinimumColor = UIColor.white
-        static let buttonsForSettingColor = UIColor(red: 1.00, green: 0.78, blue: 0.92, alpha: 1.00)
-        
+        static let toolbarSettingsButtonColor = UIColor(red: 0.19, green: 0.19, blue: 0.19, alpha: 1.00)
     }
     
     //MARK: - RADIUS
     enum Radius {
-        static let cornerRadius = 20.0
+        static let cellCornerRadius = 20.0
+        static let buttonCornerRadius = 8.0
     }
     
     //MARK: - FONTS

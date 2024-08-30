@@ -1,5 +1,5 @@
 //
-//  LayoutView + Ext.swift
+//  LayoutViewSVC + Ext.swift
 //  TerraScape
 //
 //  Created by Karen Vardanian on 25.08.2024.
@@ -23,8 +23,8 @@ extension SettingsViewController {
             verticalStackViewForText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             horizontalStackViewForButtons.topAnchor.constraint(equalTo: verticalStackViewForText.bottomAnchor, constant: 40),
-            horizontalStackViewForButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            horizontalStackViewForButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            horizontalStackViewForButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            horizontalStackViewForButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
             horizontalStackViewForButtons.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         

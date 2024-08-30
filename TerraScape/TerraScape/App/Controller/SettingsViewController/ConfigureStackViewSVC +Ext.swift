@@ -13,7 +13,7 @@ extension SettingsViewController {
         verticalStackViewForText.customStackView.alignment = .center
         verticalStackViewForText.customStackView.spacing = 20.0
         
-        horizontalStackViewForButtons.customStackView.axis = .horizontal
+        horizontalStackViewForButtons.customStackView.axis = .vertical
         horizontalStackViewForButtons.customStackView.distribution = .fillEqually
         horizontalStackViewForButtons.customStackView.alignment = .fill
         horizontalStackViewForButtons.customStackView.spacing = 10

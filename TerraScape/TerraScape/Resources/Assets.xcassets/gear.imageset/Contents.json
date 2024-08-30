@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "cog-svgrepo-com.png",
+      "filename" : "about-svgrepo-com.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "cog-svgrepo-com 1.png",
+      "filename" : "about-svgrepo-com 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "cog-svgrepo-com 2.png",
+      "filename" : "about-svgrepo-com 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }
