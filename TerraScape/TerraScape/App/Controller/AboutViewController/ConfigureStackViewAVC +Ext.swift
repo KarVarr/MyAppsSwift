@@ -9,13 +9,17 @@ import UIKit
 
 extension AboutViewController {
     func configureStackViewSVC() {
-        verticalStackViewForText.customStackView.axis = .vertical
-        verticalStackViewForText.customStackView.alignment = .center
-        verticalStackViewForText.customStackView.spacing = 20.0
+        vStackTitleAndAboutLabels.customStackView.axis = .vertical
+        vStackTitleAndAboutLabels.customStackView.alignment = .center
+        vStackTitleAndAboutLabels.customStackView.spacing = 20.0
         
-        horizontalStackViewForButtons.customStackView.axis = .vertical
-        horizontalStackViewForButtons.customStackView.distribution = .fillEqually
-        horizontalStackViewForButtons.customStackView.alignment = .fill
-        horizontalStackViewForButtons.customStackView.spacing = 10
+        vStackImageAndTitle.customStackView.axis = .vertical
+        vStackImageAndTitle.customStackView.alignment = .center
+        vStackImageAndTitle.customStackView.spacing = 5
+        
+        vStackButtons.customStackView.axis = .vertical
+        vStackButtons.customStackView.distribution = .fillEqually
+        vStackButtons.customStackView.alignment = .fill
+        vStackButtons.customStackView.spacing = 10
     }
 }

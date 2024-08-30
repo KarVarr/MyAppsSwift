@@ -59,6 +59,7 @@
 		178C7F682A1284C6001FC539 /* sheep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F672A1284C6001FC539 /* sheep.mp3 */; };
 		178C7F722A155225001FC539 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F712A155225001FC539 /* CustomUISlider.swift */; };
 		1794161D2AB22EED005882D0 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794161C2AB22EED005882D0 /* Sound.swift */; };
+		179E87D52C824A3200EA8526 /* ConfigureImageViewAVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E87D42C824A3200EA8526 /* ConfigureImageViewAVC + Ext.swift */; };
 		17D1D9172A17D2E300A173E1 /* AllSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D9162A17D2E300A173E1 /* AllSounds.swift */; };
 		17D1D91F2A1BEC2900A173E1 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D91E2A1BEC2900A173E1 /* ToolbarView.swift */; };
 		17D1D9242A1BF1C800A173E1 /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D9232A1BF1C800A173E1 /* CustomButtonView.swift */; };
@@ -119,6 +120,7 @@
 		178C7F672A1284C6001FC539 /* sheep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sheep.mp3; sourceTree = "<group>"; };
 		178C7F712A155225001FC539 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
 		1794161C2AB22EED005882D0 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		179E87D42C824A3200EA8526 /* ConfigureImageViewAVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureImageViewAVC + Ext.swift"; sourceTree = "<group>"; };
 		17D117A22C7B3B4300B35D8D /* TerraScape.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TerraScape.entitlements; sourceTree = "<group>"; };
 		17D1D9162A17D2E300A173E1 /* AllSounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSounds.swift; sourceTree = "<group>"; };
 		17D1D91E2A1BEC2900A173E1 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				176650742C7B80D70098F527 /* ConfigureViewAVC+ Ext.swift */,
 				1766507A2C7B82A80098F527 /* ConfigureButtonsAVC + Ext.swift */,
 				176650782C7B824A0098F527 /* ConfigureStackViewAVC +Ext.swift */,
+				179E87D42C824A3200EA8526 /* ConfigureImageViewAVC + Ext.swift */,
 				176650762C7B81B10098F527 /* ConfigureLabelsAVC + Ext.swift */,
 				173F01CA2A2511FE00782653 /* MainComposeAVC + ext.swift */,
 			);
@@ -425,6 +428,7 @@
 				1766506F2C7B670B0098F527 /* ConfigureLabelsToolbar + Ext.swift in Sources */,
 				17D1D91F2A1BEC2900A173E1 /* ToolbarView.swift in Sources */,
 				178C7F362A1014FC001FC539 /* CustomUIView.swift in Sources */,
+				179E87D52C824A3200EA8526 /* ConfigureImageViewAVC + Ext.swift in Sources */,
 				178C7F132A0E8CC2001FC539 /* MainViewController.swift in Sources */,
 				178C7F2A2A0E9F04001FC539 /* CustomCollectionViewCell.swift in Sources */,
 				17D1D9172A17D2E300A173E1 /* AllSounds.swift in Sources */,

@@ -9,11 +9,15 @@ import UIKit
 
 
 class AboutViewController: UIViewController {
-    let verticalStackViewForText = CustomStackView()
-    let horizontalStackViewForButtons = CustomStackView()
+    let vStackTitleAndAboutLabels = CustomStackView()
+    let vStackImageAndTitle = CustomStackView()
+    let vStackButtons = CustomStackView()
     
-    let titleLabel = CustomLabelView()
+    let nameView = CustomLabelView()
+    
+    let aboutImageView = CustomImageView()
     let aboutTitleLabel = CustomLabelView()
+    let aboutVersionLabels = CustomLabelView()
     let aboutTextLabel = CustomLabelView()
     
     let rateAppButton = CustomButtonView()
@@ -32,6 +36,7 @@ class AboutViewController: UIViewController {
         configureLabelsSVC()
         configureStackViewSVC()
         configureButtonsSVC()
+        configureImageView()
     }
 
     @objc func closeModule() {

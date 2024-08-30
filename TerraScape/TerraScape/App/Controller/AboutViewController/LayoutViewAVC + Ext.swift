@@ -9,23 +9,29 @@ import UIKit
 
 extension AboutViewController {
     func layoutViewSVC() {
-        let verticalStackViewForText = verticalStackViewForText.customStackView
-        let horizontalStackViewForButtons = horizontalStackViewForButtons.customStackView
+        let vStackTitleAndAboutLabels = vStackTitleAndAboutLabels.customStackView
+        let vStackButtons = vStackButtons.customStackView
+        let aboutImageView = aboutImageView.customImageView
         let rateAppButton = rateAppButton.customButton
         let reportAProblemButton = reportAProblemButton.customButton
         let closeModuleButton = closeModuleButton.customButton
         
         //MARK: - StackViews
         NSLayoutConstraint.activate([
-            verticalStackViewForText.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-            verticalStackViewForText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            verticalStackViewForText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            verticalStackViewForText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            vStackTitleAndAboutLabels.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            vStackTitleAndAboutLabels.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            vStackTitleAndAboutLabels.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            vStackTitleAndAboutLabels.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            horizontalStackViewForButtons.topAnchor.constraint(equalTo: verticalStackViewForText.bottomAnchor, constant: 40),
-            horizontalStackViewForButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            horizontalStackViewForButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
-            horizontalStackViewForButtons.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            vStackButtons.topAnchor.constraint(equalTo: vStackTitleAndAboutLabels.bottomAnchor, constant: 40),
+            vStackButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            vStackButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
+            vStackButtons.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+            aboutImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
+            aboutImageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
         ])
         
         //MARK: - Buttons
