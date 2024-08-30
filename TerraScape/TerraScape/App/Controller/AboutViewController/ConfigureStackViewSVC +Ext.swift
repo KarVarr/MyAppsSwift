@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension SettingsViewController {
+extension AboutViewController {
     func configureStackViewSVC() {
         verticalStackViewForText.customStackView.axis = .vertical
         verticalStackViewForText.customStackView.alignment = .center

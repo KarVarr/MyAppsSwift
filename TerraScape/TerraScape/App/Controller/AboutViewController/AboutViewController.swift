@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.swift
+//  AboutViewController.swift
 //  TerraScape
 //
 //  Created by Karen Vardanian on 28.05.2023.
@@ -8,7 +8,7 @@
 import UIKit
 
 
-class SettingsViewController: UIViewController {
+class AboutViewController: UIViewController {
     let verticalStackViewForText = CustomStackView()
     let horizontalStackViewForButtons = CustomStackView()
     

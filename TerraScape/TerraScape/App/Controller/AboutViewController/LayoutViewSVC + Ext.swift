@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension SettingsViewController {
+extension AboutViewController {
     func layoutViewSVC() {
         let verticalStackViewForText = verticalStackViewForText.customStackView
         let horizontalStackViewForButtons = horizontalStackViewForButtons.customStackView

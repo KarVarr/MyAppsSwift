@@ -18,8 +18,8 @@ enum Helpers {
     //MARK: - STRINGS
     enum Strings {
         static let navigationTitle = "TerraScape"
-        static let settingsTitle = "Settings"
-        static let settingsAboutTitleLabel = "About"
+        static let settingsTitle = "About"
+        static let settingsAboutTitleLabel = "TerraScape"
         static let settingsAboutText = "Experience TerraScape, the ultimate productivity tool for staying focused and relaxed. Immerse yourself in a variety of ambient sounds, from gentle rain to the cozy ambiance of a coffee house. TerraScape works like magic, enhancing productivity and creating a serene environment. Tune out distractions with soothing rain sounds or find inspiration in the vibrant energy of a café."
         
         enum EmailReport {

@@ -1,5 +1,5 @@
 //
-//  AddViewsSVC + Ext.swift
+//  AddViewsAVC + Ext.swift
 //  TerraScape
 //
 //  Created by Karen Vardanian on 25.08.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension SettingsViewController {
+extension AboutViewController {
     func addViewsSVC() {
         view.addSubview(verticalStackViewForText.customStackView)
         verticalStackViewForText.customStackView.addArrangedSubview(titleLabel.customLabel)

@@ -1,5 +1,5 @@
 //
-//  ConfigureLabels + Ext.swift.swift
+//  ConfigureLabelsAVC + Ext.swift.swift
 //  TerraScape
 //
 //  Created by Karen Vardanian on 25.08.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension SettingsViewController {
+extension AboutViewController {
     func configureLabelsSVC() {
         DispatchQueue.main.async {
             self.titleLabel.customLabel.font = Helpers.Fonts.Thonburi(with: 18)

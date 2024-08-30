@@ -52,7 +52,7 @@ extension ToolbarView {
             return
         }
         
-        let settingVC = SettingsViewController()
+        let settingVC = AboutViewController()
         settingVC.modalPresentationStyle = .popover
         parentViewController.present(settingVC, animated: true, completion: nil)
     }

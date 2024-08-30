@@ -1,5 +1,5 @@
 //
-//  MainComposeVCD + ext.swift
+//  MainComposeAVC + ext.swift
 //  TerraScape
 //
 //  Created by Karen Vardanian on 29.05.2023.
@@ -8,7 +8,7 @@
 import UIKit
 import MessageUI
 
-extension SettingsViewController: MFMailComposeViewControllerDelegate {
+extension AboutViewController: MFMailComposeViewControllerDelegate {
     
     //TODO: Change appID !!!
     #warning("CHANGE APP ID")
