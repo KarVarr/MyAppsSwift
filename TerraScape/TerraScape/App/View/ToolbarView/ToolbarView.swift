@@ -39,7 +39,6 @@ class ToolbarView: UIView {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
 }
 
 

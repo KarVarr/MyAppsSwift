@@ -9,8 +9,6 @@ import UIKit
 import MessageUI
 
 extension AboutViewController: MFMailComposeViewControllerDelegate {
-    
-    //TODO: Change appID !!!
     #warning("CHANGE APP ID")
     @objc func rateButtonTapped() {
         let appleID = "1287000522"
@@ -49,6 +47,4 @@ extension AboutViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
     }
-    
-    
 }

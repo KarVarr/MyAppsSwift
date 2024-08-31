@@ -9,8 +9,6 @@ import UIKit
 
 extension AboutViewController {
     func addViewsSVC() {
-        
-        
         view.addSubview(vStackTitleAndAboutLabels.customStackView)
         vStackTitleAndAboutLabels.customStackView.addArrangedSubview(nameView.customLabel)
         vStackTitleAndAboutLabels.customStackView.addArrangedSubview(vStackImageAndTitle.customStackView)

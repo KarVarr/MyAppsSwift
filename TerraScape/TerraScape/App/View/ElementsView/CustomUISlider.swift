@@ -8,7 +8,6 @@
 import UIKit
 
 class CustomUISlider {
-    
     let customSlider: UISlider = {
         let slider = UISlider()
         slider.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +21,5 @@ class CustomUISlider {
         
         return slider
     }()
-    
-    
 }
 

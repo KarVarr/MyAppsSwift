@@ -36,5 +36,4 @@ extension AboutViewController {
             self.aboutTextLabel.customLabel.numberOfLines = 0
         }
     }
-
 }
