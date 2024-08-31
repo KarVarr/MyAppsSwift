@@ -26,7 +26,8 @@ extension AboutViewController {
             self.aboutTitleLabel.customLabel.font = Helpers.Fonts.GillSansBold(with: 24)
             self.aboutTitleLabel.customLabel.text = Helpers.Strings.settingsAboutTitleLabel
             
-            self.aboutVersionLabels.customLabel.text = Helpers.Strings.aboutVersionTitle
+            let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+            self.aboutVersionLabels.customLabel.text = Helpers.Strings.aboutVersionTitle + (appVersion ?? "1.0")
             self.aboutVersionLabels.customLabel.font = Helpers.Fonts.AppleSDGothicNeoRegular(with: 12)
             self.aboutVersionLabels.customLabel.textColor = Helpers.Colors.settingsWhite.withAlphaComponent(0.8)
         
