@@ -5,16 +5,40 @@
       "comment" : "About text in AboutVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❝جرب TerraScape، أداة الإنتاجية المثالية للبقاء مركزًا ومسترخيًا. انغمس في مجموعة متنوعة من الأصوات المحيطة، من المطر الخفيف إلى الدفء المريح للنار المشتعلة. يعمل TerraScape كالسحر، حيث يعزز الإنتاجية مع خلق بيئة هادئة!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " ❝ Experience TerraScape, the ultimate productivity tool for staying focused and relaxed. Immerse yourself in a variety of ambient sounds, from gentle rain to the cozy warmth of a crackling fire. TerraScape works like magic, enhancing productivity while creating a serene environment!"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❝ Experimente TerraScape, la herramienta de productividad definitiva para mantenerse concentrado y relajado. Sumérjase en una variedad de sonidos ambientales, desde la suave lluvia hasta el calor acogedor de un fuego crepitante. ¡TerraScape funciona como por arte de magia, mejorando la productividad y creando un entorno sereno!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❝ Découvrez TerraScape, l'outil de productivité ultime pour rester concentré et détendu. Plongez dans une variété de sons ambiants, de la douce pluie à la chaleur douillette d'un feu crépitant. TerraScape fonctionne comme par magie, améliorant la productivité tout en créant un environnement serein !"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "❝ Փորձեք TerraScape-ը, որը արտադրողականության վերջնական գործիքն է՝ կենտրոնացած և հանգիստ մնալու համար: Ընկղմվեք շրջակա միջավայրի տարբեր հնչյունների մեջ՝ մեղմ անձրևից մինչև թրթռացող կրակի հարմարավետ ջերմություն: TerraScape-ն աշխատում է մոգության պես՝ բարձրացնելով արտադրողականությունը՝ միաժամանակ ստեղծելով հանգիստ միջավայր:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❝ 集中力とリラックス感を維持するための究極の生産性ツール、TerraScape を体験してください。穏やかな雨音からパチパチと音を立てる暖炉の心地よい暖かさまで、さまざまな環境音に浸ってください。TerraScape は魔法のように機能し、生産性を高めながら穏やかな環境を作り出します。"
           }
         },
         "ru" : {
@@ -29,16 +53,40 @@
       "comment" : "About title in AboutVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حول التطبيق"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "About"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acerca de"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À propos"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Դիմումի մասին"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "について"
           }
         },
         "ru" : {
@@ -53,16 +101,40 @@
       "comment" : "Bird in MVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "طائر"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bird"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "pájaro"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "oiseau"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "թռչուն"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "鳥"
           }
         },
         "ru" : {
@@ -77,16 +149,40 @@
       "comment" : "Bonfire in MVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نار المخيم"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bonfire"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "hoguera"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "feu"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "խարույկ"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "焚き火"
           }
         },
         "ru" : {
@@ -101,16 +197,40 @@
       "comment" : "Clock in MVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ساعة"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Clock"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "reloj"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "horloge"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ժամացույց"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "クロック"
           }
         },
         "ru" : {
@@ -125,16 +245,40 @@
       "comment" : "Forest in MVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "غابة"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Forest"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "bosque"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "forêt"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "անտառ"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "森"
           }
         },
         "ru" : {
@@ -149,16 +293,40 @@
       "comment" : "Heart in MVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قلب"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Heart"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "corazón"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "cœur"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "սիրտ"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "心臓"
           }
         },
         "ru" : {
@@ -173,16 +341,40 @@
       "comment" : "Owl in MVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بُومَة"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Owl"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "búho"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "chouette"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "բու"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フクロウ"
           }
         },
         "ru" : {
@@ -197,16 +389,40 @@
       "comment" : "Rain in MVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مطر"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rain"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "lluvia"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "pluie"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "անձրեւ"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雨"
           }
         },
         "ru" : {
@@ -219,16 +435,40 @@
     },
     "Rate" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "معدل"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rate"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tasa"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taux"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Գնահատել"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "レート"
           }
         },
         "ru" : {
@@ -241,16 +481,40 @@
     },
     "Report" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تقرير"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Report"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informe"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rapport"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Հաղորդել սխալի մասին"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "報告"
           }
         },
         "ru" : {
@@ -265,16 +529,40 @@
       "comment" : "Rooster in MVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ديك"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rooster"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "gallo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "coq"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "աքաղաղ"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雄鶏"
           }
         },
         "ru" : {
@@ -289,16 +577,40 @@
       "comment" : "Sea in MVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بحر"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sea"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "mar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "mer"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ծով"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "海"
           }
         },
         "ru" : {
@@ -313,16 +625,40 @@
       "comment" : "Sheep in MVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "غنم"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sheep"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "oveja"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "brebis"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ոչխար"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "羊"
           }
         },
         "ru" : {
@@ -337,16 +673,40 @@
       "comment" : "Swamp in MVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مستنقع"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Swamp"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "pantano"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "marais"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ճահիճ"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "沼地"
           }
         },
         "ru" : {
@@ -361,16 +721,40 @@
       "comment" : "Thunder in MVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رعد"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Thunder"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "trueno"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tonnerre"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ամպրոպ"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雷"
           }
         },
         "ru" : {
@@ -385,16 +769,40 @@
       "comment" : "Train in MVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يدرب"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Train"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tren"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "former"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "գնացք"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "電車"
           }
         },
         "ru" : {
@@ -409,7 +817,25 @@
       "comment" : "Version app in AboutVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إصدار: "
+          }
+        },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version: "
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versión: "
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Version: "
@@ -419,6 +845,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Տարբերակ. "
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バージョン: "
           }
         },
         "ru" : {
@@ -433,16 +865,40 @@
       "comment" : "W Noise in MVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مع الضوضاء"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "W Noise"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "con ruido"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "bruit blanc"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ս աղմուկ"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ホワイトノイズ"
           }
         },
         "ru" : {
@@ -457,16 +913,40 @@
       "comment" : "Wind in MVC",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رياح"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wind"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "viento"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "vent"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "քամի"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "風"
           }
         },
         "ru" : {
