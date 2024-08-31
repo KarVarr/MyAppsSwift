@@ -14,15 +14,21 @@ extension ToolbarView {
             UIImage(named: "play")?.withTintColor(.white, renderingMode: .alwaysOriginal),
             for: .normal
         )
+        
         playButton.customButton.addTarget(
             self,
             action: #selector(playButtonForSound),
             for: .touchUpInside
         )
         
+        //Arabic localization
+        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
+            playButton.customButton.transform = playButton.customButton.transform.rotated(by: .pi)
+        }
+        
         //MARK: - Setting button
         settingButton.customButton.setImage(
-            UIImage(named: "gear")?.withTintColor(.secondaryLabel, renderingMode: .alwaysOriginal),
+            UIImage(named: "info")?.withTintColor(.secondaryLabel, renderingMode: .alwaysOriginal),
             for: .normal
         )
         

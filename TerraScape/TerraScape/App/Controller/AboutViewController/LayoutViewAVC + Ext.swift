@@ -18,7 +18,7 @@ extension AboutViewController {
         
         //MARK: - StackViews
         NSLayoutConstraint.activate([
-            vStackTitleAndAboutLabels.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            vStackTitleAndAboutLabels.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
             vStackTitleAndAboutLabels.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             vStackTitleAndAboutLabels.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             vStackTitleAndAboutLabels.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -29,6 +29,7 @@ extension AboutViewController {
             vStackButtons.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         
+        //MARK: - Images
         NSLayoutConstraint.activate([
             aboutImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
             aboutImageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),

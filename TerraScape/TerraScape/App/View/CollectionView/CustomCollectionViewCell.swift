@@ -67,6 +67,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
         
         contentView.addSubview(blurEffectView)
         layer.insertSublayer(gradient, at: 0)
+        
+        nameOfSound.customLabel.font = Helpers.Fonts.GillSansBold(with: 14)
  
         volumeOfSound.translatesAutoresizingMaskIntoConstraints = false
     }

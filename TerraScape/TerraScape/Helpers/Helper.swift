@@ -73,17 +73,18 @@ enum Helpers {
     
     //MARK: - FONTS
     enum Fonts {
+        private static func dynamicFontSize(_ fontSize: CGFloat) -> CGFloat {
+            let screenWidth = UIScreen.main.bounds.size.width
+            let calculatedFontSize = screenWidth / 375 * fontSize
+            return calculatedFontSize
+        }
+        
         static func AppleSDGothicNeoRegular(with size: CGFloat) -> UIFont {
-            UIFont(name: "AppleSDGothicNeo-Regular", size: size) ?? UIFont()
+            UIFont(name: "AppleSDGothicNeo-Regular", size: dynamicFontSize(size)) ?? UIFont()
         }
         
         static func GillSansBold(with size: CGFloat) -> UIFont {
-            UIFont(name: "GillSans-Bold", size: size) ?? UIFont()
-        }
-        
-        static func Thonburi (with size: CGFloat) -> UIFont {
-            UIFont(name: "Thonburi", size: size) ?? UIFont()
+            UIFont(name: "GillSans-Bold", size: dynamicFontSize(size)) ?? UIFont()
         }
     }
-    
 }

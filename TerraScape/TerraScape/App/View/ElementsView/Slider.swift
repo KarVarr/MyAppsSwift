@@ -27,6 +27,13 @@ final class Slider: UISlider {
         createThumbImageView()
         configureTrackLayer()
         addUserInteractions()
+        
+        //Arabic localization
+        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
+            semanticContentAttribute = .forceRightToLeft
+        } else {
+            semanticContentAttribute = .forceLeftToRight
+        }
     }
     
     private func clear() {
@@ -62,10 +69,26 @@ final class Slider: UISlider {
 
     private func updateTrackLayer() {
         let thumbRectA = thumbRect(forBounds: bounds, trackRect: trackRect(forBounds: bounds), value: value)
-        let adjustedWidth = thumbRectA.maxX + 1.0 // Adjust this value if needed
+        let adjustedWidth: CGFloat
+        let isRTL = UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft
+        
+        //Arabic localization
+        if isRTL {
+            adjustedWidth = bounds.width - thumbRectA.minX
+        } else {
+            adjustedWidth = thumbRectA.maxX
+        }
+        
         CATransaction.begin()
         CATransaction.setDisableActions(true)
-        trackLayer.frame = .init(x: 0, y: 0, width: adjustedWidth, height: frame.height)
+        
+        //Arabic localization
+        if isRTL {
+            trackLayer.frame = .init(x: bounds.width - adjustedWidth, y: 0, width: adjustedWidth, height: frame.height)
+        } else {
+            trackLayer.frame = .init(x: 0, y: 0, width: adjustedWidth, height: frame.height)
+        }
+        
         CATransaction.commit()
     }
 

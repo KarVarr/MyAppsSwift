@@ -29,6 +29,12 @@
             "value" : "❝ Découvrez TerraScape, l'outil de productivité ultime pour rester concentré et détendu. Plongez dans une variété de sons ambiants, de la douce pluie à la chaleur douillette d'un feu crépitant. TerraScape fonctionne comme par magie, améliorant la productivité tout en créant un environnement serein !"
           }
         },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❝ התנסו ב- TerraScape, כלי הפרודוקטיביות האולטימטיבי לשמירה על מיקוד ורגוע. טבלו את עצמכם במגוון צלילי סביבה, מגשם עדין ועד לחום הנעים של אש מתפצפצת. TerraScape עובד כמו קסם, משפר את הפרודוקטיביות תוך יצירת סביבה שלווה!"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
@@ -75,6 +81,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "À propos"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אוֹדוֹת"
           }
         },
         "hy" : {
@@ -125,6 +137,12 @@
             "value" : "oiseau"
           }
         },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "צִפּוֹר"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
@@ -171,6 +189,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "feu"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מְדוּרָה"
           }
         },
         "hy" : {
@@ -221,6 +245,12 @@
             "value" : "horloge"
           }
         },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שָׁעוֹן"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
@@ -267,6 +297,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "forêt"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "יַעַר"
           }
         },
         "hy" : {
@@ -317,6 +353,12 @@
             "value" : "cœur"
           }
         },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "לֵב"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
@@ -363,6 +405,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "chouette"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "יַנשׁוּף"
           }
         },
         "hy" : {
@@ -413,6 +461,12 @@
             "value" : "pluie"
           }
         },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "גֶשֶׁם"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
@@ -459,6 +513,12 @@
             "value" : "Taux"
           }
         },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "קֶצֶב"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
@@ -503,6 +563,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rapport"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "דִוּוּחַ"
           }
         },
         "hy" : {
@@ -553,6 +619,12 @@
             "value" : "coq"
           }
         },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תַרְנְגוֹל"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
@@ -599,6 +671,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "mer"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "יָם"
           }
         },
         "hy" : {
@@ -649,6 +727,12 @@
             "value" : "brebis"
           }
         },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "כִּבשָׂה"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
@@ -695,6 +779,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "marais"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "לְהַצִיף"
           }
         },
         "hy" : {
@@ -745,6 +835,12 @@
             "value" : "tonnerre"
           }
         },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "רַעַם"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
@@ -791,6 +887,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "former"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "רַכֶּבֶת"
           }
         },
         "hy" : {
@@ -841,6 +943,12 @@
             "value" : "Version: "
           }
         },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "גִרְסָה: "
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
@@ -889,6 +997,12 @@
             "value" : "bruit blanc"
           }
         },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "w רעש"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
@@ -904,7 +1018,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Б Шум"
+            "value" : "Белый Шум"
           }
         }
       }
@@ -935,6 +1049,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "vent"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "רוּחַ"
           }
         },
         "hy" : {

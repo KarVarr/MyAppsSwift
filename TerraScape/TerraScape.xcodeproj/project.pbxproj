@@ -69,6 +69,12 @@
 /* Begin PBXFileReference section */
 		170B34342C836C840073B797 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		170B34362C836DE50073B797 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		170B34382C839B5E0073B797 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		170B34392C839B780073B797 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		170B343A2C839B7F0073B797 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		170B343B2C839B8A0073B797 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		170B343C2C839BA60073B797 /* hy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hy; path = hy.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		170B343D2C83A51E0073B797 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		171A30E32C79000F00D81107 /* LayoutViewMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutViewMVC + Ext.swift"; sourceTree = "<group>"; };
 		171A30E52C79008200D81107 /* AddViewsMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewsMVC + Ext.swift"; sourceTree = "<group>"; };
 		171A30E72C7900D400D81107 /* ConfigureViewMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewMVC + Ext.swift"; sourceTree = "<group>"; };
@@ -386,10 +392,12 @@
 				en,
 				Base,
 				ru,
-				hy,
+				ar,
 				fr,
-				ja,
 				es,
+				ja,
+				hy,
+				he,
 			);
 			mainGroup = 178C7F022A0E8CC2001FC539;
 			packageReferences = (
@@ -486,6 +494,12 @@
 			children = (
 				178C7F1A2A0E8CC4001FC539 /* Base */,
 				170B34342C836C840073B797 /* ru */,
+				170B34382C839B5E0073B797 /* ar */,
+				170B34392C839B780073B797 /* fr */,
+				170B343A2C839B7F0073B797 /* es */,
+				170B343B2C839B8A0073B797 /* ja */,
+				170B343C2C839BA60073B797 /* hy */,
+				170B343D2C83A51E0073B797 /* he */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

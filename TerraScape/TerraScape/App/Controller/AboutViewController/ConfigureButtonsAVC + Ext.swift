@@ -18,7 +18,13 @@ extension AboutViewController {
             button.tintColor = .white
             button.backgroundColor = Helpers.Colors.toolbarSettingsButtonColor
             button.layer.cornerRadius = Helpers.Radius.buttonCornerRadius
-            button.contentHorizontalAlignment = .left
+            
+            //Arabic localization
+            if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
+                button.contentHorizontalAlignment = .right
+            } else {
+                button.contentHorizontalAlignment = .left
+            }
         }
         
         rateAppButton.customButton.setTitle(Helpers.Strings.AboutVC.rate, for: .normal)
