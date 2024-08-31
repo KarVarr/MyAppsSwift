@@ -11,6 +11,12 @@
             "value" : " ❝ Experience TerraScape, the ultimate productivity tool for staying focused and relaxed. Immerse yourself in a variety of ambient sounds, from gentle rain to the cozy warmth of a crackling fire. TerraScape works like magic, enhancing productivity while creating a serene environment!"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❝ Փորձեք TerraScape-ը, որը արտադրողականության վերջնական գործիքն է՝ կենտրոնացած և հանգիստ մնալու համար: Ընկղմվեք շրջակա միջավայրի տարբեր հնչյունների մեջ՝ մեղմ անձրևից մինչև թրթռացող կրակի հարմարավետ ջերմություն: TerraScape-ն աշխատում է մոգության պես՝ բարձրացնելով արտադրողականությունը՝ միաժամանակ ստեղծելով հանգիստ միջավայր:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27,6 +33,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "About"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Դիմումի մասին"
           }
         },
         "ru" : {
@@ -47,6 +59,12 @@
             "value" : "Bird"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "թռչուն"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -63,6 +81,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bonfire"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "խարույկ"
           }
         },
         "ru" : {
@@ -83,6 +107,12 @@
             "value" : "Clock"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ժամացույց"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -99,6 +129,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Forest"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "անտառ"
           }
         },
         "ru" : {
@@ -119,6 +155,12 @@
             "value" : "Heart"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "սիրտ"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -135,6 +177,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Owl"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "բու"
           }
         },
         "ru" : {
@@ -155,6 +203,12 @@
             "value" : "Rain"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "անձրեւ"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -163,14 +217,18 @@
         }
       }
     },
-    "rate" : {
-      "comment" : "Rate in AboutVC",
-      "extractionState" : "manual",
+    "Rate" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rate"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Գնահատել"
           }
         },
         "ru" : {
@@ -181,17 +239,18 @@
         }
       }
     },
-    "Rate" : {
-
-    },
-    "report" : {
-      "comment" : "Report in AboutVC",
-      "extractionState" : "manual",
+    "Report" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Report"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հաղորդել սխալի մասին"
           }
         },
         "ru" : {
@@ -202,9 +261,6 @@
         }
       }
     },
-    "Report" : {
-
-    },
     "rooster" : {
       "comment" : "Rooster in MVC",
       "extractionState" : "manual",
@@ -213,6 +269,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rooster"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "աքաղաղ"
           }
         },
         "ru" : {
@@ -233,6 +295,12 @@
             "value" : "Sea"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ծով"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -249,6 +317,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sheep"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ոչխար"
           }
         },
         "ru" : {
@@ -269,6 +343,12 @@
             "value" : "Swamp"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ճահիճ"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -285,6 +365,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Thunder"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ամպրոպ"
           }
         },
         "ru" : {
@@ -305,6 +391,12 @@
             "value" : "Train"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "գնացք"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -321,6 +413,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Version: "
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Տարբերակ. "
           }
         },
         "ru" : {
@@ -341,6 +439,12 @@
             "value" : "W Noise"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ս աղմուկ"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -357,6 +461,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wind"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "քամի"
           }
         },
         "ru" : {
