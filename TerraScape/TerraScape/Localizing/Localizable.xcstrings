@@ -1,10 +1,7 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "about" : {
-
-    },
-    "aboutText" : {
+    " ❝ Experience TerraScape, the ultimate productivity tool for staying focused and relaxed. Immerse yourself in a variety of ambient sounds, from gentle rain to the cozy warmth of a crackling fire. TerraScape works like magic, enhancing productivity while creating a serene environment!" : {
       "comment" : "About text in AboutVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -22,7 +19,18 @@
         }
       }
     },
-    "aboutTitle" : {
+    "about" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "about"
+          }
+        }
+      }
+    },
+    "About" : {
       "comment" : "About title in AboutVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -40,7 +48,7 @@
         }
       }
     },
-    "bird" : {
+    "Bird" : {
       "comment" : "Bird in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -58,7 +66,7 @@
         }
       }
     },
-    "bonfire" : {
+    "Bonfire" : {
       "comment" : "Bonfire in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -76,7 +84,7 @@
         }
       }
     },
-    "clock" : {
+    "Clock" : {
       "comment" : "Clock in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -94,7 +102,7 @@
         }
       }
     },
-    "forest" : {
+    "Forest" : {
       "comment" : "Forest in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -112,7 +120,7 @@
         }
       }
     },
-    "heart" : {
+    "Heart" : {
       "comment" : "Heart in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -130,7 +138,7 @@
         }
       }
     },
-    "owl" : {
+    "Owl" : {
       "comment" : "Owl in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -148,7 +156,7 @@
         }
       }
     },
-    "rain" : {
+    "Rain" : {
       "comment" : "Rain in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -166,7 +174,7 @@
         }
       }
     },
-    "rate" : {
+    "Rate" : {
       "comment" : "Rate in AboutVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -184,7 +192,7 @@
         }
       }
     },
-    "report" : {
+    "Report" : {
       "comment" : "Report in AboutVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -202,7 +210,7 @@
         }
       }
     },
-    "rooster" : {
+    "Rooster" : {
       "comment" : "Rooster in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -220,7 +228,7 @@
         }
       }
     },
-    "sea" : {
+    "Sea" : {
       "comment" : "Sea in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -238,7 +246,7 @@
         }
       }
     },
-    "sheep" : {
+    "Sheep" : {
       "comment" : "Sheep in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -256,7 +264,7 @@
         }
       }
     },
-    "swamp" : {
+    "Swamp" : {
       "comment" : "Swamp in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -270,24 +278,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Болото"
-          }
-        }
-      }
-    },
-    "thunder" : {
-      "comment" : "Thunder in MVC",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thunder"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Гром"
           }
         }
       }
@@ -310,43 +300,25 @@
         }
       }
     },
-    "versionApp" : {
+    "Version: " : {
       "comment" : "Version app in AboutVC",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Version"
+            "value" : "Version: "
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Версия"
+            "value" : "Версия: "
           }
         }
       }
     },
-    "wind" : {
-      "comment" : "Wind in MVC",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wind"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ветер"
-          }
-        }
-      }
-    },
-    "wNoise" : {
+    "W Noise" : {
       "comment" : "W Noise in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -360,6 +332,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Б Шум"
+          }
+        }
+      }
+    },
+    "Wind" : {
+      "comment" : "Wind in MVC",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wind"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ветер"
           }
         }
       }

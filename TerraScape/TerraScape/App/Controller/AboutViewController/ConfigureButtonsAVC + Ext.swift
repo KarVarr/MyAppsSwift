@@ -21,11 +21,11 @@ extension AboutViewController {
             button.contentHorizontalAlignment = .left
         }
         
-        rateAppButton.customButton.setTitle("Rate", for: .normal)
+        rateAppButton.customButton.setTitle(Helpers.Strings.AboutVC.rate, for: .normal)
         rateAppButton.customButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         rateAppButton.customButton.addTarget(self, action: #selector(rateButtonTapped), for: .touchUpInside)
         
-        reportAProblemButton.customButton.setTitle("Report", for: .normal)
+        reportAProblemButton.customButton.setTitle(Helpers.Strings.AboutVC.report, for: .normal)
         reportAProblemButton.customButton.setImage(UIImage(systemName: "ladybug.fill"), for: .normal)
         reportAProblemButton.customButton.addTarget(self, action: #selector(sendEmailAboutABug), for: .touchUpInside)
         

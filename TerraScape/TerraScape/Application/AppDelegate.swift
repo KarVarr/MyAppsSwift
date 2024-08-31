@@ -16,11 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupAudioSession()
         setupRemoteCommandCenter()
-        
-        print(NSLocalizedString("report", comment: ""))
-        print(String(localized: "rate"))
-   
-        
         return true
     }
     
