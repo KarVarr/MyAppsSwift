@@ -24,8 +24,8 @@ extension AboutViewController {
             vStackTitleAndAboutLabels.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             vStackButtons.topAnchor.constraint(equalTo: vStackTitleAndAboutLabels.bottomAnchor, constant: 40),
-            vStackButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            vStackButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
+            vStackButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            vStackButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             vStackButtons.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         
@@ -36,8 +36,8 @@ extension AboutViewController {
         
         //MARK: - Buttons
         NSLayoutConstraint.activate([
-            reportAProblemButton.heightAnchor.constraint(equalToConstant: 44),
-            rateAppButton.heightAnchor.constraint(equalToConstant: 44),
+            reportAProblemButton.heightAnchor.constraint(equalToConstant: 54),
+            rateAppButton.heightAnchor.constraint(equalToConstant: 54),
             
             closeModuleButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
             closeModuleButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),

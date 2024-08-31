@@ -63,7 +63,7 @@ enum Helpers {
     //MARK: - RADIUS
     enum Radius {
         static let cellCornerRadius = 20.0
-        static let buttonCornerRadius = 8.0
+        static let buttonCornerRadius = 10.0
     }
     
     //MARK: - FONTS
