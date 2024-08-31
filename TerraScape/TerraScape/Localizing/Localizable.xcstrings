@@ -19,17 +19,6 @@
         }
       }
     },
-    "about" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "about"
-          }
-        }
-      }
-    },
     "About" : {
       "comment" : "About title in AboutVC",
       "extractionState" : "manual",
@@ -48,7 +37,7 @@
         }
       }
     },
-    "Bird" : {
+    "bird" : {
       "comment" : "Bird in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -66,7 +55,7 @@
         }
       }
     },
-    "Bonfire" : {
+    "bonfire" : {
       "comment" : "Bonfire in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -84,7 +73,7 @@
         }
       }
     },
-    "Clock" : {
+    "clock" : {
       "comment" : "Clock in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -102,7 +91,7 @@
         }
       }
     },
-    "Forest" : {
+    "forest" : {
       "comment" : "Forest in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -120,7 +109,7 @@
         }
       }
     },
-    "Heart" : {
+    "heart" : {
       "comment" : "Heart in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -138,7 +127,7 @@
         }
       }
     },
-    "Owl" : {
+    "owl" : {
       "comment" : "Owl in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -156,7 +145,7 @@
         }
       }
     },
-    "Rain" : {
+    "rain" : {
       "comment" : "Rain in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -174,7 +163,7 @@
         }
       }
     },
-    "Rate" : {
+    "rate" : {
       "comment" : "Rate in AboutVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -192,7 +181,10 @@
         }
       }
     },
-    "Report" : {
+    "Rate" : {
+
+    },
+    "report" : {
       "comment" : "Report in AboutVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -210,7 +202,10 @@
         }
       }
     },
-    "Rooster" : {
+    "Report" : {
+
+    },
+    "rooster" : {
       "comment" : "Rooster in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -228,7 +223,7 @@
         }
       }
     },
-    "Sea" : {
+    "sea" : {
       "comment" : "Sea in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -246,7 +241,7 @@
         }
       }
     },
-    "Sheep" : {
+    "sheep" : {
       "comment" : "Sheep in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -264,7 +259,7 @@
         }
       }
     },
-    "Swamp" : {
+    "swamp" : {
       "comment" : "Swamp in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -278,6 +273,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Болото"
+          }
+        }
+      }
+    },
+    "thunder" : {
+      "comment" : "Thunder in MVC",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thunder"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Гром"
           }
         }
       }
@@ -318,7 +331,7 @@
         }
       }
     },
-    "W Noise" : {
+    "w noise" : {
       "comment" : "W Noise in MVC",
       "extractionState" : "manual",
       "localizations" : {
@@ -336,7 +349,7 @@
         }
       }
     },
-    "Wind" : {
+    "wind" : {
       "comment" : "Wind in MVC",
       "extractionState" : "manual",
       "localizations" : {

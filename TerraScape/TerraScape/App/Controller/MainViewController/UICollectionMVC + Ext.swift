@@ -23,8 +23,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Helpers.Keys.collectionCell, for: indexPath) as! CustomCollectionViewCell
         
         let sound = allSounds.sounds[indexPath.item]
-
-        cell.nameOfSound.customLabel.text = sound.name.capitalized
+        let localizedSoundName = NSLocalizedString(sound.name, comment: "")
+        
+        cell.nameOfSound.customLabel.text = localizedSoundName.capitalized
         cell.volumeOfSound.value = sound.volume
         DispatchQueue.global().async {
             if let image = UIImage(named: sound.image) {
