@@ -12,6 +12,7 @@ class AboutViewController: UIViewController {
     let vStackTitleAndAboutLabels = CustomStackView()
     let vStackImageAndTitle = CustomStackView()
     let vStackButtons = CustomStackView()
+    let scrollView = CustomScrollView()
     
     let nameView = CustomLabelView()
     

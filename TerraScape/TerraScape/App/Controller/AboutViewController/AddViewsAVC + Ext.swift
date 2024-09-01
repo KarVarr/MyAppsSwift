@@ -9,7 +9,12 @@ import UIKit
 
 extension AboutViewController {
     func addViewsSVC() {
-        view.addSubview(vStackTitleAndAboutLabels.customStackView)
+        view.addSubview(scrollView.customScrollView)
+        scrollView.customScrollView.addSubview(vStackTitleAndAboutLabels.customStackView)
+        scrollView.customScrollView.addSubview(vStackImageAndTitle.customStackView)
+        scrollView.customScrollView.addSubview(vStackButtons.customStackView)
+        scrollView.customScrollView.addSubview(closeModuleButton.customButton)
+        
         vStackTitleAndAboutLabels.customStackView.addArrangedSubview(nameView.customLabel)
         vStackTitleAndAboutLabels.customStackView.addArrangedSubview(vStackImageAndTitle.customStackView)
         vStackTitleAndAboutLabels.customStackView.addArrangedSubview(aboutTextLabel.customLabel)
@@ -18,10 +23,7 @@ extension AboutViewController {
         vStackImageAndTitle.customStackView.addArrangedSubview(aboutTitleLabel.customLabel)
         vStackImageAndTitle.customStackView.addArrangedSubview(aboutVersionLabels.customLabel)
         
-        view.addSubview(vStackButtons.customStackView)
         vStackButtons.customStackView.addArrangedSubview(rateAppButton.customButton)
         vStackButtons.customStackView.addArrangedSubview(reportAProblemButton.customButton)
-        
-        view.addSubview(closeModuleButton.customButton)
     }
 }

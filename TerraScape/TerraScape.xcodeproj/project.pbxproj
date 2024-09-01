@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		170B34372C836DE50073B797 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 170B34362C836DE50073B797 /* Localizable.xcstrings */; };
+		170B343F2C8475F60073B797 /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B343E2C8475F60073B797 /* CustomScrollView.swift */; };
 		171A30E42C79000F00D81107 /* LayoutViewMVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A30E32C79000F00D81107 /* LayoutViewMVC + Ext.swift */; };
 		171A30E62C79008200D81107 /* AddViewsMVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A30E52C79008200D81107 /* AddViewsMVC + Ext.swift */; };
 		171A30E82C7900D400D81107 /* ConfigureViewMVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A30E72C7900D400D81107 /* ConfigureViewMVC + Ext.swift */; };
@@ -21,7 +22,7 @@
 		173F01C62A236B1600782653 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01C52A236B1600782653 /* AboutViewController.swift */; };
 		173F01C82A237D9900782653 /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01C72A237D9900782653 /* CustomStackView.swift */; };
 		173F01CB2A2511FE00782653 /* MainComposeAVC + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01CA2A2511FE00782653 /* MainComposeAVC + ext.swift */; };
-		173F01EF2A252EA200782653 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01EE2A252EA200782653 /* Slider.swift */; };
+		173F01EF2A252EA200782653 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01EE2A252EA200782653 /* CustomSlider.swift */; };
 		1766506F2C7B670B0098F527 /* ConfigureLabelsToolbar + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1766506E2C7B670B0098F527 /* ConfigureLabelsToolbar + Ext.swift */; };
 		176650712C7B7FFD0098F527 /* LayoutViewAVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176650702C7B7FFC0098F527 /* LayoutViewAVC + Ext.swift */; };
 		176650732C7B80890098F527 /* AddViewsAVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176650722C7B80890098F527 /* AddViewsAVC + Ext.swift */; };
@@ -58,7 +59,6 @@
 		178C7F652A12808E001FC539 /* wind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F562A12808E001FC539 /* wind.mp3 */; };
 		178C7F662A12808E001FC539 /* bird.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F572A12808E001FC539 /* bird.mp3 */; };
 		178C7F682A1284C6001FC539 /* sheep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 178C7F672A1284C6001FC539 /* sheep.mp3 */; };
-		178C7F722A155225001FC539 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178C7F712A155225001FC539 /* CustomUISlider.swift */; };
 		1794161D2AB22EED005882D0 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794161C2AB22EED005882D0 /* Sound.swift */; };
 		179E87D52C824A3200EA8526 /* ConfigureImageViewAVC + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E87D42C824A3200EA8526 /* ConfigureImageViewAVC + Ext.swift */; };
 		17D1D9172A17D2E300A173E1 /* AllSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D1D9162A17D2E300A173E1 /* AllSounds.swift */; };
@@ -75,6 +75,7 @@
 		170B343B2C839B8A0073B797 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		170B343C2C839BA60073B797 /* hy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hy; path = hy.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		170B343D2C83A51E0073B797 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		170B343E2C8475F60073B797 /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
 		171A30E32C79000F00D81107 /* LayoutViewMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutViewMVC + Ext.swift"; sourceTree = "<group>"; };
 		171A30E52C79008200D81107 /* AddViewsMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewsMVC + Ext.swift"; sourceTree = "<group>"; };
 		171A30E72C7900D400D81107 /* ConfigureViewMVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureViewMVC + Ext.swift"; sourceTree = "<group>"; };
@@ -88,7 +89,7 @@
 		173F01C52A236B1600782653 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		173F01C72A237D9900782653 /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		173F01CA2A2511FE00782653 /* MainComposeAVC + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainComposeAVC + ext.swift"; sourceTree = "<group>"; };
-		173F01EE2A252EA200782653 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
+		173F01EE2A252EA200782653 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		1766506E2C7B670B0098F527 /* ConfigureLabelsToolbar + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureLabelsToolbar + Ext.swift"; sourceTree = "<group>"; };
 		176650702C7B7FFC0098F527 /* LayoutViewAVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutViewAVC + Ext.swift"; sourceTree = "<group>"; };
 		176650722C7B80890098F527 /* AddViewsAVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddViewsAVC + Ext.swift"; sourceTree = "<group>"; };
@@ -127,7 +128,6 @@
 		178C7F562A12808E001FC539 /* wind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wind.mp3; sourceTree = "<group>"; };
 		178C7F572A12808E001FC539 /* bird.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird.mp3; sourceTree = "<group>"; };
 		178C7F672A1284C6001FC539 /* sheep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sheep.mp3; sourceTree = "<group>"; };
-		178C7F712A155225001FC539 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
 		1794161C2AB22EED005882D0 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		179E87D42C824A3200EA8526 /* ConfigureImageViewAVC + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigureImageViewAVC + Ext.swift"; sourceTree = "<group>"; };
 		17D1D9162A17D2E300A173E1 /* AllSounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSounds.swift; sourceTree = "<group>"; };
@@ -285,10 +285,10 @@
 				178C7F2E2A0EBD6B001FC539 /* CustomLabelView.swift */,
 				178C7F302A0EBDBC001FC539 /* CustomImageView.swift */,
 				178C7F352A1014FC001FC539 /* CustomUIView.swift */,
-				178C7F712A155225001FC539 /* CustomUISlider.swift */,
 				17D1D9232A1BF1C800A173E1 /* CustomButtonView.swift */,
 				173F01C72A237D9900782653 /* CustomStackView.swift */,
-				173F01EE2A252EA200782653 /* Slider.swift */,
+				170B343E2C8475F60073B797 /* CustomScrollView.swift */,
+				173F01EE2A252EA200782653 /* CustomSlider.swift */,
 			);
 			path = ElementsView;
 			sourceTree = "<group>";
@@ -458,14 +458,14 @@
 				17D1D9172A17D2E300A173E1 /* AllSounds.swift in Sources */,
 				178C7F3A2A10E516001FC539 /* UICollectionMVC + Ext.swift in Sources */,
 				171D971B2C7B637200B71C9F /* LayoutToolbar + Ext.swift in Sources */,
+				170B343F2C8475F60073B797 /* CustomScrollView.swift in Sources */,
 				178C7F2F2A0EBD6B001FC539 /* CustomLabelView.swift in Sources */,
 				171A30EE2C7901FB00D81107 /* ConfigureToolbarMVC + Ext.swift in Sources */,
 				178C7F342A0FF5C4001FC539 /* Images.swift in Sources */,
-				178C7F722A155225001FC539 /* CustomUISlider.swift in Sources */,
 				176650752C7B80D70098F527 /* ConfigureViewAVC+ Ext.swift in Sources */,
 				1794161D2AB22EED005882D0 /* Sound.swift in Sources */,
 				1766507B2C7B82A80098F527 /* ConfigureButtonsAVC + Ext.swift in Sources */,
-				173F01EF2A252EA200782653 /* Slider.swift in Sources */,
+				173F01EF2A252EA200782653 /* CustomSlider.swift in Sources */,
 				176650732C7B80890098F527 /* AddViewsAVC + Ext.swift in Sources */,
 				173F01C62A236B1600782653 /* AboutViewController.swift in Sources */,
 				176650712C7B7FFD0098F527 /* LayoutViewAVC + Ext.swift in Sources */,
