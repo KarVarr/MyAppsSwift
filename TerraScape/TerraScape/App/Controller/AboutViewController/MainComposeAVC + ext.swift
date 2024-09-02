@@ -9,9 +9,8 @@ import UIKit
 import MessageUI
 
 extension AboutViewController: MFMailComposeViewControllerDelegate {
-    #warning("CHANGE APP ID")
     @objc func rateButtonTapped() {
-        let appleID = "1287000522"
+        let appleID = "6670364178"
         guard let url = URL(string: "itms-apps://itunes.apple.com/app/id\(appleID)?mt=8&action=write-review") else { return }
         
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
