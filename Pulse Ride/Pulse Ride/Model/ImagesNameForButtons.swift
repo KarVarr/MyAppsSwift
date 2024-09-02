@@ -7,6 +7,6 @@
 
 import Foundation
 
-class ImagesNameForButtons {
+struct ImagesNameForButtons {
     let nameForImages = ["snail", "tornado", "rocket"]
 }

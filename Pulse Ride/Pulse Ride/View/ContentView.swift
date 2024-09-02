@@ -8,19 +8,12 @@
 import SwiftUI
 import CoreHaptics
 
-
-
-struct aContentView: View {
-//    @State private var isVibrating = false
-//    @StateObject private var vibrationEngine: VibrationEngine
-    
-    
+struct ContentView: View {
     @StateObject private var massageVM = MassageViewModel.shared
     var imagesNameForButtons = ImagesNameForButtons()
     
-    @State private var engineRunning = false
     @State private var engine: CHHapticEngine?
-    @State private var patternPlayer: CHHapticPatternPlayer?
+    @State private var continuousPlayer: CHHapticAdvancedPatternPlayer?
     
     @State private var isPlaying = false
     
@@ -30,13 +23,8 @@ struct aContentView: View {
     @State private var scale = 1.5
     
     let heightArrayForAnimation = [30,40,50,60,70,80]
-    @State private var rectangleHeight =  [40, 30, 50, 60, 80, 50, 40, 70, 50, 30, 60 ,80 ,40]
+    @State private var rectangleHeight = [40, 30, 50, 60, 80, 50, 40, 70, 50, 30, 60 ,80 ,40]
     let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
-    
-    
-    @State private var hapticIsPlaying = false
-    
-  
     
     var body: some View {
         VStack {
@@ -46,10 +34,9 @@ struct aContentView: View {
                         .edgesIgnoringSafeArea(.all)
                     VStack {
                         Spacer()
-                        //MARK: - NAVBAR
                         CustomNavBar()
                         Spacer(minLength: 50)
-                        //MARK: - TEXT AND ANIMATION
+                        
                         VStack {
                             if isPlaying {
                                 HStack {
@@ -63,18 +50,14 @@ struct aContentView: View {
                         }
                         .frame(height: 80)
                         
-                        //MARK: - MAIN BUTTON
-                        
-                        VStack{
+                        VStack {
                             GeometryReader { geo in
-                                ZStack{
+                                ZStack {
                                     Circle()
                                         .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 0.98, green: 0.33, blue: 0.78), Color(red: 0.73, green: 0.11, blue: 0.45)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                                    
-                                        .frame(maxWidth: geo.size.width / 1.5, maxHeight: geo.size.width )
+                                        .frame(maxWidth: geo.size.width / 1.5, maxHeight: geo.size.width)
                                         .position(x: geo.size.width / 2, y: geo.size.height / 2)
                                         .shadow(radius: CGFloat(shadowRadius), x: CGFloat(shadowRadius), y: CGFloat(shadowRadius))
-                                    
                                     
                                     Image(systemName: "power")
                                         .resizable()
@@ -86,15 +69,10 @@ struct aContentView: View {
                                         .animation(.easeIn(duration: 1), value: scale)
                                 }
                                 .onTapGesture {
-                                    startButton()
-//                                    vibrationEngine?.toggleVibration()
+                                    toggleVibration()
                                 }
-                                
                             }
-                            
                         }
-                        
-                        //MARK: - BUTTONS
                         
                         HStack(spacing: 30) {
                             ForEach(imagesNameForButtons.nameForImages, id: \.self) { image in
@@ -102,27 +80,22 @@ struct aContentView: View {
                                     massageVM.impactFeedback(.soft)
                                     switch image {
                                     case "snail":
-                                        massageVM.valueOfIntensity = 0.6
+                                        updateVibrationIntensity(0.6)
                                     case "tornado":
-                                        massageVM.valueOfIntensity = 0.8
+                                        updateVibrationIntensity(0.8)
                                     case "rocket":
-                                        massageVM.valueOfIntensity = 1.0
+                                        updateVibrationIntensity(1.0)
                                     default:
                                         break
                                     }
                                 }, imageName: image)
-                                
-                                
                             }
                         }
                         Spacer(minLength: 30)
-                        
-                        
                     }
                 }
                 .onAppear {
-                    
-                    massageVM.setupHapticEngine()
+                    setupHaptics()
                 }
             }
         }
@@ -136,33 +109,73 @@ struct aContentView: View {
                     }
                 }
             }
-            
-            
+        }
+    }
+    
+    private func setupHaptics() {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+        
+        do {
+            engine = try CHHapticEngine()
+            try engine?.start()
+        } catch {
+            print("There was an error creating the engine: \(error.localizedDescription)")
+        }
+    }
+    
+    private func toggleVibration() {
+        if isPlaying {
+            stopVibration()
+        } else {
+            startVibration()
         }
         
+        withAnimation {
+            buttonImageColor = isPlaying ? 0.5 : 1
+            shadowRadius = isPlaying ? 15 : 5
+        }
+        buttonIsPressed.toggle()
+        isPlaying.toggle()
     }
     
-    func startButton() {
-        if !buttonIsPressed {
-            withAnimation {
-                buttonImageColor = 1
-                shadowRadius = 5
-            }
-            buttonIsPressed = true
-            isPlaying = true
-        } else {
-            withAnimation {
-                buttonImageColor = 0.5
-                shadowRadius = 15
-            }
-            buttonIsPressed = false
-            isPlaying = false
+    private func startVibration() {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+        
+        let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(massageVM.valueOfIntensity))
+        let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.5)
+        
+        let event = CHHapticEvent(eventType: .hapticContinuous, parameters: [intensity, sharpness], relativeTime: 0, duration: 100000)
+        
+        do {
+            let pattern = try CHHapticPattern(events: [event], parameters: [])
+            continuousPlayer = try engine?.makeAdvancedPlayer(with: pattern)
+            try continuousPlayer?.start(atTime: 0)
+        } catch {
+            print("Failed to play pattern: \(error.localizedDescription).")
         }
     }
     
+    private func stopVibration() {
+        do {
+            try continuousPlayer?.stop(atTime: 0)
+        } catch {
+            print("Error stopping vibration: \(error.localizedDescription)")
+        }
+    }
+    
+    private func updateVibrationIntensity(_ newIntensity: Float) {
+        guard isPlaying, let continuousPlayer = continuousPlayer else { return }
+        
+        do {
+            let intensityParameter = CHHapticDynamicParameter(parameterID: .hapticIntensityControl,
+                                                              value: newIntensity,
+                                                              relativeTime: 0)
+            try continuousPlayer.sendParameters([intensityParameter], atTime: 0)
+        } catch {
+            print("Error updating vibration intensity: \(error.localizedDescription)")
+        }
+    }
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

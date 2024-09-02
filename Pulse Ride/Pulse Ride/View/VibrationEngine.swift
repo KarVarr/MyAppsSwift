@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreHaptics
 
-struct ContentView: View {
+struct bbbContentView: View {
     @State private var engine: CHHapticEngine?
     @State private var player: CHHapticAdvancedPatternPlayer?
     @State private var isVibrating = false
