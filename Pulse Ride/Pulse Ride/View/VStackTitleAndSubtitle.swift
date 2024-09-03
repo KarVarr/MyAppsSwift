@@ -1,5 +1,5 @@
 //
-//  StackTextVertical.swift
+//  VStackTitleAndSubtitle.swift
 //  Pulse Ride
 //
 //  Created by Karen Vardanian on 07.06.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StackTextVertical: View {
+struct VStackTitleAndSubtitle: View {
     var title: String
     var subtitle: String
     
@@ -26,6 +26,6 @@ struct StackTextVertical: View {
 
 struct CustomText_Previews: PreviewProvider {
     static var previews: some View {
-        StackTextVertical(title: "title", subtitle: "subtitle")
+        VStackTitleAndSubtitle(title: "title", subtitle: "subtitle")
     }
 }

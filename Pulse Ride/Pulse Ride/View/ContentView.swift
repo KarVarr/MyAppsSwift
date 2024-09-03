@@ -45,7 +45,7 @@ struct ContentView: View {
                                     }
                                 }
                             } else {
-                                StackTextVertical(title: Helpers.String.pressButtonTextTitle, subtitle: Helpers.String.pressButtonTextSubtitle)
+                                VStackTitleAndSubtitle(title: Helpers.String.pressButtonTextTitle, subtitle: Helpers.String.pressButtonTextSubtitle)
                             }
                         }
                         .frame(height: 80)

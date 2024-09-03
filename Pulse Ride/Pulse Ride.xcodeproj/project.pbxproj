@@ -11,7 +11,7 @@
 		173F01BF2A229ECC00782653 /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01BE2A229ECC00782653 /* StartScreenView.swift */; };
 		173F01F22A279D0C00782653 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173F01F12A279D0C00782653 /* Launch Screen.storyboard */; };
 		173F01FF2A2FB86C00782653 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01FE2A2FB86C00782653 /* Helpers.swift */; };
-		173F02032A30F90F00782653 /* StackTextVertical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F02022A30F90F00782653 /* StackTextVertical.swift */; };
+		173F02032A30F90F00782653 /* VStackTitleAndSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F02022A30F90F00782653 /* VStackTitleAndSubtitle.swift */; };
 		173F02052A30FB8B00782653 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F02042A30FB8B00782653 /* CustomNavBar.swift */; };
 		173F02072A30FDA300782653 /* CustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F02062A30FDA300782653 /* CustomImage.swift */; };
 		173F02092A31029500782653 /* CustomRectangleForAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F02082A31029500782653 /* CustomRectangleForAnimation.swift */; };
@@ -30,7 +30,7 @@
 		173F01F02A279BE000782653 /* Pulse-Ride-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Pulse-Ride-Info.plist"; sourceTree = SOURCE_ROOT; };
 		173F01F12A279D0C00782653 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		173F01FE2A2FB86C00782653 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		173F02022A30F90F00782653 /* StackTextVertical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTextVertical.swift; sourceTree = "<group>"; };
+		173F02022A30F90F00782653 /* VStackTitleAndSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackTitleAndSubtitle.swift; sourceTree = "<group>"; };
 		173F02042A30FB8B00782653 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
 		173F02062A30FDA300782653 /* CustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
 		173F02082A31029500782653 /* CustomRectangleForAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRectangleForAnimation.swift; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 				173F01F12A279D0C00782653 /* Launch Screen.storyboard */,
 				17CB83AC2A1FD516008F7CEC /* ContentView.swift */,
 				173F01BE2A229ECC00782653 /* StartScreenView.swift */,
-				173F02022A30F90F00782653 /* StackTextVertical.swift */,
+				173F02022A30F90F00782653 /* VStackTitleAndSubtitle.swift */,
 				173F02042A30FB8B00782653 /* CustomNavBar.swift */,
 				173F02062A30FDA300782653 /* CustomImage.swift */,
 				173F02082A31029500782653 /* CustomRectangleForAnimation.swift */,
@@ -206,7 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				177146372B8D0D670003D5E7 /* VibrationEngine.swift in Sources */,
-				173F02032A30F90F00782653 /* StackTextVertical.swift in Sources */,
+				173F02032A30F90F00782653 /* VStackTitleAndSubtitle.swift in Sources */,
 				173F01BF2A229ECC00782653 /* StartScreenView.swift in Sources */,
 				173F02052A30FB8B00782653 /* CustomNavBar.swift in Sources */,
 				173F020B2A32545D00782653 /* CustomButtonForIntensity.swift in Sources */,
