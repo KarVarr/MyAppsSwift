@@ -214,14 +214,17 @@ struct ContentView: View {
                                 HStack {
                                     ForEach(0..<rectangleHeight.count, id: \.self) { index in
                                         CustomRectangleForAnimation(width: 15, height: CGFloat(rectangleHeight[index]), color: .white.opacity(0.8))
+                                            .transition(.opacity)
                                     }
                                 }
+                                .animation(.easeInOut, value: rectangleHeight)
                             } else {
                                 VStackTitleAndSubtitle(title: Helpers.String.pressButtonTextTitle, subtitle: Helpers.String.pressButtonTextSubtitle)
+                                    .transition(.opacity)
                             }
                         }
                         .frame(height: 80)
-                        
+                        .animation(.easeInOut, value: isPlaying)
                         VStack {
                             GeometryReader { geo in
                                 CustomButtonCircle(buttonImageColor: $buttonImageColor, shadowRadius: $shadowRadius, scale: $scale)
