@@ -44,7 +44,6 @@ struct CustomNavBar: View {
                     .font(.largeTitle)
             }
             .padding(.horizontal)
-            
         }
     }
 }

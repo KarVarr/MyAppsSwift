@@ -99,8 +99,4 @@ class MassageViewModel: ObservableObject {
             print("Error stopping haptics: \(error.localizedDescription)")
         }
     }
-    
-
-    
-    
 }

@@ -7,10 +7,35 @@
 
 import SwiftUI
 
+struct CustomButtonCircle: View {
+    @Binding var buttonImageColor: Double
+    @Binding var shadowRadius: Int
+    @Binding var scale: Double
+    
+    var body: some View {
+        ZStack {
+            GeometryReader { geo in
+                Circle()
+                    .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 0.98, green: 0.33, blue: 0.78), Color(red: 0.73, green: 0.11, blue: 0.45)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .frame(maxWidth: geo.size.width / 1.5, maxHeight: geo.size.width)
+                    .position(x: geo.size.width / 2, y: geo.size.height / 2)
+                    .shadow(radius: CGFloat(shadowRadius))
+                Image(systemName: "power")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.white.opacity(buttonImageColor))
+                    .frame(width: geo.size.width / 4, height: geo.size.height / 3)
+                    .position(x: geo.size.width / 2, y: geo.size.height / 2)
+                    .scaleEffect(scale)
+                    .animation(.easeIn(duration: 1), value: scale)
+            }
+        }
+    }
+}
+
 struct CustomButtonForIntensity: View {
     var action: () -> Void
     var imageName: String
-    
     
     var body: some View {
         Button(action: action) {
@@ -31,20 +56,14 @@ struct CustomButtonForIntensity: View {
                                     endPoint: .bottom
                                 )
                             )
-                        
                     )
-                
                     .shadow(radius: 3)
-                
-                
                 Image(imageName)
                     .resizable()
                     .frame(width: 40, height: 40)
             }
             .frame(width: 90, height: 90)
-            
             .buttonStyle(PlainButtonStyle())
-            
         }
     }
     
