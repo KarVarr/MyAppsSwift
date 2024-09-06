@@ -31,7 +31,7 @@ extension ContentView {
             buttonImageColor = isPlaying ? 0.5 : 1
             shadowRadius = isPlaying ? 15 : 5
         }
-        buttonIsPressed.toggle()
+        isButtonPressed.toggle()
         isPlaying.toggle()
     }
     

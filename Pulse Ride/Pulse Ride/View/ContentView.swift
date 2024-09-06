@@ -9,6 +9,7 @@ import SwiftUI
 import CoreHaptics
 
 struct ContentView: View {
+    @Environment(\.scenePhase) var scenePhase
     @StateObject var massageVM = MassageViewModel.shared
     var imagesNameForButtons = ImagesNameForButtons()
     
@@ -16,7 +17,7 @@ struct ContentView: View {
     @State var continuousPlayer: CHHapticAdvancedPatternPlayer?
     
     @State var isPlaying = false
-    @State var buttonIsPressed = false
+    @State var isButtonPressed = false
     @State var buttonImageColor = 0.5
     @State var shadowRadius = 15
     @State var scale = 1.5
@@ -54,7 +55,7 @@ struct ContentView: View {
                         .animation(.easeInOut, value: isPlaying)
                         VStack {
                             GeometryReader { geo in
-                                CustomButtonCircle(buttonImageColor: $buttonImageColor, shadowRadius: $shadowRadius, scale: $scale)
+                                CustomButtonCircle(buttonImageColor: $buttonImageColor, shadowRadius: $shadowRadius, scale: $scale, isPlaying: $isPlaying)
                                     .onTapGesture {
                                         toggleVibration()
                                     }
@@ -75,12 +76,34 @@ struct ContentView: View {
                 .onAppear {
                     setupHaptics()
                 }
+                .onChange(of: scenePhase) { newPhase in
+                    if newPhase == .active {
+                        if isPlaying {
+                            stopVibration()
+                            resetButtonState()
+                        }
+                    } else if newPhase == .background {
+                        if isPlaying {
+                            stopVibration()
+                            resetButtonState()
+                        }
+                    }
+                }
             }
         }
         .onReceive(timer) { _ in
             if isPlaying {
                 updateRectangleHeights()
             }
+        }
+    }
+    
+    private func resetButtonState() {
+        withAnimation {
+            isPlaying = false
+            isButtonPressed = false
+            buttonImageColor = 0.5
+            shadowRadius = 15
         }
     }
     

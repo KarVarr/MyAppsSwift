@@ -11,6 +11,7 @@ struct CustomButtonCircle: View {
     @Binding var buttonImageColor: Double
     @Binding var shadowRadius: Int
     @Binding var scale: Double
+    @Binding var isPlaying: Bool
     
     var body: some View {
         ZStack {
