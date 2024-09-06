@@ -52,9 +52,7 @@ struct StartScreenView: View {
                     }
                     startButton()
                 }
-                
             }
-            
         }
     }
     
