@@ -38,7 +38,7 @@ struct ContentView: View {
                         Spacer(minLength: 50)
                         
                         VStack {
-                            if isPlaying {
+                            if massageVM.isVibrating {
                                 HStack {
                                     ForEach(0..<rectangleHeight.count, id: \.self) { index in
                                         CustomRectangleForAnimation(width: 15, height: CGFloat(rectangleHeight[index]), color: .white.opacity(0.8))
@@ -52,15 +52,18 @@ struct ContentView: View {
                             }
                         }
                         .frame(height: 80)
-                        .animation(.easeInOut, value: isPlaying)
+                        .animation(.easeInOut, value: massageVM.isVibrating)
                         VStack {
                             GeometryReader { geo in
-                                CustomButtonCircle(buttonImageColor: $buttonImageColor, shadowRadius: $shadowRadius, scale: $scale, isPlaying: $isPlaying)
+                                CustomButtonCircle(buttonImageColor: .constant(massageVM.isVibrating ? 1 : 0.5), shadowRadius: .constant(massageVM.isVibrating ? 5 : 15), scale: .constant(1.5), isPlaying: .constant(massageVM.isVibrating))
                                     .onTapGesture {
-                                        toggleVibration()
+                                        withAnimation {
+                                            massageVM.toggleVibration()
+                                        }
                                     }
                             }
                         }
+                        .animation(.easeInOut, value: massageVM.isVibrating)
                         
                         HStack(spacing: 30) {
                             ForEach(imagesNameForButtons.nameForImages, id: \.self) { image in
@@ -73,39 +76,19 @@ struct ContentView: View {
                         Spacer(minLength: 30)
                     }
                 }
-                .onAppear {
-                    setupHaptics()
-                }
-                .onChange(of: scenePhase) { newPhase in
-                    if newPhase == .active {
-                        if isPlaying {
-                            stopVibration()
-                            resetButtonState()
-                        }
-                    } else if newPhase == .background {
-                        if isPlaying {
-                            stopVibration()
-                            resetButtonState()
-                        }
-                    }
+            }
+            .onReceive(timer) { _ in
+                if massageVM.isVibrating {
+                    updateRectangleHeights()
                 }
             }
         }
-        .onReceive(timer) { _ in
-            if isPlaying {
-                updateRectangleHeights()
-            }
+        .onChange(of: scenePhase) { newValue in
+            massageVM.handleScenePhaseChange(newValue)
         }
     }
     
-    private func resetButtonState() {
-        withAnimation {
-            isPlaying = false
-            isButtonPressed = false
-            buttonImageColor = 0.5
-            shadowRadius = 15
-        }
-    }
+    
     
     private func updateRectangleHeights() {
         for index in 0..<rectangleHeight.count {
@@ -120,11 +103,11 @@ struct ContentView: View {
     private func updateVibrationIntensityBasedOnImage(_ image: String) {
         switch image {
         case "snail":
-            updateVibrationIntensity(0.6)
+            massageVM.updateVibrationIntensity(0.5)
         case "tornado":
-            updateVibrationIntensity(0.8)
+            massageVM.updateVibrationIntensity(0.75)
         case "rocket":
-            updateVibrationIntensity(1.0)
+            massageVM.updateVibrationIntensity(0.99)
         default:
             break
         }
