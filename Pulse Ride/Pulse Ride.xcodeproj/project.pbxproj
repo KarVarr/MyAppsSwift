@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		170B34412C88BE420073B797 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B34402C88BE420073B797 /* HapticsManager.swift */; };
+		170B34432C8CCE1B0073B797 /* VolumeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B34422C8CCE1B0073B797 /* VolumeObserver.swift */; };
 		172150902A3B671F00137CFA /* MassageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1721508F2A3B671F00137CFA /* MassageViewModel.swift */; };
 		173F01BF2A229ECC00782653 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F01BE2A229ECC00782653 /* StartButton.swift */; };
 		173F01F22A279D0C00782653 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173F01F12A279D0C00782653 /* Launch Screen.storyboard */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		170B34402C88BE420073B797 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		170B34422C8CCE1B0073B797 /* VolumeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeObserver.swift; sourceTree = "<group>"; };
 		1721508F2A3B671F00137CFA /* MassageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassageViewModel.swift; sourceTree = "<group>"; };
 		173F01BE2A229ECC00782653 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 		173F01F02A279BE000782653 /* Pulse-Ride-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Pulse-Ride-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -84,6 +86,7 @@
 			children = (
 				1721508F2A3B671F00137CFA /* MassageViewModel.swift */,
 				170B34402C88BE420073B797 /* HapticsManager.swift */,
+				170B34422C8CCE1B0073B797 /* VolumeObserver.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				173F02052A30FB8B00782653 /* CustomNavBar.swift in Sources */,
 				173F020B2A32545D00782653 /* CustomButtonForIntensity.swift in Sources */,
 				173F02092A31029500782653 /* CustomRectangleForAnimation.swift in Sources */,
+				170B34432C8CCE1B0073B797 /* VolumeObserver.swift in Sources */,
 				173F01FF2A2FB86C00782653 /* Helpers.swift in Sources */,
 				170B34412C88BE420073B797 /* HapticsManager.swift in Sources */,
 				17D4BAE32A3E195200BB1376 /* ImagesNameForButtons.swift in Sources */,

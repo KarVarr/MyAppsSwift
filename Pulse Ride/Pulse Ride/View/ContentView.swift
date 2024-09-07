@@ -12,7 +12,7 @@ struct ContentView: View {
     @Environment(\.scenePhase) var scenePhase
     @StateObject var massageVM = MassageViewModel.shared
     var imagesNameForButtons = ImagesNameForButtons()
-
+    
     @State var engine: CHHapticEngine?
     @State var continuousPlayer: CHHapticAdvancedPatternPlayer?
     
@@ -23,11 +23,13 @@ struct ContentView: View {
     @State var scale = 1.5
     
     @State private var isScreenLocked = false
+    @State private var showUnlockMessage = false
+    @ObservedObject private var volumeObserver = VolumeObserver()
     
     let heightArrayForAnimation = [30,40,50,60,70,80]
     @State private var rectangleHeight = [40, 30, 50, 60, 80, 50, 40, 70, 50, 30, 60 ,80 ,40]
     let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
-
+    
     var body: some View {
         ZStack {
             VStack {
@@ -95,29 +97,43 @@ struct ContentView: View {
             if isScreenLocked {
                 Color.black.opacity(0.6)
                     .edgesIgnoringSafeArea(.all)
-                    .transition(.opacity)
-                    .animation(.easeInOut(duration: 0.3), value: isScreenLocked)
                 VStack {
                     Image(systemName: "lock.app.dashed")
                         .resizable()
                         .frame(width: 100, height: 100)
                         .foregroundColor(.white)
-                        .scaleEffect(isScreenLocked ? 1.2 : 1.0)
-                        .transition(.scale)
-                        .animation(.easeInOut(duration: 0.5), value: isScreenLocked)
                         .padding(.bottom)
-                    Text("Экран заблокирован")
-                        .font(.title)
+                    Text("Экран заблокирован ")
+                        .font(.title3)
                         .foregroundColor(.white)
+                    if !showUnlockMessage {
+                        Text("Нажмите на кнопку громкости для разблокировки")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                            .transition(.opacity)
+                    }
                 }
                 .zIndex(2)
             }
         }
+        .onReceive(volumeObserver.$isVolumeButtonPressed, perform: { isPressed in
+            if isPressed {
+                withAnimation {
+                    isScreenLocked = false
+                    showUnlockMessage = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        withAnimation {
+                            showUnlockMessage = false
+                        }
+                    }
+                }
+            }
+        })
         .onChange(of: scenePhase) { newValue in
             massageVM.handleScenePhaseChange(newValue)
         }
     }
-
+    
     private func updateRectangleHeights() {
         for index in 0..<rectangleHeight.count {
             DispatchQueue.main.asyncAfter(deadline: .now() - Double(index)) {
