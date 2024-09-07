@@ -10,6 +10,7 @@ import SwiftUI
 struct CustomNavBar: View {
     @StateObject private var massageVM = MassageViewModel.shared
     @State private var showingAlertNotVibration = false
+    @Binding var isScreenLocked: Bool // Связываем с состоянием блокировки в ContentView
     
     var body: some View {
         HStack(alignment: .center) {
@@ -37,19 +38,25 @@ struct CustomNavBar: View {
             Spacer()
             
             Button {
-                
+                withAnimation(.easeInOut) {
+                    isScreenLocked.toggle()
+                }
             } label: {
-                Image(systemName: "gear")
+                Image(systemName: isScreenLocked ? "lock.open" : "lock")
                     .foregroundColor(.white)
                     .font(.largeTitle)
+                    .scaleEffect(isScreenLocked ? 0.8 : 1.0) // Анимируем масштаб
+                    .opacity(isScreenLocked ? 0.8 : 1.0)     // Анимируем прозрачность
+                    .animation(.easeInOut, value: isScreenLocked) // Явная анимация изменений
             }
             .padding(.horizontal)
+            .zIndex(10)
         }
     }
 }
 
 struct CustomNavBar_Previews: PreviewProvider {
     static var previews: some View {
-        CustomNavBar()
+        CustomNavBar(isScreenLocked: .constant(false))
     }
 }

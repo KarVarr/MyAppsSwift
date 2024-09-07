@@ -12,7 +12,7 @@ struct ContentView: View {
     @Environment(\.scenePhase) var scenePhase
     @StateObject var massageVM = MassageViewModel.shared
     var imagesNameForButtons = ImagesNameForButtons()
-    
+
     @State var engine: CHHapticEngine?
     @State var continuousPlayer: CHHapticAdvancedPatternPlayer?
     
@@ -22,74 +22,102 @@ struct ContentView: View {
     @State var shadowRadius = 15
     @State var scale = 1.5
     
+    @State private var isScreenLocked = false
+    
     let heightArrayForAnimation = [30,40,50,60,70,80]
     @State private var rectangleHeight = [40, 30, 50, 60, 80, 50, 40, 70, 50, 30, 60 ,80 ,40]
     let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
-    
+
     var body: some View {
-        VStack {
-            GeometryReader { geo in
-                ZStack {
-                    LinearGradient(gradient: Gradient(colors: [Color(red: 0.98, green: 0.33, blue: 0.78), Color(red: 0.73, green: 0.11, blue: 0.45)]), startPoint: .top, endPoint: .bottom)
-                        .edgesIgnoringSafeArea(.all)
-                    VStack {
-                        Spacer()
-                        CustomNavBar()
-                        Spacer(minLength: 50)
-                        
+        ZStack {
+            VStack {
+                GeometryReader { geo in
+                    ZStack {
+                        LinearGradient(gradient: Gradient(colors: [Color(red: 0.98, green: 0.33, blue: 0.78), Color(red: 0.73, green: 0.11, blue: 0.45)]), startPoint: .top, endPoint: .bottom)
+                            .edgesIgnoringSafeArea(.all)
                         VStack {
-                            if massageVM.isVibrating {
-                                HStack {
-                                    ForEach(0..<rectangleHeight.count, id: \.self) { index in
-                                        CustomRectangleForAnimation(width: 15, height: CGFloat(rectangleHeight[index]), color: .white.opacity(0.8))
-                                            .transition(.opacity)
-                                    }
-                                }
-                                .animation(.easeInOut, value: rectangleHeight)
-                            } else {
-                                VStackTitleAndSubtitle(title: Helpers.String.pressButtonTextTitle, subtitle: Helpers.String.pressButtonTextSubtitle)
-                                    .transition(.opacity)
-                            }
-                        }
-                        .frame(height: 80)
-                        .animation(.easeInOut, value: massageVM.isVibrating)
-                        VStack {
-                            GeometryReader { geo in
-                                CustomButtonCircle(buttonImageColor: .constant(massageVM.isVibrating ? 1 : 0.5), shadowRadius: .constant(massageVM.isVibrating ? 5 : 15), scale: .constant(1.5), isPlaying: .constant(massageVM.isVibrating))
-                                    .onTapGesture {
-                                        withAnimation {
-                                            massageVM.toggleVibration()
+                            Spacer()
+                            CustomNavBar(isScreenLocked: $isScreenLocked)
+                            Spacer(minLength: 50)
+                            
+                            VStack {
+                                if massageVM.isVibrating {
+                                    HStack {
+                                        ForEach(0..<rectangleHeight.count, id: \.self) { index in
+                                            CustomRectangleForAnimation(width: 15, height: CGFloat(rectangleHeight[index]), color: .white.opacity(0.8))
+                                                .transition(.opacity)
                                         }
                                     }
+                                    .animation(.easeInOut, value: rectangleHeight)
+                                } else {
+                                    VStackTitleAndSubtitle(title: Helpers.String.pressButtonTextTitle, subtitle: Helpers.String.pressButtonTextSubtitle)
+                                        .transition(.opacity)
+                                }
                             }
-                        }
-                        .animation(.easeInOut, value: massageVM.isVibrating)
-                        
-                        HStack(spacing: 30) {
-                            ForEach(imagesNameForButtons.nameForImages, id: \.self) { image in
-                                CustomButtonForIntensity(action: {
-                                    massageVM.impactFeedback(.soft)
-                                    updateVibrationIntensityBasedOnImage(image)
-                                }, imageName: image)
+                            .frame(height: 80)
+                            .animation(.easeInOut, value: massageVM.isVibrating)
+                            VStack {
+                                GeometryReader { geo in
+                                    CustomButtonCircle(buttonImageColor: .constant(massageVM.isVibrating ? 1 : 0.5), shadowRadius: .constant(massageVM.isVibrating ? 5 : 15), scale: .constant(1.5), isPlaying: .constant(massageVM.isVibrating))
+                                        .onTapGesture {
+                                            if !isScreenLocked {
+                                                withAnimation {
+                                                    massageVM.toggleVibration()
+                                                }
+                                            }
+                                        }
+                                }
                             }
+                            .animation(.easeInOut, value: massageVM.isVibrating)
+                            
+                            HStack(spacing: 30) {
+                                ForEach(imagesNameForButtons.nameForImages, id: \.self) { image in
+                                    CustomButtonForIntensity(action: {
+                                        if !isScreenLocked {
+                                            massageVM.impactFeedback(.soft)
+                                            updateVibrationIntensityBasedOnImage(image)
+                                        }
+                                    }, imageName: image)
+                                    .disabled(isScreenLocked)
+                                }
+                            }
+                            Spacer(minLength: 30)
                         }
-                        Spacer(minLength: 30)
+                    }
+                }
+                .onReceive(timer) { _ in
+                    if massageVM.isVibrating {
+                        updateRectangleHeights()
                     }
                 }
             }
-            .onReceive(timer) { _ in
-                if massageVM.isVibrating {
-                    updateRectangleHeights()
+            
+            if isScreenLocked {
+                Color.black.opacity(0.6)
+                    .edgesIgnoringSafeArea(.all)
+                    .transition(.opacity)
+                    .animation(.easeInOut(duration: 0.3), value: isScreenLocked)
+                VStack {
+                    Image(systemName: "lock.app.dashed")
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                        .foregroundColor(.white)
+                        .scaleEffect(isScreenLocked ? 1.2 : 1.0)
+                        .transition(.scale)
+                        .animation(.easeInOut(duration: 0.5), value: isScreenLocked)
+                        .padding(.bottom)
+                    Text("Экран заблокирован")
+                        .font(.title)
+                        .foregroundColor(.white)
                 }
+                .zIndex(2)
             }
         }
         .onChange(of: scenePhase) { newValue in
             massageVM.handleScenePhaseChange(newValue)
         }
     }
-    
-    
-    
+
     private func updateRectangleHeights() {
         for index in 0..<rectangleHeight.count {
             DispatchQueue.main.asyncAfter(deadline: .now() - Double(index)) {
@@ -113,6 +141,7 @@ struct ContentView: View {
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
