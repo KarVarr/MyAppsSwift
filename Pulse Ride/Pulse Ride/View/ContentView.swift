@@ -16,6 +16,7 @@ struct ContentView: View {
     @State var engine: CHHapticEngine?
     @State var continuousPlayer: CHHapticAdvancedPatternPlayer?
     
+    @State private var isAnimateLockScreenIcon = true
     @State var isPlaying = false
     @State var isButtonPressed = false
     @State var buttonImageColor = 0.5
@@ -81,6 +82,7 @@ struct ContentView: View {
                                         }
                                     }, imageName: image)
                                     .disabled(isScreenLocked)
+                                    
                                 }
                             }
                             Spacer(minLength: 30)
@@ -95,20 +97,24 @@ struct ContentView: View {
             }
             
             if isScreenLocked {
-                Color.black.opacity(0.6)
+                Color.black
+                    .opacity(0.6)
                     .edgesIgnoringSafeArea(.all)
+                    .transition(.opacity)
                 VStack {
                     Image(systemName: "lock.app.dashed")
                         .resizable()
+                        .symbolEffect(.pulse, isActive: isAnimateLockScreenIcon)
                         .frame(width: 100, height: 100)
                         .foregroundColor(.white)
                         .padding(.bottom)
-                    Text("Экран заблокирован ")
+                    Text("Экран заблокирован")
                         .font(.title3)
                         .foregroundColor(.white)
                     if !showUnlockMessage {
                         Text("Нажмите на кнопку громкости для разблокировки")
                             .font(.title2)
+                            .multilineTextAlignment(.center)
                             .foregroundColor(.white)
                             .transition(.opacity)
                     }
@@ -116,21 +122,31 @@ struct ContentView: View {
                 .zIndex(2)
             }
         }
-        .onReceive(volumeObserver.$isVolumeButtonPressed, perform: { isPressed in
-            if isPressed {
+        .animation(.easeInOut(duration: 0.3), value: isScreenLocked)
+        .onReceive(volumeObserver.$isVolumeButtonPressed) { isPressed in
+            if isPressed && isScreenLocked {
                 withAnimation {
                     isScreenLocked = false
-                    showUnlockMessage = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        withAnimation {
-                            showUnlockMessage = false
-                        }
-                    }
+                    showUnlockMessage = false
                 }
             }
-        })
-        .onChange(of: scenePhase) { newValue in
-            massageVM.handleScenePhaseChange(newValue)
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            switch newPhase {
+            case .active:
+                setupHaptics()
+                volumeObserver.setupVolumeObserver()
+                if massageVM.isVibrating {
+                    massageVM.startVibration()
+                }
+            case .background:
+                massageVM.stopVibration()
+                volumeObserver.invalidateObserver()
+            case .inactive:
+                massageVM.stopVibration()
+            @unknown default:
+                break
+            }
         }
     }
     

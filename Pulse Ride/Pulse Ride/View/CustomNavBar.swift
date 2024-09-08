@@ -45,9 +45,10 @@ struct CustomNavBar: View {
                 Image(systemName: isScreenLocked ? "lock.open" : "lock")
                     .foregroundColor(.white)
                     .font(.largeTitle)
-                    .scaleEffect(isScreenLocked ? 0.8 : 1.0) // Анимируем масштаб
-                    .opacity(isScreenLocked ? 0.8 : 1.0)     // Анимируем прозрачность
-                    .animation(.easeInOut, value: isScreenLocked) // Явная анимация изменений
+                    
+                    .scaleEffect(isScreenLocked ? 0.8 : 1.0)
+                    .opacity(isScreenLocked ? 0.8 : 1.0)
+                    .animation(.easeInOut, value: isScreenLocked)
             }
             .padding(.horizontal)
             .zIndex(10)

@@ -17,7 +17,7 @@ class VolumeObserver: ObservableObject {
         setupVolumeObserver()
     }
     
-    private func setupVolumeObserver() {
+    func setupVolumeObserver() {
         let audioSession = AVAudioSession.sharedInstance()
         
         do {
@@ -32,13 +32,21 @@ class VolumeObserver: ObservableObject {
                 self.lastVolume = newVolume
                 DispatchQueue.main.async {
                     self.isVolumeButtonPressed = true
+                    // Reset the flag after a short delay
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.isVolumeButtonPressed = false
+                    }
                 }
             }
         }
     }
     
-    deinit {
+    func invalidateObserver() {
         volumeObserver?.invalidate()
+    }
+    
+    deinit {
+        invalidateObserver()
     }
 }
 
