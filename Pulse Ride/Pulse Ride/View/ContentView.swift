@@ -98,7 +98,7 @@ struct ContentView: View {
             
             if isScreenLocked {
                 Color.black
-                    .opacity(0.6)
+                    .opacity(0.7)
                     .edgesIgnoringSafeArea(.all)
                     .transition(.opacity)
                 VStack {
