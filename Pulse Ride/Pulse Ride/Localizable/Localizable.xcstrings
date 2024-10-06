@@ -11,6 +11,12 @@
             "value" : "Make sure that vibration and haptics are enabled in your device settings:\n        \n        1) |Setting -> Sounds & Haptics| and switch on 'Vibrate on Ring', 'Vibrate on Silent', and 'System Haptics'\n        \n        2) |Setting -> Accessibility -> Touch| and switch on 'Vibration'"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asegúrate de que la vibración y la función háptica estén habilitadas en la configuración de tu dispositivo:\n\n1) |Configuración -> Sonidos y función háptica| y activa \"Vibrar al sonar\", \"Vibrar al silenciar\" y \"Función háptica del sistema\"\n\n2) |Configuración -> Accesibilidad -> Tocar| y activa \"Vibración\""
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27,6 +33,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Press the button"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Presiona el botón"
           }
         },
         "ru" : {
@@ -47,6 +59,12 @@
             "value" : "Press the volume button to unlock the screen"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Presione el botón de volumen para desbloquear la pantalla"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -65,6 +83,12 @@
             "value" : "Screen is blocked"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La pantalla está bloqueada"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -81,6 +105,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "to start massage"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "para iniciar el masaje."
           }
         },
         "ru" : {
