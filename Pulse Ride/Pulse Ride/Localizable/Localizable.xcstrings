@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Got it!" : {
+
+    },
     "Make sure that vibration and haptics are enabled in your device settings:\n        \n        1) |Setting -> Sounds & Haptics| and switch on 'Vibrate on Ring', 'Vibrate on Silent', and 'System Haptics'\n        \n        2) |Setting -> Accessibility -> Touch| and switch on 'Vibration'" : {
       "comment" : "help button text",
       "extractionState" : "manual",
@@ -30,6 +33,9 @@
           }
         }
       }
+    },
+    "Not Vibrating?" : {
+
     },
     "Press the button" : {
       "comment" : "Press the button title 1",
