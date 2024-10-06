@@ -17,6 +17,12 @@
             "value" : "Asegúrate de que la vibración y la función háptica estén habilitadas en la configuración de tu dispositivo:\n\n1) |Configuración -> Sonidos y función háptica| y activa \"Vibrar al sonar\", \"Vibrar al silenciar\" y \"Función háptica del sistema\"\n\n2) |Configuración -> Accesibilidad -> Tocar| y activa \"Vibración\""
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Համոզվեք, որ թրթռումը և հապտիկան միացված են ձեր սարքի կարգավորումներում.\n\n 1) |Setting -> Sounds & Haptics| և միացրեք «Vibrate on Ring», «Vibrate on Silent» և «System Haptics»\n\n 2) |Setting -> Accessibility -> Touch| և միացրեք «Vibration»"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39,6 +45,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Presiona el botón"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Սեղմեք կոճակը"
           }
         },
         "ru" : {
@@ -65,6 +77,12 @@
             "value" : "Presione el botón de volumen para desbloquear la pantalla"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Սեղմեք ձայնի ձայնի կոճակը՝ էկրանն ապակողպելու համար"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -89,6 +107,12 @@
             "value" : "La pantalla está bloqueada"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Էկրանը արգելափակված է"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -111,6 +135,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "para iniciar el masaje."
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "մերսումը սկսելու համար"
           }
         },
         "ru" : {

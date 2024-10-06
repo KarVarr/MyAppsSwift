@@ -189,6 +189,7 @@
 				Base,
 				ru,
 				es,
+				hy,
 			);
 			mainGroup = 17CB839E2A1FD516008F7CEC;
 			productRefGroup = 17CB83A82A1FD516008F7CEC /* Products */;
