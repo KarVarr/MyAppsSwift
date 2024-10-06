@@ -81,41 +81,6 @@ class MassageViewModel: ObservableObject {
         }
     }
 
-    
-//    func startVibration() {
-//        guard let engine = engine, CHHapticEngine.capabilitiesForHardware().supportsHaptics else {
-//            print("This device does not support haptics")
-//            return
-//        }
-//        
-//        do {
-//            try engine.start()
-//            
-//            let intensityCurve = CHHapticParameterCurve(
-//                parameterID: .hapticIntensityControl,
-//                controlPoints: [
-//                    CHHapticParameterCurve.ControlPoint(relativeTime: 0, value: 1),
-//                    CHHapticParameterCurve.ControlPoint(relativeTime: 0.5, value: 0.5),
-//                    CHHapticParameterCurve.ControlPoint(relativeTime: 1, value: 1)
-//                ],
-//                relativeTime: 0
-//            )
-//            
-//            let event1 = CHHapticEvent(eventType: .hapticContinuous, parameters: [], relativeTime: 0, duration: 0.5)
-//            let event2 = CHHapticEvent(eventType: .hapticContinuous, parameters: [], relativeTime: 0.5, duration: 0.5)
-//            
-//            let pattern = try CHHapticPattern(events: [event1, event2], parameterCurves: [intensityCurve])
-//            
-//            player = try engine.makeAdvancedPlayer(with: pattern)
-//            player?.loopEnabled = true
-//            
-//            try player?.start(atTime: CHHapticTimeImmediate)
-//            isVibrating = true
-//        } catch {
-//            print("Error starting haptics: \(error.localizedDescription)")
-//        }
-//    }
-    
     func stopVibration() {
         guard let player = player else { return }
         
