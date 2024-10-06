@@ -1,0 +1,96 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Make sure that vibration and haptics are enabled in your device settings:\n        \n        1) |Setting -> Sounds & Haptics| and switch on 'Vibrate on Ring', 'Vibrate on Silent', and 'System Haptics'\n        \n        2) |Setting -> Accessibility -> Touch| and switch on 'Vibration'" : {
+      "comment" : "help button text",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Make sure that vibration and haptics are enabled in your device settings:\n        \n        1) |Setting -> Sounds & Haptics| and switch on 'Vibrate on Ring', 'Vibrate on Silent', and 'System Haptics'\n        \n        2) |Setting -> Accessibility -> Touch| and switch on 'Vibration'"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Убедитесь, что вибрация и тактильные сигналы включены в настройках вашего устройства:\n\n1) |Настройки -> Звуки и тактильные сигналы| и включите «Вибрация при звонке», «Вибрация при беззвучном режиме» и «Системные тактильные сигналы»\n\n2) |Настройки -> Специальные возможности -> Касание| и включите «Вибрация»"
+          }
+        }
+      }
+    },
+    "Press the button" : {
+      "comment" : "Press the button title 1",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press the button"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажмите кнопку"
+          }
+        }
+      }
+    },
+    "Press the volume button to unlock the screen" : {
+      "comment" : "Press the volume button to unlock the screen on block screen",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press the volume button to unlock the screen"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажмите кнопку регулировки громкости, чтобы разблокировать экран."
+          }
+        }
+      }
+    },
+    "Screen is blocked" : {
+      "comment" : "Screen is blocked on block screen",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screen is blocked"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Экран заблокирован"
+          }
+        }
+      }
+    },
+    "to start massage" : {
+      "comment" : "to start massage title 2",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "to start massage"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "чтобы начать массаж"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

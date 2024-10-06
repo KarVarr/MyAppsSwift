@@ -108,11 +108,11 @@ struct ContentView: View {
                         .frame(width: 100, height: 100)
                         .foregroundColor(.white)
                         .padding(.bottom)
-                    Text("Экран заблокирован")
+                    Text(Helpers.String.isScreenBlockedTitle)
                         .font(.title3)
                         .foregroundColor(.white)
                     if !showUnlockMessage {
-                        Text("Нажмите на кнопку громкости для разблокировки")
+                        Text(Helpers.String.isScreenBlockedSubtitle)
                             .font(.title2)
                             .multilineTextAlignment(.center)
                             .foregroundColor(.white)

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -45,6 +45,10 @@
 		17CB83B12A1FD518008F7CEC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		17D4BAE22A3E195200BB1376 /* ImagesNameForButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesNameForButtons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		17ABE5562CB2E53600272189 /* Localizable */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Localizable; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		17CB83A42A1FD516008F7CEC /* Frameworks */ = {
@@ -118,6 +122,7 @@
 		17CB83A92A1FD516008F7CEC /* Pulse Ride */ = {
 			isa = PBXGroup;
 			children = (
+				17ABE5562CB2E53600272189 /* Localizable */,
 				173F01FD2A2FB83B00782653 /* Helpers */,
 				173F01F02A279BE000782653 /* Pulse-Ride-Info.plist */,
 				173F01C22A229EE700782653 /* ViewModel */,
@@ -152,6 +157,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				17ABE5562CB2E53600272189 /* Localizable */,
+			);
 			name = "Pulse Ride";
 			productName = "Pulse Ride";
 			productReference = 17CB83A72A1FD516008F7CEC /* Pulse Ride.app */;
@@ -179,6 +187,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 17CB839E2A1FD516008F7CEC;
 			productRefGroup = 17CB83A82A1FD516008F7CEC /* Products */;
@@ -284,6 +293,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -338,6 +348,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
