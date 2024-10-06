@@ -117,6 +117,7 @@ struct ContentView: View {
                             .multilineTextAlignment(.center)
                             .foregroundColor(.white)
                             .transition(.opacity)
+                            .padding(.horizontal)
                     }
                 }
                 .zIndex(2)
