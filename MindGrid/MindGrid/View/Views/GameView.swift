@@ -19,8 +19,7 @@ struct GameView: View {
     @State private var stringsForSymbol = Array(repeating: "?", count: 25)
     @State private var numberToFind = 1
     
-    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State private var startDate = Date.now
+    @State private var timer: Timer?
     @State private var timeElapsed: Int16 = 0
     
     @State private var isShowingWinAlert = false
@@ -37,7 +36,6 @@ struct GameView: View {
                 Spacer()
                 
                 ZStack {
-                    
                     Text("\(numberToFind)")
                         .padding()
                         .font(.system(size: 54, design: .monospaced))
@@ -47,12 +45,9 @@ struct GameView: View {
                         .foregroundColor(Color(hex: 0xF4B183))
                         .frame(width: 110, height: 100)
                         .padding()
-                    
                 }
+                
                 Text(String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60))
-                    .onReceive(timer) { _ in
-                        timeElapsed += 1
-                    }
                     .font(.system(size: 26, design: .monospaced))
                     .foregroundColor(.indigo)
             }
@@ -97,8 +92,8 @@ struct GameView: View {
         .padding(10)
         .background(colorScheme == .dark ? Color(hex: 0x002B5B) : Color(hex: 0xfff2cc))
         .alert("Congratulations!", isPresented: $isShowingWinAlert) {
-            Button("Ok") {isGameStarted = false}
-            Button("Restart") {restartGame()}
+            Button("Ok") { isGameStarted = false }
+            Button("Restart") { restartGame() }
         } message: {
             let formatTimeElapsed = String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60)
             Text("You passed the test in \(formatTimeElapsed) seconds!")
@@ -118,7 +113,7 @@ struct GameView: View {
         if numberToFind == 26 {
             numberToFind = 25
             isShowingWinAlert = true
-            timer.upstream.connect().cancel()
+            timer?.invalidate()
             
             let scoreTime = Score(context: moc)
             scoreTime.id = UUID()
@@ -133,8 +128,12 @@ struct GameView: View {
         numberToFind = 1
         timeElapsed = 0
         numbersForSymbol.shuffle()
-        timer.upstream.connect().cancel()
-        timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+        timer?.invalidate()
+        timer = nil
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            timeElapsed += 1
+        }
     }
     
     func startGame() {
@@ -148,3 +147,4 @@ struct GameView_Previews: PreviewProvider {
         GameView()
     }
 }
+
