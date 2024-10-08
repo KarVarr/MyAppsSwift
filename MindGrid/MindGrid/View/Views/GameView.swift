@@ -23,77 +23,82 @@ struct GameView: View {
     @State private var timeElapsed: Int16 = 0
     
     @State private var isShowingWinAlert = false
+    @State private var isGameStarted = false
+    
     
     
     let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 5), count: 5)
     
     var body: some View {
         VStack {
-                Group {
-                    Text("Symbol to find:")
-                        .padding()
-                    Spacer()
-                    
-                    ZStack {
-                        
-                        Text("\(numberToFind)")
-                            .padding()
-                            .font(.system(size: 54, design: .monospaced))
-                        
-                        RoundedRectangle(cornerRadius: 30, style: .continuous)
-                            .stroke(lineWidth: 3)
-                            .foregroundColor(Color(hex: 0xF4B183))
-                            .frame(width: 110, height: 100)
-                            .padding()
-                        
-                    }
-                    Text(String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60))
-                        .onReceive(timer) { _ in
-                            timeElapsed += 1
-                        }
-                        .font(.system(size: 26, design: .monospaced))
-                        .foregroundColor(.indigo)
-                }
-                .font(.custom("Copperplate", size: 38))
-                
+            Group {
+                Text("Symbol to find:")
+                    .padding()
                 Spacer()
                 
-                LazyVGrid(columns: columns, spacing: 5) {
-                  
-                        ForEach(numbersForSymbol, id: \.self) { item in
-                            Button(String(item)) {
-                                haptics(.soft)
-                                 pressedButton(item)
-                            }
-                            .buttonStyle(MyButtonStyleNumber())
-                            .aspectRatio(1, contentMode: .fit)
-                        }
+                ZStack {
+                    
+                    Text("\(numberToFind)")
+                        .padding()
+                        .font(.system(size: 54, design: .monospaced))
+                    
+                    RoundedRectangle(cornerRadius: 30, style: .continuous)
+                        .stroke(lineWidth: 3)
+                        .foregroundColor(Color(hex: 0xF4B183))
+                        .frame(width: 110, height: 100)
+                        .padding()
+                    
                 }
-                .padding(.horizontal, 5)
+                Text(String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60))
+                    .onReceive(timer) { _ in
+                        timeElapsed += 1
+                    }
+                    .font(.system(size: 26, design: .monospaced))
+                    .foregroundColor(.indigo)
+            }
+            .font(.custom("Copperplate", size: 38))
+            
+            Spacer()
+            
+            LazyVGrid(columns: columns, spacing: 5) {
                 
-                Button("R E S T A R T") {
-                    haptics(.medium)
-                    restartGame()
+                ForEach(numbersForSymbol, id: \.self) { item in
+                    Button(String(item)) {
+                        haptics(.soft)
+                        pressedButton(item)
+                    }
+                    .buttonStyle(MyButtonStyleNumber())
+                    .aspectRatio(1, contentMode: .fit)
                 }
-                .buttonStyle(MyButtonStyleRestart())
-                .padding(.horizontal, 5)
             }
-            .padding(10)
-            .background(colorScheme == .dark ? Color(hex: 0x002B5B) : Color(hex: 0xfff2cc))
-            .alert("Congratulations!", isPresented: $isShowingWinAlert) {
-                Button("Ok") {}
-                Button("Restart") {restartGame()}
-            } message: {
-                let formatTimeElapsed = String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60)
-                Text("You passed the test in \(formatTimeElapsed) seconds!")
+            .padding(.horizontal, 5)
+            
+            Button(isGameStarted ? "R E S T A R T" : "S T A R T") {
+                haptics(.medium)
+                if isGameStarted {
+                    restartGame()
+                } else {
+                    startGame()
+                }
             }
+            .buttonStyle(MyButtonStyleRestart())
+            .padding(.horizontal, 5)
+        }
+        .padding(10)
+        .background(colorScheme == .dark ? Color(hex: 0x002B5B) : Color(hex: 0xfff2cc))
+        .alert("Congratulations!", isPresented: $isShowingWinAlert) {
+            Button("Ok") {}
+            Button("Restart") {restartGame()}
+        } message: {
+            let formatTimeElapsed = String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60)
+            Text("You passed the test in \(formatTimeElapsed) seconds!")
+        }
     }
     
     func haptics(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {
         let impactMed = UIImpactFeedbackGenerator(style: style)
         impactMed.impactOccurred()
     }
-    
     
     func pressedButton(_ num: Int) {
         if numberToFind == num {
@@ -112,7 +117,6 @@ struct GameView: View {
             
             try? moc.save()
         }
-        
     }
     
     func restartGame() {
@@ -122,6 +126,11 @@ struct GameView: View {
         timer.upstream.connect().cancel()
         timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     }
+    
+    func startGame() {
+        isGameStarted = true
+        restartGame()
+    }
 }
 
 struct GameView_Previews: PreviewProvider {
@@ -129,5 +138,3 @@ struct GameView_Previews: PreviewProvider {
         GameView()
     }
 }
-
-
