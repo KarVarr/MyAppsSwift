@@ -10,6 +10,12 @@
             "value" : "Doesn't work?"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿No funciona?"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
@@ -31,6 +37,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Got it"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entiendo"
           }
         },
         "hy" : {
@@ -56,6 +68,12 @@
             "value" : "Got it!"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Entiendo!"
+          }
+        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
@@ -71,7 +89,16 @@
       }
     },
     "Key" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Key"
+          }
+        }
+      },
+      "shouldTranslate" : false
     },
     "Make sure that vibration and haptics are enabled in your device settings:\n        \n        1) |Setting -> Sounds & Haptics| and switch on 'Vibrate on Ring', 'Vibrate on Silent', and 'System Haptics'\n        \n        2) |Setting -> Accessibility -> Touch| and switch on 'Vibration'" : {
       "comment" : "help button text",
@@ -202,6 +229,18 @@
             "value" : "This app is designed to help you relax and relieve muscle tension using gentle vibrations.\nHold your device against the area where you want to soothe muscle discomfort, such as your neck, shoulders, or back.\n\nNote: This app is intended for muscle relaxation and massage only. "
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta aplicación está diseñada para ayudarte a relajarte y aliviar la tensión muscular mediante vibraciones suaves.\nColoca el dispositivo sobre la zona donde deseas aliviar el malestar muscular, como el cuello, los hombros o la espalda.\n\nNota: Esta aplicación está diseñada únicamente para la relajación y el masaje muscular."
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Այս հավելվածը նախատեսված է օգնելու ձեզ հանգստանալ և թեթևացնել մկանային լարվածությունը՝ օգտագործելով մեղմ թրթռումները:\nՁեր սարքը պահեք այն հատվածի վրա, որտեղ ցանկանում եք հանգստացնել մկանային անհարմարությունը, օրինակ՝ պարանոցը, ուսերը կամ մեջքը:\n\nՆշում. Այս հավելվածը նախատեսված է միայն մկանների թուլացման և մերսման համար:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -247,6 +286,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Welcome to Ock Massager!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bienvenido a Ock Massager"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Բարի գալուստ Ock Massager"
           }
         },
         "ru" : {
