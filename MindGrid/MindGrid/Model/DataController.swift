@@ -7,7 +7,6 @@
 import CoreData
 import Foundation
 
-
 class DataController: ObservableObject {
     let container = NSPersistentContainer(name: "Mindgrid")
     

@@ -4,11 +4,10 @@
 //
 //  Created by Karen Vardanian on 13.04.2023.
 //
- 
-import SwiftUI 
+
+import SwiftUI
 
 struct ContentView: View {
-    
     var body: some View {
         NavigationView {
             TabView {
@@ -16,22 +15,17 @@ struct ContentView: View {
                     .tabItem {
                         Label("Game", systemImage: "gamecontroller.fill")
                     }
-                
                 ScoreView()
                     .tabItem {
                         Label("Score", systemImage: "number")
                     }
-                
                 SettingView()
                     .tabItem {
                         Label("Info", systemImage: "info.square")
                     }
             }
-            
         }
     }
-    
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

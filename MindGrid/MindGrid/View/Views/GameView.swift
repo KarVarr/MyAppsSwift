@@ -15,8 +15,6 @@ struct GameView: View {
     
     let lightGradientColorScheme = AngularGradient(gradient: Gradient(colors: [.orange, .yellow]), center: .center)
     
-
-    
     @State private var numbersForSymbol = (1...25).shuffled()
     @State private var numberToFind = 1
     
