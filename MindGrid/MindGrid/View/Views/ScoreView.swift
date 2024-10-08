@@ -18,7 +18,6 @@ struct ScoreView: View {
     let date = Date()
     
     var body: some View {
-        
         VStack {
             List {
                 Section {
@@ -66,11 +65,8 @@ struct ScoreView: View {
             }
             .listStyle(.plain)
             .background(colorScheme == .dark ? Color(hex: 0x522546) : Color(hex: 0x99DDCC))
-            
         }
-        
     }
-    
     
     func removeScore(at offsets: IndexSet) {
         for index in offsets {

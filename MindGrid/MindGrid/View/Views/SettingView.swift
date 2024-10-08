@@ -41,11 +41,12 @@ struct SettingView: View {
                 Text("The Schulte Table was developed originally as a psycho-diagnostic test to study the properties of attention, by German psychiatrist and psychotherapist Walter Schulte (1910 — 1972).")
                     .font(.title3)
             }
-            .padding(16)
+            .padding(30)
             .frame(maxWidth: .infinity, alignment: .center)
         }
         .background(colorScheme == .dark ? Color(hex: 0x697565) : Color(hex: 0xB7B7B7))
         .foregroundStyle(colorScheme == .dark ? Color.white.opacity(0.8) : Color.black)
+        .scrollIndicators(.hidden)
     }
 }
 
