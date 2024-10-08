@@ -13,6 +13,8 @@ struct ContentView: View {
     @StateObject var massageVM = MassageViewModel.shared
     var imagesNameForButtons = ImagesNameForButtons()
     
+    @State private var showStartScreen = false
+    
     @State var engine: CHHapticEngine?
     @State var continuousPlayer: CHHapticAdvancedPatternPlayer?
     
@@ -30,6 +32,11 @@ struct ContentView: View {
     let heightArrayForAnimation = [30,40,50,60,70,80]
     @State private var rectangleHeight = [40, 30, 50, 60, 80, 50, 40, 70, 50, 30, 60 ,80 ,40]
     let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
+    
+    init() {
+        let hasSeenStartScreen = UserDefaults.standard.bool(forKey: "hasSeenStartScreen")
+        _showStartScreen = State(initialValue: !hasSeenStartScreen)
+    }
     
     var body: some View {
         ZStack {
@@ -122,6 +129,11 @@ struct ContentView: View {
                 }
                 .zIndex(2)
             }
+            // Start Screen
+            if showStartScreen {
+                StartScreenView(showStartScreen: $showStartScreen)
+                    .transition(.opacity)
+            }
         }
         .animation(.easeInOut(duration: 0.3), value: isScreenLocked)
         .onReceive(volumeObserver.$isVolumeButtonPressed) { isPressed in
@@ -150,6 +162,8 @@ struct ContentView: View {
             }
         }
     }
+    
+    
     
     private func updateRectangleHeights() {
         for index in 0..<rectangleHeight.count {
