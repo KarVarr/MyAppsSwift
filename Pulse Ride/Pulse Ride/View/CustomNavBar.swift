@@ -10,7 +10,7 @@ import SwiftUI
 struct CustomNavBar: View {
     @StateObject private var massageVM = MassageViewModel.shared
     @State private var showingAlertNotVibration = false
-    @Binding var isScreenLocked: Bool // Связываем с состоянием блокировки в ContentView
+    @Binding var isScreenLocked: Bool 
     
     var body: some View {
         HStack(alignment: .center) {
@@ -23,7 +23,7 @@ struct CustomNavBar: View {
                     .font(.largeTitle)
             }
             .alert(isPresented: $showingAlertNotVibration) {
-                Alert(title: Text("Not Vibrating?"), message: Text(Helpers.String.alertMessage), dismissButton: .default(Text("Got it!")))
+                Alert(title: Text("Doesn't work?"), message: Text(Helpers.String.alertMessage), dismissButton: .default(Text("Got it!")))
             }
             .padding(.horizontal)
             

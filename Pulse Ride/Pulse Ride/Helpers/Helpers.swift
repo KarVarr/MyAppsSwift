@@ -19,7 +19,7 @@ struct Helpers {
         
         static let pressButtonTextTitle = "Press the button"
         static let pressButtonTextSubtitle = "to start massage"
-        static let mainTitle = "Pulse Ride"
+        static let mainTitle = "Ock Massager"
         static let isScreenBlockedTitle = "Screen is blocked"
         static let isScreenBlockedSubtitle = "Press the volume button to unlock the screen"
     }
