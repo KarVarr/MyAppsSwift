@@ -16,6 +16,7 @@ struct GameView: View {
     let lightGradientColorScheme = AngularGradient(gradient: Gradient(colors: [.orange, .yellow]), center: .center)
     
     @State private var numbersForSymbol = (1...25).shuffled()
+    @State private var stringsForSymbol = Array(repeating: "?", count: 25)
     @State private var numberToFind = 1
     
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -24,7 +25,6 @@ struct GameView: View {
     
     @State private var isShowingWinAlert = false
     @State private var isGameStarted = false
-    
     
     
     let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 5), count: 5)
@@ -60,18 +60,28 @@ struct GameView: View {
             
             Spacer()
             
-            LazyVGrid(columns: columns, spacing: 5) {
-                
-                ForEach(numbersForSymbol, id: \.self) { item in
-                    Button(String(item)) {
-                        haptics(.soft)
-                        pressedButton(item)
+            if !isGameStarted {
+                LazyVGrid(columns: columns, spacing: 5) {
+                    ForEach(stringsForSymbol.enumerated().map { ($0.offset, $0.element) }, id: \.0) { index, item in
+                        Button(item) {}
+                        .buttonStyle(MyButtonStyleNumber())
+                        .aspectRatio(1, contentMode: .fit)
                     }
-                    .buttonStyle(MyButtonStyleNumber())
-                    .aspectRatio(1, contentMode: .fit)
                 }
+                .padding(.horizontal, 5)
+            } else {
+                LazyVGrid(columns: columns, spacing: 5) {
+                    ForEach(numbersForSymbol, id: \.self) { item in
+                        Button(String(item)) {
+                            haptics(.soft)
+                            pressedButton(item)
+                        }
+                        .buttonStyle(MyButtonStyleNumber())
+                        .aspectRatio(1, contentMode: .fit)
+                    }
+                }
+                .padding(.horizontal, 5)
             }
-            .padding(.horizontal, 5)
             
             Button(isGameStarted ? "R E S T A R T" : "S T A R T") {
                 haptics(.medium)
@@ -87,7 +97,7 @@ struct GameView: View {
         .padding(10)
         .background(colorScheme == .dark ? Color(hex: 0x002B5B) : Color(hex: 0xfff2cc))
         .alert("Congratulations!", isPresented: $isShowingWinAlert) {
-            Button("Ok") {}
+            Button("Ok") {isGameStarted = false}
             Button("Restart") {restartGame()}
         } message: {
             let formatTimeElapsed = String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60)
