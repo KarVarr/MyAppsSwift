@@ -17,8 +17,6 @@ struct ScoreView: View {
     
     let date = Date()
     
-    
-    
     var body: some View {
         
         VStack {
@@ -68,9 +66,6 @@ struct ScoreView: View {
             }
             .listStyle(.plain)
             .background(colorScheme == .dark ? Color(hex: 0x522546) : Color(hex: 0x99DDCC))
-            
-            
-            
             
         }
         

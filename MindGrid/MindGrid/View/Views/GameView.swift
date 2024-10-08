@@ -7,8 +7,6 @@
 import CoreHaptics
 import SwiftUI
 
-
-
 struct GameView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var times: FetchedResults<Score>
@@ -29,14 +27,10 @@ struct GameView: View {
     @State private var isShowingWinAlert = false
     
     
-    let columns = [
-        GridItem(.adaptive(minimum: 65), spacing: 5),
-    ]
+    let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 5), count: 5)
     
     var body: some View {
-        
         VStack {
-            
                 Group {
                     Text("Symbol to find:")
                         .padding()
@@ -74,16 +68,17 @@ struct GameView: View {
                                  pressedButton(item)
                             }
                             .buttonStyle(MyButtonStyleNumber())
+                            .aspectRatio(1, contentMode: .fit)
                         }
-                    
                 }
+                .padding(.horizontal, 5)
                 
                 Button("R E S T A R T") {
                     haptics(.medium)
                     restartGame()
                 }
                 .buttonStyle(MyButtonStyleRestart())
-                
+                .padding(.horizontal, 5)
             }
             .padding(10)
             .background(colorScheme == .dark ? Color(hex: 0x002B5B) : Color(hex: 0xfff2cc))
@@ -94,7 +89,6 @@ struct GameView: View {
                 let formatTimeElapsed = String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60)
                 Text("You passed the test in \(formatTimeElapsed) seconds!")
             }
-        
     }
     
     func haptics(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {

@@ -9,7 +9,6 @@ import SwiftUI
 
 
 struct MyButtonStyleRestart: ButtonStyle {
-
   func makeBody(configuration: Self.Configuration) -> some View {
     configuration.label
       .padding()
