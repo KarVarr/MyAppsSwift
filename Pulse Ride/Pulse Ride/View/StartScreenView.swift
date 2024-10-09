@@ -15,23 +15,23 @@ struct StartScreenView: View {
             Spacer()
             
             Text("Welcome to Ock Massager")
-                .font(.largeTitle)
+                .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(.black)
                 .padding(.bottom, 20)
                 .padding(.horizontal, 10)
-            
+                .minimumScaleFactor(0.4)
             Text("""
 This app is designed to help you relax and relieve muscle tension using gentle vibrations.
 Hold your device against the area where you want to soothe muscle discomfort, such as your neck, shoulders, or back.
 
 Note: This app is intended for muscle relaxation and massage only. 
 """)
-                .font(.title3)
-                .foregroundColor(.black.opacity(0.7))
-                .multilineTextAlignment(.center)
-                .padding(.horizontal)
-            
+            .font(.title3)
+            .foregroundColor(.black.opacity(0.7))
+            .multilineTextAlignment(.center)
+            .padding(.horizontal)
+            .minimumScaleFactor(0.4)
             Spacer()
             
             Image("massage")
