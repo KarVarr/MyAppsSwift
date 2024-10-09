@@ -25,72 +25,27 @@ struct GameView: View {
     @State private var isShowingWinAlert = false
     @State private var isGameStarted = false
     
-    
     let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 5), count: 5)
     
     var body: some View {
-        VStack {
-            Group {
-                Text("Symbol to find:")
-                    .padding()
+        GeometryReader { geometry in
+            VStack(spacing: 0) {
+                topSection(in: geometry)
+                    .frame(height: geometry.size.height * 0.2)
+                    .padding(.vertical, 10)
+                
+                gridSection
+                    .frame(height: geometry.size.height * 0.6)
+                    .padding(.vertical, 10)
+                
+                startRestartButton
+                    .frame(height: geometry.size.height * 0.1)
+                    .padding(.bottom, 10)
                 Spacer()
-                
-                ZStack {
-                    Text("\(numberToFind)")
-                        .padding()
-                        .font(.system(size: 54, design: .monospaced))
-                    
-                    RoundedRectangle(cornerRadius: 30, style: .continuous)
-                        .stroke(lineWidth: 3)
-                        .foregroundColor(Color(hex: 0xF4B183))
-                        .frame(width: 110, height: 100)
-                        .padding()
-                }
-                
-                Text(String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60))
-                    .font(.system(size: 26, design: .monospaced))
-                    .foregroundColor(.indigo)
             }
-            .font(.custom("Copperplate", size: 38))
-            
-            Spacer()
-            
-            if !isGameStarted {
-                LazyVGrid(columns: columns, spacing: 5) {
-                    ForEach(stringsForSymbol.enumerated().map { ($0.offset, $0.element) }, id: \.0) { index, item in
-                        Button(item) {}
-                        .buttonStyle(MyButtonStyleNumber())
-                        .aspectRatio(1, contentMode: .fit)
-                    }
-                }
-                .padding(.horizontal, 5)
-            } else {
-                LazyVGrid(columns: columns, spacing: 5) {
-                    ForEach(numbersForSymbol, id: \.self) { item in
-                        Button(String(item)) {
-                            haptics(.soft)
-                            pressedButton(item)
-                        }
-                        .buttonStyle(MyButtonStyleNumber())
-                        .aspectRatio(1, contentMode: .fit)
-                    }
-                }
-                .padding(.horizontal, 5)
-            }
-            
-            Button(isGameStarted ? "R E S T A R T" : "S T A R T") {
-                haptics(.medium)
-                if isGameStarted {
-                    restartGame()
-                } else {
-                    startGame()
-                }
-            }
-            .buttonStyle(MyButtonStyleRestart())
-            .padding(.horizontal, 5)
+            .padding(.horizontal, 10)
+            .background(colorScheme == .dark ? Color(hex: 0x002B5B) : Color(hex: 0xfff2cc))
         }
-        .padding(10)
-        .background(colorScheme == .dark ? Color(hex: 0x002B5B) : Color(hex: 0xfff2cc))
         .alert("Congratulations!", isPresented: $isShowingWinAlert) {
             Button("Ok") { isGameStarted = false }
             Button("Restart") { restartGame() }
@@ -98,6 +53,60 @@ struct GameView: View {
             let formatTimeElapsed = String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60)
             Text("You passed the test in \(formatTimeElapsed) seconds!")
         }
+    }
+    
+    func topSection(in geometry: GeometryProxy) -> some View {
+        VStack(spacing: 5) {
+            Text("Symbol to find:")
+                .font(.system(size: min(geometry.size.width, geometry.size.height) * 0.15, design: .monospaced))
+                .minimumScaleFactor(0.5)
+                .padding(.bottom, 10)
+            Spacer()
+            ZStack {
+                Text("\(numberToFind)")
+                    .font(.system(size: min(geometry.size.width, geometry.size.height) * 0.1, design: .monospaced))
+                
+                RoundedRectangle(cornerRadius: 25, style: .continuous)
+                    .stroke(lineWidth: 3)
+                    .foregroundColor(Color(hex: 0xF4B183))
+                    .frame(width: min(geometry.size.width, geometry.size.height) * 0.2, height: min(geometry.size.width, geometry.size.height) * 0.18)
+            }
+            Spacer()
+            Text(String(format: "%02d:%02d", timeElapsed / 60, timeElapsed % 60))
+                .font(.system(size: min(geometry.size.width, geometry.size.height) * 0.04, design: .monospaced))
+                .foregroundColor(.indigo)
+        }
+    }
+    
+    var gridSection: some View {
+        LazyVGrid(columns: columns, spacing: 5) {
+            ForEach(0..<25, id: \.self) { index in
+                Button(action: {
+                    if isGameStarted {
+                        haptics(.soft)
+                        pressedButton(numbersForSymbol[index])
+                    }
+                }) {
+                    Text(isGameStarted ? "\(numbersForSymbol[index])" : stringsForSymbol[index])
+                }
+                .buttonStyle(MyButtonStyleNumber())
+                .aspectRatio(1, contentMode: .fit)
+            }
+        }
+        .padding(.horizontal, 5)
+    }
+    
+    var startRestartButton: some View {
+        Button(isGameStarted ? "R E S T A R T" : "S T A R T") {
+            haptics(.medium)
+            if isGameStarted {
+                restartGame()
+            } else {
+                startGame()
+            }
+        }
+        .buttonStyle(MyButtonStyleRestart())
+        .padding(.vertical, 5)
     }
     
     func haptics(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {
@@ -147,4 +156,3 @@ struct GameView_Previews: PreviewProvider {
         GameView()
     }
 }
-

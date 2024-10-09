@@ -13,11 +13,6 @@ struct SettingView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .center) {
-                Image(systemName: "info.circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 200, height: 200)
-                    .padding(20)
                 Group {
                     Text("Schulte table:")
                         .font(.largeTitle)

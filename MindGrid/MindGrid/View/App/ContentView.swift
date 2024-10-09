@@ -15,23 +15,19 @@ struct ContentView: View {
                     .tabItem {
                         Label("Game", systemImage: "gamecontroller.fill")
                     }
-                    
                 ScoreView()
                     .tabItem {
                         Label("Score", systemImage: "number")
                     }
-                    
-                    
                 SettingView()
                     .tabItem {
                         Label("Info", systemImage: "info.square")
                     }
-                   
             }
             .tint(.teal)
             .onAppear {
                 UITabBar.appearance().unselectedItemTintColor = .lightGray
-                UITabBar.appearance().backgroundColor = .secondarySystemBackground
+                
             }
         }
     }
