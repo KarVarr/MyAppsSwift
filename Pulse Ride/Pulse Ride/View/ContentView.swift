@@ -43,7 +43,7 @@ struct ContentView: View {
             VStack {
                 GeometryReader { geo in
                     ZStack {
-                        LinearGradient(gradient: Gradient(colors: [Color(red: 0.98, green: 0.33, blue: 0.78), Color(red: 0.73, green: 0.11, blue: 0.45)]), startPoint: .top, endPoint: .bottom)
+                        LinearGradient(gradient: Gradient(colors: [Color(red: 0.56, green: 0.58, blue: 0.98), Color(red: 0.31, green: 0.33, blue: 0.78)]), startPoint: .top, endPoint: .bottom)
                             .edgesIgnoringSafeArea(.all)
                         VStack {
                             Spacer()
@@ -177,11 +177,11 @@ struct ContentView: View {
     
     private func updateVibrationIntensityBasedOnImage(_ image: String) {
         switch image {
-        case "snail":
+        case "snail1":
             massageVM.updateVibrationIntensity(0.5)
-        case "tornado":
+        case "tornado1":
             massageVM.updateVibrationIntensity(0.75)
-        case "rocket":
+        case "rocket1":
             massageVM.updateVibrationIntensity(0.99)
         default:
             break

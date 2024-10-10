@@ -8,5 +8,5 @@
 import Foundation
 
 struct ImagesNameForButtons {
-    let nameForImages = ["snail", "tornado", "rocket"]
+    let nameForImages = ["snail1", "tornado1", "rocket1"]
 }

@@ -20,6 +20,6 @@ struct CustomImage: View {
 
 struct CustomImage_Previews: PreviewProvider {
     static var previews: some View {
-        CustomImage(imageName: "snail")
+        CustomImage(imageName: "snail1")
     }
 }

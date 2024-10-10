@@ -29,8 +29,8 @@ struct CustomNavBar: View {
             
             Spacer()
             
-            Text(Helpers.String.mainTitle)
-                .font(.custom("PartyLetPlain", size: 36))
+            Text("------------")
+//                .font(.custom("PartyLetPlain", size: 36))
                 .fontWeight(.black)
                 .foregroundColor(.white)
                 .kerning(5)
