@@ -19,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		172058F92CB84D9B00B7864D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		172B4CE829E862B0007BF961 /* MindGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MindGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		172B4CEB29E862B0007BF961 /* MindGridApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindGridApp.swift; sourceTree = "<group>"; };
 		172B4CED29E862B0007BF961 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +66,7 @@
 		172B4CEA29E862B0007BF961 /* MindGrid */ = {
 			isa = PBXGroup;
 			children = (
+				172058F92CB84D9B00B7864D /* Info.plist */,
 				172DE7762CB57B91008EBD1F /* Helpers */,
 				1734271229EB2E5E0063886C /* Model */,
 				172B4CF929E86ABF007BF961 /* View */,
@@ -332,6 +334,8 @@
 				DEVELOPMENT_TEAM = LA9F8MT28T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MindGrid/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mind Grid";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -347,9 +351,10 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -364,6 +369,8 @@
 				DEVELOPMENT_TEAM = LA9F8MT28T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MindGrid/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mind Grid";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -379,9 +386,10 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
