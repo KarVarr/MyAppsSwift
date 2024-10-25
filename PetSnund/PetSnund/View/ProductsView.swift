@@ -9,8 +9,19 @@ import SwiftUI
 
 struct ProductsView: View {
     var body: some View {
-        Image(systemName: "dog.fill")
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image("dog1")
+            .resizable()
+            .frame(width: 200, height: 200)
+        
+        Text("Gav Gav My Friend")
+        Text("Welcome to PetSnund")
+        List {
+            Text("Dog")
+            Text("Cat")
+            Text("Bird")
+        }
+        .listStyle(.plain)
+        
     }
 }
 
