@@ -1,4 +1,4 @@
- //
+//
 //  ContentView.swift
 //  PetSnund
 //
@@ -9,13 +9,28 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            ProductsView()
+                .tabItem {
+                    Label("Products", systemImage: "list.bullet")
+                }
+            CategoriesView()
+                .tabItem {
+                    Label("Categories", systemImage: "opticaldiscdrive")
+                }
+            ProfileView()
+                .tabItem {
+                    Label("Profile", systemImage: "pawprint.fill")
+                }
+            SubscriptionView()
+                .tabItem {
+                    Label("Subscription", systemImage: "box.truck.fill")
+                }
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gearshape")
+                }
         }
-        .padding()
     }
 }
 
