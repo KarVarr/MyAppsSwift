@@ -9,19 +9,11 @@ import SwiftUI
 
 struct ProductsView: View {
     var body: some View {
-        Image("dog1")
-            .resizable()
-            .frame(width: 200, height: 200)
-        
-        Text("Gav Gav My Friend")
-        Text("Welcome to PetSnund")
-        List {
-            Text("Dog")
-            Text("Cat")
-            Text("Bird")
+        VStack{
+            CollectionView()
+                .padding(.horizontal, 10)
         }
-        .listStyle(.plain)
-        
+        .background(Color.white)
     }
 }
 
