@@ -12,45 +12,54 @@ struct CollectionCellView: View {
     
     var body: some View {
         VStack {
-            VStack {
-                ZStack {
-                    Image("food1")
-                        
-                    HStack {
-                        Image(systemName: "suit.heart.fill")
-                            .foregroundStyle(.white)
-                    }
-                }
+            ZStack(alignment: .topTrailing) {
+                Image("food1")
+                    .resizable()
+                    .scaledToFill()
+                
+                Image(systemName: "suit.heart")
+                    .resizable()
+                    .foregroundStyle(.pink)
+                    .frame(width: 30, height: 30)
+                    .padding([.top, .trailing], 10)
             }
-            Spacer()
-            HStack {
-                ZStack {
+            
+            VStack(alignment: .leading, spacing: 8) {
+                HStack {
                     Circle()
                         .foregroundStyle(.pink)
-                    Image(systemName: "percent")
-                        .foregroundStyle(.white)
+                        .frame(width: 30, height: 30)
+                        .overlay(
+                            Image(systemName: "percent")
+                                .foregroundStyle(.white)
+                        )
+                    Text("4500 dram")
+                        .foregroundStyle(.pink)
                 }
-                .frame(width: 30)
                 
-                Text("4500 dram")
-                    .foregroundStyle(.pink)
+                Text("Royal Canin 20kg")
+                Text("Dogs food")
+                
+                Button(action: {}) {
+                    Text("Add to basket")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
             }
-            Text("Monge Simba 20kg")
-            Text("Dogs food")
-            
-            
-            Button(action: {}) {
-                Text("Add to basket")
-            }
+            .padding()
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.blue)
+        .frame(width: 210, height: 400)
+        .background(Color.white)
         .cornerRadius(10)
         .onTapGesture {
             print("Tapped cell \(index)")
         }
     }
 }
+
 
 #Preview {
     CollectionCellView(index: 1)

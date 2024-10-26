@@ -16,12 +16,19 @@ struct CollectionView: View {
                 .resizable()
                 .frame(width: 200, height: 200)
             
-            Text("Gav Gav My Friend")
-            Text("Welcome to PetSnund")
-            LazyVGrid(columns: columns, spacing: 10) {
+            VStack {
+                Text("Gav Gav My Friend")
+                HStack {
+                    Text("Welcome to")
+                    Text("PetSnund")
+                        .foregroundStyle(LinearGradient(colors: [.pink, .purple, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .font(.largeTitle)
+                }
+            }
+            .font(.title)
+            LazyVGrid(columns: columns) {
                 ForEach(0..<20) {index in
                     CollectionCellView(index: index)
-                        .frame(width: 200, height: 250)
                 }
             }
         }

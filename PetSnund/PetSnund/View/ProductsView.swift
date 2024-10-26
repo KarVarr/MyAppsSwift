@@ -11,7 +11,7 @@ struct ProductsView: View {
     var body: some View {
         VStack{
             CollectionView()
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 5)
         }
         .background(Color.white)
     }
