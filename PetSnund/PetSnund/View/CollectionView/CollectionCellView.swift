@@ -12,10 +12,36 @@ struct CollectionCellView: View {
     
     var body: some View {
         VStack {
-            Text("Cell \(index)")
-                .font(.headline)
-                .foregroundStyle(.primary)
+            VStack {
+                ZStack {
+                    Image("food1")
+                        
+                    HStack {
+                        Image(systemName: "suit.heart.fill")
+                            .foregroundStyle(.white)
+                    }
+                }
+            }
             Spacer()
+            HStack {
+                ZStack {
+                    Circle()
+                        .foregroundStyle(.pink)
+                    Image(systemName: "percent")
+                        .foregroundStyle(.white)
+                }
+                .frame(width: 30)
+                
+                Text("4500 dram")
+                    .foregroundStyle(.pink)
+            }
+            Text("Monge Simba 20kg")
+            Text("Dogs food")
+            
+            
+            Button(action: {}) {
+                Text("Add to basket")
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.blue)

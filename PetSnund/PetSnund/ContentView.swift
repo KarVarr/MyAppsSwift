@@ -12,7 +12,7 @@ struct ContentView: View {
         TabView {
             ProductsView()
                 .tabItem {
-                    Label("Products", systemImage: "list.bullet")
+                    Label("Products", systemImage: "house.fill")
                 }
             CategoriesView()
                 .tabItem {
