@@ -9,7 +9,10 @@ import SwiftUI
 
 struct SubscriptionView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Your subscription is active")
+            Text("Yerevan, Armenia. Manushian street, 100")
+        }
     }
 }
 
