@@ -26,6 +26,8 @@ struct CollectionView: View {
                 }
             }
             .font(.title)
+            .foregroundStyle(Color.black)
+            
             LazyVGrid(columns: columns) {
                 ForEach(0..<20) {index in
                     CollectionCellView(index: index)

@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct CategoryCollectionCellView: View {
+    let colors = [Color.blue, Color.red, Color.green, Color.yellow, Color.orange, Color.purple, Color.pink, Color.gray, Color.black]
+    
     var index: String
+    
     var body: some View {
         VStack {
             Text("\(index)")
@@ -17,7 +20,7 @@ struct CategoryCollectionCellView: View {
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.blue)
+        .background(colors.randomElement())
         .cornerRadius(10)
     }
 }

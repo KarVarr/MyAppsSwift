@@ -75,6 +75,7 @@ struct ProfileView: View {
             }
         }
         .listStyle(.plain)
+        .background(Color.gray.opacity(0.1))
     }
 }
 

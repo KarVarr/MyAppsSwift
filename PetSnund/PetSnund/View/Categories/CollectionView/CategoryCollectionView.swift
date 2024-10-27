@@ -33,14 +33,20 @@ struct CategoryCollectionView: View {
     
     var body: some View {
         ScrollView {
-            Text("All categories of feed")
-                .font(.title)
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {
+            HStack {
+                Text("Catalogue")
+                    .font(.title)
+                    .padding(.leading)
+                Spacer()
+            }
+
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))], spacing: 5) {
                 ForEach(petFoodCategories, id: \.self) { index in
                     CategoryCollectionCellView(index: index)
-                        .frame(width: 100, height: 100)
+                        .aspectRatio(1, contentMode: .fill)
                 }
             }
+            .padding(.horizontal)
         }
     }
 }

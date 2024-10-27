@@ -13,7 +13,7 @@ struct ProductsView: View {
             CollectionView()
                 .padding(.horizontal, 5)
         }
-        .background(Color.white)
+        .background(Color.gray.opacity(0.1))
     }
 }
 

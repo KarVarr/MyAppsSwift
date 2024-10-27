@@ -12,6 +12,7 @@ struct CategoriesView: View {
         VStack {
             CategoryCollectionView()
         }
+        .background(Color.gray.opacity(0.1))
     }
 }
 
