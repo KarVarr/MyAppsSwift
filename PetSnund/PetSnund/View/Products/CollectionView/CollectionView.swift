@@ -12,22 +12,6 @@ struct CollectionView: View {
     
     var body: some View {
         ScrollView {
-            Image("dog2")
-                .resizable()
-                .frame(width: 200, height: 200)
-            
-            VStack {
-                Text("Gav Gav My Friend")
-                HStack {
-                    Text("Welcome to")
-                    Text("PetSnund")
-                        .foregroundStyle(LinearGradient(colors: [.pink, .purple, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .font(.largeTitle)
-                }
-            }
-            .font(.title)
-            .foregroundStyle(Color.black)
-            
             LazyVGrid(columns: columns) {
                 ForEach(0..<20) {index in
                     CollectionCellView(index: index)

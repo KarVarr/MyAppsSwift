@@ -20,7 +20,8 @@ struct SettingsView: View {
                 Image("cat1")
                     .resizable()
                     .frame(width:100, height:100)
-                ZStack {
+                
+                ZStack(alignment: .leading) {
                     Rectangle()
                         .foregroundStyle(.indigo)
                         .frame(width: geo.size.width - 15, height: geo.size.height / 8)
@@ -35,13 +36,15 @@ struct SettingsView: View {
                             .font(.title2)
                     }
                     .foregroundStyle(.white)
+                    .padding(10)
                 }
-                ZStack {
+                
+                ZStack(alignment: .leading) {
                     Rectangle()
                         .foregroundStyle(.indigo)
                         .frame(width: geo.size.width - 15, height: geo.size.height / 12)
                         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                    VStack(alignment: .leading) {
+                    VStack{
                         HStack {
                             Image(systemName:"heart.fill")
                             Text("Favotites")
@@ -49,14 +52,14 @@ struct SettingsView: View {
                         }
                     }
                     .foregroundStyle(.white)
-                    
+                    .padding(10)
                 }
-                ZStack {
+                ZStack(alignment: .leading) {
                     Rectangle()
                         .foregroundStyle(.indigo)
                         .frame(width: geo.size.width - 15, height: geo.size.height / 12)
                         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                    VStack(alignment: .leading) {
+                    VStack {
                         HStack {
                             Image(systemName:"dollarsign.circle.fill")
                             Text("Purchases")
@@ -64,6 +67,7 @@ struct SettingsView: View {
                         }
                     }
                     .foregroundStyle(.white)
+                    .padding(10)
                 }
             }
             .foregroundStyle(Color.black)
