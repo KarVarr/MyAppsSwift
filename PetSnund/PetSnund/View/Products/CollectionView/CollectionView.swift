@@ -7,16 +7,22 @@
 
 import SwiftUI
 
+
 struct CollectionView: View {
+  
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     
+    
     var body: some View {
-        ScrollView {
-            CollectionViewHorizontal()
-                .padding()
-            LazyVGrid(columns: columns) {
-                ForEach(0..<20) {index in
-                    CollectionCellView(index: index)
+        GeometryReader { geometry in
+            
+            ScrollView {
+                CollectionViewHorizontal()
+                    .frame(height: geometry.size.height / 4)
+                LazyVGrid(columns: columns) {
+                    ForEach(0..<20) {index in
+                        CollectionCellView(index: index)
+                    }
                 }
             }
         }
