@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct CollectionViewHorizontal: View {
+    let columns = [GridItem(.flexible())]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader { geometry in
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHGrid(rows: columns) {
+                    ForEach(0..<20) { index in
+                        Rectangle()
+                            .foregroundStyle(.blue)
+                            .frame(width: geometry.size.width - 20,height: geometry.size.height / 5)
+                            .cornerRadius(10)
+                    }
+                }
+            }
+        }
     }
 }
 

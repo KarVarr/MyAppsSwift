@@ -12,6 +12,8 @@ struct CollectionView: View {
     
     var body: some View {
         ScrollView {
+            CollectionViewHorizontal()
+                .padding()
             LazyVGrid(columns: columns) {
                 ForEach(0..<20) {index in
                     CollectionCellView(index: index)
