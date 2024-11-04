@@ -13,7 +13,6 @@ struct ProductsView: View {
     var body: some View {
         NavigationStack {
             CollectionView()
-                .padding(.horizontal, 5)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button {

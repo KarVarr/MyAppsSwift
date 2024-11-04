@@ -9,19 +9,28 @@ import SwiftUI
 
 struct CollectionCellView: View {
     var index: Int
+    @State private var isFavorite: Bool = false
+    private let randomImageNumber: Int = Int.random(in: 1...40)
+    private let randomDramNumber: Int = Int.random(in: 1000...8500)
     
     var body: some View {
         VStack {
             ZStack(alignment: .topTrailing) {
-                Image("food1")
+                Image("dogFood\(randomImageNumber)")
                     .resizable()
-                    .scaledToFill()
+                    .scaledToFit()
+                    .background(.purple)
+                    .allowsHitTesting(false)
                 
-                Image(systemName: "suit.heart")
-                    .resizable()
-                    .foregroundStyle(.pink)
-                    .frame(width: 30, height: 30)
-                    .padding([.top, .trailing], 10)
+                Button {
+                    isFavorite.toggle()
+                } label: {
+                    Image(systemName: isFavorite ? "suit.heart.fill" : "suit.heart")
+                        .resizable()
+                        .foregroundStyle(.pink)
+                        .frame(width: 30, height: 30)
+                        .padding([.top, .trailing], 10)
+                }
             }
             
             VStack(alignment: .leading, spacing: 8) {
@@ -33,7 +42,7 @@ struct CollectionCellView: View {
                             Image(systemName: "percent")
                                 .foregroundStyle(.white)
                         )
-                    Text("4500 dram")
+                    Text("\(randomDramNumber) dram")
                         .foregroundStyle(.pink)
                 }
                 

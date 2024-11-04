@@ -20,7 +20,7 @@ struct CollectionView: View {
                 CollectionViewHorizontal()
                     .frame(height: geometry.size.height / 4)
                 LazyVGrid(columns: columns) {
-                    ForEach(0..<20) {index in
+                    ForEach(0..<40) {index in
                         CollectionCellView(index: index)
                     }
                 }

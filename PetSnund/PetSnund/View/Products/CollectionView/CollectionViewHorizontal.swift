@@ -14,11 +14,22 @@ struct CollectionViewHorizontal: View {
     
     var body: some View {
         Pager(page: page, data: items, id: \.self) { index in
-            Text("Page: \(index)"
-            )
+            GeometryReader { geo in
+                VStack {
+                    Image("plate\(Int.random(in: 1..<7))")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: geo.size.width / 2)
+                    Text("Page: \(index)"
+                    )
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .cornerRadius(10)
+                }
+                .background(.red)
+                .padding(10)
+            }
         }
         .sensitivity(.high)
-//        .vertical()
     }
 }
 
