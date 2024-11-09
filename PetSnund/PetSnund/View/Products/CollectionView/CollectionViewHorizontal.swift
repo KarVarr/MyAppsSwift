@@ -14,14 +14,15 @@ struct CollectionViewHorizontal: View {
     
     var body: some View {
         TabView {
-            ForEach(1...6, id: \.self) { index in
+            ForEach(1...5, id: \.self) { index in
                 Image("scroll\(index)")
                     .resizable()
                     .scaledToFit()
             }
+            .padding()
         }
-        .tabViewStyle(.page)
-        .indexViewStyle(.page)
+        .tabViewStyle(.page(indexDisplayMode: .always))
+        .indexViewStyle(.page(backgroundDisplayMode: .automatic))
     }
 }
 
