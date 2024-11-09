@@ -19,8 +19,9 @@ struct CustomNavigationBar: View {
                     .foregroundColor(.gray)
             }
             .padding(8)
+            .frame(maxHeight: .infinity)
             .background(Color(.systemGray6))
-            .cornerRadius(8)
+            .cornerRadius(10)
             
             Spacer()
             
@@ -62,9 +63,8 @@ struct CustomNavigationBar: View {
                     .stroke(.gray, lineWidth: 1)
             }
         }
-        .frame(maxHeight: 60)
-        .padding()
-        
+        .frame(maxHeight: 55)
+        .padding()        
     }
 }
 

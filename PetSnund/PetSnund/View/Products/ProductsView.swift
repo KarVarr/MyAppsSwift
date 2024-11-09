@@ -13,7 +13,6 @@ struct ProductsView: View {
     var body: some View {
         CollectionView()
             .background(Color.gray.opacity(0.1))
-            .searchable(text: $searchText, prompt: "Look for best products")
     }
 }
 
