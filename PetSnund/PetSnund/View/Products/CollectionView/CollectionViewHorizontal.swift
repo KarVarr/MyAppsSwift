@@ -19,7 +19,7 @@ struct CollectionViewHorizontal: View {
                     .resizable()
                     .scaledToFit()
             }
-            .padding()
+            .padding(5)
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
         .indexViewStyle(.page(backgroundDisplayMode: .automatic))

@@ -10,7 +10,7 @@ import SwiftUI
 struct CollectionCellView: View {
     var index: Int
     @State private var isFavorite: Bool = false
-    private let randomImageNumber: Int = Int.random(in: 1...40)
+    private let randomImageNumber: Int = Int.random(in: 1...24)
     private let randomDramNumber: Int = Int.random(in: 1000...8500)
     
     var body: some View {
@@ -35,18 +35,32 @@ struct CollectionCellView: View {
             
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
-                    Circle()
-                        .foregroundStyle(.pink)
-                        .frame(width: 30, height: 30)
-                        .overlay(
-                            Image(systemName: "percent")
-                                .foregroundStyle(.white)
-                        )
-                    Text("\(randomDramNumber) dram")
-                        .foregroundStyle(.pink)
+                    Group {
+                        Text("֏")
+                        Text("\(randomDramNumber)")
+                    }
+                    .font(.title2)
+                    .foregroundStyle(.black)
+                    .bold()
+                    
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundStyle(.green.opacity(0.2))
+                        .overlay {
+                            Text("12% off")
+                                .foregroundStyle(.green)
+                        }                        
                 }
                 
-                Text("Royal Canin 20kg")
+                // Цена со скидкой
+                let discount = Double(randomDramNumber) * 0.12
+                let discountedPrice = Double(randomDramNumber) + discount
+                
+                HStack {
+                    Text("֏ \(String(format: "%.0f", discountedPrice))")
+                }
+                .strikethrough()
+                
+                Text("Royal Canin: 20kg")
                 Text("Dogs food")
                 
                 Button(action: {}) {
@@ -60,7 +74,7 @@ struct CollectionCellView: View {
             }
             .padding()
         }
-        .frame(width: 210, height: 400)
+//        .frame(width: 190, height: 400)
         .background(Color.white)
         .cornerRadius(10)
         .onTapGesture {

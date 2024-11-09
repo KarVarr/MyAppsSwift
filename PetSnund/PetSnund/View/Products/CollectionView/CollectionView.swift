@@ -19,9 +19,11 @@ struct CollectionView: View {
                 CustomNavigationBar(searchText: $searchText)
                     .frame(height: geometry.size.height / 10)
                 CollectionViewHorizontal()
-                    .frame(height: geometry.size.height / 4)
+                    .frame(height: geometry.size.height / 5)
+                MostPopularCategoriesView()
+                    .frame(height: geometry.size.height / 6)
                 LazyVGrid(columns: columns) {
-                    ForEach(0..<40) {index in
+                    ForEach(0..<24) {index in
                         CollectionCellView(index: index)
                     }
                 }
