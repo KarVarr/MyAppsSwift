@@ -14,13 +14,13 @@ struct CustomNavigationBar: View {
         HStack {
             HStack {
                 Image(systemName: "magnifyingglass")
-                    .foregroundColor(.gray)
+                    .foregroundColor(.orange)
                 TextField("Search Categories", text: $searchText)
                     .foregroundColor(.gray)
             }
             .padding(8)
             .frame(maxHeight: .infinity)
-            .background(Color(.systemGray6))
+            .background(Color(.systemGray5))
             .cornerRadius(10)
             
             Spacer()
@@ -31,6 +31,7 @@ struct CustomNavigationBar: View {
                 ZStack {
                     Image(systemName: "heart")
                         .font(.system(size: 20))
+                        .foregroundStyle(.gray)
                     Circle()
                         .fill(Color.red)
                         .frame(width: 10, height: 10)
@@ -50,6 +51,7 @@ struct CustomNavigationBar: View {
                 ZStack {
                     Image(systemName: "bell")
                         .font(.system(size: 20))
+                        .foregroundStyle(.gray)
                     Circle()
                         .fill(Color.red)
                         .frame(width: 10, height: 10)
