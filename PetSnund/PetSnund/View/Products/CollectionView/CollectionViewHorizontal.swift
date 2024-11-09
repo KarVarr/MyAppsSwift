@@ -25,7 +25,6 @@ struct CollectionViewHorizontal: View {
     }
 }
 
-
 #Preview {
     CollectionViewHorizontal()
 }
