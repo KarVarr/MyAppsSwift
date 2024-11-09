@@ -9,15 +9,14 @@ import SwiftUI
 
 struct CustomNavigationBar: View {
     @Binding var searchText: String
-
+    
     var body: some View {
         HStack {
-            // Поле поиска
             HStack {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
                 TextField("Search Categories", text: $searchText)
-                    .foregroundColor(.primary)
+                    .foregroundColor(.gray)
             }
             .padding(8)
             .background(Color(.systemGray6))
@@ -33,12 +32,16 @@ struct CustomNavigationBar: View {
                         .font(.system(size: 20))
                     Circle()
                         .fill(Color.red)
-                        .frame(width: 8, height: 8)
-                        .offset(x: 10, y: -10)
+                        .frame(width: 10, height: 10)
+                        .offset(x: 8, y: -8)
                 }
             }
-            .padding(.leading)
-            
+            .padding()
+            .cornerRadius(10)
+            .overlay {
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .stroke(.gray, lineWidth: 1)
+            }
             
             Button(action: {
                 // Действие для кнопки уведомлений
@@ -48,13 +51,20 @@ struct CustomNavigationBar: View {
                         .font(.system(size: 20))
                     Circle()
                         .fill(Color.red)
-                        .frame(width: 8, height: 8)
-                        .offset(x: 10, y: -10)
+                        .frame(width: 10, height: 10)
+                        .offset(x: 8, y: -8)
                 }
             }
-            .padding(.leading)
+            .padding()
+            .cornerRadius(10)
+            .overlay {
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .stroke(.gray, lineWidth: 1)
+            }
         }
+        .frame(maxHeight: 60)
         .padding()
+        
     }
 }
 
