@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct LettersView: View {
+    let alphabet = Array("abcdefghijklmnopqrstuvwxyz".uppercased())
+    let armenianAlphabet = Array("աբգդեզէըթժիլխծկհձղճմնոջրստվտրււփքր".uppercased())
+    let russianAlphabet = Array("абвгдеёжзийклмнопрстуфхцчшщъыьэюя".uppercased())
+    let arabicAlphabet = Array("أإأؤإئابتثجحخدذرزسشصضطظعغفقكلمنهويي".uppercased())
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("HayLingo")
+            .font(.title)
+        
+        VStack {
+            Text("A")
+        }
+        .frame(width: 100, height: 100)
+        .overlay {
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .stroke(.gray, lineWidth: 2)
+        }
     }
 }
 
