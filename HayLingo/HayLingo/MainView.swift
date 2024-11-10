@@ -16,8 +16,10 @@ struct MainView: View {
         GeometryReader { geometry in
             ScrollView {
                 VStack(spacing: 20) {
-                    Text("HayLingo")
-                        .foregroundStyle(Helper.ColorHex.red)
+                    AnimatedTextView()
+//                    TerminalTextView()
+//                    Text("HayLingo")
+//                        .foregroundStyle(Helper.ColorHex.red)
                         .frame(height: geometry.size.height / 6)
                         .font(.system(size: 46, weight: .bold, design: .monospaced))
                     
