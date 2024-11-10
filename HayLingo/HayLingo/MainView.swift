@@ -8,92 +8,74 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var selectedLanguage = "English"
+    
+    let languages: [String] = ["English", "Russian"]
+    
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
                 VStack(spacing: 20) {
                     Text("HayLingo")
-                        .foregroundLinearGradientArmenianFlag(colors: [.red, .red, .blue, .orange, .orange], startPoint: .top, endPoint: .bottom)
+                        .foregroundStyle(Helper.ColorHex.red)
                         .frame(height: geometry.size.height / 6)
-                        .font(.system(size: 72, weight: .bold, design: .monospaced))
+                        .font(.system(size: 46, weight: .bold, design: .monospaced))
                     
+                    let vStackWidth = geometry.size.width * 0.7
                     
                     VStack {
-                        VStack {
-                            Text("Selected language:")
-                                .font(.headline)
-                            Text("English")
-                                .font(.subheadline)
-                        }                        .foregroundStyle(Helper.ColorHex.darkGray)
-                    }
-                    .padding()
-                    .background(Helper.ColorHex.white)
-                    .cornerRadius(10)
-                    .shadow(color: .gray.opacity(0.3), radius: 20, x: 4, y: 4)
-                    .onTapGesture {
-                        print("language selected")
-                    }
-                    
-                    
-                    VStack{
-                        Text("Information about your previous lessons")
-                        Text("Language: English")
-                        Text("Correct answers: 10/10")
-                    }
-                    .padding()
-                    .background(Helper.ColorHex.white)
-                    .cornerRadius(10)
-                    .shadow(color: .gray.opacity(0.3), radius: 20, x: 4, y: 4)
-                    .onTapGesture {
-                        print("language selected")
-                    }
-                    
-                    VStack{
-                        Text("Your progress")
-                        HStack {
-                            Text("English")
-                            Text("10/10")
+                        Text("Select a language")
+                            .foregroundLinearGradientArmenianFlag(colors: [.red, .red, .blue, .orange, .orange], startPoint: .top, endPoint: .bottom)
+                        Picker("Language", selection: $selectedLanguage) {
+                            ForEach(languages, id: \.self) {
+                                Text($0)
+                            }
                         }
-                        HStack {
-                            Text("Russian")
-                            Text("10/10")
-                        }
-                        HStack {
-                            Text("English")
-                            Text("10/10")
-                        }
+                        .pickerStyle(.segmented)
                     }
                     .padding()
-                    .background(Helper.ColorHex.white)
-                    .cornerRadius(10)
-                    .shadow(color: .gray.opacity(0.3), radius: 20, x: 4, y: 4)
-                    .onTapGesture {
-                        print("language selected")
-                    }
                     
-                    VStack{
-                        Text("History of Armenian language")
-                    }
-                    .padding()
-                    .background(Helper.ColorHex.blue)
-                    .foregroundStyle(Helper.ColorHex.white)
-                    .cornerRadius(10)
-                    .shadow(color: .gray.opacity(0.3), radius: 20, x: 4, y: 4)
-                    .onTapGesture {
-                        print("language selected")
-                    }
-
+                    VStackContent(
+                        title: "Previous lessons",
+                        subtitle: "Language: English\nCorrect answers: 10/10",
+                        width: vStackWidth,
+                        backgroundColor: Helper.ColorHex.white,
+                        textColor: Helper.ColorHex.darkGray,
+                        spacing: 10,
+                        alignment: .leading
+                    )
                     
-                    VStack{
-                        Text("Play game")
-                    }
-                    .padding()
-                    .background(Helper.ColorHex.orange)
-                    .cornerRadius(10)
-                    .shadow(color: .gray.opacity(0.3), radius: 20, x: 4, y: 4)
-                    .onTapGesture {
-                        print("language selected")
-                    }
+                    VStackContent(
+                        title: "Your progress",
+                        subtitle: "English: 10/10\nRussian: 10/10",
+                        width: vStackWidth,
+                        backgroundColor: Helper.ColorHex.white,
+                        textColor: Helper.ColorHex.darkGray,
+                        spacing: 1,
+                        alignment: .leading
+                    )
+                    
+                    VStackContent(
+                        title: "History of Armenian language",
+                        subtitle: nil,
+                        width: vStackWidth,
+                        backgroundColor: Helper.ColorHex.blue,
+                        textColor: Helper.ColorHex.white,
+                        spacing: 1,
+                        alignment: .center
+                    )
+                    
+                    
+                    VStackContent(
+                        title: "Play game",
+                        subtitle: nil,
+                        width: vStackWidth,
+                        backgroundColor: Helper.ColorHex.orange,
+                        textColor: Helper.ColorHex.white,
+                        spacing: 1, alignment: .center
+                    )
+                    
+                    
                 }
                 .frame(maxWidth: .infinity, minHeight: geometry.size.height)
             }
