@@ -1,5 +1,5 @@
 //
-//  Extension.swift
+//  ExtensionText.swift
 //  HayLingo
 //
 //  Created by Karen Vardanian on 10.11.2024.

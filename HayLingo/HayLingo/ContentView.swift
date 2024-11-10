@@ -15,6 +15,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("Letters", systemImage: "building.columns")
                 }
+            MainView()
+                .preferredColorScheme(.light)
+                .tabItem {
+                    Label("Main", systemImage: "house")
+                }
         }
         
     }
