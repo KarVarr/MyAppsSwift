@@ -8,18 +8,15 @@
 import SwiftUI
 
 struct LettersView: View {
-    let alphabet = Array("abcdefghijklmnopqrstuvwxyz".uppercased())
-    let armenianAlphabet = Array("աբգդեզէըթժիլխծկհձղճմնոջրստվտրււփքր".uppercased())
-    let russianAlphabet = Array("абвгдеёжзийклмнопрстуфхцчшщъыьэюя".uppercased())
-    let arabicAlphabet = Array("أإأؤإئابتثجحخدذرزسشصضطظعغفقكلمنهويي".uppercased())
+    
     
     var body: some View {
         ScrollView {
-            Text("HayLingo")
+            Text("աբ".uppercased())
                 .font(.title)
             
             VStack {
-                Text("A")
+                Text("dd")
             }
             .frame(width: 100, height: 100)
             .overlay {
