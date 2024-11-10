@@ -14,16 +14,18 @@ struct LettersView: View {
     let arabicAlphabet = Array("أإأؤإئابتثجحخدذرزسشصضطظعغفقكلمنهويي".uppercased())
     
     var body: some View {
-        Text("HayLingo")
-            .font(.title)
-        
-        VStack {
-            Text("A")
-        }
-        .frame(width: 100, height: 100)
-        .overlay {
-            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .stroke(.gray, lineWidth: 2)
+        ScrollView {
+            Text("HayLingo")
+                .font(.title)
+            
+            VStack {
+                Text("A")
+            }
+            .frame(width: 100, height: 100)
+            .overlay {
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .stroke(.gray, lineWidth: 2)
+            }
         }
     }
 }
