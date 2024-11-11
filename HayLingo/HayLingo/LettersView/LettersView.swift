@@ -11,18 +11,8 @@ struct LettersView: View {
     
     
     var body: some View {
-        ScrollView {
-            Text("աբ".uppercased())
-                .font(.title)
-            
-            VStack {
-                Text("dd")
-            }
-            .frame(width: 100, height: 100)
-            .overlay {
-                RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .stroke(.gray, lineWidth: 2)
-            }
+        ScrollView(showsIndicators: false) {
+            CollectionView()
         }
     }
 }

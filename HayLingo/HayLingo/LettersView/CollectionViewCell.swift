@@ -17,17 +17,22 @@ struct CollectionViewCell: View {
         VStack {
             HStack {
                 Text(firstArmUppercaseLetter)
+                    .font(.title)
+                    .foregroundStyle(Helper.ColorHex.white)
                 Text(secondArmLowercaseLetter)
+                    .font(.title2)
+                    .foregroundStyle(Helper.ColorHex.white.opacity(0.8))
             }
             
             Text(letterForStudy)
+                .font(.largeTitle)
+                .foregroundStyle(Helper.ColorHex.blue)
             
         }
-        .padding() 
-        .overlay {
-            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .stroke(Helper.ColorHex.darkGray, lineWidth: 1)
-        }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Helper.ColorHex.lightGray)
+        .cornerRadius(10)
     }
 }
 
