@@ -6,15 +6,8 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		17F458462CE3B2CF00973F0B /*  UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F458452CE3B2CF00973F0B /*  UserData.swift */; };
-		17F458482CE3B41E00973F0B /* ProgressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F458472CE3B41E00973F0B /* ProgressData.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		17F458002CE0BDE600973F0B /* HayLingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HayLingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		17F458452CE3B2CF00973F0B /*  UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " UserData.swift"; sourceTree = "<group>"; };
-		17F458472CE3B41E00973F0B /* ProgressData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -39,7 +32,6 @@
 		17F457F72CE0BDE600973F0B = {
 			isa = PBXGroup;
 			children = (
-				17F458442CE3AF9700973F0B /* Model */,
 				17F458022CE0BDE600973F0B /* HayLingo */,
 				17F458012CE0BDE600973F0B /* Products */,
 			);
@@ -51,15 +43,6 @@
 				17F458002CE0BDE600973F0B /* HayLingo.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		17F458442CE3AF9700973F0B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				17F458452CE3B2CF00973F0B /*  UserData.swift */,
-				17F458472CE3B41E00973F0B /* ProgressData.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +119,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17F458482CE3B41E00973F0B /* ProgressData.swift in Sources */,
-				17F458462CE3B2CF00973F0B /*  UserData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

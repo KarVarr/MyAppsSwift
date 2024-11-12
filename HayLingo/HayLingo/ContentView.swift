@@ -6,21 +6,8 @@
 //
 
 import SwiftUI
-
 struct ContentView: View {
     var body: some View {
-        //        TabView {
-        //            LettersView()
-        //                .preferredColorScheme(.light)
-        //                .tabItem {
-        //                    Label("Letters", systemImage: "building.columns")
-        //                }
-        //            MainView()
-        //                .preferredColorScheme(.light)
-        //                .tabItem {
-        //                    Label("Main", systemImage: "house")
-        //                }
-        //        }
         MainView()
             .preferredColorScheme(.light)
     }

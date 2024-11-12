@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct HayLingoApp: App {
@@ -13,5 +14,6 @@ struct HayLingoApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: UserData.self)
     }
 }

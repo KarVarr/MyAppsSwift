@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct MainView: View {
+    @Environment(\.modelContext) var context
+    @Query var userData: [UserData]
+    
     @State private var selectedLanguage = "Russian"
     
     let languages: [String] = ["Russian", "English"]
@@ -21,6 +25,8 @@ struct MainView: View {
                             .frame(height: geometry.size.height / 6)
                             .font(.system(size: 46, weight: .bold, design: .monospaced))
                         
+                        Text("Hello Vania!")
+                        
                         let vStackWidth = geometry.size.width * 0.7
                         
                         VStack {
@@ -32,12 +38,20 @@ struct MainView: View {
                                 }
                             }
                             .pickerStyle(.segmented)
+                            .frame(width: vStackWidth)
                         }
-                        .padding()
+                        
+                        var correctAnswer: String {
+                            if let user = userData.first {
+                                return user.progress.map{"Language: English\nCorrect answers: \($0.correctAnswer) from \($0.totalQuestion)"}.joined()
+                            } else {
+                                return "No data"
+                            }
+                        }
                         
                         VStackContent(
                             title: "Previous lessons",
-                            subtitle: "Language: English\nCorrect answers: 10/10",
+                            subtitle: correctAnswer,
                             width: vStackWidth,
                             backgroundColor: Helper.ColorHex.white,
                             textColor: Helper.ColorHex.darkGray,
@@ -45,13 +59,22 @@ struct MainView: View {
                             alignment: .leading
                         )
                         
+                        var subtitle: String {
+                            if let user = userData.first {
+                                return user.progress.map {
+                                    "\($0.language): \($0.correctAnswer)/\($0.totalQuestion)"
+                                }.joined(separator: "\n")
+                            }
+                            return "No progress yet"
+                        }
+                        
                         VStackContent(
                             title: "Your progress",
-                            subtitle: "English: 10/10\nRussian: 10/10",
+                            subtitle: subtitle,
                             width: vStackWidth,
                             backgroundColor: Helper.ColorHex.white,
                             textColor: Helper.ColorHex.darkGray,
-                            spacing: 1,
+                            spacing: 10,
                             alignment: .leading
                         )
                         
