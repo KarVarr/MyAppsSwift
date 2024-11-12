@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CollectionViewCell: View {
+    var backgroundColor: Color
     var index: Int
     var firstArmUppercaseLetter: String
     var secondArmLowercaseLetter: String
@@ -31,11 +32,11 @@ struct CollectionViewCell: View {
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Helper.ColorHex.lightGray)
+        .background(backgroundColor)
         .cornerRadius(10)
     }
 }
 
 #Preview {
-    CollectionViewCell(index: 1, firstArmUppercaseLetter: "A", secondArmLowercaseLetter: "a", letterForStudy: "A rus")
+    CollectionViewCell(backgroundColor: Color.white, index: 1, firstArmUppercaseLetter: "A", secondArmLowercaseLetter: "a", letterForStudy: "A rus")
 }

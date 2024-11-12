@@ -11,7 +11,7 @@ import SwiftData
 @Model
 class UserData {
     @Attribute(.unique) var id: UUID
-    var name: String
+    var name: String?
     var selectedLanguage: String
     var progress: [ProgressData]
     

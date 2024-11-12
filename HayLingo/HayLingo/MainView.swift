@@ -37,6 +37,19 @@ struct MainView: View {
                                     Text($0)
                                 }
                             }
+                            .onChange(of: selectedLanguage) {_, newValue in
+                                if let user = userData.first {
+                                    user.selectedLanguage = newValue
+                                    do {
+                                        try context.save()
+                                        print("saved \(newValue)")
+                                    } catch {
+                                        print("Error saving user data: \(error)")
+                                    }
+                                } else {
+                                    print("userData.first is nil")
+                                }
+                            }
                             .pickerStyle(.segmented)
                             .frame(width: vStackWidth)
                         }
@@ -105,6 +118,19 @@ struct MainView: View {
                     .frame(maxWidth: .infinity, minHeight: geometry.size.height)
                 }
                 .background(Helper.ColorHex.backgroundGray)
+            }
+        }
+        .onAppear {
+            if userData.isEmpty {
+                let user = UserData(name: "User", selectedLanguage: "Russian")
+
+                context.insert(user)
+                
+                do {
+                    try context.save()
+                } catch {
+                    print("Error saving user data: \(error)")
+                }
             }
         }
     }
