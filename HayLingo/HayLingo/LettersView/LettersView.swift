@@ -15,20 +15,28 @@ struct LettersView: View {
     @State private var selectedLetters: [String] = []
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            CollectionView(selectedLetters: $selectedLetters)
-            Button("Start Game") {
-                if let user = userData.first {
-                    let newProgress = ProgressData(language: "Russian", correctAnswer: 0, totalQuestion: selectedLetters.count)
-                    user.progress.append(newProgress)
+        NavigationStack {
+            ScrollView(showsIndicators: false) {
+                CollectionView(selectedLetters: $selectedLetters)
                 
-                    try? context.save()
+                Button(action: {
+                    if let user = userData.first {
+                        let newProgress = ProgressData(language: "Russian", correctAnswer: 0, totalQuestion: selectedLetters.count)
+                        user.progress.append(newProgress)
+                        
+                        try? context.save()
+                        print("button pressed and data saved")
+                    }
+                }) {
+                    NavigationLink(destination: LetterTrainerView()) {
+                        Text("Start Game")
+                    }
+                    .buttonStyle(.automatic)
                 }
             }
         }
     }
 }
-
 #Preview {
     LettersView()
 }
