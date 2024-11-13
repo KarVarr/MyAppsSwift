@@ -27,21 +27,22 @@ struct LetterTrainerView: View {
                     }
                     .foregroundStyle(.black)
                     .padding()
-                    .frame(maxWidth: geometry.size.width - 20, minHeight: geometry.size.height / 4, maxHeight: geometry.size.height / 4)
+                    .frame(maxWidth: geometry.size.width, minHeight: geometry.size.height / 4, maxHeight: geometry.size.height / 4)
                     .background(
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
                             .fill(Helper.ColorHex.white)
                             .shadow(radius: 10)
                     )
+                    .padding()
                     Spacer()
                     
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 1)) {
-                        ForEach(0...3, id: \.self) { text in
+                        ForEach(0...4, id: \.self) { text in
                             VStack {
                                 Text("hh")
                                     .font(Font.system(size: 64))
                                     .foregroundStyle(.white)
-                                    .frame(minWidth: geometry.size.width / 2.6, maxWidth: geometry.size.width - 20, minHeight: geometry.size.height / 8, maxHeight: geometry.size.height / 10, alignment: .center)
+                                    .frame(minWidth: geometry.size.width / 8, maxWidth: .infinity, maxHeight: geometry.size.height / 10, alignment: .center)
                                     .background {
                                         RoundedRectangle(cornerRadius: 20, style: .continuous)
                                             .fill(Helper.ColorHex.orange)
