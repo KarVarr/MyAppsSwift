@@ -13,11 +13,18 @@ struct AnswerChoiceView: View {
     
     var body: some View {
         VStack {
-            
+            Text(text)
+                .font(Font.system(size: 64))
+                .foregroundStyle(.white)
+                .frame(minWidth: 150, maxWidth: .infinity, maxHeight: 80, alignment: .center)
+                .background {
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .fill(isSelected ? Helper.ColorHex.blue : Helper.ColorHex.orange)
+                }
         }
     }
 }
 
 #Preview {
-    AnswerChoiceView()
+    AnswerChoiceView(text: "letter", isSelected: false)
 }

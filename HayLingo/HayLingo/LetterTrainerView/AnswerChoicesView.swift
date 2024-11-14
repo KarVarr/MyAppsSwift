@@ -19,19 +19,16 @@ struct AnswerChoicesView: View {
                     selectedChoice = choice
                     onSelect(choice)
                 } label: {
-                    AnswerChoiceView
+                    AnswerChoiceView(text: choice, isSelected: selectedChoice == choice)
                 }
-
-                
             }
         }
-        
     }
 }
 
 #Preview {
     @Previewable @State var selectedChoice: String? = nil
-    AnswerChoicesView(choices: ["a", "b", "c"], selectedChoice: $selectedChoice) { choice in
+    AnswerChoicesView(choices: ["a", "b", "c", "d", "e"], selectedChoice: $selectedChoice) { choice in
         print("Selected \(choice)")
     }
 }
