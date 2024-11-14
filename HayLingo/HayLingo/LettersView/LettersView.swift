@@ -24,9 +24,7 @@ struct LettersView: View {
                         let newProgress = ProgressData(language: "Russian", correctAnswer: 0, totalQuestion: selectedLetters.count)
                         user.progress.append(newProgress)
                         
-                        try? context.save()
-                        print("button pressed and data saved")
-                    }
+                        try? context.save()                    }
                 }) {
                     NavigationLink(destination: LetterTrainerView()) {
                         Text("Start Game")

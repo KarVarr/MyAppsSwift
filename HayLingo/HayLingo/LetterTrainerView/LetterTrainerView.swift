@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LetterTrainerView: View {
+    @StateObject private var viewModel = LetterTrainerViewModel()
+    
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
