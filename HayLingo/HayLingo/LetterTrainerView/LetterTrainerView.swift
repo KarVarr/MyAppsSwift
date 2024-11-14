@@ -13,7 +13,6 @@ struct LetterTrainerView: View {
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
-                
                 VStack {
                     HStack {
                         Text("Aa")
