@@ -14,7 +14,7 @@ class UserData {
     var name: String?
     var selectedLanguage: String
     var progress: [ProgressData]
-    
+
     init(name: String, selectedLanguage: String, progress: [ProgressData] = []) {
         self.id = UUID()
         self.name = name

@@ -12,24 +12,27 @@ struct LettersView: View {
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
     
-    @State private var selectedLetters: [String] = []
+    @StateObject private var viewModel = LetterTrainerViewModel()
     
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
-                CollectionView(selectedLetters: $selectedLetters)
+                CollectionView(selectedLetters: $viewModel.selectedLetters)
                 
-                Button(action: {
-                    if let user = userData.first {
-                        let newProgress = ProgressData(language: "Russian", correctAnswer: 0, totalQuestion: selectedLetters.count)
-                        user.progress.append(newProgress)
-                        
-                        try? context.save()                    }
-                }) {
-                    NavigationLink(destination: LetterTrainerView()) {
-                        Text("Start Game")
-                    }
-                    .buttonStyle(.automatic)
+                //                Button(action: {
+                //                    if let user = userData.first {
+                //                        let newProgress = ProgressData(language: "Russian", correctAnswer: 0, totalQuestion: $viewModel.selectedLetters.count)
+                //                        user.progress.append(newProgress)
+                //                        
+                //                        try? context.save()                    }
+                //                }) {
+                //                    NavigationLink(destination: LetterTrainerView()) {
+                //                        Text("Start Game")
+                //                    }
+                //                    .buttonStyle(.automatic)
+                //                }
+                NavigationLink(destination: LetterTrainerView()) {
+                    Text("Start Game")
                 }
             }
         }

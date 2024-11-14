@@ -90,7 +90,7 @@ struct LetterTrainerView: View {
         .background(Helper.ColorHex.backgroundGray)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
-//            viewModel.startTraining(selectedLetters: viewModel.selectedLetters)
+            viewModel.startTraining(selectedLetters: viewModel.selectedLetters)
         }
     }
 }

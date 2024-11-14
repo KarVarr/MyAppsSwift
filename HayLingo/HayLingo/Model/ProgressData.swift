@@ -13,7 +13,7 @@ class ProgressData {
     var language: String
     var correctAnswer: Int
     var totalQuestion: Int
-    
+
     init(language: String, correctAnswer: Int, totalQuestion: Int) {
         self.language = language
         self.correctAnswer = correctAnswer
