@@ -12,7 +12,18 @@ struct CurrentLetterView: View {
     let image: String
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text(letter)
+                .font(Font.system(size: 72))
+                .foregroundStyle(Helper.ColorHex.red)
+            Spacer()
+            Image(systemName: image)
+                .resizable()
+                .scaledToFit()
+                .padding()
+                .foregroundStyle(Helper.ColorHex.blue)
+        }
+        .foregroundStyle(.black)
     }
 }
 

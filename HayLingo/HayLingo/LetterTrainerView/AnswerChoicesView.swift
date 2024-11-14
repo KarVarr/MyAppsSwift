@@ -13,7 +13,19 @@ struct AnswerChoicesView: View {
     let onSelect: (String) -> Void
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 1)) {
+            ForEach(choices, id: \.self) { choice in
+                Button {
+                    selectedChoice = choice
+                    onSelect(choice)
+                } label: {
+                    AnswerChoiceView
+                }
+
+                
+            }
+        }
+        
     }
 }
 

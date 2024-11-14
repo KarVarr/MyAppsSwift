@@ -15,5 +15,16 @@ class LetterTrainerViewModel: ObservableObject {
     @Published var answerChoices: [String] = []
     @Published var selectedChoice: String?
     @Published var progress: [ProgressData] = []
+    
+    func startTraining(selectedLetters: [String]) {
+//        self.selectedLetters = selectedLetters
+//        currentIndex = 0
+//        loadNextLetter()
+    }
+    
+    
+     func checkAnswer(_ choice: String) {
+        
+    }
 }
 

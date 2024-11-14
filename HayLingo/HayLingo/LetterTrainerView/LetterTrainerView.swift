@@ -79,9 +79,18 @@ struct LetterTrainerView: View {
                         )
                     Spacer()
                     
-                    
+                    AnswerChoicesView(choices: viewModel.answerChoices, selectedChoice: $viewModel.selectedChoice) { choice in
+                        viewModel.checkAnswer(choice)
+                    }
+                    .padding()
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             }
+        }
+        .background(Helper.ColorHex.backgroundGray)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onAppear {
+//            viewModel.startTraining(selectedLetters: viewModel.selectedLetters)
         }
     }
 }
