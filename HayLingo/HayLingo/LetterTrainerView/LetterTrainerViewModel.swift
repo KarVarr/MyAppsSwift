@@ -10,6 +10,10 @@ import Foundation
 import SwiftData
 
 class LetterTrainerViewModel: ObservableObject {
-    
+    @Published var currentLetter: String = ""
+    @Published var currentImage: String = ""
+    @Published var answerChoices: [String] = []
+    @Published var selectedChoice: String?
+    @Published var progress: [ProgressData] = []
 }
 

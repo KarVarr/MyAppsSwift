@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct CurrentLetterView: View {
+    let letter: String
+    let image: String
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    CurrentLetterView()
+    CurrentLetterView(letter: "A", image: "dog")
 }
