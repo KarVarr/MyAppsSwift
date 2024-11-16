@@ -9,6 +9,7 @@ import SwiftUI
 import _SwiftData_SwiftUI
 
 struct LettersTrainerView: View {
+    @Environment(\.presentationMode) var presentationMode
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
     
@@ -153,12 +154,13 @@ struct LettersTrainerView: View {
                             .padding()
                     }
                     
-                    Text("Счет \(score) из \(currentLetterIndex)")
+                    Text("Счет \(score) из \(selectedLetters.count)")
                         .font(.headline)
                         .padding()
                     
                     
                 } else {
+                    Spacer()
                     VStack {
                         Text("Поздравляем!")
                             .font(.title)
@@ -167,24 +169,45 @@ struct LettersTrainerView: View {
                         Text("Итоговый счет \(score) из \(selectedLetters.count)")
                             .font(.title2)
                             .padding()
+                        
+                        Button {
+                            playAgain()
+                        } label: {
+                            Text("Сыграть еще раз!")
+                                .font(.headline)
+                                .foregroundStyle(Helper.ColorHex.white)
+                                .frame(maxWidth: geometry.size.width, maxHeight: 100)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                        .fill(Helper.ColorHex.blue)
+                                }
+                                .padding()
+                        }
+
                     }
                     .padding()
-                    .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height / 3)
+                    .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height / 3, alignment: .center)
                     .background {
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
                             .fill(Helper.ColorHex.white)
-                            .shadow(color: .gray, radius: 20, x: 8, y: 8)
+                            .shadow(color: .gray.opacity(0.4), radius: 5, x: 4, y: 4)
                     }
-                    .onAppear {
-                        selectedLetters = []
-                    }
-                    
+//                    .onAppear {
+//                        selectedLetters = []
+//                    }
+                    Spacer()
                 }
             }
             .padding()
             .onAppear(perform: setupQuestion)
+            .navigationBarBackButtonHidden(currentLetterIndex >= selectedLetters.count)
         }
         .background(Helper.ColorHex.backgroundGray)
+    }
+    
+    private func playAgain() {
+        selectedLetters = []
+        presentationMode.wrappedValue.dismiss()
     }
     
     

@@ -12,24 +12,19 @@ struct LettersView: View {
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
     
-    //    @StateObject private var viewModel = LetterTrainerViewModel()
     @State private var selectedLetters: [String] = []
-    
-    
     
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
                 CollectionView(selectedLetters: $selectedLetters)
                 VStack {
-                    NavigationLink(destination: LetterTrainerView(selectedLetters: $selectedLetters)) {
-                        Text("Start Game \(selectedLetters)")
-                    }
                     NavigationLink(destination: LettersTrainerView(selectedLetters: $selectedLetters)) {
                         Text("Start Game \(selectedLetters)")
                     }
                 }
             }
+            .background(Helper.ColorHex.backgroundGray)
         }
     }
 }

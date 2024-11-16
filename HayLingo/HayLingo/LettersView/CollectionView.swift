@@ -51,7 +51,7 @@ struct CollectionView: View {
                 }
                 .padding(10)
             }
-            .background(Helper.ColorHex.backgroundGray)
+            
         }
         
         private func toggleLetterSelection(letter: String) {
