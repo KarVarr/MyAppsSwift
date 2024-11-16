@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import _SwiftData_SwiftUI
 
 struct LettersTrainerView: View {
+    @Environment(\.modelContext) var context
+    @Query var userData: [UserData]
+
     @Binding var selectedLetters: [String]
     @State private var currentLetterIndex = 0
     @State private var options: [String] = []
@@ -15,14 +19,7 @@ struct LettersTrainerView: View {
     @State private var showResult = false
     @State private var isCorrect = false
     @State private var score = 0
-    
-    let translations = [
-        "Ա": "А",
-        "Բ": "Б",
-        "Գ": "Г",
         
-    ]
-    
     let englishTranslations = [
         "Ա": "a",
         "Բ": "b",
@@ -168,9 +165,10 @@ struct LettersTrainerView: View {
     private func setupQuestion() {
         guard currentLetterIndex < selectedLetters.count else { return }
         let currentLetter = selectedLetters[currentLetterIndex]
-        correctAnswer = russianTranslations[currentLetter] ?? ""
+        let multyAnswer = userData.first?.selectedLanguage
+        correctAnswer = multyAnswer == "Russian" ? russianTranslations[currentLetter] ?? "" : englishTranslations[currentLetter] ?? ""
         
-        var wrongOptions = Array(russianTranslations.values)
+        var wrongOptions = multyAnswer == "Russian" ? Array(russianTranslations.values) : Array(englishTranslations.values)
         wrongOptions.removeAll {$0 == correctAnswer}
         wrongOptions.shuffle()
         
