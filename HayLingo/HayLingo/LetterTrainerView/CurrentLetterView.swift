@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CurrentLetterView: View {
     let letter: String
-    let image: String
+//    let image: String
     
     var body: some View {
         HStack {
@@ -17,16 +17,17 @@ struct CurrentLetterView: View {
                 .font(Font.system(size: 72))
                 .foregroundStyle(Helper.ColorHex.red)
             Spacer()
-            Image(systemName: image)
-                .resizable()
-                .scaledToFit()
-                .padding()
-                .foregroundStyle(Helper.ColorHex.blue)
+//            Image(image)
+//                .resizable()
+//                .scaledToFit()
+//                .padding()
+//                .foregroundStyle(Helper.ColorHex.blue)
         }
         .foregroundStyle(.black)
     }
 }
 
 #Preview {
-    CurrentLetterView(letter: "A", image: "dog")
+//    CurrentLetterView(letter: "A", image: "Օ")
+    CurrentLetterView(letter: "A")
 }

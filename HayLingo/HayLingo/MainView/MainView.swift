@@ -13,7 +13,6 @@ struct MainView: View {
     @Query var userData: [UserData]
     
     @State private var selectedLanguage = "Russian"
-    
     let languages: [String] = ["Russian", "English"]
     
     var body: some View {

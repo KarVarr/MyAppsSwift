@@ -12,32 +12,29 @@ struct LettersView: View {
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
     
-    @StateObject private var viewModel = LetterTrainerViewModel()
+    //    @StateObject private var viewModel = LetterTrainerViewModel()
+    @State private var selectedLetters: [String] = []
+    
+    
     
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
-                CollectionView(selectedLetters: $viewModel.selectedLetters)
-                
-                //                Button(action: {
-                //                    if let user = userData.first {
-                //                        let newProgress = ProgressData(language: "Russian", correctAnswer: 0, totalQuestion: $viewModel.selectedLetters.count)
-                //                        user.progress.append(newProgress)
-                //                        
-                //                        try? context.save()                    }
-                //                }) {
-                //                    NavigationLink(destination: LetterTrainerView()) {
-                //                        Text("Start Game")
-                //                    }
-                //                    .buttonStyle(.automatic)
-                //                }
-                NavigationLink(destination: LetterTrainerView()) {
-                    Text("Start Game")
+                CollectionView(selectedLetters: $selectedLetters)
+                VStack {
+                    NavigationLink(destination: LetterTrainerView(selectedLetters: $selectedLetters)) {
+                        Text("Start Game \(selectedLetters)")
+                    }
+                    NavigationLink(destination: SelectedLettersView(letters: selectedLetters)) {
+                        Text("Start Game \(selectedLetters)")
+                    }
                 }
             }
         }
     }
 }
+
 #Preview {
     LettersView()
 }
+

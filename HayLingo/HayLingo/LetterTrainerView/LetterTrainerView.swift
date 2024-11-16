@@ -6,70 +6,27 @@
 //
 
 import SwiftUI
-
-//struct LetterTrainerView: View {
-//    @StateObject private var viewModel = LetterTrainerViewModel()
-//
-//    var body: some View {
-//        GeometryReader { geometry in
-//            ScrollView {
-//                VStack {
-//                    HStack {
-//                        Text("Aa")
-//                            .font(Font.system(size: 72))
-//                            .foregroundStyle(Helper.ColorHex.red)
-//                            .padding()
-//                        Spacer()
-//                        Image(systemName: "dog")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .padding()
-//                            .foregroundStyle(Helper.ColorHex.blue)
-//                    }
-//                    .foregroundStyle(.black)
-//                    .padding()
-//                    .frame(maxWidth: geometry.size.width, minHeight: geometry.size.height / 4, maxHeight: geometry.size.height / 4)
-//                    .background(
-//                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-//                            .fill(Helper.ColorHex.white)
-//                            .shadow(radius: 10)
-//                    )
-//                    .padding()
-//                    Spacer()
-//
-//                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 1)) {
-//                        ForEach(0...4, id: \.self) { text in
-//                            VStack {
-//                                Text("hh")
-//                                    .font(Font.system(size: 64))
-//                                    .foregroundStyle(.white)
-//                                    .frame(minWidth: geometry.size.width / 8, maxWidth: .infinity, maxHeight: geometry.size.height / 10, alignment: .center)
-//                                    .background {
-//                                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-//                                            .fill(Helper.ColorHex.orange)
-//                                    }
-//                            }
-//                        }
-//                    }
-//                    .padding()
-//                }
-//                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-//            }
-//        }
-//        .background(Helper.ColorHex.backgroundGray)
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
-//    }
-//}
-
+import SwiftData
 
 struct LetterTrainerView: View {
-    @StateObject private var viewModel = LetterTrainerViewModel()
+    @Environment(\.modelContext) var context
+    @Query var userData: [UserData]
+    
+    @Binding var selectedLetters: [String]
+    @StateObject private var viewModel: LetterTrainerViewModel
+    
+    init(selectedLetters: Binding<[String]>) {
+        _selectedLetters = selectedLetters
+        _viewModel = StateObject(wrappedValue: LetterTrainerViewModel(selectedLetters: selectedLetters.wrappedValue))
+    }
     
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
                 VStack {
-                    CurrentLetterView(letter: viewModel.currentLetter, image: viewModel.currentImage)
+                    //                    CurrentLetterView(letter: viewModel.currentLetter, image: viewModel.currentImage)
+                    //                    CurrentLetterView(letter: viewModel.currentLetter)
+                    CurrentLetterView(letter: "d")
                         .padding()
                         .frame(maxWidth: geometry.size.width, minHeight: geometry.size.height / 4, maxHeight: geometry.size.height / 4)
                         .background(
@@ -77,10 +34,12 @@ struct LetterTrainerView: View {
                                 .fill(Helper.ColorHex.white)
                                 .shadow(radius: 10)
                         )
+                        .padding()
                     Spacer()
                     
                     AnswerChoicesView(choices: viewModel.answerChoices, selectedChoice: $viewModel.selectedChoice) { choice in
-                        viewModel.checkAnswer(choice)
+                        //                    AnswerChoicesView(choices: ["viewModel.answerChoices"], selectedChoice: $"$viewModel.selectedChoice") { choice in
+                        //                        viewModel.checkAnswer(choice)
                     }
                     .padding()
                 }
@@ -90,11 +49,13 @@ struct LetterTrainerView: View {
         .background(Helper.ColorHex.backgroundGray)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
-            viewModel.startTraining(selectedLetters: viewModel.selectedLetters)
+            viewModel.startTraining(selectedLetters: selectedLetters)
+            //            viewModel.startTraining()
         }
     }
 }
 
 #Preview {
-    LetterTrainerView()
+    LetterTrainerView(selectedLetters: .constant(["Օ"]))
 }
+

@@ -12,7 +12,7 @@ struct CollectionView: View {
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
     @Binding var selectedLetters: [String]
-    @StateObject private var viewModel = LetterTrainerViewModel()
+//    @StateObject private var viewModel = LetterTrainerViewModel()
     
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
@@ -31,13 +31,13 @@ struct CollectionView: View {
                     ForEach(0..<armenianAlphabet.count, id: \.self) { index in
                         
                         let letter = armenianAlphabet[index]
-                        let isSelected = viewModel.selectedLetters.contains(letter)
+                        let isSelected = selectedLetters.contains(letter)
                         let backgroundColor = isSelected ? Helper.ColorHex.orange : Helper.ColorHex.lightGray
                         
                         
                         Button(action: {
                             toggleLetterSelection(letter: letter)
-                            print(viewModel.selectedLetters)
+                            print(selectedLetters)
                         }) {
                             CollectionViewCell(
                                 backgroundColor: backgroundColor,
@@ -55,10 +55,10 @@ struct CollectionView: View {
         }
         
         private func toggleLetterSelection(letter: String) {
-            if viewModel.selectedLetters.contains(letter) {
-                viewModel.selectedLetters.removeAll { $0 == letter }
+            if selectedLetters.contains(letter) {
+                selectedLetters.removeAll { $0 == letter }
             } else {
-                viewModel.selectedLetters.append(letter)
+                selectedLetters.append(letter)
             }
         }
     }
