@@ -11,7 +11,7 @@ import _SwiftData_SwiftUI
 struct LettersTrainerView: View {
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
-
+    
     @Binding var selectedLetters: [String]
     @State private var currentLetterIndex = 0
     @State private var options: [String] = []
@@ -19,7 +19,7 @@ struct LettersTrainerView: View {
     @State private var showResult = false
     @State private var isCorrect = false
     @State private var score = 0
-        
+    
     let englishTranslations = [
         "Ա": "a",
         "Բ": "b",
@@ -61,7 +61,7 @@ struct LettersTrainerView: View {
         "Օ": "ô",
         "Ֆ": "f"
     ]
-
+    
     let russianTranslations = [
         "Ա": "а",
         "Բ": "б",
@@ -103,72 +103,84 @@ struct LettersTrainerView: View {
         "Օ": "о",
         "Ֆ": "ф"
     ]
-
+    
     
     var body: some View {
-        VStack(spacing: 20) {
-            if currentLetterIndex < selectedLetters.count {
-                HStack {
-                    Text(selectedLetters[currentLetterIndex])
-                        .font(.system(size: 72))
-                        .bold()
-                    Text(selectedLetters[currentLetterIndex])
-                        .font(.system(size: 48))
-                        .fontWeight(.light)
-                }
-                Text("Выберите правильный перевод:")
-                    .font(.headline)
-                
-                ForEach(options, id: \.self) { option in
-                    Button {
-                        checkAnswer(selected: option)
-                    } label: {
-                        Text(option)
+        GeometryReader { geometry in
+            VStack(spacing: 20) {
+                if currentLetterIndex < selectedLetters.count {
+                    HStack {
+                        Text(selectedLetters[currentLetterIndex])
+                            .font(.system(size: 72))
+                            .bold()
+                        Text(selectedLetters[currentLetterIndex])
+                            .font(.system(size: 48))
+                            .fontWeight(.light)
+                    }
+                    .padding()
+                    .frame(maxWidth: geometry.size.width, minHeight: geometry.size.height / 4, maxHeight: geometry.size.height / 4)
+                    .background {
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                            .fill(Helper.ColorHex.white)
+                            .shadow(radius: 10)
+                    }
+                    
+                    Text("Выберите правильный перевод:")
+                        .font(.headline)
+                    
+                    ForEach(options, id: \.self) { option in
+                        Button {
+                            checkAnswer(selected: option)
+                        } label: {
+                            Text(option)
+                                .font(.title)
+                                .bold()
+                                .foregroundStyle(Helper.ColorHex.white)
+                                .padding()
+                                .frame(maxWidth: geometry.size.width, minHeight: geometry.size.height / 10, alignment: .center)
+                                .background(Helper.ColorHex.orange)
+                                .cornerRadius(10)
+                        }
+                    }
+                    
+                    if showResult {
+                        Text(isCorrect ? "Правильно!" : "Неправильно!")
+                            .foregroundStyle(isCorrect ? .green : .red)
                             .font(.title2)
-                            .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color.blue.opacity(0.1))
-                            .cornerRadius(10)
+                    }
+                    
+                    Text("Счет \(score) из \(currentLetterIndex)")
+                        .font(.headline)
+                        .padding()
+                    
+                    
+                } else {
+                    VStack {
+                        Text("Поздравляем!")
+                            .font(.title)
+                        Text("Вы завершили тренировку")
+                            .font(.headline)
+                        Text("Итоговый счет \(score) из \(selectedLetters.count)")
+                            .font(.title2)
+                            .padding()
                     }
                 }
-                
-                if showResult {
-                    Text(isCorrect ? "Правильно!" : "Неправильно!")
-                        .foregroundStyle(isCorrect ? .green : .red)
-                        .font(.title2)
-                        .padding()
-                }
-                
-                Text("Счет \(score) из \(currentLetterIndex)")
-                    .font(.headline)
-                    .padding()
-                
-                
-            } else {
-                VStack {
-                    Text("Поздравляем!")
-                        .font(.title)
-                    Text("Вы завершили тренировку")
-                        .font(.headline)
-                    Text("Итоговый счет \(score) из \(selectedLetters.count)")
-                        .font(.title2)
-                        .padding()
-                }
             }
+            .padding()
+            .onAppear(perform: setupQuestion)
+            .navigationTitle("Тренажер букв")
         }
-        .padding()
-        .onAppear(perform: setupQuestion)
-        .navigationTitle("Тренажер букв")
     }
     
     
     private func setupQuestion() {
         guard currentLetterIndex < selectedLetters.count else { return }
         let currentLetter = selectedLetters[currentLetterIndex]
-        let multyAnswer = userData.first?.selectedLanguage
-        correctAnswer = multyAnswer == "Russian" ? russianTranslations[currentLetter] ?? "" : englishTranslations[currentLetter] ?? ""
+        let multiAnswer = userData.first?.selectedLanguage
+        correctAnswer = multiAnswer == "Russian" ? russianTranslations[currentLetter] ?? "" : englishTranslations[currentLetter] ?? ""
         
-        var wrongOptions = multyAnswer == "Russian" ? Array(russianTranslations.values) : Array(englishTranslations.values)
+        var wrongOptions = multiAnswer == "Russian" ? Array(russianTranslations.values) : Array(englishTranslations.values)
         wrongOptions.removeAll {$0 == correctAnswer}
         wrongOptions.shuffle()
         
