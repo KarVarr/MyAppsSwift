@@ -25,7 +25,7 @@ struct LettersView: View {
                     NavigationLink(destination: LetterTrainerView(selectedLetters: $selectedLetters)) {
                         Text("Start Game \(selectedLetters)")
                     }
-                    NavigationLink(destination: SelectedLettersView(letters: selectedLetters)) {
+                    NavigationLink(destination: LettersTrainerView(selectedLetters: $selectedLetters)) {
                         Text("Start Game \(selectedLetters)")
                     }
                 }
