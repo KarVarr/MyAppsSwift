@@ -19,6 +19,7 @@ struct LettersTrainerView: View {
     @State private var showResult = false
     @State private var isCorrect = false
     @State private var score = 0
+    @State private var areButtonsDisabled = false
     
     let englishTranslations = [
         "Ա": "a",
@@ -122,7 +123,7 @@ struct LettersTrainerView: View {
                     .background {
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
                             .fill(Helper.ColorHex.white)
-                            .shadow(radius: 10)
+                            .shadow(color: .gray.opacity(0.4), radius: 5, x: 4, y: 4)
                     }
                     
                     Text("Выберите правильный перевод:")
@@ -138,9 +139,11 @@ struct LettersTrainerView: View {
                                 .foregroundStyle(Helper.ColorHex.white)
                                 .padding()
                                 .frame(maxWidth: geometry.size.width, minHeight: geometry.size.height / 10, alignment: .center)
-                                .background(Helper.ColorHex.orange)
+                                .background(areButtonsDisabled ? Helper.ColorHex.orange.opacity(0.7) : Helper.ColorHex.orange)
                                 .cornerRadius(10)
                         }
+                        .disabled(areButtonsDisabled)
+                        
                     }
                     
                     if showResult {
@@ -165,12 +168,23 @@ struct LettersTrainerView: View {
                             .font(.title2)
                             .padding()
                     }
+                    .padding()
+                    .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height / 3)
+                    .background {
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                            .fill(Helper.ColorHex.white)
+                            .shadow(color: .gray, radius: 20, x: 8, y: 8)
+                    }
+                    .onAppear {
+                        selectedLetters = []
+                    }
+                    
                 }
             }
             .padding()
             .onAppear(perform: setupQuestion)
-            .navigationTitle("Тренажер букв")
         }
+        .background(Helper.ColorHex.backgroundGray)
     }
     
     
@@ -197,6 +211,7 @@ struct LettersTrainerView: View {
             score += 1
         }
         
+        areButtonsDisabled = true
         showResult = true
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -204,6 +219,7 @@ struct LettersTrainerView: View {
             if currentLetterIndex < selectedLetters.count {
                 setupQuestion()
             }
+            areButtonsDisabled = false
         }
     }
 }
