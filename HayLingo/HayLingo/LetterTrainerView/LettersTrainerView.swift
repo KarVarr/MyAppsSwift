@@ -106,18 +106,85 @@ struct LettersTrainerView: View {
         "Ֆ": "ф"
     ]
     
+    let animals = [
+        "Ա": "Առյուծ",
+        "Բ": "б",
+        "Գ": "г",
+        "Դ": "д",
+        "Ե": "е",
+        "Զ": "з",
+        "Է": "э",
+        "Ը": "ы – э",
+        "Թ": "т‘",
+        "Ժ": "ж",
+        "Ի": "и",
+        "Լ": "л",
+        "Խ": "х",
+        "Ծ": "тц",
+        "Կ": "к",
+        "Հ": "h",
+        "Ձ": "дз",
+        "Ղ": "гх",
+        "Ճ": "тч",
+        "Մ": "м",
+        "Յ": "й",
+        "Ն": "н",
+        "Շ": "ш",
+        "Ո": "во",
+        "Չ": "ч",
+        "Պ": "п",
+        "Ջ": "дж",
+        "Ռ": "р",
+        "Ս": "с",
+        "Վ": "в",
+        "Տ": "т",
+        "Ր": "р‘",
+        "Ց": "ц",
+        "Ու": "у",
+        "Փ": "п‘",
+        "Ք": "к‘",
+        "Եվ": "ев",
+        "Օ": "о",
+        "Ֆ": "ф"
+    ]
+    
     
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 20) {
                 if currentLetterIndex < selectedLetters.count {
                     HStack {
-                        Text(selectedLetters[currentLetterIndex])
-                            .font(.system(size: 72))
-                            .bold()
-                        Text(selectedLetters[currentLetterIndex])
-                            .font(.system(size: 48))
-                            .fontWeight(.light)
+                        GeometryReader { geo in
+                            VStack {
+                                Spacer()
+                                HStack {
+                                    Text(selectedLetters[currentLetterIndex])
+                                        .font(.system(size: 72))
+                                        .bold()
+                                    Text(selectedLetters[currentLetterIndex])
+                                        .font(.system(size: 48))
+                                        .fontWeight(.light)
+                                }
+                                .frame(maxWidth: geo.size.width / 2, maxHeight: geo.size.height / 4)
+                                .padding()
+                                Image(systemName: "volume.2")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .foregroundStyle(.secondary)
+                                    .frame(maxWidth: geo.size.width / 7, maxHeight: geo.size.height / 7)                                    .padding()
+                            }
+                            
+                        }
+                        
+                        Spacer()
+                        VStack {
+                            Image("Ա")
+                                .resizable()
+                                .scaledToFit()
+                            Text("Առյուծ")
+                                .font(.title2)
+                                .foregroundStyle(.secondary)
+                        }
                     }
                     .padding()
                     .frame(maxWidth: geometry.size.width, minHeight: geometry.size.height / 4, maxHeight: geometry.size.height / 4)
@@ -183,7 +250,7 @@ struct LettersTrainerView: View {
                                 }
                                 .padding()
                         }
-
+                        
                     }
                     .padding()
                     .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height / 3, alignment: .center)
@@ -192,9 +259,9 @@ struct LettersTrainerView: View {
                             .fill(Helper.ColorHex.white)
                             .shadow(color: .gray.opacity(0.4), radius: 5, x: 4, y: 4)
                     }
-//                    .onAppear {
-//                        selectedLetters = []
-//                    }
+                    //                    .onAppear {
+                    //                        selectedLetters = []
+                    //                    }
                     Spacer()
                 }
             }
@@ -209,7 +276,6 @@ struct LettersTrainerView: View {
         selectedLetters = []
         presentationMode.wrappedValue.dismiss()
     }
-    
     
     private func setupQuestion() {
         guard currentLetterIndex < selectedLetters.count else { return }
