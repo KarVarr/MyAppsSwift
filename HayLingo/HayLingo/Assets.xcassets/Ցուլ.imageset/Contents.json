@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Ցուլ.svg",
+      "filename" : "Ցուլ 2.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Ցուլ.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Ցուլ 1.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }
