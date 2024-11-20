@@ -6,11 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		17146E9B2CEE54840002B170 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 17F457F82CE0BDE600973F0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 17F457FF2CE0BDE600973F0B;
+			remoteInfo = HayLingo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		17146E972CEE54840002B170 /* HayLingoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HayLingoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F458002CE0BDE600973F0B /* HayLingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HayLingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		17146E982CEE54840002B170 /* HayLingoTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HayLingoTests;
+			sourceTree = "<group>";
+		};
 		17F458022CE0BDE600973F0B /* HayLingo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = HayLingo;
@@ -19,6 +35,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		17146E942CEE54840002B170 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17F457FD2CE0BDE600973F0B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				17F458022CE0BDE600973F0B /* HayLingo */,
+				17146E982CEE54840002B170 /* HayLingoTests */,
 				17F458012CE0BDE600973F0B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				17F458002CE0BDE600973F0B /* HayLingo.app */,
+				17146E972CEE54840002B170 /* HayLingoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +73,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		17146E962CEE54840002B170 /* HayLingoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17146E9D2CEE54840002B170 /* Build configuration list for PBXNativeTarget "HayLingoTests" */;
+			buildPhases = (
+				17146E932CEE54840002B170 /* Sources */,
+				17146E942CEE54840002B170 /* Frameworks */,
+				17146E952CEE54840002B170 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				17146E9C2CEE54840002B170 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				17146E982CEE54840002B170 /* HayLingoTests */,
+			);
+			name = HayLingoTests;
+			packageProductDependencies = (
+			);
+			productName = HayLingoTests;
+			productReference = 17146E972CEE54840002B170 /* HayLingoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		17F457FF2CE0BDE600973F0B /* HayLingo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17F4580E2CE0BDE800973F0B /* Build configuration list for PBXNativeTarget "HayLingo" */;
@@ -80,6 +128,10 @@
 				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
+					17146E962CEE54840002B170 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 17F457FF2CE0BDE600973F0B;
+					};
 					17F457FF2CE0BDE600973F0B = {
 						CreatedOnToolsVersion = 16.1;
 					};
@@ -100,11 +152,19 @@
 			projectRoot = "";
 			targets = (
 				17F457FF2CE0BDE600973F0B /* HayLingo */,
+				17146E962CEE54840002B170 /* HayLingoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		17146E952CEE54840002B170 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17F457FE2CE0BDE600973F0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +175,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		17146E932CEE54840002B170 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17F457FC2CE0BDE600973F0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +191,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		17146E9C2CEE54840002B170 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 17F457FF2CE0BDE600973F0B /* HayLingo */;
+			targetProxy = 17146E9B2CEE54840002B170 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		17146E9E2CEE54840002B170 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LA9F8MT28T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.karen.HayLingoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HayLingo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HayLingo";
+			};
+			name = Debug;
+		};
+		17146E9F2CEE54840002B170 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LA9F8MT28T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.karen.HayLingoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HayLingo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HayLingo";
+			};
+			name = Release;
+		};
 		17F4580C2CE0BDE800973F0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -307,6 +418,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		17146E9D2CEE54840002B170 /* Build configuration list for PBXNativeTarget "HayLingoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17146E9E2CEE54840002B170 /* Debug */,
+				17146E9F2CEE54840002B170 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		17F457FB2CE0BDE600973F0B /* Build configuration list for PBXProject "HayLingo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
