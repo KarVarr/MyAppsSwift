@@ -21,7 +21,7 @@ struct LettersTrainerView: View {
     @State private var isCorrect = false
     @State private var score = 0
     @State private var areButtonsDisabled = false
-    @State private var imageAndDescription = ""
+    @State private var imageAndDescription: String?
     
     let englishTranslations = [
         "Ա": "a",
@@ -178,10 +178,10 @@ struct LettersTrainerView: View {
                         
                         Spacer()
                         VStack {
-                            Image(imageAndDescription)
+                            Image(imageAndDescription ?? "Արև")
                                 .resizable()
                                 .scaledToFit()
-                            Text(imageAndDescription)
+                            Text(imageAndDescription ?? "Արև")
                                 .font(.title2)
                                 .foregroundStyle(.secondary)
                         }
@@ -273,7 +273,7 @@ struct LettersTrainerView: View {
     }
     
     private func randomAnimal(_ letter: String) -> String {
-        return animals[letter]?.randomElement() ?? ""
+        return animals[letter]?.randomElement()?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "нет этой картинки\(String(describing: animals[letter]?.randomElement()))"
     }
     
     private func playAgain() {
@@ -288,7 +288,7 @@ struct LettersTrainerView: View {
         imageAndDescription = randomAnimal(currentLetter)
         
         let multiAnswer = userData.first?.selectedLanguage
-        correctAnswer = multiAnswer == "Russian" ? russianTranslations[currentLetter] ?? "" : englishTranslations[currentLetter] ?? ""
+        correctAnswer = multiAnswer == "Russian" ? russianTranslations[currentLetter] ?? "ааа" : englishTranslations[currentLetter] ?? "еуые"
         
         var wrongOptions = multiAnswer == "Russian" ? Array(russianTranslations.values) : Array(englishTranslations.values)
         wrongOptions.removeAll {$0 == correctAnswer}
