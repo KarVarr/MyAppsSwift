@@ -259,9 +259,6 @@ struct LettersTrainerView: View {
                             .fill(Helper.ColorHex.white)
                             .shadow(color: .gray.opacity(0.4), radius: 5, x: 4, y: 4)
                     }
-                    //                    .onAppear {
-                    //                        selectedLetters = []
-                    //                    }
                     Spacer()
                 }
             }
