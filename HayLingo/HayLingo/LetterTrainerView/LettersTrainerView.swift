@@ -206,8 +206,10 @@ struct LettersTrainerView: View {
                     
                     ForEach(options, id: \.self) { option in
                         Button {
-                            selectedAnswer = option
-                            checkAnswer(selected: option)
+                            withAnimation(.easeInOut(duration: 0.3)) {
+                                selectedAnswer = option
+                                checkAnswer(selected: option)
+                            }
                         } label: {
                             Text(option)
                                 .font(.title)
@@ -225,6 +227,9 @@ struct LettersTrainerView: View {
                                         }
                                     }
                                 )
+                                .animation(.easeInOut(duration: 0.3), value: selectedAnswer)
+                                .animation(.easeInOut(duration: 0.3), value: showResult)
+                                .animation(.easeInOut(duration: 0.3), value: areButtonsDisabled)
                                 .cornerRadius(10)
                         }
                         .disabled(areButtonsDisabled)
@@ -306,17 +311,24 @@ struct LettersTrainerView: View {
         isCorrect = selected == correctAnswer
         if isCorrect {
             score += 1
+            UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
+        } else {
+            UINotificationFeedbackGenerator().notificationOccurred(.error)
         }
         
-        areButtonsDisabled = true
-        showResult = true
+        withAnimation(.easeInOut(duration: 0.3)) {
+            areButtonsDisabled = true
+            showResult = true
+        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            currentLetterIndex += 1
-            if currentLetterIndex < selectedLetters.count {
-                setupQuestion()
+            withAnimation(.easeInOut(duration: 0.3)) {
+                currentLetterIndex += 1
+                if currentLetterIndex < selectedLetters.count {
+                    setupQuestion()
+                }
+                areButtonsDisabled = false
             }
-            areButtonsDisabled = false
         }
     }
 }
