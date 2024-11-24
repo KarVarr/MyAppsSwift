@@ -7,6 +7,7 @@
 
 import SwiftUI
 import _SwiftData_SwiftUI
+import AVFoundation
 
 struct LettersTrainerView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -23,6 +24,7 @@ struct LettersTrainerView: View {
     @State private var areButtonsDisabled = false
     @State private var imageAndDescription: String?
     @State private var selectedAnswer: String?
+    @State private var audioPlayer: AVAudioPlayer?
     
     let englishTranslations = [
         "Ա": "a",
@@ -173,11 +175,17 @@ struct LettersTrainerView: View {
                                         .font(.system(size: 48))
                                         .fontWeight(.light)
                                 }
-                                .frame(maxWidth: geo.size.width / 2, maxHeight: geo.size.height / 4)
+                                .frame(maxWidth: geo.size.width , maxHeight: geo.size.height / 4)
                                 .padding()
                                 Image(systemName: "volume.2")
                                     .resizable()
                                     .scaledToFit()
+                                    .onTapGesture {
+                                        print("press")
+                                        playSound(named: selectedLetters[currentLetterIndex])
+                                        print("\(selectedLetters[currentLetterIndex])")
+                                        print("after")
+                                    }
                                     .foregroundStyle(.secondary)
                                     .frame(maxWidth: geo.size.width / 7, maxHeight: geo.size.height / 7)                                    .padding()
                             }
@@ -277,6 +285,20 @@ struct LettersTrainerView: View {
         .background(Helper.ColorHex.backgroundGray)
     }
     
+    private func playSound(named soundName: String) {
+        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else {
+            print("Sound file \(soundName).mp3 not found")
+            return
+        }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            print("Error playing sound: \(error.localizedDescription)")
+        }
+    }
+    
     private func randomAnimal(_ letter: String) -> String {
         return animals[letter]?.randomElement()?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "нет этой картинки\(String(describing: animals[letter]?.randomElement()))"
     }
@@ -331,8 +353,9 @@ struct LettersTrainerView: View {
             }
         }
     }
+    
 }
 
 #Preview {
-    LettersTrainerView(selectedLetters: .constant(["Ա", "Բ", "Գ"]))
+    LettersTrainerView(selectedLetters: .constant(["Ու","Ե", "Ու", "Գ"]))
 }
