@@ -35,7 +35,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "17A084292CEE4F8E00A5A31E"
+               BlueprintIdentifier = "17146E962CEE54840002B170"
                BuildableName = "HayLingoTests.xctest"
                BlueprintName = "HayLingoTests"
                ReferencedContainer = "container:HayLingo.xcodeproj">

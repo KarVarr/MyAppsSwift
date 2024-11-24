@@ -153,6 +153,8 @@ struct LettersTrainerView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 20) {
+                
+                ProgressView("Score", value: Float(score), total: Float(selectedLetters.count))
                 if currentLetterIndex < selectedLetters.count {
                     HStack {
                         GeometryReader { geo in
@@ -208,10 +210,11 @@ struct LettersTrainerView: View {
                                 .padding()
                                 .frame(maxWidth: geometry.size.width, minHeight: geometry.size.height / 10, alignment: .center)
                                 .background(areButtonsDisabled ? Helper.ColorHex.orange.opacity(0.7) : Helper.ColorHex.orange)
+                                .background(isCorrect ? .green : .red)
+                            
                                 .cornerRadius(10)
                         }
                         .disabled(areButtonsDisabled)
-                        
                     }
                     
                     if showResult {
@@ -220,6 +223,7 @@ struct LettersTrainerView: View {
                             .font(.title2)
                             .padding()
                     }
+                    
                     
                     Text("Счет \(score) из \(selectedLetters.count)")
                         .font(.headline)
@@ -285,7 +289,7 @@ struct LettersTrainerView: View {
         imageAndDescription = randomAnimal(currentLetter)
         
         let multiAnswer = userData.first?.selectedLanguage
-        correctAnswer = multiAnswer == "Russian" ? russianTranslations[currentLetter] ?? "ааа" : englishTranslations[currentLetter] ?? "еуые"
+        correctAnswer = multiAnswer == "Russian" ? russianTranslations[currentLetter] ?? "" : englishTranslations[currentLetter] ?? ""
         
         var wrongOptions = multiAnswer == "Russian" ? Array(russianTranslations.values) : Array(englishTranslations.values)
         wrongOptions.removeAll {$0 == correctAnswer}
