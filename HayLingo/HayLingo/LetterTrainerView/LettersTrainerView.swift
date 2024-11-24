@@ -22,6 +22,7 @@ struct LettersTrainerView: View {
     @State private var score = 0
     @State private var areButtonsDisabled = false
     @State private var imageAndDescription: String?
+    @State private var selectedAnswer: String?
     
     let englishTranslations = [
         "Ա": "a",
@@ -205,6 +206,7 @@ struct LettersTrainerView: View {
                     
                     ForEach(options, id: \.self) { option in
                         Button {
+                            selectedAnswer = option
                             checkAnswer(selected: option)
                         } label: {
                             Text(option)
@@ -213,19 +215,19 @@ struct LettersTrainerView: View {
                                 .foregroundStyle(Helper.ColorHex.white)
                                 .padding()
                                 .frame(maxWidth: geometry.size.width, minHeight: geometry.size.height / 10, alignment: .center)
-                                .background(areButtonsDisabled ? Helper.ColorHex.orange.opacity(0.7) : Helper.ColorHex.orange)
-                                .background(isCorrect ? .green : .red)
                             
+                                .background(
+                                    Group {
+                                        if selectedAnswer == option && showResult {
+                                            isCorrect ? Color.green : Color.red
+                                        } else {
+                                            areButtonsDisabled ? Helper.ColorHex.orange.opacity(0.5) : Helper.ColorHex.orange
+                                        }
+                                    }
+                                )
                                 .cornerRadius(10)
                         }
                         .disabled(areButtonsDisabled)
-                    }
-                    
-                    if showResult {
-                        Text(isCorrect ? "Правильно!" : "Неправильно!")
-                            .foregroundStyle(isCorrect ? .green : .red)
-                            .font(.title2)
-                            .padding()
                     }
                 } else {
                     Spacer()
@@ -282,6 +284,7 @@ struct LettersTrainerView: View {
     private func setupQuestion() {
         guard currentLetterIndex < selectedLetters.count else { return }
         
+        selectedAnswer = nil
         let currentLetter = selectedLetters[currentLetterIndex]
         imageAndDescription = randomAnimal(currentLetter)
         
