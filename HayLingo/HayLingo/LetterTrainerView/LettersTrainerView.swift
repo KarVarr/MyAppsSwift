@@ -153,9 +153,13 @@ struct LettersTrainerView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 20) {
-                
-                ProgressView("Score", value: Float(score), total: Float(selectedLetters.count))
                 if currentLetterIndex < selectedLetters.count {
+                    ProgressView(value: Float(score), total: Float(selectedLetters.count)) {
+                    } currentValueLabel: {
+                        Text("Верных ответов: \(score) из \(selectedLetters.count)")
+                    }
+                    .tint(Helper.ColorHex.orange)
+                    
                     HStack {
                         GeometryReader { geo in
                             VStack {
@@ -223,13 +227,6 @@ struct LettersTrainerView: View {
                             .font(.title2)
                             .padding()
                     }
-                    
-                    
-                    Text("Счет \(score) из \(selectedLetters.count)")
-                        .font(.headline)
-                        .padding()
-                    
-                    
                 } else {
                     Spacer()
                     VStack {
