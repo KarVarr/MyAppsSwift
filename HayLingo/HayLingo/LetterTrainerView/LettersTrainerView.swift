@@ -16,11 +16,12 @@ struct LettersTrainerView: View {
     
     @Binding var selectedLetters: [String]
     @State private var currentLetterIndex = 0
-    @State private var options: [String] = []
+    @State private var score = 0
     @State private var correctAnswer = ""
+    @State private var wrongAnswers: [String] = []
+    @State private var options: [String] = []
     @State private var showResult = false
     @State private var isCorrect = false
-    @State private var score = 0
     @State private var areButtonsDisabled = false
     @State private var imageAndDescription: String?
     @State private var selectedAnswer: String?
@@ -177,17 +178,18 @@ struct LettersTrainerView: View {
                                 }
                                 .frame(maxWidth: geo.size.width , maxHeight: geo.size.height / 4)
                                 .padding()
-                                Image(systemName: "volume.2")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .onTapGesture {
-                                        print("press")
-                                        playSound(named: selectedLetters[currentLetterIndex])
-                                        print("\(selectedLetters[currentLetterIndex])")
-                                        print("after")
-                                    }
-                                    .foregroundStyle(.secondary)
-                                    .frame(maxWidth: geo.size.width / 7, maxHeight: geo.size.height / 7)                                    .padding()
+                                Button {
+                                    print("press")
+                                    playSound(named: selectedLetters[currentLetterIndex])
+                                    print("\(selectedLetters[currentLetterIndex])")
+                                    print("after")
+                                } label: {
+                                    Image(systemName: "volume.2")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .foregroundStyle(.secondary)
+                                        .frame(maxWidth: geo.size.width / 7, maxHeight: geo.size.height / 7)   .padding()
+                                }
                             }
                         }
                         
@@ -245,7 +247,8 @@ struct LettersTrainerView: View {
                 } else {
                     Spacer()
                     VStack {
-                        Text("Поздравляем!")
+                        
+                        Text(score == selectedLetters.count ? "Поздравляем!" : "Эти буквы нужно повторить: \(wrongAnswers.joined(separator: ", "))")
                             .font(.title)
                         Text("Вы завершили тренировку")
                             .font(.headline)
@@ -269,7 +272,7 @@ struct LettersTrainerView: View {
                         
                     }
                     .padding()
-                    .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height / 3, alignment: .center)
+                    .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height / 2, alignment: .center)
                     .background {
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
                             .fill(Helper.ColorHex.white)
@@ -335,6 +338,7 @@ struct LettersTrainerView: View {
             score += 1
             UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
         } else {
+            wrongAnswers.append(selectedLetters[currentLetterIndex])
             UINotificationFeedbackGenerator().notificationOccurred(.error)
         }
         
