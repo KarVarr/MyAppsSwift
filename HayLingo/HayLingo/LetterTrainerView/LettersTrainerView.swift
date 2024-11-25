@@ -248,13 +248,18 @@ struct LettersTrainerView: View {
                     Spacer()
                     VStack {
                         
-                        Text(score == selectedLetters.count ? "Поздравляем!" : "Эти буквы нужно повторить: \(wrongAnswers.joined(separator: ", "))")
-                            .font(.title)
-                        Text("Вы завершили тренировку")
-                            .font(.headline)
-                        Text("Итоговый счет \(score) из \(selectedLetters.count)")
+                        Text(score == selectedLetters.count ? "Отлично!" : "Эти буквы нужно повторить:")                            .font(.title)
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            Text("\(wrongAnswers.joined(separator: ", "))")
+                                .font(.title)
+                        }
+                        .padding()
+                        
+                        Text("Правильных ответов \(score) из \(selectedLetters.count)")
                             .font(.title2)
                             .padding()
+                        Text(score == selectedLetters.count ? "Вы знайте все выбранные буквы!" : "У Вас все получиться!")
+                            .font(.headline)
                         
                         Button {
                             playAgain()
