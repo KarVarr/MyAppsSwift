@@ -12,7 +12,6 @@ struct CollectionView: View {
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
     @Binding var selectedLetters: [String]
-//    @StateObject private var viewModel = LetterTrainerViewModel()
     
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
