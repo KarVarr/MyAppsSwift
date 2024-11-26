@@ -20,7 +20,7 @@ struct MainView: View {
             GeometryReader { geometry in
                 ScrollView {
                     VStack(spacing: 20) {
-                        AnimatedTextView()
+                        Text("HayLingo")
                             .frame(height: geometry.size.height / 6)
                             .font(.system(size: 46, weight: .bold, design: .monospaced))
                         
@@ -93,6 +93,19 @@ struct MainView: View {
                         NavigationLink(destination: HistoryOfArmenianLanguageView()) {
                             VStackContent(
                                 title: "History of Armenian language",
+                                subtitle: nil,
+                                width: vStackWidth,
+                                backgroundColor: Helper.ColorHex.red,
+                                textColor: Helper.ColorHex.white,
+                                spacing: 1,
+                                alignment: .center
+                            )
+                        }
+                        
+                        
+                        NavigationLink(destination: HistoryOfArmenianLanguageView()) {
+                            VStackContent(
+                                title: "Settings",
                                 subtitle: nil,
                                 width: vStackWidth,
                                 backgroundColor: Helper.ColorHex.blue,
