@@ -160,11 +160,12 @@ struct LettersTrainerView: View {
         GeometryReader { geometry in
             VStack(spacing: 20) {
                 if viewModel.currentLetterIndex < viewModel.selectedLetters.count {
-                    ProgressView(value: Float(viewModel.score), total: Float(viewModel.selectedLetters.count)) {
-                    } currentValueLabel: {
-                        Text("Верных ответов: \(viewModel.score) из \(viewModel.selectedLetters.count)")
-                    }
-                    .tint(Helper.ColorHex.orange)
+//                    ProgressView(value: Float(viewModel.score), total: Float(viewModel.selectedLetters.count)) {
+//                    } currentValueLabel: {
+//                        Text("Верных ответов: \(viewModel.score) из \(viewModel.selectedLetters.count)")
+//                    }
+//                    .tint(Helper.ColorHex.orange)
+                    CustomProgressView(viewModel: viewModel)
                     
                     HStack {
                         GeometryReader { geo in
