@@ -14,18 +14,20 @@ struct LettersTrainerView: View {
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
     
-    @Binding var selectedLetters: [String]
-    @State private var currentLetterIndex = 0
-    @State private var score = 0
-    @State private var correctAnswer = ""
-    @State private var wrongAnswers: [String] = []
-    @State private var options: [String] = []
-    @State private var showResult = false
-    @State private var isCorrect = false
-    @State private var areButtonsDisabled = false
-    @State private var imageAndDescription: String?
-    @State private var selectedAnswer: String?
-    @State private var audioPlayer: AVAudioPlayer?
+//    @Binding var selectedLetters: [String]
+//    @State private var currentLetterIndex = 0
+//    @State private var score = 0
+//    @State private var correctAnswer = ""
+//    @State private var wrongAnswers: [String] = []
+//    @State private var options: [String] = []
+//    @State private var showResult = false
+//    @State private var isCorrect = false
+//    @State private var areButtonsDisabled = false
+//    @State private var imageAndDescription: String?
+//    @State private var selectedAnswer: String?
+//    @State private var audioPlayer: AVAudioPlayer?
+    
+    @StateObject private var viewModel = LettersTrainerViewModel()
     
     let englishTranslations = [
         "Ա": "a",
@@ -157,10 +159,10 @@ struct LettersTrainerView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 20) {
-                if currentLetterIndex < selectedLetters.count {
-                    ProgressView(value: Float(score), total: Float(selectedLetters.count)) {
+                if viewModel.currentLetterIndex < viewModel.selectedLetters.count {
+                    ProgressView(value: Float(viewModel.score), total: Float(viewModel.selectedLetters.count)) {
                     } currentValueLabel: {
-                        Text("Верных ответов: \(score) из \(selectedLetters.count)")
+                        Text("Верных ответов: \(viewModel.score) из \(viewModel.selectedLetters.count)")
                     }
                     .tint(Helper.ColorHex.orange)
                     
@@ -169,20 +171,21 @@ struct LettersTrainerView: View {
                             VStack {
                                 Spacer()
                                 HStack {
-                                    Text(selectedLetters[currentLetterIndex])
+                                    Text(viewModel.selectedLetters[viewModel.currentLetterIndex])
                                         .font(.system(size: 72))
                                         .bold()
-                                    Text(selectedLetters[currentLetterIndex])
+                                    Text(viewModel.selectedLetters[viewModel.currentLetterIndex])
                                         .font(.system(size: 48))
                                         .fontWeight(.light)
                                 }
                                 .frame(maxWidth: geo.size.width , maxHeight: geo.size.height / 4)
                                 .padding()
                                 Button {
-                                    print("press")
-                                    playSound(named: selectedLetters[currentLetterIndex])
-                                    print("\(selectedLetters[currentLetterIndex])")
-                                    print("after")
+//                                    print("press")
+                                    viewModel.playSound(named: viewModel.selectedLetters[viewModel.currentLetterIndex])
+//                                    playSound(named: selectedLetters[currentLetterIndex])
+//                                    print("\(selectedLetters[currentLetterIndex])")
+//                                    print("after")
                                 } label: {
                                     Image(systemName: "volume.2")
                                         .resizable()
@@ -195,10 +198,10 @@ struct LettersTrainerView: View {
                         
                         Spacer()
                         VStack {
-                            Image(imageAndDescription ?? "Արև")
+                            Image(viewModel.imageAndDescription ?? "Արև")
                                 .resizable()
                                 .scaledToFit()
-                            Text(imageAndDescription ?? "Արև")
+                            Text(viewModel.imageAndDescription ?? "Արև")
                                 .font(.title2)
                                 .foregroundStyle(.secondary)
                         }
@@ -214,11 +217,11 @@ struct LettersTrainerView: View {
                     Text("Выберите правильный перевод:")
                         .font(.headline)
                     
-                    ForEach(options, id: \.self) { option in
+                    ForEach(viewModel.options, id: \.self) { option in
                         Button {
                             withAnimation(.easeInOut(duration: 0.3)) {
-                                selectedAnswer = option
-                                checkAnswer(selected: option)
+                                viewModel.selectedAnswer = option
+                                viewModel.checkAnswer(selected: option)
                             }
                         } label: {
                             Text(option)
@@ -230,39 +233,39 @@ struct LettersTrainerView: View {
                             
                                 .background(
                                     Group {
-                                        if selectedAnswer == option && showResult {
-                                            isCorrect ? Color.green : Color.red
+                                        if viewModel.selectedAnswer == option && viewModel.showResult {
+                                            viewModel.isCorrect ? Color.green : Color.red
                                         } else {
-                                            areButtonsDisabled ? Helper.ColorHex.orange.opacity(0.5) : Helper.ColorHex.orange
+                                            viewModel.areButtonsDisabled ? Helper.ColorHex.orange.opacity(0.5) : Helper.ColorHex.orange
                                         }
                                     }
                                 )
-                                .animation(.easeInOut(duration: 0.3), value: selectedAnswer)
-                                .animation(.easeInOut(duration: 0.3), value: showResult)
-                                .animation(.easeInOut(duration: 0.3), value: areButtonsDisabled)
+                                .animation(.easeInOut(duration: 0.3), value: viewModel.selectedAnswer)
+                                .animation(.easeInOut(duration: 0.3), value: viewModel.showResult)
+                                .animation(.easeInOut(duration: 0.3), value: viewModel.areButtonsDisabled)
                                 .cornerRadius(10)
                         }
-                        .disabled(areButtonsDisabled)
+                        .disabled(viewModel.areButtonsDisabled)
                     }
                 } else {
                     Spacer()
                     VStack {
                         
-                        Text(score == selectedLetters.count ? "Отлично!" : "Эти буквы нужно повторить:")                            .font(.title)
+                        Text(viewModel.score == viewModel.selectedLetters.count ? "Отлично!" : "Эти буквы нужно повторить:")                            .font(.title)
                         ScrollView(.horizontal, showsIndicators: false) {
-                            Text("\(wrongAnswers.joined(separator: ", "))")
+                            Text("\(viewModel.wrongAnswers.joined(separator: ", "))")
                                 .font(.title)
                         }
                         .padding()
                         
-                        Text("Правильных ответов \(score) из \(selectedLetters.count)")
+                        Text("Правильных ответов \(viewModel.score) из \(viewModel.selectedLetters.count)")
                             .font(.title2)
                             .padding()
-                        Text(score == selectedLetters.count ? "Вы знайте все выбранные буквы!" : "У Вас все получиться!")
+                        Text(viewModel.score == viewModel.selectedLetters.count ? "Вы знайте все выбранные буквы!" : "У Вас все получиться!")
                             .font(.headline)
                         
                         Button {
-                            playAgain()
+                            viewModel.playAgain()
                         } label: {
                             Text("Сыграть еще раз!")
                                 .font(.headline)
@@ -287,84 +290,85 @@ struct LettersTrainerView: View {
                 }
             }
             .padding()
-            .onAppear(perform: setupQuestion)
-            .navigationBarBackButtonHidden(currentLetterIndex >= selectedLetters.count)
+            .onAppear(perform: viewModel.setupQuestion)
+            .navigationBarBackButtonHidden(viewModel.currentLetterIndex >= viewModel.selectedLetters.count)
         }
         .background(Helper.ColorHex.backgroundGray)
     }
     
-    private func playSound(named soundName: String) {
-        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else {
-            print("Sound file \(soundName).mp3 not found")
-            return
-        }
-        
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.play()
-        } catch {
-            print("Error playing sound: \(error.localizedDescription)")
-        }
-    }
+//    private func playSound(named soundName: String) {
+//        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else {
+//            print("Sound file \(soundName).mp3 not found")
+//            return
+//        }
+//        
+//        do {
+//            audioPlayer = try AVAudioPlayer(contentsOf: url)
+//            audioPlayer?.play()
+//        } catch {
+//            print("Error playing sound: \(error.localizedDescription)")
+//        }
+//    }
     
-    private func randomAnimal(_ letter: String) -> String {
-        return animals[letter]?.randomElement()?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "нет этой картинки\(String(describing: animals[letter]?.randomElement()))"
-    }
+//    private func randomAnimal(_ letter: String) -> String {
+//        return animals[letter]?.randomElement()?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "нет этой картинки\(String(describing: animals[letter]?.randomElement()))"
+//    }
+//    
+//    private func playAgain() {
+//        selectedLetters = []
+//        presentationMode.wrappedValue.dismiss()
+//    }
     
-    private func playAgain() {
-        selectedLetters = []
-        presentationMode.wrappedValue.dismiss()
-    }
+//    private func setupQuestion() {
+//        guard currentLetterIndex < selectedLetters.count else { return }
+//        
+//        selectedAnswer = nil
+//        let currentLetter = selectedLetters[currentLetterIndex]
+//        imageAndDescription = randomAnimal(currentLetter)
+//        
+//        let multiAnswer = userData.first?.selectedLanguage
+//        correctAnswer = multiAnswer == "Russian" ? russianTranslations[currentLetter] ?? "" : englishTranslations[currentLetter] ?? ""
+//        
+//        var wrongOptions = multiAnswer == "Russian" ? Array(russianTranslations.values) : Array(englishTranslations.values)
+//        wrongOptions.removeAll {$0 == correctAnswer}
+//        wrongOptions.shuffle()
+//        
+//        options = Array(wrongOptions.prefix(3))
+//        options.append(correctAnswer)
+//        options.shuffle()
+//        
+//        showResult = false
+//    }
     
-    private func setupQuestion() {
-        guard currentLetterIndex < selectedLetters.count else { return }
-        
-        selectedAnswer = nil
-        let currentLetter = selectedLetters[currentLetterIndex]
-        imageAndDescription = randomAnimal(currentLetter)
-        
-        let multiAnswer = userData.first?.selectedLanguage
-        correctAnswer = multiAnswer == "Russian" ? russianTranslations[currentLetter] ?? "" : englishTranslations[currentLetter] ?? ""
-        
-        var wrongOptions = multiAnswer == "Russian" ? Array(russianTranslations.values) : Array(englishTranslations.values)
-        wrongOptions.removeAll {$0 == correctAnswer}
-        wrongOptions.shuffle()
-        
-        options = Array(wrongOptions.prefix(3))
-        options.append(correctAnswer)
-        options.shuffle()
-        
-        showResult = false
-    }
-    
-    private func checkAnswer(selected: String) {
-        isCorrect = selected == correctAnswer
-        if isCorrect {
-            score += 1
-            UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
-        } else {
-            wrongAnswers.append(selectedLetters[currentLetterIndex])
-            UINotificationFeedbackGenerator().notificationOccurred(.error)
-        }
-        
-        withAnimation(.easeInOut(duration: 0.3)) {
-            areButtonsDisabled = true
-            showResult = true
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            withAnimation(.easeInOut(duration: 0.3)) {
-                currentLetterIndex += 1
-                if currentLetterIndex < selectedLetters.count {
-                    setupQuestion()
-                }
-                areButtonsDisabled = false
-            }
-        }
-    }
+//    private func checkAnswer(selected: String) {
+//        isCorrect = selected == correctAnswer
+//        if isCorrect {
+//            score += 1
+//            UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
+//        } else {
+//            wrongAnswers.append(selectedLetters[currentLetterIndex])
+//            UINotificationFeedbackGenerator().notificationOccurred(.error)
+//        }
+//        
+//        withAnimation(.easeInOut(duration: 0.3)) {
+//            areButtonsDisabled = true
+//            showResult = true
+//        }
+//        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//            withAnimation(.easeInOut(duration: 0.3)) {
+//                currentLetterIndex += 1
+//                if currentLetterIndex < selectedLetters.count {
+//                    setupQuestion()
+//                }
+//                areButtonsDisabled = false
+//            }
+//        }
+//    }
     
 }
 
 #Preview {
-    LettersTrainerView(selectedLetters: .constant(["Ու","Ե", "Ու", "Գ"]))
+//    LettersTrainerView(selectedLetters: .constant(["Ու","Ե", "Ու", "Գ"]))
+    LettersTrainerView()
 }
