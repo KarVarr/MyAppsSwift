@@ -10,6 +10,7 @@ import SwiftUI
 struct letterDisplay: View {
     var viewModel: LettersTrainerViewModel
     
+    
     var body: some View {
         GeometryReader { geo in
             VStack {

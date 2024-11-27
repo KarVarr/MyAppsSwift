@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 import AVFoundation
 
 
 final class LettersTrainerViewModel: ObservableObject {
+    @Environment(\.presentationMode) var presentationMode
+    @Query var userData: [UserData]
     
     @Published var currentLetterIndex = 0
     @Published var score = 0
@@ -21,9 +24,23 @@ final class LettersTrainerViewModel: ObservableObject {
     @Published var areButtonsDisabled = false
     @Published var imageAndDescription: String?
     @Published var selectedAnswer: String?
-    
     @Published var selectedLetters: [String] = []
-    @Published private var audioPlayer: AVAudioPlayer?
+    
+    private let englishTranslations: [String: String]
+    private let russianTranslations: [String: String]
+    private let animals: [String: [String]]
+    private var audioPlayer: AVAudioPlayer?
+    
+    var currentLetter: String {
+        guard currentLetterIndex < selectedLetters.count else { return "" }
+        return selectedLetters[currentLetterIndex]
+    }
+    
+    init() {
+        self.englishTranslations = Letter.allLetters.reduce(into: [:]) { $0[$1.character] = $1.englishTranslation }
+        self.russianTranslations = Letter.allLetters.reduce(into: [:]) { $0[$1.character] = $1.russianTranslation }
+        self.animals = Letter.allLetters.reduce(into: [:]) { $0[$1.character] = $1.animals }
+    }
     
     
     func setup(with letters: [String]) {
@@ -81,11 +98,14 @@ final class LettersTrainerViewModel: ObservableObject {
     }
     
     private func randomAnimal(_ letter: String) -> String {
-        
-        return animals[letter]?.randomElement()?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "нет этой картинки\(String(describing: animals[letter]?.randomElement()))"
+        return animals[letter]?.randomElement() ?? "Нет этой картинки"
+//        return animals[letter]?.randomElement()?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "нет этой картинки\(String(describing: animals[letter]?.randomElement()))"
     }
     
     func playAgain() {
+        //TODO: - Проверить currentLetterIndex и score
+        currentLetterIndex = 0
+        score = 0
         selectedLetters = []
         presentationMode.wrappedValue.dismiss()
     }
@@ -103,6 +123,6 @@ final class LettersTrainerViewModel: ObservableObject {
             print("Error playing sound: \(error.localizedDescription)")
         }
     }
-
+    
     
 }
