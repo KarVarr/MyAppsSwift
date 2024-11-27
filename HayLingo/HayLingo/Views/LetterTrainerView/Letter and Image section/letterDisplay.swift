@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct letterDisplay: View {
+    var viewModel: LettersTrainerViewModel
+    
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -27,8 +29,24 @@ struct letterDisplay: View {
             }
         }
     }
+    
+    private func soundPlayButton(geometry: GeometryProxy) -> some View {
+        Button {
+            viewModel.playSound(named: viewModel.currentLetter)
+        } label: {
+            Image(systemName: "volume.2")
+                .resizable()
+                .scaledToFit()
+                .foregroundStyle(.secondary)
+                .frame(
+                    maxWidth: geometry.size.width / 7,
+                    maxHeight: geometry.size.height / 7
+                )
+                .padding()
+        }
+    }
 }
 
 #Preview {
-    letterDisplay()
+    letterDisplay(viewModel: LettersTrainerViewModel())
 }

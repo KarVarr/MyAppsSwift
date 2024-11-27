@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct letterAndImageSection: View {
+    var viewModel: LettersTrainerViewModel
     var geometry: GeometryProxy
     
     var body: some View {
         HStack {
-            letterDisplay(geometry: geometry)
+            letterDisplay(viewModel: viewModel)
             Spacer()
-            imageAndDescriptionView()
+            imageAndDescriptionView(viewModel: viewModel)
         }
         .padding()
         .background {
@@ -26,5 +27,7 @@ struct letterAndImageSection: View {
 }
 
 #Preview {
-    letterAndImageSection(geometry: GeometryProxy)
+    GeometryReader { geometry in
+        letterAndImageSection(viewModel: LettersTrainerViewModel(), geometry: geometry)
+    }
 }

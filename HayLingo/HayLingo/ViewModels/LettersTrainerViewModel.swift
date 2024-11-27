@@ -10,6 +10,7 @@ import AVFoundation
 
 
 final class LettersTrainerViewModel: ObservableObject {
+    
     @Published var currentLetterIndex = 0
     @Published var score = 0
     @Published var correctAnswer = ""
@@ -31,7 +32,7 @@ final class LettersTrainerViewModel: ObservableObject {
     }
     
     
-    private func checkAnswer(selected: String) {
+    func checkAnswer(selected: String) {
         isCorrect = selected == correctAnswer
         if isCorrect {
             score += 1
@@ -84,7 +85,7 @@ final class LettersTrainerViewModel: ObservableObject {
         return animals[letter]?.randomElement()?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "нет этой картинки\(String(describing: animals[letter]?.randomElement()))"
     }
     
-    private func playAgain() {
+    func playAgain() {
         selectedLetters = []
         presentationMode.wrappedValue.dismiss()
     }
