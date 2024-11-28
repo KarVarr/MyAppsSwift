@@ -31,7 +31,7 @@ struct CustomProgressView: View {
                 ZStack(alignment: .leading) {
                     // Фон прогресс-бара
                     RoundedRectangle(cornerRadius: 1, style: .continuous)
-//                        .fill(Helper.ColorHex.lightGray)
+                    //                        .fill(Helper.ColorHex.lightGray)
                         .frame(height: 3)
                     
                     // Сегменты для каждого ответа
@@ -39,16 +39,31 @@ struct CustomProgressView: View {
                         ForEach(0..<viewModel.selectedLetters.count, id: \.self) { index in
                             let isCorrect = viewModel.correctAnswers.contains(viewModel.selectedLetters[index])
                             let isIncorrect = viewModel.wrongAnswers.contains(viewModel.selectedLetters[index])
-                            RoundedRectangle(cornerRadius: 0.3, style: .continuous)
+                            let targetWidth = isCorrect || isIncorrect ? geometry.size.width / CGFloat(viewModel.selectedLetters.count) : 0
+                            
+                            RoundedRectangle(cornerRadius: 0.1, style: .continuous)
                                 .fill(
                                     isCorrect ? .green :
-                                        isIncorrect ? Helper.ColorHex.red :
+                                        isIncorrect ? .red :
                                         Helper.ColorHex.lightGray
                                 )
                                 .frame(
-                                    width: geometry.size.width / CGFloat(viewModel.selectedLetters.count),
+                                    width: targetWidth,
                                     height: 3
                                 )
+                                .animation(.easeInOut(duration: 0.5), value: targetWidth)
+                            //                            RoundedRectangle(cornerRadius: 0.3, style: .continuous)
+                            //                                .fill(
+                            //                                    isCorrect ? .green :
+                            //                                    isIncorrect ? Helper.ColorHex.red :
+                            //                                    Helper.ColorHex.lightGray
+                            //                                )
+                            //                                .frame(
+                            //                                    width: geometry.size.width / CGFloat(viewModel.selectedLetters.count),
+                            //                                    height: 3
+                            //                                )
+                            //                                .animation(.spring(response: 0.5, dampingFraction: 0.6), value: geometry.size.width)
+                            //                                .animation(.easeInOut(duration: 0.3), value: isCorrect || isIncorrect)
                         }
                     }
                 }
