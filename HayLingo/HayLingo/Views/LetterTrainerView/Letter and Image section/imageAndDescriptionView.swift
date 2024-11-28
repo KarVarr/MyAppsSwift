@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct imageAndDescriptionView: View {
-    var viewModel: LettersTrainerViewModel
+    @ObservedObject var viewModel: LettersTrainerViewModel
     
     var body: some View {
         VStack {

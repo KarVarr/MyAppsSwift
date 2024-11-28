@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ResultSection: View {
     @Environment(\.presentationMode) private var presentationMode
-    var viewModel: LettersTrainerViewModel
+    @ObservedObject var viewModel: LettersTrainerViewModel
     var geometry: GeometryProxy
     
     var body: some View {

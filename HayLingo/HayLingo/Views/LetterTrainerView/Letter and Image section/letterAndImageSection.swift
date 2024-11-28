@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct letterAndImageSection: View {
-    var viewModel: LettersTrainerViewModel
+    @ObservedObject var viewModel: LettersTrainerViewModel
     var geometry: GeometryProxy
     
     var body: some View {

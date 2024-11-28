@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct letterDisplay: View {
-    var viewModel: LettersTrainerViewModel
+    @ObservedObject var viewModel: LettersTrainerViewModel
     
     
     var body: some View {

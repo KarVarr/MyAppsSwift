@@ -18,6 +18,7 @@ final class LettersTrainerViewModel: ObservableObject {
     @Published var score = 0
     @Published var correctAnswer = ""
     @Published var wrongAnswers: [String] = []
+    @Published var correctAnswers: [String] = []
     @Published var options: [String] = []
     @Published var showResult = false
     @Published var isCorrect = false
@@ -52,6 +53,7 @@ final class LettersTrainerViewModel: ObservableObject {
     func checkAnswer(selected: String) {
         isCorrect = selected == correctAnswer
         if isCorrect {
+            correctAnswers.append(selectedLetters[currentLetterIndex])
             score += 1
             print("score: \(score)")
             UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
@@ -97,12 +99,36 @@ final class LettersTrainerViewModel: ObservableObject {
     //
     //        showResult = false
     //    }
+    //    func setupQuestion() {
+    //        guard currentLetterIndex < selectedLetters.count else { return }
+    //
+    //        selectedAnswer = nil
+    //        let currentLetter = selectedLetters[currentLetterIndex]
+    //        imageAndDescription = randomAnimal(currentLetter)
+    //
+    //        let multiAnswer = userData.first?.selectedLanguage
+    //        let translations = multiAnswer == "Russian" ? russianTranslations : englishTranslations
+    //
+    //        correctAnswer = translations[currentLetter] ?? ""
+    //
+    //        var wrongOptions = Array(translations.values)
+    //        wrongOptions.removeAll { $0 == correctAnswer }
+    //        wrongOptions.shuffle()
+    //
+    //        options = Array(wrongOptions.prefix(3))
+    //        options.append(correctAnswer)
+    //        options.shuffle()
+    //
+    //        showResult = false
+    //    }
+    
     func setupQuestion() {
         guard currentLetterIndex < selectedLetters.count else { return }
         
         selectedAnswer = nil
         let currentLetter = selectedLetters[currentLetterIndex]
-        imageAndDescription = randomAnimal(currentLetter)
+        imageAndDescription = randomAnimal(currentLetter) // Обновляем значение
+        print("Updated imageAndDescription: \(imageAndDescription ?? "None")")
         
         let multiAnswer = userData.first?.selectedLanguage
         let translations = multiAnswer == "Russian" ? russianTranslations : englishTranslations
@@ -120,10 +146,20 @@ final class LettersTrainerViewModel: ObservableObject {
         showResult = false
     }
     
+    //    private func randomAnimal(_ letter: String) -> String {
+    //        return animals[letter]?.randomElement()?.trimmingCharacters(in: .whitespacesAndNewlines)
+    //        ?? "No image for letter \(letter)"
+    //        //        return animals[letter]?.randomElement()?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "нет этой картинки\(String(describing: animals[letter]?.randomElement()))"
+    //    }
+    
     private func randomAnimal(_ letter: String) -> String {
-        return animals[letter]?.randomElement()?.trimmingCharacters(in: .whitespacesAndNewlines)
-        ?? "No image for letter \(letter)"
-        //        return animals[letter]?.randomElement()?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "нет этой картинки\(String(describing: animals[letter]?.randomElement()))"
+        guard let animalsForLetter = animals[letter], !animalsForLetter.isEmpty else {
+            print("No animals found for letter: \(letter)")
+            return "No image for letter \(letter)"
+        }
+        let randomAnimal = animalsForLetter.randomElement() ?? "No image"
+        print("Random animal for letter \(letter): \(randomAnimal)")
+        return randomAnimal
     }
     
     func playAgain() {
@@ -132,6 +168,8 @@ final class LettersTrainerViewModel: ObservableObject {
         currentLetterIndex = 0
         score = 0
         selectedLetters = []
+        correctAnswers = []
+        wrongAnswers = []
         print(currentLetterIndex, score, selectedLetters)
     }
     
