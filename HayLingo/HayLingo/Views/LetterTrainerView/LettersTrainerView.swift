@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import _SwiftData_SwiftUI
+import SwiftData
 import AVFoundation
 
 struct LettersTrainerView: View {
@@ -14,7 +14,7 @@ struct LettersTrainerView: View {
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
     
-    //    @Binding var selectedLetters: [String]
+    @Binding var selectedLetters: [String]
     //    @State private var currentLetterIndex = 0
     //    @State private var score = 0
     //    @State private var correctAnswer = ""
@@ -28,7 +28,7 @@ struct LettersTrainerView: View {
     //    @State private var audioPlayer: AVAudioPlayer?
     
     @StateObject private var viewModel = LettersTrainerViewModel()
-    
+        
     let englishTranslations = [
         "Ա": "a",
         "Բ": "b",
@@ -373,6 +373,7 @@ struct LettersTrainerView: View {
     //    LettersTrainerView(selectedLetters: .constant(["Ու","Ե", "Ու", "Գ"]))
     ////    LettersTrainerView()
     //}
+    
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 20) {
@@ -388,12 +389,15 @@ struct LettersTrainerView: View {
             }
             .padding()
             .background(Helper.ColorHex.backgroundGray)
+            .onAppear {
+                viewModel.setup(with: selectedLetters)
+            }
             .navigationBarBackButtonHidden(viewModel.currentLetterIndex >= viewModel.selectedLetters.count)
         }
     }
 }
 
 #Preview {
-//    LettersTrainerView(selectedLetters: .constant(["Ու","Ե", "Ու", "Գ"]))
-    LettersTrainerView()
+    LettersTrainerView(selectedLetters: .constant(["Ու","Ե", "Ու", "Գ"]))
+//    LettersTrainerView()
 }

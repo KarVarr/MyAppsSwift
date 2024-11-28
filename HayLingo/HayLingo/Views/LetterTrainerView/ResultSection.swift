@@ -53,7 +53,7 @@ struct ResultSection: View {
             Text(
                 viewModel.score == viewModel.selectedLetters.count
                 ? "Вы знайте все выбранные буквы!"
-                : "У Вас все получиться!"
+                : "У Вас все получится!"
             )
             .font(.headline)
         }

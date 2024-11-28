@@ -19,10 +19,10 @@ struct LettersView: View {
             ScrollView(showsIndicators: false) {
                 CollectionView(selectedLetters: $selectedLetters)
                 VStack {
-                    NavigationLink(destination: LettersTrainerView()) {
-                        Text("Start Game \(selectedLetters)")
-//                    NavigationLink(destination: LettersTrainerView(selectedLetters: $selectedLetters)) {
+//                    NavigationLink(destination: LettersTrainerView()) {
 //                        Text("Start Game \(selectedLetters)")
+                    NavigationLink(destination: LettersTrainerView(selectedLetters: $selectedLetters)) {
+                        Text("Start Game \(selectedLetters)")
                     }
                 }
             }

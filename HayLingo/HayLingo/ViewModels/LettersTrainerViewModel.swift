@@ -53,6 +53,7 @@ final class LettersTrainerViewModel: ObservableObject {
         isCorrect = selected == correctAnswer
         if isCorrect {
             score += 1
+            print("score: \(score)")
             UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
         } else {
             wrongAnswers.append(selectedLetters[currentLetterIndex])
@@ -76,6 +77,26 @@ final class LettersTrainerViewModel: ObservableObject {
     }
     
     
+    //    func setupQuestion() {
+    //        guard currentLetterIndex < selectedLetters.count else { return }
+    //
+    //        selectedAnswer = nil
+    //        let currentLetter = selectedLetters[currentLetterIndex]
+    //        imageAndDescription = randomAnimal(currentLetter)
+    //
+    //        let multiAnswer = userData.first?.selectedLanguage
+    //        correctAnswer = multiAnswer == "Russian" ? russianTranslations[currentLetter] ?? "" : englishTranslations[currentLetter] ?? ""
+    //
+    //        var wrongOptions = multiAnswer == "Russian" ? Array(russianTranslations.values) : Array(englishTranslations.values)
+    //        wrongOptions.removeAll {$0 == correctAnswer}
+    //        wrongOptions.shuffle()
+    //
+    //        options = Array(wrongOptions.prefix(3))
+    //        options.append(correctAnswer)
+    //        options.shuffle()
+    //
+    //        showResult = false
+    //    }
     func setupQuestion() {
         guard currentLetterIndex < selectedLetters.count else { return }
         
@@ -84,10 +105,12 @@ final class LettersTrainerViewModel: ObservableObject {
         imageAndDescription = randomAnimal(currentLetter)
         
         let multiAnswer = userData.first?.selectedLanguage
-        correctAnswer = multiAnswer == "Russian" ? russianTranslations[currentLetter] ?? "" : englishTranslations[currentLetter] ?? ""
+        let translations = multiAnswer == "Russian" ? russianTranslations : englishTranslations
         
-        var wrongOptions = multiAnswer == "Russian" ? Array(russianTranslations.values) : Array(englishTranslations.values)
-        wrongOptions.removeAll {$0 == correctAnswer}
+        correctAnswer = translations[currentLetter] ?? ""
+        
+        var wrongOptions = Array(translations.values)
+        wrongOptions.removeAll { $0 == correctAnswer }
         wrongOptions.shuffle()
         
         options = Array(wrongOptions.prefix(3))
@@ -98,16 +121,18 @@ final class LettersTrainerViewModel: ObservableObject {
     }
     
     private func randomAnimal(_ letter: String) -> String {
-        return animals[letter]?.randomElement() ?? "Нет этой картинки"
-//        return animals[letter]?.randomElement()?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "нет этой картинки\(String(describing: animals[letter]?.randomElement()))"
+        return animals[letter]?.randomElement()?.trimmingCharacters(in: .whitespacesAndNewlines)
+        ?? "No image for letter \(letter)"
+        //        return animals[letter]?.randomElement()?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "нет этой картинки\(String(describing: animals[letter]?.randomElement()))"
     }
     
     func playAgain() {
         //TODO: - Проверить currentLetterIndex и score
+#warning("don't foget to reset currentLetterIndex and score")
         currentLetterIndex = 0
         score = 0
         selectedLetters = []
-        presentationMode.wrappedValue.dismiss()
+        print(currentLetterIndex, score, selectedLetters)
     }
     
     func playSound(named soundName: String) {
@@ -123,6 +148,4 @@ final class LettersTrainerViewModel: ObservableObject {
             print("Error playing sound: \(error.localizedDescription)")
         }
     }
-    
-    
 }
