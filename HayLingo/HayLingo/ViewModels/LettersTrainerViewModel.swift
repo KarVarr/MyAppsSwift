@@ -25,8 +25,7 @@ final class LettersTrainerViewModel: ObservableObject {
     @Published var areButtonsDisabled = false
     @Published var imageAndDescription: String?
     @Published var selectedAnswer: String?
-    @Published var selectedLetters: [String] = []
-    
+    @Published var selectedLetters: [String] = []    
     
     private let englishTranslations: [String: String]
     private let russianTranslations: [String: String]

@@ -15,6 +15,7 @@ struct MainView: View {
     @State private var selectedLanguage = "Russian"
     let languages: [String] = ["Russian", "English"]
     
+    
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
@@ -37,17 +38,7 @@ struct MainView: View {
                                 }
                             }
                             .onChange(of: selectedLanguage) {_, newValue in
-                                if let user = userData.first {
-                                    user.selectedLanguage = newValue
-                                    do {
-                                        try context.save()
-                                        print("saved \(newValue)")
-                                    } catch {
-                                        print("Error saving user data: \(error)")
-                                    }
-                                } else {
-                                    print("userData.first is nil")
-                                }
+                                saveSelectedLanguage(newValue)
                             }
                             .pickerStyle(.segmented)
                             .frame(width: vStackWidth)
@@ -133,17 +124,22 @@ struct MainView: View {
             }
         }
         .onAppear {
-            if userData.isEmpty {
-                let user = UserData(name: "User", selectedLanguage: "Russian")
-
-                context.insert(user)
+            if let user = userData.first {
+                selectedLanguage = user.selectedLanguage
+            } else {
+                let newUser = UserData(name: "User", selectedLanguage: "Russian")
                 
-                do {
-                    try context.save()
-                } catch {
-                    print("Error saving user data: \(error)")
-                }
+                context.insert(newUser)
+                try? context.save()
             }
+        }
+    }
+    
+    private func saveSelectedLanguage(_ language: String) {
+        if let user = userData.first {
+            user.selectedLanguage = language
+            
+            try? context.save()
         }
     }
 }
