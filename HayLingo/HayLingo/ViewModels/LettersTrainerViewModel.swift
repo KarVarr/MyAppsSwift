@@ -163,15 +163,31 @@ final class LettersTrainerViewModel: ObservableObject {
         return randomAnimal
     }
     
+//    func playAgain() {
+//        //TODO: - Проверить currentLetterIndex и score
+//#warning("don't foget to reset currentLetterIndex and score")
+//        currentLetterIndex = 0
+//        score = 0
+//        selectedLetters = []
+//        correctAnswers = []
+//        wrongAnswers = []
+//        print(currentLetterIndex, score, selectedLetters)
+//    }
+    
     func playAgain() {
-        //TODO: - Проверить currentLetterIndex и score
-#warning("don't foget to reset currentLetterIndex and score")
         currentLetterIndex = 0
         score = 0
-        selectedLetters = []
         correctAnswers = []
         wrongAnswers = []
-        print(currentLetterIndex, score, selectedLetters)
+        selectedLetters = [] // Полностью очищаем
+        options = []
+        selectedAnswer = nil
+        showResult = false
+        isCorrect = false
+        areButtonsDisabled = false
+        imageAndDescription = nil
+
+        print("Game reset. Current index: \(currentLetterIndex), Score: \(score), Selected Letters: \(selectedLetters)")
     }
     
     func playSound(named soundName: String) {
