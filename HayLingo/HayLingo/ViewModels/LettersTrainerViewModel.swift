@@ -27,6 +27,7 @@ final class LettersTrainerViewModel: ObservableObject {
     @Published var selectedAnswer: String?
     @Published var selectedLetters: [String] = []
     
+    
     private let englishTranslations: [String: String]
     private let russianTranslations: [String: String]
     private let animals: [String: [String]]

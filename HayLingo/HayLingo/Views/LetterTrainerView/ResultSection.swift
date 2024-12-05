@@ -14,19 +14,24 @@ struct ResultSection: View {
     
     var body: some View {
         VStack {
-            resultTitle()
-            wrongLettersView()
-            resultDescription()
-            playAgainButton(geometry: geometry)
+            VStack {
+                resultTitle()
+                wrongLettersView()
+                resultDescription()
+                playAgainButton(geometry: geometry)
+            }
+            .padding()
+            .background {
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .fill(Helper.ColorHex.white)
+                    .shadow(color: .gray.opacity(0.4), radius: 5, x: 4, y: 4)
+            }
+            
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
-        .background {
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(Helper.ColorHex.white)
-                .shadow(color: .gray.opacity(0.4), radius: 5, x: 4, y: 4)
-        }
+        .background(Helper.ColorHex.backgroundGray)
     }
-    
     private func resultTitle() -> some View {
         Text(
             viewModel.score == viewModel.selectedLetters.count
