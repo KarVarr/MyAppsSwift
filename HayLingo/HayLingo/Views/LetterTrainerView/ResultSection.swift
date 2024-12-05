@@ -46,14 +46,14 @@ struct ResultSection: View {
     
     private func resultDescription() -> some View {
         Group {
-            Text("Правильных ответов \(viewModel.score) из \(viewModel.selectedLetters.count)")
+            Text("Ваш прогресс: \(viewModel.score) из \(viewModel.selectedLetters.count)")
                 .font(.title2)
                 .padding()
             
             Text(
                 viewModel.score == viewModel.selectedLetters.count
-                ? "Вы знайте все выбранные буквы!"
-                : "У Вас все получится!"
+                ? "Отлично! Все буквы угаданы верно!"
+                : "Не сдавайтесь, у Вас обязательно получится!"
             )
             .font(.headline)
         }
