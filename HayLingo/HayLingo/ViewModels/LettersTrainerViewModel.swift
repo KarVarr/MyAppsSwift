@@ -11,8 +11,7 @@ import AVFoundation
 
 final class LettersTrainerViewModel: ObservableObject {
     @Environment(\.presentationMode) var presentationMode
-    //    @Query private var userData: [UserData]
-    private var context: ModelContext?
+//    private var context: ModelContext?
     
     @Published var currentLetterIndex = 0
     @Published var score = 0
@@ -48,8 +47,6 @@ final class LettersTrainerViewModel: ObservableObject {
     func updateLanguage(_ language: String) {
         self.selectedLanguage = language
     }
-    
-    
     
     func setup(with letters: [String]) {
         selectedLetters = letters

@@ -11,8 +11,7 @@ import SwiftData
 struct LettersView: View {
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
-     
-    
+
     @State private var selectedLetters: [String] = []
     
     var body: some View {
@@ -20,8 +19,6 @@ struct LettersView: View {
             ScrollView(showsIndicators: false) {
                 CollectionView(selectedLetters: $selectedLetters)
                 VStack {
-                    //                    NavigationLink(destination: LettersTrainerView()) {
-                    //                        Text("Start Game \(selectedLetters)")
                     NavigationLink(destination: LettersTrainerView(selectedLetters: $selectedLetters)
                         .onAppear {selectedLetters = []
                         }) {
