@@ -75,5 +75,5 @@ struct CustomProgressView: View {
 }
 
 #Preview {
-    CustomProgressView(viewModel: LettersTrainerViewModel())
+    CustomProgressView(viewModel: .preview())
 }

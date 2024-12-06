@@ -28,6 +28,6 @@ struct letterAndImageSection: View {
 
 #Preview {
     GeometryReader { geometry in
-        letterAndImageSection(viewModel: LettersTrainerViewModel(), geometry: geometry)
+        letterAndImageSection(viewModel: .preview(), geometry: geometry)
     }
 }

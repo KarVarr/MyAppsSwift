@@ -84,6 +84,6 @@ struct ResultSection: View {
 
 #Preview {
     GeometryReader { geometry in
-        ResultSection(viewModel: LettersTrainerViewModel(), geometry: geometry)
+        ResultSection(viewModel: .preview(), geometry: geometry)
     }
 }

@@ -11,6 +11,7 @@ import SwiftData
 struct LettersView: View {
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
+     
     
     @State private var selectedLetters: [String] = []
     

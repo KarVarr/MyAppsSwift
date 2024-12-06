@@ -49,5 +49,5 @@ struct letterDisplay: View {
 }
 
 #Preview {
-    letterDisplay(viewModel: LettersTrainerViewModel())
+    letterDisplay(viewModel: .preview())
 }

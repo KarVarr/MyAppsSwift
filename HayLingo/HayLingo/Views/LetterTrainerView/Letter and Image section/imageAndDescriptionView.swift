@@ -23,5 +23,5 @@ struct imageAndDescriptionView: View {
 }
 
 #Preview {
-    imageAndDescriptionView(viewModel: LettersTrainerViewModel())
+    imageAndDescriptionView(viewModel: .preview())
 }

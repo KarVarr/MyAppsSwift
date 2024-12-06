@@ -9,10 +9,10 @@ import SwiftUI
 import SwiftData
 import AVFoundation
 
-
 final class LettersTrainerViewModel: ObservableObject {
     @Environment(\.presentationMode) var presentationMode
-    @Query var userData: [UserData]
+    //    @Query private var userData: [UserData]
+    private var context: ModelContext?
     
     @Published var currentLetterIndex = 0
     @Published var score = 0
@@ -25,7 +25,8 @@ final class LettersTrainerViewModel: ObservableObject {
     @Published var areButtonsDisabled = false
     @Published var imageAndDescription: String?
     @Published var selectedAnswer: String?
-    @Published var selectedLetters: [String] = []    
+    @Published var selectedLetters: [String] = []
+    @Published var selectedLanguage: String = "Russian"
     
     private let englishTranslations: [String: String]
     private let russianTranslations: [String: String]
@@ -37,18 +38,23 @@ final class LettersTrainerViewModel: ObservableObject {
         return selectedLetters[currentLetterIndex]
     }
     
-    init() {
+    init(userData: [UserData]) {
+        self.selectedLanguage = userData.first?.selectedLanguage ?? "Russian"
         self.englishTranslations = Letter.allLetters.reduce(into: [:]) { $0[$1.character] = $1.englishTranslation }
         self.russianTranslations = Letter.allLetters.reduce(into: [:]) { $0[$1.character] = $1.russianTranslation }
         self.animals = Letter.allLetters.reduce(into: [:]) { $0[$1.character] = $1.animals }
     }
+    
+    func updateLanguage(_ language: String) {
+        self.selectedLanguage = language
+    }
+    
     
     
     func setup(with letters: [String]) {
         selectedLetters = letters
         setupQuestion()
     }
-    
     
     func checkAnswer(selected: String) {
         isCorrect = selected == correctAnswer
@@ -127,11 +133,11 @@ final class LettersTrainerViewModel: ObservableObject {
         
         selectedAnswer = nil
         let currentLetter = selectedLetters[currentLetterIndex]
-        imageAndDescription = randomAnimal(currentLetter) // Обновляем значение
+        imageAndDescription = randomAnimal(currentLetter)
         print("Updated imageAndDescription: \(imageAndDescription ?? "None")")
         
-        let multiAnswer = userData.first?.selectedLanguage
-        let translations = multiAnswer == "Russian" ? russianTranslations : englishTranslations
+        
+        let translations = selectedLanguage == "Russian" ? russianTranslations : englishTranslations
         
         correctAnswer = translations[currentLetter] ?? ""
         
@@ -162,16 +168,16 @@ final class LettersTrainerViewModel: ObservableObject {
         return randomAnimal
     }
     
-//    func playAgain() {
-//        //TODO: - Проверить currentLetterIndex и score
-//#warning("don't foget to reset currentLetterIndex and score")
-//        currentLetterIndex = 0
-//        score = 0
-//        selectedLetters = []
-//        correctAnswers = []
-//        wrongAnswers = []
-//        print(currentLetterIndex, score, selectedLetters)
-//    }
+    //    func playAgain() {
+    //        //TODO: - Проверить currentLetterIndex и score
+    //#warning("don't foget to reset currentLetterIndex and score")
+    //        currentLetterIndex = 0
+    //        score = 0
+    //        selectedLetters = []
+    //        correctAnswers = []
+    //        wrongAnswers = []
+    //        print(currentLetterIndex, score, selectedLetters)
+    //    }
     
     func playAgain() {
         currentLetterIndex = 0
@@ -185,7 +191,7 @@ final class LettersTrainerViewModel: ObservableObject {
         isCorrect = false
         areButtonsDisabled = false
         imageAndDescription = nil
-
+        
         print("Game reset. Current index: \(currentLetterIndex), Score: \(score), Selected Letters: \(selectedLetters)")
     }
     

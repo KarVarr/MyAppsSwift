@@ -50,6 +50,6 @@ struct AnswerButtons: View {
 
 #Preview {
     GeometryReader { geometry in
-        AnswerButtons(viewModel: LettersTrainerViewModel(), geometry: geometry)
+        AnswerButtons(viewModel: .preview(), geometry: geometry)
     }
 }

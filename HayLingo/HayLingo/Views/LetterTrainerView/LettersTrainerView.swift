@@ -15,20 +15,13 @@ struct LettersTrainerView: View {
     @Query var userData: [UserData]
     
     @Binding var selectedLetters: [String]
-    //    @State private var currentLetterIndex = 0
-    //    @State private var score = 0
-    //    @State private var correctAnswer = ""
-    //    @State private var wrongAnswers: [String] = []
-    //    @State private var options: [String] = []
-    //    @State private var showResult = false
-    //    @State private var isCorrect = false
-    //    @State private var areButtonsDisabled = false
-    //    @State private var imageAndDescription: String?
-    //    @State private var selectedAnswer: String?
-    //    @State private var audioPlayer: AVAudioPlayer?
-    
-    @StateObject private var viewModel = LettersTrainerViewModel()
+    //    @StateObject private var viewModel: LettersTrainerViewModel
+    @StateObject private var viewModel = LettersTrainerViewModel(userData: [UserData]())
+    init(selectedLetters: Binding<[String]>) {
+        self._selectedLetters = selectedLetters
         
+    }
+    
     let englishTranslations = [
         "Ա": "a",
         "Բ": "b",
@@ -390,14 +383,18 @@ struct LettersTrainerView: View {
             .padding()
             .background(Helper.ColorHex.backgroundGray)
             .onAppear {
-                viewModel.setup(with: selectedLetters)
+                if let firstUserData = userData.first {
+                    // Обновляем только свойства viewModel, не создавая новый экземпляр
+                    viewModel.updateLanguage(firstUserData.selectedLanguage)
+                    viewModel.setup(with: selectedLetters)
+                }
             }
             .navigationBarBackButtonHidden(viewModel.currentLetterIndex >= viewModel.selectedLetters.count)
         }
     }
+    
 }
-
 #Preview {
     LettersTrainerView(selectedLetters: .constant(["Ու","Ե", "Ու", "Գ"]))
-//    LettersTrainerView()
+    //    LettersTrainerView()
 }

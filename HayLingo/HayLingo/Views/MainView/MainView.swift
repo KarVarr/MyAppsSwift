@@ -138,7 +138,6 @@ struct MainView: View {
     private func saveSelectedLanguage(_ language: String) {
         if let user = userData.first {
             user.selectedLanguage = language
-            
             try? context.save()
         }
     }
