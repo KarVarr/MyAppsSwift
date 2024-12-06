@@ -61,11 +61,4 @@ final class HayLingoImageTests: XCTestCase {
             }
         }
     }
-    
-//    func testAllImagesExis() {
-//        for word in wordList {
-//            let image = UIImage(named: word)
-//            XCTAssertNotNil(image, "Image named: \(word.lowercased()) is missing.")
-//        }
-//    }
 }
