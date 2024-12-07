@@ -11,7 +11,7 @@ import SwiftData
 struct LettersView: View {
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
-
+    
     @State private var selectedLetters: [String] = []
     
     var body: some View {
@@ -22,7 +22,17 @@ struct LettersView: View {
                     NavigationLink(destination: LettersTrainerView(selectedLetters: $selectedLetters)
                         .onAppear {selectedLetters = []
                         }) {
-                            Text("Start Game \(selectedLetters)")
+                            ZStack(alignment: .leading) {
+                                Text("Start")
+                                    .font(.system(size: 24, weight: .semibold))
+                                    .padding(16)
+                                    .frame(width: 270, height: 70)
+                                    .background {
+                                        RoundedRectangle(cornerRadius: 35, style: .continuous)
+                                            .stroke(.black, lineWidth: 10)
+                                    }
+                                    .foregroundStyle(.red)
+                            }
                         }
                 }
             }

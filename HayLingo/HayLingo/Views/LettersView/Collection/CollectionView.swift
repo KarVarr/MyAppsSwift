@@ -47,7 +47,6 @@ struct CollectionView: View {
             }
             .padding(10)
         }
-        
     }
     
     private func toggleLetterSelection(letter: String) {
