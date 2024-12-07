@@ -45,13 +45,14 @@ struct MainView: View {
                         
                         var latestProgress: String {
                             if let user = userData.first {
-                                let filteredProgress = user.progress.filter { $0.correctAnswer > 0 && $0.totalQuestion > 0 }
-                                return filteredProgress.map {
-                                    "\($0.language):  \($0.correctAnswer)/\($0.totalQuestion)"
-                                }.joined(separator: "\n")
+                                if let lastProgress = user.progress.last(where: { $0.correctAnswer > 0 && $0.totalQuestion > 0 }) {
+                                    return "\(lastProgress.language):  \(lastProgress.correctAnswer)/\(lastProgress.totalQuestion)"
+                                }
+                                return "No progress yet" // Если нет подходящих данных
                             }
-                            return "No progress yet"
+                            return "No data"
                         }
+
                         
                         VStackContent(
                             title: "Previous lessons",
