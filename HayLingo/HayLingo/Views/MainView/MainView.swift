@@ -52,7 +52,7 @@ struct MainView: View {
                             }
                             return "No data"
                         }
-
+                        
                         
                         VStackContent(
                             title: "Previous lessons",
@@ -68,16 +68,33 @@ struct MainView: View {
                         
                         var allProgress: String {
                             if let user = userData.first {
-                                let totalCorrectAnswer = user.progress.reduce(0) { $0 + $1.correctAnswer }
-                                let totalQuestions = user.progress.reduce(0) { $0 + $1.totalQuestion }
-                                return  "Correct answers: \(totalCorrectAnswer)/\(totalQuestions)"
+                                
+                                let filteredProgress = user.progress.filter { $0.language == language }
+                                
+                                if filteredProgress.isEmpty {
+                                    return "No data for \(language)"
+                                }
+                                
+                                let totalCorrectAnswer = filteredProgress.reduce(0) { $0 + $1.correctAnswer }
+                                let totalQuestions = filteredProgress.reduce(0) { $0 + $1.totalQuestion }
+                                
+                                return "Correct answers: \(totalCorrectAnswer)/\(totalQuestions)"
                             } else {
                                 return "No data"
                             }
                         }
                         
+                        var language: String {
+                            if let user = userData.first, let lastProgress = user.progress.last {
+                                return lastProgress.language
+                            } else {
+                                return "Unknown"
+                            }
+                        }
+                        
+                        
                         VStackContent(
-                            title: "Your progress",
+                            title: "Your progress in \(language == "Russian" ? "Russian" : "English")",
                             subtitle: allProgress,
                             width: vStackWidth,
                             backgroundColor: Helper.ColorHex.white,
