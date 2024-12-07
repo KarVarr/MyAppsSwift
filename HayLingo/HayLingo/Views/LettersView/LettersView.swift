@@ -18,23 +18,36 @@ struct LettersView: View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
                 CollectionView(selectedLetters: $selectedLetters)
-                VStack {
+                VStack(spacing: 16) {
+                    if selectedLetters.isEmpty {
+                        Text("Please select letters!")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(.gray)
+                            .padding(.bottom, 8)
+                    } else {
+                        Text("Now you can train!")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(.gray)
+                            .padding(.bottom, 8)
+                    }
+                    
                     NavigationLink(destination: LettersTrainerView(selectedLetters: $selectedLetters)
-                        .onAppear {selectedLetters = []
+                        .onAppear {
+                            selectedLetters = []
                         }) {
-                            ZStack(alignment: .leading) {
-                                Text("Start")
-                                    .font(.system(size: 24, weight: .semibold))
-                                    .padding(16)
-                                    .frame(width: 270, height: 70)
-                                    .background {
-                                        RoundedRectangle(cornerRadius: 35, style: .continuous)
-                                            .stroke(.black, lineWidth: 10)
-                                    }
-                                    .foregroundStyle(.red)
-                            }
+                            Text("Start game")
+                                .font(.system(size: 24, weight: .semibold))
+                                .foregroundColor(selectedLetters.isEmpty ? .gray : .white)
+                                .padding()
+                                .frame(width: 270, height: 70)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 35, style: .continuous)
+                                        .fill(selectedLetters.isEmpty ? Color.gray.opacity(0.3) : Helper.ColorHex.lightOrange)
+                                }
                         }
+                        .disabled(selectedLetters.isEmpty)
                 }
+                .padding()
             }
             .background(Helper.ColorHex.backgroundGray)
         }
@@ -44,4 +57,5 @@ struct LettersView: View {
 #Preview {
     LettersView()
 }
+
 
