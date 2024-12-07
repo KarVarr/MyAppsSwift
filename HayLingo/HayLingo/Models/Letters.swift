@@ -46,7 +46,7 @@ extension Letter {
         Letter(character: "Ո", englishTranslation: "o", russianTranslation: "во", animals: ["Ոզնի", "Ոսկե", "Ոտք", "Ոստիկանություն"]),
         Letter(character: "Չ", englishTranslation: "č‘", russianTranslation: "ч", animals: ["Չար", "Չորս"]),
         Letter(character: "Պ", englishTranslation: "p", russianTranslation: "п", animals: ["Պատառաքաղ", "Պանիր", "Պատ", "Պատուհան"]),
-        Letter(character: "Ջ", englishTranslation: "ǰ", russianTranslation: "дж", animals: ["Ջուր", "Ջոկер", "Ջազ"]),
+        Letter(character: "Ջ", englishTranslation: "ǰ", russianTranslation: "дж", animals: ["Ջուր", "Ջոկեր", "Ջազ"]),
         Letter(character: "Ռ", englishTranslation: "r̄", russianTranslation: "р", animals: ["Ռադիո", "Ռետին", "Ռակետ"]),
         Letter(character: "Ս", englishTranslation: "s", russianTranslation: "с", animals: ["Սունկ", "Սարդ", "Սխտոր", "Սեր"]),
         Letter(character: "Վ", englishTranslation: "v", russianTranslation: "в", animals: ["Վարդ", "Վազ", "Վիրաբույժ"]),

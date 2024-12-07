@@ -52,6 +52,8 @@ final class LettersTrainerViewModel: ObservableObject {
         setupQuestion()
     }
     
+    
+    
     func checkAnswer(selected: String) {
         isCorrect = selected == correctAnswer
         if isCorrect {

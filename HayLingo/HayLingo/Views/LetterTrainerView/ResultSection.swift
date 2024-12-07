@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ResultSection: View {
     @Environment(\.presentationMode) private var presentationMode
+    @Environment(\.modelContext) var context
+    @Query var userData: [UserData]
     @ObservedObject var viewModel: LettersTrainerViewModel
     var geometry: GeometryProxy
     
@@ -32,6 +35,7 @@ struct ResultSection: View {
         .padding()
         .background(Helper.ColorHex.backgroundGray)
     }
+    
     private func resultTitle() -> some View {
         Text(
             viewModel.score == viewModel.selectedLetters.count
@@ -66,6 +70,7 @@ struct ResultSection: View {
     
     private func playAgainButton(geometry: GeometryProxy) -> some View {
         Button {
+            updateUserProgress(correct: viewModel.score, total: viewModel.selectedLetters.count, language: viewModel.selectedLanguage)
             viewModel.playAgain()
             presentationMode.wrappedValue.dismiss()
         } label: {
@@ -78,6 +83,14 @@ struct ResultSection: View {
                         .fill(Helper.ColorHex.blue)
                 }
                 .padding()
+        }
+    }
+    
+    private func updateUserProgress(correct: Int, total: Int, language: String) {
+        if let user = userData.first {
+            let newProgress = ProgressData(language: language, correctAnswer: correct, totalQuestion: total)
+            user.progress.append(newProgress)
+            try? context.save()
         }
     }
 }

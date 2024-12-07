@@ -15,7 +15,6 @@ struct MainView: View {
     @State private var selectedLanguage = "Russian"
     let languages: [String] = ["Russian", "English"]
     
-    
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
@@ -44,36 +43,19 @@ struct MainView: View {
                             .frame(width: vStackWidth)
                         }
                         
-                        var correctAnswer: String {
+                        var latestProgress: String {
                             if let user = userData.first {
-                                return user.progress.map{"Language: English\nCorrect answers: \($0.correctAnswer) from \($0.totalQuestion)"}.joined()
-                            } else {
-                                return "No data"
-                            }
-                        }
-                        
-                        VStackContent(
-                            title: "Previous lessons",
-                            subtitle: correctAnswer,
-                            width: vStackWidth,
-                            backgroundColor: Helper.ColorHex.white,
-                            textColor: Helper.ColorHex.darkGray,
-                            spacing: 10,
-                            alignment: .leading
-                        )
-                        
-                        var subtitle: String {
-                            if let user = userData.first {
-                                return user.progress.map {
-                                    "\($0.language): \($0.correctAnswer)/\($0.totalQuestion)"
+                                let filteredProgress = user.progress.filter { $0.correctAnswer > 0 && $0.totalQuestion > 0 }
+                                return filteredProgress.map {
+                                    "\($0.language):  \($0.correctAnswer)/\($0.totalQuestion)"
                                 }.joined(separator: "\n")
                             }
                             return "No progress yet"
                         }
                         
                         VStackContent(
-                            title: "Your progress",
-                            subtitle: subtitle,
+                            title: "Previous lessons",
+                            subtitle: latestProgress,
                             width: vStackWidth,
                             backgroundColor: Helper.ColorHex.white,
                             textColor: Helper.ColorHex.darkGray,
@@ -81,6 +63,29 @@ struct MainView: View {
                             alignment: .leading
                         )
                         
+                        
+                        
+                        var allProgress: String {
+                            if let user = userData.first {
+                                let totalCorrectAnswer = user.progress.reduce(0) { $0 + $1.correctAnswer }
+                                let totalQuestions = user.progress.reduce(0) { $0 + $1.totalQuestion }
+                                return  "Correct answers: \(totalCorrectAnswer)/\(totalQuestions)"
+                            } else {
+                                return "No data"
+                            }
+                        }
+                        
+                        VStackContent(
+                            title: "Your progress",
+                            subtitle: allProgress,
+                            width: vStackWidth,
+                            backgroundColor: Helper.ColorHex.white,
+                            textColor: Helper.ColorHex.darkGray,
+                            spacing: 10,
+                            alignment: .leading
+                        )
+                        
+                        //MARK: - History
                         NavigationLink(destination: HistoryOfArmenianLanguageView()) {
                             VStackContent(
                                 title: "History of Armenian language",
@@ -93,7 +98,7 @@ struct MainView: View {
                             )
                         }
                         
-                        
+                        //MARK: - Settings
                         NavigationLink(destination: HistoryOfArmenianLanguageView()) {
                             VStackContent(
                                 title: "Settings",
@@ -106,6 +111,7 @@ struct MainView: View {
                             )
                         }
                         
+                        //MARK: - Play Game
                         NavigationLink(destination: LettersView()) {
                             VStackContent(
                                 title: "Play game",
