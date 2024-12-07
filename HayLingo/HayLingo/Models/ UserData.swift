@@ -13,12 +13,18 @@ class UserData {
     @Attribute(.unique) var id: UUID
     var name: String?
     var selectedLanguage: String
+    var selectedTheme: String
+    var selectedSound: String
+    var selectedVibration: String
     var progress: [ProgressData]
-
-    init(name: String, selectedLanguage: String, progress: [ProgressData] = []) {
-        self.id = UUID()
+    
+    init(id: UUID, name: String? = nil, selectedLanguage: String, selectedTheme: String, selectedSound: String, selectedVibration: String, progress: [ProgressData]) {
+        self.id = id
         self.name = name
         self.selectedLanguage = selectedLanguage
+        self.selectedTheme = selectedTheme
+        self.selectedSound = selectedSound
+        self.selectedVibration = selectedVibration
         self.progress = progress
     }
 }

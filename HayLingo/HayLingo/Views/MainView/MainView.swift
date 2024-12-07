@@ -150,7 +150,7 @@ struct MainView: View {
             if let user = userData.first {
                 selectedLanguage = user.selectedLanguage
             } else {
-                let newUser = UserData(name: "User", selectedLanguage: "Russian")
+                let newUser = UserData(id: UUID(), name: "Misha", selectedLanguage: "Russian", selectedTheme: "Light", selectedSound: "On", selectedVibration: "On", progress: [])
                 
                 context.insert(newUser)
                 try? context.save()

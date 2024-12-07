@@ -14,7 +14,16 @@ struct SettingsView: View {
     
     @State private var showSettings = false
     @State private var selectedLanguage = "Russian"
+    @State private var selectedTheme = "Light"
+    @State private var selectedSound = "On"
+    @State private var selectedVibration = "On"
+    
     let languages: [String] = ["Russian", "English"]
+    let themes: [String] = ["Light", "Dark", "System"]
+    let sounds: [String] = ["On", "Off"]
+    let vibration: [String] = ["On", "Off"]
+    
+    
     //    var body: some View {
     //        VStack {
     //            Text("Settings")
@@ -36,9 +45,7 @@ struct SettingsView: View {
     //    }
     var body: some View {
         ZStack {
-            // Основной экран
-            Helper.ColorHex.backgroundGray.ignoresSafeArea() // Цвет фона главного экрана
-            
+            Helper.ColorHex.backgroundGray.ignoresSafeArea()
             Button("Открыть настройки") {
                 showSettings = true
             }
@@ -54,7 +61,7 @@ struct SettingsView: View {
                     Color.black.opacity(0.4)
                         .ignoresSafeArea()
                         .onTapGesture {
-                            showSettings = false // Закрытие при нажатии вне окна
+                            showSettings = false
                         }
                     
                     GeometryReader { geometry in
@@ -63,14 +70,15 @@ struct SettingsView: View {
                                 .font(.title2)
                                 .fontWeight(.bold)
                             
-                            // Настройки
+                            //MARK: - Settings
                             let vStackWidth = geometry.size.width * 0.7
                             
+                            //MARK: - Language
                             VStack(alignment: .leading) {
                                 Text("Select a language")
                                     .font(.system(size: 12))
                                     .foregroundStyle(Helper.ColorHex.lightBlack)
-                                    
+                                
                                 Picker("Language", selection: $selectedLanguage) {
                                     ForEach(languages, id: \.self) {
                                         Text($0)
@@ -78,13 +86,80 @@ struct SettingsView: View {
                                     }
                                 }
                                 .onChange(of: selectedLanguage) {_, newValue in
-                                    saveSelectedLanguage(newValue)
+                                    saveOption { user in
+                                        user.selectedLanguage = newValue
+                                    }
+                                }
+                                .pickerStyle(.segmented)
+                                .frame(width: vStackWidth)
+                            }
+                            
+                            //MARK: - Theme
+                            VStack(alignment: .leading) {
+                                Text("Select a theme")
+                                    .font(.system(size: 12))
+                                    .foregroundStyle(Helper.ColorHex.lightBlack)
+                                
+                                Picker("Theme", selection: $selectedTheme) {
+                                    ForEach(themes, id: \.self) {
+                                        Text($0)
+                                            .foregroundStyle(Helper.ColorHex.darkBlue)
+                                    }
+                                }
+                                .onChange(of: selectedTheme) {_, newValue in
+                                    saveOption { user in
+                                        user.selectedTheme = newValue
+                                    }
+                                }
+                                .pickerStyle(.segmented)
+                                .frame(width: vStackWidth)
+                            }
+                            
+                            //MARK: - Sound
+                            VStack(alignment: .leading) {
+                                Text("Sounds in app")
+                                    .font(.system(size: 12))
+                                    .foregroundStyle(Helper.ColorHex.lightBlack)
+                                
+                                Picker("Sound", selection: $selectedSound) {
+                                    ForEach(sounds, id: \.self) {
+                                        Text($0)
+                                            .foregroundStyle(Helper.ColorHex.darkBlue)
+                                    }
+                                }
+                                .onChange(of: selectedSound) {_, newValue in
+                                    saveOption { user in
+                                        user.selectedSound = newValue
+                                    }
+                                }
+                                .pickerStyle(.segmented)
+                                .frame(width: vStackWidth)
+                            }
+                            
+                            //MARK: - Vibration
+                            VStack(alignment: .leading) {
+                                Text("Vibration in app")
+                                    .font(.system(size: 12))
+                                    .foregroundStyle(Helper.ColorHex.lightBlack)
+                                
+                                Picker("Vibration", selection: $selectedVibration) {
+                                    ForEach(vibration, id: \.self) {
+                                        Text($0)
+                                            .foregroundStyle(Helper.ColorHex.darkBlue)
+                                    }
+                                }
+                                .onChange(of: selectedVibration) {_, newValue in
+                                    saveOption { user in
+                                        user.selectedVibration = newValue
+                                    }
                                 }
                                 .pickerStyle(.segmented)
                                 .frame(width: vStackWidth)
                             }
                             
                             
+                            
+                            //MARK: - Close Button
                             Button("Закрыть") {
                                 showSettings = false
                             }
@@ -104,36 +179,13 @@ struct SettingsView: View {
         )
     }
     
-    private func saveSelectedLanguage(_ language: String) {
-        if let user = userData.first {
-            user.selectedLanguage = language
+    private func saveOption(_ update: (inout UserData) -> Void) {
+        if var user = userData.first {
+            update(&user)
             try? context.save()
         }
     }
 }
-
-struct SettingOptionView: View {
-    let title: String
-    let options: [String]
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(title)
-                .font(.headline)
-                .foregroundColor(.black)
-            
-            HStack {
-                ForEach(options, id: \.self) { option in
-                    Button(option) {}
-                        .padding()
-                        .background(Color.gray.opacity(0.1))
-                        .cornerRadius(8)
-                }
-            }
-        }
-    }
-}
-
 
 
 #Preview {

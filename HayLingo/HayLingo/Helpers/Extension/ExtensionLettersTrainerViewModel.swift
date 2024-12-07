@@ -8,10 +8,10 @@
 import Foundation
 
 extension LettersTrainerViewModel {    
-    static func preview(language: String = "Russian") -> LettersTrainerViewModel {
+    static func preview(language: String = "Russian", theme: String = "Light", sound: String = "Off", vibration: String = "Off") -> LettersTrainerViewModel {
         
         let testUserData = [
-            UserData(name: "Test User", selectedLanguage: language)
+            UserData(id: UUID(), name: "Test name", selectedLanguage: language, selectedTheme: theme, selectedSound: sound, selectedVibration: vibration, progress: [])
         ]
         return LettersTrainerViewModel(userData: testUserData)
     }
