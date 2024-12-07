@@ -29,8 +29,6 @@ struct MainView: View {
                         let vStackWidth = geometry.size.width * 0.7
                         
                         VStack {
-                            Text("Select a language")
-                                .foregroundLinearGradientArmenianFlag(colors: [.red, .red, .blue, .orange, .orange], startPoint: .top, endPoint: .bottom)
                             Picker("Language", selection: $selectedLanguage) {
                                 ForEach(languages, id: \.self) {
                                     Text($0)
