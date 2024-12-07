@@ -29,6 +29,8 @@ struct MainView: View {
                         let vStackWidth = geometry.size.width * 0.7
                         
                         VStack {
+                            Text("Select a language")
+                                .foregroundLinearGradientArmenianFlag(colors: [.red, .red, .blue, .orange, .orange], startPoint: .top, endPoint: .bottom)
                             Picker("Language", selection: $selectedLanguage) {
                                 ForEach(languages, id: \.self) {
                                     Text($0)
@@ -46,7 +48,7 @@ struct MainView: View {
                                 if let lastProgress = user.progress.last(where: { $0.correctAnswer > 0 && $0.totalQuestion > 0 }) {
                                     return "\(lastProgress.language):  \(lastProgress.correctAnswer)/\(lastProgress.totalQuestion)"
                                 }
-                                return "No progress yet" // Если нет подходящих данных
+                                return "No progress yet" 
                             }
                             return "No data"
                         }
@@ -66,7 +68,6 @@ struct MainView: View {
                         
                         var allProgress: String {
                             if let user = userData.first {
-                                
                                 let filteredProgress = user.progress.filter { $0.language == language }
                                 
                                 if filteredProgress.isEmpty {

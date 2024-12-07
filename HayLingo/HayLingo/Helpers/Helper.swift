@@ -19,5 +19,7 @@ enum Helper {
         static let lightBlue = Color(hex: 0xF0EBE3)
         static let lightOrange = Color(hex: 0xf8ae97)
         static let lightGray = Color(hex: 0xB2B1B9)
+        static let darkBlue = Color(hex: 0x3d4856)
+        static let lightBlack = Color(hex: 0x2f342f)
     }
 }
