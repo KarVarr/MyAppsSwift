@@ -51,11 +51,11 @@ struct SettingsView: View {
         GeometryReader { geometry in
             VStack(spacing: 16) {
                 Text("Настройки")
-                    .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.system(size: 18))
+                    .foregroundStyle(Helper.ColorHex.darkBlue)
                 
                 //MARK: - Settings
-                let vStackWidth = geometry.size.width * 0.7
+                let vStackWidth = geometry.size.width * 0.85
                 
                 //MARK: - Language
                 VStack(alignment: .leading) {
@@ -143,22 +143,34 @@ struct SettingsView: View {
                     .frame(width: vStackWidth)
                 }
                 
-                
+                Divider()
                 
                 //MARK: - Close Button
-                Button("Закрыть") {
+                Button("Close") {
                     showSettings = false
+                    print("press button")
                 }
-                .padding()
+                .padding(7)
+                .frame(maxWidth: .infinity)
+                .contentShape(Rectangle())
                 .background(Color.gray.opacity(0.2))
+                .foregroundStyle(Helper.ColorHex.darkBlue)
                 .cornerRadius(10)
+                .contentShape(Rectangle())
+                .simultaneousGesture(
+                    TapGesture().onEnded {
+                        showSettings = false
+                        print("on end press button")
+                    }
+                )
             }
             .padding()
-            .frame(maxWidth: .infinity)
+            .frame(width: geometry.size.width * 0.9)
             .background(Color.white)
             .cornerRadius(20)
-            .shadow(radius: 10)
+            .shadow(color: .gray.opacity(0.3),radius:20,x:0,y:0)
             .padding(.horizontal, 10)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .onAppear {
             loadInitialSettings()
