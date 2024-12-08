@@ -165,7 +165,7 @@ struct LettersTrainerView: View {
             .background(Helper.ColorHex.backgroundGray)
             .onAppear {
                 if let firstUserData = userData.first {
-                    viewModel.updateLanguage(firstUserData.selectedLanguage)
+                    viewModel.updateLanguage(firstUserData.selectedLanguage ?? "Russian")
                     viewModel.setup(with: selectedLetters)
                 }
             }

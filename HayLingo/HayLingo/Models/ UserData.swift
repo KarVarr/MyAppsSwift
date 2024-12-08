@@ -12,13 +12,13 @@ import SwiftData
 class UserData {
     @Attribute(.unique) var id: UUID
     var name: String?
-    var selectedLanguage: String
-    var selectedTheme: String
-    var selectedSound: String
-    var selectedVibration: String
+    var selectedLanguage: String?
+    var selectedTheme: String?
+    var selectedSound: String?
+    var selectedVibration: String?
     var progress: [ProgressData]
     
-    init(id: UUID, name: String? = nil, selectedLanguage: String, selectedTheme: String, selectedSound: String, selectedVibration: String, progress: [ProgressData]) {
+    init(id: UUID, name: String? = nil, selectedLanguage: String? = nil, selectedTheme: String? = nil, selectedSound: String? = nil, selectedVibration: String? = nil, progress: [ProgressData] = []) {
         self.id = id
         self.name = name
         self.selectedLanguage = selectedLanguage

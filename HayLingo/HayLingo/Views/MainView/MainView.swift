@@ -12,8 +12,7 @@ struct MainView: View {
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
     
-    @State private var selectedLanguage = "Russian"
-    let languages: [String] = ["Russian", "English"]
+    @State private var showSettings = false
     
     var body: some View {
         NavigationStack {
@@ -28,27 +27,12 @@ struct MainView: View {
                         
                         let vStackWidth = geometry.size.width * 0.7
                         
-                        VStack {
-                            Text("Select a language")
-                                .foregroundLinearGradientArmenianFlag(colors: [.red, .red, .blue, .orange, .orange], startPoint: .top, endPoint: .bottom)
-                            Picker("Language", selection: $selectedLanguage) {
-                                ForEach(languages, id: \.self) {
-                                    Text($0)
-                                }
-                            }
-                            .onChange(of: selectedLanguage) {_, newValue in
-                                saveSelectedLanguage(newValue)
-                            }
-                            .pickerStyle(.segmented)
-                            .frame(width: vStackWidth)
-                        }
-                        
                         var latestProgress: String {
                             if let user = userData.first {
                                 if let lastProgress = user.progress.last(where: { $0.correctAnswer > 0 && $0.totalQuestion > 0 }) {
                                     return "\(lastProgress.language):  \(lastProgress.correctAnswer)/\(lastProgress.totalQuestion)"
                                 }
-                                return "No progress yet" 
+                                return "No progress yet"
                             }
                             return "No data"
                         }
@@ -116,7 +100,9 @@ struct MainView: View {
                         }
                         
                         //MARK: - Settings
-                        NavigationLink(destination: HistoryOfArmenianLanguageView()) {
+                        Button {
+                            showSettings = true
+                        } label: {
                             VStackContent(
                                 title: "Settings",
                                 subtitle: nil,
@@ -127,6 +113,7 @@ struct MainView: View {
                                 alignment: .center
                             )
                         }
+                        
                         
                         //MARK: - Play Game
                         NavigationLink(destination: LettersView()) {
@@ -144,14 +131,32 @@ struct MainView: View {
                     .frame(maxWidth: .infinity, minHeight: geometry.size.height)
                 }
                 .background(Helper.ColorHex.backgroundGray)
+                .overlay(
+                    ZStack {
+                        if showSettings {
+                            Color.black.opacity(0.4)
+                                .ignoresSafeArea()
+                                .onTapGesture {
+                                    showSettings = false
+                                }
+                            SettingsView(showSettings: $showSettings)
+                                .frame(width: geometry.size.width)
+                        }
+                    }
+                )
             }
         }
         .onAppear {
-            if let user = userData.first {
-                selectedLanguage = user.selectedLanguage
-            } else {
-                let newUser = UserData(id: UUID(), name: "Misha", selectedLanguage: "Russian", selectedTheme: "Light", selectedSound: "On", selectedVibration: "On", progress: [])
-                
+            if userData.isEmpty {
+                let newUser = UserData(
+                    id: UUID(),
+                    name: "Misha",
+                    selectedLanguage: "Russian",
+                    selectedTheme: "Light",
+                    selectedSound: "On",
+                    selectedVibration: "On",
+                    progress: []
+                )
                 context.insert(newUser)
                 try? context.save()
             }
