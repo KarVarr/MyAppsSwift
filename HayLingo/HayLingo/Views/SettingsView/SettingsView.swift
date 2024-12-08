@@ -175,7 +175,6 @@ struct SettingsView: View {
         selectedTheme = user.selectedTheme ?? "Light"
         selectedSound = user.selectedSound ?? "On"
         selectedVibration = user.selectedVibration ?? "On"
-        
     }
     
     private func createDefaultUser() {
@@ -191,31 +190,9 @@ struct SettingsView: View {
     }
 }
 
-
 #Preview {
     SettingsView(showSettings: .constant(false))
 }
 
-// MARK: - Extension для стилей
-extension View {
-    func settingsButtonStyle() -> some View {
-        self
-            .font(.headline)
-            .foregroundColor(.white)
-            .padding()
-            .background(Color.blue)
-            .cornerRadius(8)
-    }
-    
-    func settingsContainerStyle(width: CGFloat) -> some View {
-        self
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color.white)
-            .cornerRadius(20)
-            .shadow(radius: 10)
-            .padding(.horizontal, 10)
-    }
-    
-}
+
 
