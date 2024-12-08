@@ -13,6 +13,7 @@ struct MainView: View {
     @Query var userData: [UserData]
     
     @State private var showSettings = false
+    @State private var selectedLanguage: String = "Russian"
     
     var body: some View {
         NavigationStack {
@@ -23,18 +24,16 @@ struct MainView: View {
                             .frame(height: geometry.size.height / 6)
                             .font(.system(size: 46, weight: .bold, design: .monospaced))
                         
-                        Text("Hello Vania!")
+                        Text("Hello, \(userData.first?.name ?? "Guest")!")
                         
                         let vStackWidth = geometry.size.width * 0.7
                         
                         var latestProgress: String {
-                            if let user = userData.first {
-                                if let lastProgress = user.progress.last(where: { $0.correctAnswer > 0 && $0.totalQuestion > 0 }) {
-                                    return "\(lastProgress.language):  \(lastProgress.correctAnswer)/\(lastProgress.totalQuestion)"
-                                }
-                                return "No progress yet"
+                            guard let user = userData.first else { return "No data" }
+                            if let lastProgress = user.progress.last(where: { $0.language == selectedLanguage && $0.correctAnswer > 0 && $0.totalQuestion > 0 }) {
+                                return "\(lastProgress.language): \(lastProgress.correctAnswer)/\(lastProgress.totalQuestion)"
                             }
-                            return "No data"
+                            return "No progress yet"
                         }
                         
                         
@@ -51,20 +50,17 @@ struct MainView: View {
                         
                         
                         var allProgress: String {
-                            if let user = userData.first {
-                                let filteredProgress = user.progress.filter { $0.language == language }
-                                
-                                if filteredProgress.isEmpty {
-                                    return "No data for \(language)"
-                                }
-                                
-                                let totalCorrectAnswer = filteredProgress.reduce(0) { $0 + $1.correctAnswer }
-                                let totalQuestions = filteredProgress.reduce(0) { $0 + $1.totalQuestion }
-                                
-                                return "Correct answers: \(totalCorrectAnswer)/\(totalQuestions)"
-                            } else {
-                                return "No data"
+                            guard let user = userData.first else { return "No data" }
+                            let filteredProgress = user.progress.filter { $0.language == selectedLanguage }
+                            
+                            if filteredProgress.isEmpty {
+                                return "No data for \(selectedLanguage)"
                             }
+                            
+                            let totalCorrectAnswer = filteredProgress.reduce(0) { $0 + $1.correctAnswer }
+                            let totalQuestions = filteredProgress.reduce(0) { $0 + $1.totalQuestion }
+                            
+                            return "Correct answers: \(totalCorrectAnswer)/\(totalQuestions)"
                         }
                         
                         var language: String {
@@ -77,7 +73,7 @@ struct MainView: View {
                         
                         
                         VStackContent(
-                            title: "Your progress in \(language == "Russian" ? "Russian" : "English")",
+                            title: "Your progress in \(selectedLanguage)",
                             subtitle: allProgress,
                             width: vStackWidth,
                             backgroundColor: Helper.ColorHex.white,
@@ -160,8 +156,20 @@ struct MainView: View {
                 context.insert(newUser)
                 try? context.save()
             }
+            NotificationCenter.default.addObserver(forName: .languageDidChange, object: nil, queue: .main) { _ in
+                updateLanguage()
+            }
+        }
+        .onDisappear {
+            NotificationCenter.default.removeObserver(self, name: .languageDidChange, object: nil)
         }
     }
+    
+    private func updateLanguage() {
+            if let user = userData.first {
+                selectedLanguage = user.selectedLanguage ?? "Russian"
+            }
+        }
     
     private func saveSelectedLanguage(_ language: String) {
         if let user = userData.first {

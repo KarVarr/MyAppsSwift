@@ -44,6 +44,9 @@ struct SettingsView: View {
     //        }
     
     //    }
+    
+   
+    
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 16) {
@@ -64,12 +67,14 @@ struct SettingsView: View {
                         ForEach(languages, id: \.self) {
                             Text($0)
                                 .foregroundStyle(Helper.ColorHex.darkBlue)
+                                .tag($0) // ???
                         }
                     }
                     .onChange(of: selectedLanguage) {_, newValue in
                         saveOption { user in
                             user.selectedLanguage = newValue
                         }
+                        NotificationCenter.default.post(name: .languageDidChange, object: nil)
                     }
                     .pickerStyle(.segmented)
                     .frame(width: vStackWidth)
@@ -211,4 +216,6 @@ extension View {
             .shadow(radius: 10)
             .padding(.horizontal, 10)
     }
+    
 }
+
