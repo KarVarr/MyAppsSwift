@@ -33,7 +33,7 @@ struct ResultSection: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
-        .background(Helper.ColorHex.backgroundGray)
+        .background(Helper.ColorHex.backgroundLightGray)
     }
     
     private func resultTitle() -> some View {

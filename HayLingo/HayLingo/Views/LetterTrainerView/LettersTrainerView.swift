@@ -162,7 +162,7 @@ struct LettersTrainerView: View {
                 }
             }
             .padding()
-            .background(Helper.ColorHex.backgroundGray)
+            .background(Helper.ColorHex.backgroundLightGray)
             .onAppear {
                 if let firstUserData = userData.first {
                     viewModel.updateLanguage(firstUserData.selectedLanguage ?? "Russian")

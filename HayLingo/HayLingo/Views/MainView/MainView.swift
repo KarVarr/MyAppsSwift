@@ -26,7 +26,7 @@ struct MainView: View {
                         Text("HayLingo")
                             .frame(height: geometry.size.height / 6)
                             .font(.system(size: 46, weight: .bold, design: .monospaced))
-                            .foregroundStyle(determineTextColor())
+                            .foregroundStyle(determineTitleTextColor())
                         
                         Text("Hello, \(userData.first?.name ?? "Guest")!")
                         
@@ -45,10 +45,11 @@ struct MainView: View {
                             title: "Previous lessons",
                             subtitle: latestProgress,
                             width: vStackWidth,
-                            backgroundColor: Helper.ColorHex.white,
-                            textColor: Helper.ColorHex.darkGray,
+                            backgroundColor: determineResultsRectangleBackgroundColor(),
+                            textColor: determineTextOfResultsRectangle(),
                             spacing: 10,
-                            alignment: .leading
+                            alignment: .leading,
+                            shadowColor: determineShadow()
                         )
                         
                         
@@ -80,10 +81,11 @@ struct MainView: View {
                             title: "Your progress in \(selectedLanguage)",
                             subtitle: allProgress,
                             width: vStackWidth,
-                            backgroundColor: Helper.ColorHex.white,
-                            textColor: Helper.ColorHex.darkGray,
+                            backgroundColor: determineResultsRectangleBackgroundColor(),
+                            textColor: determineTextOfResultsRectangle(),
                             spacing: 10,
-                            alignment: .leading
+                            alignment: .leading,
+                            shadowColor: determineShadow()
                         )
                         
                         //MARK: - History
@@ -93,9 +95,10 @@ struct MainView: View {
                                 subtitle: nil,
                                 width: vStackWidth,
                                 backgroundColor: Helper.ColorHex.red,
-                                textColor: Helper.ColorHex.white,
+                                textColor: determineTextOfFlagRectangle(),
                                 spacing: 1,
-                                alignment: .center
+                                alignment: .center,
+                                shadowColor: determineShadow()
                             )
                         }
                         
@@ -108,9 +111,10 @@ struct MainView: View {
                                 subtitle: nil,
                                 width: vStackWidth,
                                 backgroundColor: Helper.ColorHex.blue,
-                                textColor: Helper.ColorHex.white,
+                                textColor: determineTextOfFlagRectangle(),
                                 spacing: 1,
-                                alignment: .center
+                                alignment: .center,
+                                shadowColor: determineShadow()
                             )
                         }
                         
@@ -122,8 +126,10 @@ struct MainView: View {
                                 subtitle: nil,
                                 width: vStackWidth,
                                 backgroundColor: Helper.ColorHex.orange,
-                                textColor: Helper.ColorHex.white,
-                                spacing: 1, alignment: .center
+                                textColor: determineTextOfFlagRectangle(),
+                                spacing: 1,
+                                alignment: .center,
+                                shadowColor: determineShadow()
                             )
                         }
                         
@@ -173,10 +179,10 @@ struct MainView: View {
     }
     
     private func updateLanguage() {
-            if let user = userData.first {
-                selectedLanguage = user.selectedLanguage ?? "Russian"
-            }
+        if let user = userData.first {
+            selectedLanguage = user.selectedLanguage ?? "Russian"
         }
+    }
     
     private func saveSelectedLanguage(_ language: String) {
         if let user = userData.first {
@@ -185,27 +191,74 @@ struct MainView: View {
         }
     }
     
-    private func determineTextColor() -> Color {
+    private func determineTitleTextColor() -> Color {
         switch themeManager.currentTheme {
         case .light:
-            return Color.red
+            return Helper.ColorHex.red
         case .dark:
-            return Color.blue
+            return Helper.ColorHex.orange
         case .system:
-            return colorScheme == .light ? .red : .blue
+            return colorScheme == .light ? Helper.ColorHex.red : Helper.ColorHex.yellow
         }
     }
     
     private func determineBackgroundColor() -> Color {
         switch themeManager.currentTheme {
         case .light:
-            return Helper.ColorHex.backgroundGray
+            return Helper.ColorHex.backgroundLightGray
         case .dark:
-            return Helper.ColorHex.darkGray
+            return Helper.ColorHex.backgroundDarkGray
         case .system:
-            return colorScheme == .light ? Helper.ColorHex.backgroundGray : Helper.ColorHex.darkGray
+            return colorScheme == .light ? Helper.ColorHex.backgroundLightGray : Helper.ColorHex.backgroundDarkGray
         }
     }
+    
+    private func determineResultsRectangleBackgroundColor() -> Color {
+        switch themeManager.currentTheme {
+        case .light:
+            return Helper.ColorHex.white
+        case .dark:
+            return Helper.ColorHex.lightGray
+        case .system:
+            return colorScheme == .light ? Helper.ColorHex.white : Helper.ColorHex.lightGray
+        }
+    }
+    
+    private func determineShadow() -> Color {
+        switch themeManager.currentTheme {
+        case .light:
+            return .gray.opacity(0.3)
+        case .dark:
+            return .black.opacity(0.3)
+        case .system:
+            return colorScheme == .light ? .gray.opacity(0.2) : .black.opacity(0.2)
+        }
+    }
+    
+    private func determineTextOfFlagRectangle() -> Color {
+        switch themeManager.currentTheme {
+        case .light:
+            return Helper.ColorHex.white
+        case .dark:
+            return Helper.ColorHex.backgroundDarkGray
+        case .system:
+            return colorScheme == .light ? Helper.ColorHex.white
+            : Helper.ColorHex.backgroundDarkGray
+        }
+    }
+    
+    private func determineTextOfResultsRectangle() -> Color {
+        switch themeManager.currentTheme {
+        case .light:
+            return Helper.ColorHex.darkBlue
+        case .dark:
+            return Helper.ColorHex.black
+        case .system:
+            return colorScheme == .light ? Helper.ColorHex.white
+            : Helper.ColorHex.backgroundDarkGray
+        }
+    }
+    
 }
 
 #Preview {

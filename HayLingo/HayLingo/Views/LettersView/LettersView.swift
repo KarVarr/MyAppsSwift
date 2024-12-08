@@ -49,7 +49,7 @@ struct LettersView: View {
                 }
                 .padding()
             }
-            .background(Helper.ColorHex.backgroundGray)
+            .background(Helper.ColorHex.backgroundLightGray)
         }
     }
 }

@@ -15,6 +15,7 @@ struct VStackContent: View {
     let textColor: Color?
     let spacing: CGFloat?
     let alignment: Alignment?
+    let shadowColor: Color?
     
     var body: some View {
         VStack(alignment: .leading, spacing: spacing) {
@@ -33,11 +34,11 @@ struct VStackContent: View {
         .padding()
         .background(backgroundColor)
         .cornerRadius(10)
-        .shadow(color: .gray.opacity(0.3) ,radius: 20, x: 4, y: 4)
+        .shadow(color: shadowColor ?? .gray.opacity(0.3) ,radius: 20, x: 4, y: 4)
         
     }
 }
 
 #Preview {
-    VStackContent(title: "title", subtitle: "subtitle", width: 250, backgroundColor: .black, textColor: .white, spacing: 10, alignment: .leading)
+    VStackContent(title: "title", subtitle: "subtitle", width: 250, backgroundColor: .black, textColor: .white, spacing: 10, alignment: .leading, shadowColor: .gray.opacity(0.3))
 }
