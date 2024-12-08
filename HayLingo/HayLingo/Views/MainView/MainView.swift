@@ -10,6 +10,9 @@ import SwiftData
 
 struct MainView: View {
     @Environment(\.modelContext) var context
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var themeManager: ThemeManager
+    
     @Query var userData: [UserData]
     
     @State private var showSettings = false
@@ -23,6 +26,7 @@ struct MainView: View {
                         Text("HayLingo")
                             .frame(height: geometry.size.height / 6)
                             .font(.system(size: 46, weight: .bold, design: .monospaced))
+                            .foregroundStyle(determineTextColor())
                         
                         Text("Hello, \(userData.first?.name ?? "Guest")!")
                         
@@ -126,7 +130,7 @@ struct MainView: View {
                     }
                     .frame(maxWidth: .infinity, minHeight: geometry.size.height)
                 }
-                .background(Helper.ColorHex.backgroundGray)
+                .background(determineBackgroundColor())
                 .overlay(
                     ZStack {
                         if showSettings {
@@ -137,10 +141,13 @@ struct MainView: View {
                                 }
                             SettingsView(showSettings: $showSettings)
                                 .frame(width: geometry.size.width)
+                                .environment(\.modelContext, context)
+                                .environmentObject(themeManager)
                         }
                     }
                 )
             }
+            .environmentObject(themeManager)
         }
         .onAppear {
             if userData.isEmpty {
@@ -177,8 +184,31 @@ struct MainView: View {
             try? context.save()
         }
     }
+    
+    private func determineTextColor() -> Color {
+        switch themeManager.currentTheme {
+        case .light:
+            return Color.red
+        case .dark:
+            return Color.blue
+        case .system:
+            return colorScheme == .light ? .red : .blue
+        }
+    }
+    
+    private func determineBackgroundColor() -> Color {
+        switch themeManager.currentTheme {
+        case .light:
+            return Helper.ColorHex.backgroundGray
+        case .dark:
+            return Helper.ColorHex.darkGray
+        case .system:
+            return colorScheme == .light ? Helper.ColorHex.backgroundGray : Helper.ColorHex.darkGray
+        }
+    }
 }
 
 #Preview {
     MainView()
+        .environmentObject(ThemeManager())
 }

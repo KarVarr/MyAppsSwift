@@ -7,9 +7,12 @@
 
 import SwiftUI
 struct ContentView: View {
+    @StateObject private var themeManager = ThemeManager()
+    
     var body: some View {
         MainView()
-            .preferredColorScheme(.light)
+            .environmentObject(themeManager)
+            .preferredColorScheme(themeManager.colorScheme())
     }
 }
 

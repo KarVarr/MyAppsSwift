@@ -10,6 +10,7 @@ import SwiftData
 
 struct SettingsView: View {
     @Environment(\.modelContext) var context
+    @EnvironmentObject var themeManager: ThemeManager
     @Query var userData: [UserData]
     
     @Binding var showSettings: Bool
@@ -24,6 +25,11 @@ struct SettingsView: View {
     let sounds: [String] = ["On", "Off"]
     let vibration: [String] = ["On", "Off"]
     
+    init(showSettings: Binding<Bool>) {
+        self._showSettings = showSettings
+        
+        self._selectedTheme = State(initialValue: (AppTheme(rawValue: UserDefaults.standard.string(forKey: "selectedTheme") ?? "System") ?? .system).rawValue)
+    }
     
     //    var body: some View {
     //        VStack {
@@ -45,7 +51,7 @@ struct SettingsView: View {
     
     //    }
     
-   
+    
     
     var body: some View {
         GeometryReader { geometry in
@@ -93,6 +99,7 @@ struct SettingsView: View {
                         }
                     }
                     .onChange(of: selectedTheme) {_, newValue in
+                        themeManager.updateTheme(AppTheme(rawValue: newValue) ?? .light)
                         saveOption { user in
                             user.selectedTheme = newValue
                         }
@@ -173,16 +180,20 @@ struct SettingsView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .onAppear {
+            print("userdata: \(userData)")
             loadInitialSettings()
         }
     }
     
+    
     private func loadInitialSettings() {
         guard let user = userData.first else {
+            print("No user data found, creating default user.")
             createDefaultUser()
             return
         }
         
+        print("User data found: \(user)")
         selectedLanguage = user.selectedLanguage ?? "Russian"
         selectedTheme = user.selectedTheme ?? "Light"
         selectedSound = user.selectedSound ?? "On"
@@ -192,13 +203,23 @@ struct SettingsView: View {
     private func createDefaultUser() {
         let newUser = UserData(id: UUID())
         context.insert(newUser)
-        try? context.save()
+        do {
+            try context.save()
+            print("Default user created")
+        } catch {
+            print("Failed to create default user: \(error)")
+        }
     }
     
     private func saveOption(_ update: (UserData) -> Void) {
         guard let user = userData.first else { return }
         update(user)
-        try? context.save()
+        do {
+            try context.save()
+            print("Data saved: \(user)")
+        } catch {
+            print("Ошибка сохранения: \(error)")
+        }
     }
 }
 
