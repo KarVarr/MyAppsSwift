@@ -23,12 +23,11 @@ struct MainView: View {
             GeometryReader { geometry in
                 ScrollView {
                     VStack(spacing: 20) {
+                        Spacer()
                         Text("HayLingo")
                             .frame(height: geometry.size.height / 6)
                             .font(.system(size: 46, weight: .bold, design: .monospaced))
                             .foregroundStyle(setColorInDarkMode(light: Helper.ColorHex.red, dark: Helper.ColorHex.orange))
-                        
-                        Text("Hello, \(userData.first?.name ?? "Guest")!")
                         
                         let vStackWidth = geometry.size.width * 0.7
                         
@@ -138,6 +137,14 @@ struct MainView: View {
                             )
                         }
                         
+                        
+                        Spacer()
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "info")
+                        }
+
                     }
                     .frame(maxWidth: .infinity, minHeight: geometry.size.height)
                 }

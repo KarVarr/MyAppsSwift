@@ -34,8 +34,8 @@ struct VStackContent: View {
         .frame(width: width, alignment: alignment ?? .leading)
         .padding()
         .background(backgroundColor)
-        .cornerRadius(10)
-        .shadow(color: shadowColor ?? .gray.opacity(0.3) ,radius: 20, x: 4, y: 4)
+        .cornerRadius(15)
+        .shadow(color: shadowColor ?? .gray.opacity(0.25) ,radius: 5, x: 2, y: 2)
         
     }
 }
