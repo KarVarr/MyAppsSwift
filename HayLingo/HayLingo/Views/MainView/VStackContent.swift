@@ -10,6 +10,7 @@ import SwiftUI
 struct VStackContent: View {
     let title: String
     let subtitle: String?
+    let titleSize: CGFloat?
     let width: CGFloat
     let backgroundColor: Color
     let textColor: Color?
@@ -20,12 +21,12 @@ struct VStackContent: View {
     var body: some View {
         VStack(alignment: .leading, spacing: spacing) {
             Text(title)
-                .font(.headline)
+                .font(.system(size: titleSize ?? 12))
                 .foregroundStyle(textColor ?? .black)
             
             if let subtitle = subtitle {
                 Text(subtitle)
-                    .font(.subheadline)
+                    .font(.system(size: 15, weight: .semibold))
                     .foregroundStyle(textColor ?? .black)
             }
             
@@ -40,5 +41,5 @@ struct VStackContent: View {
 }
 
 #Preview {
-    VStackContent(title: "title", subtitle: "subtitle", width: 250, backgroundColor: .black, textColor: .white, spacing: 10, alignment: .leading, shadowColor: .gray.opacity(0.3))
+    VStackContent(title: "title", subtitle: "subtitle", titleSize: 12, width: 250, backgroundColor: .black, textColor: .white, spacing: 10, alignment: .leading, shadowColor: .gray.opacity(0.3))
 }

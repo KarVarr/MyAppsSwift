@@ -44,6 +44,7 @@ struct MainView: View {
                         VStackContent(
                             title: "Previous lessons",
                             subtitle: latestProgress,
+                            titleSize: 12,
                             width: vStackWidth,
                             backgroundColor: setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.lightGray),
                             textColor: setColorInDarkMode(light: Helper.ColorHex.darkBlue, dark: Helper.ColorHex.black),
@@ -80,6 +81,7 @@ struct MainView: View {
                         VStackContent(
                             title: "Your progress in \(selectedLanguage)",
                             subtitle: allProgress,
+                            titleSize: 12,
                             width: vStackWidth,
                             backgroundColor: setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.lightGray),
                             textColor: setColorInDarkMode(light: Helper.ColorHex.darkBlue, dark: Helper.ColorHex.black),
@@ -93,6 +95,7 @@ struct MainView: View {
                             VStackContent(
                                 title: "History of Armenian language",
                                 subtitle: nil,
+                                titleSize: 18,
                                 width: vStackWidth,
                                 backgroundColor: Helper.ColorHex.red,
                                 textColor: setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black),
@@ -109,6 +112,7 @@ struct MainView: View {
                             VStackContent(
                                 title: "Settings",
                                 subtitle: nil,
+                                titleSize: 18,
                                 width: vStackWidth,
                                 backgroundColor: Helper.ColorHex.blue,
                                 textColor: setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black),
@@ -124,6 +128,7 @@ struct MainView: View {
                             VStackContent(
                                 title: "Play game",
                                 subtitle: nil,
+                                titleSize: 18,
                                 width: vStackWidth,
                                 backgroundColor: Helper.ColorHex.orange,
                                 textColor: setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black),
