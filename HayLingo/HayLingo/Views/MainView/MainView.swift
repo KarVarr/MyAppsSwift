@@ -15,6 +15,7 @@ struct MainView: View {
     
     @Query var userData: [UserData]
     
+    @State private var isInfoViewPresented = false
     @State private var showSettings = false
     @State private var selectedLanguage: String = "Russian"
     
@@ -139,12 +140,18 @@ struct MainView: View {
                         
                         
                         Spacer()
+                        
+                        //MARK: - InfoView
                         Button {
-                            
+                            isInfoViewPresented = true
                         } label: {
                             Image(systemName: "info")
+                            
                         }
-
+                        .sheet(isPresented: $isInfoViewPresented) {
+                            InfoView()
+                        }
+                        
                     }
                     .frame(maxWidth: .infinity, minHeight: geometry.size.height)
                 }
