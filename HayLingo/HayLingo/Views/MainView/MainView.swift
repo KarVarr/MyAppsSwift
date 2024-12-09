@@ -162,15 +162,22 @@ struct MainView: View {
                             Color.black.opacity(0.4)
                                 .ignoresSafeArea()
                                 .onTapGesture {
-                                    showSettings = false
+                                    withAnimation {
+                                        showSettings = false
+                                    }
                                 }
                             SettingsView(showSettings: $showSettings)
                                 .frame(width: geometry.size.width)
-                                .environment(\.modelContext, context)
+                                .transition(
+                                    .asymmetric(
+                                        insertion: .move(edge: .bottom),
+                                        removal: .move(edge: .top)
+                                    ))                               .environment(\.modelContext, context)
                                 .environmentObject(themeManager)
                         }
                     }
                 )
+                .animation(.easeInOut, value: showSettings)
             }
             .environmentObject(themeManager)
         }
