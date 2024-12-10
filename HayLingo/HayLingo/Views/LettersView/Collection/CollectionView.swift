@@ -15,7 +15,7 @@ struct CollectionView: View {
     @Query var userData: [UserData]
     @Binding var selectedLetters: [String]
     
-    private let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    private let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     private var selectedLanguage: String {
         userData.first?.selectedLanguage ?? "Russian"
     }
@@ -29,7 +29,7 @@ struct CollectionView: View {
                     
                     let letter = AllLetters.armenianAlphabet[index]
                     let isSelected = selectedLetters.contains(letter)
-                    let backgroundColor = isSelected ? Helper.ColorHex.orange : Helper.ColorHex.lightGray
+                    let backgroundColor = isSelected ? Helper.ColorHex.blue : Helper.ColorHex.darkBlue
                     
                     Button(action: {
                         toggleLetterSelection(letter: letter)
@@ -46,6 +46,7 @@ struct CollectionView: View {
                 }
             }
             .padding(10)
+            
         }
     }
     

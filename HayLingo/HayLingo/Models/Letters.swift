@@ -27,7 +27,7 @@ extension Letter {
         Letter(character: "Ե", englishTranslation: "e", russianTranslation: "е", animals: ["Ելակ", "Եղնիկ", "Երկու"]),
         Letter(character: "Զ", englishTranslation: "z", russianTranslation: "з", animals: ["Զեբра", "Զանգ", "Զառ"]),
         Letter(character: "Է", englishTranslation: "ē", russianTranslation: "э", animals: ["Էշ", "էսկիմոս", "էկրա՛ն"]),
-        Letter(character: "Ը", englishTranslation: "ə", russianTranslation: "ы – э", animals: ["Ընձուղտ", "Ընկույз", "Ընտանիք"]),
+        Letter(character: "Ը", englishTranslation: "ə", russianTranslation: "ы/э", animals: ["Ընձուղտ", "Ընկույз", "Ընտանիք"]),
         Letter(character: "Թ", englishTranslation: "t‘", russianTranslation: "т‘", animals: ["Թռչուն", "Թուղթ", "Թագ"]),
         Letter(character: "Ժ", englishTranslation: "ž", russianTranslation: "ж", animals: ["Ժամացույց", "Ժողով"]),
         Letter(character: "Ի", englishTranslation: "i", russianTranslation: "и", animals: ["Ինքնաթիռ", "Ինը"]),

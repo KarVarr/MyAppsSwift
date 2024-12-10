@@ -18,22 +18,23 @@ struct CollectionViewCell: View {
         VStack {
             HStack {
                 Text(firstArmUppercaseLetter)
-                    .font(.title)
+                    .font(.title3)
                     .foregroundStyle(Helper.ColorHex.white)
                 Text(secondArmLowercaseLetter)
-                    .font(.title2)
+                    .font(.title3)
                     .foregroundStyle(Helper.ColorHex.white.opacity(0.8))
             }
             
             Text(letterForStudy)
-                .font(.largeTitle)
-                .foregroundStyle(Helper.ColorHex.blue)
+                .font(.system(size: 20, weight: .bold))
+                .foregroundStyle(Helper.ColorHex.yellow)
             
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(backgroundColor)
         .cornerRadius(10)
+        .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 3)
     }
 }
 
