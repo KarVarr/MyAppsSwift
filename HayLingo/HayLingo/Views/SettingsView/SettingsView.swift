@@ -75,7 +75,6 @@ struct SettingsView: View {
                             Text($0)
                                 .font(.largeTitle)
                                 .foregroundStyle(Helper.ColorHex.darkBlue)
-                                .tag($0) // ???
                         }
                     }
                     .onChange(of: selectedLanguage) {_, newValue in
@@ -85,6 +84,7 @@ struct SettingsView: View {
                         NotificationCenter.default.post(name: .languageDidChange, object: nil)
                     }
                     .pickerStyle(.segmented)
+                    
                     .frame(width: vStackWidth)
                 }
                 
@@ -120,6 +120,7 @@ struct SettingsView: View {
                         ForEach(sounds, id: \.self) {
                             Text($0)
                                 .foregroundStyle(Helper.ColorHex.darkBlue)
+                            
                         }
                     }
                     .onChange(of: selectedSound) {_, newValue in
@@ -135,12 +136,14 @@ struct SettingsView: View {
                 VStack(alignment: .leading) {
                     Text("Vibration in app")
                         .foregroundStyle(Helper.ColorHex.lightBlack)
+                    
                         .font(.system(size: 12))
                     
                     Picker("Vibration", selection: $selectedVibration) {
                         ForEach(vibration, id: \.self) {
                             Text($0)
                                 .foregroundStyle(Helper.ColorHex.darkBlue)
+                            
                         }
                     }
                     .onChange(of: selectedVibration) {_, newValue in
@@ -162,7 +165,7 @@ struct SettingsView: View {
                 .padding(7)
                 .frame(maxWidth: .infinity)
                 .contentShape(Rectangle())
-                .background(Color.gray.opacity(0.2))
+                .background(setColorInDarkMode(light: Helper.ColorHex.grey.opacity(0.15), dark: Helper.ColorHex.blue.opacity(0.2)))
                 .foregroundStyle(setColorInDarkMode(light: Helper.ColorHex.darkBlue, dark: Helper.ColorHex.black))
                 .cornerRadius(10)
                 .contentShape(Rectangle())
@@ -175,9 +178,9 @@ struct SettingsView: View {
             }
             .padding()
             .frame(width: geometry.size.width * 0.9)
-            .background(setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.backgroundLightGray))
+            .background(setColorInDarkMode(light: Helper.ColorHex.white, dark: Color.blue))
             .cornerRadius(20)
-            .shadow(color: .gray.opacity(0.3),radius:20,x:0,y:0)
+            .shadow(color: setColorInDarkMode(light: Helper.ColorHex.grey.opacity(0.3), dark: Helper.ColorHex.blue.opacity(0.3)),radius:20,x:0,y:0)
             .padding(.horizontal, 10)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
