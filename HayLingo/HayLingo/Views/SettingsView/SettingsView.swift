@@ -10,6 +10,7 @@ import SwiftData
 
 struct SettingsView: View {
     @Environment(\.modelContext) var context
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var themeManager: ThemeManager
     @Query var userData: [UserData]
     
@@ -55,7 +56,7 @@ struct SettingsView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack(spacing: 16) {
+            VStack(spacing: 20) {
                 Text("Настройки")
                     .font(.system(size: 18))
                     .foregroundStyle(Helper.ColorHex.darkBlue)
@@ -72,6 +73,7 @@ struct SettingsView: View {
                     Picker("Language", selection: $selectedLanguage) {
                         ForEach(languages, id: \.self) {
                             Text($0)
+                                .font(.largeTitle)
                                 .foregroundStyle(Helper.ColorHex.darkBlue)
                                 .tag($0) // ???
                         }
@@ -132,8 +134,8 @@ struct SettingsView: View {
                 //MARK: - Vibration
                 VStack(alignment: .leading) {
                     Text("Vibration in app")
-                        .font(.system(size: 12))
                         .foregroundStyle(Helper.ColorHex.lightBlack)
+                        .font(.system(size: 12))
                     
                     Picker("Vibration", selection: $selectedVibration) {
                         ForEach(vibration, id: \.self) {
@@ -161,7 +163,7 @@ struct SettingsView: View {
                 .frame(maxWidth: .infinity)
                 .contentShape(Rectangle())
                 .background(Color.gray.opacity(0.2))
-                .foregroundStyle(Helper.ColorHex.darkBlue)
+                .foregroundStyle(setColorInDarkMode(light: Helper.ColorHex.darkBlue, dark: Helper.ColorHex.black))
                 .cornerRadius(10)
                 .contentShape(Rectangle())
                 .simultaneousGesture(
@@ -173,7 +175,7 @@ struct SettingsView: View {
             }
             .padding()
             .frame(width: geometry.size.width * 0.9)
-            .background(Color.white)
+            .background(setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.backgroundLightGray))
             .cornerRadius(20)
             .shadow(color: .gray.opacity(0.3),radius:20,x:0,y:0)
             .padding(.horizontal, 10)
@@ -221,10 +223,23 @@ struct SettingsView: View {
             print("Ошибка сохранения: \(error)")
         }
     }
+    
+    private func setColorInDarkMode(light lightColor: Color, dark darkColor: Color) -> Color {
+        switch themeManager.currentTheme {
+        case .light:
+            return lightColor
+        case .dark:
+            return darkColor
+        case .system:
+            return colorScheme == .light ? lightColor
+            : darkColor
+        }
+    }
 }
 
 #Preview {
     SettingsView(showSettings: .constant(false))
+        .environmentObject(ThemeManager())
 }
 
 

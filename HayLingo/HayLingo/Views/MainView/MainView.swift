@@ -239,7 +239,6 @@ struct MainView: View {
             return colorScheme == .light ? lightColor
             : darkColor
         }
-        
     }
     
 }
