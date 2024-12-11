@@ -28,7 +28,7 @@ struct MainView: View {
                         Text("HayLingo")
                             .frame(height: geometry.size.height / 6)
                             .font(.system(size: 46, weight: .bold, design: .monospaced))
-                            .foregroundStyle(setColorInDarkMode(light: Helper.ColorHex.red, dark: Helper.ColorHex.orange))
+                            .foregroundStyle(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.red, dark: Helper.ColorHex.orange, themeManager: themeManager, colorScheme: colorScheme))
                         
                         let vStackWidth = geometry.size.width * 0.7
                         
@@ -46,8 +46,8 @@ struct MainView: View {
                             subtitle: latestProgress,
                             titleSize: 12,
                             width: vStackWidth,
-                            backgroundColor: setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.lightGray),
-                            textColor: setColorInDarkMode(light: Helper.ColorHex.darkBlue, dark: Helper.ColorHex.black),
+                            backgroundColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.lightGray, themeManager: themeManager, colorScheme: colorScheme),
+                            textColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.darkBlue, dark: Helper.ColorHex.black, themeManager: themeManager, colorScheme: colorScheme),
                             spacing: 10,
                             alignment: .leading,
                             shadowColor: setShadow()
@@ -83,8 +83,8 @@ struct MainView: View {
                             subtitle: allProgress,
                             titleSize: 12,
                             width: vStackWidth,
-                            backgroundColor: setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.lightGray),
-                            textColor: setColorInDarkMode(light: Helper.ColorHex.darkBlue, dark: Helper.ColorHex.black),
+                            backgroundColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.lightGray, themeManager: themeManager, colorScheme: colorScheme),
+                            textColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.darkBlue, dark: Helper.ColorHex.black, themeManager: themeManager, colorScheme: colorScheme),
                             spacing: 10,
                             alignment: .leading,
                             shadowColor: setShadow()
@@ -98,7 +98,7 @@ struct MainView: View {
                                 titleSize: 18,
                                 width: vStackWidth,
                                 backgroundColor: Helper.ColorHex.red,
-                                textColor: setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black),
+                                textColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black, themeManager: themeManager, colorScheme: colorScheme),
                                 spacing: 1,
                                 alignment: .center,
                                 shadowColor: setShadow()
@@ -115,7 +115,7 @@ struct MainView: View {
                                 titleSize: 18,
                                 width: vStackWidth,
                                 backgroundColor: Helper.ColorHex.blue,
-                                textColor: setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black),
+                                textColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black, themeManager: themeManager, colorScheme: colorScheme),
                                 spacing: 1,
                                 alignment: .center,
                                 shadowColor: setShadow()
@@ -131,7 +131,7 @@ struct MainView: View {
                                 titleSize: 18,
                                 width: vStackWidth,
                                 backgroundColor: Helper.ColorHex.orange,
-                                textColor: setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black),
+                                textColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black, themeManager: themeManager, colorScheme: colorScheme),
                                 spacing: 1,
                                 alignment: .center,
                                 shadowColor: setShadow()
@@ -155,7 +155,7 @@ struct MainView: View {
                     }
                     .frame(maxWidth: .infinity, minHeight: geometry.size.height)
                 }
-                .background(setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray))
+                .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme))
                 .overlay(
                     ZStack {
                         if showSettings {
@@ -227,20 +227,6 @@ struct MainView: View {
             return colorScheme == .light ? .gray.opacity(0.2) : .black.opacity(0.2)
         }
     }
-    
-    
-    private func setColorInDarkMode(light lightColor: Color, dark darkColor: Color) -> Color {
-        switch themeManager.currentTheme {
-        case .light:
-            return lightColor
-        case .dark:
-            return darkColor
-        case .system:
-            return colorScheme == .light ? lightColor
-            : darkColor
-        }
-    }
-    
 }
 
 #Preview {

@@ -24,5 +24,24 @@ enum Helper {
         static let lightGray = Color(hex: 0xB2B1B9)
         static let darkBlue = Color(hex: 0x3d4856)
         static let lightBlack = Color(hex: 0x2f342f)
+        static let brightBlue = Color(hex: 0x0088ff)
+    }
+    
+    enum Font {
+        
+    }
+    
+    enum ThemeColorManager {
+        static func setColorInDarkMode(light lightColor: Color, dark darkColor: Color, themeManager: ThemeManager, colorScheme: ColorScheme) -> Color {
+            switch themeManager.currentTheme {
+            case .light:
+                return lightColor
+            case .dark:
+                return darkColor
+            case .system:
+                return colorScheme == .light ? lightColor
+                : darkColor
+            }
+        }
     }
 }

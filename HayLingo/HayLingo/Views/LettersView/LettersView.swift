@@ -10,6 +10,9 @@ import SwiftData
 
 struct LettersView: View {
     @Environment(\.modelContext) var context
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var themeManager: ThemeManager
+
     @Query var userData: [UserData]
     
     @State private var selectedLetters: [String] = []
@@ -49,13 +52,15 @@ struct LettersView: View {
                 }
                 .padding()
             }
-            .background(Helper.ColorHex.backgroundLightGray)
+            .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme))
+            .toolbarBackground(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme), for: .navigationBar)
         }
     }
 }
 
 #Preview {
     LettersView()
+        .environmentObject(ThemeManager())
 }
 
 
