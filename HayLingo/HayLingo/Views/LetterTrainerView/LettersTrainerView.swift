@@ -151,27 +151,28 @@ struct LettersTrainerView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 20) {
-                if viewModel.currentLetterIndex < viewModel.selectedLetters.count {
-                    CustomProgressView(viewModel: viewModel)
-                    letterAndImageSection(viewModel: viewModel, geometry: geometry)
-                    Text("Выберите правильный перевод:")
-                        .font(.headline)
-                    AnswerButtons(viewModel: viewModel, geometry: geometry)
-                } else {
-                    ResultSection(viewModel: viewModel, geometry: geometry)
+                    if viewModel.currentLetterIndex < viewModel.selectedLetters.count {
+                        CustomProgressView(viewModel: viewModel)
+                        letterAndImageSection(viewModel: viewModel, geometry: geometry)
+                        Text("Выберите правильный перевод:")
+                            .font(.headline)
+                        AnswerButtons(viewModel: viewModel, geometry: geometry)
+                    } else {
+                        ResultSection(viewModel: viewModel, geometry: geometry)
+                    }
                 }
-            }
-            .padding()
-            .background(Helper.ColorHex.backgroundLightGray)
-            .onAppear {
-                if let firstUserData = userData.first {
-                    viewModel.updateLanguage(firstUserData.selectedLanguage ?? "Russian")
-                    viewModel.setup(with: selectedLetters)
+                .padding()
+                .background(Helper.ColorHex.backgroundLightGray)
+                .onAppear {
+                    if let firstUserData = userData.first {
+                        viewModel.updateLanguage(firstUserData.selectedLanguage ?? "Russian")
+                        viewModel.setup(with: selectedLetters)
+                    }
                 }
+                .navigationBarBackButtonHidden(viewModel.currentLetterIndex >= viewModel.selectedLetters.count)
             }
-            .navigationBarBackButtonHidden(viewModel.currentLetterIndex >= viewModel.selectedLetters.count)
         }
-    }
+    
     
 }
 #Preview {

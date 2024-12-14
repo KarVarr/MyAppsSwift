@@ -30,7 +30,6 @@ struct CollectionView: View {
                     let letter = AllLetters.armenianAlphabet[index]
                     let isSelected = selectedLetters.contains(letter)
                     let backgroundColor = isSelected ? Color.pink : Helper.ColorHex.brightBlue
-//                    let backgroundColor = isSelected ? Helper.ColorHex.blue : Helper.ColorHex.darkBlue
                     
                     Button(action: {
                         toggleLetterSelection(letter: letter)
@@ -46,7 +45,8 @@ struct CollectionView: View {
                     }
                 }
             }
-            .padding(10)
+            .padding(5)
+            .padding(.bottom, 10)
             
         }
     }

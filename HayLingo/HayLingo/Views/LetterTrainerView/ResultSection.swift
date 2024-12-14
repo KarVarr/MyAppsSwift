@@ -74,15 +74,19 @@ struct ResultSection: View {
         Text(
             viewModel.score == viewModel.selectedLetters.count
             ? "Отлично!"
-            : "Эти буквы нужно повторить:"
+            : viewModel.wrongAnswers.count == 1 ? "Эту буквы нужно повторить:" : "Эти буквы нужно повторить:"
         )
-        .font(.title)
+        .dynamicTypeSize(.small)
     }
     
     private func wrongLettersView() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            Text(viewModel.wrongAnswers.joined(separator: ", "))
-                .font(.title)
+            if viewModel.wrongAnswers.isEmpty {
+                Image(systemName: "dog")
+            } else {
+                Text(viewModel.wrongAnswers.joined(separator: ", "))
+                    .font(.title)
+            }
         }
         .padding()
     }
@@ -90,15 +94,15 @@ struct ResultSection: View {
     private func resultDescription() -> some View {
         Group {
             Text("Ваш прогресс: \(viewModel.score) из \(viewModel.selectedLetters.count)")
-                .font(.title2)
+                .fontWeight(.light)
                 .padding()
             
             Text(
                 viewModel.score == viewModel.selectedLetters.count
-                ? "Отлично! Все буквы угаданы верно!"
+                ? "Все буквы угаданы верно!"
                 : "Не сдавайтесь, у Вас обязательно получится!"
             )
-            .font(.headline)
+            .fontWeight(.regular)
         }
     }
     
@@ -109,7 +113,8 @@ struct ResultSection: View {
             presentationMode.wrappedValue.dismiss()
         } label: {
             Text("Сыграть еще раз!")
-                .font(.headline)
+                .font(.title)
+                .dynamicTypeSize(.medium ... .xxxLarge)
                 .foregroundStyle(Helper.ColorHex.white)
                 .frame(maxWidth: geometry.size.width, maxHeight: 100)
                 .background {
