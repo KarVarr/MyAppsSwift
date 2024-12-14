@@ -66,7 +66,7 @@ struct ConfettiParticle: View {
             .opacity(opacity)
             .position(
                 x: containerSize.width * (CGFloat(startIndex) / 50),
-                y: -50 + offset
+                y: -containerSize.height * 0.2 + offset
             )
             .onAppear {
                 let randomDelay = Double.random(in: 0...0.5)
