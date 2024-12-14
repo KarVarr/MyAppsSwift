@@ -17,11 +17,11 @@ struct letterDisplay: View {
                 Spacer()
                 HStack {
                     Text(viewModel.currentLetter)
-                        .font(.system(size: 72))
+                        .font(.system(size: geo.size.width * 0.55))
                         .minimumScaleFactor(0.5)
                         .bold()
                     Text(viewModel.currentLetter)
-                        .font(.system(size: 48))
+                        .font(.system(size: geo.size.width * 0.25))
                         .minimumScaleFactor(0.5)
                         .fontWeight(.light)
                 }
@@ -42,12 +42,9 @@ struct letterDisplay: View {
                 .scaledToFit()
                 .foregroundStyle(.secondary)
                 .frame(
-                    minWidth: geometry.size.width / 10,
-                    maxWidth: geometry.size.width / 7,
-                    minHeight: geometry.size.height / 10,
-                    maxHeight: geometry.size.height / 7
+                    width: geometry.size.width * 0.2,
+                    height: geometry.size.width * 0.2
                 )
-                
                 .padding()
         }
     }

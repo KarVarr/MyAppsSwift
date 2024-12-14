@@ -11,16 +11,18 @@ struct imageAndDescriptionView: View {
     @ObservedObject var viewModel: LettersTrainerViewModel
     
     var body: some View {
-        VStack {
-            Image(viewModel.imageAndDescription ?? "Արև")
-                .resizable()
-                .scaledToFit()
-            Text(viewModel.imageAndDescription ?? "Արև")
-                .font(.title2)
-                .foregroundStyle(.secondary)
+        GeometryReader { geo in
+            VStack {
+                Image(viewModel.imageAndDescription ?? "Արև")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: geo.size.height * 0.6)
+                Text(viewModel.imageAndDescription ?? "Արև")
+                    .font(.system(size: geo.size.width * 0.1))
+                    .foregroundStyle(.secondary)
+            }
         }
-    }
-}
+    }}
 
 #Preview {
     imageAndDescriptionView(viewModel: .preview())

@@ -23,10 +23,10 @@ struct CollectionViewCell: View {
                 Text(firstArmUppercaseLetter)
                     .font(.system(size: 20, weight: .bold))
                     .dynamicTypeSize(.medium ... .xxLarge)
-                    .foregroundStyle(Helper.ColorHex.black)
+                    .foregroundStyle(Helper.ColorHex.white)
                 Text(secondArmLowercaseLetter)
                     .dynamicTypeSize(.medium ... .xxLarge)
-                    .foregroundStyle(Helper.ColorHex.black.opacity(0.8))
+                    .foregroundStyle(Helper.ColorHex.white.opacity(0.8))
                 
             }
             

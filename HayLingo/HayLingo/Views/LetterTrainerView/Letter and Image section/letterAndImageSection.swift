@@ -12,10 +12,12 @@ struct letterAndImageSection: View {
     var geometry: GeometryProxy
     
     var body: some View {
-        HStack {
+        HStack(spacing: 10) {
             letterDisplay(viewModel: viewModel)
+//                .frame(width: geometry.size.width * 0.4)
             Spacer()
             imageAndDescriptionView(viewModel: viewModel)
+//                .frame(width: geometry.size.width * 0.5)
         }
         .padding()
         .background {

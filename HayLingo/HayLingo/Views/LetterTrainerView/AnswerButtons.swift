@@ -12,30 +12,38 @@ struct AnswerButtons: View {
     var geometry: GeometryProxy
     
     var body: some View {
-        ForEach(viewModel.options, id: \.self) { option in
-            Button {
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    viewModel.selectedAnswer = option
-                    viewModel.checkAnswer(selected: option)
+        
+        VStack(spacing: 10) {
+            ForEach(viewModel.options, id: \.self) { option in
+                Button {
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        viewModel.selectedAnswer = option
+                        viewModel.checkAnswer(selected: option)
+                    }
+                } label: {
+                    Text(option)
+                        .font(.system(size: geometry.size.width * 0.05))
+                        .bold()
+                        .foregroundStyle(Helper.ColorHex.white)
+                        .padding()
+                        .frame(
+                            maxWidth: geometry.size.width * 0.9,
+                            minHeight: geometry.size.height * 0.08,
+                            alignment: .center
+                        )
+                    
+                        .background(
+                            answerButtonBackground(for: option)
+                        )
+                        .animation(.easeInOut(duration: 0.3), value: viewModel.selectedAnswer)
+                        .animation(.easeInOut(duration: 0.3), value: viewModel.showResult)
+                        .animation(.easeInOut(duration: 0.3), value: viewModel.areButtonsDisabled)
+                        .cornerRadius(10)
                 }
-            } label: {
-                Text(option)
-                    .font(.title)
-                    .bold()
-                    .foregroundStyle(Helper.ColorHex.white)
-                    .padding()
-                    .frame(maxWidth: geometry.size.width, minHeight: geometry.size.height / 10, alignment: .center)
-                
-                    .background(
-                        answerButtonBackground(for: option)
-                    )
-                    .animation(.easeInOut(duration: 0.3), value: viewModel.selectedAnswer)
-                    .animation(.easeInOut(duration: 0.3), value: viewModel.showResult)
-                    .animation(.easeInOut(duration: 0.3), value: viewModel.areButtonsDisabled)
-                    .cornerRadius(10)
+                .disabled(viewModel.areButtonsDisabled)
             }
-            .disabled(viewModel.areButtonsDisabled)
         }
+        .padding(.horizontal, 5)
     }
     
     private func answerButtonBackground(for option: String) -> Color {

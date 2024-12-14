@@ -155,7 +155,7 @@ struct LettersTrainerView: View {
                         CustomProgressView(viewModel: viewModel)
                         letterAndImageSection(viewModel: viewModel, geometry: geometry)
                         Text("Выберите правильный перевод:")
-                            .font(.headline)
+                            .font(.system(size: geometry.size.width * 0.05))
                         AnswerButtons(viewModel: viewModel, geometry: geometry)
                     } else {
                         ResultSection(viewModel: viewModel, geometry: geometry)
