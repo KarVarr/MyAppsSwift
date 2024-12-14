@@ -15,26 +15,60 @@ struct ResultSection: View {
     @ObservedObject var viewModel: LettersTrainerViewModel
     var geometry: GeometryProxy
     
+    @State private var isConfettiActive = false
+    
     var body: some View {
-        VStack {
+        ZStack {
             VStack {
-                resultTitle()
-                wrongLettersView()
-                resultDescription()
-                playAgainButton(geometry: geometry)
+                VStack {
+                    resultTitle()
+                    wrongLettersView()
+                    resultDescription()
+                    playAgainButton(geometry: geometry)
+                }
+                .padding()
+                .background {
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .fill(Helper.ColorHex.white)
+                        .shadow(color: .gray.opacity(0.4), radius: 5, x: 4, y: 4)
+                }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
-            .background {
-                RoundedRectangle(cornerRadius: 20, style: .continuous)
-                    .fill(Helper.ColorHex.white)
-                    .shadow(color: .gray.opacity(0.4), radius: 5, x: 4, y: 4)
-            }
+            .background(Helper.ColorHex.backgroundLightGray)
             
+            if isConfettiActive {
+                GeometryReader { geometry in
+                    ZStack {
+                        ForEach(0..<50) { index in
+                            ConfettiParticle(
+                                containerSize: geometry.size,
+                                startIndex: index
+                            )
+                        }
+                    }
+                }
+                .allowsHitTesting(false)
+                .ignoresSafeArea()
+            }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding()
-        .background(Helper.ColorHex.backgroundLightGray)
+        .onAppear {
+            if viewModel.score == viewModel.selectedLetters.count {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    withAnimation {
+                        isConfettiActive = true
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                        withAnimation {
+                            isConfettiActive = false
+                        }
+                    }
+                }
+            }
+        }
     }
+    
     
     private func resultTitle() -> some View {
         Text(
