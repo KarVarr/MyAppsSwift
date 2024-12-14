@@ -25,12 +25,12 @@ struct LettersView: View {
                     if selectedLetters.isEmpty {
                         Text("Please select letters!")
                             .font(.system(size: 16, weight: .medium))
-                            .foregroundColor(.gray)
+                            .foregroundColor(Helper.ColorHex.darkGray)
                             .padding(.bottom, 8)
                     } else {
                         Text("Now you can train!")
                             .font(.system(size: 16, weight: .medium))
-                            .foregroundColor(.gray)
+                            .foregroundColor(Helper.ColorHex.darkGray)
                             .padding(.bottom, 8)
                     }
                     

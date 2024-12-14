@@ -23,6 +23,8 @@ struct CollectionView: View {
     var body: some View {
         ScrollView {
             Text("Select letters for practice")
+                .font(.title)
+                .foregroundStyle(Helper.ColorHex.darkGray)
             
             LazyVGrid(columns: columns) {
                 ForEach(0..<AllLetters.armenianAlphabet.count, id: \.self) { index in

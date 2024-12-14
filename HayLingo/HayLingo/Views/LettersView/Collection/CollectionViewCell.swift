@@ -20,7 +20,9 @@ struct CollectionViewCell: View {
     var body: some View {
         VStack {
             HStack {
-                Text(firstArmUppercaseLetter)                    .minimumScaleFactor(0.2)
+                Text(firstArmUppercaseLetter)
+                    .font(.system(size: 20, weight: .bold))
+                    .dynamicTypeSize(.medium ... .xxLarge)
                     .foregroundStyle(Helper.ColorHex.black)
                 Text(secondArmLowercaseLetter)
                     .dynamicTypeSize(.medium ... .xxLarge)
