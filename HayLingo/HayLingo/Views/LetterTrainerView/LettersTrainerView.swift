@@ -157,7 +157,6 @@ struct LettersTrainerView: View {
                     CustomProgressView(viewModel: viewModel)
                     letterAndImageSection(viewModel: viewModel, geometry: geometry)
                     
-//                    Spacer()
                     
                     Text("Choose the correct translation:")
                         .font(.system(size: geometry.size.width * 0.03, weight: .light))
@@ -176,7 +175,9 @@ struct LettersTrainerView: View {
             }
             .navigationBarBackButtonHidden(viewModel.currentLetterIndex >= viewModel.selectedLetters.count)
         }
-        .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme))
+        .background(
+            Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme)
+        )
     }
 }
 #Preview {

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct letterAndImageSection: View {
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var themeManager: ThemeManager
     @ObservedObject var viewModel: LettersTrainerViewModel
     var geometry: GeometryProxy
     
@@ -24,8 +26,20 @@ struct letterAndImageSection: View {
         .padding()
         .background {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(Helper.ColorHex.white)
-                .shadow(color: .gray.opacity(0.4), radius: 5, x: 4, y: 4)
+                .fill(
+                    Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black, themeManager: themeManager, colorScheme: colorScheme)
+                )
+                .shadow(
+                    color: Helper.ThemeColorManager.setColorInDarkMode(
+                        light: .gray.opacity(0.4),
+                        dark: .black.opacity(0.4),
+                        themeManager: themeManager,
+                        colorScheme: colorScheme
+                    ),
+                    radius: 5,
+                    x: 4,
+                    y: 4
+                )
         }
     }
 }
@@ -37,5 +51,6 @@ struct letterAndImageSection: View {
             .frame(minWidth: geometry.size.width * 0.8, maxWidth: geometry.size.width * 0.9, minHeight: geometry.size.height / 5, maxHeight: geometry.size.height / 4)
             .padding()
             .background(Color.gray.opacity(0.1))
+            .environmentObject(ThemeManager())
     }
 }

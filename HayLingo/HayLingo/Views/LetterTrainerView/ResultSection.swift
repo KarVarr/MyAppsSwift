@@ -32,13 +32,32 @@ struct ResultSection: View {
                 .padding()
                 .background {
                     RoundedRectangle(cornerRadius: 20, style: .continuous)
-                        .fill(Helper.ColorHex.white)
-                        .shadow(color: .gray.opacity(0.4), radius: 5, x: 4, y: 4)
+                        .fill(
+                            Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black, themeManager: themeManager, colorScheme: colorScheme)
+                        )
+                        .shadow(
+                            color: Helper.ThemeColorManager.setColorInDarkMode(
+                                light: .gray.opacity(0.4),
+                                dark: .black.opacity(0.4),
+                                themeManager: themeManager,
+                                colorScheme: colorScheme
+                            ),
+                            radius: 5,
+                            x: 4,
+                            y: 4
+                        )
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
-            .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme))
+            .background(
+                Helper.ThemeColorManager.setColorInDarkMode(
+                    light: Helper.ColorHex.backgroundLightGray,
+                    dark: Helper.ColorHex.backgroundDarkGray,
+                    themeManager: themeManager,
+                    colorScheme: colorScheme
+                )
+            )
             
             if isConfettiActive {
                 GeometryReader { geometry in
@@ -76,8 +95,16 @@ struct ResultSection: View {
     private func resultTitle() -> some View {
         Text(
             viewModel.score == viewModel.selectedLetters.count
-            ? "Отлично!"
-            : viewModel.wrongAnswers.count == 1 ? "Эту буквы нужно повторить:" : "Эти буквы нужно повторить:"
+            ? "Great!"
+            :  "This \(viewModel.wrongAnswers.count == 1 ? "Letter" : "Letters") needs to be repeated:"
+        )
+        .foregroundStyle(
+            Helper.ThemeColorManager.setColorInDarkMode(
+                light: Helper.ColorHex.darkBlue,
+                dark: Helper.ColorHex.lightOrange,
+                themeManager: themeManager,
+                colorScheme: colorScheme
+            )
         )
         .dynamicTypeSize(.small)
     }
@@ -89,6 +116,15 @@ struct ResultSection: View {
             } else {
                 Text(viewModel.wrongAnswers.joined(separator: ", "))
                     .font(.title)
+                    .bold()
+                    .foregroundStyle(
+                        Helper.ThemeColorManager.setColorInDarkMode(
+                            light: Helper.ColorHex.darkBlue,
+                            dark: Helper.ColorHex.lightOrange,
+                            themeManager: themeManager,
+                            colorScheme: colorScheme
+                        )
+                    )
             }
         }
         .padding()
@@ -96,17 +132,25 @@ struct ResultSection: View {
     
     private func resultDescription() -> some View {
         Group {
-            Text("Ваш прогресс: \(viewModel.score) из \(viewModel.selectedLetters.count)")
+            Text("Your progress: \(viewModel.score) from \(viewModel.selectedLetters.count)")
                 .fontWeight(.light)
                 .padding()
             
             Text(
                 viewModel.score == viewModel.selectedLetters.count
-                ? "Все буквы угаданы верно!"
-                : "Не сдавайтесь, у Вас обязательно получится!"
+                ? "All letters are correct!"
+                : "Don't give up, you will definitely succeed!"
             )
             .fontWeight(.regular)
         }
+        .foregroundStyle(
+            Helper.ThemeColorManager.setColorInDarkMode(
+                light: Helper.ColorHex.darkBlue,
+                dark: Helper.ColorHex.lightOrange,
+                themeManager: themeManager,
+                colorScheme: colorScheme
+            )
+        )
     }
     
     private func playAgainButton(geometry: GeometryProxy) -> some View {
@@ -115,7 +159,7 @@ struct ResultSection: View {
             viewModel.playAgain()
             presentationMode.wrappedValue.dismiss()
         } label: {
-            Text("Сыграть еще раз!")
+            Text("Play again!")
                 .font(.title)
                 .dynamicTypeSize(.medium ... .xxxLarge)
                 .foregroundStyle(Helper.ColorHex.white)
