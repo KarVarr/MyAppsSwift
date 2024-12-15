@@ -12,7 +12,6 @@ struct AnswerButtons: View {
     var geometry: GeometryProxy
     
     var body: some View {
-        
         VStack(spacing: 10) {
             ForEach(viewModel.options, id: \.self) { option in
                 Button {

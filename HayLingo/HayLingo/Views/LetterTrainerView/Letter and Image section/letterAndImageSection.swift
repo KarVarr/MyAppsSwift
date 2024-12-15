@@ -12,12 +12,14 @@ struct letterAndImageSection: View {
     var geometry: GeometryProxy
     
     var body: some View {
-        HStack(spacing: 10) {
-            letterDisplay(viewModel: viewModel)
-//                .frame(width: geometry.size.width * 0.4)
-            Spacer()
-            imageAndDescriptionView(viewModel: viewModel)
-//                .frame(width: geometry.size.width * 0.5)
+        VStack(alignment: .center, spacing: geometry.size.width * 0.1) {
+            HStack(alignment: .center, spacing: geometry.size.width * 0.1) {
+                lettersAndVolume(viewModel: viewModel)
+                    .frame(width: geometry.size.width * 0.4, height: geometry.size.height / 4)
+                imageAndDescription(viewModel: viewModel)
+                    .frame(width: geometry.size.width * 0.4, height: geometry.size.height / 4)
+            }
+            .frame(minWidth: geometry.size.width * 0.8, maxWidth: geometry.size.width * 0.9, minHeight: geometry.size.height / 4, maxHeight: geometry.size.height / 3)
         }
         .padding()
         .background {
@@ -31,5 +33,9 @@ struct letterAndImageSection: View {
 #Preview {
     GeometryReader { geometry in
         letterAndImageSection(viewModel: .preview(), geometry: geometry)
+            .previewLayout(.sizeThatFits)
+            .frame(minWidth: geometry.size.width * 0.8, maxWidth: geometry.size.width * 0.9, minHeight: geometry.size.height / 5, maxHeight: geometry.size.height / 4)
+            .padding()
+            .background(Color.gray.opacity(0.1))
     }
 }

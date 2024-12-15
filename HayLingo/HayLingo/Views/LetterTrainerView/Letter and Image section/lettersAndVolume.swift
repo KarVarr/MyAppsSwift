@@ -1,5 +1,5 @@
 //
-//  letterDisplay.swift
+//  lettersAndVolume.swift
 //  HayLingo
 //
 //  Created by Karen Vardanian on 27.11.2024.
@@ -7,27 +7,24 @@
 
 import SwiftUI
 
-struct letterDisplay: View {
+struct lettersAndVolume: View {
     @ObservedObject var viewModel: LettersTrainerViewModel
-    
     
     var body: some View {
         GeometryReader { geo in
-            VStack {
+            VStack(alignment: .center, spacing: geo.size.width * 0.1) {
                 Spacer()
-                HStack {
+                HStack(alignment: .center, spacing: geo.size.width * 0.05) {
                     Text(viewModel.currentLetter)
-                        .font(.system(size: geo.size.width * 0.55))
+                        .font(.system(size: geo.size.width * 0.5))
                         .minimumScaleFactor(0.5)
                         .bold()
                     Text(viewModel.currentLetter)
-                        .font(.system(size: geo.size.width * 0.25))
+                        .font(.system(size: geo.size.width * 0.3))
                         .minimumScaleFactor(0.5)
                         .fontWeight(.light)
                 }
-                .frame(maxWidth: geo.size.width, maxHeight: geo.size.height / 4)
-                .padding()
-                
+                .frame(maxWidth: .infinity)
                 soundPlayButton(geometry: geo)
             }
         }
@@ -42,8 +39,8 @@ struct letterDisplay: View {
                 .scaledToFit()
                 .foregroundStyle(.secondary)
                 .frame(
-                    width: geometry.size.width * 0.2,
-                    height: geometry.size.width * 0.2
+                    width: geometry.size.width * 0.15,
+                    height: geometry.size.width * 0.15
                 )
                 .padding()
         }
@@ -51,5 +48,5 @@ struct letterDisplay: View {
 }
 
 #Preview {
-    letterDisplay(viewModel: .preview())
+    lettersAndVolume(viewModel: .preview())
 }
