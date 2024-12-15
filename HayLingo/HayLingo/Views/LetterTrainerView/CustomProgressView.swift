@@ -12,7 +12,7 @@ struct CustomProgressView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Результат: \(viewModel.score) из \(viewModel.selectedLetters.count)")
+            Text("Result: \(viewModel.score) of \(viewModel.selectedLetters.count)")
                 .font(.headline)
                 .padding(.bottom, 3)
             

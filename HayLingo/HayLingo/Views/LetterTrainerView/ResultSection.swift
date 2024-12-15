@@ -11,6 +11,9 @@ import SwiftData
 struct ResultSection: View {
     @Environment(\.presentationMode) private var presentationMode
     @Environment(\.modelContext) var context
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var themeManager: ThemeManager
+    
     @Query var userData: [UserData]
     @ObservedObject var viewModel: LettersTrainerViewModel
     var geometry: GeometryProxy
@@ -35,7 +38,7 @@ struct ResultSection: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
-            .background(Helper.ColorHex.backgroundLightGray)
+            .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme))
             
             if isConfettiActive {
                 GeometryReader { geometry in
@@ -137,5 +140,6 @@ struct ResultSection: View {
 #Preview {
     GeometryReader { geometry in
         ResultSection(viewModel: .preview(), geometry: geometry)
+            .environmentObject(ThemeManager())
     }
 }

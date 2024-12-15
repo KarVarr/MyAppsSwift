@@ -148,6 +148,7 @@ struct MainView: View {
                             Image(systemName: "info")
                             
                         }
+                        .padding(.bottom, 20)
                         .sheet(isPresented: $isInfoViewPresented) {
                             InfoView()
                         }

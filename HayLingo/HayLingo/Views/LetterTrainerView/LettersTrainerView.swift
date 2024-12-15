@@ -12,6 +12,8 @@ import AVFoundation
 struct LettersTrainerView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.modelContext) var context
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var themeManager: ThemeManager
     @Query var userData: [UserData]
     
     @Binding var selectedLetters: [String]
@@ -157,7 +159,7 @@ struct LettersTrainerView: View {
                     
 //                    Spacer()
                     
-                    Text("Выберите правильный перевод:")
+                    Text("Choose the correct translation:")
                         .font(.system(size: geometry.size.width * 0.03, weight: .light))
                         .padding()
                     AnswerButtons(viewModel: viewModel, geometry: geometry)
@@ -174,9 +176,10 @@ struct LettersTrainerView: View {
             }
             .navigationBarBackButtonHidden(viewModel.currentLetterIndex >= viewModel.selectedLetters.count)
         }
-        .background(Helper.ColorHex.backgroundLightGray)
+        .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme))
     }
 }
 #Preview {
     LettersTrainerView(selectedLetters: .constant(["Ու","Ե", "Ու", "Գ"]))
+        .environmentObject(ThemeManager())
 }
