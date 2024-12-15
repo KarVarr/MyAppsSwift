@@ -155,7 +155,7 @@ struct LettersTrainerView: View {
                     CustomProgressView(viewModel: viewModel)
                     letterAndImageSection(viewModel: viewModel, geometry: geometry)
                     
-                    Spacer()
+//                    Spacer()
                     
                     Text("Выберите правильный перевод:")
                         .font(.system(size: geometry.size.width * 0.03, weight: .light))
