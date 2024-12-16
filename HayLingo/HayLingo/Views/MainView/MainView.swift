@@ -91,9 +91,9 @@ struct MainView: View {
                         )
                         
                         //MARK: - History
-                        NavigationLink(destination: HistoryOfArmenianLanguageView()) {
+                        NavigationLink(destination: RulesOfLanguage()) {
                             VStackContent(
-                                title: "History of Armenian language",
+                                title: "Rules of language",
                                 subtitle: nil,
                                 titleSize: 18,
                                 width: vStackWidth,
@@ -126,7 +126,7 @@ struct MainView: View {
                         //MARK: - Play Game
                         NavigationLink(destination: LettersView()) {
                             VStackContent(
-                                title: "Play game",
+                                title: "Study",
                                 subtitle: nil,
                                 titleSize: 18,
                                 width: vStackWidth,

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AnswerButtons: View {
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var themeManager: ThemeManager
+    
     var viewModel: LettersTrainerViewModel
     var geometry: GeometryProxy
     
@@ -20,8 +23,8 @@ struct AnswerButtons: View {
                         viewModel.checkAnswer(selected: option)
                     }
                 } label: {
-                    Text(option)
-                        .font(.system(size: geometry.size.width * 0.05))
+                    Text(option.description.uppercased())
+                        .font(.system(size: geometry.size.width * 0.1))
                         .bold()
                         .foregroundStyle(Helper.ColorHex.white)
                         .padding()
@@ -50,13 +53,14 @@ struct AnswerButtons: View {
             return viewModel.isCorrect ? .green : .red
         }
         return viewModel.areButtonsDisabled
-        ? Helper.ColorHex.orange.opacity(0.5)
-        : Helper.ColorHex.orange
+        ? Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.orange.opacity(0.3), dark: Helper.ColorHex.pink.opacity(0.3), themeManager: themeManager, colorScheme: colorScheme)
+        : Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.orange, dark: Helper.ColorHex.pink, themeManager: themeManager, colorScheme: colorScheme)
     }
 }
 
 #Preview {
     GeometryReader { geometry in
         AnswerButtons(viewModel: .preview(), geometry: geometry)
+            .environmentObject(ThemeManager())
     }
 }
