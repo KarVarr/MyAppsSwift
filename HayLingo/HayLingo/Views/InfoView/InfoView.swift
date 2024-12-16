@@ -14,8 +14,15 @@ struct InfoView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("Info view")
-                    .padding()
+                Text("Icon App")
+                Text("version: 1.0.0")
+                Spacer()
+                Text("show in appstore")
+                Text("Rate the app")
+                Text("Our other apps")
+                Text("Clear data")
+                
+                Text("© 2024 Karen Vardanian")
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
