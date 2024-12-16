@@ -25,7 +25,9 @@ struct ResultSection: View {
             VStack {
                 VStack {
                     resultTitle()
-                    wrongLettersView()
+                    if !viewModel.wrongAnswers.isEmpty {
+                        wrongLettersView()
+                    }
                     resultDescription()
                     playAgainButton(geometry: geometry)
                 }
@@ -111,21 +113,17 @@ struct ResultSection: View {
     
     private func wrongLettersView() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            if viewModel.wrongAnswers.isEmpty {
-                Image(systemName: "dog")
-            } else {
-                Text(viewModel.wrongAnswers.joined(separator: ", "))
-                    .font(.title)
-                    .bold()
-                    .foregroundStyle(
-                        Helper.ThemeColorManager.setColorInDarkMode(
-                            light: Helper.ColorHex.darkBlue,
-                            dark: Helper.ColorHex.lightOrange,
-                            themeManager: themeManager,
-                            colorScheme: colorScheme
-                        )
+            Text(viewModel.wrongAnswers.joined(separator: ", "))
+                .font(.title)
+                .bold()
+                .foregroundStyle(
+                    Helper.ThemeColorManager.setColorInDarkMode(
+                        light: Helper.ColorHex.darkBlue,
+                        dark: Helper.ColorHex.lightOrange,
+                        themeManager: themeManager,
+                        colorScheme: colorScheme
                     )
-            }
+                )
         }
         .padding()
     }
