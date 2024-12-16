@@ -13,7 +13,6 @@ struct lettersAndVolume: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var themeManager: ThemeManager
     
-    
     var body: some View {
         GeometryReader { geo in
             VStack(alignment: .center, spacing: geo.size.width * 0.1) {
@@ -42,10 +41,10 @@ struct lettersAndVolume: View {
             Image(systemName: "volume.2")
                 .resizable()
                 .scaledToFit()
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.orange, dark: Helper.ColorHex.pink, themeManager: themeManager, colorScheme: colorScheme))
                 .frame(
-                    width: geometry.size.width * 0.15,
-                    height: geometry.size.width * 0.15
+                    width: geometry.size.width * 0.16,
+                    height: geometry.size.width * 0.16
                 )
                 .padding()
         }

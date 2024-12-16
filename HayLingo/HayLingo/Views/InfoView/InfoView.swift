@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct InfoView: View {
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var themeManager: ThemeManager
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -16,10 +19,11 @@ struct InfoView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Helper.ColorHex.backgroundLightGray)
+        .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme))
     }
 }
 
 #Preview {
     InfoView()
+        .environmentObject(ThemeManager())
 }

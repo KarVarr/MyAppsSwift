@@ -23,8 +23,9 @@ struct AnswerButtons: View {
                         viewModel.checkAnswer(selected: option)
                     }
                 } label: {
-                    Text(option.description.uppercased())
-                        .font(.system(size: geometry.size.width * 0.1))
+                    
+                    Text(option)
+                        .font(.system(size: geometry.size.width * 0.08))
                         .bold()
                         .foregroundStyle(Helper.ColorHex.white)
                         .padding()
