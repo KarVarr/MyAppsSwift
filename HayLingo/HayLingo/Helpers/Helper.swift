@@ -14,7 +14,7 @@ enum Helper {
         static let grey = Color(hex: 0x3a3a3b)
         static let white = Color(hex: 0xffffff)
         static let black = Color(hex: 0x000000)
-        static let pink = Color(hex: 0xff00ff)
+        static let pink = Color.pink
         static let darkGray = Color(hex: 0x505a64)
         static let red = Color(hex: 0xd90012)
         static let blue = Color(hex: 0x0033a0)

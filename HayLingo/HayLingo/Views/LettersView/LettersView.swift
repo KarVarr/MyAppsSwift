@@ -45,7 +45,7 @@ struct LettersView: View {
                                 .frame(width: 270, height: 70)
                                 .background {
                                     RoundedRectangle(cornerRadius: 35, style: .continuous)
-                                        .fill(selectedLetters.isEmpty ? Color.gray.opacity(0.3) : Helper.ColorHex.lightOrange)
+                                        .fill(selectedLetters.isEmpty ? Helper.ColorHex.lightGray : Helper.ColorHex.orange)
                                 }
                         }
                         .disabled(selectedLetters.isEmpty)

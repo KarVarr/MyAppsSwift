@@ -98,7 +98,7 @@ struct MainView: View {
                                 titleSize: 18,
                                 width: vStackWidth,
                                 backgroundColor: Helper.ColorHex.red,
-                                textColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black, themeManager: themeManager, colorScheme: colorScheme),
+                                textColor: Helper.ColorHex.white,
                                 spacing: 1,
                                 alignment: .center,
                                 shadowColor: setShadow()
@@ -115,7 +115,7 @@ struct MainView: View {
                                 titleSize: 18,
                                 width: vStackWidth,
                                 backgroundColor: Helper.ColorHex.blue,
-                                textColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black, themeManager: themeManager, colorScheme: colorScheme),
+                                textColor: Helper.ColorHex.white,
                                 spacing: 1,
                                 alignment: .center,
                                 shadowColor: setShadow()
@@ -131,7 +131,7 @@ struct MainView: View {
                                 titleSize: 18,
                                 width: vStackWidth,
                                 backgroundColor: Helper.ColorHex.orange,
-                                textColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black, themeManager: themeManager, colorScheme: colorScheme),
+                                textColor: Helper.ColorHex.white,
                                 spacing: 1,
                                 alignment: .center,
                                 shadowColor: setShadow()
