@@ -22,10 +22,6 @@ struct CollectionView: View {
     
     var body: some View {
         ScrollView {
-            Text("Select letters for practice")
-                .font(.title)
-                .foregroundStyle(Helper.ColorHex.darkGray)
-            
             LazyVGrid(columns: columns) {
                 ForEach(0..<AllLetters.armenianAlphabet.count, id: \.self) { index in
                     
@@ -35,6 +31,10 @@ struct CollectionView: View {
                     
                     Button(action: {
                         toggleLetterSelection(letter: letter)
+                        if userData.first?.selectedSound == "On" {
+                            SoundManager.shared.playSound(name: "click")
+                        }
+                        Helper.Haptic.triggerVibration(userData: userData, style: .light)
                         print(selectedLetters)
                     }) {
                         CollectionViewCell(
@@ -64,4 +64,5 @@ struct CollectionView: View {
 
 #Preview {
     CollectionView(selectedLetters: .constant(["Ա"]))
+        .environmentObject(ThemeManager())
 }

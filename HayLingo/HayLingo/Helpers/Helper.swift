@@ -46,4 +46,13 @@ enum Helper {
         }
     }
     
+    
+    enum Haptic {
+        static func triggerVibration(userData: [UserData], style: UIImpactFeedbackGenerator.FeedbackStyle) {
+            if userData.first?.selectedVibration == "On" {
+                let feedbackGenerator = UIImpactFeedbackGenerator(style: style)
+                feedbackGenerator.impactOccurred()
+            }
+        }
+    }
 }
