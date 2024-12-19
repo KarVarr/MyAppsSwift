@@ -22,7 +22,6 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
-//                                ScrollView {
                 VStack(spacing: 20) {
                     Spacer()
                     Text("HayLingo")
@@ -143,6 +142,9 @@ struct MainView: View {
                     
                     //MARK: - InfoView
                     Button {
+                        if userData.first?.selectedSound == "On" {
+                            SoundManager.shared.playSound(name: "click")
+                        }
                         isInfoViewPresented = true
                     } label: {
                         Image(systemName: "info")
@@ -152,85 +154,84 @@ struct MainView: View {
                     .sheet(isPresented: $isInfoViewPresented) {
                         InfoView()
                     }
-                    
                 }
                 .frame(maxWidth: .infinity, minHeight: geometry.size.height)
-            
-            .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme))
-            .overlay(
-                ZStack {
-                    if showSettings {
-                        Color.black.opacity(0.4)
-                            .ignoresSafeArea()
-                            .onTapGesture {
-                                withAnimation {
-                                    showSettings = false
+                
+                .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme))
+                .overlay(
+                    ZStack {
+                        if showSettings {
+                            Color.black.opacity(0.4)
+                                .ignoresSafeArea()
+                                .onTapGesture {
+                                    withAnimation {
+                                        showSettings = false
+                                    }
                                 }
-                            }
-                        SettingsView(showSettings: $showSettings)
-                            .frame(width: geometry.size.width)
-                            .transition(
-                                .asymmetric(
-                                    insertion: .move(edge: .bottom),
-                                    removal: .move(edge: .top)
-                                ))                               .environment(\.modelContext, context)
-                            .environmentObject(themeManager)
-                    }
-                                        }
-                    )
-                        .animation(.easeInOut, value: showSettings)
-                }
-                    .environmentObject(themeManager)
-                }
-                    .onAppear {
-                        if userData.isEmpty {
-                            let newUser = UserData(
-                                id: UUID(),
-                                name: "Misha",
-                                selectedLanguage: "Russian",
-                                selectedTheme: "Light",
-                                selectedSound: "On",
-                                selectedVibration: "On",
-                                progress: []
-                            )
-                            context.insert(newUser)
-                            try? context.save()
-                        }
-                        NotificationCenter.default.addObserver(forName: .languageDidChange, object: nil, queue: .main) { _ in
-                            updateLanguage()
+                            SettingsView(showSettings: $showSettings)
+                                .frame(width: geometry.size.width)
+                                .transition(
+                                    .asymmetric(
+                                        insertion: .move(edge: .bottom),
+                                        removal: .move(edge: .top)
+                                    ))                               .environment(\.modelContext, context)
+                                .environmentObject(themeManager)
                         }
                     }
-                    .onDisappear {
-                        NotificationCenter.default.removeObserver(self, name: .languageDidChange, object: nil)
-                    }
-                }
-                
-                private func updateLanguage() {
-                    if let user = userData.first {
-                        selectedLanguage = user.selectedLanguage ?? "Russian"
-                    }
-                }
-                
-                private func saveSelectedLanguage(_ language: String) {
-                    if let user = userData.first {
-                        user.selectedLanguage = language
-                        try? context.save()
-                    }
-                }
-                
-                private func setShadow() -> Color {
-                    switch themeManager.currentTheme {
-                    case .light:
-                        return .gray.opacity(0.3)
-                    case .dark:
-                        return .black.opacity(0.3)
-                    case .system:
-                        return colorScheme == .light ? .gray.opacity(0.2) : .black.opacity(0.2)
-                    }
-                }
-                }
-                
-                #Preview {
-                    MainView()
-                        .environmentObject(ThemeManager())
-                }
+                )
+                .animation(.easeInOut, value: showSettings)
+            }
+            .environmentObject(themeManager)
+        }
+        .onAppear {
+            if userData.isEmpty {
+                let newUser = UserData(
+                    id: UUID(),
+                    name: "Misha",
+                    selectedLanguage: "Russian",
+                    selectedTheme: "Light",
+                    selectedSound: "On",
+                    selectedVibration: "On",
+                    progress: []
+                )
+                context.insert(newUser)
+                try? context.save()
+            }
+            NotificationCenter.default.addObserver(forName: .languageDidChange, object: nil, queue: .main) { _ in
+                updateLanguage()
+            }
+        }
+        .onDisappear {
+            NotificationCenter.default.removeObserver(self, name: .languageDidChange, object: nil)
+        }
+    }
+    
+    private func updateLanguage() {
+        if let user = userData.first {
+            selectedLanguage = user.selectedLanguage ?? "Russian"
+        }
+    }
+    
+    private func saveSelectedLanguage(_ language: String) {
+        if let user = userData.first {
+            user.selectedLanguage = language
+            try? context.save()
+        }
+    }
+    
+    private func setShadow() -> Color {
+        switch themeManager.currentTheme {
+        case .light:
+            return .gray.opacity(0.3)
+        case .dark:
+            return .black.opacity(0.3)
+        case .system:
+            return colorScheme == .light ? .gray.opacity(0.2) : .black.opacity(0.2)
+        }
+    }
+}
+
+#Preview {
+    MainView()
+        .environmentObject(ThemeManager())
+}
