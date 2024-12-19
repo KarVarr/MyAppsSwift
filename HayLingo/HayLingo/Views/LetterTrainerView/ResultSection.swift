@@ -154,6 +154,11 @@ struct ResultSection: View {
     private func playAgainButton(geometry: GeometryProxy) -> some View {
         Button {
             updateUserProgress(correct: viewModel.score, total: viewModel.selectedLetters.count, language: viewModel.selectedLanguage)
+            Helper.SoundClick.triggerSound(userData: userData)
+            Helper.Haptic.triggerVibration(
+                userData: userData,
+                style: .light
+            )
             viewModel.playAgain()
             presentationMode.wrappedValue.dismiss()
         } label: {

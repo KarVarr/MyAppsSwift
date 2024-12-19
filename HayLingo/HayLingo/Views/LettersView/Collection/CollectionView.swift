@@ -11,6 +11,7 @@ import SwiftData
 
 
 struct CollectionView: View {
+    @ObservedObject var viewModel: LettersTrainerViewModel
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
     @Binding var selectedLetters: [String]
@@ -43,6 +44,13 @@ struct CollectionView: View {
                             letterForStudy: selectedLanguage == "Russian" ? AllLetters.russianAlphabet[index] : AllLetters.englishAlphabet[index]
                         )
                     }
+                    .highPriorityGesture(
+                        LongPressGesture(minimumDuration: 0.5)
+                            .onEnded { _ in
+                                print("Long press detected on letter: \(letter)")
+                                viewModel.playSound(named: letter)
+                            }
+                    )
                 }
             }
             .padding(5)
@@ -61,6 +69,6 @@ struct CollectionView: View {
 }
 
 #Preview {
-    CollectionView(selectedLetters: .constant(["Ա"]))
+    CollectionView(viewModel: .preview(), selectedLetters: .constant(["Ա"]))
         .environmentObject(ThemeManager())
 }

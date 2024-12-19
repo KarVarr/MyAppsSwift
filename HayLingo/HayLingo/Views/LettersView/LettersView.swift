@@ -26,7 +26,7 @@ struct LettersView: View {
                         .foregroundStyle(Helper.ColorHex.darkGray)
                         .padding(.top)
                     
-                    CollectionView(selectedLetters: $selectedLetters)
+                    CollectionView(viewModel: .preview(), selectedLetters: $selectedLetters)
                     VStack(spacing: 16) {
                         if selectedLetters.isEmpty {
                             Text("Please select letters!")
