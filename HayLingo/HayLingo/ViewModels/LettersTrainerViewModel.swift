@@ -60,10 +60,8 @@ final class LettersTrainerViewModel: ObservableObject {
             correctAnswers.append(selectedLetters[currentLetterIndex])
             score += 1
             print("score: \(score)")
-            UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
         } else {
             wrongAnswers.append(selectedLetters[currentLetterIndex])
-            UINotificationFeedbackGenerator().notificationOccurred(.error)
         }
         
         withAnimation(.easeInOut(duration: 0.3)) {
@@ -115,7 +113,7 @@ final class LettersTrainerViewModel: ObservableObject {
         print("Random animal for letter \(letter): \(randomAnimal)")
         return randomAnimal
     }
-
+    
     
     func playAgain() {
         currentLetterIndex = 0

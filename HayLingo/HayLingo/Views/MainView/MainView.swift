@@ -89,53 +89,66 @@ struct MainView: View {
                         shadowColor: setShadow()
                     )
                     
-                    //MARK: - History
-                    NavigationLink(destination: RulesOfLanguage()) {
-                        VStackContent(
-                            title: "Rules of language",
-                            subtitle: nil,
-                            titleSize: 18,
-                            width: vStackWidth,
-                            backgroundColor: Helper.ColorHex.red,
-                            textColor: Helper.ColorHex.white,
-                            spacing: 1,
-                            alignment: .center,
-                            shadowColor: setShadow()
-                        )
+                    Group {
+                        //MARK: - History
+                        NavigationLink(destination: RulesOfLanguage()) {
+                            VStackContent(
+                                title: "Rules of language",
+                                subtitle: nil,
+                                titleSize: 18,
+                                width: vStackWidth,
+                                backgroundColor: Helper.ColorHex.red,
+                                textColor: Helper.ColorHex.white,
+                                spacing: 1,
+                                alignment: .center,
+                                shadowColor: setShadow()
+                            )
+                        }
+                        
+                        //MARK: - Settings
+                        Button {
+                            showSettings = true
+                        } label: {
+                            VStackContent(
+                                title: "Settings",
+                                subtitle: nil,
+                                titleSize: 18,
+                                width: vStackWidth,
+                                backgroundColor: Helper.ColorHex.blue,
+                                textColor: Helper.ColorHex.white,
+                                spacing: 1,
+                                alignment: .center,
+                                shadowColor: setShadow()
+                            )
+                        }
+                        
+                        
+                        //MARK: - Play Game
+                        NavigationLink(destination: LettersView()) {
+                            VStackContent(
+                                title: "Study",
+                                subtitle: nil,
+                                titleSize: 18,
+                                width: vStackWidth,
+                                backgroundColor: Helper.ColorHex.orange,
+                                textColor: Helper.ColorHex.white,
+                                spacing: 1,
+                                alignment: .center,
+                                shadowColor: setShadow()
+                            )
+                        }
                     }
-                    
-                    //MARK: - Settings
-                    Button {
-                        showSettings = true
-                    } label: {
-                        VStackContent(
-                            title: "Settings",
-                            subtitle: nil,
-                            titleSize: 18,
-                            width: vStackWidth,
-                            backgroundColor: Helper.ColorHex.blue,
-                            textColor: Helper.ColorHex.white,
-                            spacing: 1,
-                            alignment: .center,
-                            shadowColor: setShadow()
+                    .simultaneousGesture(
+                        TapGesture().onEnded(
+                            {
+                                Helper.SoundClick.triggerSound(userData: userData)
+                                Helper.Haptic.triggerVibration(
+                                    userData: userData,
+                                    style: .light
+                                )
+                            }
                         )
-                    }
-                    
-                    
-                    //MARK: - Play Game
-                    NavigationLink(destination: LettersView()) {
-                        VStackContent(
-                            title: "Study",
-                            subtitle: nil,
-                            titleSize: 18,
-                            width: vStackWidth,
-                            backgroundColor: Helper.ColorHex.orange,
-                            textColor: Helper.ColorHex.white,
-                            spacing: 1,
-                            alignment: .center,
-                            shadowColor: setShadow()
-                        )
-                    }
+                    )
                     
                     
                     Spacer()

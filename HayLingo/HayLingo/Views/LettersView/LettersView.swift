@@ -55,6 +55,12 @@ struct LettersView: View {
                                     }
                             }
                             .disabled(selectedLetters.isEmpty)
+                            .simultaneousGesture(TapGesture().onEnded({
+                                if !selectedLetters.isEmpty {
+                                    Helper.SoundClick.triggerSound(userData: userData)
+                                    Helper.Haptic.triggerVibration(userData: userData, style: .light)
+                                }
+                            }))
                     }
                     .padding()
                 }

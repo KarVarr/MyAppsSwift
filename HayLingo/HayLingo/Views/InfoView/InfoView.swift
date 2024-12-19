@@ -11,9 +11,6 @@ import SwiftData
 struct InfoView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var themeManager: ThemeManager
-    @Environment(\.modelContext) var context
-    
-    @Query var userData: [UserData]
     
     var body: some View {
         VStack {
@@ -39,29 +36,19 @@ struct InfoView: View {
             
             VStack(spacing: 10) {
                 InfoButton(icon: "arrow.up.right.square", title: "Show in AppStore") {
-                    Helper.SoundClick.triggerSound(userData: userData)
-                    Helper.Haptic.triggerVibration(userData: userData, style: .light)
                     print("Show in AppStore tapped")
                 }
                 InfoButton(icon: "star", title: "Rate the app") {
-                    Helper.SoundClick.triggerSound(userData: userData)
-                    Helper.Haptic.triggerVibration(userData: userData, style: .light)
                     print("Rate the app tapped")
                 }
                 InfoButton(icon: "paperplane", title: "Telegram") {
-                    Helper.SoundClick.triggerSound(userData: userData)
-                    Helper.Haptic.triggerVibration(userData: userData, style: .light)
                     print("Telegram tapped")
                 }
                 InfoButton(icon: "app.badge", title: "Our other apps") {
-                    Helper.SoundClick.triggerSound(userData: userData)
-                    Helper.Haptic.triggerVibration(userData: userData, style: .light)
                     print("Other apps tapped")
                 }
                 Spacer()
                 InfoButton(icon: "trash", title: "Delete all data") {
-                    Helper.SoundClick.triggerSound(userData: userData)
-                    Helper.Haptic.triggerVibration(userData: userData, style: .light)
                     print("Deleted all data")
                 }
                 .background(Color.red)
@@ -88,12 +75,20 @@ struct InfoView: View {
 }
 
 struct InfoButton: View {
+    @Environment(\.modelContext) var context
+    @Query var userData: [UserData]
+    
     var icon: String
     var title: String
     var action: () -> Void
     
+    
     var body: some View {
-        Button(action: action) {
+        Button(action: {
+            Helper.SoundClick.triggerSound(userData: userData)
+            Helper.Haptic.triggerVibration(userData: userData, style: .light)
+            action()
+        }) {
             HStack {
                 Image(systemName: icon)
                     .font(.system(size: 20))

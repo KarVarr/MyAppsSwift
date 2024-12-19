@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AnswerButtons: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var themeManager: ThemeManager
+    @Environment(\.modelContext) var context
+    @Query var userData: [UserData]
     
     var viewModel: LettersTrainerViewModel
     var geometry: GeometryProxy
@@ -21,6 +24,13 @@ struct AnswerButtons: View {
                     withAnimation(.easeInOut(duration: 0.3)) {
                         viewModel.selectedAnswer = option
                         viewModel.checkAnswer(selected: option)
+                        Helper.SoundClick.triggerSound(userData: userData)
+                        
+                        if viewModel.isCorrect {
+                            Helper.Haptic.triggerVibration(userData: userData, style: .soft)
+                        } else {
+                            Helper.Haptic.triggerVibration(userData: userData, style: .rigid)
+                        }
                     }
                 } label: {
                     
@@ -51,6 +61,7 @@ struct AnswerButtons: View {
     
     private func answerButtonBackground(for option: String) -> Color {
         if viewModel.selectedAnswer == option && viewModel.showResult {
+            
             return viewModel.isCorrect ? .green : .red
         }
         return viewModel.areButtonsDisabled
