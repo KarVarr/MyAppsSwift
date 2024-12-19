@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct InfoView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var themeManager: ThemeManager
+    @Environment(\.modelContext) var context
+    
+    @Query var userData: [UserData]
     
     var body: some View {
         VStack {
@@ -35,19 +39,29 @@ struct InfoView: View {
             
             VStack(spacing: 10) {
                 InfoButton(icon: "arrow.up.right.square", title: "Show in AppStore") {
+                    Helper.SoundClick.triggerSound(userData: userData)
+                    Helper.Haptic.triggerVibration(userData: userData, style: .light)
                     print("Show in AppStore tapped")
                 }
                 InfoButton(icon: "star", title: "Rate the app") {
+                    Helper.SoundClick.triggerSound(userData: userData)
+                    Helper.Haptic.triggerVibration(userData: userData, style: .light)
                     print("Rate the app tapped")
                 }
                 InfoButton(icon: "paperplane", title: "Telegram") {
+                    Helper.SoundClick.triggerSound(userData: userData)
+                    Helper.Haptic.triggerVibration(userData: userData, style: .light)
                     print("Telegram tapped")
                 }
                 InfoButton(icon: "app.badge", title: "Our other apps") {
+                    Helper.SoundClick.triggerSound(userData: userData)
+                    Helper.Haptic.triggerVibration(userData: userData, style: .light)
                     print("Other apps tapped")
                 }
                 Spacer()
                 InfoButton(icon: "trash", title: "Delete all data") {
+                    Helper.SoundClick.triggerSound(userData: userData)
+                    Helper.Haptic.triggerVibration(userData: userData, style: .light)
                     print("Deleted all data")
                 }
                 .background(Color.red)

@@ -31,9 +31,7 @@ struct CollectionView: View {
                     
                     Button(action: {
                         toggleLetterSelection(letter: letter)
-                        if userData.first?.selectedSound == "On" {
-                            SoundManager.shared.playSound(name: "click")
-                        }
+                        Helper.SoundClick.triggerSound(userData: userData)
                         Helper.Haptic.triggerVibration(userData: userData, style: .light)
                         print(selectedLetters)
                     }) {

@@ -142,9 +142,8 @@ struct MainView: View {
                     
                     //MARK: - InfoView
                     Button {
-                        if userData.first?.selectedSound == "On" {
-                            SoundManager.shared.playSound(name: "click")
-                        }
+                        Helper.SoundClick.triggerSound(userData: userData)
+                        Helper.Haptic.triggerVibration(userData: userData, style: .light)
                         isInfoViewPresented = true
                     } label: {
                         Image(systemName: "info")

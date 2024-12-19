@@ -55,4 +55,12 @@ enum Helper {
             }
         }
     }
+    
+    enum SoundClick {
+        static func triggerSound(userData: [UserData]) {
+            if userData.first?.selectedSound == "On" {
+                SoundManager.shared.playSound(name: "click")
+            }
+        }
+    }
 }
