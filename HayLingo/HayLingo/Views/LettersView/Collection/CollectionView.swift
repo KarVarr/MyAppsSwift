@@ -15,6 +15,7 @@ struct CollectionView: View {
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
     @Binding var selectedLetters: [String]
+    @State private var pressedLetterId: Int? = nil
     
     private let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     private var selectedLanguage: String {
@@ -43,10 +44,16 @@ struct CollectionView: View {
                             secondArmLowercaseLetter: letter.lowercased(),
                             letterForStudy: selectedLanguage == "Russian" ? AllLetters.russianAlphabet[index] : AllLetters.englishAlphabet[index]
                         )
+                        .scaleEffect(pressedLetterId == index ? 0.9 : 1.0)
+                        .animation(.easeInOut(duration: 0.2), value: pressedLetterId)
                     }
-                    .highPriorityGesture(
+                    .simultaneousGesture(
                         LongPressGesture(minimumDuration: 0.5)
+                            .onChanged { _ in
+                                pressedLetterId = index
+                            }
                             .onEnded { _ in
+                                pressedLetterId = nil
                                 print("Long press detected on letter: \(letter)")
                                 viewModel.playSound(named: letter)
                             }
