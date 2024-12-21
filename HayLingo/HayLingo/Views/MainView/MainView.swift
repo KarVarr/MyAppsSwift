@@ -91,7 +91,7 @@ struct MainView: View {
                     
                     Group {
                         //MARK: - History
-                        NavigationLink(destination: RulesOfLanguage()) {
+                        NavigationLink(destination: TalesListView()) {
                             VStackContent(
                                 title: "Rules of language",
                                 subtitle: nil,
