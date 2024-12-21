@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct TalesListView: View {
-    let tales = FairyTales.getAllTales()
+  let tales = FairyTales.getAllTales()
+    
     
     var body: some View {
         NavigationView {
@@ -17,6 +18,8 @@ struct TalesListView: View {
                     TaleRowView(tale: tale)
                 }
             }
+            .listStyle(.plain)
+            .navigationTitle("Fairy Tales")
         }
     }
 }

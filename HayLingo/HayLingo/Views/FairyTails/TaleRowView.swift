@@ -12,23 +12,35 @@ struct TaleRowView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            HStack {
-                Text(tale.title)
-                    .font(.headline)
-                    .foregroundColor(.primary)
-                
-                Text("•")
-                    .foregroundColor(.secondary)
-                
-                Text(tale.author ?? "no author")
-                    .font(.caption)
-                    .foregroundStyle(.primary)
-            }
+            Text(tale.title)
+                .font(.headline)
+                .foregroundColor(.primary)
+            
             HStack {
                 Label("\(tale.timeToRead) րոպե", systemImage: "clock")
                     .font(.caption)
                     .foregroundColor(.secondary)
                 
+                Text("•")
+                    .foregroundColor(.secondary)
+                
+                Text(tale.ageGroup.rawValue)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            
+            // Теги
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(tale.tags, id: \.self) { tag in
+                        Text(tag)
+                            .font(.caption2)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(Color.blue.opacity(0.1))
+                            .cornerRadius(8)
+                    }
+                }
             }
         }
         .padding(.vertical, 4)
@@ -37,5 +49,12 @@ struct TaleRowView: View {
 
 
 #Preview {
-    TaleRowView(tale: Tale(title: "title", content: "test content", author: "author", timeToRead: 10))
+    TaleRowView(tale: Tale(
+        title: "title",
+        content: "test content",
+        author: "author",
+        timeToRead: 10,
+        ageGroup: AgeGroup(rawValue: "1-3") ?? .defaultAgeGroup, 
+        tags: ["tag1", "tag2", "tag3"]
+    ))
 }

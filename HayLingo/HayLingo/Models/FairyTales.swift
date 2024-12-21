@@ -23,6 +23,8 @@ enum AgeGroup: String, CaseIterable {
     case teenager = "5-7 տարեկան"
     case adult = "7-12 տարեկան"
     case all = "Բոլորի համար"
+    
+    static let defaultAgeGroup: AgeGroup = .all
 }
 
 
@@ -210,7 +212,9 @@ struct FairyTales {
 """
             ,
             author: "Հովհաննես Թումանյան",
-            timeToRead: 35
+            timeToRead: 35,
+            ageGroup: .adult,
+            tags: []
         ),
         Tale(
             title: "ԱՌՅՈՒԾԸ, ԱՐՋԸ ԵՎ ԳԱՅԼԸԱՌՅՈՒԾԸ, ԱՐՋԸ ԵՎ ԳԱՅԼԸ",
@@ -1100,5 +1104,24 @@ struct FairyTales {
     
     static func getAllTales() -> [Tale] {
         tales
+    }
+    
+    // Получение сказок по возрастной группе
+    static func getTales(forAgeGroup ageGroup: AgeGroup) -> [Tale] {
+        tales.filter { $0.ageGroup == ageGroup }
+    }
+    
+    // Поиск сказок по тегам
+    static func getTales(withTags tags: [String]) -> [Tale] {
+        tales.filter { tale in
+            tags.contains { tag in
+                tale.tags.contains(tag)
+            }
+        }
+    }
+    
+    // Поиск сказок по названию
+    static func searchTales(byTitle searchText: String) -> [Tale] {
+        tales.filter { $0.title.lowercased().contains(searchText.lowercased()) }
     }
 }
