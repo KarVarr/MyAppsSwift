@@ -8,48 +8,67 @@
 import SwiftUI
 
 struct TaleDetailView: View {
-    let tale: Tale
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var themeManager: ThemeManager
+    
     @State private var fontSize: CGFloat = 16
-    @State private var displayedContent: String = "Загрузка..."
+    @State private var displayedContent: String = ""
+    let tale: Tale
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                // Заголовок сказки
-                Text(tale.title)
-                    .font(.largeTitle)
-                    .bold()
-                
-                if let author = tale.author {
-                    Text("Հեղինակ՝ \(author)")
-                        .font(.subheadline)
+                if displayedContent.isEmpty {
+                    ProgressView("Загрузка...")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .foregroundColor(.secondary)
+                        .padding()
+                } else {
+                    Text(tale.title)
+                        .font(.largeTitle)
+                        .bold()
+                    
+                    if let author = tale.author {
+                        Text("Հեղինակ՝ \(author)")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    
+                    HStack {
+                        Label("\(tale.timeToRead) րոպե", systemImage: "clock")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    
+                    Text(displayedContent)
+                        .font(.system(size: fontSize))
+                        .lineSpacing(8)
+                        .animation(.easeInOut, value: displayedContent)
                 }
-                
-                HStack {
-                    Label("\(tale.timeToRead) րոպե", systemImage: "clock")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
-                
-                // Основной текст сказки
-                Text(displayedContent)
-                    .font(.system(size: fontSize))
-                    .lineSpacing(8)
-                    .animation(.easeInOut, value: displayedContent) // Анимация для плавного появления текста
             }
             .padding()
+            .frame(maxWidth: .infinity)
         }
+        .background(
+            Helper.ThemeColorManager.setColorInDarkMode(
+                light: Helper.ColorHex.backgroundLightGray,
+                dark: Helper.ColorHex.backgroundDarkGray,
+                themeManager: themeManager,
+                colorScheme: colorScheme
+            )
+            .ignoresSafeArea()
+        )
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
-                // Кнопка изменения размера шрифта
-                Menu {
-                    Button("Փոքր") { fontSize = 14 }
-                    Button("Միջին") { fontSize = 16 }
-                    Button("Մեծ") { fontSize = 20 }
-                } label: {
-                    Image(systemName: "textformat.size")
+            if !displayedContent.isEmpty {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Menu {
+                        Button("Փոքր") { fontSize = 14 }
+                        Button("Միջին") { fontSize = 16 }
+                        Button("Մեծ") { fontSize = 20 }
+                    } label: {
+                        Image(systemName: "textformat.size")
+                    }
                 }
             }
         }
@@ -60,14 +79,13 @@ struct TaleDetailView: View {
     
     private func loadContent() {
         // Имитация загрузки данных
-        DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 1.5) {
             DispatchQueue.main.async {
                 self.displayedContent = tale.content
             }
         }
     }
 }
-
 
 #Preview {
     TaleDetailView(
@@ -80,4 +98,6 @@ struct TaleDetailView: View {
             tags: ["tag1", "tag2", "tag3"]
         )
     )
+    .environmentObject(ThemeManager())
+    
 }

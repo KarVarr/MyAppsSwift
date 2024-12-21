@@ -19,7 +19,7 @@ struct TalesListView: View {
                 NavigationLink(destination: TaleDetailView(tale: tale)) {
                     TaleRowView(tale: tale)
                 }
-                .listRowBackground(Helper.ColorHex.orange)
+                .listRowBackground(Helper.ColorHex.lightGray.opacity(0.3))
             }
             .scrollContentBackground(.hidden)
             .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme))
