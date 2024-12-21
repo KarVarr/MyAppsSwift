@@ -9,8 +9,12 @@ import SwiftUI
 import SwiftData
 
 struct InfoView: View {
+    @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var themeManager: ThemeManager
+    @Query var userData: [UserData]
+    
+    private let appID: Int = 1
     
     var body: some View {
         VStack {
@@ -36,20 +40,20 @@ struct InfoView: View {
             
             VStack(spacing: 10) {
                 InfoButton(icon: "arrow.up.right.square", title: "Show in AppStore") {
-                    print("Show in AppStore tapped")
+                    openAppStore()
                 }
                 InfoButton(icon: "star", title: "Rate the app") {
-                    print("Rate the app tapped")
+                    rateApp()
                 }
-                InfoButton(icon: "paperplane", title: "Telegram") {
-                    print("Telegram tapped")
-                }
+                //                InfoButton(icon: "paperplane", title: "Telegram") {
+                //                    print("Telegram tapped")
+                //                }
                 InfoButton(icon: "app.badge", title: "Our other apps") {
-                    print("Other apps tapped")
+                    openOtherApps()
                 }
                 Spacer()
                 InfoButton(icon: "trash", title: "Delete all data") {
-                    print("Deleted all data")
+                    deleteAllData()
                 }
                 .background(Color.red)
             }
@@ -71,6 +75,100 @@ struct InfoView: View {
             themeManager: themeManager,
             colorScheme: colorScheme)
         )
+    }
+    
+    // Открыть приложение в App Store
+    private func openAppStore() {
+        guard let url = URL(string: "https://apps.apple.com/app/id\(Keys.appID)") else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    // Поставить оценку приложению
+    private func rateApp() {
+        guard let url = URL(string: "https://apps.apple.com/app/id\(Keys.appID)?action=write-review") else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    // Открыть другие приложения разработчика
+    private func openOtherApps() {
+        guard let url = URL(string: "https://apps.apple.com/developer/id\(Keys.devID)") else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    // Удалить все данные пользователя
+    private func deleteAllData() {
+        // Показываем окно подтверждения
+        let alert = UIAlertController(
+            title: "Delete All Data",
+            message: "Are you sure you want to delete all your progress data? This action cannot be undone.",
+            preferredStyle: .alert
+        )
+        
+        // Кнопка "Да" - очищаем данные
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
+            self.clearProgressData()
+            
+            // Показываем уведомление о завершении действия
+            self.showConfirmationAlert()
+        }))
+        
+        // Кнопка "Нет" - отмена
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        
+        // Показываем alert
+        presentAlert(alert)
+    }
+    
+    // Метод для очистки прогресса
+    private func clearProgressData() {
+        // Очищаем только данные прогресса: correctAnswer и totalQuestion
+        for user in userData {
+            for progress in user.progress {
+                progress.correctAnswer = 0
+                progress.totalQuestion = 0
+            }
+        }
+        
+        // Сохраняем изменения в контексте
+        do {
+            try context.save()
+            print("Все данные о прогрессе были сброшены.")
+        } catch {
+            print("Ошибка при сохранении данных: \(error.localizedDescription)")
+        }
+    }
+    
+    // Метод для отображения confirmation alert
+    private func showConfirmationAlert() {
+        let confirmationAlert = UIAlertController(
+            title: "Data Deleted",
+            message: "Your progress data has been successfully deleted.",
+            preferredStyle: .alert
+        )
+        confirmationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        presentAlert(confirmationAlert)
+    }
+    
+    // Универсальный метод для отображения alert
+    private func presentAlert(_ alert: UIAlertController) {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let rootViewController = windowScene.windows.first?.rootViewController {
+            // Убедимся, что текущий контроллер не уже отображает alert
+            DispatchQueue.main.async {
+                if rootViewController.presentedViewController == nil {
+                    rootViewController.present(alert, animated: true, completion: nil)
+                } else {
+                    print("Another alert is already being presented.")
+                }
+            }
+        }
     }
 }
 
