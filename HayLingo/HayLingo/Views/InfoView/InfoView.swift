@@ -49,10 +49,9 @@ struct InfoView: View {
                     openOtherApps()
                 }
                 Spacer()
-                InfoButton(icon: "trash", title: "Delete all data") {
-                    isShowingDeleteAlert = true
-                }
-                .background(Color.red)
+                InfoButton(icon: "trash", title: "Delete all data", backgroundColor: .red.opacity(0.8)) {
+                        isShowingDeleteAlert = true
+                    }
             }
             .alert("Delete All Data", isPresented: $isShowingDeleteAlert) {
                 Button("Yes", role: .destructive) {
@@ -123,9 +122,9 @@ struct InfoView: View {
         
         do {
             try context.save()
-            print("Все данные о прогрессе были сброшены.")
+            print("All progress data has been reset.")
         } catch {
-            print("Ошибка при сохранении данных: \(error.localizedDescription)")
+            print("Error saving data: \(error.localizedDescription)")
         }
     }
 }
@@ -136,8 +135,8 @@ struct InfoButton: View {
     
     var icon: String
     var title: String
+    var backgroundColor: Color = Color.gray.opacity(0.2)
     var action: () -> Void
-    
     
     var body: some View {
         Button(action: {
@@ -155,7 +154,7 @@ struct InfoButton: View {
             }
             .foregroundColor(.primary)
             .padding()
-            .background(Color.gray.opacity(0.2))
+            .background(backgroundColor)
             .clipShape(RoundedRectangle(cornerRadius: 12))
         }
     }
