@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct TalesListView: View {
-  let tales = FairyTales.getAllTales()
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var themeManager: ThemeManager
+    let tales = FairyTales.getAllTales()
     
     
     var body: some View {
@@ -17,8 +19,11 @@ struct TalesListView: View {
                 NavigationLink(destination: TaleDetailView(tale: tale)) {
                     TaleRowView(tale: tale)
                 }
+                .listRowBackground(Helper.ColorHex.orange)
             }
-            .listStyle(.plain)
+            .scrollContentBackground(.hidden)
+            .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme))
+            .listStyle(.insetGrouped)
             .navigationTitle("Fairy Tales")
         }
     }
@@ -26,4 +31,5 @@ struct TalesListView: View {
 
 #Preview {
     TalesListView()
+        .environmentObject(ThemeManager())
 }
