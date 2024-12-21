@@ -29,8 +29,6 @@ struct TaleDetailView: View {
                     
                     HStack {
                         Label("\(tale.timeToRead) րոպե", systemImage: "clock")
-                        Text("•")
-//                        Text(tale.ageGroup.rawValue)
                     }
                     .font(.subheadline)
                     .foregroundColor(.secondary)
@@ -55,18 +53,10 @@ struct TaleDetailView: View {
                 } label: {
                     Image(systemName: "textformat.size")
                 }
-                
-                // Кнопка добавления в избранное
-                Button {
-                    isFavorite.toggle()
-                } label: {
-                    Image(systemName: isFavorite ? "bookmark.fill" : "bookmark")
-                }
             }
         }
     }
 }
-
 
 #Preview {
     TaleDetailView(tale: Tale(title: "title", content: "Content", author: "Author", timeToRead: 15))

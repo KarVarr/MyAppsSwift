@@ -93,7 +93,7 @@ struct MainView: View {
                         //MARK: - History
                         NavigationLink(destination: TalesListView()) {
                             VStackContent(
-                                title: "Rules of language",
+                                title: "Armenian Fairy Tales",
                                 subtitle: nil,
                                 titleSize: 18,
                                 width: vStackWidth,

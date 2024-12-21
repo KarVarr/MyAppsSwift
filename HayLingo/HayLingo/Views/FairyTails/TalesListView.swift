@@ -12,7 +12,7 @@ struct TalesListView: View {
     
     var body: some View {
         NavigationView {
-            List(tales) { tale in
+            List(tales, id: \.id) { tale in
                 NavigationLink(destination: TaleDetailView(tale: tale)) {
                     TaleRowView(tale: tale)
                 }

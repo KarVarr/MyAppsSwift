@@ -12,32 +12,24 @@ struct TaleRowView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(tale.title)
-                .font(.headline)
-                .foregroundColor(.primary)
-            
+            HStack {
+                Text(tale.title)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                
+                Text("•")
+                    .foregroundColor(.secondary)
+                
+                Text(tale.author ?? "no author")
+                    .font(.caption)
+                    .foregroundStyle(.primary)
+            }
             HStack {
                 Label("\(tale.timeToRead) րոպե", systemImage: "clock")
                     .font(.caption)
                     .foregroundColor(.secondary)
                 
-                Text("•")
-                    .foregroundColor(.secondary)
             }
-            
-            // Теги
-//            ScrollView(.horizontal, showsIndicators: false) {
-//                HStack {
-//                    ForEach(tale.tags, id: \.self) { tag in
-//                        Text(tag)
-//                            .font(.caption2)
-//                            .padding(.horizontal, 8)
-//                            .padding(.vertical, 4)
-//                            .background(Color.blue.opacity(0.1))
-//                            .cornerRadius(8)
-//                    }
-//                }
-//            }
         }
         .padding(.vertical, 4)
     }
