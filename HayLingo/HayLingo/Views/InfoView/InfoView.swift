@@ -13,8 +13,8 @@ struct InfoView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var themeManager: ThemeManager
     @Query var userData: [UserData]
-    
-    private let appID: Int = 1
+    @State private var isShowingDeleteAlert = false
+    @State private var isShowingConfirmationAlert = false
     
     var body: some View {
         VStack {
@@ -45,17 +45,28 @@ struct InfoView: View {
                 InfoButton(icon: "star", title: "Rate the app") {
                     rateApp()
                 }
-                //                InfoButton(icon: "paperplane", title: "Telegram") {
-                //                    print("Telegram tapped")
-                //                }
                 InfoButton(icon: "app.badge", title: "Our other apps") {
                     openOtherApps()
                 }
                 Spacer()
                 InfoButton(icon: "trash", title: "Delete all data") {
-                    deleteAllData()
+                    isShowingDeleteAlert = true
                 }
                 .background(Color.red)
+            }
+            .alert("Delete All Data", isPresented: $isShowingDeleteAlert) {
+                Button("Yes", role: .destructive) {
+                    clearProgressData()
+                    isShowingConfirmationAlert = true
+                }
+                Button("No", role: .cancel) {}
+            } message: {
+                Text("Are you sure you want to delete all your progress data? This action cannot be undone.")
+            }
+            .alert("Data Deleted", isPresented: $isShowingConfirmationAlert) {
+                Button("OK", role: .none) {}
+            } message: {
+                Text("Your progress data has been successfully deleted.")
             }
             .padding(.horizontal)
             .frame(maxWidth: .infinity)
@@ -101,33 +112,8 @@ struct InfoView: View {
         }
     }
     
-    // Удалить все данные пользователя
-    private func deleteAllData() {
-        // Показываем окно подтверждения
-        let alert = UIAlertController(
-            title: "Delete All Data",
-            message: "Are you sure you want to delete all your progress data? This action cannot be undone.",
-            preferredStyle: .alert
-        )
-        
-        // Кнопка "Да" - очищаем данные
-        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
-            self.clearProgressData()
-            
-            // Показываем уведомление о завершении действия
-            self.showConfirmationAlert()
-        }))
-        
-        // Кнопка "Нет" - отмена
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-        
-        // Показываем alert
-        presentAlert(alert)
-    }
-    
-    // Метод для очистки прогресса
+    // Удалить все данные
     private func clearProgressData() {
-        // Очищаем только данные прогресса: correctAnswer и totalQuestion
         for user in userData {
             for progress in user.progress {
                 progress.correctAnswer = 0
@@ -135,39 +121,11 @@ struct InfoView: View {
             }
         }
         
-        // Сохраняем изменения в контексте
         do {
             try context.save()
             print("Все данные о прогрессе были сброшены.")
         } catch {
             print("Ошибка при сохранении данных: \(error.localizedDescription)")
-        }
-    }
-    
-    // Метод для отображения confirmation alert
-    private func showConfirmationAlert() {
-        let confirmationAlert = UIAlertController(
-            title: "Data Deleted",
-            message: "Your progress data has been successfully deleted.",
-            preferredStyle: .alert
-        )
-        confirmationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        
-        presentAlert(confirmationAlert)
-    }
-    
-    // Универсальный метод для отображения alert
-    private func presentAlert(_ alert: UIAlertController) {
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let rootViewController = windowScene.windows.first?.rootViewController {
-            // Убедимся, что текущий контроллер не уже отображает alert
-            DispatchQueue.main.async {
-                if rootViewController.presentedViewController == nil {
-                    rootViewController.present(alert, animated: true, completion: nil)
-                } else {
-                    print("Another alert is already being presented.")
-                }
-            }
         }
     }
 }
