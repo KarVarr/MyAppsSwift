@@ -32,28 +32,6 @@ struct SettingsView: View {
         self._selectedTheme = State(initialValue: (AppTheme(rawValue: UserDefaults.standard.string(forKey: "selectedTheme") ?? "System") ?? .system).rawValue)
     }
     
-    //    var body: some View {
-    //        VStack {
-    //            Text("Settings")
-    //            Text("Select your language")
-    //
-    //            Text("Select theme color")
-    //
-    //            Text("Delete all progress")
-    //
-    //            Text("Sound effects")
-    //
-    //            Text("Vibration")
-    //
-    //            Text("Rate us")
-    //            Text("Close button")
-    //            Text("Privacy policy")
-    //        }
-    
-    //    }
-    
-    
-    
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 20) {
