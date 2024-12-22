@@ -6,20 +6,21 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct TalesListView: View {
+    @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var themeManager: ThemeManager
+
+    @Query var userData: [UserData]
     let tales = FairyTales.getAllTales()
-    
-    
+
     var body: some View {
         NavigationView {
             List(tales, id: \.id) { tale in
-                NavigationLink(destination: TaleDetailView(tale: tale)) {
-                    TaleRowView(tale: tale)
-                }
-                .listRowBackground(Helper.ColorHex.lightGray.opacity(0.3))
+                TaleRowView(tale: tale)
+                    .listRowBackground(Helper.ColorHex.lightGray.opacity(0.3))
             }
             .scrollContentBackground(.hidden)
             .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme))
@@ -29,7 +30,9 @@ struct TalesListView: View {
     }
 }
 
+
 #Preview {
     TalesListView()
         .environmentObject(ThemeManager())
 }
+
