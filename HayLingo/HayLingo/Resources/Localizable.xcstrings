@@ -334,19 +334,12 @@
       }
     },
     "Dark" : {
-      "comment" : "settingsView",
-      "extractionState" : "manual",
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dark"
-          }
-        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Մութ"
+            "value" : "Մուգ"
           }
         },
         "ru" : {
@@ -430,6 +423,7 @@
       }
     },
     "Don't give up, you will definitely succeed!" : {
+      "comment" : "ResultSection",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -452,19 +446,12 @@
       }
     },
     "English" : {
-      "comment" : "settingsView",
-      "extractionState" : "manual",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "English"
-          }
-        },
-        "hy" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Անգլերեն"
           }
         },
         "ru" : {
@@ -618,19 +605,12 @@
       }
     },
     "Light" : {
-      "comment" : "settingsView",
-      "extractionState" : "manual",
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Light"
-          }
-        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Լույս"
+            "value" : "Լուսավոր"
           }
         },
         "ru" : {
@@ -833,21 +813,8 @@
       }
     },
     "Off" : {
-      "comment" : "settingsView",
-      "extractionState" : "manual",
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Off"
-          }
-        },
-        "hy" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Անջատված"
-          }
-        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -881,21 +848,8 @@
       }
     },
     "On" : {
-      "comment" : "settingsView",
-      "extractionState" : "manual",
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "On"
-          }
-        },
-        "hy" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Միացված է"
-          }
-        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1047,21 +1001,8 @@
       }
     },
     "Russian" : {
-      "comment" : "mainView",
-      "extractionState" : "manual",
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Russian"
-          }
-        },
-        "hy" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ռուսերեն"
-          }
-        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1238,6 +1179,54 @@
         }
       }
     },
+    "sound_off" : {
+      "comment" : "settingsView",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Off"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Անջատված"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выключено"
+          }
+        }
+      }
+    },
+    "sound_on" : {
+      "comment" : "settingsView",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Միացված է"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Включено"
+          }
+        }
+      }
+    },
     "Sounds in app" : {
       "comment" : "settingsVIew",
       "extractionState" : "manual",
@@ -1311,15 +1300,8 @@
       }
     },
     "System" : {
-      "comment" : "settingsView",
-      "extractionState" : "manual",
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "System"
-          }
-        },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1354,29 +1336,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Тема"
-          }
-        }
-      }
-    },
-    "This %@ needs to be repeated:" : {
-      "comment" : "ResultView",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This %@ needs to be repeated:"
-          }
-        },
-        "hy" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Այս %@-ը պետք է կրկնվի."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Эти %@ буквы нужно повторить:"
           }
         }
       }
@@ -1452,6 +1411,54 @@
         }
       }
     },
+    "vibration_off" : {
+      "comment" : "settingsView",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Off"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Անջատված"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выключено"
+          }
+        }
+      }
+    },
+    "vibration_on" : {
+      "comment" : "settingsView",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Միացված է"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Включено"
+          }
+        }
+      }
+    },
     "Win!" : {
       "comment" : "confettiView",
       "extractionState" : "manual",
@@ -1500,6 +1507,77 @@
         }
       }
     },
+    "You answered these letters incorrectly. Please repeat them:" : {
+      "comment" : "ResultSection",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You answered these letters incorrectly. Please repeat them:"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Դուք սխալ եք պատասխանել այս տառերին։ Խնդրում ենք կրկնել դրանք։"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы неправильно ответили на эти буквы. Пожалуйста, повторите их:"
+          }
+        }
+      }
+    },
+    "You answered these letters incorrectly. Please repeat them:\n" : {
+      "comment" : "ResultSection",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You answered these letters incorrectly. Please repeat them:"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Դուք սխալ եք պատասխանել այս տառերին։ Խնդրում ենք կրկնել դրանք։"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы неправильно ответили на эти буквы. Пожалуйста, повторите их:"
+          }
+        }
+      }
+    },
+    "Your progress" : {
+      "comment" : "mainView",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your progress"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ձեր առաջընթացը"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш прогресс"
+          }
+        }
+      }
+    },
     "Your progress data has been successfully deleted." : {
       "comment" : "infoViewAlert",
       "extractionState" : "manual",
@@ -1520,30 +1598,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Данные о вашем прогрессе успешно удалены."
-          }
-        }
-      }
-    },
-    "Your progress in" : {
-      "comment" : "mainView",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your progress in"
-          }
-        },
-        "hy" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ձեր առաջընթացը"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ваш прогресс в"
           }
         }
       }

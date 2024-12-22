@@ -21,15 +21,19 @@ struct SettingsView: View {
     @State private var selectedSound = "On"
     @State private var selectedVibration = "On"
     
-    let languages: [String] = [NSLocalizedString("Russian", comment: ""), NSLocalizedString("English", comment: "")]
-    let themes: [String] = [NSLocalizedString("Light", comment: ""), NSLocalizedString("Dark", comment: ""), NSLocalizedString("System", comment: "")]
-    let sounds: [String] = [NSLocalizedString("On", comment: ""), NSLocalizedString("Off", comment: "")]
-    let vibration: [String] = [NSLocalizedString("On", comment: ""), NSLocalizedString("Off", comment: "")]
+    // Используем локализованные строки из enum'ов
+    let languages: [String] = AppLanguage.allCases.map { $0.localizedString }
+    let themes: [String] = AppTheme.allCases.map { $0.localizedString }
+    let sounds: [String] = AppSound.allCases.map { $0.localizedString }
+    let vibration: [String] = AppVibration.allCases.map { $0.localizedString }
     
     init(showSettings: Binding<Bool>) {
         self._showSettings = showSettings
         
-        self._selectedTheme = State(initialValue: (AppTheme(rawValue: UserDefaults.standard.string(forKey: "selectedTheme") ?? "System") ?? .system).rawValue)
+        self._selectedLanguage = State(initialValue: AppLanguage.russian.localizedString)
+        self._selectedTheme = State(initialValue: AppTheme.system.localizedString)
+        self._selectedSound = State(initialValue: AppSound.on.localizedString)
+        self._selectedVibration = State(initialValue: AppVibration.on.localizedString)
     }
     
     var body: some View {
@@ -56,11 +60,11 @@ struct SettingsView: View {
                         }
                     }
                     .onChange(of: selectedLanguage) {_, newValue in
+                        let language = AppLanguage.fromLocalizedString(newValue)
                         saveOption { user in
-                            user.selectedLanguage = newValue
+                            user.selectedLanguage = language.rawValue
                         }
-                        NotificationCenter.default.post(name: .languageDidChange, object: nil)
-                    }
+                        NotificationCenter.default.post(name: .languageDidChange, object: nil)                    }
                     .pickerStyle(.segmented)
                     
                     .frame(width: vStackWidth)
@@ -79,9 +83,10 @@ struct SettingsView: View {
                         }
                     }
                     .onChange(of: selectedTheme) {_, newValue in
-                        themeManager.updateTheme(AppTheme(rawValue: newValue) ?? .light)
+                        let theme = AppTheme.fromLocalizedString(newValue)
+                        themeManager.updateTheme(theme)
                         saveOption { user in
-                            user.selectedTheme = newValue
+                            user.selectedTheme = theme.rawValue
                         }
                     }
                     .pickerStyle(.segmented)
@@ -102,8 +107,9 @@ struct SettingsView: View {
                         }
                     }
                     .onChange(of: selectedSound) {_, newValue in
+                        let sound = AppSound.fromLocalizedString(newValue)
                         saveOption { user in
-                            user.selectedSound = newValue
+                            user.selectedSound = sound.rawValue
                         }
                     }
                     .pickerStyle(.segmented)
@@ -125,8 +131,9 @@ struct SettingsView: View {
                         }
                     }
                     .onChange(of: selectedVibration) {_, newValue in
+                        let vibration = AppVibration.fromLocalizedString(newValue)
                         saveOption { user in
-                            user.selectedVibration = newValue
+                            user.selectedVibration = vibration.rawValue
                         }
                     }
                     .pickerStyle(.segmented)
@@ -177,10 +184,11 @@ struct SettingsView: View {
         }
         
         print("User data found: \(user)")
-        selectedLanguage = user.selectedLanguage ?? "Russian"
-        selectedTheme = user.selectedTheme ?? "Light"
-        selectedSound = user.selectedSound ?? "On"
-        selectedVibration = user.selectedVibration ?? "On"
+        // Конвертируем сохраненные raw values в локализованные строки
+        selectedLanguage = AppLanguage(rawValue: user.selectedLanguage)?.localizedString ?? AppLanguage.russian.localizedString
+        selectedTheme = AppTheme(rawValue: user.selectedTheme)?.localizedString ?? AppTheme.system.localizedString
+        selectedSound = AppSound(rawValue: user.selectedSound)?.localizedString ?? AppSound.on.localizedString
+        selectedVibration = AppVibration(rawValue: user.selectedVibration)?.localizedString ?? AppVibration.on.localizedString
     }
     
     private func createDefaultUser() {

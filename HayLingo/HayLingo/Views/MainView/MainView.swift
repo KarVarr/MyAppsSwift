@@ -59,13 +59,13 @@ struct MainView: View {
                         let filteredProgress = user.progress.filter { $0.language == selectedLanguage }
                         
                         if filteredProgress.isEmpty {
-                            return "No data for \(selectedLanguage)"
+                            return NSLocalizedString("No data", comment: "")+" (\(selectedLanguage))"
                         }
                         
                         let totalCorrectAnswer = filteredProgress.reduce(0) { $0 + $1.correctAnswer }
                         let totalQuestions = filteredProgress.reduce(0) { $0 + $1.totalQuestion }
                         
-                        return NSLocalizedString("Correct answers:", comment: "")+"\(totalCorrectAnswer)/\(totalQuestions)"
+                        return NSLocalizedString("Correct answers:", comment: "")+" \(totalCorrectAnswer)/\(totalQuestions)"
                     }
                     
                     var language: String {
@@ -78,7 +78,7 @@ struct MainView: View {
                     
                     
                     VStackContent(
-                        title: NSLocalizedString("Your progress in", comment: "")+" \(selectedLanguage)",
+                        title: NSLocalizedString("Your progress", comment: "")+" (\(selectedLanguage))",
                         subtitle: allProgress,
                         titleSize: 12,
                         width: vStackWidth,

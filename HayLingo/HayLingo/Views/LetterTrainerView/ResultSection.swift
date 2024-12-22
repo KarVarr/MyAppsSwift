@@ -98,7 +98,8 @@ struct ResultSection: View {
         Text(
             viewModel.score == viewModel.selectedLetters.count
             ? "Great!"
-            :  "This \(viewModel.wrongAnswers.count == 1 ? "Letter" : "Letters") needs to be repeated:"
+            :  "You answered these letters incorrectly. Please repeat them:"
+
         )
         .foregroundStyle(
             Helper.ThemeColorManager.setColorInDarkMode(
