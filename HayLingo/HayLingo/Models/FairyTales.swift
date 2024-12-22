@@ -18,11 +18,11 @@ struct Tale: Identifiable {
 }
 
 enum AgeGroup: String, CaseIterable {
-    case preschool = "1-3 տարեկան"
-    case elementary = "3-5 տարեկան"
-    case teenager = "5-7 տարեկան"
-    case adult = "7-12 տարեկան"
-    case all = "Բոլորի համար"
+    case preschool = "1-3 years old"
+    case elementary = "3-5 years old"
+    case teenager = "5-7 years old"
+    case adult = "7-12 years old"
+    case all = "For everyone"
     
     static let defaultAgeGroup: AgeGroup = .all
 }

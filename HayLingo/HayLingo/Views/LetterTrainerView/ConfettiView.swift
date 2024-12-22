@@ -12,7 +12,7 @@ struct ConfettiView: View {
     
     var body: some View {
         ZStack {
-            Button("Победа!") {
+            Button("Win!") {
                 withAnimation {
                     isConfettiActive = true
                 }

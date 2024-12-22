@@ -19,7 +19,7 @@ struct TaleDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 if displayedContent.isEmpty {
-                    ProgressView("Загрузка...")
+                    ProgressView("Loading...")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .foregroundColor(.secondary)
                         .padding()
@@ -29,13 +29,13 @@ struct TaleDetailView: View {
                         .bold()
                     
                     if let author = tale.author {
-                        Text("Հեղինակ՝ \(author)")
+                        Text("Author՝ \(author)")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
                     
                     HStack {
-                        Label("\(tale.timeToRead) րոպե", systemImage: "clock")
+                        Label("\(tale.timeToRead) minutes", systemImage: "clock")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
@@ -63,9 +63,9 @@ struct TaleDetailView: View {
             if !displayedContent.isEmpty {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Menu {
-                        Button("Փոքր") { fontSize = 14 }
-                        Button("Միջին") { fontSize = 16 }
-                        Button("Մեծ") { fontSize = 20 }
+                        Button("Small") { fontSize = 14 }
+                        Button("Medium") { fontSize = 16 }
+                        Button("Large") { fontSize = 20 }
                     } label: {
                         Image(systemName: "textformat.size")
                     }

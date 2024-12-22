@@ -23,7 +23,7 @@ struct TaleRowView: View {
                 .foregroundColor(.primary)
 
             HStack {
-                Label("\(tale.timeToRead) րոպե", systemImage: "clock")
+                Label("\(tale.timeToRead) minutes", systemImage: "clock")
                     .font(.caption)
                     .foregroundColor(.secondary)
 

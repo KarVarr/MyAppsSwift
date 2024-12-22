@@ -35,7 +35,7 @@ struct SettingsView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 20) {
-                Text("Настройки")
+                Text("Settings")
                     .font(.system(size: 18))
                     .foregroundStyle(Helper.ColorHex.darkBlue)
                 
