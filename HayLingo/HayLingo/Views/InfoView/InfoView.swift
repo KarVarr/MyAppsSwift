@@ -39,19 +39,19 @@ struct InfoView: View {
             
             
             VStack(spacing: 10) {
-                InfoButton(icon: "arrow.up.right.square", title: "Show in AppStore") {
+                InfoButton(icon: "arrow.up.right.square", title: NSLocalizedString("Show in AppStore", comment: "")) {
                     openAppStore()
                 }
-                InfoButton(icon: "star", title: "Rate the app") {
+                InfoButton(icon: "star", title: NSLocalizedString("Rate the app", comment: "")) {
                     rateApp()
                 }
-                InfoButton(icon: "app.badge", title: "Our other apps") {
+                InfoButton(icon: "app.badge", title: NSLocalizedString("Our other apps", comment: "")) {
                     openOtherApps()
                 }
                 Spacer()
-                InfoButton(icon: "trash", title: "Delete all data", backgroundColor: .red.opacity(0.8)) {
-                        isShowingDeleteAlert = true
-                    }
+                InfoButton(icon: "trash", title: NSLocalizedString("Delete all data", comment: ""), backgroundColor: .red.opacity(0.8)) {
+                    isShowingDeleteAlert = true
+                }
             }
             .alert("Delete All Data", isPresented: $isShowingDeleteAlert) {
                 Button("Yes", role: .destructive) {

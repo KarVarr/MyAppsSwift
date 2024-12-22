@@ -21,10 +21,10 @@ struct SettingsView: View {
     @State private var selectedSound = "On"
     @State private var selectedVibration = "On"
     
-    let languages: [String] = ["Russian", "English"]
-    let themes: [String] = ["Light", "Dark", "System"]
-    let sounds: [String] = ["On", "Off"]
-    let vibration: [String] = ["On", "Off"]
+    let languages: [String] = [NSLocalizedString("Russian", comment: ""), NSLocalizedString("English", comment: "")]
+    let themes: [String] = [NSLocalizedString("Light", comment: ""), NSLocalizedString("Dark", comment: ""), NSLocalizedString("System", comment: "")]
+    let sounds: [String] = [NSLocalizedString("On", comment: ""), NSLocalizedString("Off", comment: "")]
+    let vibration: [String] = [NSLocalizedString("On", comment: ""), NSLocalizedString("Off", comment: "")]
     
     init(showSettings: Binding<Bool>) {
         self._showSettings = showSettings

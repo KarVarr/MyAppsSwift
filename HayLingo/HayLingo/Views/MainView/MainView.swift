@@ -36,12 +36,12 @@ struct MainView: View {
                         if let lastProgress = user.progress.last(where: { $0.language == selectedLanguage && $0.correctAnswer > 0 && $0.totalQuestion > 0 }) {
                             return "\(lastProgress.language): \(lastProgress.correctAnswer)/\(lastProgress.totalQuestion)"
                         }
-                        return "No progress yet"
+                        return NSLocalizedString("No progress yet", comment: "")
                     }
                     
                     
                     VStackContent(
-                        title: "Previous lessons",
+                        title: NSLocalizedString("Previous lessons", comment: ""),
                         subtitle: latestProgress,
                         titleSize: 12,
                         width: vStackWidth,
@@ -65,7 +65,7 @@ struct MainView: View {
                         let totalCorrectAnswer = filteredProgress.reduce(0) { $0 + $1.correctAnswer }
                         let totalQuestions = filteredProgress.reduce(0) { $0 + $1.totalQuestion }
                         
-                        return "Correct answers: \(totalCorrectAnswer)/\(totalQuestions)"
+                        return NSLocalizedString("Correct answers:", comment: "")+"\(totalCorrectAnswer)/\(totalQuestions)"
                     }
                     
                     var language: String {
@@ -78,7 +78,7 @@ struct MainView: View {
                     
                     
                     VStackContent(
-                        title: "Your progress in \(selectedLanguage)",
+                        title: NSLocalizedString("Your progress in", comment: "")+" \(selectedLanguage)",
                         subtitle: allProgress,
                         titleSize: 12,
                         width: vStackWidth,
@@ -93,7 +93,7 @@ struct MainView: View {
                         //MARK: - History
                         NavigationLink(destination: TalesListView()) {
                             VStackContent(
-                                title: "Armenian Fairy Tales",
+                                title: NSLocalizedString("Armenian Fairy Tales", comment: ""),
                                 subtitle: nil,
                                 titleSize: 18,
                                 width: vStackWidth,
@@ -110,7 +110,7 @@ struct MainView: View {
                             showSettings = true
                         } label: {
                             VStackContent(
-                                title: "Settings",
+                                title: NSLocalizedString("Settings", comment: ""),
                                 subtitle: nil,
                                 titleSize: 18,
                                 width: vStackWidth,
@@ -126,7 +126,7 @@ struct MainView: View {
                         //MARK: - Play Game
                         NavigationLink(destination: LettersView()) {
                             VStackContent(
-                                title: "Study",
+                                title: NSLocalizedString("Study", comment: ""),
                                 subtitle: nil,
                                 titleSize: 18,
                                 width: vStackWidth,
@@ -159,7 +159,7 @@ struct MainView: View {
                         Helper.Haptic.triggerVibration(userData: userData, style: .light)
                         isInfoViewPresented = true
                     } label: {
-                        Image(systemName: "info")
+                        Image(systemName: "info.circle")
                         
                     }
                     .padding(.bottom, 20)

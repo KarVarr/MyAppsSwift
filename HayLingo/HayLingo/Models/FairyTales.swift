@@ -25,6 +25,10 @@ enum AgeGroup: String, CaseIterable {
     case all = "For everyone"
     
     static let defaultAgeGroup: AgeGroup = .all
+    
+    func localizeString() -> String {
+        return NSLocalizedString(self.rawValue, comment: "Age group description")
+    }
 }
 
 

@@ -238,31 +238,6 @@
         }
       }
     },
-    "Author" : {
-      "comment" : "TaleDetailView",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Author"
-          }
-        },
-        "hy" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Հեղինակ"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Автор"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "Author՝ %@" : {
       "comment" : "TaleDetailView",
       "localizations" : {
@@ -684,7 +659,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Загрузки…"
+            "value" : "Загрузка…"
           }
         }
       }
@@ -948,7 +923,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Наши другие приложения"
+            "value" : "Другие наши приложения"
           }
         }
       }
