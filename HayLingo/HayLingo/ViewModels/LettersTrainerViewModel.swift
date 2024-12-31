@@ -10,8 +10,11 @@ import SwiftData
 import AVFoundation
 
 final class LettersTrainerViewModel: ObservableObject {
-    @Environment(\.presentationMode) var presentationMode
+    // MARK: - Properties
+    @Query private var userData: [UserData]
+    @StateObject private var settingsManager = BaseSettingsManager.shared
     
+    // MARK: - Published Properties
     @Published var currentLetterIndex = 0
     @Published var score = 0
     @Published var correctAnswer = ""
@@ -24,7 +27,9 @@ final class LettersTrainerViewModel: ObservableObject {
     @Published var imageAndDescription: String?
     @Published var selectedAnswer: String?
     @Published var selectedLetters: [String] = []
-    @Published var selectedLanguage: String = "Russian"
+    @Published var selectedLanguage: String
+    @Published var isSoundEnabled: Bool
+    @Published var isVibrationEnabled: Bool
     
     private let englishTranslations: [String: String]
     private let russianTranslations: [String: String]
@@ -37,10 +42,41 @@ final class LettersTrainerViewModel: ObservableObject {
     }
     
     init(userData: [UserData]) {
-        self.selectedLanguage = userData.first?.selectedLanguage ?? "Russian"
+        let user = userData.first
+        
+        self.selectedLanguage = AppLanguage(rawValue: user?.selectedLanguage ?? "russian")?.localizedString ?? AppLanguage.russian.localizedString
+        self.isSoundEnabled = (user?.selectedSound ?? "on") == "on"
+        self.isVibrationEnabled = (user?.selectedVibration ?? "on") == "on"
+        
         self.englishTranslations = Letter.allLetters.reduce(into: [:]) { $0[$1.character] = $1.englishTranslation }
         self.russianTranslations = Letter.allLetters.reduce(into: [:]) { $0[$1.character] = $1.russianTranslation }
         self.animals = Letter.allLetters.reduce(into: [:]) { $0[$1.character] = $1.animals }
+        
+        setupNotifications()
+    }
+    
+    private func setupNotifications() {
+        NotificationCenter.default.addObserver(forName: .soundSettingsDidChange, object: nil, queue: .main) { [weak self] _ in
+            self?.handleSettingsChange()
+        }
+        
+        NotificationCenter.default.addObserver(forName: .vibrationSettingsDidChange, object: nil, queue: .main) { [weak self] _ in
+            self?.handleSettingsChange()
+        }
+        
+        NotificationCenter.default.addObserver(forName: .languageDidChange, object: nil, queue: .main) { [weak self] _ in
+            self?.handleSettingsChange()
+        }
+    }
+    
+    private func handleSettingsChange() {
+        guard let userData = userData.first else { return }
+        
+        selectedLanguage = AppLanguage(rawValue: userData.selectedLanguage)?.localizedString ?? AppLanguage.russian.localizedString
+        isSoundEnabled = AppSound(rawValue: userData.selectedSound)?.rawValue == AppSound.on.rawValue
+        isVibrationEnabled = AppVibration(rawValue: userData.selectedVibration)?.rawValue == AppVibration.on.rawValue
+        
+        setupQuestion()
     }
     
     func updateLanguage(_ language: String) {
@@ -89,7 +125,8 @@ final class LettersTrainerViewModel: ObservableObject {
         print("Updated imageAndDescription: \(imageAndDescription ?? "None")")
         
         
-        let translations = selectedLanguage == "Russian" ? russianTranslations : englishTranslations
+        let isRussianLanguage = AppLanguage.fromLocalizedString(selectedLanguage) == .russian
+        let translations = isRussianLanguage ? russianTranslations : englishTranslations
         
         correctAnswer = translations[currentLetter] ?? ""
         
@@ -132,6 +169,7 @@ final class LettersTrainerViewModel: ObservableObject {
     }
     
     func playSound(named soundName: String) {
+        guard settingsManager.isSoundEnabled else { return }
         guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else {
             print("Sound file \(soundName).mp3 not found")
             return
@@ -143,5 +181,11 @@ final class LettersTrainerViewModel: ObservableObject {
         } catch {
             print("Error playing sound: \(error.localizedDescription)")
         }
+    }
+    
+    func vibrate() {
+        guard settingsManager.isVibrationEnabled else { return }
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
     }
 }

@@ -9,9 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct SettingsView: View {
+    @StateObject private var settingsManager = BaseSettingsManager.shared
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var themeManager: ThemeManager
+    @EnvironmentObject var soundManager: SoundsManager
     @Query var userData: [UserData]
     
     @Binding var showSettings: Bool
@@ -61,10 +63,12 @@ struct SettingsView: View {
                     }
                     .onChange(of: selectedLanguage) {_, newValue in
                         let language = AppLanguage.fromLocalizedString(newValue)
+                        settingsManager.updateLanguage(language)
                         saveOption { user in
                             user.selectedLanguage = language.rawValue
                         }
-                        NotificationCenter.default.post(name: .languageDidChange, object: nil)                    }
+                        NotificationCenter.default.post(name: .languageDidChange, object: nil)
+                    }
                     .pickerStyle(.segmented)
                     
                     .frame(width: vStackWidth)
@@ -108,6 +112,7 @@ struct SettingsView: View {
                     }
                     .onChange(of: selectedSound) {_, newValue in
                         let sound = AppSound.fromLocalizedString(newValue)
+                        settingsManager.updateSound(sound)
                         saveOption { user in
                             user.selectedSound = sound.rawValue
                         }
@@ -132,6 +137,7 @@ struct SettingsView: View {
                     }
                     .onChange(of: selectedVibration) {_, newValue in
                         let vibration = AppVibration.fromLocalizedString(newValue)
+                        settingsManager.updateVibration(vibration)
                         saveOption { user in
                             user.selectedVibration = vibration.rawValue
                         }
@@ -178,17 +184,14 @@ struct SettingsView: View {
     
     private func loadInitialSettings() {
         guard let user = userData.first else {
-            print("No user data found, creating default user.")
             createDefaultUser()
             return
         }
         
-        print("User data found: \(user)")
-        // Конвертируем сохраненные raw values в локализованные строки
-        selectedLanguage = AppLanguage(rawValue: user.selectedLanguage)?.localizedString ?? AppLanguage.russian.localizedString
-        selectedTheme = AppTheme(rawValue: user.selectedTheme)?.localizedString ?? AppTheme.system.localizedString
-        selectedSound = AppSound(rawValue: user.selectedSound)?.localizedString ?? AppSound.on.localizedString
-        selectedVibration = AppVibration(rawValue: user.selectedVibration)?.localizedString ?? AppVibration.on.localizedString
+        selectedLanguage = AppLanguage(rawValue: settingsManager.currentLanguage.rawValue)?.localizedString ?? AppLanguage.russian.localizedString
+        selectedTheme = AppTheme(rawValue: settingsManager.currentTheme.rawValue)?.localizedString ?? AppTheme.system.localizedString
+        selectedSound = AppSound(rawValue: settingsManager.isSoundEnabled ? "sound_on" : "sound_off")?.localizedString ?? AppSound.on.localizedString
+        selectedVibration = AppVibration(rawValue: settingsManager.isVibrationEnabled ? "vibration_on" : "vibration_off")?.localizedString ?? AppVibration.on.localizedString
     }
     
     private func createDefaultUser() {
@@ -205,13 +208,20 @@ struct SettingsView: View {
     private func saveOption(_ update: (UserData) -> Void) {
         guard let user = userData.first else { return }
         update(user)
+        
         do {
             try context.save()
-            print("Data saved: \(user)")
+            
+            user.selectedLanguage = settingsManager.currentLanguage.rawValue
+            user.selectedSound = settingsManager.isSoundEnabled ? AppSound.on.rawValue : AppSound.off.rawValue
+            user.selectedVibration = settingsManager.isVibrationEnabled ? AppVibration.on.rawValue : AppVibration.off.rawValue
+            
+            print("Settings saved: \(user)")
         } catch {
-            print("Ошибка сохранения: \(error)")
+            print("Save error: \(error)")
         }
     }
+    
     
     private func setColorInDarkMode(light lightColor: Color, dark darkColor: Color) -> Color {
         switch themeManager.currentTheme {
@@ -229,6 +239,7 @@ struct SettingsView: View {
 #Preview {
     SettingsView(showSettings: .constant(false))
         .environmentObject(ThemeManager())
+        .environmentObject(SoundsManager())
 }
 
 

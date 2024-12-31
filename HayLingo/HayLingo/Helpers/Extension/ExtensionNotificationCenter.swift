@@ -10,4 +10,6 @@ import Foundation
 
 extension Notification.Name {
     static let languageDidChange = Notification.Name("languageDidChange")
+    static let soundSettingsDidChange = Notification.Name("soundSettingsDidChange")
+    static let vibrationSettingsDidChange = Notification.Name("vibrationSettingsDidChange")
 }

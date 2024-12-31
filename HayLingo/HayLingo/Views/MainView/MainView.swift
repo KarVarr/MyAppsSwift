@@ -11,7 +11,11 @@ import SwiftData
 struct MainView: View {
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var themeManager: ThemeManager
+    @StateObject private var settingsManager = BaseSettingsManager.shared
+//    @EnvironmentObject var themeManager: ThemeManager
+//    @EnvironmentObject var soundManager: SoundsManager
+    @StateObject private var themeManager = ThemeManager()
+    @StateObject private var soundManager = SoundsManager()
     
     @Query var userData: [UserData]
     
@@ -56,10 +60,10 @@ struct MainView: View {
                     
                     var allProgress: String {
                         guard let user = userData.first else { return "No data" }
-                        let filteredProgress = user.progress.filter { $0.language == selectedLanguage }
+                        let filteredProgress = user.progress.filter { $0.language == settingsManager.currentLanguage.rawValue }
                         
                         if filteredProgress.isEmpty {
-                            return NSLocalizedString("No data", comment: "")+" (\(selectedLanguage))"
+                            return NSLocalizedString("No data", comment: "")+" (\(settingsManager.currentLanguage))"
                         }
                         
                         let totalCorrectAnswer = filteredProgress.reduce(0) { $0 + $1.correctAnswer }
@@ -78,7 +82,7 @@ struct MainView: View {
                     
                     
                     VStackContent(
-                        title: NSLocalizedString("Your progress", comment: "")+" (\(selectedLanguage))",
+                        title: NSLocalizedString("Your progress", comment: "")+" (\(settingsManager.currentLanguage))",
                         subtitle: allProgress,
                         titleSize: 12,
                         width: vStackWidth,
@@ -186,8 +190,10 @@ struct MainView: View {
                                     .asymmetric(
                                         insertion: .move(edge: .bottom),
                                         removal: .move(edge: .top)
-                                    ))                               .environment(\.modelContext, context)
+                                    ))
+                                .environment(\.modelContext, context)
                                 .environmentObject(themeManager)
+                                .environmentObject(soundManager)
                         }
                     }
                 )
@@ -246,4 +252,5 @@ struct MainView: View {
 #Preview {
     MainView()
         .environmentObject(ThemeManager())
+        .environmentObject(SoundsManager())
 }
