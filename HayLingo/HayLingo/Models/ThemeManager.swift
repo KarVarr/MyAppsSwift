@@ -90,7 +90,7 @@ enum AppTheme: String, CaseIterable {
                 return theme
             }
         }
-        return .system // возвращаем значение по умолчанию
+        return .system 
     }
 }
 

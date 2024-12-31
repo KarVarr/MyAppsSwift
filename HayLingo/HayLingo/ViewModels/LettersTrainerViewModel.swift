@@ -120,7 +120,7 @@ final class LettersTrainerViewModel: ObservableObject {
         score = 0
         correctAnswers = []
         wrongAnswers = []
-        selectedLetters = [] // Полностью очищаем
+        selectedLetters = []
         options = []
         selectedAnswer = nil
         showResult = false

@@ -1,5 +1,5 @@
 //
-//   UserData.swift
+//  UserData.swift
 //  HayLingo
 //
 //  Created by Karen Vardanian on 12.11.2024.

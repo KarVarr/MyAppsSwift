@@ -333,23 +333,6 @@
         }
       }
     },
-    "Dark" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "hy" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Մուգ"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Темная"
-          }
-        }
-      }
-    },
     "Data Deleted" : {
       "comment" : "infoViewAlert",
       "extractionState" : "manual",
@@ -441,23 +424,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не сдавайтесь, у вас обязательно все получится!"
-          }
-        }
-      }
-    },
-    "English" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "English"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Английский"
           }
         }
       }
@@ -600,23 +566,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Большой"
-          }
-        }
-      }
-    },
-    "Light" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "hy" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Լուսավոր"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Светлая"
           }
         }
       }
@@ -812,17 +761,6 @@
         }
       }
     },
-    "Off" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Выключено"
-          }
-        }
-      }
-    },
     "OK" : {
       "comment" : "infoViewAlert",
       "extractionState" : "manual",
@@ -843,17 +781,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ок"
-          }
-        }
-      }
-    },
-    "On" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Включено"
           }
         }
       }
@@ -996,17 +923,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Счет: %1$lld из %2$lld"
-          }
-        }
-      }
-    },
-    "Russian" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Русский"
           }
         }
       }
@@ -1295,23 +1211,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Учить"
-          }
-        }
-      }
-    },
-    "System" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "hy" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Համակարգ"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Системная"
           }
         }
       }
