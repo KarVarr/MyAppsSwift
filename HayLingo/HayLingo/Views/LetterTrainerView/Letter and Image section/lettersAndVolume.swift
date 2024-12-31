@@ -10,8 +10,9 @@ import SwiftUI
 struct lettersAndVolume: View {
     @ObservedObject var viewModel: LettersTrainerViewModel
     
+    @StateObject private var settingsManager = BaseSettingsManager.shared
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var themeManager: ThemeManager
+//    @EnvironmentObject var themeManager: ThemeManager
     
     var body: some View {
         GeometryReader { geo in
@@ -27,7 +28,7 @@ struct lettersAndVolume: View {
                         .minimumScaleFactor(0.5)
                         .fontWeight(.light)
                 }
-                .foregroundStyle(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.black, dark: Helper.ColorHex.white, themeManager: themeManager, colorScheme: colorScheme))
+                .foregroundStyle(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.black, dark: Helper.ColorHex.white, themeManager: settingsManager, colorScheme: colorScheme))
                 .frame(maxWidth: .infinity)
                 soundPlayButton(geometry: geo)
             }
@@ -41,7 +42,7 @@ struct lettersAndVolume: View {
             Image(systemName: "volume.2")
                 .resizable()
                 .scaledToFit()
-                .foregroundStyle(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.orange, dark: Helper.ColorHex.pink, themeManager: themeManager, colorScheme: colorScheme))
+                .foregroundStyle(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.orange, dark: Helper.ColorHex.pink, themeManager: settingsManager, colorScheme: colorScheme))
                 .frame(
                     width: geometry.size.width * 0.16,
                     height: geometry.size.width * 0.16

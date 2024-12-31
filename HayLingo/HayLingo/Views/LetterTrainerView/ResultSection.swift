@@ -12,7 +12,8 @@ struct ResultSection: View {
     @Environment(\.presentationMode) private var presentationMode
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var themeManager: ThemeManager
+    @StateObject private var settingsManager = BaseSettingsManager.shared
+//    @EnvironmentObject var themeManager: ThemeManager
     
     @Query var userData: [UserData]
     @ObservedObject var viewModel: LettersTrainerViewModel
@@ -35,13 +36,13 @@ struct ResultSection: View {
                 .background {
                     RoundedRectangle(cornerRadius: 20, style: .continuous)
                         .fill(
-                            Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black, themeManager: themeManager, colorScheme: colorScheme)
+                            Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black, themeManager: settingsManager, colorScheme: colorScheme)
                         )
                         .shadow(
                             color: Helper.ThemeColorManager.setColorInDarkMode(
                                 light: .gray.opacity(0.4),
                                 dark: .black.opacity(0.4),
-                                themeManager: themeManager,
+                                themeManager: settingsManager,
                                 colorScheme: colorScheme
                             ),
                             radius: 5,
@@ -56,7 +57,7 @@ struct ResultSection: View {
                 Helper.ThemeColorManager.setColorInDarkMode(
                     light: Helper.ColorHex.backgroundLightGray,
                     dark: Helper.ColorHex.backgroundDarkGray,
-                    themeManager: themeManager,
+                    themeManager: settingsManager,
                     colorScheme: colorScheme
                 )
             )
@@ -105,7 +106,7 @@ struct ResultSection: View {
             Helper.ThemeColorManager.setColorInDarkMode(
                 light: Helper.ColorHex.darkBlue,
                 dark: Helper.ColorHex.lightOrange,
-                themeManager: themeManager,
+                themeManager: settingsManager,
                 colorScheme: colorScheme
             )
         )
@@ -121,7 +122,7 @@ struct ResultSection: View {
                     Helper.ThemeColorManager.setColorInDarkMode(
                         light: Helper.ColorHex.darkBlue,
                         dark: Helper.ColorHex.lightOrange,
-                        themeManager: themeManager,
+                        themeManager: settingsManager,
                         colorScheme: colorScheme
                     )
                 )
@@ -146,7 +147,7 @@ struct ResultSection: View {
             Helper.ThemeColorManager.setColorInDarkMode(
                 light: Helper.ColorHex.darkBlue,
                 dark: Helper.ColorHex.lightOrange,
-                themeManager: themeManager,
+                themeManager: settingsManager,
                 colorScheme: colorScheme
             )
         )

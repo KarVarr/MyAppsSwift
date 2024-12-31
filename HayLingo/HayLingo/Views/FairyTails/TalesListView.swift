@@ -11,7 +11,8 @@ import SwiftData
 struct TalesListView: View {
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var themeManager: ThemeManager
+    @StateObject private var settingsManager = BaseSettingsManager.shared
+//    @EnvironmentObject var themeManager: ThemeManager
 
     @Query var userData: [UserData]
     let tales = FairyTales.getAllTales()
@@ -23,7 +24,7 @@ struct TalesListView: View {
                     .listRowBackground(Helper.ColorHex.lightGray.opacity(0.3))
             }
             .scrollContentBackground(.hidden)
-            .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme))
+            .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: settingsManager, colorScheme: colorScheme))
             .listStyle(.insetGrouped)
             .navigationTitle("Fairy Tales")
         }

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct TaleDetailView: View {
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var themeManager: ThemeManager
+    @StateObject private var settingsManager = BaseSettingsManager.shared
+//    @EnvironmentObject var themeManager: ThemeManager
     
     @State private var fontSize: CGFloat = 16
     @State private var displayedContent: String = ""
@@ -53,7 +54,7 @@ struct TaleDetailView: View {
             Helper.ThemeColorManager.setColorInDarkMode(
                 light: Helper.ColorHex.backgroundLightGray,
                 dark: Helper.ColorHex.backgroundDarkGray,
-                themeManager: themeManager,
+                themeManager: settingsManager,
                 colorScheme: colorScheme
             )
             .ignoresSafeArea()

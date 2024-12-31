@@ -11,7 +11,8 @@ import SwiftData
 struct TaleRowView: View {
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var themeManager: ThemeManager
+    @StateObject private var settingsManager = BaseSettingsManager.shared
+//    @EnvironmentObject var themeManager: ThemeManager
     @Query var userData: [UserData]
     let tale: Tale
     @State private var isActive = false
@@ -46,7 +47,7 @@ struct TaleRowView: View {
                             .background(Helper.ThemeColorManager.setColorInDarkMode(
                                 light: Color.blue.opacity(0.3),
                                 dark: Color.pink.opacity(0.3),
-                                themeManager: themeManager,
+                                themeManager: settingsManager,
                                 colorScheme: colorScheme
                             ))
                             .cornerRadius(8)

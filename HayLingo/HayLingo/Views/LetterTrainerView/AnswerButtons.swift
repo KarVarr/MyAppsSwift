@@ -10,7 +10,8 @@ import SwiftData
 
 struct AnswerButtons: View {
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var themeManager: ThemeManager
+    @StateObject private var settingsManager = BaseSettingsManager.shared
+//    @EnvironmentObject var themeManager: ThemeManager
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
     
@@ -65,8 +66,8 @@ struct AnswerButtons: View {
             return viewModel.isCorrect ? .green : .red
         }
         return viewModel.areButtonsDisabled
-        ? Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.orange.opacity(0.3), dark: Helper.ColorHex.pink.opacity(0.3), themeManager: themeManager, colorScheme: colorScheme)
-        : Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.orange, dark: Helper.ColorHex.pink, themeManager: themeManager, colorScheme: colorScheme)
+        ? Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.orange.opacity(0.3), dark: Helper.ColorHex.pink.opacity(0.3), themeManager: settingsManager, colorScheme: colorScheme)
+        : Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.orange, dark: Helper.ColorHex.pink, themeManager: settingsManager, colorScheme: colorScheme)
     }
 }
 

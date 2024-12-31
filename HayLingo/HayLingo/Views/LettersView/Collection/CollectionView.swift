@@ -11,6 +11,8 @@ import SwiftData
 
 
 struct CollectionView: View {
+    @StateObject private var settingsManager = BaseSettingsManager.shared
+    @State private var currentLanguage: AppLanguage = .russian
     @ObservedObject var viewModel: LettersTrainerViewModel
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
@@ -18,8 +20,11 @@ struct CollectionView: View {
     @State private var pressedLetterId: Int? = nil
     
     private let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    //    private var selectedLanguage: String {
+    //        userData.first?.selectedLanguage ?? "Russian"
+    //    }
     private var selectedLanguage: String {
-        userData.first?.selectedLanguage ?? "Russian"
+        return BaseSettingsManager.shared.currentLanguage.rawValue
     }
     
     var body: some View {
@@ -42,7 +47,9 @@ struct CollectionView: View {
                             index: index,
                             firstArmUppercaseLetter: letter,
                             secondArmLowercaseLetter: letter.lowercased(),
-                            letterForStudy: selectedLanguage == "Russian" ? AllLetters.russianAlphabet[index] : AllLetters.englishAlphabet[index]
+                            letterForStudy: currentLanguage == .russian ?
+                            AllLetters.russianAlphabet[index] :
+                                AllLetters.englishAlphabet[index]
                         )
                         .scaleEffect(pressedLetterId == index ? 0.9 : 1.0)
                         .animation(.easeInOut(duration: 0.2), value: pressedLetterId)
@@ -63,6 +70,12 @@ struct CollectionView: View {
             .padding(5)
             .padding(.bottom, 10)
             
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .languageDidChange)) { _ in
+            currentLanguage = settingsManager.currentLanguage
+        }
+        .onAppear {
+            currentLanguage = settingsManager.currentLanguage
         }
     }
     

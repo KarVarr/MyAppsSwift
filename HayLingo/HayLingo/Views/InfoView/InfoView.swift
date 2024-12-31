@@ -11,7 +11,8 @@ import SwiftData
 struct InfoView: View {
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var themeManager: ThemeManager
+    @StateObject private var settingsManager = BaseSettingsManager.shared
+//    @EnvironmentObject var themeManager: ThemeManager
     @Query var userData: [UserData]
     @State private var isShowingDeleteAlert = false
     @State private var isShowingConfirmationAlert = false
@@ -82,7 +83,7 @@ struct InfoView: View {
         .background(Helper.ThemeColorManager.setColorInDarkMode(
             light: Helper.ColorHex.backgroundLightGray,
             dark: Helper.ColorHex.backgroundDarkGray,
-            themeManager: themeManager,
+            themeManager: settingsManager,
             colorScheme: colorScheme)
         )
     }

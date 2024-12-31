@@ -36,20 +36,24 @@ class BaseSettingsManager: ObservableObject {
     
     func updateTheme(_ theme: AppTheme) {
         storedTheme = theme.rawValue
+        objectWillChange.send()
     }
     
     func updateLanguage(_ language: AppLanguage) {
         storedLanguage = language.rawValue
+        objectWillChange.send()
         NotificationCenter.default.post(name: .languageDidChange, object: nil)
     }
     
     func updateSound(_ sound: AppSound) {
         storedSound = sound.rawValue
+        objectWillChange.send()
         NotificationCenter.default.post(name: .soundSettingsDidChange, object: nil)
     }
     
     func updateVibration(_ vibration: AppVibration) {
         storedVibration = vibration.rawValue
+        objectWillChange.send()
         NotificationCenter.default.post(name: .vibrationSettingsDidChange, object: nil)
     }
     

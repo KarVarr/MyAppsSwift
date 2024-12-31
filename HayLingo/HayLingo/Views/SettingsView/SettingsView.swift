@@ -12,8 +12,6 @@ struct SettingsView: View {
     @StateObject private var settingsManager = BaseSettingsManager.shared
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var themeManager: ThemeManager
-    @EnvironmentObject var soundManager: SoundsManager
     @Query var userData: [UserData]
     
     @Binding var showSettings: Bool
@@ -88,7 +86,7 @@ struct SettingsView: View {
                     }
                     .onChange(of: selectedTheme) {_, newValue in
                         let theme = AppTheme.fromLocalizedString(newValue)
-                        themeManager.updateTheme(theme)
+                        settingsManager.updateTheme(theme)
                         saveOption { user in
                             user.selectedTheme = theme.rawValue
                         }
@@ -224,7 +222,7 @@ struct SettingsView: View {
     
     
     private func setColorInDarkMode(light lightColor: Color, dark darkColor: Color) -> Color {
-        switch themeManager.currentTheme {
+        switch settingsManager.currentTheme {
         case .light:
             return lightColor
         case .dark:
@@ -238,8 +236,7 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView(showSettings: .constant(false))
-        .environmentObject(ThemeManager())
-        .environmentObject(SoundsManager())
+        .environmentObject(BaseSettingsManager.shared)
 }
 
 

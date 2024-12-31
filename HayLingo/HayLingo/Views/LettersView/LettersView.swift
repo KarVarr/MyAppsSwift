@@ -11,9 +11,10 @@ import SwiftData
 struct LettersView: View {
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var themeManager: ThemeManager
-    
+    @StateObject private var settingsManager = BaseSettingsManager.shared
+    @State private var selectedLanguage: String = AppLanguage.russian.rawValue
     @Query var userData: [UserData]
+    
     
     @State private var selectedLetters: [String] = []
     
@@ -65,8 +66,24 @@ struct LettersView: View {
                     .padding()
                 }
             }
-            .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme))
-            .toolbarBackground(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme), for: .navigationBar)
+            .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: settingsManager, colorScheme: colorScheme))
+            .toolbarBackground(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: settingsManager, colorScheme: colorScheme), for: .navigationBar)
+        }
+        .onAppear {
+            setupLanguageObserver()
+        }
+        .onDisappear {
+            NotificationCenter.default.removeObserver(self)
+        }
+    }
+    
+    private func setupLanguageObserver() {
+        NotificationCenter.default.addObserver(
+            forName: .languageDidChange,
+            object: nil,
+            queue: .main
+        ) { _ in
+            selectedLanguage = settingsManager.currentLanguage.rawValue
         }
     }
 }

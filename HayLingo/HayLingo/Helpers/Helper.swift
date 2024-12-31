@@ -33,7 +33,7 @@ enum Helper {
     }
     
     enum ThemeColorManager {
-        static func setColorInDarkMode(light lightColor: Color, dark darkColor: Color, themeManager: ThemeManager, colorScheme: ColorScheme) -> Color {
+        static func setColorInDarkMode(light lightColor: Color, dark darkColor: Color, themeManager: BaseSettingsManager, colorScheme: ColorScheme) -> Color {
             switch themeManager.currentTheme {
             case .light:
                 return lightColor
@@ -49,7 +49,7 @@ enum Helper {
     
     enum Haptic {
         static func triggerVibration(userData: [UserData], style: UIImpactFeedbackGenerator.FeedbackStyle) {
-            if userData.first?.selectedVibration == "On" {
+            if BaseSettingsManager.shared.isVibrationEnabled {
                 let feedbackGenerator = UIImpactFeedbackGenerator(style: style)
                 feedbackGenerator.impactOccurred()
             }
@@ -58,7 +58,7 @@ enum Helper {
     
     enum SoundClick {
         static func triggerSound(userData: [UserData]) {
-            if userData.first?.selectedSound == "On" {
+            if BaseSettingsManager.shared.isSoundEnabled {
                 SoundManager.shared.playSound(name: "click")
             }
         }

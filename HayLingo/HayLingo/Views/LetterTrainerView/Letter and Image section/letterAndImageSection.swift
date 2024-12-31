@@ -9,7 +9,8 @@ import SwiftUI
 
 struct letterAndImageSection: View {
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var themeManager: ThemeManager
+    @StateObject private var settingsManager = BaseSettingsManager.shared
+//    @EnvironmentObject var themeManager: ThemeManager
     @ObservedObject var viewModel: LettersTrainerViewModel
     var geometry: GeometryProxy
     
@@ -27,13 +28,13 @@ struct letterAndImageSection: View {
         .background {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(
-                    Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black, themeManager: themeManager, colorScheme: colorScheme)
+                    Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.black, themeManager: settingsManager, colorScheme: colorScheme)
                 )
                 .shadow(
                     color: Helper.ThemeColorManager.setColorInDarkMode(
                         light: .gray.opacity(0.4),
                         dark: .black.opacity(0.4),
-                        themeManager: themeManager,
+                        themeManager: settingsManager,
                         colorScheme: colorScheme
                     ),
                     radius: 5,

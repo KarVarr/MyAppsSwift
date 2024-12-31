@@ -13,6 +13,7 @@ struct LettersTrainerView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
+    @StateObject private var settingsManager = BaseSettingsManager.shared
     @EnvironmentObject var themeManager: ThemeManager
     @Query var userData: [UserData]
     
@@ -42,14 +43,14 @@ struct LettersTrainerView: View {
             .padding()
             .onAppear {
                 if let firstUserData = userData.first {
-                    viewModel.updateLanguage(firstUserData.selectedLanguage ?? "Russian")
+                    viewModel.updateLanguage(firstUserData.selectedLanguage)
                     viewModel.setup(with: selectedLetters)
                 }
             }
             .navigationBarBackButtonHidden(viewModel.currentLetterIndex >= viewModel.selectedLetters.count)
         }
         .background(
-            Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme)
+            Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: settingsManager, colorScheme: colorScheme)
         )
     }
 }

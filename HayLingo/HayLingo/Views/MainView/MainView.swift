@@ -12,10 +12,6 @@ struct MainView: View {
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var settingsManager = BaseSettingsManager.shared
-//    @EnvironmentObject var themeManager: ThemeManager
-//    @EnvironmentObject var soundManager: SoundsManager
-    @StateObject private var themeManager = ThemeManager()
-    @StateObject private var soundManager = SoundsManager()
     
     @Query var userData: [UserData]
     
@@ -31,7 +27,7 @@ struct MainView: View {
                     Text("HayLingo")
                         .frame(height: geometry.size.height / 6)
                         .font(.system(size: 46, weight: .bold, design: .monospaced))
-                        .foregroundStyle(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.red, dark: Helper.ColorHex.orange, themeManager: themeManager, colorScheme: colorScheme))
+                        .foregroundStyle(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.red, dark: Helper.ColorHex.orange, themeManager: settingsManager, colorScheme: colorScheme))
                     
                     let vStackWidth = geometry.size.width * 0.7
                     
@@ -49,8 +45,8 @@ struct MainView: View {
                         subtitle: latestProgress,
                         titleSize: 12,
                         width: vStackWidth,
-                        backgroundColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.lightGray, themeManager: themeManager, colorScheme: colorScheme),
-                        textColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.darkBlue, dark: Helper.ColorHex.black, themeManager: themeManager, colorScheme: colorScheme),
+                        backgroundColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.lightGray, themeManager: settingsManager, colorScheme: colorScheme),
+                        textColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.darkBlue, dark: Helper.ColorHex.black, themeManager: settingsManager, colorScheme: colorScheme),
                         spacing: 10,
                         alignment: .leading,
                         shadowColor: setShadow()
@@ -86,8 +82,8 @@ struct MainView: View {
                         subtitle: allProgress,
                         titleSize: 12,
                         width: vStackWidth,
-                        backgroundColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.lightGray, themeManager: themeManager, colorScheme: colorScheme),
-                        textColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.darkBlue, dark: Helper.ColorHex.black, themeManager: themeManager, colorScheme: colorScheme),
+                        backgroundColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.white, dark: Helper.ColorHex.lightGray, themeManager: settingsManager, colorScheme: colorScheme),
+                        textColor: Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.darkBlue, dark: Helper.ColorHex.black, themeManager: settingsManager, colorScheme: colorScheme),
                         spacing: 10,
                         alignment: .leading,
                         shadowColor: setShadow()
@@ -173,7 +169,7 @@ struct MainView: View {
                 }
                 .frame(maxWidth: .infinity, minHeight: geometry.size.height)
                 
-                .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: themeManager, colorScheme: colorScheme))
+                .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: settingsManager, colorScheme: colorScheme))
                 .overlay(
                     ZStack {
                         if showSettings {
@@ -192,14 +188,13 @@ struct MainView: View {
                                         removal: .move(edge: .top)
                                     ))
                                 .environment(\.modelContext, context)
-                                .environmentObject(themeManager)
-                                .environmentObject(soundManager)
+                                .environmentObject(settingsManager)
                         }
                     }
                 )
                 .animation(.easeInOut, value: showSettings)
             }
-            .environmentObject(themeManager)
+            .environmentObject(settingsManager)
         }
         .onAppear {
             if userData.isEmpty {
@@ -226,7 +221,7 @@ struct MainView: View {
     
     private func updateLanguage() {
         if let user = userData.first {
-            selectedLanguage = user.selectedLanguage ?? "Russian"
+            selectedLanguage = user.selectedLanguage
         }
     }
     
@@ -238,7 +233,7 @@ struct MainView: View {
     }
     
     private func setShadow() -> Color {
-        switch themeManager.currentTheme {
+        switch settingsManager.currentTheme {
         case .light:
             return .gray.opacity(0.3)
         case .dark:
@@ -251,6 +246,4 @@ struct MainView: View {
 
 #Preview {
     MainView()
-        .environmentObject(ThemeManager())
-        .environmentObject(SoundsManager())
 }
