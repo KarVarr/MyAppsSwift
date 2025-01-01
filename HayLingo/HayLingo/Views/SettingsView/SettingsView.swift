@@ -21,7 +21,6 @@ struct SettingsView: View {
     @State private var selectedSound = "On"
     @State private var selectedVibration = "On"
     
-    // Используем локализованные строки из enum'ов
     let languages: [String] = AppLanguage.allCases.map { $0.localizedString }
     let themes: [String] = AppTheme.allCases.map { $0.localizedString }
     let sounds: [String] = AppSound.allCases.map { $0.localizedString }
@@ -66,6 +65,8 @@ struct SettingsView: View {
                             user.selectedLanguage = language.rawValue
                         }
                         NotificationCenter.default.post(name: .languageDidChange, object: nil)
+                        Helper.SoundClick.triggerSound(userData: userData)
+                        Helper.Haptic.triggerVibration(userData: userData, style: .light)
                     }
                     .pickerStyle(.segmented)
                     
@@ -90,6 +91,8 @@ struct SettingsView: View {
                         saveOption { user in
                             user.selectedTheme = theme.rawValue
                         }
+                        Helper.SoundClick.triggerSound(userData: userData)
+                        Helper.Haptic.triggerVibration(userData: userData, style: .light)
                     }
                     .pickerStyle(.segmented)
                     .frame(width: vStackWidth)
@@ -114,6 +117,8 @@ struct SettingsView: View {
                         saveOption { user in
                             user.selectedSound = sound.rawValue
                         }
+                        Helper.SoundClick.triggerSound(userData: userData)
+                        Helper.Haptic.triggerVibration(userData: userData, style: .light)
                     }
                     .pickerStyle(.segmented)
                     .frame(width: vStackWidth)
@@ -139,6 +144,8 @@ struct SettingsView: View {
                         saveOption { user in
                             user.selectedVibration = vibration.rawValue
                         }
+                        Helper.SoundClick.triggerSound(userData: userData)
+                        Helper.Haptic.triggerVibration(userData: userData, style: .light)
                     }
                     .pickerStyle(.segmented)
                     .frame(width: vStackWidth)
@@ -161,7 +168,12 @@ struct SettingsView: View {
                 .simultaneousGesture(
                     TapGesture().onEnded {
                         showSettings = false
-                        print("on end press button")
+                        Helper.SoundClick.triggerSound(userData: userData)
+                        Helper.Haptic.triggerVibration(
+                            userData: userData,
+                            style: .light
+                        )
+                        print("On end press button")
                     }
                 )
             }

@@ -104,6 +104,12 @@ struct MainView: View {
                                 shadowColor: setShadow()
                             )
                         }
+                        .simultaneousGesture(
+                            TapGesture().onEnded({
+                                Helper.SoundClick.triggerSound(userData: userData)
+                                Helper.Haptic.triggerVibration(userData: userData, style: .light)
+                            })
+                        )
                         
                         //MARK: - Settings
                         Button {
@@ -122,7 +128,6 @@ struct MainView: View {
                             )
                         }
                         
-                        
                         //MARK: - Play Game
                         NavigationLink(destination: LettersView()) {
                             VStackContent(
@@ -137,18 +142,13 @@ struct MainView: View {
                                 shadowColor: setShadow()
                             )
                         }
-                    }
-                    .simultaneousGesture(
-                        TapGesture().onEnded(
-                            {
+                        .simultaneousGesture(
+                            TapGesture().onEnded({
                                 Helper.SoundClick.triggerSound(userData: userData)
-                                Helper.Haptic.triggerVibration(
-                                    userData: userData,
-                                    style: .light
-                                )
-                            }
+                                Helper.Haptic.triggerVibration(userData: userData, style: .light)
+                            })
                         )
-                    )
+                    }
                     
                     
                     Spacer()
