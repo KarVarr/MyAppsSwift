@@ -15,9 +15,32 @@ struct MainView: View {
     
     @Query var userData: [UserData]
     
+    @State private var isSettingsTapEnabled = true
     @State private var isInfoViewPresented = false
     @State private var showSettings = false
     @State private var selectedLanguage: String = "Russian"
+    
+    @State var count = 0
+    
+    private var latestProgress: String {
+        guard let user = userData.first else {
+            return NSLocalizedString("No data", comment: "")
+        }
+        
+        
+        let sorted = user.progress
+            .filter { $0.language == settingsManager.currentLanguage.rawValue }
+            .sorted { $0.id > $1.id }
+        
+        
+        if let lastProgress = sorted.first,
+           lastProgress.correctAnswer > 0,
+           lastProgress.totalQuestion > 0 {
+            let languageEnum = AppLanguage(rawValue: lastProgress.language) ?? .english
+            return "\(languageEnum.localizedString): \(lastProgress.correctAnswer)/\(lastProgress.totalQuestion)"
+        }
+        return NSLocalizedString("No data", comment: "")
+    }
     
     var body: some View {
         NavigationStack {
@@ -30,21 +53,6 @@ struct MainView: View {
                         .foregroundStyle(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.red, dark: Helper.ColorHex.orange, themeManager: settingsManager, colorScheme: colorScheme))
                     
                     let vStackWidth = geometry.size.width * 0.7
-                    
-                    var latestProgress: String {
-                        guard let user = userData.first else { return NSLocalizedString("No data", comment: "") }
-                        
-                        let filteredProgress = user.progress
-                            .filter { $0.language == settingsManager.currentLanguage.rawValue }
-                        
-                        if let lastProgress = filteredProgress.last,
-                           lastProgress.correctAnswer > 0,
-                           lastProgress.totalQuestion > 0 {
-                            let languageEnum = AppLanguage(rawValue: lastProgress.language) ?? .english
-                            return "\(languageEnum.localizedString): \(lastProgress.correctAnswer)/\(lastProgress.totalQuestion)"
-                        }
-                        return NSLocalizedString("No data", comment: "")
-                    }
                     
                     VStackContent(
                         title: NSLocalizedString("Previous lessons", comment: ""),
@@ -59,17 +67,17 @@ struct MainView: View {
                     )
                     
                     var allProgress: String {
-                       guard let user = userData.first else { return NSLocalizedString("No data", comment: "") }
-                       let filteredProgress = user.progress.filter { $0.language == settingsManager.currentLanguage.rawValue }
-                       
-                       if filteredProgress.isEmpty {
-                           return NSLocalizedString("No data", comment: "")
-                       }
-                       
-                       let totalCorrectAnswer = filteredProgress.reduce(0) { $0 + $1.correctAnswer }
-                       let totalQuestions = filteredProgress.reduce(0) { $0 + $1.totalQuestion }
-                       
-                       return NSLocalizedString("Correct answers:", comment: "") + " \(totalCorrectAnswer)/\(totalQuestions)"
+                        guard let user = userData.first else { return NSLocalizedString("No data", comment: "") }
+                        let filteredProgress = user.progress.filter { $0.language == settingsManager.currentLanguage.rawValue }
+                        
+                        if filteredProgress.isEmpty {
+                            return NSLocalizedString("No data", comment: "")
+                        }
+                        
+                        let totalCorrectAnswer = filteredProgress.reduce(0) { $0 + $1.correctAnswer }
+                        let totalQuestions = filteredProgress.reduce(0) { $0 + $1.totalQuestion }
+                        
+                        return NSLocalizedString("Correct answers:", comment: "") + " \(totalCorrectAnswer)/\(totalQuestions)"
                     }
                     
                     VStackContent(
@@ -84,67 +92,67 @@ struct MainView: View {
                         shadowColor: setShadow()
                     )
                     
-                    Group {
-                        //MARK: - History
-                        NavigationLink(destination: TalesListView()) {
-                            VStackContent(
-                                title: NSLocalizedString("Armenian Fairy Tales", comment: ""),
-                                subtitle: nil,
-                                titleSize: 18,
-                                width: vStackWidth,
-                                backgroundColor: Helper.ColorHex.red,
-                                textColor: Helper.ColorHex.white,
-                                spacing: 1,
-                                alignment: .center,
-                                shadowColor: setShadow()
-                            )
-                        }
-                        .simultaneousGesture(
-                            TapGesture().onEnded({
-                                Helper.SoundClick.triggerSound(userData: userData)
-                                Helper.Haptic.triggerVibration(userData: userData, style: .light)
-                            })
+                    
+                    //MARK: - History
+                    NavigationLink(destination: TalesListView()) {
+                        VStackContent(
+                            title: NSLocalizedString("Armenian Fairy Tales", comment: ""),
+                            subtitle: nil,
+                            titleSize: 18,
+                            width: vStackWidth,
+                            backgroundColor: Helper.ColorHex.red,
+                            textColor: Helper.ColorHex.white,
+                            spacing: 1,
+                            alignment: .center,
+                            shadowColor: setShadow()
                         )
-                        
-                        //MARK: - Settings
-                        Button {
-                            showSettings = true
-                        } label: {
-                            VStackContent(
-                                title: NSLocalizedString("Settings", comment: ""),
-                                subtitle: nil,
-                                titleSize: 18,
-                                width: vStackWidth,
-                                backgroundColor: Helper.ColorHex.blue,
-                                textColor: Helper.ColorHex.white,
-                                spacing: 1,
-                                alignment: .center,
-                                shadowColor: setShadow()
-                            )
-                        }
-                        
-                        //MARK: - Play Game
-                        NavigationLink(destination: LettersView()) {
-                            VStackContent(
-                                title: NSLocalizedString("Study", comment: ""),
-                                subtitle: nil,
-                                titleSize: 18,
-                                width: vStackWidth,
-                                backgroundColor: Helper.ColorHex.orange,
-                                textColor: Helper.ColorHex.white,
-                                spacing: 1,
-                                alignment: .center,
-                                shadowColor: setShadow()
-                            )
-                        }
-                        .simultaneousGesture(
-                            TapGesture().onEnded({
-                                Helper.SoundClick.triggerSound(userData: userData)
-                                Helper.Haptic.triggerVibration(userData: userData, style: .light)
-                            })
+                    }
+                    .simultaneousGesture(
+                        TapGesture().onEnded({
+                            Helper.SoundClick.triggerSound(userData: userData)
+                            Helper.Haptic.triggerVibration(userData: userData, style: .light)
+                        })
+                    )
+                    
+                    //MARK: - Settings
+                    Button {
+                        self.count += 1
+                        print("Settings button tapped \(count)")
+                        showSettings = true
+                    } label: {
+                        VStackContent(
+                            title: NSLocalizedString("Settings", comment: ""),
+                            subtitle: nil,
+                            titleSize: 18,
+                            width: vStackWidth,
+                            backgroundColor: Helper.ColorHex.blue,
+                            textColor: Helper.ColorHex.white,
+                            spacing: 1,
+                            alignment: .center,
+                            shadowColor: setShadow()
                         )
                     }
                     
+                    //MARK: - Play Game
+                    NavigationLink(destination: LettersView()) {
+                        VStackContent(
+                            title: NSLocalizedString("Study", comment: ""),
+                            subtitle: nil,
+                            titleSize: 18,
+                            width: vStackWidth,
+                            backgroundColor: Helper.ColorHex.orange,
+                            textColor: Helper.ColorHex.white,
+                            spacing: 1,
+                            alignment: .center,
+                            shadowColor: setShadow()
+                        )
+                    }
+                    .simultaneousGesture(
+                        TapGesture().onEnded({
+                            Helper.SoundClick.triggerSound(userData: userData)
+                            Helper.Haptic.triggerVibration(userData: userData, style: .light)
+                        })
+                    )
                     
                     Spacer()
                     

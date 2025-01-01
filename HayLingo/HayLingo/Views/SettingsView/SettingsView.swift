@@ -58,18 +58,20 @@ struct SettingsView: View {
                                 .foregroundStyle(Helper.ColorHex.darkBlue)
                         }
                     }
-                    .onChange(of: selectedLanguage) {_, newValue in
-                        let language = AppLanguage.fromLocalizedString(newValue)
-                        settingsManager.updateLanguage(language)
-                        saveOption { user in
-                            user.selectedLanguage = language.rawValue
+                    .onChange(of: selectedLanguage) {oldValue, newValue in
+                        if oldValue != newValue {
+                            let language = AppLanguage.fromLocalizedString(newValue)
+                            settingsManager.updateLanguage(language)
+                            saveOption { user in
+                                user.selectedLanguage = language.rawValue
+                            }
+//                            NotificationCenter.default.post(name: .languageDidChange, object: nil)
+//                            Helper.SoundClick.triggerSound(userData: userData)
+//                            Helper.Haptic.triggerVibration(userData: userData, style: .light)
+                            
                         }
-                        NotificationCenter.default.post(name: .languageDidChange, object: nil)
-                        Helper.SoundClick.triggerSound(userData: userData)
-                        Helper.Haptic.triggerVibration(userData: userData, style: .light)
                     }
                     .pickerStyle(.segmented)
-                    
                     .frame(width: vStackWidth)
                 }
                 
@@ -217,15 +219,15 @@ struct SettingsView: View {
     
     private func saveOption(_ update: (UserData) -> Void) {
         guard let user = userData.first else { return }
+        
         update(user)
+        
+        user.selectedLanguage = settingsManager.currentLanguage.rawValue
+        user.selectedSound = settingsManager.isSoundEnabled ? AppSound.on.rawValue : AppSound.off.rawValue
+        user.selectedVibration = settingsManager.isVibrationEnabled ? AppVibration.on.rawValue : AppVibration.off.rawValue
         
         do {
             try context.save()
-            
-            user.selectedLanguage = settingsManager.currentLanguage.rawValue
-            user.selectedSound = settingsManager.isSoundEnabled ? AppSound.on.rawValue : AppSound.off.rawValue
-            user.selectedVibration = settingsManager.isVibrationEnabled ? AppVibration.on.rawValue : AppVibration.off.rawValue
-            
             print("Settings saved: \(user)")
         } catch {
             print("Save error: \(error)")
