@@ -181,7 +181,7 @@ struct SettingsView: View {
     
     
     private func loadInitialSettings() {
-        guard let user = userData.first else {
+        guard userData.first != nil else {
             createDefaultUser()
             return
         }

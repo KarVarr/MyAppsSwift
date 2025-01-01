@@ -12,7 +12,6 @@ struct TalesListView: View {
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var settingsManager = BaseSettingsManager.shared
-//    @EnvironmentObject var themeManager: ThemeManager
 
     @Query var userData: [UserData]
     let tales = FairyTales.getAllTales()
@@ -30,7 +29,6 @@ struct TalesListView: View {
         }
     }
 }
-
 
 #Preview {
     TalesListView()

@@ -10,7 +10,6 @@ import SwiftUI
 struct TaleDetailView: View {
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var settingsManager = BaseSettingsManager.shared
-//    @EnvironmentObject var themeManager: ThemeManager
     
     @State private var fontSize: CGFloat = 16
     @State private var displayedContent: String = ""
@@ -100,5 +99,4 @@ struct TaleDetailView: View {
         )
     )
     .environmentObject(ThemeManager())
-    
 }
