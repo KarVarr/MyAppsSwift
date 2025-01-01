@@ -12,7 +12,7 @@ import AVFoundation
 final class LettersTrainerViewModel: ObservableObject {
     // MARK: - Properties
     @Query private var userData: [UserData]
-    @StateObject private var settingsManager = BaseSettingsManager.shared
+    private let settingsManager: BaseSettingsManager
     
     // MARK: - Published Properties
     @Published var currentLetterIndex = 0
@@ -42,9 +42,10 @@ final class LettersTrainerViewModel: ObservableObject {
     }
     
     init(userData: [UserData]) {
+        self.settingsManager = BaseSettingsManager.shared
         let user = userData.first
         
-        self.selectedLanguage = AppLanguage(rawValue: user?.selectedLanguage ?? "russian")?.localizedString ?? AppLanguage.russian.localizedString
+        self.selectedLanguage = settingsManager.currentLanguage.rawValue
         self.isSoundEnabled = (user?.selectedSound ?? "on") == "on"
         self.isVibrationEnabled = (user?.selectedVibration ?? "on") == "on"
         
@@ -81,6 +82,7 @@ final class LettersTrainerViewModel: ObservableObject {
     
     func updateLanguage(_ language: String) {
         self.selectedLanguage = language
+        setupQuestion()
     }
     
     func setup(with letters: [String]) {
@@ -125,8 +127,8 @@ final class LettersTrainerViewModel: ObservableObject {
         print("Updated imageAndDescription: \(imageAndDescription ?? "None")")
         
         
-        let isRussianLanguage = AppLanguage.fromLocalizedString(selectedLanguage) == .russian
-        let translations = isRussianLanguage ? russianTranslations : englishTranslations
+        let currentLanguage = settingsManager.currentLanguage
+        let translations = currentLanguage == .russian ? russianTranslations : englishTranslations
         
         correctAnswer = translations[currentLetter] ?? ""
         

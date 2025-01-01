@@ -13,7 +13,6 @@ struct ResultSection: View {
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var settingsManager = BaseSettingsManager.shared
-//    @EnvironmentObject var themeManager: ThemeManager
     
     @Query var userData: [UserData]
     @ObservedObject var viewModel: LettersTrainerViewModel

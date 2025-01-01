@@ -8,8 +8,6 @@
 import SwiftUI
 import SwiftData
 
-
-
 struct CollectionView: View {
     @StateObject private var settingsManager = BaseSettingsManager.shared
     @State private var currentLanguage: AppLanguage = .russian
@@ -20,9 +18,7 @@ struct CollectionView: View {
     @State private var pressedLetterId: Int? = nil
     
     private let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
-    //    private var selectedLanguage: String {
-    //        userData.first?.selectedLanguage ?? "Russian"
-    //    }
+    
     private var selectedLanguage: String {
         return BaseSettingsManager.shared.currentLanguage.rawValue
     }

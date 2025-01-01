@@ -11,7 +11,6 @@ import SwiftData
 struct AnswerButtons: View {
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var settingsManager = BaseSettingsManager.shared
-//    @EnvironmentObject var themeManager: ThemeManager
     @Environment(\.modelContext) var context
     @Query var userData: [UserData]
     
