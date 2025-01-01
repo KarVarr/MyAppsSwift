@@ -1,5 +1,5 @@
 //
-//  SettingsManager.swift
+//  BaseSettingsManager.swift
 //  HayLingo
 //
 //  Created by Karen Vardanian on 31.12.2024.

@@ -15,21 +15,21 @@ struct TaleRowView: View {
     @Query var userData: [UserData]
     let tale: Tale
     @State private var isActive = false
-
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(tale.title)
                 .font(.headline)
                 .foregroundColor(.primary)
-
+            
             HStack {
                 Label("\(tale.timeToRead) minutes", systemImage: "clock")
                     .font(.caption)
                     .foregroundColor(.secondary)
-
+                
                 Text("•")
                     .foregroundColor(.secondary)
-
+                
                 Text(tale.ageGroup.rawValue)
                     .font(.caption)
                     .foregroundColor(.secondary)
@@ -61,6 +61,8 @@ struct TaleRowView: View {
             Helper.Haptic.triggerVibration(userData: userData, style: .light)
             isActive = true
         }
+        // Using deprecated NavigationLink API because the new navigationDestination approach
+        // causes navigation issues in the current app structure
         .background(
             NavigationLink(
                 destination: TaleDetailView(tale: tale),

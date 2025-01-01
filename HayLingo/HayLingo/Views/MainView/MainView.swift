@@ -32,13 +32,13 @@ struct MainView: View {
                     let vStackWidth = geometry.size.width * 0.7
                     
                     var latestProgress: String {
-                        guard let user = userData.first else { return "No data" }
-                        if let lastProgress = user.progress.last(where: { $0.language == selectedLanguage && $0.correctAnswer > 0 && $0.totalQuestion > 0 }) {
-                            return "\(lastProgress.language): \(lastProgress.correctAnswer)/\(lastProgress.totalQuestion)"
-                        }
-                        return NSLocalizedString("No progress yet", comment: "")
+                       guard let user = userData.first else { return NSLocalizedString("No data", comment: "") }
+                       if let lastProgress = user.progress.last(where: { $0.language == selectedLanguage && $0.correctAnswer > 0 && $0.totalQuestion > 0 }) {
+                           let languageEnum = AppLanguage(rawValue: lastProgress.language) ?? .english
+                           return "\(languageEnum.localizedString): \(lastProgress.correctAnswer)/\(lastProgress.totalQuestion)"
+                       }
+                       return NSLocalizedString("No data", comment: "")
                     }
-                    
                     
                     VStackContent(
                         title: NSLocalizedString("Previous lessons", comment: ""),
@@ -52,33 +52,31 @@ struct MainView: View {
                         shadowColor: setShadow()
                     )
                     
-                    
-                    
                     var allProgress: String {
-                        guard let user = userData.first else { return "No data" }
-                        let filteredProgress = user.progress.filter { $0.language == settingsManager.currentLanguage.rawValue }
-                        
-                        if filteredProgress.isEmpty {
-                            return NSLocalizedString("No data", comment: "")+" (\(settingsManager.currentLanguage))"
-                        }
-                        
-                        let totalCorrectAnswer = filteredProgress.reduce(0) { $0 + $1.correctAnswer }
-                        let totalQuestions = filteredProgress.reduce(0) { $0 + $1.totalQuestion }
-                        
-                        return NSLocalizedString("Correct answers:", comment: "")+" \(totalCorrectAnswer)/\(totalQuestions)"
+                       guard let user = userData.first else { return NSLocalizedString("No data", comment: "") }
+                       let filteredProgress = user.progress.filter { $0.language == settingsManager.currentLanguage.rawValue }
+                       
+                       if filteredProgress.isEmpty {
+                           return NSLocalizedString("No data", comment: "")
+                       }
+                       
+                       let totalCorrectAnswer = filteredProgress.reduce(0) { $0 + $1.correctAnswer }
+                       let totalQuestions = filteredProgress.reduce(0) { $0 + $1.totalQuestion }
+                       
+                       return NSLocalizedString("Correct answers:", comment: "") + " \(totalCorrectAnswer)/\(totalQuestions)"
                     }
                     
-                    var language: String {
-                        if let user = userData.first, let lastProgress = user.progress.last {
-                            return lastProgress.language
-                        } else {
-                            return "Unknown"
-                        }
-                    }
+//                    var language: String {
+//                        if let user = userData.first, let lastProgress = user.progress.last {
+//                            return lastProgress.language
+//                        } else {
+//                            return "Unknown"
+//                        }
+//                    }
                     
                     
                     VStackContent(
-                        title: NSLocalizedString("Your progress", comment: "")+" (\(settingsManager.currentLanguage))",
+                        title: NSLocalizedString("Your progress", comment: "") + " (\(settingsManager.currentLanguage.localizedString))",
                         subtitle: allProgress,
                         titleSize: 12,
                         width: vStackWidth,

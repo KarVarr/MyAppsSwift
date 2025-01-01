@@ -30,6 +30,7 @@ struct TalesListView: View {
     }
 }
 
+
 #Preview {
     TalesListView()
         .environmentObject(ThemeManager())

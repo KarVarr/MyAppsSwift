@@ -10,7 +10,6 @@ import SwiftUI
 struct letterAndImageSection: View {
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var settingsManager = BaseSettingsManager.shared
-//    @EnvironmentObject var themeManager: ThemeManager
     @ObservedObject var viewModel: LettersTrainerViewModel
     var geometry: GeometryProxy
     
@@ -45,10 +44,9 @@ struct letterAndImageSection: View {
     }
 }
 
-#Preview {
+#Preview(traits: .fixedLayout(width: 400, height: 300)) {
     GeometryReader { geometry in
         letterAndImageSection(viewModel: .preview(), geometry: geometry)
-            .previewLayout(.sizeThatFits)
             .frame(minWidth: geometry.size.width * 0.8, maxWidth: geometry.size.width * 0.9, minHeight: geometry.size.height / 5, maxHeight: geometry.size.height / 4)
             .padding()
             .background(Color.gray.opacity(0.1))
