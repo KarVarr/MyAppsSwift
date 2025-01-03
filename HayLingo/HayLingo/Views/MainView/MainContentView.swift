@@ -20,6 +20,7 @@ struct MainContentView: View {
     
     var body: some View {
         VStack(spacing: 20) {
+            Spacer() 
             AppHeader(
                 height: geometry.size.height / 6,
                 textColor: headerColor
