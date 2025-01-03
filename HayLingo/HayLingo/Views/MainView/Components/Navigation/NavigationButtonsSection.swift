@@ -24,12 +24,13 @@ struct NavigationButtonsSection: View {
             
             SettingsButton(
                 width: width,
-                shadowColor: shadowColor
-            ) {
-                settingsCount += 1
-                print("Settings button tapped \(settingsCount)")
-                showSettings = true
-            }
+                shadowColor: shadowColor,
+                action: {
+                    settingsCount += 1
+                    print("Settings button tapped \(settingsCount)")
+                    showSettings = true
+                }
+            )
             
             StudyButton(
                 width: width,

@@ -78,7 +78,7 @@ struct ResultSection: View {
         }
         .onAppear {
             if viewModel.score == viewModel.selectedLetters.count {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     withAnimation {
                         isConfettiActive = true
                     }

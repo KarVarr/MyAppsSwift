@@ -8,8 +8,7 @@
 import Foundation
 import SwiftUI
 
-// MARK: - Base Settings Manager
-class BaseSettingsManager: ObservableObject {
+final class BaseSettingsManager: ObservableObject {
     static let shared = BaseSettingsManager()
     private init() {}
     
@@ -65,5 +64,3 @@ class BaseSettingsManager: ObservableObject {
         }
     }
 }
-
-
