@@ -31,20 +31,20 @@ class InfoViewModel: ObservableObject {
     }
     
     func clearProgressData() {
-        for user in userData {
-            for progress in user.progress {
-                progress.correctAnswer = 0
-                progress.totalQuestion = 0
+            if let descriptor = try? FetchDescriptor<UserData>(),
+               let users = try? context.fetch(descriptor) {
+                for user in users {
+                    user.progress.removeAll()
+                }
+                try? context.save()
+                
+                // Отправляем уведомление об изменении данных
+                NotificationCenter.default.post(
+                    name: .progressDataDidChange,
+                    object: nil
+                )
             }
         }
-        
-        do {
-            try context.save()
-            print("All progress data has been reset.")
-        } catch {
-            print("Error saving data: \(error.localizedDescription)")
-        }
-    }
     
     private func openURL(_ urlString: String) {
         guard let url = URL(string: urlString),

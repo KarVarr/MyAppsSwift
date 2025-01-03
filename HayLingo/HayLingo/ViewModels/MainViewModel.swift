@@ -8,7 +8,6 @@
 import SwiftUI
 import SwiftData
 
-
 class MainViewModel: ObservableObject {
     let context: ModelContext
     private let settingsManager: BaseSettingsManager
@@ -23,7 +22,45 @@ class MainViewModel: ObservableObject {
     init(context: ModelContext, settingsManager: BaseSettingsManager = .shared) {
         self.context = context
         self.settingsManager = settingsManager
-        fetchUserData()
+        
+        loadInitialData()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(refreshUserData),
+            name: .progressDataDidChange,
+            object: nil
+        )
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func loadInitialData() {
+        let descriptor = FetchDescriptor<UserData>()
+        userData = (try? context.fetch(descriptor)) ?? []
+        
+        if userData.isEmpty {
+            let newUser = UserData(
+                id: UUID(),
+                name: "Misha",
+                selectedLanguage: settingsManager.currentLanguage.rawValue,
+                selectedTheme: settingsManager.currentTheme.rawValue,
+                selectedSound: AppSound.on.rawValue,
+                selectedVibration: AppVibration.on.rawValue,
+                progress: []
+            )
+            context.insert(newUser)
+            try? context.save()
+            userData = [newUser]
+        }
+    }
+    
+    @objc func refreshUserData() {
+        let descriptor = FetchDescriptor<UserData>()
+        userData = (try? context.fetch(descriptor)) ?? []
+        objectWillChange.send()
     }
     
     var latestProgress: String {
@@ -31,8 +68,9 @@ class MainViewModel: ObservableObject {
             return NSLocalizedString("No data", comment: "")
         }
         
+        let currentLanguage = settingsManager.currentLanguage.rawValue
         let sorted = user.progress
-            .filter { $0.language == settingsManager.currentLanguage.rawValue }
+            .filter { $0.language == currentLanguage }
             .sorted { $0.id > $1.id }
         
         if let lastProgress = sorted.first,
@@ -45,8 +83,13 @@ class MainViewModel: ObservableObject {
     }
     
     var allProgress: String {
-        guard let user = userData.first else { return NSLocalizedString("No data", comment: "") }
-        let filteredProgress = user.progress.filter { $0.language == settingsManager.currentLanguage.rawValue }
+        guard let user = userData.first else {
+            return NSLocalizedString("No data", comment: "")
+        }
+        
+        let currentLanguage = settingsManager.currentLanguage.rawValue
+        let filteredProgress = user.progress
+            .filter { $0.language == currentLanguage }
         
         if filteredProgress.isEmpty {
             return NSLocalizedString("No data", comment: "")
@@ -79,31 +122,7 @@ class MainViewModel: ObservableObject {
         if let user = userData.first {
             user.selectedLanguage = language
             try? context.save()
+            NotificationCenter.default.post(name: .progressDataDidChange, object: nil)
         }
-    }
-    
-    private func fetchUserData() {
-        let descriptor = FetchDescriptor<UserData>()
-        userData = (try? context.fetch(descriptor)) ?? []
-        
-        if userData.isEmpty {
-            createInitialUser()
-        }
-    }
-    
-    private func createInitialUser() {
-        let newUser = UserData(
-            id: UUID(),
-            name: "Misha",
-            selectedLanguage: "Russian",
-            selectedTheme: "Light",
-            selectedSound: "On",
-            selectedVibration: "On",
-            progress: []
-        )
-        context.insert(newUser)
-        try? context.save()
-        userData = [newUser]
     }
 }
-

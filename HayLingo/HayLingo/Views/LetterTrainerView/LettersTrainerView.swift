@@ -18,10 +18,14 @@ struct LettersTrainerView: View {
     @Query var userData: [UserData]
     
     @Binding var selectedLetters: [String]
-    @StateObject private var viewModel = LettersTrainerViewModel(userData: [UserData]())
+    @StateObject private var viewModel: LettersTrainerViewModel
     
     init(selectedLetters: Binding<[String]>) {
         self._selectedLetters = selectedLetters
+        let context = ModelContext(try! ModelContainer(for: UserData.self))
+        let descriptor = FetchDescriptor<UserData>()
+        let userData = (try? context.fetch(descriptor)) ?? []
+        _viewModel = StateObject(wrappedValue: LettersTrainerViewModel(userData: userData))
     }
     
     var body: some View {
@@ -30,7 +34,6 @@ struct LettersTrainerView: View {
                 if viewModel.currentLetterIndex < viewModel.selectedLetters.count {
                     CustomProgressView(viewModel: viewModel)
                     letterAndImageSection(viewModel: viewModel, geometry: geometry)
-                    
                     
                     Text("Choose the correct translation:")
                         .font(.system(size: geometry.size.width * 0.03, weight: .light))
@@ -47,13 +50,25 @@ struct LettersTrainerView: View {
                     viewModel.setup(with: selectedLetters)
                 }
             }
+            .onChange(of: userData) { _, newUserData in
+                if let firstUserData = newUserData.first {
+                    viewModel.updateLanguage(firstUserData.selectedLanguage)
+                }
+            }
             .navigationBarBackButtonHidden(viewModel.currentLetterIndex >= viewModel.selectedLetters.count)
         }
         .background(
-            Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: settingsManager, colorScheme: colorScheme)
+            Helper.ThemeColorManager.setColorInDarkMode(
+                light: Helper.ColorHex.backgroundLightGray,
+                dark: Helper.ColorHex.backgroundDarkGray,
+                themeManager: settingsManager,
+                colorScheme: colorScheme
+            )
         )
+        .environment(\.modelContext, context)
     }
 }
+
 #Preview {
     LettersTrainerView(selectedLetters: .constant(["Ու","Ե", "Ու", "Գ"]))
         .environmentObject(ThemeManager())

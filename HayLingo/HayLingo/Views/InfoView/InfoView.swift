@@ -8,9 +8,6 @@
 import SwiftUI
 import SwiftData
 
-import SwiftUI
-import SwiftData
-
 struct InfoView: View {
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme

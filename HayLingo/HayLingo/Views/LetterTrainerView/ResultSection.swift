@@ -99,7 +99,7 @@ struct ResultSection: View {
             viewModel.score == viewModel.selectedLetters.count
             ? "Great!"
             :  "You answered these letters incorrectly. Please repeat them:"
-
+            
         )
         .foregroundStyle(
             Helper.ThemeColorManager.setColorInDarkMode(
@@ -154,7 +154,11 @@ struct ResultSection: View {
     
     private func playAgainButton(geometry: GeometryProxy) -> some View {
         Button {
-            updateUserProgress(correct: viewModel.score, total: viewModel.selectedLetters.count, language: viewModel.selectedLanguage)
+            updateUserProgress(
+                correct: viewModel.score,
+                total: viewModel.selectedLetters.count,
+                language: settingsManager.currentLanguage.rawValue
+            )
             Helper.SoundClick.triggerSound(userData: userData)
             Helper.Haptic.triggerVibration(
                 userData: userData,
@@ -178,9 +182,21 @@ struct ResultSection: View {
     
     private func updateUserProgress(correct: Int, total: Int, language: String) {
         if let user = userData.first {
-            let newProgress = ProgressData(language: language, correctAnswer: correct, totalQuestion: total)
+            let currentLanguage = settingsManager.currentLanguage.rawValue
+            let newProgress = ProgressData(
+                language: currentLanguage,
+                correctAnswer: correct,
+                totalQuestion: total
+            )
             user.progress.append(newProgress)
-            try? context.save()
+            
+            do {
+                try context.save()
+                print("Progress saved - Language: \(currentLanguage), Correct: \(correct), Total: \(total)")
+                NotificationCenter.default.post(name: .progressDataDidChange, object: nil)
+            } catch {
+                print("Error saving progress:", error)
+            }
         }
     }
 }
