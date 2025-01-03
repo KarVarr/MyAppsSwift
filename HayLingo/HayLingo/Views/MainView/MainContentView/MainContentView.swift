@@ -25,8 +25,23 @@ struct MainContentView: View {
                 textColor: headerColor
             )
             
-            progressSection
-            navigationButtons
+            ProgressSection(
+                width: vStackWidth,
+                latestProgress: viewModel.latestProgress,
+                allProgress: viewModel.allProgress,
+                currentLanguage: settingsManager.currentLanguage.localizedString,
+                backgroundColor: cardBackgroundColor,
+                textColor: cardTextColor,
+                shadowColor: viewModel.setShadow(colorScheme: colorScheme)
+            )
+            
+            NavigationButtonsSection(
+                width: vStackWidth,
+                shadowColor: viewModel.setShadow(colorScheme: colorScheme),
+                userData: viewModel.userData,
+                showSettings: $viewModel.showSettings,
+                settingsCount: $viewModel.count
+            )
             
             Spacer()
             
@@ -39,52 +54,6 @@ struct MainContentView: View {
         .background(backgroundStyle)
         .overlay(settingsOverlay)
         .animation(.easeInOut, value: viewModel.showSettings)
-    }
-    
-    private var progressSection: some View {
-        VStack(spacing: 20) {
-            PreviousLessonsCard(
-                width: vStackWidth,
-                progress: viewModel.latestProgress,
-                backgroundColor: cardBackgroundColor,
-                textColor: cardTextColor,
-                shadowColor: viewModel.setShadow(colorScheme: colorScheme)
-            )
-            
-            TotalProgressCard(
-                width: vStackWidth,
-                progress: viewModel.allProgress,
-                currentLanguage: settingsManager.currentLanguage.localizedString,
-                backgroundColor: cardBackgroundColor,
-                textColor: cardTextColor,
-                shadowColor: viewModel.setShadow(colorScheme: colorScheme)
-            )
-        }
-    }
-    
-    private var navigationButtons: some View {
-        VStack(spacing: 20) {
-            FairyTalesButton(
-                width: vStackWidth,
-                shadowColor: viewModel.setShadow(colorScheme: colorScheme),
-                userData: viewModel.userData
-            )
-            
-            SettingsButton(
-                width: vStackWidth,
-                shadowColor: viewModel.setShadow(colorScheme: colorScheme)
-            ) {
-                viewModel.count += 1
-                print("Settings button tapped \(viewModel.count)")
-                viewModel.showSettings = true
-            }
-            
-            StudyButton(
-                width: vStackWidth,
-                shadowColor: viewModel.setShadow(colorScheme: colorScheme),
-                userData: viewModel.userData
-            )
-        }
     }
     
     // MARK: - Helper Properties
@@ -147,6 +116,7 @@ struct MainContentView: View {
         }
     }
 }
+
 
 #Preview {
     GeometryReader { geometry in
