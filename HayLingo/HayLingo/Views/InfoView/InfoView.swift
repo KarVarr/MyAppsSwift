@@ -8,68 +8,28 @@
 import SwiftUI
 import SwiftData
 
+import SwiftUI
+import SwiftData
+
 struct InfoView: View {
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var settingsManager = BaseSettingsManager.shared
-//    @EnvironmentObject var themeManager: ThemeManager
-    @Query var userData: [UserData]
-    @State private var isShowingDeleteAlert = false
-    @State private var isShowingConfirmationAlert = false
+    @StateObject private var viewModel: InfoViewModel
+    
+    init(context: ModelContext? = nil) {
+        let modelContext = context ?? ModelContext(try! ModelContainer(for: UserData.self))
+        _viewModel = StateObject(wrappedValue: InfoViewModel(context: modelContext))
+    }
     
     var body: some View {
         VStack {
-            Image(colorScheme == .light ? "iconLight" : "iconDark")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 100, height: 100)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .shadow(color: .black.opacity(0.3), radius: 5, x: 3, y: 3)
-                .padding(.vertical, 10)
+            AppIconView()
+            AppHeaderView()
             
-            
-            VStack {
-                Text("HayLingo")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                Text("version: 1.0")
-                    .font(.footnote)
-                    .foregroundColor(.gray)
-            }
-            .padding(.bottom, 20)
-            
-            
-            VStack(spacing: 10) {
-                InfoButton(icon: "arrow.up.right.square", title: NSLocalizedString("Show in AppStore", comment: "")) {
-                    openAppStore()
-                }
-                InfoButton(icon: "star", title: NSLocalizedString("Rate the app", comment: "")) {
-                    rateApp()
-                }
-                InfoButton(icon: "app.badge", title: NSLocalizedString("Our other apps", comment: "")) {
-                    openOtherApps()
-                }
-                Spacer()
-                InfoButton(icon: "trash", title: NSLocalizedString("Delete all data", comment: ""), backgroundColor: .red.opacity(0.8)) {
-                    isShowingDeleteAlert = true
-                }
-            }
-            .alert("Delete All Data", isPresented: $isShowingDeleteAlert) {
-                Button("Yes", role: .destructive) {
-                    clearProgressData()
-                    isShowingConfirmationAlert = true
-                }
-                Button("No", role: .cancel) {}
-            } message: {
-                Text("Are you sure you want to delete all your progress data? This action cannot be undone.")
-            }
-            .alert("Data Deleted", isPresented: $isShowingConfirmationAlert) {
-                Button("OK", role: .none) {}
-            } message: {
-                Text("Your progress data has been successfully deleted.")
-            }
-            .padding(.horizontal)
-            .frame(maxWidth: .infinity)
+            ActionsView(viewModel: viewModel)
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
             
             Spacer()
             
@@ -80,86 +40,33 @@ struct InfoView: View {
         }
         .padding(.top, 10)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Helper.ThemeColorManager.setColorInDarkMode(
+        .background(backgroundColor)
+        .alert("Delete All Data", isPresented: $viewModel.isShowingDeleteAlert) {
+            Button("Yes", role: .destructive) {
+                viewModel.clearProgressData()
+                viewModel.isShowingConfirmationAlert = true
+            }
+            Button("No", role: .cancel) {}
+        } message: {
+            Text("Are you sure you want to delete all your progress data? This action cannot be undone.")
+        }
+        .alert("Data Deleted", isPresented: $viewModel.isShowingConfirmationAlert) {
+            Button("OK", role: .none) {}
+        } message: {
+            Text("Your progress data has been successfully deleted.")
+        }
+    }
+    
+    private var backgroundColor: Color {
+        Helper.ThemeColorManager.setColorInDarkMode(
             light: Helper.ColorHex.backgroundLightGray,
             dark: Helper.ColorHex.backgroundDarkGray,
             themeManager: settingsManager,
-            colorScheme: colorScheme)
+            colorScheme: colorScheme
         )
-    }
-    
-    // Открыть приложение в App Store
-    private func openAppStore() {
-        guard let url = URL(string: "https://apps.apple.com/app/id\(Keys.appID)") else { return }
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
-    }
-    
-    // Поставить оценку приложению
-    private func rateApp() {
-        guard let url = URL(string: "https://apps.apple.com/app/id\(Keys.appID)?action=write-review") else { return }
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
-    }
-    
-    // Открыть другие приложения разработчика
-    private func openOtherApps() {
-        guard let url = URL(string: "https://apps.apple.com/developer/id\(Keys.devID)") else { return }
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
-    }
-    
-    // Удалить все данные
-    private func clearProgressData() {
-        for user in userData {
-            for progress in user.progress {
-                progress.correctAnswer = 0
-                progress.totalQuestion = 0
-            }
-        }
-        
-        do {
-            try context.save()
-            print("All progress data has been reset.")
-        } catch {
-            print("Error saving data: \(error.localizedDescription)")
-        }
     }
 }
 
-struct InfoButton: View {
-    @Environment(\.modelContext) var context
-    @Query var userData: [UserData]
-    
-    var icon: String
-    var title: String
-    var backgroundColor: Color = Color.gray.opacity(0.2)
-    var action: () -> Void
-    
-    var body: some View {
-        Button(action: {
-            Helper.SoundClick.triggerSound(userData: userData)
-            Helper.Haptic.triggerVibration(userData: userData, style: .light)
-            action()
-        }) {
-            HStack {
-                Image(systemName: icon)
-                    .font(.system(size: 20))
-                Text(title)
-                    .fontWeight(.medium)
-                    .font(.system(size: 18))
-                Spacer()
-            }
-            .foregroundColor(.primary)
-            .padding()
-            .background(backgroundColor)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-        }
-    }
-}
 
 #Preview {
     InfoView()
