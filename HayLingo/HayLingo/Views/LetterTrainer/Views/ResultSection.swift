@@ -25,10 +25,13 @@ struct ResultSection: View {
             VStack {
                 VStack {
                     resultTitle()
+                    
                     if !viewModel.wrongAnswers.isEmpty {
                         wrongLettersView()
                     }
+                    
                     resultDescription()
+                    
                     playAgainButton(geometry: geometry)
                 }
                 .padding()

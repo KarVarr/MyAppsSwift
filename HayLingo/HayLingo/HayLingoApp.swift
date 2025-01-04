@@ -14,8 +14,7 @@ struct HayLingoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(themeManager)
+            LaunchScreenView()
         }
         .modelContainer(for: [UserData.self, ProgressData.self])
     }
