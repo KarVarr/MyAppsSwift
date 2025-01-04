@@ -31,20 +31,23 @@ class InfoViewModel: ObservableObject {
     }
     
     func clearProgressData() {
-            if let descriptor = try? FetchDescriptor<UserData>(),
-               let users = try? context.fetch(descriptor) {
-                for user in users {
-                    user.progress.removeAll()
-                }
-                try? context.save()
-                
-                // Отправляем уведомление об изменении данных
-                NotificationCenter.default.post(
-                    name: .progressDataDidChange,
-                    object: nil
-                )
+        do {
+            let descriptor = FetchDescriptor<UserData>()
+            let users = try context.fetch(descriptor)
+            
+            for user in users {
+                user.progress.removeAll()
             }
+            try context.save()
+            
+            NotificationCenter.default.post(
+                name: .progressDataDidChange,
+                object: nil
+            )
+        } catch {
+            print("Error clearing progress data: \(error)")
         }
+    }
     
     private func openURL(_ urlString: String) {
         guard let url = URL(string: urlString),

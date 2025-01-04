@@ -11,6 +11,7 @@ struct SettingsButton: View {
     let width: CGFloat
     let shadowColor: Color
     let action: () -> Void
+    let userData: [UserData]
     
     var body: some View {
         Button(action: action) {
@@ -26,6 +27,12 @@ struct SettingsButton: View {
                 shadowColor: shadowColor
             )
         }
+        .simultaneousGesture(
+            TapGesture().onEnded({
+                Helper.SoundClick.triggerSound(userData: userData)
+                Helper.Haptic.triggerVibration(userData: userData, style: .light)
+            })
+        )
     }
 }
 

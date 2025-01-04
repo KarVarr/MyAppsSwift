@@ -29,7 +29,7 @@ struct NavigationButtonsSection: View {
                     settingsCount += 1
                     print("Settings button tapped \(settingsCount)")
                     showSettings = true
-                }
+                }, userData: userData
             )
             
             StudyButton(
