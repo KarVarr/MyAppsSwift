@@ -56,7 +56,6 @@ class SettingsViewModel: ObservableObject {
         self.context = context
         self.settingsManager = settingsManager
         
-        // Инициализируем значения из settingsManager
         self.selectedLanguage = AppLanguage(rawValue: settingsManager.currentLanguage.rawValue)?.localizedString ?? AppLanguage.russian.localizedString
         self.selectedTheme = AppTheme(rawValue: settingsManager.currentTheme.rawValue)?.localizedString ?? AppTheme.system.localizedString
         self.selectedSound = AppSound(rawValue: settingsManager.isSoundEnabled ? "sound_on" : "sound_off")?.localizedString ?? AppSound.on.localizedString
@@ -99,25 +98,31 @@ class SettingsViewModel: ObservableObject {
     }
     
     private func triggerFeedback() {
-        if let descriptor = try? FetchDescriptor<UserData>() {
-            if let userData = try? context.fetch(descriptor) {
-                Helper.SoundClick.triggerSound(userData: userData)
-                Helper.Haptic.triggerVibration(userData: userData, style: .light)
-            }
+        do {
+            let descriptor = FetchDescriptor<UserData>()
+            let userData = try context.fetch(descriptor)
+            Helper.SoundClick.triggerSound(userData: userData)
+            Helper.Haptic.triggerVibration(userData: userData, style: .light)
+        } catch {
+            print("Error triggering feedback: \(error)")
         }
     }
-    
+
     private func saveOption(_ update: (UserData) -> Void) {
-        if let descriptor = try? FetchDescriptor<UserData>(),
-           let userData = try? context.fetch(descriptor),
-           let user = userData.first {
-            update(user)
-            
-            user.selectedLanguage = settingsManager.currentLanguage.rawValue
-            user.selectedSound = settingsManager.isSoundEnabled ? AppSound.on.rawValue : AppSound.off.rawValue
-            user.selectedVibration = settingsManager.isVibrationEnabled ? AppVibration.on.rawValue : AppVibration.off.rawValue
-            
-            try? context.save()
+        do {
+            let descriptor = FetchDescriptor<UserData>()
+            let userData = try context.fetch(descriptor)
+            if let user = userData.first {
+                update(user)
+                
+                user.selectedLanguage = settingsManager.currentLanguage.rawValue
+                user.selectedSound = settingsManager.isSoundEnabled ? AppSound.on.rawValue : AppSound.off.rawValue
+                user.selectedVibration = settingsManager.isVibrationEnabled ? AppVibration.on.rawValue : AppVibration.off.rawValue
+                
+                try context.save()
+            }
+        } catch {
+            print("Error saving option: \(error)")
         }
     }
 }
