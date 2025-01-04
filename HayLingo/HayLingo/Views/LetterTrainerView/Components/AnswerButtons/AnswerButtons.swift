@@ -33,7 +33,6 @@ struct AnswerButtons: View {
                         }
                     }
                 } label: {
-                    
                     Text(option)
                         .font(.system(size: geometry.size.width * 0.08))
                         .bold()

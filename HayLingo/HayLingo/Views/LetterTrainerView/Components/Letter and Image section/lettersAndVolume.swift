@@ -9,10 +9,8 @@ import SwiftUI
 
 struct lettersAndVolume: View {
     @ObservedObject var viewModel: LettersTrainerViewModel
-    
     @StateObject private var settingsManager = BaseSettingsManager.shared
     @Environment(\.colorScheme) var colorScheme
-//    @EnvironmentObject var themeManager: ThemeManager
     
     var body: some View {
         GeometryReader { geo in
@@ -30,6 +28,7 @@ struct lettersAndVolume: View {
                 }
                 .foregroundStyle(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.black, dark: Helper.ColorHex.white, themeManager: settingsManager, colorScheme: colorScheme))
                 .frame(maxWidth: .infinity)
+                
                 soundPlayButton(geometry: geo)
             }
         }

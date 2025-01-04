@@ -28,10 +28,6 @@ enum Helper {
         static let brightBlue = Color(hex: 0x0088ff)
     }
     
-    enum Font {
-        
-    }
-    
     enum ThemeColorManager {
         static func setColorInDarkMode(light lightColor: Color, dark darkColor: Color, themeManager: BaseSettingsManager, colorScheme: ColorScheme) -> Color {
             switch themeManager.currentTheme {
@@ -45,7 +41,6 @@ enum Helper {
             }
         }
     }
-    
     
     enum Haptic {
         static func triggerVibration(userData: [UserData], style: UIImpactFeedbackGenerator.FeedbackStyle) {

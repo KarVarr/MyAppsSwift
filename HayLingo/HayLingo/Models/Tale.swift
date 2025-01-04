@@ -31,7 +31,6 @@ enum AgeGroup: String, CaseIterable {
     }
 }
 
-
 struct FairyTales {
     static let tales: [Tale] = [
         Tale(

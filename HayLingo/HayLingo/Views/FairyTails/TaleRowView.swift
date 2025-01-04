@@ -74,7 +74,6 @@ struct TaleRowView: View {
     }
 }
 
-
 #Preview {
     TaleRowView(tale: Tale(
         title: "title",

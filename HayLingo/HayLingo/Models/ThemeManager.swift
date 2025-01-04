@@ -42,7 +42,6 @@ enum AppLanguage: String, CaseIterable {
     }
 }
 
-
 // MARK: - Theme Settings
 enum AppTheme: String, CaseIterable {
     case light = "theme_light"

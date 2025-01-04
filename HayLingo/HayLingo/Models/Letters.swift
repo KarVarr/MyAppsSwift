@@ -16,9 +16,7 @@ struct Letter: Identifiable{
     let animals: [String]
 }
 
-
 extension Letter {
-    
     static let allLetters: [Letter] = [
         Letter(character: "Ա", englishTranslation: "a", russianTranslation: "а", animals: ["Աստղ", "Առյուծ", "Արագիլ", "Արջ", "Ամպեր", "Աշխատանք"]),
         Letter(character: "Բ", englishTranslation: "b", russianTranslation: "б", animals: ["Բու", "Բադ", "Բժիշկ"]),

@@ -13,10 +13,8 @@ struct LettersView: View {
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var settingsManager = BaseSettingsManager.shared
     @State private var selectedLanguage: String = AppLanguage.russian.rawValue
-    @Query var userData: [UserData]
-    
-    
     @State private var selectedLetters: [String] = []
+    @Query var userData: [UserData]
     
     var body: some View {
         NavigationStack {
