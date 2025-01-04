@@ -25,17 +25,18 @@ struct LaunchScreenView: View {
                     Spacer()
                     
                     VStack(spacing: 15) {
-                        Image("iconLight")
+                        Image(themeManager.colorScheme() == .dark ? "iconDark" : "iconLight")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: iconSize, height: iconSize)
                             .clipShape(RoundedRectangle(cornerRadius: iconSize * 0.2))
-                            .shadow(color: .gray.opacity(0.3), radius: 10, x: 0, y: 5)
+                            .shadow(color: themeManager.colorScheme() == .dark ? .black.opacity(0.2) : .gray.opacity(0.2),
+                                    radius: 10, x: 0, y: 5)
                         
                         Text("HayLingo")
                             .font(.system(size: iconSize * 0.4))
                             .fontWeight(.bold)
-                            .foregroundColor(Helper.ColorHex.red)
+                            .foregroundColor(themeManager.colorScheme() == .dark ? Helper.ColorHex.orange : Helper.ColorHex.red)
                     }
                     .scaleEffect(size)
                     .opacity(opacity)
@@ -43,6 +44,7 @@ struct LaunchScreenView: View {
                     Spacer()
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(themeManager.colorScheme() == .dark ? Helper.ColorHex.backgroundDarkGray : Helper.ColorHex.backgroundLightGray)
                 .onAppear {
                     withAnimation(.easeIn(duration: 1.2)) {
                         self.size = 0.9
@@ -50,6 +52,7 @@ struct LaunchScreenView: View {
                     }
                 }
             }
+            .preferredColorScheme(themeManager.colorScheme())
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     withAnimation {
@@ -60,7 +63,6 @@ struct LaunchScreenView: View {
         }
     }
 }
-
 
 #Preview {
     LaunchScreenView()
