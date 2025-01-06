@@ -24,26 +24,7 @@ struct TaleDetailView: View {
                         .foregroundColor(.secondary)
                         .padding()
                 } else {
-                    Text(tale.title)
-                        .font(.largeTitle)
-                        .bold()
-                    
-                    if let author = tale.author {
-                        Text("Author՝ \(author)")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                    
-                    HStack {
-                        Label("\(tale.timeToRead) minutes", systemImage: "clock")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                    
-                    Text(displayedContent)
-                        .font(.system(size: fontSize))
-                        .lineSpacing(8)
-                        .animation(.easeInOut, value: displayedContent)
+                    contentView
                 }
             }
             .padding()
@@ -68,6 +49,7 @@ struct TaleDetailView: View {
                         Button("Large") { fontSize = 20 }
                     } label: {
                         Image(systemName: "textformat.size")
+                            .imageScale(.large)
                     }
                 }
             }
@@ -77,12 +59,35 @@ struct TaleDetailView: View {
         }
     }
     
-    private func loadContent() {
-        // Имитация загрузки данных
-        DispatchQueue.global().asyncAfter(deadline: .now() + 1.5) {
-            DispatchQueue.main.async {
-                self.displayedContent = tale.content
+    private var contentView: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text(tale.title)
+                .font(.largeTitle)
+                .bold()
+            
+            if let author = tale.author {
+                Text("Author՝ \(author)")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
             }
+            
+            HStack {
+                Label("\(tale.timeToRead) minutes", systemImage: "clock")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+            
+            Text(displayedContent)
+                .font(.system(size: fontSize))
+                .lineSpacing(8)
+        }
+        .animation(.easeInOut, value: displayedContent)
+    }
+    
+    private func loadContent() {
+        //имитация загрузки
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.displayedContent = tale.content
         }
     }
 }

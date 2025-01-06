@@ -12,20 +12,52 @@ struct TalesListView: View {
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var settingsManager = BaseSettingsManager.shared
-
     @Query var userData: [UserData]
+    
     let tales = FairyTales.getAllTales()
-
+    let deviceType = DeviceType.current
+    
     var body: some View {
-        NavigationView {
-            List(tales, id: \.id) { tale in
-                TaleRowView(tale: tale)
-                    .listRowBackground(Helper.ColorHex.lightGray.opacity(0.3))
+        if deviceType == .pad {
+            NavigationView {
+                List(tales, id: \.id) { tale in
+                    TaleRowView(tale: tale)
+                        .listRowBackground(Helper.ColorHex.lightGray.opacity(0.3))
+                }
+                .scrollContentBackground(.hidden)
+                .background(
+                    Helper.ThemeColorManager.setColorInDarkMode(
+                        light: Helper.ColorHex.backgroundLightGray,
+                        dark: Helper.ColorHex.backgroundDarkGray,
+                        themeManager: settingsManager,
+                        colorScheme: colorScheme
+                    )
+                )
+                .listStyle(.insetGrouped)
+                .navigationTitle("Fairy Tales")
+                
+                // Второе представление для iPad
+                WelcomeTalesView()
             }
-            .scrollContentBackground(.hidden)
-            .background(Helper.ThemeColorManager.setColorInDarkMode(light: Helper.ColorHex.backgroundLightGray, dark: Helper.ColorHex.backgroundDarkGray, themeManager: settingsManager, colorScheme: colorScheme))
-            .listStyle(.insetGrouped)
-            .navigationTitle("Fairy Tales")
+            .navigationViewStyle(.columns)
+        } else {
+            NavigationView {
+                List(tales, id: \.id) { tale in
+                    TaleRowView(tale: tale)
+                        .listRowBackground(Helper.ColorHex.lightGray.opacity(0.3))
+                }
+                .scrollContentBackground(.hidden)
+                .background(
+                    Helper.ThemeColorManager.setColorInDarkMode(
+                        light: Helper.ColorHex.backgroundLightGray,
+                        dark: Helper.ColorHex.backgroundDarkGray,
+                        themeManager: settingsManager,
+                        colorScheme: colorScheme
+                    )
+                )
+                .listStyle(.insetGrouped)
+                .navigationTitle("Fairy Tales")
+            }
         }
     }
 }
