@@ -71,31 +71,55 @@
         }
       }
     },
-    "1-3 years old" : {
+    "age_group_adult" : {
       "comment" : "Tale",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1-3 years old"
+            "value" : "7-12 years old"
           }
         },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1-3 տարեկան"
+            "value" : "7-12 տարեկան"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1-3 года"
+            "value" : "7-12 лет"
           }
         }
       }
     },
-    "3-5 years old" : {
+    "age_group_all" : {
+      "comment" : "Tale",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For everyone"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Բոլորի համար"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Для всех"
+          }
+        }
+      }
+    },
+    "age_group_elementary" : {
       "comment" : "Tale",
       "extractionState" : "manual",
       "localizations" : {
@@ -119,7 +143,31 @@
         }
       }
     },
-    "5-7 years old" : {
+    "age_group_preschool" : {
+      "comment" : "Tale",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1-3 years old"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1-3 տարեկան"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1-3 года"
+          }
+        }
+      }
+    },
+    "age_group_teenager" : {
       "comment" : "Tale",
       "extractionState" : "manual",
       "localizations" : {
@@ -139,30 +187,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "5-7 лет"
-          }
-        }
-      }
-    },
-    "7-12 years old" : {
-      "comment" : "Tale",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "7-12 years old"
-          }
-        },
-        "hy" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "7-12 տարեկան"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "7-12 лет"
           }
         }
       }
@@ -448,30 +472,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сказки"
-          }
-        }
-      }
-    },
-    "For everyone" : {
-      "comment" : "Tale",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "For everyone"
-          }
-        },
-        "hy" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Բոլորի համար"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Для всех"
           }
         }
       }

@@ -18,16 +18,16 @@ struct Tale: Identifiable {
 }
 
 enum AgeGroup: String, CaseIterable {
-    case preschool = "1-3 years old"
-    case elementary = "3-5 years old"
-    case teenager = "5-7 years old"
-    case adult = "7-12 years old"
-    case all = "For everyone"
+    case preschool = "age_group_preschool"
+    case elementary = "age_group_elementary"
+    case teenager = "age_group_teenager"
+    case adult = "age_group_adult"
+    case all = "age_group_all"
     
     static let defaultAgeGroup: AgeGroup = .all
     
-    func localizeString() -> String {
-        return NSLocalizedString(self.rawValue, comment: "Age group description")
+    var localizedString: String {
+        return NSLocalizedString(self.rawValue, comment: "")
     }
 }
 

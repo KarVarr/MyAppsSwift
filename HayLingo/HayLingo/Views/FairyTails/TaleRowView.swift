@@ -30,7 +30,7 @@ struct TaleRowView: View {
                 Text("•")
                     .foregroundColor(.secondary)
                 
-                Text(tale.ageGroup.rawValue)
+                Text(tale.ageGroup.localizedString)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
