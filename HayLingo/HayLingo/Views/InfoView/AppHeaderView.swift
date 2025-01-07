@@ -13,7 +13,7 @@ struct AppHeaderView: View {
             Text("HayLingo")
                 .font(.title2)
                 .fontWeight(.semibold)
-            Text("version: 1.0")
+            Text("version: 1.0.1")
                 .font(.footnote)
                 .foregroundColor(.gray)
         }
