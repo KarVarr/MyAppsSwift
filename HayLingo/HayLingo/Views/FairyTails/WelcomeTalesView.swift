@@ -7,24 +7,6 @@
 
 import SwiftUI
 
-// MARK: - Feature Row
-struct FeatureRow: View {
-    let icon: String
-    let text: String
-    
-    var body: some View {
-        HStack(spacing: 12) {
-            Image(systemName: icon)
-                .font(.title2)
-                .frame(width: 30)
-                .foregroundColor(.orange)
-            
-            Text(text)
-                .font(.body)
-        }
-    }
-}
-
 struct WelcomeTalesView: View {
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var settingsManager = BaseSettingsManager.shared
@@ -35,20 +17,20 @@ struct WelcomeTalesView: View {
                 .font(.system(size: 60))
                 .foregroundColor(.orange)
             
-            Text("Welcome to Armenian Fairy Tales")
+            Text("welcome.title")
                 .font(.title)
                 .bold()
             
-            Text("Select a tale from the list to start reading")
+            Text("welcome.subtitle")
                 .font(.title3)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
             
             VStack(alignment: .leading, spacing: 12) {
-                FeatureRow(icon: "sidebar.left", text: "Browse through classic Armenian tales")
-                FeatureRow(icon: "text.alignleft", text: "Adjust text size for comfortable reading")
-                FeatureRow(icon: "clock", text: "See estimated reading times")
-                FeatureRow(icon: "tag", text: "Find stories by tags and age groups")
+                FeatureRow(icon: "sidebar.left", text: "feature.browse")
+                FeatureRow(icon: "text.alignleft", text: "feature.text.size")
+                FeatureRow(icon: "clock", text: "feature.reading.time")
+                FeatureRow(icon: "tag", text: "feature.tags")
             }
             .padding(.top, 40)
         }
@@ -62,6 +44,24 @@ struct WelcomeTalesView: View {
                 colorScheme: colorScheme
             )
         )
+    }
+}
+
+// MARK: - Feature Row
+struct FeatureRow: View {
+    let icon: String
+    let text: String
+    
+    var body: some View {
+        HStack(spacing: 12) {
+            Image(systemName: icon)
+                .font(.title2)
+                .frame(width: 30)
+                .foregroundColor(.orange)
+            
+            Text(NSLocalizedString(text, comment: ""))
+                .font(.body)
+        }
     }
 }
 

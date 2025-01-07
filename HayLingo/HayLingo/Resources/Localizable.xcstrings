@@ -47,26 +47,24 @@
         }
       }
     },
-    "© 2022 - 2024 Karen Vardanian" : {
-      "comment" : "infoView",
-      "extractionState" : "manual",
+    "© 2022 - 2025 Karen Vardanian" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "© 2022 - 2024 Karen Vardanian"
+            "value" : "© 2022 - 2025 Karen Vardanian"
           }
         },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "© 2022 - 2024 Կարեն Վարդանյան"
+            "value" : "© 2022 - 2025 Կարեն Վարդանյան"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "© 2022 - 2024 Карен Варданян"
+            "value" : "© 2022 - 2025 Карен Варданян"
           }
         }
       }
@@ -472,6 +470,102 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сказки"
+          }
+        }
+      }
+    },
+    "feature.browse" : {
+      "comment" : "WelcomeTalesView",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Browse through classic Armenian tales"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Դիտեք դասական հայկական հեքիաթները"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выбирайте из классических армянских сказок"
+          }
+        }
+      }
+    },
+    "feature.reading.time" : {
+      "comment" : "WelcomeTalesView",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See estimated reading times"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Տեսեք մոտավոր ընթերցման ժամանակը"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Смотрите примерное время чтения"
+          }
+        }
+      }
+    },
+    "feature.tags" : {
+      "comment" : "WelcomeTalesView",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find stories by tags and age groups"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Գտեք պատմություններ ըստ թեգերի և տարիքային խմբերի"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Находите истории по тегам и возрастным группам"
+          }
+        }
+      }
+    },
+    "feature.text.size" : {
+      "comment" : "WelcomeTalesView",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adjust text size for comfortable reading"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Կարգավորեք տեքստի չափը հարմար ընթերցանության համար"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройте размер текста для комфортного чтения"
           }
         }
       }
@@ -999,9 +1093,6 @@
         }
       }
     },
-    "Select a tale from the list to start reading" : {
-
-    },
     "Select a theme" : {
       "comment" : "settingsVIew",
       "extractionState" : "manual",
@@ -1290,25 +1381,24 @@
         }
       }
     },
-    "version: 1.0" : {
-      "comment" : "infoView",
+    "version: 1.0.1" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "version: 1.0"
+            "value" : "version: 1.0.1"
           }
         },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "տարբերակ: 1.0"
+            "value" : "version: 1.0.1"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "версия: 1.0"
+            "value" : "версия: 1.0.1"
           }
         }
       }
@@ -1409,8 +1499,53 @@
         }
       }
     },
-    "Welcome to Armenian Fairy Tales" : {
-
+    "welcome.subtitle" : {
+      "comment" : "WelcomeTalesView",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select a tale from the list to start reading"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ընտրեք հեքիաթը ցուցակից սկսելու համար"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите сказку из списка, чтобы начать читать"
+          }
+        }
+      }
+    },
+    "welcome.title" : {
+      "comment" : "WelcomeTalesView",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome to Armenian Fairy Tales"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Բարի գալուստ Հայկական հեքիաթներ"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добро пожаловать в Армянские сказки"
+          }
+        }
+      }
     },
     "Win!" : {
       "comment" : "confettiView",
