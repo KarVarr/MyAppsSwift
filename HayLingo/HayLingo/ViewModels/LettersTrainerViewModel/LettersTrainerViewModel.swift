@@ -171,7 +171,7 @@ final class LettersTrainerViewModel: ObservableObject {
     }
     
     func playSound(named soundName: String) {
-        // расскоментируй если надо убрать звук буквы вместе со звуком приложения
+        // убери комментарий с guard, если надо убрать звук буквы вместе со звуком приложения
 //        guard settingsManager.isSoundEnabled else { return }
         guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else {
             print("Sound file \(soundName).mp3 not found")
