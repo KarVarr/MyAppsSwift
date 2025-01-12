@@ -97,11 +97,16 @@ final class LettersTrainerViewModel: ObservableObject {
         if isCorrect {
             correctAnswers.append(selectedLetters[currentLetterIndex])
             score += 1
+            if settingsManager.isSoundEnabled {
+                SoundManager.shared.playSound(name: "correct")
+            }
             print("score: \(score)")
         } else {
             wrongAnswers.append(selectedLetters[currentLetterIndex])
+            if settingsManager.isSoundEnabled {
+                SoundManager.shared.playSound(name: "wrong")
+            }
         }
-        
         withAnimation(.easeInOut(duration: 0.3)) {
             areButtonsDisabled = true
             showResult = true
@@ -172,7 +177,7 @@ final class LettersTrainerViewModel: ObservableObject {
     
     func playSound(named soundName: String) {
         // убери комментарий с guard, если надо убрать звук буквы вместе со звуком приложения
-//        guard settingsManager.isSoundEnabled else { return }
+        //        guard settingsManager.isSoundEnabled else { return }
         guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else {
             print("Sound file \(soundName).mp3 not found")
             return

@@ -24,7 +24,7 @@ struct AnswerButtons: View {
                     withAnimation(.easeInOut(duration: 0.3)) {
                         viewModel.selectedAnswer = option
                         viewModel.checkAnswer(selected: option)
-                        Helper.SoundClick.triggerSound(userData: userData)
+//                        Helper.SoundClick.triggerSound(userData: userData)
                         
                         if viewModel.isCorrect {
                             Helper.Haptic.triggerVibration(userData: userData, style: .soft)
