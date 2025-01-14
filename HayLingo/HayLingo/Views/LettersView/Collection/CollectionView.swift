@@ -27,14 +27,19 @@ struct CollectionView: View {
         ScrollView {
             LazyVGrid(columns: columns) {
                 ForEach(0..<AllLetters.armenianAlphabet.count, id: \.self) { index in
-                    
                     let letter = AllLetters.armenianAlphabet[index]
-                    let isSelected = selectedLetters.contains(letter)
+                    let isLastLetter = index == AllLetters.armenianAlphabet.count - 1
+                    let isSelected = isLastLetter ?
+                        selectedLetters.count == AllLetters.armenianAlphabet.count - 1 :
+                        selectedLetters.contains(letter)
                     let backgroundColor = isSelected ? Helper.ColorHex.pink : Helper.ColorHex.brightBlue
                     
                     Button(action: {
-                        toggleLetterSelection(letter: letter)
-                        Helper.SoundClick.triggerSound(userData: userData)
+                        if isLastLetter {
+                            toggleAllLetters()
+                        } else {
+                            toggleLetterSelection(letter: letter)
+                        }
                         Helper.Haptic.triggerVibration(userData: userData, style: .light)
                         print(selectedLetters)
                     }) {
@@ -42,9 +47,9 @@ struct CollectionView: View {
                             backgroundColor: backgroundColor,
                             index: index,
                             firstArmUppercaseLetter: letter,
-                            secondArmLowercaseLetter: letter.lowercased(),
+                            secondArmLowercaseLetter: isLastLetter ? nil : letter.lowercased(),
                             letterForStudy: currentLanguage == .russian ?
-                            AllLetters.russianAlphabet[index] :
+                                AllLetters.russianAlphabet[index] :
                                 AllLetters.englishAlphabet[index]
                         )
                         .scaleEffect(pressedLetterId == index ? 0.9 : 1.0)
@@ -57,15 +62,16 @@ struct CollectionView: View {
                             }
                             .onEnded { _ in
                                 pressedLetterId = nil
-                                print("Long press detected on letter: \(letter)")
-                                viewModel.playSound(named: letter)
+                                if !isLastLetter {
+                                    print("Long press detected on letter: \(letter)")
+                                    viewModel.playSound(named: letter)
+                                }
                             }
                     )
                 }
             }
             .padding(5)
             .padding(.bottom, 10)
-            
         }
         .onReceive(NotificationCenter.default.publisher(for: .languageDidChange)) { _ in
             currentLanguage = settingsManager.currentLanguage
@@ -80,6 +86,15 @@ struct CollectionView: View {
             selectedLetters.removeAll { $0 == letter }
         } else {
             selectedLetters.append(letter)
+        }
+    }
+    
+    private func toggleAllLetters() {
+        let allLettersExceptLast = Array(AllLetters.armenianAlphabet.dropLast())
+        if selectedLetters.count == allLettersExceptLast.count {
+            selectedLetters.removeAll()
+        } else {
+            selectedLetters = allLettersExceptLast
         }
     }
 }

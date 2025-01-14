@@ -14,7 +14,7 @@ struct CollectionViewCell: View {
     var backgroundColor: Color
     var index: Int
     var firstArmUppercaseLetter: String
-    var secondArmLowercaseLetter: String
+    var secondArmLowercaseLetter: String?
     var letterForStudy: String
     
     var body: some View {
@@ -24,7 +24,7 @@ struct CollectionViewCell: View {
                     .font(.system(size: 20, weight: .bold))
                     .dynamicTypeSize(.medium ... .xxLarge)
                     .foregroundStyle(Helper.ColorHex.white)
-                Text(secondArmLowercaseLetter)
+                Text(secondArmLowercaseLetter ?? "")
                     .dynamicTypeSize(.medium ... .xxLarge)
                     .foregroundStyle(Helper.ColorHex.white.opacity(0.8))
                 
