@@ -12,7 +12,7 @@ class SoundManager {
     static let shared = SoundManager()
     
     private var soundPlayer: AVAudioPlayer?
-    private let maxVolume: Float = 0.3 // 30% максимальной громкости
+    private let maxVolume: Float = 0.2
     
     func playSound(name: String) {
         guard let soundURL = Bundle.main.url(forResource: name, withExtension: "mp3") else {
