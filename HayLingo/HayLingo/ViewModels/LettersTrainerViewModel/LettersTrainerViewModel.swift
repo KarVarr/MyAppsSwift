@@ -49,6 +49,7 @@ final class LettersTrainerViewModel: ObservableObject {
         self.isSoundEnabled = (user?.selectedSound ?? "on") == "on"
         self.isVibrationEnabled = (user?.selectedVibration ?? "on") == "on"
         
+        
         self.englishTranslations = Letter.allLetters.reduce(into: [:]) { $0[$1.character] = $1.englishTranslation }
         self.russianTranslations = Letter.allLetters.reduce(into: [:]) { $0[$1.character] = $1.russianTranslation }
         self.animals = Letter.allLetters.reduce(into: [:]) { $0[$1.character] = $1.animals }
@@ -86,7 +87,7 @@ final class LettersTrainerViewModel: ObservableObject {
     }
     
     func setup(with letters: [String]) {
-        selectedLetters = letters
+        selectedLetters = letters.filter { $0 != "Ա-Ֆ" }
         setupQuestion()
     }
     
@@ -148,7 +149,7 @@ final class LettersTrainerViewModel: ObservableObject {
         showResult = false
     }
     
-    private func randomAnimal(_ letter: String) -> String {
+    func randomAnimal(_ letter: String) -> String {
         guard let animalsForLetter = animals[letter], !animalsForLetter.isEmpty else {
             print("No animals found for letter: \(letter)")
             return "No image for letter \(letter)"
@@ -158,8 +159,13 @@ final class LettersTrainerViewModel: ObservableObject {
         return randomAnimal
     }
     
+    func cleanup() {
+        UIImage.imageCache.removeAllObjects()
+    }
+    
     
     func playAgain() {
+        cleanup()
         currentLetterIndex = 0
         score = 0
         correctAnswers = []
