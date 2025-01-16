@@ -113,7 +113,10 @@ final class LettersTrainerViewModel: ObservableObject {
             showResult = true
         }
         
+        // Очищаем кэш и подготавливаем следующий вопрос с задержкой
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            SVGImageManager.shared.clearCurrentImage()
+            
             withAnimation(.easeInOut(duration: 0.3)) {
                 self.currentLetterIndex += 1
                 if self.currentLetterIndex < self.selectedLetters.count {
@@ -129,24 +132,26 @@ final class LettersTrainerViewModel: ObservableObject {
         
         selectedAnswer = nil
         let currentLetter = selectedLetters[currentLetterIndex]
-        imageAndDescription = randomAnimal(currentLetter)
-        print("Updated imageAndDescription: \(imageAndDescription ?? "None")")
         
-        
-        let currentLanguage = settingsManager.currentLanguage
-        let translations = currentLanguage == .russian ? russianTranslations : englishTranslations
-        
-        correctAnswer = translations[currentLetter] ?? ""
-        
-        var wrongOptions = Array(translations.values)
-        wrongOptions.removeAll { $0 == correctAnswer }
-        wrongOptions.shuffle()
-        
-        options = Array(wrongOptions.prefix(3))
-        options.append(correctAnswer)
-        options.shuffle()
-        
-        showResult = false
+        withAnimation(.easeInOut(duration: 0.3)) {
+            // Устанавливаем все значения одновременно
+            imageAndDescription = randomAnimal(currentLetter)
+            
+            let currentLanguage = settingsManager.currentLanguage
+            let translations = currentLanguage == .russian ? russianTranslations : englishTranslations
+            
+            correctAnswer = translations[currentLetter] ?? ""
+            
+            var wrongOptions = Array(translations.values)
+            wrongOptions.removeAll { $0 == correctAnswer }
+            wrongOptions.shuffle()
+            
+            options = Array(wrongOptions.prefix(3))
+            options.append(correctAnswer)
+            options.shuffle()
+            
+            showResult = false
+        }
     }
     
     func randomAnimal(_ letter: String) -> String {
@@ -159,13 +164,7 @@ final class LettersTrainerViewModel: ObservableObject {
         return randomAnimal
     }
     
-    func cleanup() {
-        UIImage.imageCache.removeAllObjects()
-    }
-    
-    
     func playAgain() {
-        cleanup()
         currentLetterIndex = 0
         score = 0
         correctAnswers = []

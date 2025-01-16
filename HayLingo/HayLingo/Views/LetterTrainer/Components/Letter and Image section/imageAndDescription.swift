@@ -13,17 +13,43 @@ struct imageAndDescription: View {
     var body: some View {
         GeometryReader { geo in
             VStack {
-                Image(viewModel.imageAndDescription ?? "Արև")
-                    .resizable()
-                    .scaledToFit()
+                if let imageName = viewModel.imageAndDescription {
+                    SVGImageView(
+                        imageName: imageName,
+                        targetSize: CGSize(width: geo.size.width * 0.8, height: geo.size.width * 0.8)
+                    )
                     .padding()
-                Text(viewModel.imageAndDescription ?? "Արև")
-                    .foregroundStyle(.secondary)
+                    .id(imageName)
+                    .transition(.opacity) // Добавляем transition
+                    .animation(.easeInOut(duration: 0.3), value: imageName) // Такая же длительность как у других анимаций
+                    
+                    Text(imageName)
+                        .foregroundStyle(.secondary)
+                        .transition(.opacity)
+                        .animation(.easeInOut(duration: 0.3), value: imageName)
+                }
             }
         }
     }
 }
 
-#Preview {
-    imageAndDescription(viewModel: .preview())
-}
+//struct imageAndDescription: View {
+//    @ObservedObject var viewModel: LettersTrainerViewModel
+//    
+//    var body: some View {
+//        GeometryReader { geo in
+//            VStack {
+//                Image(viewModel.imageAndDescription ?? "Արև")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .padding()
+//                Text(viewModel.imageAndDescription ?? "Արև")
+//                    .foregroundStyle(.secondary)
+//            }
+//        }
+//    }
+//}
+//
+//#Preview {
+//    imageAndDescription(viewModel: .preview())
+//}
