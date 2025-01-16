@@ -134,7 +134,6 @@ final class LettersTrainerViewModel: ObservableObject {
         let currentLetter = selectedLetters[currentLetterIndex]
         
         withAnimation(.easeInOut(duration: 0.3)) {
-            // Устанавливаем все значения одновременно
             imageAndDescription = randomAnimal(currentLetter)
             
             let currentLanguage = settingsManager.currentLanguage

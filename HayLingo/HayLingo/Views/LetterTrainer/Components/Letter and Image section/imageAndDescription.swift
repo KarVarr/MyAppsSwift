@@ -20,9 +20,8 @@ struct imageAndDescription: View {
                     )
                     .padding()
                     .id(imageName)
-                    .transition(.opacity) // Добавляем transition
-                    .animation(.easeInOut(duration: 0.3), value: imageName) // Такая же длительность как у других анимаций
-                    
+                    .transition(.opacity)
+                    .animation(.easeInOut(duration: 0.3), value: imageName)
                     Text(imageName)
                         .foregroundStyle(.secondary)
                         .transition(.opacity)
