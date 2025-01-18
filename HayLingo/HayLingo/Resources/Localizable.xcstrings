@@ -814,19 +814,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No data"
+            "value" : "0/0"
           }
         },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Տվյալներ չկան"
+            "value" : "0/0"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Нет данных"
+            "value" : "0/0"
           }
         }
       }
