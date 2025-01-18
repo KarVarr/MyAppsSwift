@@ -101,28 +101,31 @@ final class LettersTrainerViewModel: ObservableObject {
             if settingsManager.isSoundEnabled {
                 SoundManager.shared.playSound(name: "correct")
             }
-            print("score: \(score)")
         } else {
             wrongAnswers.append(selectedLetters[currentLetterIndex])
             if settingsManager.isSoundEnabled {
                 SoundManager.shared.playSound(name: "wrong")
             }
         }
+        
         withAnimation(.easeInOut(duration: 0.3)) {
             areButtonsDisabled = true
             showResult = true
         }
         
-        // Очищаем кэш и подготавливаем следующий вопрос с задержкой
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             SVGImageManager.shared.clearCurrentImage()
             
             withAnimation(.easeInOut(duration: 0.3)) {
                 self.currentLetterIndex += 1
+                
+                self.areButtonsDisabled = false
+                self.selectedAnswer = nil
+                self.showResult = false
+                
                 if self.currentLetterIndex < self.selectedLetters.count {
                     self.setupQuestion()
                 }
-                self.areButtonsDisabled = false
             }
         }
     }
@@ -130,7 +133,11 @@ final class LettersTrainerViewModel: ObservableObject {
     func setupQuestion() {
         guard currentLetterIndex < selectedLetters.count else { return }
         
+        // Сбрасываем состояния
         selectedAnswer = nil
+        showResult = false
+        areButtonsDisabled = false
+        
         let currentLetter = selectedLetters[currentLetterIndex]
         
         withAnimation(.easeInOut(duration: 0.3)) {
@@ -148,8 +155,6 @@ final class LettersTrainerViewModel: ObservableObject {
             options = Array(wrongOptions.prefix(3))
             options.append(correctAnswer)
             options.shuffle()
-            
-            showResult = false
         }
     }
     
@@ -164,17 +169,34 @@ final class LettersTrainerViewModel: ObservableObject {
     }
     
     func playAgain() {
+        //        currentLetterIndex = 0
+        //        score = 0
+        //        correctAnswers = []
+        //        wrongAnswers = []
+        //        selectedLetters = []
+        //        options = []
+        //        selectedAnswer = nil
+        //        showResult = false
+        //        isCorrect = false
+        //        areButtonsDisabled = false
+        //        imageAndDescription = nil
+        
+        SVGImageManager.shared.clearCurrentImage()
         currentLetterIndex = 0
         score = 0
         correctAnswers = []
         wrongAnswers = []
-        selectedLetters = []
-        options = []
         selectedAnswer = nil
         showResult = false
         isCorrect = false
         areButtonsDisabled = false
         imageAndDescription = nil
+        options = []
+        
+        // Настраиваем новую игру
+        if !selectedLetters.isEmpty {
+            setupQuestion()
+        }
         
         print("Game reset. Current index: \(currentLetterIndex), Score: \(score), Selected Letters: \(selectedLetters)")
     }

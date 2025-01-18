@@ -31,24 +31,3 @@ struct imageAndDescription: View {
         }
     }
 }
-
-//struct imageAndDescription: View {
-//    @ObservedObject var viewModel: LettersTrainerViewModel
-//    
-//    var body: some View {
-//        GeometryReader { geo in
-//            VStack {
-//                Image(viewModel.imageAndDescription ?? "Արև")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .padding()
-//                Text(viewModel.imageAndDescription ?? "Արև")
-//                    .foregroundStyle(.secondary)
-//            }
-//        }
-//    }
-//}
-//
-//#Preview {
-//    imageAndDescription(viewModel: .preview())
-//}

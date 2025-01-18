@@ -19,7 +19,7 @@ struct TalesListView: View {
     
     var body: some View {
         if deviceType == .pad {
-            NavigationView {
+            NavigationSplitView {
                 List(tales, id: \.id) { tale in
                     TaleRowView(tale: tale)
                         .listRowBackground(Helper.ColorHex.lightGray.opacity(0.3))
@@ -35,13 +35,11 @@ struct TalesListView: View {
                 )
                 .listStyle(.insetGrouped)
                 .navigationTitle("Fairy Tales")
-                
-                // Второе представление для iPad
+            } detail: {
                 WelcomeTalesView()
             }
-            .navigationViewStyle(.columns)
         } else {
-            NavigationView {
+            NavigationStack {
                 List(tales, id: \.id) { tale in
                     TaleRowView(tale: tale)
                         .listRowBackground(Helper.ColorHex.lightGray.opacity(0.3))

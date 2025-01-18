@@ -1316,19 +1316,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Start game"
+            "value" : "Start"
           }
         },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Սկսել խաղը"
+            "value" : "Սկսե"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Начать игру"
+            "value" : "Старт"
           }
         }
       }
