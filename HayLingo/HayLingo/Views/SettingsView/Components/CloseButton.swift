@@ -29,7 +29,6 @@ struct CloseButton: View {
             showSettings = false
             Helper.SoundClick.triggerSound(userData: userData)
             Helper.Haptic.triggerVibration(userData: userData, style: .light)
-            print("On end press button")
         }
     }
     

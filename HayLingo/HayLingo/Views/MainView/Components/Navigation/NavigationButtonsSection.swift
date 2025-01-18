@@ -12,7 +12,7 @@ struct NavigationButtonsSection: View {
     let shadowColor: Color
     let userData: [UserData]
     @Binding var showSettings: Bool
-    @Binding var settingsCount: Int
+//    @Binding var settingsCount: Int
     
     var body: some View {
         VStack(spacing: 20) {
@@ -26,8 +26,6 @@ struct NavigationButtonsSection: View {
                 width: width,
                 shadowColor: shadowColor,
                 action: {
-                    settingsCount += 1
-                    print("Settings button tapped \(settingsCount)")
                     showSettings = true
                 }, userData: userData
             )
@@ -46,7 +44,6 @@ struct NavigationButtonsSection: View {
         width: 300,
         shadowColor: .gray.opacity(0.3),
         userData: [],
-        showSettings: .constant(false),
-        settingsCount: .constant(0)
+        showSettings: .constant(false)
     )
 }

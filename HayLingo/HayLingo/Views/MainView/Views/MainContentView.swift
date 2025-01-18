@@ -40,8 +40,7 @@ struct MainContentView: View {
                 width: vStackWidth,
                 shadowColor: viewModel.setShadow(colorScheme: colorScheme),
                 userData: viewModel.userData,
-                showSettings: $viewModel.showSettings,
-                settingsCount: $viewModel.count
+                showSettings: $viewModel.showSettings
             )
             
             Spacer()
