@@ -47,24 +47,25 @@
         }
       }
     },
-    "© 2022 - 2025 Karen Vardanian" : {
+    "© 2025 Karen Vardanian" : {
+      "comment" : "infoView",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "© 2022 - 2025 Karen Vardanian"
+            "value" : "© 2025 Karen Vardanian"
           }
         },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "© 2022 - 2025 Կարեն Վարդանյան"
+            "value" : "© 2025 Կարեն Վարդանյան"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "© 2022 - 2025 Карен Варданян"
+            "value" : "© 2025 Карен Варданян"
           }
         }
       }
@@ -1112,7 +1113,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Выберете тему"
+            "value" : "Выберите тему"
           }
         }
       }
@@ -1381,24 +1382,24 @@
         }
       }
     },
-    "version: 1.0.1" : {
+    "version: 1.0.2" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "version: 1.0.1"
+            "value" : "version: 1.0.2"
           }
         },
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "version: 1.0.1"
+            "value" : "տարբերակ՝ 1.0.2"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "версия: 1.0.1"
+            "value" : "версия: 1.0.2"
           }
         }
       }

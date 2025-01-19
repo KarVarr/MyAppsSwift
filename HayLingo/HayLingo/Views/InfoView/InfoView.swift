@@ -30,7 +30,7 @@ struct InfoView: View {
             
             Spacer()
             
-            Text("© 2022 - 2025 Karen Vardanian")
+            Text("© 2025 Karen Vardanian")
                 .font(.footnote)
                 .foregroundColor(.gray)
                 .padding(20)
