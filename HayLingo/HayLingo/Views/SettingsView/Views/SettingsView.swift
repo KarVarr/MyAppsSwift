@@ -16,6 +16,8 @@ struct SettingsView: View {
     @Query private var userData: [UserData]
     @Binding var showSettings: Bool
     
+    private let deviceType = DeviceType.current
+    
     init(showSettings: Binding<Bool>) {
         self._showSettings = showSettings
         let context = ModelContext(try! ModelContainer(for: UserData.self))
@@ -33,32 +35,34 @@ struct SettingsView: View {
                 let vStackWidth = geometry.size.width * 0.85
                 
                 SettingsPickerView(
-                    title: "Select a language",
+                    title: NSLocalizedString("Select a language", comment: ""),
                     options: viewModel.languages,
                     selection: $viewModel.selectedLanguage,
                     width: vStackWidth
                 )
                 
                 SettingsPickerView(
-                    title: "Select a theme",
+                    title: NSLocalizedString("Select a theme", comment: ""),
                     options: viewModel.themes,
                     selection: $viewModel.selectedTheme,
                     width: vStackWidth
                 )
                 
                 SettingsPickerView(
-                    title: "Sounds in app",
+                    title: NSLocalizedString("Sounds in app", comment: ""),
                     options: viewModel.sounds,
                     selection: $viewModel.selectedSound,
                     width: vStackWidth
                 )
                 
-                SettingsPickerView(
-                    title: "Vibration in app",
-                    options: viewModel.vibration,
-                    selection: $viewModel.selectedVibration,
-                    width: vStackWidth
-                )
+                if deviceType == .phone {
+                    SettingsPickerView(
+                        title: NSLocalizedString("Vibration in app", comment: ""),
+                        options: viewModel.vibration,
+                        selection: $viewModel.selectedVibration,
+                        width: vStackWidth
+                    )
+                }
                 
                 Divider()
                 
